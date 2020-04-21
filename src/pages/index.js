@@ -1,8 +1,8 @@
 import React from "react"
 
-import BlogPostItem from "../components/BlogPostItem"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import BlogPostItem from "@components/BlogPostItem"
+import Layout from "@components/layout"
+import SEO from "@components/seo"
 
 const IndexPage = ({
   data: {

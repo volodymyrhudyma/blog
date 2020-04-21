@@ -5,9 +5,8 @@ import { Wrapper } from "./styles"
 
 const BlogPostItem = ({ post }) => (
   <Wrapper>
-    <Link to={post.fields.slug}>
-      {post.frontmatter.title} ({post.frontmatter.date})
-    </Link>
+    <div>{post.frontmatter.date}</div>
+    <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
   </Wrapper>
 )
 

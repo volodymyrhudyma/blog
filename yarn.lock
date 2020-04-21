@@ -5466,6 +5466,12 @@ gatsby-page-utils@^0.1.2:
     lodash "^4.17.15"
     micromatch "^3.1.10"
 
+gatsby-plugin-alias-imports@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-alias-imports/-/gatsby-plugin-alias-imports-1.0.5.tgz#44c0856d77acb74b58b89ec725dadd8f5d5b327d"
+  dependencies:
+    "@babel/runtime" "^7.2.0"
+
 gatsby-plugin-manifest@^2.3.3:
   version "2.3.4"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-2.3.4.tgz#3ba0c3463ef22cfaf14d82b93a34345e5c2d97e2"
