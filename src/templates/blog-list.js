@@ -14,7 +14,7 @@ export default class BlogList extends React.Component {
     const isLastPage = currentPage === numPages
     const prevPage =
       currentPage - 1 === 1 ? "/blog" : `blog/${(currentPage - 1).toString()}`
-    const nextPage = `blog/${(currentPage + 1).toString()}`
+    const nextPage = `/blog/${(currentPage + 1).toString()}`
     return (
       <Layout>
         {posts.map(({ node }) => (
@@ -44,6 +44,7 @@ export const blogListQuery = graphql`
     ) {
       edges {
         node {
+          excerpt(pruneLength: 256)
           fields {
             slug
           }
