@@ -18,7 +18,7 @@ export default class BlogList extends React.Component {
     return (
       <Layout>
         <h1>Programming blog</h1>
-        <span>Complicated stuff in simple words</span>
+        <p>Complicated stuff in simple words</p>
         {posts.map(({ node }) => (
           <BlogPostItem key={node.fields.slug} post={node} />
         ))}

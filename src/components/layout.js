@@ -12,7 +12,29 @@ import { createGlobalStyle } from "styled-components"
 
 import Header from "./header"
 
-const GlobalStyle = createGlobalStyle``
+const GlobalStyle = createGlobalStyle`
+  html {
+    height: 100%;
+  }
+
+  body {
+    display: flex;
+    height: 100%;
+  }
+
+  #___gatsby {
+    width: 100%;
+  }
+
+  #gatsby-focus-wrapper {
+    display: flex;
+    height: 100%;
+  }
+
+  main {
+    flex: auto;
+  }
+`
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -31,9 +53,12 @@ const Layout = ({ children }) => {
       <Header siteTitle={data.site.siteMetadata.title} />
       <div
         style={{
-          margin: `0 auto`,
+          margin: "0 auto",
           maxWidth: 960,
-          padding: `0 1rem`,
+          padding: "0 1rem",
+          display: "flex",
+          flexDirection: "column",
+          height: "100%",
         }}
       >
         <main>{children}</main>

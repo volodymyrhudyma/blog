@@ -7,10 +7,9 @@ const BlogPostItem = ({ post }) => (
       <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
     </h2>
     <span>{post.frontmatter.date}</span>
-    <p>{post.excerpt}</p>
-    <div>
-      <Link to={post.fields.slug}>Read more</Link>
-    </div>
+    <p>
+      {post.excerpt} <Link to={post.fields.slug}>Read more</Link>
+    </p>
   </div>
 )
 
