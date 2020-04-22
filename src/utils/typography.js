@@ -4,6 +4,7 @@ import fairyGatesTheme from "typography-theme-fairy-gates"
 fairyGatesTheme.overrideThemeStyles = ({ rhythm }, options) => ({
   a: {
     backgroundImage: "none",
+    textShadow: "none",
   },
   span: {
     display: "inline-block",
