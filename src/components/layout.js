@@ -37,6 +37,15 @@ const Layout = ({ children }) => {
         }}
       >
         <main>{children}</main>
+        <footer
+          style={{
+            margin: "4.35rem 0",
+          }}
+        >
+          © {new Date().getFullYear()}, Built by
+          {` `}
+          <a href="https://vhudyma.netlify.com/">Volodymyr Hudyma</a>
+        </footer>
       </div>
     </>
   )

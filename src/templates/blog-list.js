@@ -17,19 +17,33 @@ export default class BlogList extends React.Component {
     const nextPage = `/blog/${(currentPage + 1).toString()}`
     return (
       <Layout>
+        <h1>Programming blog</h1>
+        <span>Complicated stuff in simple words</span>
         {posts.map(({ node }) => (
           <BlogPostItem key={node.fields.slug} post={node} />
         ))}
-        {!isFirstPage && (
-          <Link to={prevPage} rel="prev">
-            ← Previous Page
-          </Link>
-        )}
-        {!isLastPage && (
-          <Link to={nextPage} rel="next">
-            Next Page →
-          </Link>
-        )}
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            marginTop: "2.175rem",
+          }}
+        >
+          <div>
+            {!isFirstPage && (
+              <Link to={prevPage} rel="prev">
+                ← Previous Page
+              </Link>
+            )}
+          </div>
+          <div>
+            {!isLastPage && (
+              <Link to={nextPage} rel="next">
+                Next Page →
+              </Link>
+            )}
+          </div>
+        </div>
       </Layout>
     )
   }
