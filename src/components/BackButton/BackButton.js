@@ -5,7 +5,7 @@ import { Wrapper } from "./styles"
 
 const BackButton = ({ text = "Back", fixed }) => (
   <Wrapper fixed={fixed}>
-    <Link to="/">&#8592; {text}</Link>
+    <Link to="/blog">&#8592; {text}</Link>
   </Wrapper>
 )
 
