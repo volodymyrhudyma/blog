@@ -41,3 +41,5 @@ export const Title = styled.div`
   margin-top: 1.45rem;
   margin-bottom: 0.95rem;
 `
+
+export const DefaultCommentBlock = styled.div``
