@@ -122,4 +122,6 @@ const clickOutsideConfig = {
   handleClickOutside: () => AddComment.handleClickOutside,
 }
 
+AddComment.prototype = {}
+
 export default onClickOutside(AddComment, clickOutsideConfig)
