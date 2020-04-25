@@ -33,16 +33,29 @@ const AddComment = () => {
           slug: comment.slug,
         },
       })
-      setFlashMessage({
-        type: "success",
-        message: "Thank you, appreciate it",
-      })
+      resetComment()
+      addFlashMessage("success", "Thank you, appreciate it")
     } catch (e) {
-      setFlashMessage({
-        type: "error",
-        message: "Something went wrong",
-      })
+      addFlashMessage("error", "Something went wrong")
     }
+  }
+
+  const addFlashMessage = (type, message) => {
+    setFlashMessage({
+      type,
+      message,
+    })
+    setTimeout(() => {
+      setFlashMessage(null)
+    }, 3000)
+  }
+
+  const resetComment = () => {
+    setComment({
+      ...comment,
+      name: "",
+      message: "",
+    })
   }
 
   const onChange = e => {
