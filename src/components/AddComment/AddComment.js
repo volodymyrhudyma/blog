@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import axios from "axios"
 
-import { Input, Textarea, FlashMessage, Button, Wrapper } from "./styles"
+import { Input, Textarea, FlashMessage, Button, Wrapper, Title } from "./styles"
 
 const AddComment = () => {
   const [flashMessage, setFlashMessage] = useState(null)
@@ -44,7 +44,7 @@ const AddComment = () => {
 
   return (
     <Wrapper>
-      <h3>Responses</h3>
+      <Title>Support author</Title>
       <form onSubmit={onSubmit} action={process.env.STATICMAN_URL}>
         {flashMessage && (
           <FlashMessage type={flashMessage.type}>
@@ -55,20 +55,20 @@ const AddComment = () => {
         <Input
           name="name"
           type="text"
-          placeholder="Name"
+          placeholder="Name..."
           onChange={onChange}
           value={comment.name}
           required
         />
         <Textarea
           name="message"
-          placeholder="Message"
+          placeholder="Message..."
           onChange={onChange}
           value={comment.message}
           rows="3"
           required
         />
-        <Button>Submit</Button>
+        <Button>Publish</Button>
       </form>
     </Wrapper>
   )

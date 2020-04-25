@@ -35,3 +35,9 @@ export const Button = styled.button`
 export const Wrapper = styled.div`
   border-top: 1px solid lightgray;
 `
+
+export const Title = styled.div`
+  font-weight: bold;
+  margin-top: 1.45rem;
+  margin-bottom: 0.95rem;
+`
