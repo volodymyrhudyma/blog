@@ -16,6 +16,7 @@ module.exports = {
       options: {
         alias: {
           "@components": "src/components",
+          "@utils": "src/utils",
         },
         extensions: ["js"],
       },

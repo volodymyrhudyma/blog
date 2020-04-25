@@ -22,28 +22,30 @@ export default class BlogList extends React.Component {
         {posts.map(({ node }) => (
           <BlogPostItem key={node.fields.slug} post={node} />
         ))}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            marginTop: "2.175rem",
-          }}
-        >
-          <div>
-            {!isFirstPage && (
-              <Link to={prevPage} rel="prev">
-                ← Previous Page
-              </Link>
-            )}
+        {numPages > 1 && (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              marginTop: "2.175rem",
+            }}
+          >
+            <div>
+              {!isFirstPage && (
+                <Link to={prevPage} rel="prev">
+                  ← Previous Page
+                </Link>
+              )}
+            </div>
+            <div>
+              {!isLastPage && (
+                <Link to={nextPage} rel="next">
+                  Next Page →
+                </Link>
+              )}
+            </div>
           </div>
-          <div>
-            {!isLastPage && (
-              <Link to={nextPage} rel="next">
-                Next Page →
-              </Link>
-            )}
-          </div>
-        </div>
+        )}
       </Layout>
     )
   }
