@@ -5,7 +5,7 @@ import BackButton from "@components/BackButton"
 import Layout from "@components/layout"
 import AddComment from "@components/AddComment/AddComment"
 
-export default function Template({ data }) {
+export default function Template({ data, path }) {
   const { article, comments } = data
   const { frontmatter, html } = article
   return (
@@ -15,7 +15,7 @@ export default function Template({ data }) {
       <span>{frontmatter.date}</span>
       <p dangerouslySetInnerHTML={{ __html: html }} />
       <BackButton text="All articles" />
-      <AddComment />
+      <AddComment slug={path} />
       {comments.edges.map(({ node }) => (
         <div key={node.id}>
           {node.name} - {node.message} - {node.date}
@@ -38,7 +38,7 @@ export const pageQuery = graphql`
         slug
       }
     }
-    comments: allCommentsYaml(filter: { slug: { eq: "page-slug" } }) {
+    comments: allCommentsYaml(filter: { slug: { eq: $path } }) {
       edges {
         node {
           id

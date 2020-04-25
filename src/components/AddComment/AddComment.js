@@ -12,13 +12,13 @@ import {
   DefaultCommentBlock,
 } from "./styles"
 
-const AddComment = () => {
+const AddComment = ({ slug }) => {
   const nameInputRef = useRef(null)
 
   const [showCommentBlock, setShowCommentBlock] = useState(false)
   const [flashMessage, setFlashMessage] = useState(null)
   const [comment, setComment] = useState({
-    slug: "page-slug",
+    slug,
     name: "",
     message: "",
   })
