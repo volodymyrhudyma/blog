@@ -42,4 +42,6 @@ export const Title = styled.div`
   margin-bottom: 0.95rem;
 `
 
-export const DefaultCommentBlock = styled.div``
+export const DefaultCommentBlock = styled.div`
+  cursor: pointer;
+`

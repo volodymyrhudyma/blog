@@ -18,7 +18,7 @@ const AddComment = () => {
   const [showCommentBlock, setShowCommentBlock] = useState(false)
   const [flashMessage, setFlashMessage] = useState(null)
   const [comment, setComment] = useState({
-    slug: "slug",
+    slug: "page-slug",
     name: "",
     message: "",
   })
@@ -27,12 +27,10 @@ const AddComment = () => {
     e.preventDefault()
     try {
       await axios.post(process.env.STATICMAN_URL, {
-        options: {
-          slug: comment.slug,
-        },
         fields: {
           name: comment.name,
           message: comment.message,
+          slug: comment.slug,
         },
       })
       setFlashMessage({
@@ -68,7 +66,7 @@ const AddComment = () => {
 
   return (
     <Wrapper>
-      <Title>Support author</Title>
+      <Title>Let me know what you think about this article</Title>
       {showCommentBlock ? (
         <form onSubmit={onSubmit} action={process.env.STATICMAN_URL}>
           {flashMessage && (
@@ -76,7 +74,6 @@ const AddComment = () => {
               {flashMessage.message}
             </FlashMessage>
           )}
-          <Input name="slug" type="hidden" value={comment.slug} />
           <Input
             ref={nameInputRef}
             name="name"
