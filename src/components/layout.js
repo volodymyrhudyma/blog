@@ -54,7 +54,7 @@ const Layout = ({ children }) => {
       <div
         style={{
           margin: "0 auto",
-          maxWidth: 960,
+          width: 960,
           padding: "0 1rem",
           display: "flex",
           flexDirection: "column",

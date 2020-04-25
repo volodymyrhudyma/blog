@@ -34,7 +34,10 @@ const AddComment = ({ slug }) => {
         },
       })
       resetComment()
-      addFlashMessage("success", "Thank you, appreciate it")
+      addFlashMessage(
+        "success",
+        "Appreciate it. Your comment will appear after moderation step"
+      )
     } catch (e) {
       addFlashMessage("error", "Something went wrong")
     }
@@ -47,7 +50,7 @@ const AddComment = ({ slug }) => {
     })
     setTimeout(() => {
       setFlashMessage(null)
-    }, 3000)
+    }, 5000)
   }
 
   const resetComment = () => {

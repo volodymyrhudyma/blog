@@ -4,6 +4,7 @@ import { graphql } from "gatsby"
 import BackButton from "@components/BackButton"
 import Layout from "@components/layout"
 import AddComment from "@components/AddComment/AddComment"
+import CommentList from "@components/CommentList/CommentList"
 
 export default function Template({ data, path }) {
   const { article, comments } = data
@@ -16,11 +17,7 @@ export default function Template({ data, path }) {
       <p dangerouslySetInnerHTML={{ __html: html }} />
       <BackButton text="All articles" />
       <AddComment slug={path} />
-      {comments.edges.map(({ node }) => (
-        <div key={node.id}>
-          {node.name} - {node.message} - {node.date}
-        </div>
-      ))}
+      <CommentList comments={comments} />
     </Layout>
   )
 }
@@ -44,7 +41,7 @@ export const pageQuery = graphql`
           id
           name
           message
-          date
+          date(formatString: "MMMM DD, YYYY")
         }
       }
     }
