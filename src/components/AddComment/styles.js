@@ -44,4 +44,5 @@ export const Title = styled.div`
 
 export const DefaultCommentBlock = styled.div`
   cursor: pointer;
+  margin-bottom: 1.45rem;
 `
