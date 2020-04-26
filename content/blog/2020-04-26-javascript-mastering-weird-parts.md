@@ -296,7 +296,7 @@ Abstract equality comparison:
 1 == '1' // true
 ```
 
-#### Type coercion
+#### Type coercion basics
 
 > **Coercion** is the term that is used for *unexpected type casting* in JavaScript
 
