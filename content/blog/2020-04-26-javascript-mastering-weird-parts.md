@@ -317,6 +317,18 @@ Type-converting comparison:
    // String({}) -> '[object Object]'
    // '[object Object]' + '[object Object]' -> "[object Object][object Object]"
    {} + {} // "[object Object][object Object]"
+
+   // Explanation:
+   // String([]) -> ''
+   // String({}) -> '[object Object]'
+   // '' + '[object Object]' -> '[object Object]'
+   [] + {} // "[object Object]"
+
+   // Explanation
+   // {} is not parsed as object, but instead as empty block
+   // Return value of empty block is empty
+   // The result of this expression equals +[] -> +String([]) -> +'' -> 0
+   {} + [] // 0!
    ```
 
    * Every 
