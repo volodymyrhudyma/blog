@@ -1,5 +1,5 @@
 ---
-title: Mastering javascript
+title: "Mastering javascript "
 date: 2020-04-26T07:02:40.028Z
 ---
 ## What is Javascript?
@@ -158,7 +158,6 @@ b = 3;
 
 console.log(b); // Prints 3
 console.log(d); // Prints 2
-
 ```
 
 **Important note: primitives are copied by value**. Changing one of the variables above does not change the other because each of them stores its own copy of value.
@@ -271,3 +270,51 @@ Another options:
 
 * Write recursive function that will loop over object properties and make sure they are the same
 * Use well-tested and popular library ([Underscore](https://underscorejs.org/#isEqual), [lodash](https://lodash.com/docs/4.17.15#isEqual)) -> *Recommended one*
+
+## Comparison operators
+
+Javascript has both strict(===) and type-converting(==) comparisons. 
+
+Strict comparison:
+
+* Only equals `true` if operands are of the same type
+* If operands have different type, we DO NOT do any type conversions
+
+```javascript
+1 === 1 // true
+
+1 === '1' // false
+```
+
+Type-converting comparison:
+
+* CONVERTS operands to the same type and applies strict comparison
+
+```javascript
+1 == 1 // true
+
+1 == '1' // true
+```
+
+#### Type coercion
+
+> **Coercion** is the term that is used for *unexpected type casting* in JavaScript
+
+1. Every "+" expression that includes *string* will result in `string`.
+
+   ```javascript
+   1 + '1' // '11'
+   '2' + 22 // '222'
+   ```
+2. "-", "*", "/" expression can be used only with *numbers*, so all operands will be casted to *numbers*.
+
+   ```javascript
+   '1' - 1 // 0
+   '22' - '2' // 20
+
+   10 / '5' // 2
+   '20' / '2' // 10
+
+   2 * '2' // 4
+   '3' * '3' // 9
+   ```
