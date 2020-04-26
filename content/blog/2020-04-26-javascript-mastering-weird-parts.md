@@ -29,11 +29,11 @@ Consider the example code below:
 ```javascript
 let x = 10;
 
-console.log(typeof x) // Prints "number"
+console.log(typeof x); // Prints "number"
 
-x = "string value"
+x = "string value";
 
-console.log(typeof x) // Prints "string"
+console.log(typeof x); // Prints "string"
 ```
 
 You can reassign data of a different type to the variable and no error will be generated.
@@ -50,12 +50,12 @@ const updateUser = () => {
   user = {
     name: 'Andrew',
     surnam: 'Hopkins'
-  }
+  };
 };
 
 updateUser();
 
-console.log(user.surname) // Prints "undefined"
+console.log(user.surname); // Prints "undefined"
 ```
 
 Have you found an error in the code above?
@@ -82,7 +82,7 @@ Using typescript in the following code would raise type error:
 let x: number = 10;
 
 // ERROR: Type '"string value"' is not assignable to type 'number'.
-x = "string value" 
+x = "string value";
 ```
 
 In the second example we define `User` type which requires `name` and `surname` properties. Afterwards, we let the compiler know that `user` variable is of a `User` type and if the wrong field gets modified, an error is thrown:
@@ -91,7 +91,7 @@ In the second example we define `User` type which requires `name` and `surname` 
 type User = {
   name: string;
   surname: string;
-}
+};
 
 let user: User = {
   name: 'John',
@@ -106,7 +106,7 @@ const updateUser = () => {
     // Object literal may only specify known properties, but 'surnam' does not 
     // exist in type 'User'. Did you mean to write 'surname'?
     surnam: 'Hopkins'
-  }
+  };
 };
 ```
 
@@ -226,8 +226,8 @@ const andrewsCar = {
   topSpeed: 300
 };
 
-console.log(johnsCar == andrewsCar) // Prints "false"
-console.log(johnsCar === andrewsCar) // Prints "false"
+console.log(johnsCar == andrewsCar); // Prints "false"
+console.log(johnsCar === andrewsCar); // Prints "false"
 ```
 
 You probably know what's going on, after mastering the previous section, right?
@@ -244,8 +244,8 @@ const johnsCar = {
 
 const andrewsCar = johnsCar;
 
-console.log(johnsCar == andrewsCar) // Prints "true"
-console.log(johnsCar === andrewsCar) // Prints "true"
+console.log(johnsCar == andrewsCar); // Prints "true"
+console.log(johnsCar === andrewsCar); // Prints "true"
 ```
 
 `andrewsCar` points to the same location as `johnsCar`, therefore objects considered equal.
