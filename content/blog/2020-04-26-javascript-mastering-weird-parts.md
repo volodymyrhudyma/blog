@@ -273,7 +273,7 @@ Another options:
 
 ## Comparison operators
 
-Javascript has both strict(===) and type-converting(==) comparisons. 
+Javascript has both strict(===) and abstract equality(==) comparisons. 
 
 Strict comparison:
 
@@ -286,7 +286,7 @@ Strict comparison:
 1 === '1' // false
 ```
 
-Type-converting comparison:
+Abstract equality comparison:
 
 * CONVERTS operands to the same type and applies strict comparison
 
@@ -382,15 +382,17 @@ Type-converting comparison:
    {} * [] // SyntaxError: Unexpected token!
    {} / [] // SyntaxError: Unexpected token!
    ```
-3. Type-converting comparison (`x == y`):
+
+
+3. Type-converting comparison (`x == y`) according to [specification](https://www.ecma-international.org/ecma-262/#sec-abstract-equality-comparison):
 
    * typeof x equals typeof y -> return x === y
    * x is null and y is undefined -> return true
    * y is null and x is undefined -> return true
-   * typeof x is number and typeof y is string -> return x == !ToNumber(y)
-   * typeof x is string and typeof y is number -> return !ToNumber(x) == y
-   * typeof x is boolean -> return !ToNumber(x) == y
-   * typeof y is boolean -> return x == !ToNumber(y)
+   * typeof x is number and typeof y is string -> return x == ToNumber(y)
+   * typeof x is string and typeof y is number -> return ToNumber(x) == y
+   * typeof x is boolean -> return ToNumber(x) == y
+   * typeof y is boolean -> return x == ToNumber(y)
    * typeof x is string/number/symbol and typeof y is object -> return x == ToPrimitive(y)
    * typeof x is object and typeof y is string/number/symbol -> return ToPrimitive(x) == y
    * in any other case return false
@@ -406,17 +408,17 @@ Type-converting comparison:
    // y is null and x is undefined -> return true
    undefined == null // true
 
-   // typeof x is number and typeof y is string -> return x == !ToNumber(y)
+   // typeof x is number and typeof y is string -> return x == ToNumber(y)
    1 == 'str' // false
 
-   // typeof x is string and typeof y is number -> return !ToNumber(x) == y
+   // typeof x is string and typeof y is number -> return ToNumber(x) == y
    'str' == 1 // false
 
-   // typeof x is boolean -> return !ToNumber(x) == y
+   // typeof x is boolean -> return ToNumber(x) == y
    true == 1 // true
    true == 2 // false
 
-   // typeof y is boolean -> return x == !ToNumber(y)
+   // typeof y is boolean -> return x == ToNumber(y)
    1 == true // true
    2 == true // false
 
