@@ -181,6 +181,8 @@ console.log(user.name); // Prints "Andrew" as well! Pretty weird?
 
 Let me explain this: when you create an object (`user`) it's value (`{name: "John", surname: "Doe"}`) is stored in some location in your computer's memory. What the variable `user` receives is memory address which points to stored value.
 
-When you copy `user` value to another variable (`newUser`) it's the address what gets actually copied, not the value. **Objects are copied by reference** instead of by value.
+When you copy `user` value to another variable (`newUser`) it's the address what gets actually copied, not the value. 
+
+**Important note: objects are copied by reference** instead of by value.
 
 Both `user` and `newUser` contain reference to the same object in memory. Therefore, altering any of the values will cause both to update.
