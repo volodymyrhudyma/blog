@@ -4,11 +4,27 @@ date: 2020-04-26T07:02:40.028Z
 ---
 ## What is Javascript?
 
-Javascript is a dynamically-typed programming language that was originally developed to add dynamic and interactive elements to web pages. It runs on the client-side, which means the code is processed by a web browser. 
+Javascript is a dynamically-typed, interpreted programming language that was originally developed to add dynamic and interactive elements to web pages. It runs on the client-side, which means the code is processed by a web browser. 
+
+## What does "interpreted" mean?
+
+It means that source code isn’t compiled into binary code prior to execution.
+
+Then how does the computer receives instructions to execute? 
+
+That’s the job for a JavaScript engine. 
+
+> **JavaScript engine** is a program responsible for translating source code into machine code and executing the translation result on a computer’s central processing unit (CPU).
+
+In order to start coding in JavaScript, you don’t have to install any additional software. Each modern web browser comes with a JavaScript engine out-of-the-box. You can simply run scripts inside the browser.
 
 ## What is dynamically-typed language?
 
-Dynamically-typed languages are those where the interpreter assigns variables a type at runtime based on the variable's value. Consider the example code below:
+Dynamically-typed languages are those where the interpreter assigns variables a type at runtime based on the variable's value.
+
+> In computer science, **runtime**, **run time** or **execution time** is the time when CPU is executing machine code.
+
+Consider the example code below:
 
 ```javascript
 let x = 10;
@@ -50,7 +66,7 @@ You're absolutely right, we misspelled `surname` property. Notice that the code 
 
 Static-typed languages are those where the types are checked on the fly, during code execution. 
 
-If you mess up the data types of your variables in a statically typed language, you’ll see an error at compile time and won’t even be able to run your program.
+If you mess up the data types of your variables in a statically typed language, you’ll see an error instantly and won’t even be able to run your program.
 
 Is this the only benefit? The answer is - **no**.
 
@@ -96,7 +112,7 @@ const updateUser = () => {
 
 I recommend you to read [this awesome article](https://stxnext.com/blog/2019/08/30/typescript-pros-cons-javascript/) to learn more about Typescript.
 
-***Conclusion**: always use **Typescript** in medium/large scale applications.*
+**\*Conclusion**: always use **Typescript** in medium/large scale applications.*
 
 ## Types in Javascript
 
