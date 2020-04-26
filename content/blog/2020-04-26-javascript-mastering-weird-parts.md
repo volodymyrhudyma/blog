@@ -330,8 +330,6 @@ Type-converting comparison:
    // The result of this expression equals +[] -> +String([]) -> +'' -> 0
    {} + [] // 0!
    ```
-
-   * Every 
 2. "-", "*", "/" expression can be used only with *numbers*, so all operands will be casted to *numbers*.
 
    ```javascript
@@ -364,4 +362,16 @@ Type-converting comparison:
    {} - {} // NaN
    {} * {} // NaN
    {} / {} // NaN
+
+   // Explanation:
+   // Number([]) -> 0
+   // Number({}) -> NaN
+   // 0 - NaN -> NaN
+   [] - {} // NaN
+
+   // Explanation
+   // {} is not parsed as object, but instead as empty block
+   // Return value of empty block is empty
+   // The result of this expression equals -[] -> +Number([]) -> -0
+   {} - [] // -0!
    ```
