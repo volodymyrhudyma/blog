@@ -100,7 +100,7 @@ I recommend you to read [this awesome article](https://stxnext.com/blog/2019/08/
 
 ## Types in Javascript
 
-There are 7 types considered to be *Primitive.*
+There are 7 types considered to be *Primitive* and 1 *Reference* type*.*
 
 > A primitive is not an object and has no methods of its own. All *primitives are immutable*.
 
@@ -110,10 +110,8 @@ There are 7 types considered to be *Primitive.*
 * Number - integers: `10`, floats: `10.20`
 * BigInt - created by appending `n` to the end of an integer literal: `10n`. 
 
-  * It is relatively new type added to represent integers of arbitrary length. `Number` primitive type has some limitations, it can not represent value larger than `2<sup>53</sup>` (or less than `-2<sup>53</sup<` for negatives). We can need really large numbers for cryptography or microsecond-precision timestamps.
+  * It is relatively new type added to represent integers of arbitrary length. `Number` primitive type has some limitations, it can not represent value larger than `2<sup>53</sup>` (or less than `-2<sup>53</sup>` for negatives). We can need really large numbers for cryptography or microsecond-precision timestamps.
 * String - an array of characters: `this is string`
 * Symbol - unique value
 
 Everything else in an *Object* type (objects are used to store collections of data and more complex entities).
-
-**Important note:** There's no special type “function” type in JavaScript. Functions belong to the object type. But `typeof operator` treats them differently, returning `"function"`. That’s not quite correct, but very convenient in practice.
