@@ -161,7 +161,7 @@ console.log(d); // Prints 2
 
 ```
 
-**Important note:** changing one of the variables above does not change the other because each of them stores its own copy of value.
+**Important note: primitives are copied by value**. Changing one of the variables above does not change the other because each of them stores its own copy of value.
 
 If Reference type is assigned to variable, it means that the variable actually contains reference to the value.
 
