@@ -118,7 +118,9 @@ I recommend you to read [this awesome article](https://stxnext.com/blog/2019/08/
 
 There are 7 types considered to be *Primitive* and 1 *Reference* type*.*
 
-> A primitive is not an object and has no methods of its own. All *primitives are immutable*.
+> *Primitive* is not an object and has no methods of its own. All *primitives are immutable*.
+>
+> *Reference* points to the object’s location in memory. It does not actually contain value.
 
 * Boolean - `true` or `false`
 * Null - no value
@@ -131,3 +133,54 @@ There are 7 types considered to be *Primitive* and 1 *Reference* type*.*
 * Symbol - unique value
 
 Everything else in an *Object* type (objects are used to store collections of data and more complex entities).
+
+## Primitives vs References
+
+The key difference between them is how they store values.
+
+If Primitive type is assigned to a variable, it means that the variable actually contains primitive value.
+
+```javascript
+const a = 1;
+
+let b = 2;
+
+const c = a; // Variable "a" is copied to "c"
+const d = b; // Variable "b" is copied to "d"
+
+console.log(a); // Prints 1
+console.log(b); // Prints 2
+console.log(c); // Prints 1
+console.log(d); // Prints 2
+
+// Change "b" value
+b = 3;
+
+console.log(b); // Prints 3
+console.log(d); // Prints 2
+
+```
+
+**Important note:** changing one of the variables above does not change the other because each of them stores its own copy of value.
+
+If Reference type is assigned to variable, it means that the variable actually contains reference to the value.
+
+```javascript
+const user = {
+  name: "John",
+  surname: "Doe"
+};
+
+const newUser = user;
+
+newUser.name = "Andrew";
+
+console.log(newUser.name); // Prints "Andrew", as we expect, right?
+console.log(user.name); // Prints "Andrew" as well! Pretty weird?
+```
+
+Let me explain this: when you create an object (`user`) it's value (`{name: "John", surname: "Doe"}`) is stored in some location in your computer's memory. What the variable `user` receives is memory address which points to stored value.
+
+When you copy `user` value to another variable (`newUser`) it's the address what gets actually copied, not the value. **Objects are copied by reference** instead of by value.
+
+Both `user` and `newUser` contain reference to the same object in memory. Therefore, altering any of the values will cause both to update.
