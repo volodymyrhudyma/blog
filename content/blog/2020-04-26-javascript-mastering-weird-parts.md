@@ -308,10 +308,15 @@ Type-converting comparison:
    '2' + 22 // '222'
 
    // Explanation:
-   // ['one', 'two'].toString() -> 'one,two'
-   // ['three', 'four'].toString() -> 'three,four'
+   // String(['one', 'two']) -> 'one,two'
+   // String(['three', 'four']) -> 'three,four'
    // 'one,two' + 'three,four' -> 'one,twothree,four'
    ['one', 'two'] + ['three', 'four'] // 'one,twothree,four'
+
+   // Explanation:
+   // String({}) -> '[object Object]'
+   // '[object Object]' + '[object Object]' -> "[object Object][object Object]"
+   {} + {} // "[object Object][object Object]"
    ```
 
    * Every 
@@ -328,14 +333,23 @@ Type-converting comparison:
    '3' * '3' // 9
 
    // Explanation
-   // parseInt([3]) -> 3
-   // parseInt([1]) -> 1
+   // Number([3]) -> 3
+   // Number([1]) -> 1
    // 3 - 1 -> 2
    [3] - [1] = 2;
 
    // Explanation
-   // parseInt(['one', 'two']) -> NaN
-   // parseInt(['three', 'four']) -> NaN
+   // Number(['one', 'two']) -> NaN
+   // Number(['three', 'four']) -> NaN
    // NaN - NaN -> NaN
    ['one', 'two'] - ['three', 'four'] // NaN
+   ['one', 'two'] * ['three', 'four'] // NaN
+   ['one', 'two'] / ['three', 'four'] // NaN
+
+   // Explanation:
+   // Number({}) -> NaN
+   // NaN - NaN -> NaN
+   {} - {} // NaN
+   {} * {} // NaN
+   {} / {} // NaN
    ```
