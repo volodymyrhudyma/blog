@@ -330,7 +330,7 @@ Type-converting comparison:
    // The result of this expression equals +[] -> +String([]) -> +'' -> 0
    {} + [] // 0!
    ```
-2. "-", "*", "/" expression can be used only with *numbers*, so all operands will be casted to *numbers*.
+2. "-", "*", "/" expression can be used only with* numbers*, so all operands will be casted to* numbers*.
 
    ```javascript
    '1' - 1 // 0
@@ -381,4 +381,52 @@ Type-converting comparison:
    // *Number([]) or /Number([]) -> SyntaxError: Unexpected token
    {} * [] // SyntaxError: Unexpected token!
    {} / [] // SyntaxError: Unexpected token!
+   ```
+3. Type-converting comparison (`x == y`):
+
+   * typeof x equals typeof y -> return x === y
+   * x is null and y is undefined -> return true
+   * y is null and x is undefined -> return true
+   * typeof x is number and typeof y is string -> return x == !ToNumber(y)
+   * typeof x is string and typeof y is number -> return !ToNumber(x) == y
+   * typeof x is boolean -> return !ToNumber(x) == y
+   * typeof y is boolean -> return x == !ToNumber(y)
+   * typeof x is string/number/symbol and typeof y is object -> return x == ToPrimitive(y)
+   * typeof x is object and typeof y is string/number/symbol -> return ToPrimitive(x) == y
+   * in any other case return false
+
+   ```javascript
+   // typeof x equals typeof y -> return x === y
+   1 == 1 // true
+   [] == [] // false
+
+   // x is null and y is undefined -> return true
+   null == undefined // true
+
+   // y is null and x is undefined -> return true
+   undefined == null // true
+
+   // typeof x is number and typeof y is string -> return x == !ToNumber(y)
+   1 == 'str' // false
+
+   // typeof x is string and typeof y is number -> return !ToNumber(x) == y
+   'str' == 1 // false
+
+   // typeof x is boolean -> return !ToNumber(x) == y
+   true == 1 // true
+   true == 2 // false
+
+   // typeof y is boolean -> return x == !ToNumber(y)
+   1 == true // true
+   2 == true // false
+
+   // typeof x is string/number/symbol and typeof y is object -> return x == ToPrimitive(y)
+   'str' == {} // false
+   '[object Object]' == {} // true
+
+   // typeof x is object and typeof y is string/number/symbol -> return ToPrimitive(x) == y
+   {} == 'str' // Remember about "SyntaxError: Unexpected token" here
+
+   const obj = {};
+   obj == '[object Object]' // true
    ```
