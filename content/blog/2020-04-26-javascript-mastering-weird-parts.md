@@ -58,7 +58,7 @@ It also offers auto-completion, generating documentation, and faster compilation
 
 ## Typescript
 
-Typescript is not actually a static type check but can be used as one. It is a programming language developed by Microsoft, typed superset of JavaScript which is compiled to plain JavaScript in the end. It's extremely useful when building large-scale applications.
+Typescript is not actually a static type check but can be used as one. It is a programming language developed by Microsoft, typed superset of JavaScript which is compiled to plain JavaScript. It's extremely useful when building large-scale applications.
 
 Using typescript in the following code would raise type error:
 
@@ -67,7 +67,6 @@ let x: number = 10;
 
 // ERROR: Type '"string value"' is not assignable to type 'number'.
 x = "string value" 
-
 ```
 
 In the second example we define `User` type which requires `name` and `surname` properties. Afterwards, we let the compiler know that `user` variable is of a `User` type and if the wrong field gets modified, an error is thrown:
@@ -94,3 +93,7 @@ const updateUser = () => {
   }
 };
 ```
+
+Of course, typescript brings much more benefits. I recommend you to read [this awesome article](https://stxnext.com/blog/2019/08/30/typescript-pros-cons-javascript/) to find out more.
+
+***Conclusion**: always use **Typescript** in medium/large scale applications.*
