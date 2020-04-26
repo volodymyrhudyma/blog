@@ -368,10 +368,17 @@ Type-converting comparison:
    // Number({}) -> NaN
    // 0 - NaN -> NaN
    [] - {} // NaN
+   [] * {} // NaN
+   [] / {} // NaN
 
    // Explanation
    // {} is not parsed as object, but instead as empty block
    // Return value of empty block is empty
    // The result of this expression equals -[] -> +Number([]) -> -0
    {} - [] // -0!
+
+   // Explanation
+   // *Number([]) or /Number([]) -> SyntaxError: Unexpected token
+   {} * [] // SyntaxError: Unexpected token!
+   {} / [] // SyntaxError: Unexpected token!
    ```
