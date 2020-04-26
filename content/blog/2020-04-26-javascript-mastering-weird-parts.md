@@ -300,12 +300,21 @@ Type-converting comparison:
 
 > **Coercion** is the term that is used for *unexpected type casting* in JavaScript
 
-1. Every "+" expression that includes *string* will result in `string`.
+1. Every "+" expression concatenates the values if one is already a *string* or they will be cast to *strings* if possible
 
    ```javascript
+   1 + 1 // 2
    1 + '1' // '11'
    '2' + 22 // '222'
+
+   // Explanation:
+   // ['one', 'two'].toString() -> 'one,two'
+   // ['three', 'four'].toString() -> 'three,four'
+   // 'one,two' + 'three,four' -> 'one,twothree,four'
+   ['one', 'two'] + ['three', 'four'] // 'one,twothree,four'
    ```
+
+   * Every 
 2. "-", "*", "/" expression can be used only with *numbers*, so all operands will be casted to *numbers*.
 
    ```javascript
@@ -317,4 +326,16 @@ Type-converting comparison:
 
    2 * '2' // 4
    '3' * '3' // 9
+
+   // Explanation
+   // parseInt([3]) -> 3
+   // parseInt([1]) -> 1
+   // 3 - 1 -> 2
+   [3] - [1] = 2;
+
+   // Explanation
+   // parseInt(['one', 'two']) -> NaN
+   // parseInt(['three', 'four']) -> NaN
+   // NaN - NaN -> NaN
+   ['one', 'two'] - ['three', 'four'] // NaN
    ```
