@@ -229,3 +229,44 @@ const andrewsCar = {
 console.log(johnsCar == andrewsCar) // Prints "false"
 console.log(johnsCar === andrewsCar) // Prints "false"
 ```
+
+You probably know what's going on, after mastering the previous section, right?
+
+Reference types **are compared by reference.** It basically means, that javascript checks if both objects point to the same memory location. If out case, it is not true, so equality operator returns `false`.
+
+Consider another example:
+
+```javascript
+const johnsCar = {
+  name: "Audi",
+  topSpeed: 300
+};
+
+const andrewsCar = johnsCar;
+
+console.log(johnsCar == andrewsCar) // Prints "true"
+console.log(johnsCar === andrewsCar) // Prints "true"
+```
+
+`andrewsCar` points to the same location as `johnsCar`, therefore objects considered equal.
+
+If we have two distinct objects and want to see if their properties are the same, the easiest way to do so is to turn them both into strings and then compare the strings:
+
+```javascript
+const johnsCar = {
+  name: "Audi",
+  topSpeed: 300,
+};
+
+const andrewsCar = {
+  name: "Audi",
+  topSpeed: 300,
+};
+
+console.log(JSON.stringify(johnsCar) === JSON.stringify(andrewsCar)) // Prints "true"
+```
+
+Another options:
+
+* Write recursive function that will loop over object properties and make sure they are the same
+* Use well-tested and popular library ([Underscore](https://underscorejs.org/#isEqual), [lodash](https://lodash.com/docs/4.17.15#isEqual)) -> *Recommended one*
