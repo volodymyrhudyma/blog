@@ -1,5 +1,5 @@
 ---
-title: Javascript - mastering weird parts
+title: Mastering javascript
 date: 2020-04-26T07:02:40.028Z
 ---
 ## What is Javascript?
@@ -73,8 +73,8 @@ In the second example we define `User` type which requires `name` and `surname` 
 
 ```javascript
 type User = {
-    name: string;
-    surname: string;
+  name: string;
+  surname: string;
 }
 
 let user: User = {
@@ -94,6 +94,24 @@ const updateUser = () => {
 };
 ```
 
-Of course, typescript brings much more benefits. I recommend you to read [this awesome article](https://stxnext.com/blog/2019/08/30/typescript-pros-cons-javascript/) to find out more.
+I recommend you to read [this awesome article](https://stxnext.com/blog/2019/08/30/typescript-pros-cons-javascript/) to learn more about Typescript.
 
 ***Conclusion**: always use **Typescript** in medium/large scale applications.*
+
+## Types in Javascript
+
+There are 6 types considered to be *Primitive.*
+
+> A primitive is not an object and has no methods of its own. All *primitives are immutable*.
+
+* Boolean
+
+  Null
+
+  Undefined
+
+  Number
+
+  String
+
+  Symbol
