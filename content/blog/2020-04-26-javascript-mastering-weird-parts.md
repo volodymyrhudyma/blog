@@ -208,3 +208,24 @@ Now  `user` variable stores a reference to the new value (`{ name: "Andrew", sur
 When there are no references to values in memory, Javascript engine can perform **garbage collection**.
 
 > Some high-level languages, such as **JavaScript**, utilize a form of automatic memory management known as **garbage collection**(GC). The purpose of a **garbage collector** is to monitor memory allocation and determine when a block of allocated memory is no longer needed and reclaim it.
+
+## Object equality
+
+Object equality could be confusing at first sight, but after understanding *Reference* types it should become pretty straightforward.
+
+You might suppose that if 2 objects have the same properties and values they can be considered equal. Not really, let's see some examples:
+
+```javascript
+const johnsCar = {
+  name: "Audi",
+  topSpeed: 300
+};
+
+const andrewsCar = {
+  name: "Audi",
+  topSpeed: 300
+};
+
+console.log(johnsCar == andrewsCar) // Prints "false"
+console.log(johnsCar === andrewsCar) // Prints "false"
+```
