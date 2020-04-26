@@ -186,3 +186,25 @@ When you copy `user` value to another variable (`newUser`) it's the address what
 **Important note: objects are copied by reference** instead of by value.
 
 Both `user` and `newUser` contain reference to the same object in memory. Therefore, altering any of the values will cause both to update.
+
+## Reassigning reference
+
+To reassign a reference means to replace old reference with a new one. Example:
+
+```javascript
+let user = {
+  name: "John",
+  surname: "Doe"
+};
+
+user = {
+  name: "Andrew",
+  surname: "Hopkins"
+};
+```
+
+Now  `user` variable stores a reference to the new value (`{ name: "Andrew", surname: "Hopkins" }`) but the old value (`{ name: "John", surname: "Doe" }`) is still present in memory.
+
+When there are no references to values in memory, Javascript engine can perform **garbage collection**.
+
+> Some high-level languages, such as **JavaScript**, utilize a form of automatic memory management known as **garbage collection**(GC). The purpose of a **garbage collector**is to monitor memory allocation and determine when a block of allocated memory is no longer needed and reclaim it.
