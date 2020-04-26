@@ -263,7 +263,8 @@ const andrewsCar = {
   topSpeed: 300,
 };
 
-console.log(JSON.stringify(johnsCar) === JSON.stringify(andrewsCar)) // Prints "true"
+// Prints "true"
+console.log(JSON.stringify(johnsCar) === JSON.stringify(andrewsCar));
 ```
 
 Another options:
