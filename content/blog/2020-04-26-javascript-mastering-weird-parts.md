@@ -100,18 +100,20 @@ I recommend you to read [this awesome article](https://stxnext.com/blog/2019/08/
 
 ## Types in Javascript
 
-There are 6 types considered to be *Primitive.*
+There are 7 types considered to be *Primitive.*
 
 > A primitive is not an object and has no methods of its own. All *primitives are immutable*.
 
-* Boolean
+* Boolean - `true` or `false`
+* Null - no value
+* Undefined - variable was declared but has not been given a value
+* Number - integers: `10`, floats: `10.20`
+* BigInt - created by appending `n` to the end of an integer literal: `10n`. 
 
-  Null
+  * It is relatively new type added to represent integers of arbitrary length. `Number` primitive type has some limitations, it can not represent value larger than `2<sup>53</sup>` (or less than `-2<sup>53</sup<` for negatives). We can need really large numbers for cryptography or microsecond-precision timestamps.
+* String - an array of characters: `this is string`
+* Symbol - unique value
 
-  Undefined
+Everything else in an *Object* type (objects are used to store collections of data and more complex entities).
 
-  Number
-
-  String
-
-  Symbol
+**Important note:** There's no special type “function” type in JavaScript. Functions belong to the object type. But `typeof operator` treats them differently, returning `"function"`. That’s not quite correct, but very convenient in practice.
