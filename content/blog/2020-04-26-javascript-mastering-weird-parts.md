@@ -78,7 +78,7 @@ Typescript is not actually a static type check but can be used as one. It is a p
 
 Using typescript in the following code would raise type error:
 
-```javascript
+```typescript
 let x: number = 10;
 
 // ERROR: Type '"string value"' is not assignable to type 'number'.
@@ -87,7 +87,7 @@ x = "string value";
 
 In the second example we define `User` type which requires `name` and `surname` properties. Afterwards, we let the compiler know that `user` variable is of a `User` type and if the wrong field gets modified, an error is thrown:
 
-```javascript
+```typescript
 type User = {
   name: string;
   surname: string;
@@ -429,11 +429,3 @@ Abstract equality comparison:
    ```
 
 **Important note:** make sure to check the most complete [list of WTFs ](https://github.com/denysdovhan/wtfjs)in javascript I've ever seen.
-
-```typescript
-// Test code block
-
-type User = {};
-
-user: User;
-```
