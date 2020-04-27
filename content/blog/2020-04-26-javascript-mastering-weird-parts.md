@@ -382,8 +382,6 @@ Abstract equality comparison:
    {} * [] // SyntaxError: Unexpected token!
    {} / [] // SyntaxError: Unexpected token!
    ```
-
-
 3. Type-converting comparison (`x == y`) according to [specification](https://www.ecma-international.org/ecma-262/#sec-abstract-equality-comparison):
 
    * typeof x equals typeof y -> return x === y
@@ -416,14 +414,11 @@ Abstract equality comparison:
 
    // typeof x is boolean -> return ToNumber(x) == y
    true == 1 // true
-   true == 2 // false
 
    // typeof y is boolean -> return x == ToNumber(y)
    1 == true // true
-   2 == true // false
 
    // typeof x is string/number/symbol and typeof y is object -> return x == ToPrimitive(y)
-   'str' == {} // false
    '[object Object]' == {} // true
 
    // typeof x is object and typeof y is string/number/symbol -> return ToPrimitive(x) == y
