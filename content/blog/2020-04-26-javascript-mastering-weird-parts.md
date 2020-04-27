@@ -432,4 +432,8 @@ Abstract equality comparison:
 
 ```typescript
 // Test code block
+
+type User = {};
+
+user: User;
 ```
