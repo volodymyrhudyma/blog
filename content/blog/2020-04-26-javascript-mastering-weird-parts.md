@@ -429,3 +429,7 @@ Abstract equality comparison:
    ```
 
 **Important note:** make sure to check the most complete [list of WTFs ](https://github.com/denysdovhan/wtfjs)in javascript I've ever seen.
+
+```javascript
+// Test code block
+```
