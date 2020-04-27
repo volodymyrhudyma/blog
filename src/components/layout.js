@@ -36,6 +36,11 @@ const GlobalStyle = createGlobalStyle`
   main {
     flex: auto;
   }
+
+  pre[class*="language-"] {
+    margin-top: 0;
+    margin-bottom: 1.45rem;
+  }
 `
 
 const Layout = ({ children }) => {
