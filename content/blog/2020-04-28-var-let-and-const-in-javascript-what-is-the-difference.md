@@ -68,7 +68,7 @@ userName = "Andrew";
 console.log(userName); // Prints "Andrew"
 ```
 
-It can be re-declared in another scope as well:
+It can be re-declared in another scope as well. While it is not a problem if you are doing it intentionally, sometimes you do not realize that this variable has been declared before:
 
 ```javascript
 var userName = "John";
