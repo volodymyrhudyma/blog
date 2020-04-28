@@ -126,9 +126,9 @@ There are 7 types considered to be **Primitive** and 1 **Reference** type*.*
 * Null - no value
 * Undefined - variable was declared but has not been given a value
 * Number - integers: `10`, floats: `10.20`
-* BigInt - created by appending `n` to the end of an integer literal: `10n`. 
+* BigInt - created by appending `n` to the end of an integer literal: `10n`
 
-  * It is relatively new type added to represent integers of arbitrary length. `Number` primitive type has some limitations, it can not represent value larger than `2^53` (or less than `-2^53` for negatives). We can need really large numbers for cryptography or microsecond-precision timestamps.
+  * It is relatively new type added to represent integers of arbitrary length. `Number` primitive type has some limitations, it can not represent value larger than `2^53` (or less than `-2^53` for negatives). We can need really large numbers for cryptography or microsecond-precision timestamps
 * String - an array of characters: `this is string`
 * Symbol - unique value
 
