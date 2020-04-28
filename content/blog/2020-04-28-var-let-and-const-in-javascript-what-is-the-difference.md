@@ -16,7 +16,7 @@ But using `var` keyword sometimes leads to unexpected issues especially if you a
 
 You should always remember that `var` is **globally** scoped in case if it is declared outside of the function and **locally/function** scoped if it is declared inside of the function body.
 
-> **Scope** in JavaScriptrefers to the current context of code, which determines the accessibility of variables to JavaScript. The two types of scopeare **local** and **global**: Global variables are those declared outside of a block. Local variables are those declared inside of a block.
+> **Scope** in JavaScript refers to the current context of code, which determines the accessibility of variables to JavaScript. The two types of scopeare **local** and **global**: Global variables are those declared outside of a block. Local variables are those declared inside of a block.
 
 Globally scoped variable is accessible in the whole window. Locally/function scoped variable is accessible only within function body it was declared in.
 
@@ -42,4 +42,57 @@ console.log(localVariable); // Prints "ReferenceError: localVariable is not defi
 
 // Accessible ;)
 console.log(globalVariable); // Prints "global"
+```
+
+## \#2 pitfall
+
+Variables declared using `var` keyword can be re-declared and updated in the same scope.
+
+You can unintentionally redeclare variable and get unexpected result when accessing it in your code. Don't you feel like you should receive the following error in the next example: *Duplicate declaration "userName"?*
+
+```javascript
+var userName = "John";
+
+var userName = "Andrew";
+
+console.log(userName); // Prints "Andrew"
+```
+
+`var` variable can be re-declared in the same scope:
+
+```javascript
+var userName = "John";
+
+userName = "Andrew";
+
+console.log(userName); // Prints "Andrew"
+```
+
+It can be re-declared in another scope as well:
+
+```javascript
+var userName = "John";
+
+function changeUserName() {
+  userName = "Andrew";
+}
+
+changeUserName();
+
+console.log(userName); // Prints "Andrew"
+```
+
+But if you create new variable in another scope having the same name, they are treated as different variables:
+
+```javascript
+var userName = "John";
+
+function changeUserName() {
+  var userName = "Andrew";
+  console.log(userName); // Prints "Andrew"
+}
+
+changeUserName();
+
+console.log(userName); // Prints "John"
 ```
