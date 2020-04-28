@@ -42,14 +42,14 @@ It seems cool that you don't have to bother what type to use, but in most cases 
 
 ```javascript
 let user = {
-  name: 'John',
-  surname: 'Doe'
+  name: "John",
+  surname: "Doe"
 };
 
 const updateUser = () => {
   user = {
-    name: 'Andrew',
-    surnam: 'Hopkins'
+    name: "Andrew",
+    surnam: "Hopkins"
   };
 };
 
@@ -81,7 +81,7 @@ Using typescript in the following code would raise type error:
 ```typescript
 let x: number = 10;
 
-// ERROR: Type '"string value"' is not assignable to type 'number'.
+// ERROR: Type "string value" is not assignable to type "number".
 x = "string value";
 ```
 
@@ -94,18 +94,18 @@ type User = {
 };
 
 let user: User = {
-  name: 'John',
-  surname: 'Doe'
+  name: "John",
+  surname: "Doe"
 };
 
 const updateUser = () => {
   user = {
-    name: 'Andrew',
+    name: "Andrew",
     // ERROR:
-    // Type '{ name: string; surnam: string; }' is not assignable to type 'User'.
-    // Object literal may only specify known properties, but 'surnam' does not 
-    // exist in type 'User'. Did you mean to write 'surname'?
-    surnam: 'Hopkins'
+    // Type "{ name: string; surnam: string; }" is not assignable to type "User".
+    // Object literal may only specify known properties, but "surnam" does not 
+    // exist in type "User". Did you mean to write "surname"?
+    surnam: "Hopkins"
   };
 };
 ```
@@ -283,7 +283,7 @@ Strict comparison:
 ```javascript
 1 === 1 // true
 
-1 === '1' // false
+1 === "1" // false
 ```
 
 Abstract equality comparison:
@@ -293,7 +293,7 @@ Abstract equality comparison:
 ```javascript
 1 == 1 // true
 
-1 == '1' // true
+1 == "1" // true
 ```
 
 #### Type coercion basics
@@ -304,43 +304,43 @@ Abstract equality comparison:
 
    ```javascript
    1 + 1 // 2
-   1 + '1' // '11'
-   '2' + 22 // '222'
+   1 + "1" // "11"
+   "2" + 22 // "222"
 
    // Explanation:
-   // String(['one', 'two']) -> 'one,two'
-   // String(['three', 'four']) -> 'three,four'
-   // 'one,two' + 'three,four' -> 'one,twothree,four'
-   ['one', 'two'] + ['three', 'four'] // 'one,twothree,four'
+   // String(["one", "two"]) -> "one,two"
+   // String(["three", "four"]) -> "three,four"
+   // "one,two" + "three,four" -> "one,twothree,four"
+   ["one", "two"] + ["three", "four"] // "one,twothree,four"
 
    // Explanation:
-   // String({}) -> '[object Object]'
-   // '[object Object]' + '[object Object]' -> "[object Object][object Object]"
+   // String({}) -> "[object Object]"
+   // "[object Object]" + "[object Object]" -> "[object Object][object Object]"
    {} + {} // "[object Object][object Object]"
 
    // Explanation:
-   // String([]) -> ''
-   // String({}) -> '[object Object]'
-   // '' + '[object Object]' -> '[object Object]'
+   // String([]) -> ""
+   // String({}) -> "[object Object]"
+   // "" + "[object Object]" -> "[object Object]"
    [] + {} // "[object Object]"
 
    // Explanation
    // {} is not parsed as object, but instead as empty block
    // Return value of empty block is empty
-   // The result of this expression equals +[] -> +String([]) -> +'' -> 0
+   // The result of this expression equals +[] -> +String([]) -> +"" -> 0
    {} + [] // 0!
    ```
 2. "-", "*", "/" expression can be used only with* numbers*, so all operands will be casted to* numbers*.
 
    ```javascript
-   '1' - 1 // 0
-   '22' - '2' // 20
+   "1" - 1 // 0
+   "22" - "2" // 20
 
-   10 / '5' // 2
-   '20' / '2' // 10
+   10 / "5" // 2
+   "20" / "2" // 10
 
-   2 * '2' // 4
-   '3' * '3' // 9
+   2 * "2" // 4
+   "3" * "3" // 9
 
    // Explanation
    // Number([3]) -> 3
@@ -349,12 +349,12 @@ Abstract equality comparison:
    [3] - [1] = 2;
 
    // Explanation
-   // Number(['one', 'two']) -> NaN
-   // Number(['three', 'four']) -> NaN
+   // Number(["one", "two"]) -> NaN
+   // Number(["three", "four"]) -> NaN
    // NaN - NaN -> NaN
-   ['one', 'two'] - ['three', 'four'] // NaN
-   ['one', 'two'] * ['three', 'four'] // NaN
-   ['one', 'two'] / ['three', 'four'] // NaN
+   ["one", "two"] - ["three", "four"] // NaN
+   ["one", "two"] * ["three", "four"] // NaN
+   ["one", "two"] / ["three", "four"] // NaN
 
    // Explanation:
    // Number({}) -> NaN
@@ -374,7 +374,7 @@ Abstract equality comparison:
    // Explanation
    // {} is not parsed as object, but instead as empty block
    // Return value of empty block is empty
-   // The result of this expression equals -[] -> +Number([]) -> -0
+   // The result of this expression equals -[] -> -Number([]) -> -0
    {} - [] // -0!
 
    // Explanation
@@ -407,10 +407,10 @@ Abstract equality comparison:
    undefined == null // true
 
    // typeof x is number and typeof y is string -> return x == ToNumber(y)
-   1 == 'str' // false
+   1 == "str" // false
 
    // typeof x is string and typeof y is number -> return ToNumber(x) == y
-   'str' == 1 // false
+   "str" == 1 // false
 
    // typeof x is boolean -> return ToNumber(x) == y
    true == 1 // true
@@ -419,13 +419,13 @@ Abstract equality comparison:
    1 == true // true
 
    // typeof x is string/number/symbol and typeof y is object -> return x == ToPrimitive(y)
-   '[object Object]' == {} // true
+   "[object Object]" == {} // true
 
    // typeof x is object and typeof y is string/number/symbol -> return ToPrimitive(x) == y
-   {} == 'str' // Remember about "SyntaxError: Unexpected token" here
+   {} == "str" // Remember about "SyntaxError: Unexpected token" here
 
    const obj = {};
-   obj == '[object Object]' // true
+   obj == "[object Object]" // true
    ```
 
 **Important note:** make sure to check the most complete [list of WTFs ](https://github.com/denysdovhan/wtfjs)in javascript I've ever seen.
