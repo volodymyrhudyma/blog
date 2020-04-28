@@ -118,7 +118,7 @@ I recommend you to read [this awesome article](https://stxnext.com/blog/2019/08/
 
 There are 7 types considered to be **Primitive** and 1 **Reference** type*.*
 
-> **Primitive** is not an object and has no methods of its own. All primitivesareimmutable.
+> **Primitive** is not an object and has no methods of its own. All primitives are immutable.
 >
 > **Reference** points to the object’s location in memory. It does not actually contain value.
 
