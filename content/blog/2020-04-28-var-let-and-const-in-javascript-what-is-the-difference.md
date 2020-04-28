@@ -46,7 +46,7 @@ console.log(globalVariable); // Prints "global"
 
 ## \#2 pitfall
 
-Variables declared using `var` keyword can be re-declared and updated in the same scope.
+Variables declared using `var` keyword can be re-declared and updated.
 
 You can unintentionally redeclare variable and get unexpected result when accessing it in your code. Don't you feel like you should receive the following error in the next example: *Duplicate declaration "userName"?*
 
