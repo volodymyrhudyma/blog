@@ -40,6 +40,6 @@ function doSomething() {
 // Not accessible ;(
 console.log(localVariable); // Prints "ReferenceError: localVariable is not defined"
 
-// Accessible due to global scope
+// Accessible ;)
 console.log(globalVariable); // Prints "global"
 ```
