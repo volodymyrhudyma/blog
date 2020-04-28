@@ -37,7 +37,7 @@ function doSomething() {
   console.log(globalVariable); // Prints "global"
 }
 
-// Not accessible ;(
+// Not available outside of the function ;(
 console.log(localVariable); // Prints "ReferenceError: localVariable is not defined"
 
 // Accessible ;)
