@@ -68,7 +68,7 @@ Static-typed languages are those where the types are checked on the fly, during 
 
 If you mess up the data types of your variables in a statically typed language, you’ll see an error instantly and won’t even be able to run your program.
 
-Is this the only benefit? The answer is - **no**.
+Is this the only benefit? The answer is - no.
 
 It also offers auto-completion, generating documentation, and faster compilation.
 
@@ -112,15 +112,15 @@ const updateUser = () => {
 
 I recommend you to read [this awesome article](https://stxnext.com/blog/2019/08/30/typescript-pros-cons-javascript/) to learn more about Typescript.
 
-**\*Conclusion**: always use **Typescript** in medium/large scale applications.*
+**Conclusion**: always use **Typescript** in medium/large scale applications.
 
 ## Types in Javascript
 
-There are 7 types considered to be *Primitive* and 1 *Reference* type*.*
+There are 7 types considered to be **Primitive** and 1 **Reference** type*.*
 
-> *Primitive* is not an object and has no methods of its own. All *primitives are immutable*.
+> **Primitive** is not an object and has no methods of its own. All primitivesareimmutable.
 >
-> *Reference* points to the object’s location in memory. It does not actually contain value.
+> **Reference** points to the object’s location in memory. It does not actually contain value.
 
 * Boolean - `true` or `false`
 * Null - no value
@@ -132,7 +132,7 @@ There are 7 types considered to be *Primitive* and 1 *Reference* type*.*
 * String - an array of characters: `this is string`
 * Symbol - unique value
 
-Everything else in an *Object* type (objects are used to store collections of data and more complex entities).
+Everything else in an **Object** type (objects are used to store collections of data and more complex entities).
 
 ## Primitives vs References
 
@@ -160,7 +160,7 @@ console.log(b); // Prints 3
 console.log(d); // Prints 2
 ```
 
-**Important note: primitives are copied by value**. Changing one of the variables above does not change the other because each of them stores its own copy of value.
+**Important note:** primitives are copied by value. Changing one of the variables above does not change the other because each of them stores its own copy of value.
 
 If Reference type is assigned to variable, it means that the variable actually contains reference to the value.
 
@@ -178,11 +178,11 @@ console.log(newUser.name); // Prints "Andrew", as we expect, right?
 console.log(user.name); // Prints "Andrew" as well! Pretty weird?
 ```
 
-Let me explain this: when you create an object (`user`) it's value (`{name: "John", surname: "Doe"}`) is stored in some location in your computer's memory. What the variable `user` receives is memory address which points to stored value.
+Let me explain this: when you create an object `user` it's value `{name: "John", surname: "Doe"}` is stored in some location in your computer's memory. What the variable `user` receives is memory address which points to stored value.
 
-When you copy `user` value to another variable (`newUser`) it's the address what gets actually copied, not the value. 
+When you copy `user` value to another variable `newUser` it's the address what gets actually copied, not the value. 
 
-**Important note: objects are copied by reference** instead of by value.
+**Important note:** objects are copied by reference instead of by value.
 
 Both `user` and `newUser` contain reference to the same object in memory. Therefore, altering any of the values will cause both to update.
 
@@ -202,15 +202,15 @@ user = {
 };
 ```
 
-Now  `user` variable stores a reference to the new value (`{ name: "Andrew", surname: "Hopkins" }`) but the old value (`{ name: "John", surname: "Doe" }`) is still present in memory.
+Now  `user` variable stores a reference to the new value `{ name: "Andrew", surname: "Hopkins" }` but the old value `{ name: "John", surname: "Doe" }` is still present in memory.
 
 When there are no references to values in memory, Javascript engine can perform **garbage collection**.
 
-> Some high-level languages, such as **JavaScript**, utilize a form of automatic memory management known as **garbage collection**(GC). The purpose of a **garbage collector** is to monitor memory allocation and determine when a block of allocated memory is no longer needed and reclaim it.
+> Some high-level languages, such as JavaScript, utilize a form of automatic memory management known as **garbage collection**(GC). The purpose of a **garbage collector** is to monitor memory allocation and determine when a block of allocated memory is no longer needed and reclaim it.
 
 ## Object equality
 
-Object equality could be confusing at first sight, but after understanding *Reference* types it should become pretty straightforward.
+Object equality could be confusing at first sight, but after understanding Reference types it should become pretty straightforward.
 
 You might suppose that if 2 objects have the same properties and values they can be considered equal. Not really, let's see some examples:
 
@@ -231,7 +231,7 @@ console.log(johnsCar === andrewsCar); // Prints "false"
 
 You probably know what's going on, after mastering the previous section, right?
 
-Reference types **are compared by reference.** It basically means, that javascript checks if both objects point to the same memory location. If out case, it is not true, so equality operator returns `false`.
+Reference types are compared by reference**.** It basically means, that javascript checks if both objects point to the same memory location. If out case, it is not true, so equality operator returns `false`.
 
 Consider another example:
 
@@ -273,7 +273,7 @@ Another options:
 
 ## Comparison operators
 
-Javascript has both strict(===) and abstract equality(==) comparisons. 
+Javascript has both **strict** (`===`) and **abstract** (`==`) equality comparisons. 
 
 Strict comparison:
 
@@ -288,7 +288,7 @@ Strict comparison:
 
 Abstract equality comparison:
 
-* CONVERTS operands to the same type and applies strict comparison
+* Converts operands to the same type and applies strict comparison
 
 ```javascript
 1 == 1 // true
@@ -296,11 +296,11 @@ Abstract equality comparison:
 1 == "1" // true
 ```
 
-#### Type coercion basics
+## Type coercion basics
 
 > **Coercion** is the term that is used for *unexpected type casting* in JavaScript
 
-1. Every "+" expression concatenates the values if one is already a *string* or they will be cast to *strings* if possible
+1. Every "`+`" expression concatenates the values if one is already a **string** or they will be cast to **strings** if possible.
 
    ```javascript
    1 + 1 // 2
@@ -330,7 +330,7 @@ Abstract equality comparison:
    // The result of this expression equals +[] -> +String([]) -> +"" -> 0
    {} + [] // 0!
    ```
-2. "-", "*", "/" expression can be used only with* numbers*, so all operands will be casted to* numbers*.
+2. "`-`", `""`, "`/`"expression can be used only with **numbers**, so all operands will be casted to **numbers**.
 
    ```javascript
    "1" - 1 // 0
