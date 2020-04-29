@@ -133,3 +133,46 @@ changeUserName();
 
 console.log(userName); // Prints "John"
 ```
+
+## "Const" as an improvement
+
+Just like variables declared using `let` keyword, `const` variables are **block-scoped**. 
+
+The only difference between them is that `const` variables maintain constant values and can not be updated or re-declared (We are not taking into account `let` and `const` hoisting). It means we are not allowed to do this:
+
+```javascript
+const userName = "John";
+
+userName = "Andrew"; // TypeError: Assignment to constant variable
+```
+
+And this:
+
+```javascript
+const userName = "John";
+
+const userName = "Andrew"; // Duplicate declaration "userName"
+```
+
+And actually this is awesome. Once you declared your variable as `const` you are sure that it will not be updated anywhere in the code.
+
+But... wait. Really? What about objects?
+
+## \#1 pitfall
+
+Consider the following example:
+
+```javascript
+const user = {
+  name: "John",
+  car: "Audi"
+};
+
+user.car = "Volvo";
+
+console.log(user.car); // Prints "Volvo"
+```
+
+The main thing you should remember when using `const` is that properties of objects declared using this keyword **CAN BE UPDATED**.
+
+> Consider using `Object.freeze()` in case you want to disable possibility to add new/change existing properties.
