@@ -174,3 +174,15 @@ console.log(user.car); // Prints "Volvo"
 The main thing you should remember when using `const` is that properties of objects declared using this keyword **CAN BE UPDATED**.
 
 > Consider using `Object.freeze()` in case you want to disable possibility to add new/change existing properties.
+
+## Conclusion
+
+To sum up, avoid using `var` keyword in favor of `let` and `const`. Use them wisely and know what and when each of them should be used.
+
+Just in case you missed something:
+
+`var` - **globally** or **locally**/**function** scoped. Can be updated and re-declared.
+
+`let` - **block** scoped. Can be updated, but NOT re-declared.
+
+`const` - **block** scoped. Can NOT be updated and re-declared.
