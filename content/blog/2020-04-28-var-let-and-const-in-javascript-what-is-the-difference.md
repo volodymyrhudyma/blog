@@ -183,7 +183,7 @@ To sum up, avoid using `var` keyword in favor of `let` and `const`. Use them wis
 
 Just in case you missed something:
 
-#### var
+### var
 
 * **globally** or **locally**/**function** scoped
 * can be updated and re-declared
