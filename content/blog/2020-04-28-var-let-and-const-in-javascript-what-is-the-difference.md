@@ -183,8 +183,23 @@ To sum up, avoid using `var` keyword in favor of `let` and `const`. Use them wis
 
 Just in case you missed something:
 
-`var` - **globally** or **locally**/**function** scoped. Can be updated and re-declared. Hoisted to the top. Initialized with `undefined`.
+#### var
 
-`let` - **block** scoped. Can be updated, but NOT re-declared. Hoisted to the top. NOT initialized.
+* **globally** or **locally**/**function** scoped
+* can be updated and re-declared
+* hoisted to the top (more about **[hoisting](https://scotch.io/tutorials/understanding-hoisting-in-javascript)**)
+* initialized with `undefined`
 
-`const` - **block** scoped. Can NOT be updated and re-declared. Hoisted to the top. NOT initialized.
+### let
+
+* **block** scoped
+* can be updated, but **NOT** re-declared
+* hoisted to the top
+* **NOT** initialized
+
+### const
+
+* **block** scoped
+* can **NOT** be updated and re-declared
+* hoisted to the top
+* **NOT** initialized
