@@ -82,17 +82,21 @@ changeUserName();
 console.log(userName); // Prints "Andrew"
 ```
 
-But if you create new variable in another scope having the same name, they are treated as different variables:
+## "Let" to rescue
+
+`let` comes as an improvement for `var` since **ES2015(ES6)** came out. It is **block-scoped,** which means that the variable declared in a block is only available within that block.
+
+> A block scope is the area within **if**, **switch** conditions or **for** and **while** loops. Generally speaking, whenever you see **{curly brackets}**, it is a block. In ES6, **const** and **let** keywords allow developers to declare variables in the block scope, which means those variables exist only within the corresponding block.
 
 ```javascript
 var userName = "John";
 
-function changeUserName() {
-  var userName = "Andrew";
-  console.log(userName); // Prints "Andrew"
+if(userName === "John") {
+  let age = 30;
+  console.log(age) // Prints "30"
 }
 
-changeUserName();
-
-console.log(userName); // Prints "John"
+console.log(age) // Prints "ReferenceError: age is not defined"
 ```
+
+As you can see, block-scoped `age` is not available outside of the `if` block.
