@@ -181,8 +181,8 @@ To sum up, avoid using `var` keyword in favor of `let` and `const`. Use them wis
 
 Just in case you missed something:
 
-`var` - **globally** or **locally**/**function** scoped. Can be updated and re-declared.
+`var` - **globally** or **locally**/**function** scoped. Can be updated and re-declared. Hoisted to the top. Initialized with `undefined`.
 
-`let` - **block** scoped. Can be updated, but NOT re-declared.
+`let` - **block** scoped. Can be updated, but NOT re-declared. Hoisted to the top. NOT initialized.
 
-`const` - **block** scoped. Can NOT be updated and re-declared.
+`const` - **block** scoped. Can NOT be updated and re-declared. Hoisted to the top. NOT initialized.
