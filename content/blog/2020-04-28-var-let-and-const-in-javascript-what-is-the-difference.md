@@ -113,9 +113,7 @@ But not re-declared:
 ```javascript
 let userName = "John";
 
-let userName = "Andrew";
-
-console.log(userName); // Prints "Duplicate declaration userName"
+let userName = "Andrew"; // Duplicate declaration "userName"
 ```
 
 However, if you declare variables with the same name but in different scopes, no error will be returned, because both variables are treated as different:
