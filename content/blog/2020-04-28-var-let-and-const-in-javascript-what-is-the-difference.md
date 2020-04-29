@@ -30,17 +30,14 @@ var globalVariable = "global";
 function doSomething() {
   var localVariable = "local";
   
-  // You can access localVariable in function's scope
   console.log(localVariable); // Prints "local"
   
-  // You can access globalVariable everywhere in the code
   console.log(globalVariable); // Prints "global"
 }
 
 // Not available outside of the function ;(
 console.log(localVariable); // Prints "ReferenceError: localVariable is not defined"
 
-// Accessible ;)
 console.log(globalVariable); // Prints "global"
 ```
 
@@ -100,3 +97,39 @@ console.log(age) // Prints "ReferenceError: age is not defined"
 ```
 
 As you can see, block-scoped `age` is not available outside of the `if` block.
+
+Variables, created using `let` keyword can be updated:
+
+```javascript
+let userName = "John";
+
+userName = "Andrew";
+
+console.log(userName); // Prints "Andrew"
+```
+
+But not re-declared:
+
+```javascript
+let userName = "John";
+
+let userName = "Andrew";
+
+console.log(userName); // Prints "Duplicate declaration userName"
+```
+
+However, if you declare variables with the same name but in different scopes, no error will be returned, because both variables are treated as different:
+
+```javascript
+let userName = "John";
+
+function changeUserName() {
+  let userName = "Andrew";
+  
+  console.log(userName); // Prints "Andrew"
+}
+
+changeUserName();
+
+console.log(userName); // Prints "John"
+```
