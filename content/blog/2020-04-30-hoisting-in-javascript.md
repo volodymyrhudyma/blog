@@ -110,3 +110,20 @@ Before we move to this section, let's remember how functions can be defined in J
   }
   ```
 * **Function expression** - defines a named or anonymous function. Function expression is **not hoisted**.
+
+  ```javascript
+  printNumber(); // Uncaught ReferenceError: Cannot access 'printNumber' before initialization
+
+  const printNumber = function() {
+    console.log(10);
+  }
+  ```
+* **Arrow function** - is short syntax for defining function expressions therefore it is **not hoisted**. 
+
+  ```javascript
+  printNumber(); // Uncaught ReferenceError: Cannot access 'printNumber' before initialization
+
+  const printNumber = () => {
+    console.log(10);
+  }
+  ```
