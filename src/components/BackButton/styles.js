@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components"
 
-export const Wrapper = styled.p`
+export const Wrapper = styled.div`
+  margin-bottom: 1.45rem;
   ${({ fixed }) =>
     fixed
       ? css`
