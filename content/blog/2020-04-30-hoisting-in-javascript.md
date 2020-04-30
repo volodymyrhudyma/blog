@@ -124,6 +124,6 @@ Before we move to this section, let's remember how functions can be defined in J
   printNumber(); // Uncaught ReferenceError: Cannot access 'printNumber' before initialization
 
   const printNumber = () => {
-    console.log(11);
+    console.log(10);
   }
   ```
