@@ -81,3 +81,32 @@ example();
 ```
 
 **Important note:** In order to avoid unexpected behavior, do not access variable before you declare it.
+
+## What about `let` and `const`?
+
+As we remember from the previous article, `let` and `const` are hoisted, but not initialized.
+
+```javascript
+console.log(a); // ReferenceError: a is not defined
+
+let a = 10;
+
+console.log(b); // ReferenceError: b is not defined
+
+const a = 10;
+```
+
+## Function hoisting
+
+Before we move to this section, let's remember how functions can be defined in JavaScript:
+
+* **Function declaration** - defines a named function. Use `function` keyword followed by name. Function declaration is **hoisted**
+
+  ```javascript
+  printNumber(); // Prints "10"
+
+  function printNumber() {
+    console.log(10);
+  }
+  ```
+* **Function expression** - defines a named or anonymous function. Function expression is **not hoisted**.
