@@ -9,11 +9,6 @@ fairyGatesTheme.overrideThemeStyles = ({ rhythm }, options) => ({
     backgroundImage: "none",
     textShadow: "none",
   },
-  span: {
-    display: "inline-block",
-    marginBottom: rhythm(1 / 4),
-    fontSize: rhythm(1 / 1.75),
-  },
   blockquote: {
     fontStyle: "normal",
   },
