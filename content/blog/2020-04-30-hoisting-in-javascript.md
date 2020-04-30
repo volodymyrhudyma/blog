@@ -102,28 +102,30 @@ Before we move to this section, let's remember how functions can be defined in J
 
 * **Function declaration** - defines a named function. Use `function` keyword followed by name. Function declaration is **hoisted**
 
-  ```javascript
-  printNumber(); // Prints "10"
+```javascript
+printNumber(); // Prints "10"
 
-  function printNumber() {
-    console.log(10);
-  }
-  ```
+function printNumber() {
+  console.log(10);
+}
+```
+
 * **Function expression** - defines a named or anonymous function. Function expression is **not hoisted**
 
-  ```javascript
-  printNumber(); // Uncaught ReferenceError: Cannot access 'printNumber' before initialization
+```javascript
+printNumber(); // Uncaught ReferenceError: Cannot access 'printNumber' before initialization
 
-  const printNumber = function() {
-    console.log(10);
-  }
-  ```
+const printNumber = function() {
+  console.log(10);
+}
+```
+
 * **Arrow function** - is short syntax for defining function expressions therefore it is **not hoisted**
 
-  ```javascript
-  printNumber(); // Uncaught ReferenceError: Cannot access 'printNumber' before initialization
+```javascript
+printNumber(); // Uncaught ReferenceError: Cannot access 'printNumber' before initialization
 
-  const printNumber = () => {
-    console.log(10);
-  }
-  ```
+const printNumber = () => {
+  console.log(10);
+}
+```
