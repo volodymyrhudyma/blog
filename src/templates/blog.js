@@ -14,7 +14,7 @@ export default function Template({ data, path }) {
       <BackButton fixed />
       <h1>{frontmatter.title}</h1>
       <span>{frontmatter.date}</span>
-      <p dangerouslySetInnerHTML={{ __html: html }} />
+      <div dangerouslySetInnerHTML={{ __html: html }} />
       <BackButton text="All articles" />
       <AddComment slug={path} />
       <CommentList comments={comments} />
