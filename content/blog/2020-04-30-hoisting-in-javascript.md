@@ -129,3 +129,5 @@ const printNumber = () => {
   console.log(10);
 }
 ```
+
+## Order of precedence
