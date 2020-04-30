@@ -56,3 +56,28 @@ a = 10;
 Thanks to hoisting mechanism, we are allowed to use variables before they are declared. However, we have to be careful, because hoisted variables are initialised with `undefined`. 
 
 Make sure to always declare and initialise variable before using it.
+
+Variables are also hoisted in the function scope:
+
+```javascript
+function example() {
+  console.log(a); // Prints "undefined"
+  var a = 10;
+}
+
+example();
+```
+
+Interpretation:
+
+```javascript
+function example() {
+  var a;
+  console.log(a); // Prints "undefined"
+  a = 10;
+}
+
+example();
+```
+
+**Important note:** In order to avoid unexpected behavior, do not access variable before you declare it.
