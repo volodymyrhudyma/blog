@@ -109,7 +109,7 @@ Before we move to this section, let's remember how functions can be defined in J
     console.log(10);
   }
   ```
-* **Function expression** - defines a named or anonymous function. Function expression is **not hoisted**.
+* **Function expression** - defines a named or anonymous function. Function expression is **not hoisted**
 
   ```javascript
   printNumber(); // Uncaught ReferenceError: Cannot access 'printNumber' before initialization
@@ -118,7 +118,7 @@ Before we move to this section, let's remember how functions can be defined in J
     console.log(10);
   }
   ```
-* **Arrow function** - is short syntax for defining function expressions therefore it is **not hoisted**. 
+* **Arrow function** - is short syntax for defining function expressions therefore it is **not hoisted**
 
   ```javascript
   printNumber(); // Uncaught ReferenceError: Cannot access 'printNumber' before initialization
