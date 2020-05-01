@@ -131,3 +131,54 @@ const printNumber = () => {
 ```
 
 ## Order of precedence
+
+**Variable assignments** take precedence over **function declaration**:
+
+```javascript
+function a(){
+  console.log('Function a')
+}
+
+var a = 'Variable a';
+
+console.log(a); // Prints "Variable a"
+```
+
+**Function declarations** take precedence over **variable declaration**:
+
+```javascript
+function a(){
+  console.log('Function a')
+}
+
+var a;
+
+console.log(a); // Prints "Function a"
+```
+
+## What about `let` and `const`?
+
+```javascript
+function a(){
+  console.log('Function a')
+}
+
+let a; // Duplicate declaration "a"
+
+
+function b(){
+  console.log('Function b')
+}
+
+const b; // SyntaxError: Identifier 'a' has already been declared
+
+
+```
+
+It's pretty much the expected behavior, as you should always  remember to choose unique names for your variables and functions.
+
+## Conclusion
+
+Imaging JavaScript interpreter making 2 iterations over your code. Firstly, it moves all variable and function declarations to the top of their scope and lastly, it executes your code from top to bottom (making assignments, executing functions etc.).
+
+Hoisting is often misunderstood concept even by experienced developers, so always be aware of it when writing JavaScript code.
