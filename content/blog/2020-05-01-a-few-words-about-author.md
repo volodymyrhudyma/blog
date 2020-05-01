@@ -10,4 +10,12 @@ I was born and lived in Ukraine till I turned 17 and it occurred that there was 
 
 Remember those times, when you just finished school and had to choose who to become in the future? I do. 
 
-That is one of the hardest decisions one has to make.
+That is one of the hardest decisions one has to make. But I was lucky and thanks to my parents, we did it right - I started learning **Programming** in **University of Information Technology and Management** in Rzeszów, Poland.
+
+The study went on, I was diving into the world of creating software and felt like that's what I want to do in the future, at least I promised myself to try.
+
+Having studied hard to pass all university exams, I also had some time to learn coding at home by reading articles, watching videos on youtube, taking some free online courses.
+
+// Decided to work
+
+After doing some researches, it was clear for me that PHP developers were in high demand at that time (2014-2015), so I decided to go in this direction.
