@@ -10,7 +10,7 @@ To begin with learning this mechanism, let's make sure we understand the differe
 
 ## Declaration
 
-To declare variable means to register it in the corresponding scope:
+To declare variable means to register it in the corresponding scope.
 
 ```javascript
 var a; // Variable is declared in global scope
@@ -19,6 +19,10 @@ var a; // Variable is declared in global scope
 ## Initialisation
 
 To initialise variable means to allocate some space in the memory for it. Just after variable is declared, it is automatically initialised.
+
+```javascript
+var a; // Variable is declared and automatically initialised
+```
 
 ## Assignment
 
