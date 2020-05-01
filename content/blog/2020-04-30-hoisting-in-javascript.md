@@ -13,15 +13,31 @@ To begin with learning this mechanism, let's make sure we understand the differe
 To declare variable means to register it in the corresponding scope.
 
 ```javascript
-var a; // Variable is declared in global scope
+var a; // Declared
+
+let a; // Declared
+
+const a; // SyntaxError: Missing initializer in const declaration
 ```
+
+**Important note:** `const` must be initialised with value at the time of definition.
 
 ## Initialisation
 
 To initialise variable means to allocate some space in the memory for it. Just after variable is declared, it is automatically initialised.
 
 ```javascript
-var a; // Variable is declared and automatically initialised
+var a; // Declared and automatically initialised
+
+let a; // Declared and automatically initialised
+
+const a; // SyntaxError: Missing initializer in const declaration
+```
+
+To fix an error *SyntaxError: Missing initializer in const declaration* we have to initialise `const` variable at the time of declaration.
+
+```javascript
+const a = 10; // The proper way
 ```
 
 ## Assignment
