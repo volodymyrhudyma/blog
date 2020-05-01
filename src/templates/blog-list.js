@@ -27,7 +27,7 @@ export default class BlogList extends React.Component {
             style={{
               display: "flex",
               justifyContent: "space-between",
-              marginTop: "2.175rem",
+              margin: "2.175rem 0",
             }}
           >
             <div>
