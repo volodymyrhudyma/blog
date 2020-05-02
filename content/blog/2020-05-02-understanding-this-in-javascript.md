@@ -2,11 +2,11 @@
 title: Understanding "this" in JavaScript
 date: 2020-05-02T08:28:11.982Z
 ---
-## What is `this`?
+## What is this?
 
 `this` is a special object in JavaScript that refers to an object it belongs to. The value of `this` is decided at the moment of code execution.
 
-## The value of `this`
+## The value of this
 
 How do you know what `this` refers to? It's simple, take a look at the following rules:
 
