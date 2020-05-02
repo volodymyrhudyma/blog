@@ -48,7 +48,7 @@ getFullName.apply(user, ["Welcome", 10]); // Prints "Welcome, John Doe, your tab
 
 Were you able to spot the difference?
 
-## Bind of Function.prototype.bind
+## Bind or Function.prototype.bind
 
 The behavior of `bind` method is exactly the same as of `apply` with just only one difference. But it's really huge.
 
@@ -69,7 +69,7 @@ const boundFunction = getFullName.bind(user, "Welcome", 10); // "bind" returns b
 boundFunction(); // Prints "Welcome, John Doe, your table number is: 10"
 ```
 
-We can pass arguments at the same time we execute `bind` method, as we did above or at the moment when we invoke bound function.
+We can pass arguments at the same time we execute `bind` method, as we did above or at the moment when we invoke bound function:
 
 ```javascript
 const user = {
