@@ -85,3 +85,72 @@ const boundFunction = getFullName.bind(user); // "bind" returns bound function
 
 boundFunction("Welcome", 10); // Prints "Welcome, John Doe, your table number is: 10"
 ```
+
+## Borrowing methods
+
+Sometimes it’s desirable to reuse a function or method on a different object other than the object or prototype it was defined. By using `call`, `apply` and `bind`, we can easily borrow methods from different objects without having to inherit from them.
+
+## **Borrowing Max from the Math Object**
+
+Imagine the following situation: you have an array of numbers and need to find a maximum number. You know that there is `Math.max` function that does exactly what we need, so why don't we use it? 
+
+The problem is that `Math.max` does not accept array, but numbers.
+
+```javascript
+Math.max(10, 20, 30, 1, 100); // "100"
+
+
+const numbers = [10, 20, 30, 1, 100];
+
+Math.max(numbers); // "NaN"
+```
+
+**`apply` to rescue**
+
+```javascript
+const numbers = [10, 20, 30, 1, 100];
+
+Math.max.apply(null, numbers); // "100"
+```
+
+We pass `null` as the first argument, because we don't really need to pass context. The second argument, our `numbers` array gets converted to arguments add will be accepted as a valid parameter for `Math.max` function.
+
+## Borrowing join and filter from Array
+
+```javascript
+Array.prototype.join.call("abc", ","); // "a,b,c"
+
+Array.prototype.filter.call("string1", function(val) {
+    return val !== "1";
+}).join(""); // "string"
+```
+
+As you can see it's cool to benefit from borrowing prototype methods, but there's one thing we can improve. 
+
+We don't have to write `Array.prototype` each time we want to borrow something. We can benefit from **literals**.
+
+## Using literals
+
+> **Literals** are used to represent values in JavaScript. These are fixed values, not variables, that you literally provide in your script
+
+We can replace `Array.prototype` with `[]`:
+
+```javascript
+[].join.call("abc", ","); // "a,b,c"
+
+[].filter.call("string1", function(val) {
+    return val !== "1";
+}).join(""); // "string"
+```
+
+The code above can be a little improved, so we wouldn't have to operate `[]` directly. We can store a reference to literal in the variable:
+
+```javascript
+const join = [].join;
+join.call("abc", ","); // "a,b,c"
+
+const filter = [].filter;
+filter.call("string1", function(val) {
+    return val !== "1";
+}).join(""); // "string"
+```
