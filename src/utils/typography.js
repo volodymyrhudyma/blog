@@ -11,6 +11,7 @@ fairyGatesTheme.overrideThemeStyles = ({ rhythm }, options) => ({
   },
   blockquote: {
     fontStyle: "normal",
+    fontSize: "inherit",
   },
 })
 
