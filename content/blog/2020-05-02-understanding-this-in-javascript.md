@@ -28,7 +28,7 @@ example(); // Prints "Window" if executed in browser
 
 * In a `function` in **strict mode**, the value of `this` is `undefined`
 
-  > **Strict Mode** was a new feature in ECMAScript 5 that allows you to place a program, or a function, in a “strict” operating context. This strict context prevents certain actions from being taken and throws more exceptions. The statement `"use strict"` instructs the browser to use the strict mode, which is a reduced and safer feature set of JavaScript.
+> **Strict Mode** was a new feature in ECMAScript 5 that allows you to place a program, or a function, in a “strict” operating context. This strict context prevents certain actions from being taken and throws more exceptions. The statement `"use strict"` instructs the browser to use the strict mode, which is a reduced and safer feature set of JavaScript.
 
 ```javascript
 "use strict";
