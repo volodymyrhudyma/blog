@@ -156,3 +156,7 @@ john.getFullName(); // TypeError: Cannot read property "name" of undefined
 ```
 
 In this example, `this` is bound to the global object since `getFullName` is a fat arrow function.
+
+## Conclusion
+
+`this` is a very tricky topic in JavaScript. Make sure to learn the simple rules described above and use them wisely to know which object `this` refers to in your code.
