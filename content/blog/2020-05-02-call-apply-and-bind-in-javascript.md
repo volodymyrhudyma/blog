@@ -147,10 +147,12 @@ The code above can be a little improved, so we wouldn't have to operate `[]` dir
 
 ```javascript
 const join = [].join;
+
 join.call("abc", ","); // "a,b,c"
 
 
 const filter = [].filter;
+
 filter.call("string1", function(val) {
     return val !== "1";
 }).join(""); // "string"
