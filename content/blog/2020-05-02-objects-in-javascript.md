@@ -157,7 +157,7 @@ for (const propertyName in user) {
 
 When iterating over object properties using loop, you have an access to the property name, as the first argument of the loop. 
 
-You can access value as well, by doing user`[propertyName]`.
+You can access value as well, by doing `user[propertyName]`.
 
 **Important note:** if property name is dynamic, access object value using **array-like notation**. Using **dot notation** will result in `undefined`:
 
