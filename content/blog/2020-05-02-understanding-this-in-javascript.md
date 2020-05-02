@@ -98,3 +98,61 @@ const fullName = john.getFullName.apply(andrew); // Prints nothing, has to be in
 
 fullName(); // Prints "Adrew Hopkins", it remembers passed context
 ```
+
+* inside fat arrow function `this` refers to the same object it's referring to outside the function
+
+```javascript
+const example = () => {
+  console.log(this);
+}
+
+example(); // Prints "Window" in browser
+```
+
+```javascript
+function parent() {
+  const child = () => {
+    console.log(this);
+  }
+  child();
+}
+
+parent(); // Still prints "Window" in browser
+```
+
+Tricky examples:
+
+```javascript
+const john = {
+  name: "John",
+  surname: "Doe",
+  getFullName: function() {
+    const lowerCaseFullName = () => {
+      // This refers to "john" object
+      return this.name.toLowerCase() + " " + this.surname.toLowerCase();
+    } 
+    return lowerCaseFullName();
+   }
+}
+
+john.getFullName(); // Prints "john doe"
+```
+
+In the example above since we're using function declaration, `this` is bound to the `john` object.
+
+```javascript
+const john = {
+  name: "John",
+  surname: "Doe",
+  getFullName: () => {
+    const lowerCaseFullName = () => {
+      return this.name.toLowerCase() + " " + this.surname.toLowerCase();
+    } 
+    return lowerCaseFullName();
+   }
+}
+
+john.getFullName(); // TypeError: Cannot read property "name" of undefined
+```
+
+In this example, `this` is bound to the global object since `getFullName` is a fat arrow function.
