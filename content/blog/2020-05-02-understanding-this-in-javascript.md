@@ -1,0 +1,90 @@
+---
+title: Understanding "this" in JavaScript
+date: 2020-05-02T08:28:11.982Z
+---
+## What is `this`?
+
+`this` is a special object in JavaScript that refers to an object it belongs to. The value of `this` is decided at the moment of code execution.
+
+## Value of `this`
+
+How do you know what `this` refers to? It's simple, take a look at the following rules:
+
+* By default `this` refers to the global object. If you execute code in browser, `this` will be equal to `window`
+
+```javascript
+console.log(this); // Prints "Window"
+```
+
+* In a `function` `this` refers to the global object as well
+
+```javascript
+function example() {
+  console.log(this);
+}
+
+example(); // Prints "Window" if executed in browser
+```
+
+* In a `function` in **strict mode**, the value of `this` is `undefined`
+
+  > **Strict Mode** was a new feature in ECMAScript 5 that allows you to place a program, or a function, in a “strict” operating context. This strict context prevents certain actions from being taken and throws more exceptions. The statement `"use strict"` instructs the browser to use the strict mode, which is a reduced and safer feature set of JavaScript.
+
+```javascript
+"use strict";
+
+console.log(this); // Prints "undefined"
+
+function example() {
+  console.log(this);
+}
+
+example(); // Prints "undefined"
+```
+
+* In an event, `this` refers to an element that received an event
+
+```javascript
+function handleClick(e) {
+  console.log(this); // Refers to "button" element
+}
+
+<button onclick="handleClick">
+  Click me
+</button>
+```
+
+* In object method, `this` refers to object instance
+
+```javascript
+const person = {
+  name: "John",
+  surname: "Doe",
+  getFullName: function() {
+    console.log(this); // Refers to "person" object
+  }
+}
+
+person.getFullName();
+```
+
+* `call` and `apply` can bind `this` to any object
+
+```javascript
+const john = {
+  name: "John",
+  surname: "Doe",
+  getFullName: function() {
+    return this.name + " " + this.surname;
+   }
+}
+
+const andrew = {
+  name: "Andrew",
+  surname: "Hopkins"
+}
+
+john.getFullName.call(andrew); // Prints "Adrew Hopkins"
+
+john.getFullName.apply(andrew); // Prints "Adrew Hopkins"
+```
