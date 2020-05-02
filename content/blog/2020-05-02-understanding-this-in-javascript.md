@@ -2,7 +2,7 @@
 title: Understanding "this" in JavaScript
 date: 2020-05-02T08:28:11.982Z
 ---
-## What is `this`?
+## at is `this`?
 
 `this` is a special object in JavaScript that refers to an object it belongs to. The value of `this` is decided at the moment of code execution.
 
@@ -87,4 +87,14 @@ const andrew = {
 john.getFullName.call(andrew); // Prints "Adrew Hopkins"
 
 john.getFullName.apply(andrew); // Prints "Adrew Hopkins"
+```
+
+* `bind` function can bind `this` to any object
+
+  The reason, why we haven't included `bind` to the previous point is because `bind` returns new function which can be called later with passed context. In case of `call` or `apply`, the function gets invoked immediately.
+
+```javascript
+const fullName = john.getFullName.apply(andrew); // Prints nothing, has to be invoked
+
+fullName(); // Prints "Adrew Hopkins", it remembers passed context
 ```
