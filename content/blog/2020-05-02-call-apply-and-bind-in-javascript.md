@@ -149,8 +149,28 @@ The code above can be a little improved, so we wouldn't have to operate `[]` dir
 const join = [].join;
 join.call("abc", ","); // "a,b,c"
 
+
 const filter = [].filter;
 filter.call("string1", function(val) {
     return val !== "1";
 }).join(""); // "string"
 ```
+
+Continuing in the spirit of reducing verboseness, let’s borrow a method without having to write `call` and `apply` each time we want to use it:
+
+```javascript
+const boundJoin = Function.prototype.call.bind(Array.prototype.join);
+
+boundJoin('abc', ","); // "a,b,c"
+
+
+const boundFilter = Function.prototype.call.bind(Array.prototype.filter);
+
+boundFilter("string1", function(val) {
+    return val !== "1";
+}).join(""); // "string"
+
+
+```
+
+**Important note:** it's totally fine to change method names from `boundJoin` and `boundFilter` to `join` and `filter`. Those example names are used just to remind that `bind` isn't executed immediately, but returns new function.
