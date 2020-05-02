@@ -69,7 +69,7 @@ console.log(user.'full name'); // SyntaxError: Unexpected token
 
 ## What if property does not exist?
 
-If property you are trying to access doesn't exist, you will receive `undefined`:
+If property you are trying to access doesn't exist, you would receive `undefined`:
 
 ```javascript
 const user = {
@@ -79,3 +79,84 @@ const user = {
 
 console.log(user.full_name); // Prints "undefined"
 ```
+
+## Add property
+
+You can add property to an object after it was created:
+
+```javascript
+const user = {
+  name: "John",
+  surname: "Doe"
+};
+
+user.full_name = "John Doe";
+
+console.log(user); // Prints { name: "John", surname: "Doe", full_name: "John Doe" }
+```
+
+## Change property
+
+To change property in an object, use assignment operator:
+
+```javascript
+const user = {
+  name: "John"
+};
+
+user.name = "Andrew";
+
+console.log(user); // Prints { name: "Andrew" }
+```
+
+## Delete property
+
+Use `delete` operator to remove property from an object:
+
+```javascript
+const user = {
+  name: "John",
+  surname: "Doe"
+};
+
+delete user.name;
+
+console.log(user); // Prints { surname: "Doe" }
+```
+
+## Check if property exist
+
+Use `in` operator to check if property exists in an object:
+
+```javascript
+const user = {
+  name: "John",
+  surname: "Doe"
+};
+
+console.log('name' in user); // Prints "true"
+
+console.log('full_name' in user); // Prints "false"
+```
+
+## Iterate over properties
+
+Use `for ... in` loop in order to iterate over properties in an object:
+
+```javascript
+const user = {
+  name: "John",
+  surname: "Doe"
+};
+
+for (const propertyName in user) {
+  console.log(propertyName); // Prints "name" and "surname"
+  console.log(user[propertyName]); // Prints "John" and "Doe"
+}
+```
+
+When iterating over object properties using loop, you have an access to the property name, as the first argument of the loop. 
+
+You can access value as well, by doing user`[propertyName]`.
+
+**Important note:** if property name is dynamic, access object value using **array-like notation**. Using **dot notation** will result in `undefined`.
