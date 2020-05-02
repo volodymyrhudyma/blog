@@ -37,3 +37,5 @@ Please, do not hesitate to leave your feedback in the comments section below eac
 Be well, do good deeds and keep in touch.
 
 Click here to read the [first article](/2020-04-26-javascript-mastering-weird-parts/).
+
+***P.S. You are allowed to use any information provided in these blog for any of your needs.***
