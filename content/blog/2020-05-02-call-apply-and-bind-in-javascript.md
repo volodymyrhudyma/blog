@@ -169,8 +169,12 @@ const boundFilter = Function.prototype.call.bind(Array.prototype.filter);
 boundFilter("string1", function(val) {
     return val !== "1";
 }).join(""); // "string"
-
-
 ```
 
 **Important note:** it's totally fine to change method names from `boundJoin` and `boundFilter` to `join` and `filter`. Those example names are used just to remind that `bind` isn't executed immediately, but returns new function.
+
+## Conclusion
+
+You should have solid understanding how `call`, `apply` and `bind` work by now. 
+
+Those functions are often forgotten by developers so try to always keep them in mind and use if needed.
