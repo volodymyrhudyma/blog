@@ -159,4 +159,16 @@ When iterating over object properties using loop, you have an access to the prop
 
 You can access value as well, by doing user`[propertyName]`.
 
-**Important note:** if property name is dynamic, access object value using **array-like notation**. Using **dot notation** will result in `undefined`.
+**Important note:** if property name is dynamic, access object value using **array-like notation**. Using **dot notation** will result in `undefined`:
+
+```javascript
+const user = {
+  name: "John",
+  surname: "Doe"
+};
+
+for (const propertyName in user) {
+  console.log(propertyName); // Prints "name" and "surname"
+  console.log(user.propertyName); // Prints "undefined" 2 times
+}
+```
