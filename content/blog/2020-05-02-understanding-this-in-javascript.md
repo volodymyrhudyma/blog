@@ -46,7 +46,7 @@ example(); // Prints "undefined"
 
 ```javascript
 function handleClick(e) {
-  console.log(this); // Refers to "button" element
+  console.log(this); // Refers to the "button" element
 }
 
 <button onclick="handleClick">
@@ -76,7 +76,7 @@ const john = {
   surname: "Doe",
   getFullName: function() {
     return this.name + " " + this.surname;
-   }
+  }
 }
 
 const andrew = {
@@ -113,7 +113,7 @@ example(); // Prints "Window" in browser
 function parent() {
   const child = () => {
     console.log(this);
-  }
+  };
   child();
 }
 
@@ -130,7 +130,7 @@ const john = {
     const lowerCaseFullName = () => {
       // This refers to "john" object
       return this.name.toLowerCase() + " " + this.surname.toLowerCase();
-    } 
+    };
     return lowerCaseFullName();
    }
 }
@@ -147,7 +147,7 @@ const john = {
   getFullName: () => {
     const lowerCaseFullName = () => {
       return this.name.toLowerCase() + " " + this.surname.toLowerCase();
-    } 
+    };
     return lowerCaseFullName();
    }
 }
