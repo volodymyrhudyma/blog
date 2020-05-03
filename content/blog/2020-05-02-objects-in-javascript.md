@@ -275,11 +275,27 @@ All objects in JavaScript descend from the parent `Object` constructor. `Object`
 
 The list of all `Object` built-in methods available for use:
 
-* `Object.create`
+* `Object.create` 
+
+  Creates a new object with specified prototype.
 * `Object.keys`
+
+  Creates an array containing keys of the object.
 * `Object.values`
+
+  Creates an array containing values of the object.
 * `Object.entries`
+
+  Creates nested array containing key/values pairs of the object.
 * `Object.assign`
+
+  Copies values from one object to another.
 * `Object.freeze`
+
+  Disallows properties modification/deletion as well as adding new ones.
 * `Object.seal`
+
+  Disallows adding new properties, but allows modification of existing ones.
 * `Object.getPrototypeOf`
+
+  Gets prototype (the value of internal `[[Prototype]]`) of an object, also accessible via `__proto__`.
