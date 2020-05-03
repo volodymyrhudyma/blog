@@ -264,3 +264,5 @@ console.log(user.getFullName()); // TypeError: Cannot read property 'name' of un
 Notice that both examples return the same error. Do you know why? 
 
 Arrow function doesn't bind own `this` context, so we don't have access to object's properties.
+
+**Important note:** never define object's methods using arrow functions.
