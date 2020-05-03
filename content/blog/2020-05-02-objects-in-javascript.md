@@ -275,27 +275,134 @@ All objects in JavaScript descend from the parent `Object` constructor. `Object`
 
 The list of all `Object` built-in methods available for use:
 
-* `Object.create` 
+#### `Object.create` 
 
-  Creates a new object with specified prototype.
-* `Object.keys`
+Creates a new object with specified prototype:
 
-  Creates an array containing keys of the object.
-* `Object.values`
+```javascript
+const person = {
+  age: 18,
+  getAge() {
+    return this.age;
+  }
+};
 
-  Creates an array containing values of the object.
-* `Object.entries`
+const adult = Object.create(person);
+adult.age = 30;
 
-  Creates nested array containing key/values pairs of the object.
-* `Object.assign`
+console.log(adult.getAge()); // Prints "30"
+```
 
-  Copies values from one object to another.
-* `Object.freeze`
+#### `Object.keys`
 
-  Disallows properties modification/deletion as well as adding new ones.
-* `Object.seal`
+Creates an array containing keys of the object:
 
-  Disallows adding new properties, but allows modification of existing ones.
-* `Object.getPrototypeOf`
+```javascript
+const person = {
+  age: 18,
+  getAge() {
+    return this.age;
+  }
+};
 
-  Gets prototype (the value of internal `[[Prototype]]`) of an object, also accessible via `__proto__`.
+const keys = Object.keys(person);
+
+console.log(keys); // Prints [ "age", "getAge" ]
+```
+
+#### `Object.values`
+
+Creates an array containing values of the object:
+
+```javascript
+const person = {
+  name: "John",
+  age: 18
+};
+
+const values = Object.values(person);
+
+console.log(values); // Prints [ "John", 18 ]
+```
+
+#### `Object.entries`
+
+Creates nested array containing key/values pairs of the object:
+
+```javascript
+const person = {
+  name: "John",
+  age: 18
+};
+
+const entries = Object.entries(person);
+
+console.log(entries); // Prints [ ["name", "John" ], [ "age", 18 ] ]
+```
+
+#### `Object.assign`
+
+Copies values from one object to another:
+
+```javascript
+const person = {
+  name: "John",
+  age: 18
+};
+
+const newPerson = Object.assign({}, person);
+
+console.log(newPerson); // Prints { name: "John", age: 18 }
+```
+
+#### `Object.freeze`
+
+Disallows properties modification/deletion as well as adding new ones:
+
+```javascript
+const person = {
+  name: "John",
+  age: 18
+};
+
+Object.freeze(person);
+
+person.name = "Andrew"; // TypeError: Cannot assign to read only property "name" of object
+
+delete person.age; // TypeError: Cannot delete property "age" of object
+
+person.surname = "Doe"; // TypeError: Cannot add property surname, object is not extensible
+```
+
+#### `Object.seal`
+
+Disallows adding new properties, but allows modification of existing ones:
+
+```javascript
+const person = {
+  name: "John",
+  age: 18
+};
+
+Object.seal(person);
+
+person.surname = "Doe"; // TypeError: Cannot add property surname, object is not extensible
+
+person.name = "Andrew"; // Looks good
+
+console.log(person.name); // Prints "Andrew"
+```
+
+#### `Object.getPrototypeOf`
+
+Gets prototype (the value of internal `[[Prototype]]`) of an object, also accessible via `__proto__:`
+
+```javascript
+const animal = {};
+
+const dog = Object.create(animal);
+
+const dogPrototype = Object.getPrototypeOf(dog);
+
+console.log(dogPrototype === animal); // Prints "true"
+```
