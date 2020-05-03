@@ -406,3 +406,7 @@ const dogPrototype = Object.getPrototypeOf(dog);
 
 console.log(dogPrototype === animal); // Prints "true"
 ```
+
+## Conclusion
+
+In this chapter we dug into JavaScript objects, reviewed how to create/modify/delete their properties, add custom methods and use a great power of built-in `Object` methods.
