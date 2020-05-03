@@ -266,3 +266,18 @@ Notice that both examples return the same error. Do you know why?
 Arrow function doesn't bind own `this` context, so we don't have access to object's properties.
 
 **Important note:** never define object's methods using arrow functions.
+
+## Built-in object functions
+
+All objects in JavaScript descend from the parent `Object` constructor. `Object` has a lot of useful built-in methods we can access and use.
+
+**Important note:** `Object` methods are used directly on the `Object` constructor and use the object instance as a parameter. They are also known as a static methods.
+
+* `Object.create`
+* `Object.keys`
+* `Object.values`
+* `Object.entries`
+* `Object.assign`
+* `Object.freeze`
+* `Object.seal`
+* `Object.getPrototypeOf`
