@@ -2,9 +2,9 @@
 title: Objects in JavaScript
 date: 2020-05-02T19:11:10.868Z
 ---
-Everything in JavaScript, except Primitives are Objects. Understanding objects is essential in order to become  professional. 
+Everything in JavaScript, except Primitives are Objects, that's why it's the most important part of the language. Understanding objects is essential in order to become  professional. 
 
-In JavaScript, objects are collections of properties, defined as key-value pair.
+Objects are collections of properties, defined as key-value pair.
 
 ## Create an object
 
@@ -275,7 +275,7 @@ All objects in JavaScript descend from the parent `Object` constructor. `Object`
 
 The list of all `Object` built-in methods available for use:
 
-#### `Object.create` 
+#### `Object.create`
 
 Creates a new object with specified prototype:
 
