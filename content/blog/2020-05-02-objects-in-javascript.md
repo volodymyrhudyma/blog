@@ -197,67 +197,70 @@ There are a few ways of defining object methods, let's take a look at them all:
 
 1. Using object literal syntax:
 
-   ```javascript
-   const user = {
-     name: "John",
-     surname: "Doe",
-     getFullName: function() {
-       return this.name + " " + this.surname;
-     }
-   };
-   ```
+```javascript
+const user = {
+  name: "John",
+  surname: "Doe",
+  getFullName: function() {
+    return this.name + " " + this.surname;
+  }
+};
+```
+
 2. Shorthand for object literal (ES6 syntax):
 
-   ```javascript
-   const user = {
-     name: "John",
-     surname: "Doe",
-     getFullName() {
-       return this.name + " " + this.surname;
-     }
-   };
-   ```
+```javascript
+const user = {
+  name: "John",
+  surname: "Doe",
+  getFullName() {
+    return this.name + " " + this.surname;
+  }
+};
+```
+
 3. Using function expression:
 
-   ```javascript
-   const user = {
-     name: "John",
-     surname: "Doe",
-   };
+```javascript
+const user = {
+  name: "John",
+  surname: "Doe",
+};
 
-   user.getFullName = function() {
-     return this.name + " " +  this.surname;
-   }
-   ```
+user.getFullName = function() {
+  return this.name + " " +  this.surname;
+}
+```
+
 4. Using fat arrow function (ES6 syntax):
 
-   ```javascript
-   const user = {
-     name: "John",
-     surname: "Doe",
-     getFullName: () => {
-       return this.name + " " + this.surname;
-     }
-   };
+```javascript
+const user = {
+  name: "John",
+  surname: "Doe",
+  getFullName: () => {
+    return this.name + " " + this.surname;
+  }
+};
 
-   console.log(user.getFullName()); // TypeError: Cannot read property 'name' of undefined
-   ```
+console.log(user.getFullName()); // TypeError: Cannot read property 'name' of undefined
+```
 
-   or:
+or:
 
-   ```javascript
-   const user = {
-     name: "John",
-     surname: "Doe",
-   };
+```javascript
+const user = {
+  name: "John",
+  surname: "Doe",
+};
 
-   user.getFullName = () => {
-     return this.name + " " + this.surname;
-   }
+user.getFullName = () => {
+  return this.name + " " + this.surname;
+}
 
-   console.log(user.getFullName()); // TypeError: Cannot read property 'name' of undefined
-   ```
+console.log(user.getFullName()); // TypeError: Cannot read property 'name' of undefined
+```
 
-   Notice that both examples return the same error. Do you know why? 
+Notice that both examples return the same error. Do you know why? 
 
-   Arrow function doesn't bind own `this` context, so we don't have access to object's properties.
+Arrow function doesn't bind own `this` context, so we don't have access to object's properties.
