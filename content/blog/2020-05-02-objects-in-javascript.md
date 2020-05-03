@@ -172,3 +172,92 @@ for (const propertyName in user) {
   console.log(user.propertyName); // Prints "undefined" 2 times
 }
 ```
+
+## Object methods
+
+Methods are actions that can be performed on objects:
+
+```javascript
+const user = {
+  name: "John",
+  surname: "Doe",
+  getFullName: function() {
+    return this.name + " " + this.surname;
+  }
+};
+
+console.log(user.getFullName()); // Prints "John Doe"
+```
+
+In the above example a method `getFullName` was defined. It combines `name` and `surname` and returns them. 
+
+**Important note:** if you are not familiar with `this` keyword, please refer to [this article](/2020-05-02-understanding-this-in-javascript/).
+
+There are a few ways of defining object methods, let's take a look at them all:
+
+1. Using object literal syntax:
+
+   ```javascript
+   const user = {
+     name: "John",
+     surname: "Doe",
+     getFullName: function() {
+       return this.name + " " + this.surname;
+     }
+   };
+   ```
+2. Shorthand for object literal (ES6 syntax):
+
+   ```javascript
+   const user = {
+     name: "John",
+     surname: "Doe",
+     getFullName() {
+       return this.name + " " + this.surname;
+     }
+   };
+   ```
+3. Using function expression:
+
+   ```javascript
+   const user = {
+     name: "John",
+     surname: "Doe",
+   };
+
+   user.getFullName = function() {
+     return this.name + " " +  this.surname;
+   }
+   ```
+4. Using fat arrow function (ES6 syntax):
+
+   ```javascript
+   const user = {
+     name: "John",
+     surname: "Doe",
+     getFullName: () => {
+       return this.name + " " + this.surname;
+     }
+   };
+
+   console.log(user.getFullName()); // TypeError: Cannot read property 'name' of undefined
+   ```
+
+   or:
+
+   ```javascript
+   const user = {
+     name: "John",
+     surname: "Doe",
+   };
+
+   user.getFullName = () => {
+     return this.name + " " + this.surname;
+   }
+
+   console.log(user.getFullName()); // TypeError: Cannot read property 'name' of undefined
+   ```
+
+   Notice that both examples return the same error. Do you know why? 
+
+   Arrow function doesn't bind own `this` context, so we don't have access to object's properties.
