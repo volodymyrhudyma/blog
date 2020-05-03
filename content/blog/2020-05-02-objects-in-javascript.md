@@ -273,6 +273,8 @@ All objects in JavaScript descend from the parent `Object` constructor. `Object`
 
 **Important note:** `Object` methods are used directly on the `Object` constructor and use the object instance as a parameter. They are also known as a static methods.
 
+The list of all `Object` built-in methods available for use:
+
 * `Object.create`
 * `Object.keys`
 * `Object.values`
