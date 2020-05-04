@@ -261,6 +261,38 @@ const users = ['John', 'Andrew', 'Mike'];
 console.log(users.length); // Prints "3"
 ```
 
+## How to recognize an array
+
+Sometimes it's necessary to know if the variable is an array or no. The first thing that comes to mind is `typeof` operator, let's try to use it:
+
+```javascript
+const users = ['John', 'Andrew', 'Mike'];
+
+console.log(typeof users); // Prints "object"
+```
+
+Oh, `typeof` array is `object`. Do you still remember that in JavaScript everything is `object` except the primitives. 
+
+So, is there a way to check if variable is an array?
+
+The answer is - yes, the is even more than one solution:
+
+#### Array.isArray
+
+```javascript
+const users = ['John', 'Andrew', 'Mike'];
+
+console.log(Array.isArray(users)); // Prints "true"
+```
+
+#### instanceOf
+
+```javascript
+const users = ['John', 'Andrew', 'Mike'];
+
+console.log(users instanceof Array); // Prints "true"
+```
+
 ## Array properties and methods
 
 JavaScript arrays have a lot of built properties and methods:
