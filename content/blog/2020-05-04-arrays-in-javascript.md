@@ -285,7 +285,7 @@ const users = ["John", "Andrew", "Mike"];
 console.log(Array.isArray(users)); // Prints "true"
 ```
 
-#### instanceOf
+#### instanceof
 
 ```javascript
 const users = ["John", "Andrew", "Mike"];
