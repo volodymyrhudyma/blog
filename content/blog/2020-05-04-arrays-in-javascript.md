@@ -144,12 +144,14 @@ There are a lot of ways to remove element from an array. Let's take a look at so
 
 #### pop
 
-`pop` removes last element from the array:
+`pop` removes last element from the array and returns it:
 
 ```javascript
 const users = ["John", "Andrew"];
 
-users.pop();
+const removedElement = users.pop();
+
+console.log(removedElement); // Prints "Andrew"
 
 console.log(users); // Prints ["John"]
 ```
