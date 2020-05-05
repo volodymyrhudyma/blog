@@ -126,7 +126,19 @@ console.log(numbers); // Prints [20, 0, 1, 2, 5, 8, 10]
 
 ```
 
- 
+#### shift
+
+Removes the first element of an array and returns that element:
+
+```javascript
+const numbers = [0, 1, 2, 5, 8, 10];
+
+const removedNumber = numbers.shift();
+
+console.log(removedNumber); // Prints "0"
+
+console.log(numbers); // Prints "[ 1, 2, 5, 8, 10 ]"
+```
 
 #### includes
 
@@ -287,3 +299,17 @@ const result = numbers.slice(0, 2);
 
 console.log(result); // Prints "[0, 1]"
 ```
+
+#### join
+
+Joins all array elements into a string:
+
+```javascript
+const numbers = [0, 1, 2, 5, 8, 10];
+
+const result = numbers.join();
+
+console.log(result); // Prints "0,1,2,5,8,10"
+```
+
+**Important note:** you can pass the separator as the only argument of `join` function and the elements will be separated by it. The default separator is comma (`,`).
