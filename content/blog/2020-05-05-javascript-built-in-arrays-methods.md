@@ -111,6 +111,23 @@ console.log(removedNumber); // Prints "10"
 console.log(numbers); // Prints "[ 0, 1, 2, 5, 8 ]"
 ```
 
+#### unshift
+
+Adds element to the beginning of an array and returns the new length:
+
+```javascript
+const numbers = [0, 1, 2, 5, 8, 10];
+
+const newLength = numbers.unshift(20);
+
+console.log(newLength); // Prints 7
+
+console.log(numbers); // Prints [20, 0, 1, 2, 5, 8, 10]
+
+```
+
+ 
+
 #### includes
 
 Checks if an array contains specified element:
@@ -197,3 +214,76 @@ console.log(index); // Prints "-1"
 ```
 
 **Important note:** in order search for an element going from right-to-left you can use `lastIndexOf` function.
+
+#### concat
+
+Joins two or more arrays and returns a copy of them:
+
+```javascript
+const smallNumbers = [0, 1, 2];
+
+const mediumNumbers = [10, 20, 30];
+
+const bigNumbers = [100, 200, 300];
+
+const result = smallNumbers.concat(mediumNumbers, bigNumbers);
+
+console.log(result); // Prints "[0, 1, 2, 10, 20, 30, 100, 200, 300]"
+```
+
+#### sort
+
+Sorts elements of an array
+
+```javascript
+const numbers = [2, 0, 1];
+
+// By default sorts numbers in ascending order
+numbers.sort();
+
+console.log(numbers); // Prints "[0, 1, 2]"
+```
+
+```javascript
+const chars = ["b", "w", "a"];
+
+chars.sort();
+
+console.log(chars); // Prints ["a", "b", "w"]
+```
+
+**Important note:** The sort order can be either alphabetic or numeric, and either ascending (up) or descending (down). By default, `sort` method sorts the values as strings in alphabetical and ascending order. You can provide compare function to change sort order:
+
+```javascript
+const numbers = [40, 100, 1, 5, 25, 10];
+
+// Sort in descending order
+numbers.sort((a, b) => b - a);
+
+console.log(numbers); // Prints "[100, 40, 25, 10, 5, 1]"
+```
+
+#### reverse
+
+Reverses the order of elements in an array:
+
+```javascript
+const numbers = [0, 1, 2, 3, 5];
+
+numbers.reverse();
+
+console.log(numbers); // Prints "[5, 3, 2, 1, 0]"
+```
+
+#### slice
+
+Returns new array as a part of original one, sliced using given condition:
+
+```javascript
+const numbers = [0, 1, 2, 3, 5];
+
+// Slice 2 elemnts, starting from index 0
+const result = numbers.slice(0, 2);
+
+console.log(result); // Prints "[0, 1]"
+```
