@@ -1,5 +1,5 @@
 ---
-title: JavaScript built-in arrays methods
+title: JavaScript built-in array methods
 date: 2020-05-05T15:41:23.309Z
 ---
 In the [previous article](/2020-05-04-arrays-in-javascript/) we had a brief introduction to arrays in JavaScript. Today we are going to explore all built-in array methods that are available for a use by default. We'll start from the most used ones.
