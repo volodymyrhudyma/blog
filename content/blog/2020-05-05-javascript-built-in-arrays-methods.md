@@ -91,9 +91,9 @@ const numbers = [0, 1, 2, 5, 8, 10];
 
 const newLength = numbers.push(20);
 
-console.log(newLength); // Prints 7
+console.log(newLength); // Prints "7"
 
-console.log(numbers); // Prints [0, 1, 2, 5, 8, 10, 20]
+console.log(numbers); // Prints "[0, 1, 2, 5, 8, 10, 20]"
 
 ```
 
@@ -120,9 +120,9 @@ const numbers = [0, 1, 2, 5, 8, 10];
 
 const newLength = numbers.unshift(20);
 
-console.log(newLength); // Prints 7
+console.log(newLength); // Prints "7"
 
-console.log(numbers); // Prints [20, 0, 1, 2, 5, 8, 10]
+console.log(numbers); // Prints "[20, 0, 1, 2, 5, 8, 10]"
 
 ```
 
@@ -313,3 +313,27 @@ console.log(result); // Prints "0,1,2,5,8,10"
 ```
 
 **Important note:** you can pass the separator as the only argument of `join` function and the elements will be separated by it. The default separator is comma (`,`).
+
+#### keys
+
+Returns `Array iterator object`, containing keys of the original array:
+
+```javascript
+const numbers = [0, 1, 2, 5, 8, 10];
+
+const keys = numbers.keys();
+
+console.log(keys); // Prints "Object [Array Iterator] {}"
+```
+
+**Important note:** to access each key, just iterate through returned value:
+
+```javascript
+const numbers = [0, 1, 2, 5, 8, 10];
+
+const keys = numbers.keys();
+
+for (const key of keys) {
+  console.log(key); // Prints "0", "1", "2", "3", "4", "5"
+}
+```
