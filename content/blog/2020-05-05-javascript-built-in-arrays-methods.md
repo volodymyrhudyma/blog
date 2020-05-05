@@ -66,3 +66,134 @@ console.log(result); // Prints 0
 ```
 
 **Important note:** remember, that `find` returns the first found element, in order to return all elements that meet the criteria, use `filter` method.
+
+#### reduce
+
+Reduces an array to a single value(going left-to-right):
+
+```javascript
+const numbers = [0, 1, 2, 5, 8, 10];
+
+// Find the sum of numbers array
+const sum = numbers.reduce((accumulator, item) => accumulator + item);
+
+console.log(sum); // Prints "26"
+```
+
+**Important note:** in order to reduce array to a single value going from right-to-left you can use `reduceRight` function.
+
+#### push
+
+Adds new elements to the end of an array and returns new length of an array:
+
+```javascript
+const numbers = [0, 1, 2, 5, 8, 10];
+
+const newLength = numbers.push(20);
+
+console.log(newLength); // Prints 7
+
+console.log(numbers); // Prints [0, 1, 2, 5, 8, 10, 20]
+
+```
+
+#### pop
+
+Removes last element of an array and returns it:
+
+```javascript
+const numbers = [0, 1, 2, 5, 8, 10];
+
+const removedNumber = numbers.pop();
+
+console.log(removedNumber); // Prints "10"
+
+console.log(numbers); // Prints "[ 0, 1, 2, 5, 8 ]"
+```
+
+#### includes
+
+Checks if an array contains specified element:
+
+```javascript
+const numbers = [0, 1, 2, 5, 8, 10];
+
+const result = numbers.includes(10);
+
+console.log(result); // Prints "true"
+```
+
+#### splice
+
+Removes elements from an array and returns deleted elements:
+
+```javascript
+const numbers = [0, 1, 2, 5, 8, 10];
+
+// Remove 2 elemnts, starting from index 0
+const deletedElements = numbers.splice(0, 2);
+
+console.log(deletedElements); // Prints "[0, 1]"
+
+console.log(numbers); // Prints "[2, 5, 8, 10]"
+```
+
+Adds elements to an array and returns deleted elements(if some were deleted) or empty array(if no elements were deleted):
+
+```javascript
+const numbers = [0, 1, 2, 5, 8, 10];
+
+// Add 2 elements starting from index 0, do not delete anything
+const deletedElements = numbers.splice(0, 0, 60, 80);
+
+console.log(deletedElements); // Prints "[]" as no elements were deleted
+
+console.log(numbers); // Prints "[60, 80, 0, 1, 2, 5, 8, 10]"
+```
+
+```javascript
+const numbers = [0, 1, 2, 5, 8, 10];
+
+// Add 2 elements starting from index 0, delete 6 items
+const deletedElements = numbers.splice(0, 6, 60, 80);
+
+console.log(deletedElements); // Prins "[0, 1, 2, 5, 8, 10]" as those were deleted
+
+console.log(numbers); // Prints "[60, 80, 0, 1, 2, 5, 8, 10]"
+```
+
+#### forEach
+
+Calls a function for each element of an array:
+
+```javascript
+const numbers = [10, 20, 30];
+
+numbers.forEach((number, index) => {
+  console.log(index, number); // Prints "0" "10", "1" "20", "2" "30"
+})
+```
+
+#### indexOf
+
+Searches for an element and returns its position or `-1` if not found(goes from left-to-right):
+
+```javascript
+const numbers = [0, 1, 2, 5, 8, 10];
+
+// Search for "5"
+const index = numbers.indexOf(5);
+
+console.log(index); // Prints "3"
+```
+
+```javascript
+const numbers = [0, 1, 2, 5, 8, 10];
+
+// Search for "100"
+const index = numbers.indexOf(100);
+
+console.log(index); // Prints "-1"
+```
+
+**Important note:** in order search for an element going from right-to-left you can use `lastIndexOf` function.
