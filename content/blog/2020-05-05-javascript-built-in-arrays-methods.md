@@ -43,6 +43,8 @@ console.log(filteredNumbers); // Prints [8, 10]
 
 ## map
 
+*does not change the original array*
+
 Creates a new array with the result of calling function for each element:
 
 ```javascript
@@ -55,6 +57,8 @@ console.log(mappedNumbers); // Prints [0, 2, 4, 10, 16, 20]
 ```
 
 ## find
+
+*does not change the original array*
 
 Returns the value of the first element in an array that meets given condition:
 
@@ -71,6 +75,8 @@ console.log(result); // Prints 0
 
 ## reduce
 
+*does not change the original array*
+
 Reduces an array to a single value(going left-to-right):
 
 ```javascript
@@ -86,6 +92,8 @@ console.log(sum); // Prints "26"
 
 ## push
 
+*changes the original array*
+
 Adds new elements to the end of an array and returns new length of an array:
 
 ```javascript
@@ -99,6 +107,8 @@ console.log(numbers); // Prints "[0, 1, 2, 5, 8, 10, 20]"
 ```
 
 ## pop
+
+*changes the original array*
 
 Removes last element of an array and returns it:
 
@@ -114,6 +124,8 @@ console.log(numbers); // Prints "[ 0, 1, 2, 5, 8 ]"
 
 ## unshift
 
+*changes the original array*
+
 Adds element to the beginning of an array and returns the new length:
 
 ```javascript
@@ -127,6 +139,8 @@ console.log(numbers); // Prints "[20, 0, 1, 2, 5, 8, 10]"
 ```
 
 ## shift
+
+*changes the original array*
 
 Removes the first element of an array and returns that element:
 
@@ -142,6 +156,8 @@ console.log(numbers); // Prints "[ 1, 2, 5, 8, 10 ]"
 
 ## includes
 
+*does not change the original array*
+
 Checks if an array contains specified element:
 
 ```javascript
@@ -153,6 +169,8 @@ console.log(result); // Prints "true"
 ```
 
 ## splice
+
+*changes the original array*
 
 Removes elements from an array and returns deleted elements:
 
@@ -193,6 +211,8 @@ console.log(numbers); // Prints "[60, 80, 0, 1, 2, 5, 8, 10]"
 
 ## forEach
 
+*does not change the original array*
+
 Calls a function for each element of an array:
 
 ```javascript
@@ -204,6 +224,8 @@ numbers.forEach((number, index) => {
 ```
 
 ## indexOf
+
+*does not change the original array*
 
 Searches for an element and returns its position or `-1` if not found(goes from left-to-right):
 
@@ -229,6 +251,8 @@ console.log(index); // Prints "-1"
 
 ## concat
 
+*does not change the original array*
+
 Joins two or more arrays and returns a copy of them:
 
 ```javascript
@@ -244,6 +268,8 @@ console.log(result); // Prints "[0, 1, 2, 10, 20, 30, 100, 200, 300]"
 ```
 
 ## sort
+
+*changes the original array*
 
 Sorts elements of an array
 
@@ -277,6 +303,8 @@ console.log(numbers); // Prints "[100, 40, 25, 10, 5, 1]"
 
 ## reverse
 
+*changes the original array*
+
 Reverses the order of elements in an array:
 
 ```javascript
@@ -288,6 +316,8 @@ console.log(numbers); // Prints "[5, 3, 2, 1, 0]"
 ```
 
 ## slice
+
+*does not change the original array*
 
 Returns new array as a part of original one, sliced using given condition:
 
@@ -302,6 +332,8 @@ console.log(result); // Prints "[0, 1]"
 
 ## join
 
+*does not change the original array*
+
 Joins all array elements into a string:
 
 ```javascript
@@ -315,6 +347,8 @@ console.log(result); // Prints "0,1,2,5,8,10"
 **Important note:** you can pass the separator as the only argument of `join` function and the elements will be separated by it. The default separator is comma (`,`).
 
 ## keys
+
+*does not change the original array*
 
 Returns `Array iterator object`, containing keys of the original array:
 
@@ -340,6 +374,8 @@ for (const key of keys) {
 
 ## toString
 
+*does not change the original array*
+
 Converts an array to string and returns the result:
 
 ```javascript
@@ -352,6 +388,8 @@ console.log(result); // Prints "0,1,2,5,8,10"
 
 ## isArray
 
+*does not change the original array*
+
 Checks if an object is an array. Returns `true` if array, `false` if not:
 
 ```javascript
@@ -361,6 +399,8 @@ console.log(Array.isArray(numbers)); // Prints "true"
 ```
 
 ## some
+
+*does not change the original array*
 
 Checks if any of array elements meet the specified criteria. Returns `true` if finds at least one match, otherwise returns `false`:
 
@@ -375,6 +415,8 @@ console.log(result); // Prints "true"
 
 ## every
 
+*does not change the original array*
+
 Checks if every element in an array meets the specified criteria:
 
 ```javascript
@@ -387,6 +429,8 @@ console.log(result); // Prints "true"
 ```
 
 ## entries
+
+*does not change the original array*
 
 Returns key/value pair Array Iteration Object:
 
@@ -401,6 +445,8 @@ for(const entry of entries) {
 ```
 
 ## fill
+
+*changes the original array*
 
 Fills elements in an array with a static value:
 
@@ -435,6 +481,8 @@ console.log(letters); // Prints ["a", "b", "c", "d"]
 
 ## valueOf
 
+*does not change the original array*
+
 It is a default method of the Array that returns all the items in the same array: 
 
 ```javascript
@@ -447,6 +495,8 @@ console.log(result); // Prints "[0, 1, 2, 3, 5, 8]"
 
 ## findIndex
 
+*does not change the original array*
+
 Returns the index of the first element in an array that meets the specified criteria or `-1`:
 
 ```javascript
@@ -458,6 +508,8 @@ console.log(result); // Prints "4"
 ```
 
 ## copyWithin
+
+*changes the original array*
 
 Copies array elements within the array, to and from specified positions:
 
