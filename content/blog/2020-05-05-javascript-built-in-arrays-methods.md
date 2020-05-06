@@ -423,10 +423,53 @@ console.log(numbers); // Prints "[0, 1, 10, 10, 10, 10]"
 
 #### from
 
-Creates an array from an object:
+Creates an array from any object with a length property or an iterable object:
 
 ```javascript
-const numbers = Array.from('abcd');
+const letters = Array.from('abcd');
 
-console.log(numbers); // Prints ["a", "b", "c", "d"]
+console.log(letters); // Prints ["a", "b", "c", "d"]
 ```
+
+#### valueOf
+
+It is a default method of the Array that returns all the items in the same array: 
+
+```javascript
+const numbers = [0, 1, 2, 3, 5, 8]
+
+const result = numbers.valueOf();
+
+console.log(result); // Prints "[0, 1, 2, 3, 5, 8]"
+```
+
+#### findIndex
+
+Returns the index of the first element in an array that meets the specified criteria or `-1`:
+
+```javascript
+const numbers = [0, 1, 2, 3, 5, 8]
+
+const result = numbers.findIndex(item => item === 5);
+
+console.log(result); // Prints "4"
+```
+
+#### copyWithin
+
+Copies array elements within the array, to and from specified positions:
+
+```javascript
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8];
+
+// insert position, start position, end position)
+numbers.copyWithin(3, 1, 3);
+
+console.log(numbers); // Prints "[1, 2, 3, 2, 3, 6, 7, 8]"
+```
+
+## Conclusion
+
+We have just covered basic built-in array methods, so you should understand how they work and how to get use of them.
+
+It's not necessary to learn them by heart, you can always refer to documentation in order to find some implementation details.
