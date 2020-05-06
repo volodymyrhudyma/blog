@@ -26,7 +26,9 @@ const multiply = (x, y) => {
 const multiply = (x, y) => x * y;
 ```
 
-#### filter
+## filter
+
+*does not change the original array*
 
 Creates a new array with all elements that satisfy given condition:
 
@@ -39,7 +41,7 @@ const filteredNumbers = numbers.filter(number => number > 5);
 console.log(filteredNumbers); // Prints [8, 10]
 ```
 
-#### map
+## map
 
 Creates a new array with the result of calling function for each element:
 
@@ -52,7 +54,7 @@ const mappedNumbers = numbers.map(number => number * 2);
 console.log(mappedNumbers); // Prints [0, 2, 4, 10, 16, 20]
 ```
 
-#### find
+## find
 
 Returns the value of the first element in an array that meets given condition:
 
@@ -67,7 +69,7 @@ console.log(result); // Prints 0
 
 **Important note:** remember, that `find` returns the first found element, in order to return all elements that meet the criteria, use `filter` method.
 
-#### reduce
+## reduce
 
 Reduces an array to a single value(going left-to-right):
 
@@ -82,7 +84,7 @@ console.log(sum); // Prints "26"
 
 **Important note:** in order to reduce array to a single value going from right-to-left you can use `reduceRight` function.
 
-#### push
+## push
 
 Adds new elements to the end of an array and returns new length of an array:
 
@@ -96,7 +98,7 @@ console.log(newLength); // Prints "7"
 console.log(numbers); // Prints "[0, 1, 2, 5, 8, 10, 20]"
 ```
 
-#### pop
+## pop
 
 Removes last element of an array and returns it:
 
@@ -110,7 +112,7 @@ console.log(removedNumber); // Prints "10"
 console.log(numbers); // Prints "[ 0, 1, 2, 5, 8 ]"
 ```
 
-#### unshift
+## unshift
 
 Adds element to the beginning of an array and returns the new length:
 
@@ -124,7 +126,7 @@ console.log(newLength); // Prints "7"
 console.log(numbers); // Prints "[20, 0, 1, 2, 5, 8, 10]"
 ```
 
-#### shift
+## shift
 
 Removes the first element of an array and returns that element:
 
@@ -138,7 +140,7 @@ console.log(removedNumber); // Prints "0"
 console.log(numbers); // Prints "[ 1, 2, 5, 8, 10 ]"
 ```
 
-#### includes
+## includes
 
 Checks if an array contains specified element:
 
@@ -150,7 +152,7 @@ const result = numbers.includes(10);
 console.log(result); // Prints "true"
 ```
 
-#### splice
+## splice
 
 Removes elements from an array and returns deleted elements:
 
@@ -189,7 +191,7 @@ console.log(deletedElements); // Prins "[0, 1, 2, 5, 8, 10]" as those were delet
 console.log(numbers); // Prints "[60, 80, 0, 1, 2, 5, 8, 10]"
 ```
 
-#### forEach
+## forEach
 
 Calls a function for each element of an array:
 
@@ -201,7 +203,7 @@ numbers.forEach((number, index) => {
 })
 ```
 
-#### indexOf
+## indexOf
 
 Searches for an element and returns its position or `-1` if not found(goes from left-to-right):
 
@@ -225,7 +227,7 @@ console.log(index); // Prints "-1"
 
 **Important note:** in order search for an element going from right-to-left you can use `lastIndexOf` function.
 
-#### concat
+## concat
 
 Joins two or more arrays and returns a copy of them:
 
@@ -241,7 +243,7 @@ const result = smallNumbers.concat(mediumNumbers, bigNumbers);
 console.log(result); // Prints "[0, 1, 2, 10, 20, 30, 100, 200, 300]"
 ```
 
-#### sort
+## sort
 
 Sorts elements of an array
 
@@ -273,7 +275,7 @@ numbers.sort((a, b) => b - a);
 console.log(numbers); // Prints "[100, 40, 25, 10, 5, 1]"
 ```
 
-#### reverse
+## reverse
 
 Reverses the order of elements in an array:
 
@@ -285,7 +287,7 @@ numbers.reverse();
 console.log(numbers); // Prints "[5, 3, 2, 1, 0]"
 ```
 
-#### slice
+## slice
 
 Returns new array as a part of original one, sliced using given condition:
 
@@ -298,7 +300,7 @@ const result = numbers.slice(0, 2);
 console.log(result); // Prints "[0, 1]"
 ```
 
-#### join
+## join
 
 Joins all array elements into a string:
 
@@ -312,7 +314,7 @@ console.log(result); // Prints "0,1,2,5,8,10"
 
 **Important note:** you can pass the separator as the only argument of `join` function and the elements will be separated by it. The default separator is comma (`,`).
 
-#### keys
+## keys
 
 Returns `Array iterator object`, containing keys of the original array:
 
@@ -336,7 +338,7 @@ for (const key of keys) {
 }
 ```
 
-#### toString
+## toString
 
 Converts an array to string and returns the result:
 
@@ -348,7 +350,7 @@ const result = numbers.toString();
 console.log(result); // Prints "0,1,2,5,8,10"
 ```
 
-#### isArray
+## isArray
 
 Checks if an object is an array. Returns `true` if array, `false` if not:
 
@@ -358,7 +360,7 @@ const numbers = [0, 1, 2, 5, 8, 10];
 console.log(Array.isArray(numbers)); // Prints "true"
 ```
 
-#### some
+## some
 
 Checks if any of array elements meet the specified criteria. Returns `true` if finds at least one match, otherwise returns `false`:
 
@@ -371,7 +373,7 @@ const result = numbers.some(number => number === 5);
 console.log(result); // Prints "true"
 ```
 
-#### every
+## every
 
 Checks if every element in an array meets the specified criteria:
 
@@ -384,7 +386,7 @@ const result = numbers.every(number => number === 5);
 console.log(result); // Prints "true"
 ```
 
-#### entries
+## entries
 
 Returns key/value pair Array Iteration Object:
 
@@ -398,7 +400,7 @@ for(const entry of entries) {
 }
 ```
 
-#### fill
+## fill
 
 Fills elements in an array with a static value:
 
@@ -421,7 +423,7 @@ numbers.fill(10, 2, 6);
 console.log(numbers); // Prints "[0, 1, 10, 10, 10, 10]"
 ```
 
-#### from
+## from
 
 Creates an array from any object with a length property or an iterable object:
 
@@ -431,7 +433,7 @@ const letters = Array.from('abcd');
 console.log(letters); // Prints ["a", "b", "c", "d"]
 ```
 
-#### valueOf
+## valueOf
 
 It is a default method of the Array that returns all the items in the same array: 
 
@@ -443,7 +445,7 @@ const result = numbers.valueOf();
 console.log(result); // Prints "[0, 1, 2, 3, 5, 8]"
 ```
 
-#### findIndex
+## findIndex
 
 Returns the index of the first element in an array that meets the specified criteria or `-1`:
 
@@ -455,7 +457,7 @@ const result = numbers.findIndex(item => item === 5);
 console.log(result); // Prints "4"
 ```
 
-#### copyWithin
+## copyWithin
 
 Copies array elements within the array, to and from specified positions:
 
