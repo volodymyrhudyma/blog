@@ -94,7 +94,6 @@ const newLength = numbers.push(20);
 console.log(newLength); // Prints "7"
 
 console.log(numbers); // Prints "[0, 1, 2, 5, 8, 10, 20]"
-
 ```
 
 #### pop
@@ -123,7 +122,6 @@ const newLength = numbers.unshift(20);
 console.log(newLength); // Prints "7"
 
 console.log(numbers); // Prints "[20, 0, 1, 2, 5, 8, 10]"
-
 ```
 
 #### shift
@@ -336,4 +334,99 @@ const keys = numbers.keys();
 for (const key of keys) {
   console.log(key); // Prints "0", "1", "2", "3", "4", "5"
 }
+```
+
+#### toString
+
+Converts an array to string and returns the result:
+
+```javascript
+const numbers = [0, 1, 2, 5, 8, 10];
+
+const result = numbers.toString();
+
+console.log(result); // Prints "0,1,2,5,8,10"
+```
+
+#### isArray
+
+Checks if an object is an array. Returns `true` if array, `false` if not:
+
+```javascript
+const numbers = [0, 1, 2, 5, 8, 10];
+
+console.log(Array.isArray(numbers)); // Prints "true"
+```
+
+#### some
+
+Checks if any of array elements meet the specified criteria. Returns `true` if finds at least one match, otherwise returns `false`:
+
+```javascript
+const numbers = [0, 1, 2, 5, 8, 10];
+
+// Check if at least one array element equals 5
+const result = numbers.some(number => number === 5);
+
+console.log(result); // Prints "true"
+```
+
+#### every
+
+Checks if every element in an array meets the specified criteria:
+
+```javascript
+const numbers = [5, 5, 5];
+
+// Check if every item in array is equal to 5
+const result = numbers.every(number => number === 5);
+
+console.log(result); // Prints "true"
+```
+
+#### entries
+
+Returns key/value pair Array Iteration Object:
+
+```javascript
+const array = ["John", "Andrew", "Mike"];
+
+const entries = array.entries();
+ 
+for(const entry of entries) {
+  console.log(entry); // Prints [0, "John"], [1, "Andrew"], [2, "Mike"]
+}
+```
+
+#### fill
+
+Fills elements in an array with a static value:
+
+```javascript
+const numbers = [0, 1, 2];
+
+numbers.fill(10);
+
+console.log(numbers); // Prints "[10, 10, 10]"
+```
+
+**Important note:** you can specify start and end position of an elements which should be filled. If not specified, all elements will be filled:
+
+```javascript
+const numbers = [0, 1, 2, 3, 5, 8];
+
+// Start from 2-nd and fill till the 6-th element
+numbers.fill(10, 2, 6);
+
+console.log(numbers); // Prints "[0, 1, 10, 10, 10, 10]"
+```
+
+#### from
+
+Creates an array from an object:
+
+```javascript
+const numbers = Array.from('abcd');
+
+console.log(numbers); // Prints ["a", "b", "c", "d"]
 ```
