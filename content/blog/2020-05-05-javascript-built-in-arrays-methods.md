@@ -271,7 +271,7 @@ console.log(result); // Prints "[0, 1, 2, 10, 20, 30, 100, 200, 300]"
 
 *changes the original array*
 
-Sorts elements of an array
+Sorts elements of an array:
 
 ```javascript
 const numbers = [2, 0, 1];
