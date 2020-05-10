@@ -9,17 +9,17 @@ Regular expression is a sequence of characters that define search pattern that i
 In JavaScript, there are 2 ways of defining regex: using `RegExp` constructor or literal notation:
 
 ```javascript
-// Literal notation
+// Literal notation, searches for "abc" occurrence
 /abc/i;
 new RegExp(/abc/, i);
 
-// Constructor
+// Constructor, searches for "abc" occurrence
 new RegExp('abc', 'i');
 ```
 
-In the above example `i` is the flag.
+In the above example `i` is the flag. Flags allow us to affect the search by defining how the search should behave. 
 
-Flags allow us to affect the search by defining how the search should behave. We'll cover this topic later on.
+We'll cover this topic later on.
 
 ## Literal notation vs constructor
 
@@ -57,3 +57,34 @@ Assume that we have the following string `abcabcabc` and this regex: `/abc/`. Le
 /abc/gi // Matches all 3 occurrences of "abc"
 /ABC/gi // Matches all 3 occurrences of "abc"
 ```
+
+## Regex patterns
+
+There are a lot of different regex patterns that can be used. There is no need to remember them all, it's totally fine to refer to the [cheat sheet](https://www.keycdn.com/support/regex-cheatsheet) from time to time.
+
+Let's take a look at the most popular patterns.
+
+#### Meta-characters
+
+Meta-characters are characters with a special meaning:
+
+* `\d` - match any digit character `[0-9]`
+* `\D` - match any non-digit character `[^0-9]`
+* `\w` - match any alphanumeric character plus underscore `[A-Za-z_0-9]`
+* `\W` - match any non-alphanumeric character `[^A-Za-z_0-9]`
+* `\s` - match any whitespace character: spaces, tabs, newlines and Unicode spaces
+* `\S` - match any character that is not a whitespace
+
+#### Quantifiers
+
+Quantifiers are symbols that have unique meaning:
+
+* `+` - match the preceding expression 1 or more times
+* `*` - match the preceding expression 0 or more times
+* `?` - match the preceding expression 0 or 1 time, preceding pattern is optional
+* `^` - match the beginning of the string, the regex that follows should be at the start of the test string
+* `$` - match the end of the string, the regex that precedes it should be at the end of the test string
+* `{N}` - match exactly**N** occurrences of the preceding regex
+* `{N,}` - match at least**N** occurrences of the preceding regular expression
+* `{N,M}` - Match at least**N** occurrences and at most**M** occurrences of the preceding regex (if **M** > **N**)
+* `X|Y` - match either **X** or **Y**
