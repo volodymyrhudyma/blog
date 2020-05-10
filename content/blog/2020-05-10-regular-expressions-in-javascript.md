@@ -66,7 +66,7 @@ Let's take a look at the most popular patterns.
 
 #### Meta-characters
 
-Meta-characters are characters with a special meaning:
+Meta-characters are building blocks of regular expressions with a special meaning:
 
 * `\d` - match any digit character `[0-9]`
 * `\D` - match any non-digit character `[^0-9]`
@@ -77,7 +77,7 @@ Meta-characters are characters with a special meaning:
 
 #### Quantifiers
 
-Quantifiers are symbols that have unique meaning:
+Quantifiers are symbols that indicate the scope of search string:
 
 * `+` - match the preceding expression 1 or more times
 * `*` - match the preceding expression 0 or more times
