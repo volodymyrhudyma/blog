@@ -72,7 +72,7 @@ Meta-characters are building blocks of regular expressions with a special meanin
 * `\D` - match any non-digit character `[^0-9]`
 * `\w` - match any alphanumeric character plus underscore `[A-Za-z_0-9]`
 * `\W` - match any non-alphanumeric character `[^A-Za-z_0-9]`
-* `\s` - match any whitespace character: spaces, tabs, newlines and Unicode spaces
+* `\s` - match any whitespace character: spaces, tabs, newlines and unicode spaces
 * `\S` - match any character that is not a whitespace
 
 #### Quantifiers
@@ -88,3 +88,61 @@ Quantifiers are symbols that indicate the scope of search string:
 * `{N,}` - match at least**N** occurrences of the preceding regular expression
 * `{N,M}` - Match at least**N** occurrences and at most**M** occurrences of the preceding regex (if **M** > **N**)
 * `X|Y` - match either **X** or **Y**
+
+## **Regex methods**
+
+When testing regex, we use one of the following methods: `Regex.prototype.test()` or `Regex.prototype.exec()`:
+
+#### `Regex.prototype.test()`
+
+This method is used to test if a match has been found or not. It returns `true` if match found, `false` if not:
+
+```javascript
+const pattern = /abc/;
+
+pattern.test("It contains abc"); // Prints "true"
+
+pattern.test("Simple text"); // Prints "false"
+```
+
+#### `Regex.prototype.exec()`
+
+This method is used to return an array of all matches:
+
+```javascript
+const pattern = /abc/;
+
+// Prints ["abc", index: 12, input: "It contains abc", groups: undefined]
+pattern.exec("It contains abc"); 
+
+```
+
+## Examples
+
+Match any 9-digit number:
+
+```javascript
+const pattern = /\d{9}$/
+
+const string = "My phone number is: 123456789, call me tomorrow";
+
+// Prints ["123456789", index: 20, input: "My phone number is: 123456789",  groups: undefined]
+pattern.exec(string);
+```
+
+Match *YYYY-MM-DD* date format:
+
+```javascript
+const pattern = /\d{4}-|_\d{2}-|-\d{2}$/
+
+const string = "It is going to happen on 2020-09-09";
+
+// Prints ["2020-09-09", index: 25, input: "It is going to happen on 2020-09-09",  groups: undefined]
+pattern.exec(string);
+```
+
+## Conclusion
+
+If you only start learning regular expressions, it can seem like it's very complex topic, but as soon as you dive into it deeper you would have solid understanding of all its principles and everything will become pretty straightforward.
+
+**P.S.** You can have fun with regular expressions online, make sure to check out <https://regex101.com/>.
