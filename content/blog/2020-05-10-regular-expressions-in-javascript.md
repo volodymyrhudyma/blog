@@ -133,7 +133,7 @@ pattern.exec(string);
 Match *YYYY-MM-DD* date format:
 
 ```javascript
-const pattern = /\d{4}-|_\d{2}-|-\d{2}$/
+const pattern = /\d{4}-\d{2}-\d{2}$/
 
 const string = "It is going to happen on 2020-09-09";
 
