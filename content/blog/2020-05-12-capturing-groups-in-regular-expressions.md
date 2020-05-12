@@ -10,7 +10,7 @@ You can easily do so by using so called **capturing groups**.
 
 ## How to create capturing group?
 
-Capturing group can be created by using parentheses `()`. 
+Capturing group can be created by using parentheses `(...)`. 
 
 ## Example #1
 
@@ -101,3 +101,17 @@ console.log(result[3]); // Prints class="example", ([^>]*)) group
 Note that `0` index always holds the full match, capturing groups are numbered from left to right.
 
 The first group returned as `result[1]` encloses the whole tag content, second: `result[2]` holds tag name and the third one: `result[3]` - class attribute.
+
+## Non-capturing groups
+
+Sometimes we want to apply a quantifier, but we don’t want contents in results. It can be done using `?:` in the beginning:
+
+```javascript
+const string = `Andrew, John`;
+
+const pattern = /(?:\w+),\s(\w+)/;
+
+console.log(string.replace(pattern, '$2, $1')); // Prints "$2, Andrew"
+```
+
+Have you noticed that in the example above we received `$2, Andrew` instead of `John, Andrew`?
