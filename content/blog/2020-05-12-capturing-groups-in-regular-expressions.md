@@ -38,7 +38,7 @@ const code = `
 
 const pattern = /(\d)em/g;
 
-code.replace(pattern, '$1rem'); // Result: each em is relpaced with rem
+console.log(code.replace(pattern, '$1rem')); // Result: each em is relpaced with rem
 ```
 
 **Important note:** to access the content of capturing group use dollar sign with the group number. Group numbers start with 1. In the example above we reference to the first captured group with `$1`. Groups are numbered from left to right.
@@ -52,10 +52,30 @@ const string = `Andrew, John`;
 
 const pattern = /(\w+),\s(\w+)/;
 
-string.replace(pattern, '$2, $1'); // Prints "John, Andrew"
+console.log(string.replace(pattern, '$2, $1')); // Prints "John, Andrew"
 ```
 
 Note, how we have an access to the first group using `$1` and to the second `$2` and how easy it is to swap their positions.
+
+## Named capturing groups
+
+All of defined capturing groups can be given name and referenced by it later.
+
+```javascript
+(?<name>pattern);
+```
+
+Example:
+
+```javascript
+const pattern = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/g;
+
+const string = "2019-10-30, 2020-01-01";
+
+console.log(pattern.replace(regexp, '$<day>/$<month>/$<year>'));
+```
+
+In the example above we defined 3 groups, each of them is referenced by name: `year`, `month`, `day`.
 
 ## Nested capturing groups
 
