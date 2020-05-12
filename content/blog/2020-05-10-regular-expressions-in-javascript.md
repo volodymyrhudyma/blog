@@ -120,7 +120,7 @@ pattern.exec("It contains abc");
 
 It is always important to use something you are learning in practice, so let's take a look at the following cases:
 
-* Match any 9-digit number:
+* Match any 9-digit number
 
 ```javascript
 const pattern = /\d{9}$/
@@ -131,7 +131,7 @@ const string = "My phone number is: 123456789, call me tomorrow";
 pattern.exec(string);
 ```
 
-* Match *YYYY-MM-DD* date format:
+* Match *YYYY-MM-DD* date format
 
 ```javascript
 const pattern = /\d{4}-\d{2}-\d{2}$/
