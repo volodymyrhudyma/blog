@@ -134,3 +134,7 @@ console.log(string.replace(pattern, '$2, $1')); // Prints "$2, Andrew"
 ```
 
 Have you noticed that in the example above we received `$2, Andrew` instead of `John, Andrew`?
+
+## Summary
+
+// TODO write summary and explain used string.replace and regex.exec
