@@ -78,7 +78,9 @@ const pattern = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/g;
 
 const string = "2019-10-30, 2020-01-01";
 
-console.log(string.replace(pattern, "$<day>/$<month>/$<year>"));
+// Prints "30/10/2019, 01/01/2020"
+console.log(string.replace(pattern, "$<day>/$<month>/$<year>")); 
+
 ```
 
 In the example above we defined 3 groups, each of them is referenced by name: `year`, `month`, `day`.
