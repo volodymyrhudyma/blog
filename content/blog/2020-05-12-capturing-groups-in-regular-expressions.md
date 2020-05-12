@@ -38,7 +38,7 @@ const code = `
 
 const pattern = /(\d)em/g;
 
-console.log(code.replace(pattern, '$1rem')); // Result: each em is relpaced with rem
+console.log(code.replace(pattern, '$1rem')); // Result: each "em" is replaced with "rem"
 ```
 
 **Important note:** to access the content of capturing group use dollar sign with the group number. Group numbers start with 1. In the example above we reference to the first captured group with `$1`. Groups are numbered from left to right.
