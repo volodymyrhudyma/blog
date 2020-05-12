@@ -48,11 +48,11 @@ console.log(code.replace(pattern, '$1rem')); // Result: each em is relpaced with
 Capturing groups are really helpful when it's necessary to swap some words/expressions. Consider the following example:
 
 ```javascript
-const string = `Andrew, John`;
+const string = "Andrew, John";
 
 const pattern = /(\w+),\s(\w+)/;
 
-console.log(string.replace(pattern, '$2, $1')); // Prints "John, Andrew"
+console.log(string.replace(pattern, "$2, $1")); // Prints "John, Andrew"
 ```
 
 Note, how we have an access to the first group using `$1` and to the second `$2` and how easy it is to swap their positions.
@@ -72,7 +72,7 @@ const pattern = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/g;
 
 const string = "2019-10-30, 2020-01-01";
 
-console.log(string.replace(pattern, '$<day>/$<month>/$<year>'));
+console.log(string.replace(pattern, "$<day>/$<month>/$<year>"));
 ```
 
 In the example above we defined 3 groups, each of them is referenced by name: `year`, `month`, `day`.
@@ -126,11 +126,11 @@ The first group returned as `result[1]` encloses the whole tag content, second: 
 Sometimes we want to apply a quantifier, but we don’t want contents in results. It can be done using `?:` in the beginning:
 
 ```javascript
-const string = `Andrew, John`;
+const string = "Andrew, John";
 
 const pattern = /(?:\w+),\s(\w+)/;
 
-console.log(string.replace(pattern, '$2, $1')); // Prints "$2, Andrew"
+console.log(string.replace(pattern, "$2, $1")); // Prints "$2, Andrew"
 ```
 
 Have you noticed that in the example above we received `$2, Andrew` instead of `John, Andrew`?
