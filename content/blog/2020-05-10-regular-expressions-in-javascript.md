@@ -42,7 +42,7 @@ As we already mentioned, flags affect the search. Let's see how by learning the 
 * `g` - looks for all matches, not only for the first one (default behavior if this flag is not provided)
 * `i` - makes the search case-insensitive (default behavior is case-sensitive)
 
-Assume that we have the following string `abcabcabc` and this regex: `/abc/`. Let's see what will be matched using the flags above:
+Assume that we have the following string `abcabcabc`. Let's see what will be matched using the flags above:
 
 ```javascript
 /abc/ // Matches only the first occurrence of "abc"
@@ -84,14 +84,14 @@ Quantifiers are symbols that indicate the scope of search string:
 * `?` - match the preceding expression 0 or 1 time, preceding pattern is optional
 * `^` - match the beginning of the string, the regex that follows should be at the start of the test string
 * `$` - match the end of the string, the regex that precedes it should be at the end of the test string
-* `{N}` - match exactly**N** occurrences of the preceding regex
-* `{N,}` - match at least**N** occurrences of the preceding regular expression
-* `{N,M}` - Match at least**N** occurrences and at most**M** occurrences of the preceding regex (if **M** > **N**)
+* `{N}` - match exactly **N** occurrences of the preceding regex
+* `{N,}` - match at least **N** occurrences of the preceding regular expression
+* `{N,M}` - Match at least **N** occurrences and at most**M** occurrences of the preceding regex (if **M** > **N**)
 * `X|Y` - match either **X** or **Y**
 
 ## **Regex methods**
 
-When testing regex, we use one of the following methods: `Regex.prototype.test()` or `Regex.prototype.exec()`:
+When testing regex, we use one of the following methods: **Regex.prototype.test()** or **Regex.prototype.exec()**:
 
 #### `Regex.prototype.test()`
 
@@ -114,12 +114,13 @@ const pattern = /abc/;
 
 // Prints ["abc", index: 12, input: "It contains abc", groups: undefined]
 pattern.exec("It contains abc"); 
-
 ```
 
 ## Examples
 
-Match any 9-digit number:
+It is always important to use something you are learning in practice, so let's take a look at the following cases:
+
+* Match any 9-digit number:
 
 ```javascript
 const pattern = /\d{9}$/
@@ -130,7 +131,7 @@ const string = "My phone number is: 123456789, call me tomorrow";
 pattern.exec(string);
 ```
 
-Match *YYYY-MM-DD* date format:
+* Match *YYYY-MM-DD* date format:
 
 ```javascript
 const pattern = /\d{4}-\d{2}-\d{2}$/
