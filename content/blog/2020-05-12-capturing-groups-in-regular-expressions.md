@@ -12,6 +12,14 @@ You can easily do so by using so called **capturing groups**.
 
 Capturing group can be created by using parentheses `(...)`. 
 
+## Accessing capturing group
+
+To access the content of capturing group, use dollar sign with the group number.
+
+Group numbers start with `1` and are numbered from left to right.
+
+The first capturing group can be accessed using `$1`, second one by `$2` and so on.
+
 ## Example #1
 
 Imagine the following situation: you develop a project using font sizes in `em` units. Some requirements change and you have to use `rem` instead.
@@ -40,14 +48,6 @@ const pattern = /(\d)em/g;
 
 console.log(code.replace(pattern, '$1rem')); // Result: each "em" is replaced with "rem"
 ```
-
-## Accessing capturing group
-
-To access the content of capturing group, use dollar sign with the group number.
-
-Group numbers start with `1` and are numbered from left to right.
-
-In the example above we reference to the first captured group with `$1`. 
 
 ## Example #2
 
