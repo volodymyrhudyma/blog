@@ -12,13 +12,13 @@ You can easily do so by using so called **capturing groups**.
 
 Capturing group can be created by using parentheses `()`. 
 
-## Examples
+## Example #1
 
 Imagine the following situation: you develop a project using font sizes in `em` units. Some requirements change and you have to use `rem` instead.
 
 If the project has a lot of css code, replacing font size units manually probably would take the whole day. Too long, huh?
 
-Capturing groups to resque:
+Capturing groups to rescue:
 
 ```javascript
 const code = `
@@ -42,3 +42,17 @@ code.replace(pattern, '$1rem'); // Result: each em is relpaced with rem
 ```
 
 **Important note:** to access the content of capturing group use dollar sign with the group number. Group numbers start with 1. In the example above we reference to the first captured group with `$1`.
+
+## Example #2
+
+Capturing groups are really helpful when it's necessary to swap some words/expressions. Consider the following example:
+
+```javascript
+const string = `Andrew, John`;
+
+const pattern = /(\w+),\s(\w+)/;
+
+string.replace(pattern, '$2, $1'); // Prints "John, Andrew"
+```
+
+Note, how we have an access to the first group using `$1` and to the second `$2` and how easy it is to swap their positions.
