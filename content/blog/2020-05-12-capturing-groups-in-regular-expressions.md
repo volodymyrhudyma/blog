@@ -68,7 +68,7 @@ Note, how we have an access to the first group using `$1` and to the second `$2`
 All of defined capturing groups can be given name and referenced by it later.
 
 ```javascript
-(?<name>pattern);
+(?<name>pattern)
 ```
 
 Example:
