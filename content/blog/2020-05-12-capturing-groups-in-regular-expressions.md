@@ -72,10 +72,29 @@ const pattern = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/g;
 
 const string = "2019-10-30, 2020-01-01";
 
-console.log(pattern.replace(regexp, '$<day>/$<month>/$<year>'));
+console.log(string.replace(pattern, '$<day>/$<month>/$<year>'));
 ```
 
 In the example above we defined 3 groups, each of them is referenced by name: `year`, `month`, `day`.
+
+## Optional capturing groups
+
+A capturing group can be made optional by using `(...)?`. If it’s not found, the resulting array slot will contain `undefined`:
+
+```javascript
+const pattern = /(\d{4})-(\d{2})(-\d{2})?/g;
+
+const string = "2019-10";
+
+const result = pattern.exec(string);
+
+console.log(result[0]); // Prints "2019-10"
+console.log(result[1]); // Prints "2019"
+console.log(result[2]); // Prints "10"
+console.log(result[3]); // Prints "undefined"
+```
+
+Note, how `result[3]` prints `undefined` since the third capturing group has not been found.
 
 ## Nested capturing groups
 
