@@ -172,6 +172,6 @@ But wait, what if we don't only need to check it, but to get the part of a match
 
 ## Conclusion
 
-If you only start learning regular expressions, it can seem like it's very complex topic, but as soon as you dive into it deeper you would have solid understanding of all its principles and everything will become pretty straightforward.
+If you only start learning regular expressions, it can seem like it's very complex topic, but as soon as you dive into it deeper you would have solid understanding of all its principles and you will finally enjoy using them.
 
 **P.S.** You can have fun with regular expressions online, make sure to check out <https://regex101.com/>.
