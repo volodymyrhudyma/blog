@@ -107,7 +107,7 @@ pattern.test("Simple text"); // Prints "false"
 
 #### `Regex.prototype.exec(string)`
 
-This method is used to return an array of all matches:
+This method is used to return an array of all matches or `null`:
 
 ```javascript
 const pattern = /abc/;
@@ -123,8 +123,6 @@ Prints:
 */
 console.log(pattern.exec("It contains abc")); 
 ```
-
-**Important note:** 
 
 ## Examples
 
