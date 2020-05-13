@@ -29,7 +29,7 @@ If the project has a lot of css code, replacing font size units manually probabl
 Capturing groups to rescue:
 
 ```javascript
-const code = `
+const string = `
   body {
     font-size: 1.6em;
   }
@@ -46,7 +46,8 @@ const code = `
 
 const pattern = /(\d)em/g;
 
-console.log(code.replace(pattern, '$1rem')); // Result: each "em" is replaced with "rem"
+// Result: each "em" is replaced with "rem"
+console.log(string.replace(pattern, '$1rem')); 
 ```
 
 ## Example #2
@@ -62,6 +63,24 @@ console.log(string.replace(pattern, "$2, $1")); // Prints "John, Andrew"
 ```
 
 Note, how we have an access to the first group using `$1` and to the second `$2` and how easy it is to swap their positions.
+
+#### `string.replace(searchValue, newValue)`
+
+This method searches a string for a specified value, or **regular expression**, and returns a new string where the specified values are replaced. 
+
+It does not change the original string.
+
+**Important note**: If you are replacing a value (and not regular expression), only the first instance of the value will be replaced. To replace all occurrences of a specified value, use the global (`g`) modifier:
+
+```javascript
+const string = "Today we met John. John was happy to see us.";
+
+// Prints "Today we met Andrew. John was happy to see us."
+console.log(string.replace("John", "Andrew")); 
+
+// Prints "Today we met Andrew. Andrew was happy to see us."
+console.log(string.replace(/John/g, "Andrew")); 
+```
 
 ## Named capturing groups
 
@@ -80,7 +99,6 @@ const string = "2019-10-30, 2020-01-01";
 
 // Prints "30/10/2019, 01/01/2020"
 console.log(string.replace(pattern, "$<day>/$<month>/$<year>")); 
-
 ```
 
 In the example above we defined 3 groups, each of them is referenced by name: `year`, `month`, `day`.
@@ -104,6 +122,27 @@ console.log(result[3]); // Prints "undefined"
 
 Note, how `result[3]` prints `undefined` since the third capturing group has not been found.
 
+#### `regex.exec(string)`
+
+This method of the **RegExp** object searches for a match in a specified string. The method returns the results in an array or `null`.
+
+```javascript
+const string = "Today we met John.";
+
+const regex = /John/g;
+
+/*
+Prints:
+[
+  'John',
+  index: 13,
+  input: 'Today we met John. John was happy to see us.',
+  groups: undefined
+]
+*/
+console.log(regex.exec(string));
+```
+
 ## Nested capturing groups
 
 Capturing groups can be nested. As for not nested capturing groups, numbering also goes from left to right.
@@ -113,11 +152,11 @@ Capturing groups can be nested. As for not nested capturing groups, numbering al
 Assume you are given a task to search for `<div class="example" />` and get the tag name and tag attributes (class in our example):
 
 ```javascript
-const str = '<div class="example" />';
+const string = '<div class="example" />';
 
 const regexp = /<(([a-z]+)\s*([^>]*))>/;
 
-const result = str.match(regexp);
+const result = string.match(regexp);
 
 console.log(result[0]); // Prints <div class="example">
 console.log(result[1]); // Prints div class="example", (([a-z]+)\s*([^>]*)) group
@@ -128,6 +167,41 @@ console.log(result[3]); // Prints class="example", ([^>]*)) group
 Note that `0` index always holds the full match, capturing groups are numbered from left to right.
 
 The first group returned as `result[1]` encloses the whole tag content, second: `result[2]` holds tag name and the third one: `result[3]` - class attribute.
+
+#### `string.match(regex)`
+
+This method searches a string for a match against a regular expression, and returns the matches, as an array object or `null`.
+
+**Important note**: If the regular expression does not include the (`g`) modifier (to perform a global search), the  method will return only the first match in the string.
+
+Without `g` modifier:
+
+```javascript
+const string = "Today we met John. John was happy to see us.";
+
+const regex = /John/;
+
+/*
+Prints:
+[
+  'John',
+  index: 13,
+  input: 'Today we met John. John was happy to see us.',
+  groups: undefined
+]
+*/
+console.log(string.match(regex));
+```
+
+With `g` modifier:
+
+```javascript
+const string = "Today we met John. John was happy to see us.";
+
+const regex = /John/g;
+
+console.log(string.match(regex)); // Prints: ["John", "John"]
+```
 
 ## Non-capturing groups
 
