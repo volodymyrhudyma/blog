@@ -219,4 +219,8 @@ Have you noticed that in the example above we received `$2, Andrew` instead of `
 
 ## Summary
 
-// TODO write summary and explain used string.replace and regex.exec
+* Capturing groups are created using `(...)` syntax and numbered from left to right
+* Capturing groups can be accessed using `$` sign combined with group's number (`$1`, `$2`, ...) or if they were named, by using name (`$<name>`)
+* Capturing groups can be made optional using `(...)?` syntax
+* Capturing groups can be nested. Nested groups are numbered from left to right as well
+* Non-capturing groups are created using (`?:`) syntax
