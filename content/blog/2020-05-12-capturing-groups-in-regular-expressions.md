@@ -52,6 +52,39 @@ const pattern = /(\d)em/g;
 console.log(string.replace(pattern, '$1rem')); 
 ```
 
+You might ask: "Is there a chance to modify returned capturing group"?
+
+Yes, by using **function replacement**:
+
+```javascript
+const string = `
+  body {
+    font-size: 1.6em;
+  }
+  h1 {
+    font-size: 3.2em;
+  }
+  h2 {
+    font-size: 2.8em;
+  }
+  h3 {
+    font-size: 2.4em;
+  }
+`;
+
+const pattern = /(\d)em/g;
+
+// Result: each "em" is replaced with "rem"
+console.log(string.replace(pattern, (match, $1, offset, string) => `${$1}rem`)); 
+```
+
+You can pass the function as a second argument to `string.replace`. The function accepts the following parameters:
+
+* `match` - matched substring
+* `$1` - capture group
+* `offset` - the offset of the matched substring within the whole string being examined
+* `string` - the whole string being examined
+
 ## Example #2
 
 Capturing groups are really helpful when it's necessary to swap some words/expressions. Consider the following example:
@@ -66,7 +99,7 @@ console.log(string.replace(pattern, "$2, $1")); // Prints "John, Andrew"
 
 Note, how we have an access to the first group using `$1` and to the second `$2` and how easy it is to swap their positions.
 
-#### `string.replace(searchValue, newValue)`
+#### `string.replace(searchValue, newValue | function)`
 
 This method searches a string for a specified value, or **regular expression**, and returns a new string where the specified values are replaced. 
 
