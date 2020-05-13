@@ -8,6 +8,8 @@ But what if we don't only need to check it, but to get the part of a match?
 
 You can easily do so by using so called **capturing groups**.
 
+**Important note**: make sure to check out the [previous article](/2020-05-10-regular-expressions-in-javascript/), where regular expressions are explained in-depth.
+
 ## How to create capturing group?
 
 Capturing group can be created by using parentheses `(...)`. 
