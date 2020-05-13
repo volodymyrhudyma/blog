@@ -14,7 +14,7 @@ In JavaScript, there are 2 ways of defining regex: using `RegExp` constructor or
 new RegExp(/abc/, i);
 
 // Constructor, searches for "abc" occurrence
-new RegExp('abc', 'i');
+new RegExp("abc", "i");
 ```
 
 In the above example `i` is the flag. Flags allow us to affect the search by defining how the search should behave. 
@@ -86,14 +86,14 @@ Quantifiers are symbols that indicate the scope of search string:
 * `$` - match the end of the string, the regex that precedes it should be at the end of the test string
 * `{N}` - match exactly **N** occurrences of the preceding regex
 * `{N,}` - match at least **N** occurrences of the preceding regular expression
-* `{N,M}` - Match at least **N** occurrences and at most**M** occurrences of the preceding regex (if **M** > **N**)
+* `{N,M}` - Match at least **N** occurrences and at most **M** occurrences of the preceding regex (if **M** > **N**)
 * `X|Y` - match either **X** or **Y**
 
 ## **Regex methods**
 
-When testing regex, we use one of the following methods: **Regex.prototype.test()** or **Regex.prototype.exec()**:
+When testing regex, we use one of the following methods: **Regex.prototype.test(string)** or **Regex.prototype.exec(string)**:
 
-#### `Regex.prototype.test()`
+#### `Regex.prototype.test(string)`
 
 This method is used to test if a match has been found or not. It returns `true` if match found, `false` if not:
 
@@ -105,16 +105,26 @@ pattern.test("It contains abc"); // Prints "true"
 pattern.test("Simple text"); // Prints "false"
 ```
 
-#### `Regex.prototype.exec()`
+#### `Regex.prototype.exec(string)`
 
 This method is used to return an array of all matches:
 
 ```javascript
 const pattern = /abc/;
 
-// Prints ["abc", index: 12, input: "It contains abc", groups: undefined]
-pattern.exec("It contains abc"); 
+/* 
+Prints:
+[
+  "abc", 
+  index: 12, 
+  input: "It contains abc", 
+  groups: undefined
+] 
+*/
+console.log(pattern.exec("It contains abc")); 
 ```
+
+**Important note:** 
 
 ## Examples
 
@@ -123,12 +133,20 @@ It is always important to use something you are learning in practice, so let's t
 * Match any 9-digit number
 
 ```javascript
-const pattern = /\d{9}$/
+const pattern = /\d{9}/;
 
-const string = "My phone number is: 123456789, call me tomorrow";
+const string = "My phone number is: 123456780, call me tomorrow";
 
-// Prints ["123456789", index: 20, input: "My phone number is: 123456789",  groups: undefined]
-pattern.exec(string);
+/* 
+Prints: 
+[
+  "123456789", 
+  index: 20, 
+  input: "My phone number is: 123456789",  
+  groups: undefined
+] 
+*/
+console.log(pattern.exec(string));
 ```
 
 * Match *YYYY-MM-DD* date format
@@ -138,9 +156,21 @@ const pattern = /\d{4}-\d{2}-\d{2}$/
 
 const string = "It is going to happen on 2020-09-09";
 
-// Prints ["2020-09-09", index: 25, input: "It is going to happen on 2020-09-09",  groups: undefined]
-pattern.exec(string);
+/* 
+Prints:
+[
+  "2020-09-09", 
+  index: 25, 
+  input: "It is going to happen on 2020-09-09",  
+  groups: undefined
+] 
+*/
+console.log(pattern.exec(string));
 ```
+
+## Capturing groups
+
+But wait, what if we don't only need to check it, but to get the part of a match? Check out the [next article,](/2020-05-12-capturing-groups-in-regular-expressions/) which explains capturing groups in-depth.
 
 ## Conclusion
 
