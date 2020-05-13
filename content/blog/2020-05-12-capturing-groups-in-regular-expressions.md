@@ -186,9 +186,9 @@ const regex = /John/;
 /*
 Prints:
 [
-  'John',
+  "John",
   index: 13,
-  input: 'Today we met John. John was happy to see us.',
+  input: "Today we met John. John was happy to see us.",
   groups: undefined
 ]
 */
