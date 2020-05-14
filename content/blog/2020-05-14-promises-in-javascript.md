@@ -326,3 +326,30 @@ const promise1 = new Promise((resolve, reject) => {
 
 promise1.catch(error => console.log(error)); // Prints "Error"
 ```
+
+## Callback hell
+
+Do you remember that promises were designed in order to avoid using callbacks to handle asynchronous operations? 
+
+That's true, but it does not mean that you can't experience the same callback hell using promises.
+
+Real-world example:
+
+```javascript
+fetchUser()
+  .then(user => 
+    fetchSettings(user.id)
+      .then(settings => 
+        fetchStatistics(settings.showStatistics)
+          .then(statistics => console.log(statistics));
+      );
+  );
+```
+
+In the example above we fetch user, then after fetch is successfully completed, we fetch settings, after settings fetched we get the statistics and so on.
+
+The code gets messy due to a lot of nesting.
+
+Imagine you have to handle errors here. Not pretty obvious how to do that properly.
+
+`async/await` to rescue, but that's the topic for the following article.
