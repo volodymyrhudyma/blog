@@ -14,7 +14,11 @@ Once a promise has been fulfilled or rejected, it is immutable which means it ca
 
 ## Motivation
 
-In JavaScript, **callback functions** were initially used to handle asynchronous operations. However, managing callbacks tends to be tricky when you want to do some complex operations and you may end up in a callback hell. That's what is solved by promises.
+In JavaScript, **callback functions** were initially used to handle asynchronous operations. 
+
+However, managing callbacks tends to be tricky when you want to do some complex operations and you may end up in a callback hell. 
+
+That's what is solved by promises.
 
 ## How to create a promise?
 
@@ -66,7 +70,7 @@ promise
 
 Promises can be consumed by registering the following methods: `then` and `catch`.
 
-#### `then`
+## `then`
 
 For simplicity's sake we are used to say that `then` is fired only in case if promise is resolved. 
 
@@ -109,7 +113,7 @@ promise
 
 **Important note:** remember, that errors should not be handled in `then` consumer, there is `catch` specifically for this case.
 
-#### `catch`
+## `catch`
 
 `catch` is fired if promise is rejected or some error occurred at the execution.
 
@@ -129,9 +133,11 @@ promise
   .catch(error => console.log(error)); // Prints "Fail"
 ```
 
-## Promise `finally`
+## `finally`
 
-There is one more promise consumer - `finally`. This method is used to execute the code once the promise is settled, no matter if it was resolved or rejected. 
+There is one more promise consumer - `finally`. 
+
+This method is used to execute the code once the promise is settled, no matter if it was resolved or rejected. 
 
 It can be very useful when you have to clean up the resources no matter what the outcome is:
 
