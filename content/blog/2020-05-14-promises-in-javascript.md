@@ -128,3 +128,44 @@ const promise = new Promise((resolve, reject) => {
 promise
   .catch(error => console.log(error)); // Prints "Fail"
 ```
+
+## Promise `finally`
+
+There is one more promise consumer - `finally`. This method is used to execute the code once the promise is settled, no matter if it was resolved or rejected. 
+
+It can be very useful when you have to clean up the resources no matter what the outcome is:
+
+```javascript
+const promise = new Promise((resolve, reject) => { 
+  // Your code
+});
+
+promise
+  .then(result => {
+    // handle success
+  })
+  .catch(error => {
+    // Handle error
+  })
+  .finally(() => {
+    // Clean up the resources
+  });
+```
+
+You can also achieve the same result without using `finally` method, but then you have to deal with the code duplication:
+
+```javascript
+const promise = new Promise((resolve, reject) => { 
+  // Your code
+});
+
+promise
+  .then(result => {
+    // handle success
+    // Clean up the resources
+  })
+  .catch(error => {
+    // Handle error
+    // Clean up the resources
+  });
+```
