@@ -352,4 +352,6 @@ The code gets messy due to a lot of nesting.
 
 Imagine you have to handle errors here. Not pretty obvious how to do that properly.
 
-`async/await` to rescue, but that's the topic for the following article.
+`async/await` to rescue. It is another alternative for consuming promises, which makes asynchronous code look and behave more like synchronous code.
+
+But that's the topic for the next article.
