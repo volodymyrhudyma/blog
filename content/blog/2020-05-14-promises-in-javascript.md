@@ -169,3 +169,160 @@ promise
     // Clean up the resources
   });
 ```
+
+## Chaining promises
+
+Each of those methods: `then`, `catch`, `finally` returns a newly generated promise, which means that it can be chained:
+
+```javascript
+const promise = new Promise((resolve, reject) => { 
+  const numbers = [1, 2, 3, 5, 8];
+  if(numbers.includes(8)) {
+    resolve(8);
+  }
+  reject("No 8 found")
+});
+
+promise
+  .then(result => result / 2)
+  .then(result => console.log(result)) // Prints "4"
+  .catch(error => console.log(error));
+```
+
+## Static methods
+
+#### `Promise.all(iterable)`
+
+Waits for all promises to be resolved, or for any to be rejected. 
+
+If the returned promise resolves, it is resolved with an aggregating array of the values from the resolved promises, in the same order as defined in the iterable of multiple promises.
+
+If it rejects, it is rejected with the reason from the first promise in the iterable that was rejected.
+
+```javascript
+const promise1 = new Promise((resolve, reject) => { 
+  resolve(1);
+});
+const promise2 = new Promise((resolve, reject) => { 
+  resolve(2);
+});
+const promise3 = new Promise((resolve, reject) => { 
+  resolve(3);
+});
+
+Promise.all([promise1, promise2, promise3])
+  .then(result => console.log(result)); // Prints "[1, 2, 3]"
+```
+
+```javascript
+const promise1 = new Promise((resolve, reject) => { 
+  resolve(1);
+});
+const promise2 = new Promise((resolve, reject) => { 
+  reject("Error");
+});
+const promise3 = new Promise((resolve, reject) => { 
+  resolve(3);
+});
+
+Promise.all([promise1, promise2, promise3])
+  .then(result => console.log(result))
+  .catch(error => console.log(error)); // Prints "Error"
+```
+
+#### `Promise.allSettled(iterable)`
+
+Waits until all promises have settled (each may resolve or reject). 
+
+Returns a promise that resolves after all of the given promises have either resolved or rejected, with an array of objects that each describe the outcome of each promise.
+
+```javascript
+const promise1 = new Promise((resolve, reject) => { 
+  resolve(1);
+});
+const promise2 = new Promise((resolve, reject) => { 
+  reject("Error");
+});
+const promise3 = new Promise((resolve, reject) => { 
+  resolve(3);
+});
+
+Promise.allSettled([promise1, promise2, promise3])
+  /*
+    Prints:
+    [
+      { status: 'fulfilled', value: 1 },
+      { status: 'rejected', reason: 'Error' },
+      { status: 'fulfilled', value: 3 }
+    ]
+  */
+  .then(result => console.log(result));
+```
+
+#### `Promise.race(iterable)`
+
+Waits until any of the promises is resolved or rejected. 
+
+If the returned promise resolves, it is resolved with the value of the first promise in the iterable that resolved. 
+
+If it rejects, it is rejected with the reason from the first promise that was rejected.
+
+```javascript
+const promise1 = new Promise((resolve, reject) => {
+  resolve(1);
+});
+const promise2 = new Promise((resolve, reject) => { 
+  reject("Error");
+});
+const promise3 = new Promise((resolve, reject) => { 
+  resolve(3);
+});
+
+Promise.race([promise1, promise2, promise3])
+  .then(result => console.log(result)) // Prints "1"
+  .catch(error => console.log(error));
+```
+
+```javascript
+const promise1 = new Promise((resolve, reject) => {
+  reject("Error");
+});
+const promise2 = new Promise((resolve, reject) => { 
+  resolve(2);
+});
+const promise3 = new Promise((resolve, reject) => { 
+  resolve(3);
+});
+
+Promise.race([promise1, promise2, promise3])
+  .then(result => console.log(result))
+  .catch(error => console.log(error)); // Prints "Error"
+```
+
+#### `Promise.resolve(value)`
+
+Returns a new Promise object that is resolved with the given value.
+
+If the value is a thenable (i.e. has a `then` method), the returned promise will "follow" that thenable, adopting its eventual state; otherwise the returned promise will be fulfilled with the value. 
+
+Generally, if you don't know if a value is a promise or not, `Promise.resolve(value)` it instead and work with the return value as a promise.
+
+```javascript
+const promise1 = new Promise((resolve, reject) => {
+  resolve(1);
+});
+
+promise1.then(result => console.log(result)); // Prints "1"
+```
+
+#### `Promise.reject(reason)`
+
+Returns a new Promise object that is rejected with the given reason.
+
+```javascript
+const promise1 = new Promise((resolve, reject) => {
+  reject("Error");
+});
+
+promise1.catch(error => console.log(error)); // Prints "Error"
+```
