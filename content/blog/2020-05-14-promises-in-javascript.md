@@ -350,8 +350,12 @@ In the example above we fetch user, then after fetch is successfully completed, 
 
 The code gets messy due to a lot of nesting.
 
-Imagine you have to handle errors here. Not pretty obvious how to do that properly.
-
 `async/await` to rescue. It is another alternative for consuming promises, which makes asynchronous code look and behave more like synchronous code.
 
 But that's the topic for the next article.
+
+## Summary
+
+* Promise - it is an object that produces some value in the future
+* Promise has 3 states: **pending**, **fulfilled** and **rejected**
+* Promise is consumed using: `then`, `catch` and `finally`
