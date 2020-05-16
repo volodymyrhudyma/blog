@@ -139,7 +139,7 @@ Thrown error can easily be caught by using `try...catch` block:
 ```javascript
 async function example() {
   try {
-    let response = await fetch('http://notexistingresource');
+    let response = await fetch("http://notexistingresource");
   } catch(error) {
     console.log(error);
   }
