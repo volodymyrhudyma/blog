@@ -32,5 +32,57 @@ The real benefits of using `async` keyword become apparent when you start combin
 The keyword `await` makes JavaScript wait until that Promise settles(either resolves or rejects) and returns its result.
 
 ```javascript
+const example = async () => {
+  const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("Success");
+    }, 1000);
+  });
+  console.log("Before await");
+  const result = await promise;
+  console.log("After await");
+  return result;
+};
 
+
+/* 
+  Prints:
+    "Before await"
+    Promise { <pending> }
+    "After await"
+    "Success"
+*/
+example()
+  .then(result => console.log(result));
 ```
+
+**Important note:** The function execution “pauses” at the line (`const result = await promise`) and resumes when the promise settles, with `result` becoming its result.
+
+Let's consider the exact same example, but without using `async/await` keywords:
+
+```javascript
+const example = () => {
+  const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("Success");
+    }, 1000);
+  });
+  console.log("Before await");
+  const result = promise;
+  console.log("After await");
+  return result;
+};
+
+
+/* 
+  Prints:
+    "Before await"
+    "After await"
+    Promise { <pending> }
+    "Success"
+*/
+example()
+  .then(result => console.log(result));
+```
+
+Note, how the order of logging **"Before await"** and **"After await"** has changed.
