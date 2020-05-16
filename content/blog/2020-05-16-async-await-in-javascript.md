@@ -147,3 +147,52 @@ async function example() {
 
 example(); // TypeError: Failed to fetch
 ```
+
+## The downsides
+
+Async/await is really useful to know about, but there are a couple of downsides to consider.
+
+These keywords make your code to look and behave in synchronous manner. The `await` keyword blocks code execution until the Promise settles, exactly as it would with the synchronous operation.
+
+**Important note:** it does allow other tasks to continue, just you own code is blocked. That doesn’t cost any CPU resources, because the engine can do other jobs in the meantime: execute other scripts, handle events, etc.
+
+In case of having multiple `await` statements, you code execution is slowed down due to waiting for each promise to resolve.
+
+Fortunately, this issue can be resolved by storing each Promise in variable and using `Promise.all` method to wait until all promises complete.
+
+Try to avoid this:
+
+```javascript
+const promise1 = new Promise((resolve, reject) => { 
+  resolve(1);
+});
+const promise2 = new Promise((resolve, reject) => { 
+  resolve(2);
+});
+const promise3 = new Promise((resolve, reject) => { 
+  resolve(3);
+});
+
+(async () => {
+  await promise1;
+  await promise2;
+  await promise3;
+})();
+```
+
+Use `Promise.all`:
+
+```javascript
+const promise1 = new Promise((resolve, reject) => { 
+  resolve(1);
+});
+const promise2 = new Promise((resolve, reject) => { 
+  resolve(2);
+});
+const promise3 = new Promise((resolve, reject) => { 
+  resolve(3);
+});
+
+Promise.all([promise1, promise2, promise3])
+  .then(result => console.log(result));
+```
