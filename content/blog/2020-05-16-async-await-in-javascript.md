@@ -196,3 +196,16 @@ const promise3 = new Promise((resolve, reject) => {
 Promise.all([promise1, promise2, promise3])
   .then(result => console.log(result));
 ```
+
+## Summary
+
+Async/await is very powerful tool and it strongly helps you to increase the readability of your code.
+
+Things to remember:
+
+* Async/await is just a syntactic sugar for Promises
+* Async function always returns Promise
+* Await keyword can't be used outside of the `async` function
+* Await keyword blocks your code execution until the Promise resolves, however other tasks can be done in the meantime
+* Errors can be handled using `try...catch` block
+* Always remember not to overuse `await` keyword. Consider using `Promise.all` instead
