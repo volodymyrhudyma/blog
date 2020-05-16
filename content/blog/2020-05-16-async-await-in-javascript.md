@@ -86,3 +86,64 @@ example()
 ```
 
 Note, how the order of logging **"Before await"** and **"After await"** has changed.
+
+Have you noticed that something is wrong? Why do we still use `then` when we are talking about `async/await`? 
+
+Actually, there's good reason for that: `await` won’t work in the top-level code, so basically we can't do that (as you remember, `await` has to be used in pair with `async`):
+
+```javascript
+const result = await example(); // Bad
+```
+
+But it can be wrapped into an anonymous function and executed immediately:
+
+```javascript
+(async () => {
+  const result = await example(); // Good
+})();
+```
+
+## Error handling
+
+If the Promise resolves, `await promise` returns the result, if it rejects - an error is thrown:
+
+```javascript
+const example = () => {
+  const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      reject("Error");
+    }, 1000);
+  });
+  const result = promise;
+  return result;
+};
+
+example()
+  .catch(error => console.log(error)); // Prints "Error"
+```
+
+Basically, both following examples are equivalent:
+
+```javascript
+const exampleReject = async () => {
+  await Promise.reject("Error");
+}
+
+const exampleThrow = async () => {
+  throw new Error("Error");
+}
+```
+
+Thrown error can easily be caught by using `try...catch` block:
+
+```javascript
+async function example() {
+  try {
+    let response = await fetch('http://notexistingresource');
+  } catch(error) {
+    console.log(error);
+  }
+}
+
+example(); // TypeError: Failed to fetch
+```
