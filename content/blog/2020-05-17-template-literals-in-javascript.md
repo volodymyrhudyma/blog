@@ -17,7 +17,6 @@ const double = "I am a string";
 
 // Backticks
 const backticks = `I am a string`;
-
 ```
 
 You are probably familiar with those 2 at the top, but have you seen string in backticks ``` `` ``` before?
@@ -97,4 +96,39 @@ In order to tell the interpreter to skip `${apple}` evaluation, you should use b
 const string = `I love \${apple}`;
 
 console.log(string); // Prints "I love ${apple}"
+```
+
+## Multi-line strings
+
+Before introducing template literal feature, JavaScript provided 3 ways of defining multi-line strings:
+
+* Escaping newlines
+* Concatenating strings
+* Creating an array of strings
+
+```javascript
+// Escaping newlines
+"I am \
+multi-line \
+string";
+
+// Concatenating strings
+"I am " +
+"multi-line " +
+"string";
+
+// Array of strings
+[
+  "I am ",
+  "multi-line ",
+  "string"
+].join('');
+```
+
+Those ways look ugly and contain some unnecessary markup. They can easily be rewrited using template literals:
+
+```javascript
+`I am 
+multi-line
+string`;
 ```
