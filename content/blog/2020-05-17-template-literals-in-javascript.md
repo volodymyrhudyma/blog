@@ -132,3 +132,79 @@ Those ways look ugly and contain some unnecessary markup. They can easily be rew
 multi-line
 string`;
 ```
+
+## Nesting placeholders
+
+Nesting placeholders sometimes is the best and easiest method to get things done. 
+
+You are allowed to use single/double quotes or backticks inside of the placeholder:
+
+```javascript
+const number10 = 10;
+const number20 = 20;
+
+const showNumber10 = true;
+const showNumber20 = false;
+
+const string = `
+  The result is: ${showNumber10 ? number10 : showNumber20 ? number20 : ``}
+`;
+
+console.log(string); // Prints: "The result is 10"
+```
+
+## Tagged templates
+
+Tagged templates is more advanced form of template literals.
+
+Tags allow you to parse template literals with a function. The first argument of a tag function contains an array of string values. The remaining arguments are related to the expressions.
+
+The tag function executes provided logic on the passed string and returns manipulated string:
+
+```javascript
+const age = 18;
+
+function cookieCounter(strings, personExp, ageExp) {
+  /*
+    These variables won't be used later on
+    They are present to show how you can access the input
+  */
+  const str0 = strings[0]; // "The person is "
+  const str1 = strings[1]; // " years old"
+
+  let cookiesNumber = 0;
+  if (age >= 18){
+    cookiesNumber = 5;
+  }
+
+  return `Allowed number of cookies: ${cookiesNumber}`;
+}
+
+const result = cookieCounter`The person is ${age} years old`;
+
+console.log(result); // Prints "Allowed number of cookies: 5"
+```
+
+**Important note:** the first argument `strings` in the function above contains `raw` method which can be used to access raw input string:
+
+```javascript
+const age = 18;
+
+function cookieCounter(strings, personExp, ageExp) {
+  // Prints ["The person is ", " years old"]
+  console.log(strings.raw);
+}
+
+cookieCounter`The person is ${age} years old`;
+```
+
+## Summary
+
+Template literals allow to put values inside of a strings in a very readable and concise way and allow clumsy concatenation approach.
+
+* Template literal is wrapped by backticks ``` `` ``` 
+* Template literal can be given a value by putting it into the placeholder `${...}` 
+* Placeholder can be escaped by using backslash `\${apple}`
+* Template literals are great to create multi-line string
+* Template literals can be nested
+* Template literals can be tagged
