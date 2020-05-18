@@ -274,3 +274,88 @@ console.log(userName); // Prints "John"
 console.log(userSurname); // Prints "Doe"
 console.log(userAge); // Prints "18"
 ```
+
+## Destructuring in function parameters
+
+We can create a function that accepts a single object with multiple properties as a parameter instead of many individual parameters. 
+
+Inside of such function we can use access parameters by using destructuring:
+
+```javascript
+const createUser = ({
+  name, 
+  surname, 
+  email, 
+  password, 
+  passwordConfirmation 
+}) => {
+  // ...
+};
+
+const user = createUser({
+  name: "John",
+  surname: "Doe",
+  email: "john.doe@example.com",
+  password: "qwerty1234",
+  passwordConfirmation: "qwerty1234"
+});
+```
+
+Without using parameters destructuring:
+
+```javascript
+const createUser = (
+  name,
+  surname,
+  email,
+  password,
+  passwordConfirmation
+) => {
+  // ...
+};
+
+const user = createUser(
+  "John",
+  "Doe",
+  "john.doe@example.com",
+  "qwerty1234",
+  "qwerty1234"
+);
+```
+
+#### Default values in function parameters
+
+Destructured function parameters can be given default value the exact same ways as objects or arrays:
+
+```javascript
+const createUser = ({
+  name = "John", 
+  surname, 
+  email, 
+  password, 
+  passwordConfirmation 
+}) => {
+  // ...
+};
+
+const user = createUser({
+  surname: "Doe",
+  email: "john.doe@example.com",
+  password: "qwerty1234",
+  passwordConfirmation: "qwerty1234"
+});
+```
+
+## Multiple return values
+
+The function can return multiple values (using array literal), which can be destructured later on:
+
+```javascript
+const example = () => [1, 2, 3];
+
+const [firstNumber, secondNumber, thirdNumber] = example();
+
+console.log(firstNumber); // Prints "1"
+console.log(secondNumber); // Prints "2"
+console.log(thirdNumber); // Prints "3"
+```
