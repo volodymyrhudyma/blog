@@ -359,3 +359,11 @@ console.log(firstNumber); // Prints "1"
 console.log(secondNumber); // Prints "2"
 console.log(thirdNumber); // Prints "3"
 ```
+
+## Summary
+
+* Objects, arrays and iterables can be destructured
+* Destructuring means extracting specified values into separate variables
+* Nested data can be destructured as well
+* Destructured elements can be given names and default values
+* Destructuring non existing element results in `undefined`
