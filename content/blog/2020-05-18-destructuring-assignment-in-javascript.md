@@ -2,7 +2,7 @@
 title: Destructuring assignment in JavaScript
 date: 2020-05-18T14:10:49.470Z
 ---
-Destructuring assignment is a special syntax that allows us to retrieve pieces of arrays or objects and assign them to a separate variables.
+:Destructuring assignment is a special syntax that allows us to retrieve pieces of arrays or objects and assign them to a separate variables.
 
 This approach can be used for: arrays, objects and iterables.
 
@@ -255,6 +255,20 @@ console.log(surname); // Prints "Doe"
 console.log(age); // Prints "18"
 ```
 
+**Important note:** default value can refer to any variable, including another variable in the same pattern:
+
+```javascript
+const user = {
+  age: 18
+};
+
+const {name = "John", surname = name, age} = user;
+
+console.log(name); // Prints "John"
+console.log(surname); // Prints "John"
+console.log(age); // Prints "18"
+```
+
 #### Rename destructured variable
 
 Sometimes, you can face the situation, when the variable that you try to destructure value to, has already been declared.
@@ -274,6 +288,22 @@ console.log(userName); // Prints "John"
 console.log(userSurname); // Prints "Doe"
 console.log(userAge); // Prints "18"
 ```
+
+## Pitfall #1
+
+There is one important thing to remember about - don't start destructuring operation with curly braces `{}`:
+
+```javascript
+const user = {
+  name: "John",
+  surname: "Doe",
+  age: 18
+};
+
+{name, surname, age} = user; // SyntaxError: Unexpected token 
+```
+
+Code blocks begin with a curly brace, statements must not begin with it.
 
 ## Destructuring in function parameters
 
