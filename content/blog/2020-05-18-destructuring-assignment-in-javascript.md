@@ -130,3 +130,145 @@ console.log(thirdNumber); // Prints "3"
 ```
 
 In the example above, assigned number `30` is ignored.
+
+## Destructuring objects
+
+Objects are destructured exactly the same way as arrays, except the parentheses `[]` are replaced with curly braces `{}`:
+
+```javascript
+const user = {
+  name: "John",
+  surname: "Doe",
+  age: 18
+};
+
+const {name, surname, age} = user;
+
+console.log(name); // Prints "John"
+console.log(surname); // Prints "Doe"
+console.log(age); // Prints "18"
+```
+
+**Important note:** when destructuring objects, the order does not matter:
+
+```javascript
+const user = {
+  name: "John",
+  surname: "Doe",
+  age: 18
+};
+
+const {name, age, surname} = user;
+
+console.log(name); // Prints "John"
+console.log(surname); // Prints "Doe"
+console.log(age); // Prints "18"
+```
+
+#### Destructuring nested objects
+
+```javascript
+const user = {
+  name: "John",
+  surname: "Doe",
+  address: {
+    street: "John Doe street"
+  }
+};
+
+const {name, surname, address: { street }} = user;
+
+console.log(name); // Prints "John"
+console.log(surname); // Prints "Doe"
+console.log(street); // Prints "John Doe street"
+```
+
+**Important note:** there is no variable `address` as we take its context instead.
+
+#### Ignoring items
+
+In order not to destructure property from an object, just don't put it inside the brackets, and that's it:
+
+```javascript
+const user = {
+  name: "John",
+  surname: "Doe",
+  age: 18
+};
+
+const {name, surname} = user;
+
+console.log(name); // Prints "John"
+console.log(surname); // Prints "Doe"
+```
+
+#### The "rest" pattern
+
+Trailing elements can be assigned to an object using "rest" pattern (like arrays, right?):
+
+```javascript
+const user = {
+  name: "John",
+  surname: "Doe",
+  age: 18
+}
+
+const {name: userName, ...rest} = user;
+
+console.log(userName); // Prints "undefined"
+console.log(rest); // Prints {surname: "Doe", age: 18}
+```
+
+#### Destructure non existing element:
+
+Results in `undefined`:
+
+```javascript
+const user = {
+  surname: "Doe",
+  age: 18
+}
+
+const {name: userName, surname: userSurname, age: userAge} = user;
+
+console.log(userName); // Prints "undefined"
+console.log(userSurname); // Prints "Doe"
+console.log(userAge); // Prints "18"
+```
+
+#### Set default value
+
+Default value can be set using assignment operator:
+
+```javascript
+const user = {
+  surname: "Doe",
+  age: 18
+}
+
+const {name = "John", surname, age} = user;
+
+console.log(name); // Prints "John"
+console.log(surname); // Prints "Doe"
+console.log(age); // Prints "18"
+```
+
+#### Renaming destructured variables
+
+Sometimes, you can face the situation, when the variable that you try to destructure value to, has already been declared.
+
+In this case, you can destructure value into variable with another name using colon `:`:
+
+```javascript
+const user = {
+  name: "John",
+  surname: "Doe",
+  age: 18
+}
+
+const {name: userName, surname: userSurname, age: userAge} = user;
+
+console.log(userName); // Prints "John"
+console.log(userSurname); // Prints "Doe"
+console.log(userAge); // Prints "18"
+```
