@@ -167,6 +167,8 @@ console.log(age); // Prints "18"
 
 #### Destructuring nested objects
 
+Nested objects can be destructured using the same pattern (curly braces `{}`):
+
 ```javascript
 const user = {
   name: "John",
@@ -253,7 +255,7 @@ console.log(surname); // Prints "Doe"
 console.log(age); // Prints "18"
 ```
 
-#### Renaming destructured variables
+#### Rename destructured variable
 
 Sometimes, you can face the situation, when the variable that you try to destructure value to, has already been declared.
 
