@@ -213,7 +213,7 @@ const user = {
   name: "John",
   surname: "Doe",
   age: 18
-}
+};
 
 const {name: userName, ...rest} = user;
 
@@ -229,7 +229,7 @@ Results in `undefined`:
 const user = {
   surname: "Doe",
   age: 18
-}
+};
 
 const {name: userName, surname: userSurname, age: userAge} = user;
 
@@ -246,7 +246,7 @@ Default value can be set using assignment operator:
 const user = {
   surname: "Doe",
   age: 18
-}
+};
 
 const {name = "John", surname, age} = user;
 
@@ -266,7 +266,7 @@ const user = {
   name: "John",
   surname: "Doe",
   age: 18
-}
+};
 
 const {name: userName, surname: userSurname, age: userAge} = user;
 
