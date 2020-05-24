@@ -59,3 +59,81 @@ console.log(object);
 ```
 
 **Important note:** spread operator does a **shallow copy** of an iterable.
+
+## Usage
+
+Let's see the most popular use cases of the spread operator.
+
+#### Merge arrays
+
+```javascript
+const parents = ["John", "Andrew"];
+const children = ["Ann", "Rose"];
+
+const humans = [...parents, ...children];
+
+console.log(humans); // Prints ["John", "Andrew", "Ann", "Rose"]
+```
+
+Now, `humans` array contains both `parents` and `children`. 
+
+The spread operator preserves the order in which the items were spread:
+
+```javascript
+const parents = ["John", "Andrew"];
+const children = ["Ann", "Rose"];
+
+const humans = [...children, ...parents];
+
+console.log(humans); // Prints ["Ann", "Rose", "John", "Andrew"]
+```
+
+#### Merge objects
+
+Merging objects is very similar to merging arrays, but be aware that **duplicate keys are overwritten**.
+
+```javascript
+const positiveNumbers = {
+  one: 1,
+  two: 2,
+};
+
+const negativeNumbers = {
+  minusOne: -1,
+  minusTwo: -2,
+};
+
+const numbers = {
+  ...negativeNumbers,
+  ...positiveNumbers
+};
+
+// Prints "{ minusOne: -1, minusTwo: -2, one: 1, two: 2 }"
+console.log(numbers);
+```
+
+Overriding duplicate keys:
+
+```javascript
+const user = {
+  name: "John",
+  surname: "Doe",
+  nickname: "johndoe",
+};
+
+const updatedUser = {
+  name: "Andrew",
+  surname: "Hopkins",
+  nickname: "andrewhopkins",
+};
+
+const newUser = {
+  ...user,
+  ...updatedUser,
+};
+
+// Prints {name: "Andrew", surname: "Hopkins", nickname: "andrewhopkins"}
+console.log(newUser);
+```
+
+Note, how in the example above all keys were overwritten with the new values.
