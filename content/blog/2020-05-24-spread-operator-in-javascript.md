@@ -28,7 +28,7 @@ console.log(numbersCopy); // Prints "[1, 2, 3, 5]"
 const user = {
   name: "John",
   surname: "Doe",
-  age: 18
+  age: 18,
 };
 
 const userCopy = {...user};
@@ -105,7 +105,7 @@ const negativeNumbers = {
 
 const numbers = {
   ...negativeNumbers,
-  ...positiveNumbers
+  ...positiveNumbers,
 };
 
 // Prints "{ minusOne: -1, minusTwo: -2, one: 1, two: 2 }"
@@ -161,12 +161,12 @@ Sometimes there is a need to update object property without mutating it. Spread 
 const user = {
   name: "John",
   surname: "Doe",
-  age: 18
+  age: 18,
 };
 
 const newUser = {
   ...user,
-  age: 22
+  age: 22,
 };
 
 // Prints {name: "John", surname: "Doe", age: 18}
@@ -184,7 +184,7 @@ Note, how the original object `user` has not been mutated.
 const user = {
   name: "John",
   surname: "Doe",
-  age: 18
+  age: 18,
 };
 
 const newUser = user;
@@ -208,8 +208,8 @@ const user = {
   name: "John",
   surname: "Doe",
   other: {
-    age: 18
-  }
+    age: 18,
+  },
 };
 
 const newUser = {
@@ -252,7 +252,7 @@ Spread operator unpacks, rest packs:
 const user = {
   name: "John",
   surname: "Doe",
-  age: 18
+  age: 18,
 };
 
 // Pack all remaining elements into new object
@@ -260,7 +260,7 @@ const {name, ...rest} = user;
 
 // Unpack all props of user into newUser
 const newUser = {
-  ...user
+  ...user,
 };
 ```
 
