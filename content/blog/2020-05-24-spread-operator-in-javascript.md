@@ -196,3 +196,35 @@ console.log(user);
 // Prints {name: "John", surname: "Doe", age: 22}
 console.log(newUser);
 ```
+
+Remember us, saying that spread operator does a shallow copy of an iterable?
+
+> **Shallow copy** is a bit-wise copy of an object. A new object is created that has an exact copy of the values in the original object. If any of the fields of the object are references to other objects, just the reference addresses are copied i.e., only the memory address is copied.
+
+Consider the following example:
+
+```javascript
+const user = {
+  name: "John",
+  surname: "Doe",
+  other: {
+    age: 18
+  }
+};
+
+const newUser = {
+  ...user,
+};
+
+newUser.other.age = 22;
+
+// Prints {name: "John", surname: "Doe", age: 22}
+console.log(user);
+
+// Prints {name: "John", surname: "Doe", age: 22}
+console.log(newUser);
+```
+
+Property `other` references to an object which contains `age`. When doing shallow copy by using spread operator, just the reference address of `other` is copied, not the value itself.
+
+That's why when we modify `other.age` it gets updated in both `user` and `newUser`.
