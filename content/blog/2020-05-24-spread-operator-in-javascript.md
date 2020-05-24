@@ -152,3 +152,47 @@ const result = add(...numbers);
 
 console.log(result); // Prints "6"
 ```
+
+#### Avoid objects mutation
+
+Sometimes there is a need to update object property without mutating it. Spread operator offers a great help in this case, let's see:
+
+```javascript
+const user = {
+  name: "John",
+  surname: "Doe",
+  age: 18
+};
+
+const newUser = {
+  ...user,
+  age: 22
+};
+
+// Prints {name: "John", surname: "Doe", age: 18}
+console.log(user);
+
+// Prints {name: "John", surname: "Doe", age: 22}
+console.log(newUser);
+```
+
+Note, how the original object `user` has not been mutated.
+
+**Important note:** always remember that objects are copied by reference:
+
+```javascript
+const user = {
+  name: "John",
+  surname: "Doe",
+  age: 18
+};
+
+const newUser = user;
+newUser.age = 22;
+
+// Prints {name: "John", surname: "Doe", age: 22}
+console.log(user);
+
+// Prints {name: "John", surname: "Doe", age: 22}
+console.log(newUser);
+```
