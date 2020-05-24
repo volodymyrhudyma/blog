@@ -137,3 +137,18 @@ console.log(newUser);
 ```
 
 Note, how in the example above all keys were overwritten with the new values.
+
+#### Passing arguments into a function
+
+This is encountered not that often, but still worth remembering about:
+
+```javascript
+const add = (number1, number2, number3) => number1 + number2 + number3;
+
+const numbers = [1, 2, 3];
+
+// Spreads array of numbers to a function arguments
+const result = add(...numbers);
+
+console.log(result); // Prints "6"
+```
