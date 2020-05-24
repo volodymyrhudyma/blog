@@ -26,8 +26,8 @@ console.log(numbersCopy); // Prints "[1, 2, 3, 5]"
 
 ```javascript
 const user = {
-  name: 'John',
-  surname: 'Doe',
+  name: "John",
+  surname: "Doe",
   age: 18
 };
 
