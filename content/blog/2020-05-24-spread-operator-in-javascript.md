@@ -258,7 +258,7 @@ const user = {
 // Pack all remaining elements into new object
 const {name, ...rest} = user;
 
-// Unpace all props of user into newUser
+// Unpack all props of user into newUser
 const newUser = {
   ...user
 };
