@@ -228,3 +228,45 @@ console.log(newUser);
 Property `other` references to an object which contains `age`. When doing shallow copy by using spread operator, just the reference address of `other` is copied, not the value itself.
 
 That's why when we modify `other.age` it gets updated in both `user` and `newUser`.
+
+## The "rest" pattern
+
+The **rest pattern** syntax allows us to represent an indefinite number of arguments as an array:
+
+```javascript
+const numbers = [1, 2, 3, 5, 8];
+
+const [firstNumber, ...rest] = numbers; 
+
+console.log(firstNumber); // Prints "1"
+console.log(rest); // Prints "[2, 3, 5, 8]"
+```
+
+In the example above, rest pattern collected all elements but the first one into an array.
+
+## The difference between "rest" pattern and spread operator
+
+Spread operator unpacks, rest packs:
+
+```javascript
+const user = {
+  name: "John",
+  surname: "Doe",
+  age: 18
+};
+
+// Pack all remaining elements into new object
+const {name, ...rest} = user;
+
+// Unpace all props of user into newUser
+const newUser = {
+  ...user
+};
+```
+
+## Summary
+
+* Spread operator's syntax is three dots `...`
+* Spread operator unpacks all elements of an iterable
+* Spread operator does **shallow copy**
+* Most popular use cases of spread operator: merging arrays/objects, feeding arguments into a function
