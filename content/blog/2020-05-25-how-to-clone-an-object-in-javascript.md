@@ -8,7 +8,7 @@ There are a lot of different ways to copy an object.
 
 Choosing the right method depends on what would you like to achieve.
 
-Let's start with listing all possible methods and providing use cases for each and every of them.
+Let's start with listing the most popular methods and providing use cases for each and every of them.
 
 ## Spread operator
 
