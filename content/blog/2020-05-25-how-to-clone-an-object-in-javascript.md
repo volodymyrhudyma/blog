@@ -70,7 +70,7 @@ console.log(user);
 console.log(newUser);
 ```
 
-Having in mind the differences between shallow and deep object copies, let's start with listing the most populars ways of copying the object:
+Having in mind the differences between shallow and deep copy, let's start with listing the most populars ways of copying the object:
 
 ## Spread operator
 
