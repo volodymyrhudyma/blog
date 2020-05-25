@@ -18,12 +18,12 @@ Let's start with listing all possible methods and providing use cases for each a
 const user = {
   name: "John",
   surname: "Doe",
-  age: 18
+  age: 18,
 };
 
 // newUser is a shallow copy of user
 const newUser = {
-  ...user
+  ...user,
 };
 ```
 
@@ -40,7 +40,7 @@ const newUser = {
 const user = {
   name: "John",
   surname: "Doe",
-  age: 18
+  age: 18,
 };
 
 // newUser is a shallow copy of user
@@ -57,7 +57,7 @@ Note, that this is not optimal way of cloning an object, consider using [`cloneD
 const user = {
   name: "John",
   surname: "Doe",
-  age: 18
+  age: 18,
 };
 
 // newUser is a deep copy of user
@@ -104,11 +104,26 @@ console.log(obj);
 console.log(JSON.parse(JSON.stringify(obj)));
 ```
 
+* circular dependencies:
+
+```javascript
+const user = {
+  name: "John",
+  surname: "Doe",
+  age: 18,
+};
+
+user.brother = user;
+
+// TypeError: Converting circular structure to JSON
+console.log(JSON.parse(JSON.stringify(user)));
+```
+
 * and, most important, with functions:
 
 ```javascript
 const obj = {
-  key: () => {}
+  key: () => {},
 };
 
 console.log(JSON.stringify(obj)); // Prints "{}"
@@ -119,3 +134,41 @@ You can potentially loose some data without even knowing that, as you wouldn't e
 Calling `JSON.stringify` with such data types doesn't throw any errors.
 
 To sum it up, try to avoid this way of cloning an object.
+
+## Using external library
+
+The best way to create a deep copy of an object - is to use popular, well tested external library, like lodash.
+
+#### lodash
+
+Lodash provides us with `cloneDeep` method:
+
+```javascript
+import cloneDeep from 'lodash/cloneDeep';
+
+const user = {
+  name: "John",
+  surname: "Doe",
+  age: 18,
+};
+
+// newUser is a deep copy of user
+const newUser = cloneDeep(user);
+```
+
+Lodash also implements `clone` method, which does shallow copy of an object:
+
+```javascript
+import clone from 'lodash/clone';
+
+const user = {
+  name: "John",
+  surname: "Doe",
+  age: 18,
+};
+
+// newUser is a shallow copy of user
+const newUser = clone(user);
+```
+
+## Summary
