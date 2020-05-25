@@ -8,7 +8,67 @@ There are a lot of different ways to copy an object.
 
 Choosing the right method depends on what would you like to achieve.
 
-Let's start with listing the most popular methods and providing use cases for each and every of them.
+Before we start with listing the most popular methods and providing use cases for each and every of them, let's quickly remind ourselves what is **shallow** and **deep** copy and the differences between them:
+
+## Shallow copy
+
+> **Shallow copy** is a bit-wise copy of an object. A new object is created that has an exact copy of the values in the original object. If any of the fields of the object are references to other objects, just the reference addresses are copied i.e., only the memory address is copied.
+
+Consider the following example:
+
+```javascript
+const user = {
+  name: "John",
+  surname: "Doe",
+  other: {
+    age: 18,
+  },
+};
+
+const newUser = {
+  ...user,
+};
+
+newUser.other.age = 22;
+
+// Prints {name: "John", surname: "Doe", age: 22}
+console.log(user);
+
+// Prints {name: "John", surname: "Doe", age: 22}
+console.log(newUser);
+```
+
+Property `other `references to an object which contains `age`. 
+
+When doing shallow copy, just the reference address of `other `is copied, not the value itself.
+
+That's why when we modify `other.age `it gets updated in both `user `and `newUser`.
+
+## Deep copy
+
+Making deep copy of an object means copying everything, the new copied object is completely independent from the original one:
+
+```javascript
+import cloneDeep from "lodash/cloneDeep";
+
+const user = {
+  name: "John",
+  surname: "Doe",
+  other: {
+    age: 18,
+  },
+};
+
+const newUser = cloneDeep(user);
+
+newUser.other.age = 22;
+
+// Prints {name: "John", surname: "Doe", age: 18}
+console.log(user);
+
+// Prints {name: "John", surname: "Doe", age: 22}
+console.log(newUser);
+```
 
 ## Spread operator
 
@@ -66,8 +126,6 @@ const address = {
 
 // newUser is a shallow copy of user
 const newUser = Object.assign({}, user, address);
-
-
 ```
 
 Copy one source object to existing target:
@@ -87,7 +145,6 @@ const address = {
 
 // newUser is a shallow copy of user
 const newUser = Object.assign(target, address);
-
 ```
 
 **Important note:** make sure to remember that `target` object is always mutated.
