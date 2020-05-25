@@ -8,7 +8,7 @@ There are a lot of different ways to copy an object.
 
 Choosing the right method depends on what would you like to achieve.
 
-Before we start with listing the most popular methods and providing use cases for each and every of them, let's quickly remind ourselves what is **shallow** and **deep** copy and the differences between them:
+Before we start with listing the most popular methods and providing use cases for each and every of them, let's quickly remind ourselves what is **shallow** and **deep** copy and the differences between them.
 
 ## Shallow copy
 
@@ -38,11 +38,11 @@ console.log(user);
 console.log(newUser);
 ```
 
-Property `other `references to an object which contains `age`. 
+Property `other`references to an object which contains `age`. 
 
-When doing shallow copy, just the reference address of `other `is copied, not the value itself.
+When doing shallow copy, just the reference address of `other`is copied, not the value itself.
 
-That's why when we modify `other.age `it gets updated in both `user `and `newUser`.
+That's why when we modify `other.age`it gets updated in both `user`and `newUser`.
 
 ## Deep copy
 
