@@ -51,7 +51,7 @@ const newUser = Object.assign({}, user);
 
 *does a deep copy*
 
-Note, that this is not optimal way of cloning an object, consider using [`cloneDeep`](https://lodash.com/docs/4.17.15#cloneDeep) from `lodash`.
+Note, that this is not optimal way of cloning an object, consider using [`cloneDeep`](https://lodash.com/docs/4.17.15#cloneDeep) from lodash.
 
 ```javascript
 const user = {
@@ -141,7 +141,7 @@ The best way to create a deep copy of an object - is to use popular, well tested
 
 #### lodash
 
-Lodash provides us with `cloneDeep` method:
+Lodash provides us with [`cloneDeep`](https://lodash.com/docs/4.17.15#cloneDeep) method:
 
 ```javascript
 import cloneDeep from 'lodash/cloneDeep';
@@ -156,7 +156,7 @@ const user = {
 const newUser = cloneDeep(user);
 ```
 
-Lodash also implements `clone` method, which does shallow copy of an object:
+Lodash also implements [`clone`](https://lodash.com/docs/4.17.15#clone) method, which does shallow copy of an object:
 
 ```javascript
 import clone from 'lodash/clone';
