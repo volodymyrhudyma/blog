@@ -36,6 +36,8 @@ const newUser = {
 * `target` - target object, where to copy
 * `sources` - source objects, what to copy
 
+Copy one source object into empty target:
+
 ```javascript
 const user = {
   name: "John",
@@ -46,6 +48,49 @@ const user = {
 // newUser is a shallow copy of user
 const newUser = Object.assign({}, user);
 ```
+
+Copy multiple source objects into empty target:
+
+```javascript
+const user = {
+  name: "John",
+  surname: "Doe",
+  age: 18,
+};
+
+const address = {
+  street: "Street",
+  house: 4,
+  flat: 1,
+};
+
+// newUser is a shallow copy of user
+const newUser = Object.assign({}, user, address);
+
+
+```
+
+Copy one source object to existing target:
+
+```javascript
+const target = {
+  name: "John",
+  surname: "Doe",
+  age: 18,
+};
+
+const address = {
+  street: "Street",
+  house: 4,
+  flat: 1,
+};
+
+// newUser is a shallow copy of user
+const newUser = Object.assign(target, address);
+
+```
+
+**Important note:** make sure to remember that `target` object is always mutated.
 
 ## JSON object
 
@@ -100,7 +145,7 @@ const obj = {
 // Prints Date object: { key: 2020-05-25T14:28:42.155Z }
 console.log(obj); 
 
- // Prints string: {"key":"2020-05-25T14:27:27.413Z"}
+// Prints string: {"key":"2020-05-25T14:27:27.413Z"}
 console.log(JSON.parse(JSON.stringify(obj)));
 ```
 
@@ -184,11 +229,11 @@ Always remember that if you encounter any kind of problem in programming, you ar
 To create a shallow copy of an object use:
 
 * Spread operator
-* `Object.assign` method
+* Object.assign method
 
 To create a deep clone on an object use:
 
-* `JSON object` (make sure to understand all pros and cons of this method)
+* JSON object (make sure to understand all pros and cons of this method)
 * External library, like [https://lodash.com/docs](https://lodash.com/docs/4.17.15)
 
 **Important note:** Never use assignment operator `=` for cloning objects.
