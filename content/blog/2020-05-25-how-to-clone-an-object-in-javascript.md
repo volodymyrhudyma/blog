@@ -171,4 +171,24 @@ const user = {
 const newUser = clone(user);
 ```
 
+## Custom method
+
+There's always a possibility to create your own custom method that would clone an object, but that's like reinventing the wheel.
+
+You will spend a lot of time writing your own implementation, fixing bugs and covering the code with unit tests so there's no need to do that.
+
+Always remember that if you encounter any kind of problem in programming, you are for sure not the first person to face that, so give yourself a try to search for a ready-to-use solution in the internet.
+
 ## Summary
+
+To create a shallow copy of an object use:
+
+* Spread operator
+* `Object.assign` method
+
+To create a deep clone on an object use:
+
+* `JSON object` (make sure to understand all pros and cons of this method)
+* External library, like [https://lodash.com/docs](https://lodash.com/docs/4.17.15)
+
+**Important note:** Never use assignment operator `=` for cloning objects.
