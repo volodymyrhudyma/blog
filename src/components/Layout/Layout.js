@@ -102,7 +102,7 @@ const Layout = ({ children }) => {
     // 24 hours from now
     const expirationDate = new Date()
     expirationDate.setTime(expirationDate.getTime() + 1 * 3600 * 1000 * 24)
-    setCookie("hideSidebar", true, { expires: expirationDate })
+    setCookie("hideSidebar", true, { path: "/", expires: expirationDate })
   }
 
   return (
