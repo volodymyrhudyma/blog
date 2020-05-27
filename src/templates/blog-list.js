@@ -22,7 +22,6 @@ export default class BlogList extends React.Component {
             padding: "0 2rem 0.725rem 2rem",
             margin: "0 -2rem",
             backgroundColor: "#fafafa",
-            textAlign: "center",
           }}
         >
           <h1>Complicated stuff in simple words</h1>

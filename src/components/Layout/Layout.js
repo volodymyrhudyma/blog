@@ -75,8 +75,6 @@ const GlobalStyle = createGlobalStyle`
 const Layout = ({ children }) => {
   const [cookies, setCookie] = useCookies(["hideSidebar"])
 
-  console.log(cookies)
-
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
