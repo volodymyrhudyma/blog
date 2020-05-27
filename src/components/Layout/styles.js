@@ -132,6 +132,7 @@ export const SocialImage = styled.img`
 `
 
 export const BoldText = styled.span`
+  display: block;
   font-weight: bold;
   font-size: 1.25rem;
 `
