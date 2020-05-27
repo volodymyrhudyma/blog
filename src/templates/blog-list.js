@@ -2,7 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 
 import BlogPostItem from "@components/BlogPostItem"
-import Layout from "@components/layout"
+import Layout from "@components/Layout"
 
 export default class BlogList extends React.Component {
   render() {
@@ -17,8 +17,17 @@ export default class BlogList extends React.Component {
     const nextPage = `/${(currentPage + 1).toString()}`
     return (
       <Layout>
-        <h1>Programming blog</h1>
-        <p>Complicated stuff in simple words</p>
+        <div
+          style={{
+            padding: "1.0875rem 2rem 1.45rem 2rem",
+            margin: "0 -2rem",
+            backgroundColor: "#fafafa",
+            textAlign: "center",
+          }}
+        >
+          <h1>Programming blog</h1>
+          <p>Complicated stuff in simple words</p>
+        </div>
         {posts.map(({ node }) => (
           <BlogPostItem key={node.fields.slug} post={node} />
         ))}

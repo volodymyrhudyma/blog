@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import BackButton from "@components/BackButton"
-import Layout from "@components/layout"
+import Layout from "@components/Layout"
 import AddComment from "@components/AddComment/AddComment"
 import CommentList from "@components/CommentList/CommentList"
 
@@ -11,7 +11,6 @@ export default function Template({ data, path }) {
   const { frontmatter, html } = article
   return (
     <Layout>
-      <BackButton fixed />
       <h1>{frontmatter.title}</h1>
       <span>{frontmatter.date}</span>
       <div dangerouslySetInnerHTML={{ __html: html }} />
