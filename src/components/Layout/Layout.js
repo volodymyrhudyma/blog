@@ -81,17 +81,18 @@ const Layout = ({ children }) => {
     }
   `)
 
-  const socialLinks = social.map(({ name, link, icon }) => (
-    <SocialLink
-      key={name}
-      href={link}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={`follow me on ${name}`}
-    >
-      <SocialImage src={icon} alt={name} />
-    </SocialLink>
-  ))
+  const renderSocialLinks = (color = "default") =>
+    social.map(({ name, link, icon, iconWhite }) => (
+      <SocialLink
+        key={name}
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`follow me on ${name}`}
+      >
+        <SocialImage src={color === "white" ? iconWhite : icon} alt={name} />
+      </SocialLink>
+    ))
 
   return (
     <>
@@ -112,7 +113,7 @@ const Layout = ({ children }) => {
             <SidebarLink href="/2020-05-01-a-few-words-about-author/">
               About me
             </SidebarLink>
-            <SidebarSocial>{socialLinks}</SidebarSocial>
+            <SidebarSocial>{renderSocialLinks("white")}</SidebarSocial>
             <SidebarButton href="https://vhudyma.netlify.com/">
               Get in touch
             </SidebarButton>
@@ -140,7 +141,7 @@ const Layout = ({ children }) => {
                   justifyContent: "flex-end",
                 }}
               >
-                {socialLinks}
+                {renderSocialLinks()}
               </div>
             </Footer>
           </ContentWrapper>

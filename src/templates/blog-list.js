@@ -25,8 +25,7 @@ export default class BlogList extends React.Component {
             textAlign: "center",
           }}
         >
-          <h1>Programming blog</h1>
-          <p>Complicated stuff in simple words</p>
+          <h1>Complicated stuff in simple words</h1>
         </div>
         {posts.map(({ node }) => (
           <BlogPostItem key={node.fields.slug} post={node} />

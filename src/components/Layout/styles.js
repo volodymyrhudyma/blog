@@ -30,7 +30,7 @@ export const ContentChildren = styled.div`
 export const SidebarWrapper = styled.div`
   width: 280px;
   flex-shrink: 0;
-  background-color: red;
+  background-color: #1ca086;
   color: #fff;
   position: fixed;
   left: 0;
@@ -38,6 +38,7 @@ export const SidebarWrapper = styled.div`
   bottom: 0;
   text-align: center;
   padding: 0 1rem;
+  overflow-y: auto;
 `
 
 export const Footer = styled.div`
@@ -98,7 +99,7 @@ export const SocialImage = styled.img`
   margin: 0;
 `
 
-export const BoldText = styled.div`
+export const BoldText = styled.span`
   font-weight: bold;
   font-size: 1.25rem;
 `
