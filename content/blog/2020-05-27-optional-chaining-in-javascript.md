@@ -42,7 +42,6 @@ const user = {
 
 // TypeError: Cannot read property 'street' of undefined
 const street = user.address.street; 
-
 ```
 
 ## Optional chaining
@@ -180,3 +179,9 @@ user.address?.street = "Street";
 It does not work, because the example above evaluates to: `undefined = "Street"`.
 
 ## Summary
+
+To learn optional chaining in depth, read [this proposal](https://github.com/tc39/proposal-optional-chaining) on github.
+
+* Optional chaining operator is `?.`
+* If the expression on the left of `?.` is either `null` or `undefined`, the right side is not evaluated
+* Optional chaining can be used for safe reading/deleting, but not for writing
