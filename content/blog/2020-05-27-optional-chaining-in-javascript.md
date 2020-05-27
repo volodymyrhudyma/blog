@@ -92,6 +92,16 @@ But is the first `?.` really needed? Since `user` object always exists and only 
 
 It's better to skip `?.` if the `user` object always exists:
 
+```javascript
+const user = {
+  name: "John",
+};
+
+const street = user.address?.street;
+
+console.log(street); // Prints "undefined"
+```
+
 ## Call non existing function
 
 Optional chaining also works with functions, `functionName?.()` syntax can be used to execute function that may not exist:
