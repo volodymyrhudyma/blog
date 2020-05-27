@@ -1,16 +1,18 @@
 import React from "react"
 import { Link } from "gatsby"
 
+import { Wrapper, BlogTitle, BlogDate } from "./styles"
+
 const BlogPostItem = ({ post }) => (
-  <div>
-    <h2>
+  <Wrapper>
+    <BlogTitle>
       <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
-    </h2>
-    <span>{post.frontmatter.date}</span>
-    <p>
+    </BlogTitle>
+    <BlogDate>{post.frontmatter.date}</BlogDate>
+    <p style={{ margin: 0 }}>
       {post.excerpt} <Link to={post.fields.slug}>Read more</Link>
     </p>
-  </div>
+  </Wrapper>
 )
 
 export default BlogPostItem

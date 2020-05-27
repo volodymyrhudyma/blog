@@ -19,7 +19,7 @@ export default class BlogList extends React.Component {
       <Layout>
         <div
           style={{
-            padding: "1.0875rem 2rem 1.45rem 2rem",
+            padding: "0 2rem 0.725rem 2rem",
             margin: "0 -2rem",
             backgroundColor: "#fafafa",
             textAlign: "center",
@@ -27,15 +27,17 @@ export default class BlogList extends React.Component {
         >
           <h1>Complicated stuff in simple words</h1>
         </div>
-        {posts.map(({ node }) => (
-          <BlogPostItem key={node.fields.slug} post={node} />
-        ))}
+        <div style={{ marginTop: "2rem" }}>
+          {posts.map(({ node }) => (
+            <BlogPostItem key={node.fields.slug} post={node} />
+          ))}
+        </div>
         {numPages > 1 && (
           <div
             style={{
               display: "flex",
               justifyContent: "space-between",
-              margin: "2.175rem 0",
+              marginBottom: "2rem",
             }}
           >
             <div>

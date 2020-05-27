@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 
 export const Wrapper = styled.div`
   display: flex;
@@ -18,7 +18,11 @@ export const ContentWrapper = styled.div`
   flex-direction: column;
   height: 100%;
   flex: auto;
-  margin-left: 280px;
+  ${({ noMargin }) =>
+    !noMargin &&
+    css`
+      margin-left: 280px;
+    `}
 `
 
 export const ContentChildren = styled.div`
@@ -39,6 +43,34 @@ export const SidebarWrapper = styled.div`
   text-align: center;
   padding: 0 1rem;
   overflow-y: auto;
+`
+
+export const SidebarClose = styled.button`
+  position: absolute;
+  right: 1rem;
+  top: 0.5rem;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  padding: 0;
+
+  span {
+    height: 2px;
+    display: block;
+    width: 24px;
+    background-color: #fff;
+
+    &:first-child {
+      transform: rotate(45deg) translate(2px, 1px);
+    }
+
+    &:last-child {
+      transform: rotate(-45deg);
+    }
+  }
 `
 
 export const Footer = styled.div`

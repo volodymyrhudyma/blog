@@ -11,8 +11,16 @@ export default function Template({ data, path }) {
   const { frontmatter, html } = article
   return (
     <Layout>
-      <h1>{frontmatter.title}</h1>
-      <span>{frontmatter.date}</span>
+      <h1 style={{ marginBottom: "0.5rem" }}>{frontmatter.title}</h1>
+      <span
+        style={{
+          fontSize: "0.85rem",
+          display: "inline-block",
+          marginBottom: "1.45rem",
+        }}
+      >
+        {frontmatter.date}
+      </span>
       <div dangerouslySetInnerHTML={{ __html: html }} />
       <BackButton text="All articles" />
       <AddComment slug={path} />
