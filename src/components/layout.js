@@ -41,6 +41,14 @@ const GlobalStyle = createGlobalStyle`
     margin-top: 0;
     margin-bottom: 1.45rem;
   }
+
+  code[class*="language-"] {
+    font-size: initial;
+  }
+
+  :not(pre) > code[class*="language-"] {
+    padding: 0.1rem 0.25rem;
+  }
 `
 
 const Layout = ({ children }) => {
