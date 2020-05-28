@@ -1,12 +1,16 @@
 ---
 title: Hoisting in JavaScript
+teaser: Hoisting is JavaScript's default behavior of moving declarations to the
+  top of their scope. To begin with learning this mechanism, let's make sure we
+  understand the differences between declaration**,** initialization and
+  assignment...
 date: 2020-04-30T18:10:27.744Z
 ---
 ## Hoisting, what is this?
 
 > Hoisting is JavaScript's default behavior of moving declarations to the top of their scope.
 
-To begin with learning this mechanism, let's make sure we understand the differences between **declaration, initialisation** and **assignment.**
+To begin with learning this mechanism, let's make sure we understand the differences between **declaration, initialization** and **assignment.**
 
 ## Declaration
 
@@ -20,21 +24,21 @@ let a; // Declared
 const a; // SyntaxError: Missing initializer in const declaration
 ```
 
-**Important note:** `const` must be initialised with value at the time of definition.
+**Important note:** `const` must be initialized with value at the time of definition.
 
-## Initialisation
+## Initialization
 
-To initialise variable means to allocate some space in the memory for it. Just after variable is declared, it is automatically initialised.
+To initialize variable means to allocate some space in the memory for it. Just after variable is declared, it is automatically initialized.
 
 ```javascript
-var a; // Declared and automatically initialised
+var a; // Declared and automatically initialized
 
-let a; // Declared and automatically initialised
+let a; // Declared and automatically initialized
 
 const a; // SyntaxError: Missing initializer in const declaration
 ```
 
-To fix an error *SyntaxError: Missing initializer in const declaration* we have to initialise `const` variable at the time of declaration.
+To fix an error *SyntaxError: Missing initializer in const declaration* we have to initialize `const` variable at the time of declaration.
 
 ```javascript
 const a = 10; // The proper way
@@ -42,7 +46,7 @@ const a = 10; // The proper way
 
 ## Assignment
 
-This is a step of assigning value to previously declared and initialised variable.
+This is a step of assigning value to previously declared and initialized variable.
 
 ```javascript
 var a; // Declaration and initialization
@@ -73,9 +77,9 @@ console.log(a); // Prints "undefined"
 a = 10;
 ```
 
-Thanks to hoisting mechanism, we are allowed to use variables before they are declared. However, we have to be careful, because hoisted variables are initialised with `undefined`. 
+Thanks to hoisting mechanism, we are allowed to use variables before they are declared. However, we have to be careful, because hoisted variables are initialized with `undefined`. 
 
-Make sure to always declare and initialise variable before using it.
+Make sure to always declare and initialize variable before using it.
 
 Variables are also hoisted in the function scope:
 
@@ -191,8 +195,6 @@ function b(){
 }
 
 const b; // SyntaxError: Identifier 'a' has already been declared
-
-
 ```
 
 It's pretty much the expected behavior, as you should always  remember to choose unique names for your variables and functions.
