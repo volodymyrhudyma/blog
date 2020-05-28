@@ -18,11 +18,16 @@ export const ContentWrapper = styled.div`
   flex-direction: column;
   height: 100%;
   flex: auto;
-  ${({ noMargin }) =>
-    !noMargin &&
-    css`
-      margin-left: 280px;
-    `}
+  ${({ noMargin, miniMargin }) =>
+    miniMargin
+      ? css`
+          margin-left: 60px;
+        `
+      : !noMargin
+      ? css`
+          margin-left: 280px;
+        `
+      : ``}:
 `
 
 export const ContentChildren = styled.div`
@@ -43,6 +48,18 @@ export const SidebarWrapper = styled.div`
   text-align: center;
   padding: 0 1rem;
   overflow-y: auto;
+
+  ${({ mini }) =>
+    mini
+      ? css`
+          padding-top: 0.75rem;
+          display: flex;
+          justify-content: center;
+          width: 60px;
+        `
+      : css`
+          width: 280px;
+        `}
 `
 
 export const SidebarClose = styled.button`
@@ -69,6 +86,31 @@ export const SidebarClose = styled.button`
 
     &:last-child {
       transform: rotate(-45deg);
+    }
+  }
+`
+
+export const SidebarShowFull = styled.button`
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  padding: 0;
+
+  span {
+    height: 2px;
+    display: block;
+    width: 24px;
+    background-color: #fff;
+
+    &:first-child {
+      margin-bottom: 0.25rem;
+    }
+
+    &:last-child {
+      margin-top: 0.25rem;
     }
   }
 `
