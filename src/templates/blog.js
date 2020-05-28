@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { graphql } from "gatsby"
 
 import BackButton from "@components/BackButton"
@@ -9,6 +9,20 @@ import CommentList from "@components/CommentList/CommentList"
 export default function Template({ data, path }) {
   const { article, comments } = data
   const { frontmatter, html } = article
+
+  const [headings, setHeadings] = useState([])
+  const [showTOC, setShowTOC] = useState(true)
+
+  useEffect(() => {
+    const regex = /<h2>(.*)<\/\h2>/g
+    const result = html.match(regex)
+    setHeadings(result)
+  }, [html])
+
+  const toggleTOC = () => {
+    setShowTOC(!showTOC)
+  }
+
   return (
     <Layout>
       <div
@@ -39,6 +53,40 @@ export default function Template({ data, path }) {
           </span>
         </div>
       </div>
+      <h2
+        style={{
+          marginTop: 0,
+          display: "flex",
+          justifyContent: "space-between",
+          borderBottom: "1px solid rgb(204, 204, 204)",
+          paddingBottom: "1.45rem",
+        }}
+      >
+        Table of contents
+        <span
+          style={{
+            cursor: "pointer",
+            transform: showTOC ? "rotate(90deg)" : "rotate(-90deg)",
+          }}
+          onClick={toggleTOC}
+        >
+          &#60;
+        </span>
+      </h2>
+      {showTOC && (
+        <ul
+          style={{
+            borderBottom: "1px solid rgb(204, 204, 204)",
+            margin: "0 0 1.45rem 0",
+            paddingLeft: "1.45rem",
+            paddingBottom: "0.725rem",
+          }}
+        >
+          {headings.map((item, index) => (
+            <li key={index}>{item.replace(/<\/?\h2>/g, "")}</li>
+          ))}
+        </ul>
+      )}
       <div dangerouslySetInnerHTML={{ __html: html }} />
       <BackButton text="All articles" />
       <AddComment slug={path} />
