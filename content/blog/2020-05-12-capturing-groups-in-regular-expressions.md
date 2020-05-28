@@ -1,5 +1,8 @@
 ---
 title: Capturing groups in regular expressions
+teaser: What if we don't only need to check if the given string contains
+  specific pattern, but get the part of a match? You can easily do so by using
+  so called capturing groups...
 date: 2020-05-12T16:21:57.902Z
 ---
 So far, we have learnt how to define with regular expressions in order to check if the string contains specific pattern. 
