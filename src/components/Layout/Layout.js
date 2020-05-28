@@ -45,6 +45,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     display: flex;
     height: 100%;
+    overflow-x: hidden;
   }
 
   #___gatsby {
@@ -66,7 +67,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   code[class*="language-"] {
-    font-size: initial;
+    font-size: 0.75rem;
     white-space: pre-wrap;
   }
 
@@ -76,11 +77,12 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const Layout = ({ children }) => {
-  const [sidebarMini, setSidebarMini] = useState(true)
+  const [sidebarMini, setSidebarMini] = useState(false)
   const [cookies, setCookie] = useCookies(["hideSidebar"])
 
   useEffect(() => {
     window.addEventListener("resize", handleResize)
+    handleResize()
     return () => {
       window.removeEventListener("resize", handleResize)
     }

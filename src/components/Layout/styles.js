@@ -149,6 +149,7 @@ export const SidebarButton = styled.a`
   color: #fff;
   transition: all 0.5s;
   outline: none;
+  margin-bottom: 1.45rem;
 
   &:hover {
     background-color: #fff;
