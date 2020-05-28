@@ -1,5 +1,9 @@
 ---
 title: "Mastering javascript "
+teaser: Javascript is a dynamically-typed, interpreted programming language that
+  was originally developed to add dynamic and interactive elements to web pages.
+  It runs on the client-side, which means the code is processed by a web
+  browser...
 date: 2020-04-26T07:02:40.028Z
 ---
 ## What is Javascript?
