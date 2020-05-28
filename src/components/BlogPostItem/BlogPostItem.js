@@ -10,7 +10,10 @@ const BlogPostItem = ({ post }) => (
     </BlogTitle>
     <BlogDate>{post.frontmatter.date}</BlogDate>
     <p style={{ margin: 0 }}>
-      {post.excerpt} <Link to={post.fields.slug}>Read more</Link>
+      {post.frontmatter.teaser}
+      <Link style={{ marginLeft: "0.25rem" }} to={post.fields.slug}>
+        Read more
+      </Link>
     </p>
   </Wrapper>
 )

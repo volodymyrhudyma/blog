@@ -69,12 +69,12 @@ export const blogListQuery = graphql`
     ) {
       edges {
         node {
-          excerpt(pruneLength: 256)
           fields {
             slug
           }
           frontmatter {
             title
+            teaser
             date(formatString: "MMMM DD, YYYY")
           }
         }
