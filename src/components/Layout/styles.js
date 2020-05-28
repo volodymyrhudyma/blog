@@ -18,6 +18,7 @@ export const ContentWrapper = styled.div`
   flex-direction: column;
   height: 100%;
   flex: auto;
+  transition: margin-left 0.1s;
   ${({ noMargin, miniMargin }) =>
     miniMargin
       ? css`
@@ -48,6 +49,7 @@ export const SidebarWrapper = styled.div`
   text-align: center;
   padding: 0 1rem;
   overflow-y: auto;
+  transition: width 0.1s;
 
   ${({ mini }) =>
     mini
