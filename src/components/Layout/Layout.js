@@ -161,7 +161,7 @@ const Layout = ({ children }) => {
                     <BoldText>5 years of experience</BoldText> in software
                     development <br />
                   </SidebarDescription>
-                  <SidebarLink href="/2020-05-01-a-few-words-about-author/">
+                  <SidebarLink to="/2020-05-01-a-few-words-about-author/">
                     About me
                   </SidebarLink>
                   <SidebarSocial>{renderSocialLinks("white")}</SidebarSocial>
