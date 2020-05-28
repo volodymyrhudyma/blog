@@ -1,5 +1,8 @@
 ---
 title: Promises in JavaScript
+teaser: Promise - it is an object that produces some value in the future. This
+  object represents the result of an asynchronous operation. Promise has 3
+  states...
 date: 2020-05-14T16:35:15.640Z
 ---
 Promise - it is an object that produces some value in the future. This object represents the result of an asynchronous operation.
