@@ -1,3 +1,4 @@
+import { Link } from "gatsby"
 import styled, { css } from "styled-components"
 
 export const Wrapper = styled.div`
@@ -182,7 +183,7 @@ export const BoldText = styled.span`
   font-size: 1.25rem;
 `
 
-export const SidebarLink = styled.a`
+export const SidebarLink = styled(Link)`
   color: #fff;
   margin-bottom: 1.45rem;
   display: inline-block;

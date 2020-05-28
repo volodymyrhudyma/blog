@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 
 import BackButton from "@components/BackButton"
 import Layout from "@components/Layout"
@@ -44,9 +44,9 @@ export default function Template({ data, path }) {
         </span>
         <div style={{ marginBottom: "1.45rem" }}>
           You are here:{" "}
-          <a style={{ marginRight: "0.25rem" }} href="/">
+          <Link style={{ marginRight: "0.25rem" }} to="/">
             Home
-          </a>
+          </Link>
           ->
           <span style={{ display: "inline-block", marginLeft: "0.25rem" }}>
             {frontmatter.title}
