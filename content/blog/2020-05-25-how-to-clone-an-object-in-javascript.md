@@ -1,5 +1,9 @@
 ---
 title: How to clone an object in JavaScript?
+teaser: Due to the fact that objects are reference values in JavaScript, copying
+  them is not as easy as just assigning to another variable. There are a lot of
+  different ways to copy an object. Choosing the right method depends on what
+  would you like to achieve...
 date: 2020-05-25T13:31:19.327Z
 ---
 Due to the fact that objects are reference values in JavaScript, copying them is not as easy as just assigning to another variable. 
