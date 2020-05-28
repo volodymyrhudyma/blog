@@ -1,5 +1,9 @@
 ---
 title: Understanding "this" in JavaScript
+teaser: "\"This\" is a special object in JavaScript that refers to an object it
+  belongs to, its value is decided at the moment of code execution. How do you
+  know what \"this\" refers to? It's simple, take a look at the following
+  rules..."
 date: 2020-05-02T08:28:11.982Z
 ---
 ## What is this?
