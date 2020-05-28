@@ -1,5 +1,9 @@
 ---
 title: Objects in JavaScript
+teaser: Everything in JavaScript, except Primitives are Objects, that's why it's
+  the most important part of the language. Understanding objects is essential in
+  order to become  professional. Objects are collections of properties, defined
+  as key-value pair...
 date: 2020-05-02T19:11:10.868Z
 ---
 Everything in JavaScript, except Primitives are Objects, that's why it's the most important part of the language. Understanding objects is essential in order to become  professional. 
