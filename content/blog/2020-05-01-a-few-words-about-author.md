@@ -17,9 +17,11 @@ That is one of the hardest decisions one has to make. But I was lucky and thanks
 
 The study went on, I was diving into the world of creating software and felt like that's what I want to do in the future, at least I promised myself to try.
 
-Having studied hard to pass all university exams, I also had some time to learn coding at home by reading articles, watching videos on youtube, taking some free online courses.
+Having studied hard to pass all university exams, I tried to find some time to learn coding by reading educational articles, watching videos on youtube, taking some free online courses.
 
-After a few months of learning it was obvious that I was ready to search for my first job, so I did some researches and found out that PHP developers were in high demand at that time (2014-2015), so I applied and succeeded.
+After a few months of learning it was obvious that I was ready to search for my first job.
+
+I did a research and found out that PHP developers were in high demand at that time (2014-2015), so I applied and succeeded.
 
 ## Commercial experience
 
@@ -49,11 +51,13 @@ The main reason is, of course, to increase my expertise, as the best way to lear
 
 By working as a JavaScript developer, you learn a lot of advanced concepts by using them almost on daily basis, but you tend to forget the basics.
 
-That's why I start this blog with covering up the most basic things that probably most of you know.
+That's why I start with covering up the most basic things that probably most of you know.
 
-**Important note:** do not treat articles in this blog as the only source of truth and think critically. Sometimes articles are not covering the topic in 100%, be aware of that. You can always find better and more complete explanations in the internet. But be sure that all information, provided here is written the simplest way it can be with a lot of practical examples and use cases.
+**Important note:** do not treat articles in this blog as the only source of truth and think critically. Sometimes articles are not covering the topic in 100%, be aware of that. You can always find better and more complete explanations in the internet. But be sure that all information, provided here is written the simplest way it can be with a lot of practical examples.
 
-Thanks for visiting my blog, I hope you will learn a lot from here.
+## Thank you
+
+Thank you for visiting my blog, hopefully you will learn a lot from here.
 
 Please, do not hesitate to leave your feedback in the comments section below each article.
 
