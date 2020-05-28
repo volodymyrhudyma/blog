@@ -1,5 +1,8 @@
 ---
 title: Spread operator in JavaScript
+teaser: Spread operator is used to access all elements inside of an iterable.
+  Don't worry if the definition is not clear, we'll explain the operator in
+  detail...
 date: 2020-05-24T07:46:33.083Z
 ---
 Spread operator is used to access all elements inside of an iterable. Don't worry if the definition is not clear, we'll explain the operator in detail later on.
