@@ -1,8 +1,8 @@
 ---
 title: Var, let and const in Javascript. What is the difference?
-teaser: During a long time `var` keyword was a king in JavaScript world. You
+teaser: During a long time "var" keyword was a king in JavaScript world. You
   didn't yet have to bother about how to declare variable, but how to choose the
-  perfect name for it. But using `var` keyword sometimes leads to unexpected
+  perfect name for it. But using "var" keyword sometimes leads to unexpected
   issues especially if you are not familiar with all pitfalls...
 date: 2020-04-28T19:16:33.434Z
 ---
