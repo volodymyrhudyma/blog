@@ -163,9 +163,9 @@ In this example, `this` is bound to the global object since `getFullName` is a f
 
 ## Summary
 
-`this` is a very tricky keyword in JavaScript. 
+Using `this` keyword is a very tricky topic in JavaScript. 
 
-Make sure to learn the simple rules described above and use them wisely to know which object `this` refers to in your code.
+Make sure to learn these simple rules and use them wisely to know which object `this` refers to in your code:
 
 * By default it refers to the global object. If you execute code in browser, it will be equal to `window`
 * In a function it refers to the global object as well
