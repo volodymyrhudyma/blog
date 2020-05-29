@@ -159,7 +159,7 @@ const newUser = Object.assign(target, address);
 
 *does a deep copy*
 
-Note, that this is not optimal way of cloning an object, consider using [`cloneDeep`](https://lodash.com/docs/4.17.15#cloneDeep) from lodash.
+Note, that this is not optimal way of cloning an object, consider using [`cloneDeep`](https://lodash.com/docs/4.17.15#cloneDeep) from lodash:
 
 ```javascript
 const user = {
