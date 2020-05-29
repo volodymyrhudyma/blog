@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from "react"
 import axios from "axios"
 import onClickOutside from "react-onclickoutside"
 
+import Loader from "@components/Loader"
+
 import {
   Input,
   Textarea,
@@ -17,6 +19,7 @@ const AddComment = ({ slug }) => {
 
   const [showCommentBlock, setShowCommentBlock] = useState(false)
   const [flashMessage, setFlashMessage] = useState(null)
+  const [loading, setLoading] = useState(false)
   const [comment, setComment] = useState({
     slug,
     name: "",
@@ -26,6 +29,7 @@ const AddComment = ({ slug }) => {
   const onSubmit = async e => {
     e.preventDefault()
     try {
+      setLoading(true)
       await axios.post(process.env.STATICMAN_URL, {
         fields: {
           name: comment.name,
@@ -33,6 +37,7 @@ const AddComment = ({ slug }) => {
           slug: comment.slug,
         },
       })
+      setLoading(false)
       resetComment()
       addFlashMessage(
         "success",
@@ -40,6 +45,7 @@ const AddComment = ({ slug }) => {
       )
     } catch (e) {
       console.log(e)
+      setLoading(false)
       addFlashMessage("error", "Something went wrong")
     }
   }
@@ -108,6 +114,11 @@ const AddComment = ({ slug }) => {
             rows="3"
             required
           />
+          {loading && (
+            <div style={{ marginBottom: "1rem" }}>
+              <Loader />
+            </div>
+          )}
           <Button>Publish</Button>
         </form>
       ) : (
