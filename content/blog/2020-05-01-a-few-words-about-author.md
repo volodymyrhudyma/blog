@@ -5,13 +5,14 @@ teaser: Hello, my name is Volodymyr Hudyma, I am software developer for more
   occurred that there was a big decision ahead of me...
 date: 2020-04-20T10:21:23.175Z
 ---
-Hello, my name is Volodymyr Hudyma, I am software developer for more than 5 years now. 
+
+Hello, my name is Volodymyr Hudyma, I am software developer for more than 5 years now.
 
 ## About me
 
 I was born and lived in Ukraine till I turned 17 and it occurred that there was a big decision ahead of me.
 
-Remember those times, when you just finished school and had to choose who to become in the future? I do. 
+Remember those times, when you just finished school and had to choose who to become in the future? I do.
 
 That is one of the hardest decisions one has to make. But I was lucky and thanks to my parents, we did it right - I started learning Programming in University of Information Technology and Management in Rzeszów, Poland.
 
@@ -29,7 +30,7 @@ That's how my journey started in March 2015.
 
 For the first 2 years I've been working as full-stack developer, building both back-end and front-end then switched to the pure front-end.
 
-I've been working with React from April 2017. I decided to concentrate on this technology and deeply learn it in order to become an expert. 
+I've been working with React from April 2017. I decided to concentrate on this technology and deeply learn it in order to become an expert.
 
 Having finished a lot of projects (from big commercial ones, to small private) I realized that there is no better alternative at the current moment.
 
@@ -63,6 +64,6 @@ Please, do not hesitate to leave your feedback in the comments section below eac
 
 Be well, do good deeds and keep in touch.
 
-Click here to read the [first article](/2020-04-26-javascript-mastering-weird-parts/).
+Click here to read the [first article](/2020-04-26-getting-started-with-javascript).
 
-***P.S. You are allowed to use any information provided in these blog for any of your needs.***
+**_P.S. You are allowed to use any information provided in these blog for any of your needs._**
