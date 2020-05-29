@@ -152,16 +152,16 @@ let b = 2;
 const c = a; // Variable "a" is copied to "c"
 const d = b; // Variable "b" is copied to "d"
 
-console.log(a); // Prints 1
-console.log(b); // Prints 2
-console.log(c); // Prints 1
-console.log(d); // Prints 2
+console.log(a); // Prints "1"
+console.log(b); // Prints "2"
+console.log(c); // Prints "3"
+console.log(d); // Prints "4"
 
 // Change "b" value
 b = 3;
 
-console.log(b); // Prints 3
-console.log(d); // Prints 2
+console.log(b); // Prints "3"
+console.log(d); // Prints "2"
 ```
 
 **Important note:** primitives are copied by value. Changing one of the variables above does not change the other because each of them stores its own copy of value.
@@ -273,11 +273,11 @@ console.log(JSON.stringify(johnsCar) === JSON.stringify(andrewsCar));
 Another options:
 
 * Write recursive function that will loop over object properties and make sure they are the same
-* Use well-tested and popular library ([Underscore](https://underscorejs.org/#isEqual), [lodash](https://lodash.com/docs/4.17.15#isEqual)) -> *Recommended one*
+* Use well-tested and popular library ([underscore](https://underscorejs.org/#isEqual), [lodash](https://lodash.com/docs/4.17.15#isEqual)) -> *Recommended one*
 
 ## Comparison operators
 
-Javascript has both **strict** (`===`) and **abstract** (`==`) equality comparisons. 
+Javascript has both **strict** `=== `and **abstract** `==` equality comparisons. 
 
 Strict comparison:
 
@@ -386,7 +386,7 @@ Abstract equality comparison:
    {} * [] // SyntaxError: Unexpected token!
    {} / [] // SyntaxError: Unexpected token!
    ```
-3. Type-converting comparison (`x == y`) according to [specification](https://www.ecma-international.org/ecma-262/#sec-abstract-equality-comparison):
+3. Type-converting comparison `x == y` according to [specification](https://www.ecma-international.org/ecma-262/#sec-abstract-equality-comparison):
 
    * typeof x equals typeof y -> return x === y
    * x is null and y is undefined -> return true
@@ -432,7 +432,7 @@ Abstract equality comparison:
    obj == "[object Object]" // true
    ```
 
-**Important note:** make sure to check the most complete [list of WTFs ](https://github.com/denysdovhan/wtfjs)in javascript I've ever seen.
+**Important note:** make sure to check the most complete [list of WTFs ](https://github.com/denysdovhan/wtfjs)in JavaScript.
 
 ## Summary
 
