@@ -3,7 +3,7 @@ title: Nullish coalescing operator
 teaser: The nullish coalescing operator "??" is a logical operator that returns
   right side operand if left side equals to null or undefined, otherwise returns
   right side. If you're familiar with logical OR operator, you may wonder what's
-  the difference between it and nullish coalescing operator..
+  the difference between it and nullish coalescing operator...
 date: 2020-05-29T07:27:09.769Z
 ---
 The **nullish coalescing operator** is a logical operator that returns right side operand if left side equals to `null` or `undefined`, otherwise returns right side.
