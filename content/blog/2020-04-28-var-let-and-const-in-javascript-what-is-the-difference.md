@@ -78,7 +78,7 @@ var userName = "John";
 
 function changeUserName() {
   userName = "Andrew";
-}
+};
 
 changeUserName();
 
@@ -96,10 +96,10 @@ var userName = "John";
 
 if(userName === "John") {
   let age = 30;
-  console.log(age) // Prints "30"
-}
+  console.log(age); // Prints "30"
+};
 
-console.log(age) // Prints "ReferenceError: age is not defined"
+console.log(age); // Prints "ReferenceError: age is not defined"
 ```
 
 As you can see, block-scoped `age` is not available outside of the `if` block.
@@ -131,7 +131,7 @@ function changeUserName() {
   let userName = "Andrew";
   
   console.log(userName); // Prints "Andrew"
-}
+};
 
 changeUserName();
 
@@ -142,7 +142,7 @@ console.log(userName); // Prints "John"
 
 Just like variables declared using `let` keyword, `const` variables are **block-scoped**. 
 
-The only difference between them is that `const` variables maintain constant values and can not be updated or re-declared (We are not taking into account `let` and `const` hoisting). It means we are not allowed to do this:
+The only difference between them is that `const` variables maintain constant values and can not be updated or re-declared (We are not taking into account hoisting yet). It means we are not allowed to do this:
 
 ```javascript
 const userName = "John";
@@ -169,7 +169,7 @@ Consider the following example:
 ```javascript
 const user = {
   name: "John",
-  car: "Audi"
+  car: "Audi",
 };
 
 user.car = "Volvo";
@@ -181,27 +181,27 @@ The main thing you should remember when using `const` is that properties of obje
 
 > Consider using `Object.freeze()` in case you want to disable possibility to add new/change existing properties.
 
-## Conclusion
+## Summary
 
 To sum up, avoid using `var` keyword in favor of `let` and `const`. Use them wisely and know what and when each of them should be used.
 
 Just in case you missed something:
 
-### var
+### var:
 
 * **globally** or **locally**/**function** scoped
 * can be updated and re-declared
-* hoisted to the top (more about **[hoisting](https://scotch.io/tutorials/understanding-hoisting-in-javascript)**)
+* hoisted to the top (more about **[hoisting](/2020-04-30-hoisting-in-javascript/)**)
 * initialized with `undefined`
 
-### let
+### let:
 
 * **block** scoped
 * can be updated, but **NOT** re-declared
 * hoisted to the top
 * **NOT** initialized
 
-### const
+### const:
 
 * **block** scoped
 * can **NOT** be updated and re-declared
