@@ -97,7 +97,7 @@ const Layout = ({ children }) => {
     return () => {
       window.removeEventListener("resize", handleResize)
     }
-  }, [handleResize])
+  }, [])
 
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
