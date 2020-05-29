@@ -6,7 +6,7 @@ teaser: Array in JavaScript is ordered collection of values where each value has
   objects is...
 date: 2020-05-04T17:55:34.302Z
 ---
-,Array in JavaScript is ordered collection of values where each value has its own position, known as `index`. In array index of the first element is `0`, index of the second element is `1` and so on.
+Array in JavaScript is ordered collection of values where each value has its own position, known as `index`. In array index of the first element is `0`, index of the second element is `1` and so on.
 
 What is the difference between arrays and objects? As both of them are used to store collection of values.
 
