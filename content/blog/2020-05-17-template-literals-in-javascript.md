@@ -181,7 +181,7 @@ function cookieCounter(strings, personExp, ageExp) {
   }
 
   return `Allowed number of cookies: ${cookiesNumber}`;
-}
+};
 
 const result = cookieCounter`The person is ${age} years old`;
 
@@ -196,7 +196,7 @@ const age = 18;
 function cookieCounter(strings, personExp, ageExp) {
   // Prints ["The person is ", " years old"]
   console.log(strings.raw);
-}
+};
 
 cookieCounter`The person is ${age} years old`;
 ```
