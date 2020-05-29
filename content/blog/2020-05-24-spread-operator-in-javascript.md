@@ -65,7 +65,7 @@ console.log(object);
 
 ## Usage
 
-Let's see the most popular use cases of the spread operator.
+Let's see the most popular use cases of the spread operator:
 
 #### Merge arrays
 
@@ -93,7 +93,7 @@ console.log(humans); // Prints ["Ann", "Rose", "John", "Andrew"]
 
 #### Merge objects
 
-Merging objects is very similar to merging arrays, but be aware that **duplicate keys are overwritten**.
+Merging objects is very similar to merging arrays, but be aware that **duplicate keys are overwritten**:
 
 ```javascript
 const positiveNumbers = {
