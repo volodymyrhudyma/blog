@@ -54,7 +54,7 @@ const [
   firstNumber, 
   secondNumber, 
   thirdNumber, 
-  [fourthNumber, [fifthNumber]]
+  [fourthNumber, [fifthNumber]],
 ] = numbers;
 
 console.log(firstNumber); // Prints "1"
@@ -71,7 +71,7 @@ Unwanted elements can be ignored by using commas:
 ```javascript
 const numbers = [1, 2, 3];
 
-const [firstNumber,, thirdNumber] = numbers;
+const [firstNumber, , thirdNumber] = numbers;
 
 console.log(firstNumber); // Prints "1"
 console.log(thirdNumber); // Prints "3"
@@ -142,7 +142,7 @@ Objects are destructured exactly the same way as arrays, except the parentheses 
 const user = {
   name: "John",
   surname: "Doe",
-  age: 18
+  age: 18,
 };
 
 const {name, surname, age} = user;
@@ -158,7 +158,7 @@ console.log(age); // Prints "18"
 const user = {
   name: "John",
   surname: "Doe",
-  age: 18
+  age: 18,
 };
 
 const {name, age, surname} = user;
@@ -177,8 +177,8 @@ const user = {
   name: "John",
   surname: "Doe",
   address: {
-    street: "John Doe street"
-  }
+    street: "John Doe street",
+  },
 };
 
 const {name, surname, address: { street }} = user;
@@ -198,7 +198,7 @@ In order not to destructure property from an object, just don't put it inside th
 const user = {
   name: "John",
   surname: "Doe",
-  age: 18
+  age: 18,
 };
 
 const {name, surname} = user;
@@ -215,7 +215,7 @@ Trailing elements can be assigned to an object using "rest" pattern (like arrays
 const user = {
   name: "John",
   surname: "Doe",
-  age: 18
+  age: 18,
 };
 
 const {name: userName, ...rest} = user;
@@ -231,7 +231,7 @@ Results in `undefined`:
 ```javascript
 const user = {
   surname: "Doe",
-  age: 18
+  age: 18,
 };
 
 const {name: userName, surname: userSurname, age: userAge} = user;
@@ -248,7 +248,7 @@ Default value can be set using assignment operator:
 ```javascript
 const user = {
   surname: "Doe",
-  age: 18
+  age: 18,
 };
 
 const {name = "John", surname, age} = user;
@@ -262,7 +262,7 @@ console.log(age); // Prints "18"
 
 ```javascript
 const user = {
-  age: 18
+  age: 18,
 };
 
 const {name = "John", surname = name, age} = user;
@@ -282,7 +282,7 @@ In this case, you can destructure value into variable with another name using co
 const user = {
   name: "John",
   surname: "Doe",
-  age: 18
+  age: 18,
 };
 
 const {name: userName, surname: userSurname, age: userAge} = user;
@@ -300,7 +300,7 @@ There is one important thing to remember about - don't start destructuring opera
 const user = {
   name: "John",
   surname: "Doe",
-  age: 18
+  age: 18,
 };
 
 {name, surname, age} = user; // SyntaxError: Unexpected token 
@@ -320,7 +320,7 @@ const createUser = ({
   surname, 
   email, 
   password, 
-  passwordConfirmation 
+  passwordConfirmation,
 }) => {
   // ...
 };
@@ -330,7 +330,7 @@ const user = createUser({
   surname: "Doe",
   email: "john.doe@example.com",
   password: "qwerty1234",
-  passwordConfirmation: "qwerty1234"
+  passwordConfirmation: "qwerty1234",
 });
 ```
 
@@ -342,7 +342,7 @@ const createUser = (
   surname,
   email,
   password,
-  passwordConfirmation
+  passwordConfirmation,
 ) => {
   // ...
 };
@@ -352,7 +352,7 @@ const user = createUser(
   "Doe",
   "john.doe@example.com",
   "qwerty1234",
-  "qwerty1234"
+  "qwerty1234",
 );
 ```
 
@@ -366,7 +366,7 @@ const createUser = ({
   surname, 
   email, 
   password, 
-  passwordConfirmation 
+  passwordConfirmation, 
 }) => {
   // ...
 };
@@ -375,7 +375,7 @@ const user = createUser({
   surname: "Doe",
   email: "john.doe@example.com",
   password: "qwerty1234",
-  passwordConfirmation: "qwerty1234"
+  passwordConfirmation: "qwerty1234",
 });
 ```
 
