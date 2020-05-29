@@ -54,9 +54,9 @@ const user = {
   surname: "Doe",
 };
 
-console.log(user['name']); // Prints "John"
+console.log(user["name"]); // Prints "John"
 
-console.log(user['surname']); // Prints "Doe"
+console.log(user["surname"]); // Prints "Doe"
 ```
 
 They both act the same way, providing you an access to the property's value, however, there's one case when you can't use dot notation - when property contains spaces or special characters:
@@ -66,9 +66,9 @@ const user = {
   "full name": "John Doe",
 };
 
-console.log(user['full name']); // Prints "John"
+console.log(user["full name"]); // Prints "John"
 
-console.log(user.'full name'); // SyntaxError: Unexpected token
+console.log(user."full name"); // SyntaxError: Unexpected token
 ```
 
 ## What if property does not exist?
@@ -138,9 +138,9 @@ const user = {
   surname: "Doe",
 };
 
-console.log('name' in user); // Prints "true"
+console.log("name" in user); // Prints "true"
 
-console.log('full_name' in user); // Prints "false"
+console.log("full_name" in user); // Prints "false"
 ```
 
 ## Iterate over properties
