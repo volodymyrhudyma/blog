@@ -28,11 +28,15 @@ const multiply = (x, y) => {
 const multiply = (x, y) => x * y;
 ```
 
-## filter
+## Methods list
+
+Let's list all built-in methods:
+
+#### filter
 
 *does not change the original array*
 
-Creates a new array with all elements that satisfy given condition:
+Creates a new array with all elements that satisfies given condition:
 
 ```javascript
 const numbers = [0, 1, 2, 5, 8, 10];
@@ -40,10 +44,10 @@ const numbers = [0, 1, 2, 5, 8, 10];
 // Return numbers greater than 5
 const filteredNumbers = numbers.filter(number => number > 5);
 
-console.log(filteredNumbers); // Prints [8, 10]
+console.log(filteredNumbers); // Prints "[8, 10]"
 ```
 
-## map
+#### map
 
 *does not change the original array*
 
@@ -58,7 +62,7 @@ const mappedNumbers = numbers.map(number => number * 2);
 console.log(mappedNumbers); // Prints [0, 2, 4, 10, 16, 20]
 ```
 
-## find
+#### find
 
 *does not change the original array*
 
@@ -70,12 +74,12 @@ const numbers = [0, 1, 2, 5, 8, 10];
 // Find the first number smaller than 5
 const result = numbers.find(number => number < 5);
 
-console.log(result); // Prints 0
+console.log(result); // Prints "0"
 ```
 
 **Important note:** remember, that `find` returns the first found element, in order to return all elements that meet the criteria, use `filter` method.
 
-## reduce
+#### reduce
 
 *does not change the original array*
 
@@ -92,7 +96,7 @@ console.log(sum); // Prints "26"
 
 **Important note:** in order to reduce array to a single value going from right-to-left you can use `reduceRight` function.
 
-## push
+#### push
 
 *changes the original array*
 
@@ -108,7 +112,7 @@ console.log(newLength); // Prints "7"
 console.log(numbers); // Prints "[0, 1, 2, 5, 8, 10, 20]"
 ```
 
-## pop
+#### pop
 
 *changes the original array*
 
@@ -124,7 +128,7 @@ console.log(removedNumber); // Prints "10"
 console.log(numbers); // Prints "[ 0, 1, 2, 5, 8 ]"
 ```
 
-## unshift
+#### unshift
 
 *changes the original array*
 
@@ -140,7 +144,7 @@ console.log(newLength); // Prints "7"
 console.log(numbers); // Prints "[20, 0, 1, 2, 5, 8, 10]"
 ```
 
-## shift
+#### shift
 
 *changes the original array*
 
@@ -153,10 +157,10 @@ const removedNumber = numbers.shift();
 
 console.log(removedNumber); // Prints "0"
 
-console.log(numbers); // Prints "[ 1, 2, 5, 8, 10 ]"
+console.log(numbers); // Prints "[1, 2, 5, 8, 10]"
 ```
 
-## includes
+#### includes
 
 *does not change the original array*
 
@@ -170,7 +174,7 @@ const result = numbers.includes(10);
 console.log(result); // Prints "true"
 ```
 
-## splice
+#### splice
 
 *changes the original array*
 
@@ -211,7 +215,7 @@ console.log(deletedElements); // Prins "[0, 1, 2, 5, 8, 10]" as those were delet
 console.log(numbers); // Prints "[60, 80, 0, 1, 2, 5, 8, 10]"
 ```
 
-## forEach
+#### forEach
 
 *does not change the original array*
 
@@ -225,7 +229,7 @@ numbers.forEach((number, index) => {
 })
 ```
 
-## indexOf
+#### indexOf
 
 *does not change the original array*
 
@@ -251,7 +255,7 @@ console.log(index); // Prints "-1"
 
 **Important note:** in order search for an element going from right-to-left you can use `lastIndexOf` function.
 
-## concat
+#### concat
 
 *does not change the original array*
 
@@ -269,7 +273,7 @@ const result = smallNumbers.concat(mediumNumbers, bigNumbers);
 console.log(result); // Prints "[0, 1, 2, 10, 20, 30, 100, 200, 300]"
 ```
 
-## sort
+#### sort
 
 *changes the original array*
 
@@ -303,7 +307,7 @@ numbers.sort((a, b) => b - a);
 console.log(numbers); // Prints "[100, 40, 25, 10, 5, 1]"
 ```
 
-## reverse
+#### reverse
 
 *changes the original array*
 
@@ -317,7 +321,7 @@ numbers.reverse();
 console.log(numbers); // Prints "[5, 3, 2, 1, 0]"
 ```
 
-## slice
+#### slice
 
 *does not change the original array*
 
@@ -332,7 +336,7 @@ const result = numbers.slice(0, 2);
 console.log(result); // Prints "[0, 1]"
 ```
 
-## join
+#### join
 
 *does not change the original array*
 
@@ -346,9 +350,9 @@ const result = numbers.join();
 console.log(result); // Prints "0,1,2,5,8,10"
 ```
 
-**Important note:** you can pass the separator as the only argument of `join` function and the elements will be separated by it. The default separator is comma (`,`).
+**Important note:** you can pass the separator as the only argument of `join` function and the elements will be separated by it. The default separator is comma `,`.
 
-## keys
+#### keys
 
 *does not change the original array*
 
@@ -374,7 +378,7 @@ for (const key of keys) {
 }
 ```
 
-## toString
+#### toString
 
 *does not change the original array*
 
@@ -388,7 +392,7 @@ const result = numbers.toString();
 console.log(result); // Prints "0,1,2,5,8,10"
 ```
 
-## isArray
+#### isArray
 
 *does not change the original array*
 
@@ -400,7 +404,7 @@ const numbers = [0, 1, 2, 5, 8, 10];
 console.log(Array.isArray(numbers)); // Prints "true"
 ```
 
-## some
+#### some
 
 *does not change the original array*
 
@@ -415,7 +419,7 @@ const result = numbers.some(number => number === 5);
 console.log(result); // Prints "true"
 ```
 
-## every
+#### every
 
 *does not change the original array*
 
@@ -430,7 +434,7 @@ const result = numbers.every(number => number === 5);
 console.log(result); // Prints "true"
 ```
 
-## entries
+#### entries
 
 *does not change the original array*
 
@@ -446,7 +450,7 @@ for(const entry of entries) {
 }
 ```
 
-## fill
+#### fill
 
 *changes the original array*
 
@@ -471,17 +475,17 @@ numbers.fill(10, 2, 6);
 console.log(numbers); // Prints "[0, 1, 10, 10, 10, 10]"
 ```
 
-## from
+#### from
 
 Creates an array from any object with a length property or an iterable object:
 
 ```javascript
-const letters = Array.from('abcd');
+const letters = Array.from("abcd");
 
 console.log(letters); // Prints ["a", "b", "c", "d"]
 ```
 
-## valueOf
+#### valueOf
 
 *does not change the original array*
 
@@ -495,7 +499,7 @@ const result = numbers.valueOf();
 console.log(result); // Prints "[0, 1, 2, 3, 5, 8]"
 ```
 
-## findIndex
+#### findIndex
 
 *does not change the original array*
 
@@ -509,7 +513,7 @@ const result = numbers.findIndex(item => item === 5);
 console.log(result); // Prints "4"
 ```
 
-## copyWithin
+#### copyWithin
 
 *changes the original array*
 
@@ -518,13 +522,13 @@ Copies array elements within the array, to and from specified positions:
 ```javascript
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8];
 
-// insert position, start position, end position)
+// (insert position, start position, end position)
 numbers.copyWithin(3, 1, 3);
 
 console.log(numbers); // Prints "[1, 2, 3, 2, 3, 6, 7, 8]"
 ```
 
-## Conclusion
+## Summary
 
 We have just covered basic built-in array methods, so you should understand how they work and how to get use of them.
 
