@@ -30,7 +30,7 @@ We'll cover this topic later on.
 
 Use literal notation when the regular expression will remain constant. 
 
-Example: if you use literal notation to construct a regular expression used in a loop, the regular expression won't be recompiled on each iteration.
+**Example**: if you use literal notation to construct a regular expression used in a loop, the regular expression won't be recompiled on each iteration.
 
 **Constructor** of the regular expression object results in runtime compilation of the regular expression. 
 
@@ -173,7 +173,7 @@ console.log(pattern.exec(string));
 
 But wait, what if we don't only need to check it, but to get the part of a match? Check out the [next article,](/2020-05-12-capturing-groups-in-regular-expressions/) which explains capturing groups in-depth.
 
-## Conclusion
+## Summary
 
 If you only start learning regular expressions, it can seem like it's very complex topic, but as soon as you dive into it deeper you would have solid understanding of all its principles and you will finally enjoy using them.
 
