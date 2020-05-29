@@ -1,5 +1,5 @@
 ---
-title: "Mastering javascript "
+title: Getting started with JavaScript
 teaser: Javascript is a dynamically-typed, interpreted programming language that
   was originally developed to add dynamic and interactive elements to web pages.
   It runs on the client-side, which means the code is processed by a web
@@ -47,13 +47,13 @@ It seems cool that you don't have to bother what type to use, but in most cases 
 ```javascript
 let user = {
   name: "John",
-  surname: "Doe"
+  surname: "Doe",
 };
 
 const updateUser = () => {
   user = {
     name: "Andrew",
-    surnam: "Hopkins"
+    surnam: "Hopkins",
   };
 };
 
@@ -99,7 +99,7 @@ type User = {
 
 let user: User = {
   name: "John",
-  surname: "Doe"
+  surname: "Doe",
 };
 
 const updateUser = () => {
@@ -109,7 +109,7 @@ const updateUser = () => {
     // Type "{ name: string; surnam: string; }" is not assignable to type "User".
     // Object literal may only specify known properties, but "surnam" does not 
     // exist in type "User". Did you mean to write "surname"?
-    surnam: "Hopkins"
+    surnam: "Hopkins",
   };
 };
 ```
@@ -166,12 +166,12 @@ console.log(d); // Prints 2
 
 **Important note:** primitives are copied by value. Changing one of the variables above does not change the other because each of them stores its own copy of value.
 
-If Reference type is assigned to variable, it means that the variable actually contains reference to the value.
+If reference type is assigned to variable, it means that the variable actually contains reference to the value.
 
 ```javascript
 const user = {
   name: "John",
-  surname: "Doe"
+  surname: "Doe",
 };
 
 const newUser = user;
@@ -197,12 +197,12 @@ To reassign a reference means to replace old reference with a new one. Example:
 ```javascript
 let user = {
   name: "John",
-  surname: "Doe"
+  surname: "Doe",
 };
 
 user = {
   name: "Andrew",
-  surname: "Hopkins"
+  surname: "Hopkins",
 };
 ```
 
@@ -221,12 +221,12 @@ You might suppose that if 2 objects have the same properties and values they can
 ```javascript
 const johnsCar = {
   name: "Audi",
-  topSpeed: 300
+  topSpeed: 300,
 };
 
 const andrewsCar = {
   name: "Audi",
-  topSpeed: 300
+  topSpeed: 300,
 };
 
 console.log(johnsCar == andrewsCar); // Prints "false"
@@ -242,7 +242,7 @@ Consider another example:
 ```javascript
 const johnsCar = {
   name: "Audi",
-  topSpeed: 300
+  topSpeed: 300,
 };
 
 const andrewsCar = johnsCar;
@@ -304,7 +304,7 @@ Abstract equality comparison:
 
 > **Coercion** is the term that is used for *unexpected type casting* in JavaScript
 
-1. Every "`+`" expression concatenates the values if one is already a **string** or they will be cast to **strings** if possible.
+1. Every `+` expression concatenates the values if one is already a **string** or they will be cast to **strings** if possible.
 
    ```javascript
    1 + 1 // 2
@@ -334,7 +334,7 @@ Abstract equality comparison:
    // The result of this expression equals +[] -> +String([]) -> +"" -> 0
    {} + [] // 0!
    ```
-2. "`-`", `""`, "`/`"expression can be used only with **numbers**, so all operands will be casted to **numbers**.
+2. `-`, `*`, `/`expression can be used only with **numbers**, so all operands will be casted to **numbers**.
 
    ```javascript
    "1" - 1 // 0
