@@ -80,15 +80,7 @@ const GlobalStyle = createGlobalStyle`
 
 const Layout = ({ children }) => {
   const [sidebarMini, setSidebarMini] = useState(false)
-  const [cookies, setCookie] = useCookies(["hideSidebar"])
-
-  useEffect(() => {
-    window.addEventListener("resize", handleResize)
-    handleResize()
-    return () => {
-      window.removeEventListener("resize", handleResize)
-    }
-  }, [])
+  const [cookies] = useCookies(["hideSidebar"])
 
   const handleResize = debounce(() => {
     const windowWidth = window.innerWidth
@@ -98,6 +90,14 @@ const Layout = ({ children }) => {
       setSidebarMini(false)
     }
   }, 50)
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize)
+    handleResize()
+    return () => {
+      window.removeEventListener("resize", handleResize)
+    }
+  }, [handleResize])
 
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -121,13 +121,6 @@ const Layout = ({ children }) => {
         <SocialImage src={color === "white" ? iconWhite : icon} alt={name} />
       </SocialLink>
     ))
-
-  const handleClose = () => {
-    // 24 hours from now
-    const expirationDate = new Date()
-    expirationDate.setTime(expirationDate.getTime() + 1 * 3600 * 1000 * 24)
-    setCookie("hideSidebar", true, { path: "/", expires: expirationDate })
-  }
 
   const toggleMini = () => {
     setSidebarMini(!sidebarMini)

@@ -48,7 +48,7 @@ export default class BlogList extends React.Component {
             </div>
             <PageInfo>
               Page {currentPage} of{" "}
-              <Link to={numPages} rel="prev">
+              <Link to={`/${numPages.toString()}`} rel="prev">
                 {numPages}
               </Link>
             </PageInfo>

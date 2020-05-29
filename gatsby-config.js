@@ -89,5 +89,19 @@ module.exports = {
       },
     },
     `gatsby-plugin-offline`,
+    {
+      resolve: "gatsby-plugin-nprogress",
+      options: {
+        color: `#1ca086`,
+        showSpinner: false,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-google-analytics",
+      options: {
+        trackingId: "",
+        head: true,
+      },
+    },
   ],
 }

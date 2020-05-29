@@ -15,7 +15,7 @@ export default function Template({ data, path }) {
   const [showTOC, setShowTOC] = useState(true)
 
   useEffect(() => {
-    const regex = /<h2>(.*)<\/\h2>/g
+    const regex = /<h2>(.*)<\/h2>/g
     const result = html.match(regex)
     setHeadings(result)
   }, [html])
@@ -69,8 +69,12 @@ export default function Template({ data, path }) {
           style={{
             cursor: "pointer",
             transform: showTOC ? "rotate(90deg)" : "rotate(-90deg)",
+            outline: "none",
           }}
           onClick={toggleTOC}
+          onKeyPress={toggleTOC}
+          role="button"
+          tabIndex="0"
         >
           &#60;
         </span>
@@ -85,7 +89,7 @@ export default function Template({ data, path }) {
           }}
         >
           {headings.map((item, index) => (
-            <li key={index}>{item.replace(/<\/?\h2>/g, "")}</li>
+            <li key={index}>{item.replace(/<\/?h2>/g, "")}</li>
           ))}
         </ul>
       )}
