@@ -92,7 +92,7 @@ Quantifiers are symbols that indicate the scope of search string:
 * `{N,M}` - Match at least **N** occurrences and at most **M** occurrences of the preceding regex (if **M** > **N**)
 * `X|Y` - match either **X** or **Y**
 
-## **Regex methods**
+## Regex methods
 
 When testing regex, we use one of the following methods: **Regex.prototype.test(string)** or **Regex.prototype.exec(string)**:
 
