@@ -92,7 +92,9 @@ boundFunction("Welcome", 10); // Prints "Welcome, John Doe, your table number is
 
 ## Borrowing methods
 
-Sometimes it’s desirable to reuse a function or method on a different object other than the object or prototype it was defined. By using `call`, `apply` and `bind`, we can easily borrow methods from different objects without having to inherit from them.
+Sometimes it’s desirable to reuse a function or method on a different object other than the object or prototype it was defined. 
+
+By using `call`, `apply` and `bind`, we can easily borrow methods from different objects without having to inherit from them.
 
 ## Borrowing Max from the Math Object
 
