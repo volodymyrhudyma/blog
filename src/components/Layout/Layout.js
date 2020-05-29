@@ -33,6 +33,8 @@ import {
   SidebarLink,
   SidebarClose,
   SidebarShowFull,
+  BannerWrapper,
+  BannerHeading,
 } from "./styles"
 
 import Header from "../header"
@@ -177,6 +179,14 @@ const Layout = ({ children }) => {
             noMargin={cookies.hideSidebar}
           >
             <ContentChildren>{children}</ContentChildren>
+            <BannerWrapper>
+              <BannerHeading>
+                Looking for a professional front-end developer?
+              </BannerHeading>
+              <SidebarButton href="https://vhudyma.netlify.com/">
+                Hire me
+              </SidebarButton>
+            </BannerWrapper>
             <Footer>
               <div
                 style={{

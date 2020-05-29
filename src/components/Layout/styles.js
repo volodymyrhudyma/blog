@@ -189,3 +189,15 @@ export const SidebarLink = styled(Link)`
   display: inline-block;
   text-decoration: underline;
 `
+
+export const BannerWrapper = styled.div`
+  background-color: #1ca086;
+  padding: 2rem 2rem 0.55rem 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+`
+
+export const BannerHeading = styled.h2`
+  margin-top: 0;
+  color: #fff;
+`
