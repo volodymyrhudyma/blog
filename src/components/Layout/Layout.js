@@ -158,10 +158,9 @@ const Layout = ({ children }) => {
                     <Avatar src="https://media-exp1.licdn.com/dms/image/C4D03AQHB3M-_Sj7VJQ/profile-displayphoto-shrink_400_400/0?e=1596067200&v=beta&t=IjzCHvrKqJ9NsOtLQRxTXQ2m9lgsTpTV4TfzEH_x5ZY" />
                   </SidebarImage>
                   <SidebarDescription>
-                    I am Volodymyr Hudyma{" "}
-                    <BoldText>Front-end developer</BoldText> with more than{" "}
-                    <BoldText>5 years of experience</BoldText> in software
-                    development <br />
+                    I am Volodymyr Hudyma <BoldText>React developer</BoldText>{" "}
+                    with more than <BoldText>5 years of experience</BoldText> in
+                    software development <br />
                   </SidebarDescription>
                   <SidebarLink to="/2020-05-01-a-few-words-about-author/">
                     About me
@@ -181,7 +180,7 @@ const Layout = ({ children }) => {
             <ContentChildren>{children}</ContentChildren>
             <BannerWrapper>
               <BannerHeading>
-                Looking for a professional front-end developer?
+                Looking for a professional React developer?
               </BannerHeading>
               <SidebarButton href="https://vhudyma.netlify.com/">
                 Hire me

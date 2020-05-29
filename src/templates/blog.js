@@ -5,6 +5,7 @@ import BackButton from "@components/BackButton"
 import Layout from "@components/Layout"
 import AddComment from "@components/AddComment/AddComment"
 import CommentList from "@components/CommentList/CommentList"
+import SEO from "@components/seo"
 
 export default function Template({ data, path }) {
   const { article, comments } = data
@@ -25,6 +26,7 @@ export default function Template({ data, path }) {
 
   return (
     <Layout>
+      <SEO title={frontmatter.title} />
       <div
         style={{
           padding: "0 2rem 0.725rem 2rem",

@@ -3,6 +3,7 @@ import { Link, graphql } from "gatsby"
 
 import BlogPostItem from "@components/BlogPostItem"
 import Layout from "@components/Layout"
+import SEO from "@components/seo"
 
 import { PaginationWrapper, PageInfo } from "./styles"
 
@@ -19,6 +20,7 @@ export default class BlogList extends React.Component {
     const nextPage = `/${(currentPage + 1).toString()}`
     return (
       <Layout>
+        <SEO title="Articles" />
         <div
           style={{
             padding: "0 2rem 0.725rem 2rem",
