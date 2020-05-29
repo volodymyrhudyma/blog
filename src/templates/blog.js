@@ -47,10 +47,10 @@ export default function Template({ data, path }) {
           <Link style={{ marginRight: "0.25rem" }} to="/">
             Home
           </Link>
-          ->
-          <span style={{ display: "inline-block", marginLeft: "0.25rem" }}>
-            {frontmatter.title}
+          <span style={{ marginRight: "0.25rem", display: "inline-block" }}>
+            /
           </span>
+          <span>{frontmatter.title}</span>
         </div>
       </div>
       <h2
