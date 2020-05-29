@@ -20,7 +20,7 @@ export default class BlogList extends React.Component {
     const nextPage = `/${(currentPage + 1).toString()}`
     return (
       <Layout>
-        <SEO title="Articles" />
+        <SEO title="JavaScript tutorials" />
         <div
           style={{
             padding: "0 2rem 0.725rem 2rem",
