@@ -320,5 +320,5 @@ In this article we learnt how to deal with arrays. Make sure to understand given
 * To remove element from an array use: `pop`, `shift`, `splice`, `filter`
 * To check if element exists in array, use `includes` method
 * To iterate over array elements use: `for` loop, `while` loop, `forEach`
-* `length` property of an array returns the number of elements in an array
-* array has a lot of built-in methods, make sure to check them out by referring to [this article](/2020-05-05-javascript-built-in-arrays-methods/)
+* Use `length` property of an array to find out number of elements
+* Array has a lot of built-in methods, make sure to check them out by referring to [this article](/2020-05-05-javascript-built-in-arrays-methods/)
