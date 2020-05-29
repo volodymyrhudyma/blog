@@ -365,5 +365,6 @@ But that's the topic for the next article.
 ## Summary
 
 * Promise - it is an object that produces some value in the future
+* Promises were created to get rid of the callback hell
 * Promise has 3 states: **pending**, **fulfilled** and **rejected**
 * Promise is consumed using: `then`, `catch` and `finally`
