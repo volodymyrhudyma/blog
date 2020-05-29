@@ -39,6 +39,7 @@ const AddComment = ({ slug }) => {
         "Appreciate it. Your comment will appear after moderation step"
       )
     } catch (e) {
+      console.log(e)
       addFlashMessage("error", "Something went wrong")
     }
   }
