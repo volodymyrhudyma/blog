@@ -44,7 +44,7 @@ const user = {
   name: "John",
 };
 
-// TypeError: Cannot read property 'street' of undefined
+// TypeError: Cannot read property "street" of undefined
 const street = user.address.street; 
 ```
 
@@ -76,7 +76,7 @@ If the expression on the left of `?.` is either `null` or `undefined`, the right
 a?.[++x] // "x" is incremented if and only if "a" is not null/undefined
 ```
 
-## Do not overuse
+## Do not overuse it
 
 It's important to understand where it's necessary to use optional chaining to avoid making debugging harder:
 
