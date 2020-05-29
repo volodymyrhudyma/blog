@@ -32,7 +32,7 @@ example()
 
 The real benefits of using `async` keyword become apparent when you start combining is with `await`. In fact, `await` is only valid inside of `async` functions, you won't be able to get use of this keyword in regular function,.
 
-The keyword `await` makes JavaScript wait until that Promise settles(either resolves or rejects) and returns its result.
+The keyword `await` makes JavaScript wait until that Promise settles(either resolves or rejects) and returns its result:
 
 ```javascript
 const example = async () => {
@@ -59,7 +59,7 @@ example()
   .then(result => console.log(result));
 ```
 
-**Important note:** The function execution “pauses” at the line (`const result = await promise`) and resumes when the promise settles, with `result` becoming its result.
+**Important note:** The function execution “pauses” at the line `const result = await promise` and resumes when the promise settles, with `result` becoming its result.
 
 Let's consider the exact same example, but without using `async/await` keywords:
 
@@ -155,7 +155,9 @@ example(); // TypeError: Failed to fetch
 
 Async/await is really useful to know about, but there are a couple of downsides to consider.
 
-These keywords make your code to look and behave in synchronous manner. The `await` keyword blocks code execution until the Promise settles, exactly as it would with the synchronous operation.
+These keywords make your code to look and behave in synchronous manner. 
+
+The `await` keyword blocks code execution until the Promise settles, exactly as it would with the synchronous operation.
 
 **Important note:** it does allow other tasks to continue, just you own code is blocked. That doesn’t cost any CPU resources, because the engine can do other jobs in the meantime: execute other scripts, handle events, etc.
 
@@ -203,8 +205,6 @@ Promise.all([promise1, promise2, promise3])
 ## Summary
 
 Async/await is very powerful tool and it strongly helps you to increase the readability of your code.
-
-Things to remember:
 
 * Async/await is just a syntactic sugar for Promises
 * Async function always returns Promise
