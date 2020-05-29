@@ -4,6 +4,8 @@ import { Link, graphql } from "gatsby"
 import BlogPostItem from "@components/BlogPostItem"
 import Layout from "@components/Layout"
 
+import { PaginationWrapper, PageInfo } from "./styles"
+
 export default class BlogList extends React.Component {
   render() {
     const posts = this.props.data.allMarkdownRemark.edges
@@ -32,28 +34,32 @@ export default class BlogList extends React.Component {
           ))}
         </div>
         {numPages > 1 && (
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              marginBottom: "2rem",
-            }}
-          >
-            <div>
-              {!isFirstPage && (
-                <Link to={prevPage} rel="prev">
-                  ← Previous Page
-                </Link>
-              )}
+          <PaginationWrapper>
+            <div
+              style={{
+                visibility: !isFirstPage ? "visible" : "hidden",
+              }}
+            >
+              <Link to={prevPage} rel="prev">
+                ← Previous Page
+              </Link>
             </div>
-            <div>
-              {!isLastPage && (
-                <Link to={nextPage} rel="next">
-                  Next Page →
-                </Link>
-              )}
+            <PageInfo>
+              Page {currentPage} of{" "}
+              <Link to={numPages} rel="prev">
+                {numPages}
+              </Link>
+            </PageInfo>
+            <div
+              style={{
+                visibility: !isLastPage ? "visible" : "hidden",
+              }}
+            >
+              <Link to={nextPage} rel="next">
+                Next Page →
+              </Link>
             </div>
-          </div>
+          </PaginationWrapper>
         )}
       </Layout>
     )
