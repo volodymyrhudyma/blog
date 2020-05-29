@@ -14,7 +14,7 @@ To begin with learning this mechanism, let's make sure we understand the differe
 
 ## Declaration
 
-To declare variable means to register it in the corresponding scope.
+To declare variable means to register it in the corresponding scope:
 
 ```javascript
 var a; // Declared
@@ -28,7 +28,9 @@ const a; // SyntaxError: Missing initializer in const declaration
 
 ## Initialization
 
-To initialize variable means to allocate some space in the memory for it. Just after variable is declared, it is automatically initialized.
+To initialize variable means to allocate some space in the memory for it. 
+
+Just after variable is declared, it is automatically initialized:
 
 ```javascript
 var a; // Declared and automatically initialized
@@ -38,7 +40,7 @@ let a; // Declared and automatically initialized
 const a; // SyntaxError: Missing initializer in const declaration
 ```
 
-To fix an error *SyntaxError: Missing initializer in const declaration* we have to initialize `const` variable at the time of declaration.
+To fix an error `SyntaxError: Missing initializer in const declaration` we have to initialize `const` variable at the time of declaration:
 
 ```javascript
 const a = 10; // The proper way
@@ -46,7 +48,7 @@ const a = 10; // The proper way
 
 ## Assignment
 
-This is a step of assigning value to previously declared and initialized variable.
+This is a step of assigning value to previously declared and initialized variable:
 
 ```javascript
 var a; // Declaration and initialization
@@ -67,7 +69,9 @@ console.log(a); // Prints "undefined"
 var a = 10;
 ```
 
-Do you know why we receive "undefined" instead of "ReferenceError: a is not defined"? Javascript hoisted variable declaration. This is how the above code is seen by an interpreter:
+Do you know why we receive "undefined" instead of `ReferenceError: a is not defined`? 
+
+Javascript hoisted variable declaration. This is how the above code is seen by an interpreter:
 
 ```javascript
 var a;
@@ -87,7 +91,7 @@ Variables are also hoisted in the function scope:
 function example() {
   console.log(a); // Prints "undefined"
   var a = 10;
-}
+};
 
 example();
 ```
@@ -99,16 +103,16 @@ function example() {
   var a;
   console.log(a); // Prints "undefined"
   a = 10;
-}
+};
 
 example();
 ```
 
 **Important note:** In order to avoid unexpected behavior, do not access variable before you declare it.
 
-## What about `let` and `const`?
+## What about "let" and "const"?
 
-As we remember from the previous article, `let` and `const` are hoisted, but not initialized.
+As we remember from the [previous article](/2020-04-28-var-let-and-const-in-javascript-what-is-the-difference/), `let` and `const` are hoisted, but not initialized:
 
 ```javascript
 console.log(a); // ReferenceError: a is not defined
@@ -124,34 +128,34 @@ const a = 10;
 
 Before we move to this section, let's remember how functions can be defined in JavaScript:
 
-* **Function declaration** - defines a named function. Use `function` keyword followed by name. Function declaration is **hoisted**
+* **Function declaration** - defines a named function. Use `function` keyword followed by name. Function declaration is **hoisted:**
 
 ```javascript
 printNumber(); // Prints "10"
 
 function printNumber() {
   console.log(10);
-}
+};
 ```
 
-* **Function expression** - defines a named or anonymous function. Function expression is **not hoisted**
+* **Function expression** - defines a named or anonymous function. Function expression is **not hoisted:**
 
 ```javascript
 printNumber(); // Uncaught ReferenceError: Cannot access 'printNumber' before initialization
 
 const printNumber = function() {
   console.log(10);
-}
+};
 ```
 
-* **Arrow function** - is short syntax for defining function expressions therefore it is **not hoisted**
+* **Arrow function** - is short syntax for defining function expressions therefore it is **not hoisted:**
 
 ```javascript
 printNumber(); // Uncaught ReferenceError: Cannot access 'printNumber' before initialization
 
 const printNumber = () => {
   console.log(10);
-}
+};
 ```
 
 ## Order of precedence
@@ -160,10 +164,10 @@ const printNumber = () => {
 
 ```javascript
 function a(){
-  console.log('Function a')
-}
+  console.log("Function a")
+};
 
-var a = 'Variable a';
+var a = "Variable a";
 
 console.log(a); // Prints "Variable a"
 ```
@@ -172,35 +176,42 @@ console.log(a); // Prints "Variable a"
 
 ```javascript
 function a(){
-  console.log('Function a')
-}
+  console.log("Function a")
+};
 
 var a;
 
 console.log(a); // Prints "Function a"
 ```
 
-## What about `let` and `const`?
+## What about "let" and "const"?
 
 ```javascript
 function a(){
-  console.log('Function a')
-}
+  console.log("Function a")
+};
 
 let a; // Duplicate declaration "a"
 
 
 function b(){
-  console.log('Function b')
-}
+  console.log("Function b")
+};
 
-const b; // SyntaxError: Identifier 'a' has already been declared
+const b; // SyntaxError: Identifier "a" has already been declared
 ```
 
 It's pretty much the expected behavior, as you should always  remember to choose unique names for your variables and functions.
 
-## Conclusion
+## Summary
 
 Imaging JavaScript interpreter making 2 iterations over your code. Firstly, it moves all variable and function declarations to the top of their scope and lastly, it executes your code from top to bottom (making assignments, executing functions etc.).
 
 Hoisting is often misunderstood concept even by experienced developers, so always be aware of it when writing JavaScript code.
+
+* Hoisting is JavaScript's default behavior of moving declarations to the top of their scope
+* Variable declaration - registering it in the corresponding scope
+* Variable initialization - allocating some space in the memory for it
+* Assignment to a variable - providing value to previously declared and initialized variable
+* Variable assignments take precedence over function declaration
+* Function declarations take precedence over variable declaration
