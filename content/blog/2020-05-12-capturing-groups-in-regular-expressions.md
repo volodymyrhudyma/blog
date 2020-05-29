@@ -52,7 +52,7 @@ const string = `
 const pattern = /(\d)em/g;
 
 // Result: each "em" is replaced with "rem"
-console.log(string.replace(pattern, '$1rem')); 
+console.log(string.replace(pattern, "$1rem")); 
 ```
 
 You might ask: "Is there a chance to modify returned capturing group"?
@@ -108,7 +108,7 @@ This method searches a string for a specified value, or **regular expression**, 
 
 It does not change the original string.
 
-**Important note**: If you are replacing a value (and not regular expression), only the first instance of the value will be replaced. To replace all occurrences of a specified value, use the global (`g`) modifier:
+**Important note**: If you are replacing a value (and not regular expression), only the first instance of the value will be replaced. To replace all occurrences of a specified value, use the global `g` modifier:
 
 ```javascript
 const string = "Today we met John. John was happy to see us.";
@@ -172,9 +172,9 @@ const regex = /John/g;
 /*
 Prints:
 [
-  'John',
+  "John",
   index: 13,
-  input: 'Today we met John. John was happy to see us.',
+  input: "Today we met John. John was happy to see us.",
   groups: undefined
 ]
 */
@@ -190,16 +190,16 @@ Capturing groups can be nested. As for not nested capturing groups, numbering al
 Assume you are given a task to search for `<div class="example" />` and get the tag name and tag attributes (class in our example):
 
 ```javascript
-const string = '<div class="example" />';
+const string = "<div class='example' />";
 
 const regexp = /<(([a-z]+)\s*([^>]*))>/;
 
 const result = string.match(regexp);
 
-console.log(result[0]); // Prints <div class="example">
-console.log(result[1]); // Prints div class="example", (([a-z]+)\s*([^>]*)) group
+console.log(result[0]); // Prints <div class='example'>
+console.log(result[1]); // Prints div class='example', (([a-z]+)\s*([^>]*)) group
 console.log(result[2]); // Prints "div", ([a-z]+) group
-console.log(result[3]); // Prints class="example", ([^>]*)) group
+console.log(result[3]); // Prints class='example', ([^>]*)) group
 ```
 
 Note that `0` index always holds the full match, capturing groups are numbered from left to right.
@@ -258,7 +258,7 @@ Have you noticed that in the example above we received `$2, Andrew` instead of `
 ## Summary
 
 * Capturing groups are created using `(...)` syntax and numbered from left to right
-* Capturing groups can be accessed using `$` sign combined with group's number (`$1`, `$2`, ...) or if they were named, by using name (`$<name>`)
+* Capturing groups can be accessed using `$` sign combined with group's number `$1`, `$2`, ... or if they were named, by using name `$<name>`
 * Capturing groups can be made optional using `(...)?` syntax
 * Capturing groups can be nested. Nested groups are numbered from left to right as well
-* Non-capturing groups are created using (`?:`) syntax
+* Non-capturing groups are created using `?:` syntax
