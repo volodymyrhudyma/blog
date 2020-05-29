@@ -73,7 +73,7 @@ promise
 
 Promises can be consumed by registering the following methods: `then` and `catch`.
 
-## `then`
+#### then
 
 For simplicity's sake we are used to say that `then` is fired only in case if promise is resolved. 
 
@@ -92,9 +92,8 @@ const promise = new Promise((resolve, reject) => {
 promise
   .then(
     result => console.log(result), // Prints "Success
-    error => console.log(error)
+    error => console.log(error),
   );
-
 ```
 
 ```javascript
@@ -110,13 +109,13 @@ const promise = new Promise((resolve, reject) => {
 promise
   .then(
     result => console.log(result),
-    error => console.log(error) // Prints "Fail"
+    error => console.log(error), // Prints "Fail"
   );
 ```
 
 **Important note:** remember, that errors should not be handled in `then` consumer, there is `catch` specifically for this case.
 
-## `catch`
+#### catch
 
 `catch` is fired if promise is rejected or some error occurred at the execution.
 
@@ -136,7 +135,7 @@ promise
   .catch(error => console.log(error)); // Prints "Fail"
 ```
 
-## `finally`
+#### finally
 
 There is one more promise consumer - `finally`. 
 
@@ -189,7 +188,7 @@ const promise = new Promise((resolve, reject) => {
   if(numbers.includes(8)) {
     resolve(8);
   }
-  reject("No 8 found")
+  reject("No 8 found");
 });
 
 promise
@@ -206,7 +205,7 @@ Waits for all promises to be resolved, or for any to be rejected.
 
 If the returned promise resolves, it is resolved with an aggregating array of the values from the resolved promises, in the same order as defined in the iterable of multiple promises.
 
-If it rejects, it is rejected with the reason from the first promise in the iterable that was rejected.
+If it rejects, it is rejected with the reason from the first promise in the iterable that was rejected:
 
 ```javascript
 const promise1 = new Promise((resolve, reject) => { 
@@ -243,7 +242,7 @@ Promise.all([promise1, promise2, promise3])
 
 Waits until all promises have settled (each may resolve or reject). 
 
-Returns a promise that resolves after all of the given promises have either resolved or rejected, with an array of objects that each describe the outcome of each promise.
+Returns a promise that resolves after all of the given promises have either resolved or rejected, with an array of objects that each describe the outcome of each promise:
 
 ```javascript
 const promise1 = new Promise((resolve, reject) => { 
@@ -260,9 +259,9 @@ Promise.allSettled([promise1, promise2, promise3])
   /*
     Prints:
     [
-      { status: 'fulfilled', value: 1 },
-      { status: 'rejected', reason: 'Error' },
-      { status: 'fulfilled', value: 3 }
+      { status: "fulfilled", value: 1 },
+      { status: "rejected", reason: "Error" },
+      { status: "fulfilled", value: 3 }
     ]
   */
   .then(result => console.log(result));
@@ -274,7 +273,7 @@ Waits until any of the promises is resolved or rejected.
 
 If the returned promise resolves, it is resolved with the value of the first promise in the iterable that resolved. 
 
-If it rejects, it is rejected with the reason from the first promise that was rejected.
+If it rejects, it is rejected with the reason from the first promise that was rejected:
 
 ```javascript
 const promise1 = new Promise((resolve, reject) => {
@@ -314,7 +313,7 @@ Returns a new Promise object that is resolved with the given value.
 
 If the value is a thenable (i.e. has a `then` method), the returned promise will "follow" that thenable, adopting its eventual state; otherwise the returned promise will be fulfilled with the value. 
 
-Generally, if you don't know if a value is a promise or not, `Promise.resolve(value)` it instead and work with the return value as a promise.
+Generally, if you don't know if a value is a promise or not, `Promise.resolve(value)` it instead and work with the return value as a promise:
 
 ```javascript
 const promise1 = new Promise((resolve, reject) => {
@@ -326,7 +325,7 @@ promise1.then(result => console.log(result)); // Prints "1"
 
 #### `Promise.reject(reason)`
 
-Returns a new Promise object that is rejected with the given reason.
+Returns a new Promise object that is rejected with the given reason:
 
 ```javascript
 const promise1 = new Promise((resolve, reject) => {
