@@ -6,7 +6,7 @@ teaser: Array in JavaScript is ordered collection of values where each value has
   objects is...
 date: 2020-05-04T17:55:34.302Z
 ---
-Array in JavaScript is ordered collection of values where each value has its own position, known as `index`. In array index of the first element is `0`, index of the second element is `1` and so on.
+,Array in JavaScript is ordered collection of values where each value has its own position, known as `index`. In array index of the first element is `0`, index of the second element is `1` and so on.
 
 What is the difference between arrays and objects? As both of them are used to store collection of values.
 
@@ -16,7 +16,9 @@ You can say that arrays are special kind of objects with numbered indexes.
 
 ## Create an array
 
-As with objects, there are numerous ways of creating array. The most popular and easiest one is array literal:
+As with objects, there are numerous ways of creating array. 
+
+The most popular and easiest one is array literal:
 
 ```javascript
 // Empty array
@@ -28,7 +30,7 @@ const users = ["John", "Andrew", "Mike"];
 // Array of numbers
 const numbers = [0, 1, 2, 3];
 
-// Array of ojbects
+// Array of objects
 const objects = [
   {
     name: "John"
@@ -42,9 +44,9 @@ const objects = [
 ];
 ```
 
-## Accessing elements
+## Access array elements
 
-**Important note:** remember that array indexes start at 0.
+**Important note:** remember that array indexes start at `0`.
 
 You can access array element by referring to its index:
 
@@ -148,7 +150,7 @@ There are a lot of ways to remove element from an array. Let's take a look at so
 
 #### pop
 
-`pop` removes last element from the array and returns it:
+Removes last element from the array and returns it:
 
 ```javascript
 const users = ["John", "Andrew"];
@@ -162,7 +164,7 @@ console.log(users); // Prints ["John"]
 
 #### shift
 
-`shift` removes first element from the array:
+Removes first element from the array:
 
 ```javascript
 const users = ["John", "Andrew"];
@@ -174,7 +176,7 @@ console.log(users); // Prints ["Andrew"]
 
 #### splice
 
-`splice` method receives 2 parameters: the first one is `index` point to start and the second one is the number of elements to remove:
+Receives 2 parameters: the first one is `index` point to start and the second one is the number of elements to remove:
 
 ```javascript
 const users = ["John", "Andrew", "Mike"];
@@ -196,7 +198,7 @@ console.log(users); // Prints ["John", "Mary"]
 
 #### filter
 
-`filter` method creates new array with elements that fall under a given criteria from an existing array:
+Creates new array with elements that fall under a given criteria from an existing array:
 
 ```javascript
 const users = ["John", "Andrew", "Mike", "Mary"];
@@ -259,7 +261,7 @@ users.forEach(function(item, index) {
 
 ## Array length
 
-`length` property of an array returns the number of element in an array. The length of an array is always one more than its highest index.
+`length` property of an array returns the number of elements in an array. The length of an array is always one more than its highest index.
 
 ```javascript
 const users = ["John", "Andrew", "Mike"];
@@ -303,6 +305,20 @@ console.log(users instanceof Array); // Prints "true"
 
 JavaScript arrays have a lot of built properties and methods, in order to learn more about them, read [this article](link).
 
-## Conclusion
+## Summary
 
 In this article we learnt how to deal with arrays. Make sure to understand given material, as this is something you will be using on a daily basis as JavaScript developer.
+
+* Array in JavaScript is ordered collection of values where each value has its own position, known as `index`
+* Index of the first element is `0`, index of the second element is `1` and so on
+* To create an array, you have to use array literal `[]`
+* You can access array element by referring to its index
+* If element under given index does not exist, you would receive `undefined`
+* In order to add element to the end of the array, use `push` method
+* In order to add element to the beginning of the array, use `unshift` method
+* To change value in array, use `index` and assignment operator
+* To remove element from an array use: `pop`, `shift`, `splice`, `filter`
+* To check if element exists in array, use `includes` method
+* To iterate over array elements use: `for` loop, `while` loop, `forEach`
+* `length` property of an array returns the number of elements in an array
+* array has a lot of built-in methods, make sure to check them out by referring to [this article](/2020-05-05-javascript-built-in-arrays-methods/)
