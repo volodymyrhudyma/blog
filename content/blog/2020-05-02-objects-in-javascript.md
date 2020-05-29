@@ -1,9 +1,9 @@
 ---
 title: Objects in JavaScript
-teaser: Everything in JavaScript, except Primitives are Objects, that's why it's
-  the most important part of the language. Understanding objects is essential in
-  order to become  professional. Objects are collections of properties, defined
-  as key-value pair...
+teaser: Everything in JavaScript, except "Primitives" are "Objects", that's why
+  it's the most important part of the language. Understanding objects is
+  essential in order to become  professional. Objects are collections of
+  properties, defined as key-value pair...
 date: 2020-05-02T19:11:10.868Z
 ---
 Everything in JavaScript, except Primitives are Objects, that's why it's the most important part of the language. Understanding objects is essential in order to become  professional. 
@@ -23,13 +23,13 @@ To create an object with properties, you have to use `key: value` syntax:
 ```javascript
 const user = {
   name: "John",
-  surname: "Doe"
+  surname: "Doe",
 };
 ```
 
 In the example above `name` and `surname` are the keys and `John` and `Doe` are the values.
 
-## Accessing properties
+## Access object property
 
 There are 2 ways of accessing object properties: using **dot notation** and **array-like notation**.
 
@@ -38,7 +38,7 @@ There are 2 ways of accessing object properties: using **dot notation** and **ar
 ```javascript
 const user = {
   name: "John",
-  surname: "Doe"
+  surname: "Doe",
 };
 
 console.log(user.name); // Prints "John"
@@ -51,7 +51,7 @@ console.log(user.surname); // Prints "Doe"
 ```javascript
 const user = {
   name: "John",
-  surname: "Doe"
+  surname: "Doe",
 };
 
 console.log(user['name']); // Prints "John"
@@ -78,7 +78,7 @@ If property you are trying to access doesn't exist, you would receive `undefined
 ```javascript
 const user = {
   name: "John",
-  surname: "Doe"
+  surname: "Doe",
 };
 
 console.log(user.full_name); // Prints "undefined"
@@ -91,7 +91,7 @@ You can add property to an object after it was created:
 ```javascript
 const user = {
   name: "John",
-  surname: "Doe"
+  surname: "Doe",
 };
 
 user.full_name = "John Doe";
@@ -101,11 +101,11 @@ console.log(user); // Prints { name: "John", surname: "Doe", full_name: "John Do
 
 ## Change property
 
-To change property in an object, use assignment operator:
+To change property in an object, use an assignment operator:
 
 ```javascript
 const user = {
-  name: "John"
+  name: "John",
 };
 
 user.name = "Andrew";
@@ -120,7 +120,7 @@ Use `delete` operator to remove property from an object:
 ```javascript
 const user = {
   name: "John",
-  surname: "Doe"
+  surname: "Doe",
 };
 
 delete user.name;
@@ -135,7 +135,7 @@ Use `in` operator to check if property exists in an object:
 ```javascript
 const user = {
   name: "John",
-  surname: "Doe"
+  surname: "Doe",
 };
 
 console.log('name' in user); // Prints "true"
@@ -150,7 +150,7 @@ Use `for ... in` loop in order to iterate over properties in an object:
 ```javascript
 const user = {
   name: "John",
-  surname: "Doe"
+  surname: "Doe",
 };
 
 for (const propertyName in user) {
@@ -168,7 +168,7 @@ You can access value as well, by doing `user[propertyName]`.
 ```javascript
 const user = {
   name: "John",
-  surname: "Doe"
+  surname: "Doe",
 };
 
 for (const propertyName in user) {
@@ -187,7 +187,7 @@ const user = {
   surname: "Doe",
   getFullName: function() {
     return this.name + " " + this.surname;
-  }
+  },
 };
 
 console.log(user.getFullName()); // Prints "John Doe"
@@ -207,7 +207,7 @@ const user = {
   surname: "Doe",
   getFullName: function() {
     return this.name + " " + this.surname;
-  }
+  },
 };
 ```
 
@@ -219,7 +219,7 @@ const user = {
   surname: "Doe",
   getFullName() {
     return this.name + " " + this.surname;
-  }
+  },
 };
 ```
 
@@ -233,7 +233,7 @@ const user = {
 
 user.getFullName = function() {
   return this.name + " " +  this.surname;
-}
+};
 ```
 
 4. Using fat arrow function (ES6 syntax):
@@ -244,10 +244,10 @@ const user = {
   surname: "Doe",
   getFullName: () => {
     return this.name + " " + this.surname;
-  }
+  },
 };
 
-console.log(user.getFullName()); // TypeError: Cannot read property 'name' of undefined
+console.log(user.getFullName()); // TypeError: Cannot read property "name" of undefined
 ```
 
 or:
@@ -260,24 +260,24 @@ const user = {
 
 user.getFullName = () => {
   return this.name + " " + this.surname;
-}
+};
 
-console.log(user.getFullName()); // TypeError: Cannot read property 'name' of undefined
+console.log(user.getFullName()); // TypeError: Cannot read property "name" of undefined
 ```
 
 Notice that both examples return the same error. Do you know why? 
 
 Arrow function doesn't bind own `this` context, so we don't have access to object's properties.
 
-**Important note:** never define object's methods using arrow functions.
+**Important note:** do not define object's methods using arrow functions.
 
 ## Built-in object functions
 
 All objects in JavaScript descend from the parent `Object` constructor. `Object` has a lot of useful built-in methods we can access and use.
 
-**Important note:** `Object` methods are used directly on the `Object` constructor and use the object instance as a parameter. They are also known as a static methods.
+**Important note:** Object methods are used directly on the Object constructor and use the object instance as a parameter. They are also known as a static methods.
 
-The list of all `Object` built-in methods available for use:
+The list of all Object built-in methods available for use:
 
 #### `Object.create`
 
@@ -288,7 +288,7 @@ const person = {
   age: 18,
   getAge() {
     return this.age;
-  }
+  },
 };
 
 const adult = Object.create(person);
@@ -306,7 +306,7 @@ const person = {
   age: 18,
   getAge() {
     return this.age;
-  }
+  },
 };
 
 const keys = Object.keys(person);
@@ -321,7 +321,7 @@ Creates an array containing values of the object:
 ```javascript
 const person = {
   name: "John",
-  age: 18
+  age: 18,
 };
 
 const values = Object.values(person);
@@ -336,7 +336,7 @@ Creates nested array containing key/values pairs of the object:
 ```javascript
 const person = {
   name: "John",
-  age: 18
+  age: 18,
 };
 
 const entries = Object.entries(person);
@@ -351,7 +351,7 @@ Copies values from one object to another:
 ```javascript
 const person = {
   name: "John",
-  age: 18
+  age: 18,
 };
 
 const newPerson = Object.assign({}, person);
@@ -366,7 +366,7 @@ Disallows properties modification/deletion as well as adding new ones:
 ```javascript
 const person = {
   name: "John",
-  age: 18
+  age: 18,
 };
 
 Object.freeze(person);
@@ -385,7 +385,7 @@ Disallows adding new properties, but allows modification of existing ones:
 ```javascript
 const person = {
   name: "John",
-  age: 18
+  age: 18,
 };
 
 Object.seal(person);
@@ -399,7 +399,7 @@ console.log(person.name); // Prints "Andrew"
 
 #### `Object.getPrototypeOf`
 
-Gets prototype (the value of internal `[[Prototype]]`) of an object, also accessible via `__proto__:`
+Gets prototype (the value of internal `[[Prototype]]`) of an object, also accessible via `__proto__`:
 
 ```javascript
 const animal = {};
@@ -411,6 +411,16 @@ const dogPrototype = Object.getPrototypeOf(dog);
 console.log(dogPrototype === animal); // Prints "true"
 ```
 
-## Conclusion
+## Summary
 
 In this chapter we dug into JavaScript objects, reviewed how to create/modify/delete their properties, add custom methods and use a great power of built-in `Object` methods.
+
+* Everything in JavaScript, except Primitives are Objects
+* To create an object with properties, you have to use `key: value` syntax
+* There are 2 ways of accessing object properties: using **dot notation** and **array-like notation**
+* If property you are trying to access doesn't exist, you would receive `undefined`
+* Use assignment operator to add/update property in an object
+* Use `delete` operator to remove property from an object
+* Use `in` operator to check if property exists in an object
+* Use `for ... in` loop in order to iterate over properties in an object
+* Object has a lot of built-in methods: Object.create, Object.keys, Object.values, Object.entries, Object.assign, Object.freeze, Object.seal, Object.getPrototypeOf
