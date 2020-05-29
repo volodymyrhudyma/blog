@@ -100,7 +100,7 @@ By using `call`, `apply` and `bind`, we can easily borrow methods from different
 
 Imagine the following situation: you have an array of numbers and need to find a maximum number. You know that there is `Math.max` function that does exactly what we need, so why don't we use it? 
 
-The problem is that `Math.max` does not accept array, but numbers.
+The problem is that `Math.max` does not accept array, but numbers:
 
 ```javascript
 Math.max(10, 20, 30, 1, 100); // "100"
@@ -190,6 +190,6 @@ You should have solid understanding how `call`, `apply` and `bind` work by now.
 
 Those functions are often forgotten by developers so try to always keep them in mind and use if needed.
 
-* `call` is used to immediately execute function with given `this `context and arguments
+* `call` is used to immediately execute function with given `this` context and arguments
 * `apply` behaves exactly the same way as `call`, with the only difference - it receives an array of the arguments as the second parameter
 * `bind` behaves exactly the same way as `apply`, but not gets executed immediately. It returns **bound** function
