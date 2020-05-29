@@ -433,3 +433,17 @@ Abstract equality comparison:
    ```
 
 **Important note:** make sure to check the most complete [list of WTFs ](https://github.com/denysdovhan/wtfjs)in javascript I've ever seen.
+
+## Summary
+
+Hopefully, you have an understanding how cool is JavaScript and how easy is to start working with it.
+
+Quick recap:
+
+* Javascript is a dynamically-typed, interpreted programming language that was originally developed to add dynamic and interactive elements to web pages. It runs on the client-side, which means the code is processed by a web browser
+* There are 7 types considered to be primitive (boolean, null, undefined, number, bigint, string, symbol) and 1 reference type (object)
+* Primitives are copied by value, objects are copied by reference
+* Javascript has both strict `===` and abstract `==` equality comparisons
+* Strict comparison only results in true if both operands are of the same type
+* Abstract equality comparison converts operands to the same type and applies strict comparison
+* Unexpected type casting in JavaScript is called coercion
