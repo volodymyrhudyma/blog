@@ -45,7 +45,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           property: `og:image`,
-          content: "./icons/jst_logo_full.png",
+          content: "https://img.techpowerup.org/200531/jst-logo-full.png",
         },
         {
           property: `og:description`,
