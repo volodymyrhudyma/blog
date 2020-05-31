@@ -71,6 +71,10 @@ function SEO({ description, lang, meta, title }) {
           name: `twitter:description`,
           content: metaDescription,
         },
+        {
+          name: `twitter:image`,
+          content: "https://img.techpowerup.org/200531/jst-logo-full.png",
+        },
       ].concat(meta)}
     />
   )
