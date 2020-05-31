@@ -8,8 +8,21 @@ import SEO from "@components/seo"
 import { PaginationWrapper, PageInfo } from "./styles"
 
 export default class BlogList extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      showTOC: false,
+    }
+  }
+
+  toggleTOC = () => {
+    this.setState(({ showTOC }) => ({
+      showTOC: !showTOC,
+    }))
+  }
+
   render() {
-    const posts = this.props.data.allMarkdownRemark.edges
+    const posts = this.props.data.postsPerPage.edges
     const {
       pageContext: { currentPage, numPages },
     } = this.props
@@ -18,6 +31,7 @@ export default class BlogList extends React.Component {
     const prevPage =
       currentPage - 1 === 1 ? "/" : `/${(currentPage - 1).toString()}`
     const nextPage = `/${(currentPage + 1).toString()}`
+    const { showTOC } = this.state
     return (
       <Layout>
         <SEO title="JavaScript tutorials" />
@@ -29,6 +43,38 @@ export default class BlogList extends React.Component {
           }}
         >
           <h1>Complicated stuff in simple words</h1>
+          <p style={{ fontWeight: "600", display: "flex" }}>
+            Table of contents
+            <span
+              style={{
+                cursor: "pointer",
+                transform: showTOC ? "rotate(90deg)" : "rotate(-90deg)",
+                outline: "none",
+                marginLeft: "0.5rem",
+              }}
+              onClick={this.toggleTOC}
+              onKeyPress={this.toggleTOC}
+              role="button"
+              tabIndex="0"
+            >
+              &#60;
+            </span>
+          </p>
+          {showTOC && (
+            <div style={{ display: "flex" }}>
+              <section style={{ flex: "auto" }}>
+                <ul style={{ margin: 0 }}>
+                  {this.props.data.allPosts.edges.map(({ node }) => (
+                    <li style={{ listStyle: "none" }} key={node.fields.slug}>
+                      <Link to={node.fields.slug}>
+                        {node.frontmatter.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            </div>
+          )}
         </div>
         <div style={{ marginTop: "2rem" }}>
           {posts.map(({ node }) => (
@@ -70,7 +116,7 @@ export default class BlogList extends React.Component {
 
 export const blogListQuery = graphql`
   query blogListQuery($skip: Int!, $limit: Int!) {
-    allMarkdownRemark(
+    postsPerPage: allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
       limit: $limit
       skip: $skip
@@ -84,6 +130,20 @@ export const blogListQuery = graphql`
             title
             teaser
             date(formatString: "MMMM DD, YYYY")
+          }
+        }
+      }
+    }
+    allPosts: allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      edges {
+        node {
+          fields {
+            slug
+          }
+          frontmatter {
+            title
           }
         }
       }
