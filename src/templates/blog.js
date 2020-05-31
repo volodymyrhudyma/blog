@@ -62,19 +62,20 @@ export default function Template({ data, path }) {
           justifyContent: "space-between",
           borderBottom: "1px solid rgb(204, 204, 204)",
           paddingBottom: "1.45rem",
+          cursor: "pointer",
+          outline: "none",
         }}
+        onClick={toggleTOC}
+        onKeyPress={toggleTOC}
+        role="button"
+        tabIndex="0"
       >
         Table of contents
         <span
           style={{
-            cursor: "pointer",
             transform: showTOC ? "rotate(90deg)" : "rotate(-90deg)",
             outline: "none",
           }}
-          onClick={toggleTOC}
-          onKeyPress={toggleTOC}
-          role="button"
-          tabIndex="0"
         >
           &#60;
         </span>

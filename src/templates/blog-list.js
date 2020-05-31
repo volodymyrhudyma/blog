@@ -43,19 +43,25 @@ export default class BlogList extends React.Component {
           }}
         >
           <h1>Complicated stuff in simple words</h1>
-          <p style={{ fontWeight: "600", display: "flex" }}>
+          <p
+            role="button"
+            tabIndex="0"
+            onClick={this.toggleTOC}
+            onKeyPress={this.toggleTOC}
+            style={{
+              cursor: "pointer",
+              fontWeight: "600",
+              display: "inline-block",
+              outline: "none",
+            }}
+          >
             Table of contents
             <span
               style={{
-                cursor: "pointer",
                 transform: showTOC ? "rotate(90deg)" : "rotate(-90deg)",
-                outline: "none",
                 marginLeft: "0.5rem",
+                display: "inline-block",
               }}
-              onClick={this.toggleTOC}
-              onKeyPress={this.toggleTOC}
-              role="button"
-              tabIndex="0"
             >
               &#60;
             </span>
