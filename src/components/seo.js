@@ -44,6 +44,10 @@ function SEO({ description, lang, meta, title }) {
           content: title,
         },
         {
+          property: `og:image`,
+          content: "./icons/jst_logo_full.png",
+        },
+        {
           property: `og:description`,
           content: metaDescription,
         },
