@@ -160,3 +160,120 @@ console.log(result.next());
 // Prints "{value: undefined, done: true}"
 console.log(result.throw(new Error("Something went wrong")));
 ```
+
+## Usage of generators
+
+When you start learning about the generators it may not be obvious where are they used, so let's take a look at the use cases:
+
+#### Implementing iterables
+
+Imagine that we want to create a custom iterable that returns a sequence of words.
+
+Consider the following method using iterators:
+
+```javascript
+const iterable = {
+  [Symbol.iterator]() {
+    let step = 0;
+    return {
+      next() {
+        step++;
+        if (step === 1) {
+          return { value: 'Hello', done: false};
+        } else if (step === 2) {
+          return { value: 'World', done: false};
+        }
+        return { value: undefined, done: true };
+      },
+    };
+  },
+};
+
+/* 
+  Prints:
+    "Hello"
+    "World"
+*/
+for (const result of iterable) {
+  console.log(result);
+}
+```
+
+And the same example using generators:
+
+```javascript
+  function* example() {
+  yield 'Hello';
+  yield 'World';
+};
+
+const generator = example();
+
+/* 
+  Prints:
+    "Hello"
+    "World"
+*/
+for (const result of generator) {
+  console.log(result);
+}
+```
+
+Compare the amount of code and simplicity of both examples, which do the same thing.
+
+#### Waiting for promise to resolve
+
+Let's assume we have to fetch user details using the following code, based on Promise:
+
+```javascript
+const fetchUser = () => {
+    return axios('url')
+      .then(user => JSON.parse(user))
+      .catch(error => { console.log(error); });
+};
+```
+
+The same code but using `async/await`:
+
+```javascript
+const fetchUser = async () => {
+  try {
+    const user = await axios('url');
+    return JSON.parse(user);
+  } catch(e) {
+    console.log(error);
+  }
+};
+```
+
+And finally, using generators:
+
+```javascript
+function* fetchUser() {
+  try {
+    const user = yield axios.get('url');
+    return JSON.parse(user);
+  } catch(e) {
+    console.log(error);
+  }
+};
+```
+
+#### Generating infinite/unique data streams
+
+You can use generators to create infinite data stream of unique identifiers:
+
+```javascript
+function* idGenerator() {
+  let i = 0;
+  while (true) {
+    yield i++;
+  }
+}
+
+const id = idGenerator();
+
+console.log(id.next()); // Prints "{value: 0, done: false}"
+console.log(id.next()); // Prints "{value: 1, done: false}"
+console.log(id.next()); // Prints "{value: 2, done: false}"
+```
