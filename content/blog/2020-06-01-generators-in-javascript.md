@@ -5,7 +5,7 @@ teaser: Generator function - a special kind of function that can stop midway and
   generator object, which conforms to both - iterable and iterator protocol...
 date: 2020-06-01T13:51:11.139Z
 ---
-Generator function - a special kind of function that can stop midway and continue execution from the place where it stopped. 
+**Generator function** - a special kind of function that can stop midway and continue execution from the place where it stopped. 
 
 This function returns generator object, which conforms to both - iterable and iterator protocol.
 
