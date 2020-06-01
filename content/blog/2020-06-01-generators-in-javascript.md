@@ -67,7 +67,7 @@ What is the difference between the `exampleGenerator` and the regular function?
 
 Regular function can't be stopped in the middle of execution.
 
-The only way to exit the function is to use `return` keyword or `throw` an error:
+The only ways to exit the function are: to use `return` keyword or `throw` an error:
 
 ```javascript
 function exampleFunction() { 
