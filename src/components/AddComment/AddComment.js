@@ -30,8 +30,6 @@ const AddComment = ({ slug }) => {
     e.preventDefault()
     try {
       setLoading(true)
-      console.log("process.env.GATSBY_STATICMAN_URL")
-      console.log(process.env.GATSBY_STATICMAN_URL)
       await axios.post(process.env.GATSBY_STATICMAN_URL, {
         fields: {
           name: comment.name,
