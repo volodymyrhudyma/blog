@@ -27,6 +27,10 @@ export const Image = styled.div`
   text-align: center;
   padding: 1rem;
   position: relative;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `
 
 export const JST = styled.img`
