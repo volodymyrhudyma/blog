@@ -30,9 +30,9 @@ const AddComment = ({ slug }) => {
     e.preventDefault()
     try {
       setLoading(true)
-      console.log("process.env.STATICMAN_URL")
-      console.log(process.env.STATICMAN_URL)
-      await axios.post(process.env.STATICMAN_URL, {
+      console.log("process.env.GATSBY_STATICMAN_URL")
+      console.log(process.env.GATSBY_STATICMAN_URL)
+      await axios.post(process.env.GATSBY_STATICMAN_URL, {
         fields: {
           name: comment.name,
           message: comment.message,
@@ -93,7 +93,7 @@ const AddComment = ({ slug }) => {
     <Wrapper>
       <Title>Let me know what you think about this article</Title>
       {showCommentBlock ? (
-        <form onSubmit={onSubmit} action={process.env.STATICMAN_URL}>
+        <form onSubmit={onSubmit} action={process.env.GATSBY_STATICMAN_URL}>
           {flashMessage && (
             <FlashMessage type={flashMessage.type}>
               {flashMessage.message}
