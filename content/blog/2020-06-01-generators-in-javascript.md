@@ -49,7 +49,7 @@ This protocol defines a standard way to produce a sequence of values (either fin
 
 ## Generator object
 
-Generator object can not be instantiated using **new** keyword, it only can be returned from the generator function:
+Generator object can not be instantiated using `new` keyword, it only can be returned from the generator function:
 
 ```javascript
 function* exampleGenerator() { 
