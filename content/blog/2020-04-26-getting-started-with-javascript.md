@@ -277,7 +277,7 @@ Another options:
 
 ## Comparison operators
 
-Javascript has both **strict** `=== `and **abstract** `==` equality comparisons. 
+Javascript has both **strict** `===` and **abstract** `==` equality comparisons. 
 
 Strict comparison:
 
