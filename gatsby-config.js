@@ -79,7 +79,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `JavaScript tutorials`,
+        name: `JavaScript Tutorials For Everyone`,
         short_name: `starter`,
         start_url: `/`,
         background_color: `#1ca086`,
