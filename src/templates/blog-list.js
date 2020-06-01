@@ -34,7 +34,7 @@ export default class BlogList extends React.Component {
     const { showTOC } = this.state
     return (
       <Layout>
-        <SEO title="JavaScript tutorials" />
+        <SEO title="JavaScript Tutorials For Everyone" />
         <div
           style={{
             padding: "0 2rem 0.725rem 2rem",
