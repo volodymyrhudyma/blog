@@ -58,6 +58,15 @@ export default class BlogList extends React.Component {
             Table of contents
             <span
               style={{
+                fontWeight: "400",
+                display: "inline-block",
+                marginLeft: "0.25rem",
+              }}
+            >
+              (Total articles: {this.props.data.allPosts.edges.length})
+            </span>
+            <span
+              style={{
                 transform: showTOC ? "rotate(90deg)" : "rotate(-90deg)",
                 marginLeft: "0.5rem",
                 display: "inline-block",
