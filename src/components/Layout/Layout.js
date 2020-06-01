@@ -159,7 +159,7 @@ const Layout = ({ children }) => {
                     About me
                   </SidebarLink>
                   <SidebarSocial>{renderSocialLinks("white")}</SidebarSocial>
-                  <SidebarButton href="https://vhudyma.netlify.com/">
+                  <SidebarButton href="https://www.vhudyma-portfolio.eu/">
                     Get in touch
                   </SidebarButton>
                 </>
@@ -175,7 +175,7 @@ const Layout = ({ children }) => {
               <BannerHeading>
                 Looking for a professional React developer?
               </BannerHeading>
-              <SidebarButton href="https://vhudyma.netlify.com/">
+              <SidebarButton href="https://www.vhudyma-portfolio.eu/">
                 Hire me
               </SidebarButton>
             </BannerWrapper>
@@ -191,7 +191,9 @@ const Layout = ({ children }) => {
                 <div>
                   by
                   {` `}
-                  <a href="https://vhudyma.netlify.com/">Volodymyr Hudyma</a>
+                  <a href="https://www.vhudyma-portfolio.eu/">
+                    Volodymyr Hudyma
+                  </a>
                 </div>
               </div>
               <div

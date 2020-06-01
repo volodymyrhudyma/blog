@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Become JavaScript expert`,
     description: `Become an expert in JavaScript by learning from an experienced developer.`,
-    author: `https://vhudyma.netlify.com/`,
+    author: `https://www.vhudyma-portfolio.eu/`,
   },
   plugins: [
     {
