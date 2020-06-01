@@ -171,14 +171,14 @@ const Layout = ({ children }) => {
             noMargin={cookies.hideSidebar}
           >
             <ContentChildren>{children}</ContentChildren>
-            <BannerWrapper>
+            {/* <BannerWrapper>
               <BannerHeading>
                 Looking for a professional React developer?
               </BannerHeading>
               <SidebarButton href="https://www.vhudyma-portfolio.eu/">
                 Hire me
               </SidebarButton>
-            </BannerWrapper>
+            </BannerWrapper> */}
             <Footer>
               <div
                 style={{
