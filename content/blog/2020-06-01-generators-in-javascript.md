@@ -179,9 +179,9 @@ const iterable = {
       next() {
         step++;
         if (step === 1) {
-          return { value: 'Hello', done: false};
+          return { value: "Hello", done: false};
         } else if (step === 2) {
-          return { value: 'World', done: false};
+          return { value: "World", done: false};
         }
         return { value: undefined, done: true };
       },
@@ -203,8 +203,8 @@ And the same example using generators:
 
 ```javascript
   function* example() {
-  yield 'Hello';
-  yield 'World';
+  yield "Hello";
+  yield "World";
 };
 
 const generator = example();
@@ -227,7 +227,7 @@ Let's assume we have to fetch user details using the following code, based on Pr
 
 ```javascript
 const fetchUser = () => {
-    return axios('url')
+    return axios("url")
       .then(user => JSON.parse(user))
       .catch(error => { console.log(error); });
 };
@@ -238,7 +238,7 @@ The same code but using `async/await`:
 ```javascript
 const fetchUser = async () => {
   try {
-    const user = await axios('url');
+    const user = await axios("url");
     return JSON.parse(user);
   } catch(e) {
     console.log(error);
@@ -251,7 +251,7 @@ And finally, using generators:
 ```javascript
 function* fetchUser() {
   try {
-    const user = yield axios.get('url');
+    const user = yield axios.get("url");
     return JSON.parse(user);
   } catch(e) {
     console.log(error);
@@ -269,7 +269,7 @@ function* idGenerator() {
   while (true) {
     yield i++;
   }
-}
+};
 
 const id = idGenerator();
 
@@ -277,3 +277,12 @@ console.log(id.next()); // Prints "{value: 0, done: false}"
 console.log(id.next()); // Prints "{value: 1, done: false}"
 console.log(id.next()); // Prints "{value: 2, done: false}"
 ```
+
+## Summary
+
+We've covered the very basics of generators, by now you should have an understanding what are they and how do they work.
+
+* Generator - function that can stop midway and continue execution later on
+* Generator object is returned from the generator function, is can't be instantiated using `new` keyword
+* Generator has 3 built-it methods: `next()`, `return()`, `throw()`
+* Generators can be used for: Implementing iterables, waiting for Promise to resolve, generating infinite data streams etc...
