@@ -11,19 +11,19 @@ This function returns generator object, which conforms to both - iterable and it
 
 For creating a generator function, `function*` syntax is used.
 
-**Important note:** it's not possible to create generator using arrow function.
-
 Inside of the function body we have `yield` keywords which pause the function execution.
 
-Every time a generator encounters this keyword, it returns the value specified after it.
-
-We can also return from a generator. However, `return` keyword finishes the generator:
+Every time a generator encounters this keyword, it returns the value specified after it:
 
 ```javascript
 function* exampleGenerator() { 
   yield 1;
 };
+```
 
+We can also return from a generator. However, `return` keyword finishes the generator:
+
+```javascript
 function* exampleGenerator() { 
   yield 1;
   // The generator finishes at this moment
@@ -32,6 +32,8 @@ function* exampleGenerator() {
   yield 2;
 };
 ```
+
+**Important note:** it's not possible to create generator using arrow function.
 
 ## Iterable protocol
 
