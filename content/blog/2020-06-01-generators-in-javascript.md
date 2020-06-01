@@ -11,6 +11,8 @@ This function returns generator object, which conforms to both - iterable and it
 
 For creating a generator function, `function*` syntax is used.
 
+**Important note:** it's not possible to create generator using arrow function.
+
 Inside of the function body we have `yield` keywords which pause the function execution.
 
 Every time a generator encounters this keyword, it returns the value specified after it.
@@ -282,7 +284,7 @@ console.log(id.next()); // Prints "{value: 2, done: false}"
 
 We've covered the very basics of generators, by now you should have an understanding what are they and how do they work.
 
-* Generator - function that can stop midway and continue execution later on
+* Generator - function that can be suspended and resumed later on
 * Generator object is returned from the generator function, is can't be instantiated using `new` keyword
 * Generator has 3 built-it methods: `next()`, `return()`, `throw()`
-* Generators can be used for: Implementing iterables, waiting for Promise to resolve, generating infinite data streams etc...
+* Generators can be used for: implementing iterables, waiting for Promise to resolve, generating infinite data streams and much more
