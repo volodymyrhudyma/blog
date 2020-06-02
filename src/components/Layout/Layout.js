@@ -42,6 +42,10 @@ import Header from "../header"
 const GlobalStyle = createGlobalStyle`
   html {
     height: 100%;
+
+    @media (max-width: 768px) {
+      font-size: 106.25%;
+    }
   }
 
   body {
@@ -66,6 +70,7 @@ const GlobalStyle = createGlobalStyle`
   pre[class*="language-"] {
     margin-top: 0;
     margin-bottom: 1.45rem;
+    overflow-x: auto;
   }
 
   code[class*="language-"] {
