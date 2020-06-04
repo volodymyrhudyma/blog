@@ -91,7 +91,7 @@ Take a look at the `return` statement:
 
 React uses JSX for templating instead of regular JavaScript. 
 
-Remember that it's not necessary to use it, however, there it lot of pros:
+Remember that it's not necessary to use it, however, using it gives you a lot of benefits:
 
 * It is fast because it performs optimization while compiling code to JavaScript
 * It is type-safe and most of the errors can be caught during compilation
@@ -100,7 +100,7 @@ Remember that it's not necessary to use it, however, there it lot of pros:
 In order to have better understanding of JSX, let's take a look at the code without using it:
 
 ```javascript
-const heading = React.createElement("h1", {}, "An example without using JSX");;
+const heading = React.createElement("h1", { className: "heading" }, "An example without using JSX");;
 
 ReactDOM.render(heading, document.getElementById('root'));
 ```
@@ -108,12 +108,26 @@ ReactDOM.render(heading, document.getElementById('root'));
 And with JSX:
 
 ```javascript
-const heading = <h1>JSX example</h1>;
+const heading = <h1 className="heading">JSX example</h1>;
 
 ReactDOM.render(heading, document.getElementById('root'));
 ```
 
+**Important note:** `className` is used instead of `class` for adding CSS classes, as `class` is a reserved keyword in JavaScript.
+
 Looks much easier, even when having simple `h1` tag.
+
+#### Class names in JSX
+
+As we already mentioned, when defining class names, use `className` instead of `class`:
+
+```javascript
+// Good
+const heading = <h1 className="heading">JSX example</h1>;
+
+// Bad
+const heading = <h1 class="heading">JSX example</h1>;
+```
 
 #### Expressions in JSX
 
@@ -125,3 +139,13 @@ const heading = <h1>This page has {10 + 10} articles</h1>;
 
 
 ```
+
+#### Properties and methods in JSX
+
+Properties and methods in JSX are written by using camel case - `onclick` becomes `onClick`:
+
+```javascript
+const button = <button onClick={clickHandler}>Click me</button>;
+```
+
+## Components
