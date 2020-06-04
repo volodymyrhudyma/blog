@@ -9,7 +9,7 @@ React is a declarative, efficient, and flexible JavaScript library for building 
 
 > **Library** - is a file or project that contains some useful functions.
 
-## Why react?
+## Why React?
 
 There are a lot of benefits, but we'll take a look at the most important ones:
 
@@ -32,14 +32,14 @@ There are a lot of benefits, but we'll take a look at the most important ones:
 
   "React Developer Tools" is an extension for Chrome and Firefox that provides a set of inspection widgets to facilitate development. 
 
-  If you're using Redux (state management library for react), you are provided with `redux-logger` library which is great for debugging.
+  If you're using Redux (state management library for React), you are provided with `redux-logger` library which is great for debugging.
 * **React is popular**
 
   If you wonder whether to get your hands dirty with the new technology or not, try to find how many websites are using it. In case of React, we have: facebook, instagram, netflix, dropbox, codeacademy etc.
 
 ## Installing React
 
-There are a couple of ways to create react application. Unless you are an experienced React developer, I recommend you to always use `create-react-app` tool which is developed and maintained by Facebook(as well as React itself).
+There are a couple of ways to create React application. Unless you are an experienced React developer, I recommend you to always use `create-react-app` tool which is developed and maintained by Facebook(as well as React itself).
 
 It helps you to get started with coding without having to deal with some heavy configurations like **webpack** or **babel**.
 
@@ -72,3 +72,45 @@ The structure of created React application is the following:
 ![React application's structure](/img/screenshot-2020-06-04-at-17.55.58.png "The structure of React application created using create-react-app tool")
 
 Read more about it on the [official page](https://create-react-app.dev/docs/folder-structure/) of `create-react-app` tool.
+
+Don't worry if you don't understand yet what are all of those files doing.
+
+## JSX
+
+Just made your first change in `src/App.js` file? Awesome!
+
+**Important note:** we will refer to the `App.js` file as `App` component.
+
+Have you noticed that `App` component is a mix of html and JavaScript? 
+
+This mix is called **JSX**.
+
+Take a look at the `return` statement:
+
+![React JSX example](/img/screenshot-2020-06-04-at-18.03.13.png "JSX in React")
+
+React uses JSX for templating instead of regular JavaScript. 
+
+Remember that it's not necessary to use it, however, there it has a lot of pros:
+
+* It is fast because it performs optimization while compiling code to JavaScript
+* It is type-safe and most of the errors can be caught during compilation
+* It makes coding templates faster, if you are familiar with HTML
+
+In order to have better understanding of JSX, let's take a look at the code without using it:
+
+```javascript
+const heading = React.createElement("h1", {}, "An example without using JSX");;
+
+ReactDOM.render(heading, document.getElementById('root'));
+```
+
+And with JSX:
+
+```javascript
+const heading = <h1>JSX example</h1>;
+
+ReactDOM.render(heading, document.getElementById('root'));
+```
+
+Looks much easier, even when having simple `h1` tag.
