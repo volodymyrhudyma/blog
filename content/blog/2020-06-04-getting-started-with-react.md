@@ -170,6 +170,22 @@ export default Title;
 
 Class components make use of ES6 classes and extend the `React.Component` class.
 
+**Important note:** `export default Title` in the example above exports `Title` to other modules, so this component can be imported using the following syntax: `import Title from "./Title"`. Apart from default export, named export is available as well:
+
+```javascript
+import React from "react";
+
+class Title extends React.Component {
+  render() {
+    return <h1 className="title">Title</h1>;
+  }
+}
+
+export const Title;
+```
+
+In this case `Title` component will be imported the following way: `import { Title } from "./Title"`.
+
 #### Functional components
 
 Let's rewrite `Title` class component to a functional:
@@ -200,6 +216,26 @@ export default Title;
 ```
 
 ## Props
+
+React props are like function arguments for components. 
+
+They are passed to components via HTML attributes.
+
+In the following example we have `App` component which renders `Title` component using given `title` passed as a prop:
+
+```javascript
+import React from 'react';
+
+const Title = (props) => {
+  return <h1 className='title'>{props.title}</h1>;
+};
+
+const App = () => {
+  return <Title title='Hello, world' />;
+};
+
+export default App;
+```
 
 ## State
 
