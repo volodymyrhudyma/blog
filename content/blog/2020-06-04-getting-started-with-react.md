@@ -136,8 +136,6 @@ You are allowed to write any expression inside of curly braces `{}`:
 ```javascript
 // Prints "This page has 20 articles"
 const heading = <h1>This page has {10 + 10} articles</h1>;
-
-
 ```
 
 #### Properties and methods in JSX
@@ -149,3 +147,15 @@ const button = <button onClick={clickHandler}>Click me</button>;
 ```
 
 ## Components
+
+#### Class components
+
+#### Functional components
+
+#### Difference between class and functional components
+
+## Props
+
+## State
+
+## Summary
