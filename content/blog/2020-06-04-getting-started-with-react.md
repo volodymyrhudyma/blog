@@ -221,22 +221,88 @@ React props are like function arguments for components.
 
 They are passed to components via HTML attributes.
 
+React’s data flow between components is uni-directional - from parent to child only.
+
+**Important note:** props are read-only.
+
 In the following example we have `App` component which renders `Title` component using given `title` passed as a prop:
 
 ```javascript
-import React from 'react';
+import React from "react";
 
 const Title = (props) => {
-  return <h1 className='title'>{props.title}</h1>;
+  return <h1 className="title">{props.title}</h1>;
 };
 
 const App = () => {
-  return <Title title='Hello, world' />;
+  return <Title title="Hello, world" />;
 };
 
 export default App;
 ```
 
 ## State
+
+State is built-in object which allows component to manage it's own data.
+
+The difference between props and state - props get passed to component, state is managed within component:
+
+```javascript
+import React from 'react';
+
+class App extends React.Component {
+  constructor() {
+    this.state = {
+      number: 1,
+    };
+  }
+  render() {
+    return <div>{this.state.number}</div>;
+  }
+}
+
+export default App;
+
+```
+
+#### How to modify state?
+
+One important rule should be remembered: state can't be updated directly, but only via `setState` function:
+
+```javascript
+import React from 'react';
+
+class App extends React.Component {
+  constructor() {
+    this.state = {
+      number: 1,
+    };
+  }
+  handleClick = () => {
+    this.setState({
+      number: 2,
+    });
+  };
+  render() {
+    return (
+      <div>
+        <div>{this.state.number}</div>
+        <button onClick={this.handleClick}>Change number</button>
+      </div>
+    );
+  }
+}
+
+export default App;
+
+```
+
+In the example above, when user clicks on `button` element, component's state gets updated and component is re-rendered with the new data.
+
+Basically, `setState` method triggers re-rendering process.
+
+#### Can I use state in functional component?
+
+You have probably noticed that both previous examples were using class components.
 
 ## Summary
