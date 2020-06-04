@@ -55,15 +55,17 @@ This will take some time, usually about 20-30 seconds.
 
 After successful installation open `my-first-app` in your favorite code editor and from the root folder execute:
 
-`yarn start`
+`npm start` or `yarn start`
 
-**Important note:** make sure to install `yarn` as well.
+**Important note:** make sure to install `yarn` as well it you want to use it.
 
-If everything wen well, your browser will open ``[`http://localhost:3000/`](http://localhost:3000/)`` and your first React application will be up and running:
+If everything wen well, the browser will open ``[`http://localhost:3000/`](http://localhost:3000/)`` and the first React application will be up and running:
 
 ![React application started](/img/screenshot-2020-06-04-at-17.35.41.png "Application successfully started")
 
-Try to make any change in `src/App.js` file. The change will be applied immediately, as the page will automatically reload if you make changes to the code.
+Try to make any change in `src/App.js` file. 
+
+The change will be applied immediately, as the page will automatically reload if you make changes to the code.
 
 ## Application's structure
 
@@ -72,8 +74,6 @@ The structure of created React application is the following:
 ![React application's structure](/img/screenshot-2020-06-04-at-17.55.58.png "The structure of React application created using create-react-app tool")
 
 Read more about it on the [official page](https://create-react-app.dev/docs/folder-structure/) of `create-react-app` tool.
-
-Don't worry if you don't understand yet what are all of those files doing.
 
 ## JSX
 
