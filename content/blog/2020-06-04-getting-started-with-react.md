@@ -91,7 +91,7 @@ Take a look at the `return` statement:
 
 React uses JSX for templating instead of regular JavaScript. 
 
-Remember that it's not necessary to use it, however, there it has a lot of pros:
+Remember that it's not necessary to use it, however, there it lot of pros:
 
 * It is fast because it performs optimization while compiling code to JavaScript
 * It is type-safe and most of the errors can be caught during compilation
@@ -114,3 +114,14 @@ ReactDOM.render(heading, document.getElementById('root'));
 ```
 
 Looks much easier, even when having simple `h1` tag.
+
+#### Expressions in JSX
+
+You are allowed to write any expression inside of curly braces `{}`:
+
+```javascript
+// Prints "This page has 20 articles"
+const heading = <h1>This page has {10 + 10} articles</h1>;
+
+
+```
