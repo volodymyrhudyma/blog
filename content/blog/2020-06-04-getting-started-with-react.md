@@ -59,7 +59,7 @@ After successful installation open `my-first-app` in your favorite code editor a
 
 **Important note:** make sure to install `yarn` as well it you want to use it.
 
-If everything wen well, the browser will open ``[`http://localhost:3000/`](http://localhost:3000/)`` and the first React application will be up and running:
+If everything wen well, the browser will open `(http://localhost:3000/)` and the first React application will be up and running:
 
 ![React application started](/img/screenshot-2020-06-04-at-17.35.41.png "Application successfully started")
 
@@ -148,11 +148,56 @@ const button = <button onClick={clickHandler}>Click me</button>;
 
 ## Components
 
+Almost everything in React is component. Think about components as of functions, which accept input (props) and return some output (React elements which describe what should be drawn on the screen).
+
+There are mainly 2 types of components in React: class and functional components.
+
 #### Class components
+
+Let's begin with an example of simple class component:
+
+```javascript
+import React from "react";
+
+class Title extends React.Component {
+  render() {
+    return <h1 className="title">Title</h1>;
+  }
+}
+
+export default Title;
+```
+
+Class components make use of ES6 classes and extend the `React.Component` class.
 
 #### Functional components
 
-#### Difference between class and functional components
+Let's rewrite `Title` class component to a functional:
+
+```javascript
+import React from "react";
+
+const Title = () => {
+  return <h1 className="title">Title</h1>;
+};
+
+export default Title;
+
+```
+
+Functional components are basic JavaScript functions.
+
+These are typically arrow functions but can also be created with the regular `function` keyword:
+
+```javascript
+import React from "react";
+
+function Title() {
+  return <h1 className="title">Title</h1>;
+};
+
+export default Title;
+```
 
 ## Props
 
