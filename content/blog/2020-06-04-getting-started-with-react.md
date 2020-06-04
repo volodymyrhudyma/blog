@@ -305,4 +305,35 @@ Basically, `setState` method triggers re-rendering process.
 
 You have probably noticed that both previous examples were using class components.
 
+That's for a reason - in earlier React versions, function components didn't give us a possibility to define state inside of them.
+
+That's why they were known as stateless in the past.
+
+But now, after the introduction of **React hooks**, we're allowed to use state inside of functional components as well.
+
+Example:
+
+```javascript
+import React, { useState } from 'react';
+
+const App = () => {
+  const [number, setNumber] = useState(1);
+
+  const handleClick = () => {
+    setNumber(2);
+  };
+
+  return (
+    <div>
+      <div>{number}</div>
+      <button onClick={handleClick}>Change number</button>
+    </div>
+  );
+};
+
+export default App;
+```
+
+Don't worry if something is not clear yet, we'll cover React hooks in detail later.
+
 ## Summary
