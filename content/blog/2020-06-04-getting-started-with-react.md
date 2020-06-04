@@ -102,7 +102,7 @@ In order to have better understanding of JSX, let's take a look at the code with
 ```javascript
 const heading = React.createElement("h1", { className: "heading" }, "An example without using JSX");;
 
-ReactDOM.render(heading, document.getElementById('root'));
+ReactDOM.render(heading, document.getElementById("root"));
 ```
 
 And with JSX:
@@ -110,7 +110,7 @@ And with JSX:
 ```javascript
 const heading = <h1 className="heading">JSX example</h1>;
 
-ReactDOM.render(heading, document.getElementById('root'));
+ReactDOM.render(heading, document.getElementById("root"));
 ```
 
 **Important note:** `className` is used instead of `class` for adding CSS classes, as `class` is a reserved keyword in JavaScript.
@@ -248,7 +248,7 @@ State is built-in object which allows component to manage it's own data.
 The difference between props and state - props get passed to component, state is managed within component:
 
 ```javascript
-import React from 'react';
+import React from "react";
 
 class App extends React.Component {
   constructor() {
@@ -270,7 +270,7 @@ export default App;
 One important rule should be remembered: state can't be updated directly, but only via `setState` function:
 
 ```javascript
-import React from 'react';
+import React from "react";
 
 class App extends React.Component {
   constructor() {
@@ -314,7 +314,7 @@ But now, after the introduction of **React hooks**, we're allowed to use state i
 Example:
 
 ```javascript
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const App = () => {
   const [number, setNumber] = useState(1);
@@ -337,3 +337,13 @@ export default App;
 Don't worry if something is not clear yet, we'll cover React hooks in detail later.
 
 ## Summary
+
+We've only covered very basic React concepts, but you should have an overview of it. It's hard to decide whether this technology meets your expectations having finished reading just one small article. That's why in the next sections we are going to build a simple application using React and learn its more advanced features.
+
+* React is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called “components”
+* The best way to create React application for beginners is to use `create-react-app` tool
+* React uses JSX syntax
+* React has mainly 2 component types: class and functional components
+* Props are component's parameters
+* State is built-in object which allows component to manage it's own data
+* In the newest versions of React state can be used in both, class and functional components
