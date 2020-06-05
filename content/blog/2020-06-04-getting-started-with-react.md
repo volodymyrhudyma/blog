@@ -288,7 +288,7 @@ You have probably noticed that both previous examples were using class component
 
 That's for a reason - in earlier React versions, function components didn't give us a possibility to define state inside of them.
 
-That's why they were known as stateless in the past.
+That's why they were known as **stateless** in the past.
 
 But now, after the introduction of **React hooks**, we're allowed to use state inside of functional components as well.
 
