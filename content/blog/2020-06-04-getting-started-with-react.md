@@ -73,7 +73,7 @@ The structure of created React application is the following:
 
 ![React application's structure](/img/screenshot-2020-06-04-at-17.55.58.png "The structure of React application created using create-react-app tool")
 
-Read more about it on the [official page](https://create-react-app.dev/docs/folder-structure/) of `create-react-app` tool.
+Read more about it on the [official page](https://create-react-app.dev/docs/folder-structure/) of **create-react-app** tool.
 
 ## JSX
 
@@ -321,7 +321,7 @@ Don't worry if something is not clear yet, we'll cover React hooks in detail lat
 
 We've only covered very basic React concepts, but you should have an overview of it. It's hard to decide whether this technology meets your expectations having finished reading just one small article. 
 
-***That's why in the next sections we are going to build a simple application using React and learn its more advanced features.***
+***That's why in the next posts we are going to build a simple application using React and learn its more advanced features.***
 
 * React is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called “components”
 * The best way to create React application for beginners is to use `create-react-app` tool
