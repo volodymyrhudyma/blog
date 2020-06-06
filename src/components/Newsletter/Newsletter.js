@@ -41,11 +41,7 @@ const Newsletter = () => {
           placeholder="Type your e-mail address here..."
         />
         {mailChimpResponse && (
-          <SubscribeResponse>
-            {mailChimpResponse.result === "error"
-              ? "Error: You are already subscribed to the list"
-              : "You have successfully been subscribed, thanks"}
-          </SubscribeResponse>
+          <SubscribeResponse>{mailChimpResponse.msg}</SubscribeResponse>
         )}
         <Button>Submit</Button>
       </Form>
