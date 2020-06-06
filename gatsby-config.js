@@ -6,6 +6,14 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: "gatsby-plugin-mailchimp",
+      options: {
+        endpoint:
+          "https://vhudyma-portfolio.us10.list-manage.com/subscribe/post?u=6a773660aa826636b1a44c965&amp;id=3f7598a352",
+        timeout: 3500,
+      },
+    },
+    {
       resolve: `gatsby-plugin-favicon`,
       options: {
         logo: "./static/favicon/favicon.png",

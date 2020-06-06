@@ -4,6 +4,7 @@ import { Link, graphql } from "gatsby"
 import BlogPostItem from "@components/BlogPostItem"
 import Layout from "@components/Layout"
 import SEO from "@components/seo"
+import Newsletter from "@components/Newsletter"
 
 import { PaginationWrapper, PageInfo } from "./styles"
 
@@ -124,6 +125,7 @@ export default class BlogList extends React.Component {
             </div>
           </PaginationWrapper>
         )}
+        <Newsletter />
       </Layout>
     )
   }
