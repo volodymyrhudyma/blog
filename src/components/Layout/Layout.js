@@ -33,9 +33,9 @@ import {
   SidebarLink,
   SidebarClose,
   SidebarShowFull,
-  BannerWrapper,
-  BannerHeading,
 } from "./styles"
+
+import Newsletter from "@components/Newsletter"
 
 import Header from "../header"
 
@@ -175,7 +175,10 @@ const Layout = ({ children }) => {
             miniMargin={sidebarMini}
             noMargin={cookies.hideSidebar}
           >
-            <ContentChildren>{children}</ContentChildren>
+            <ContentChildren>
+              {children}
+              <Newsletter />
+            </ContentChildren>
             {/* <BannerWrapper>
               <BannerHeading>
                 Looking for a professional React developer?
