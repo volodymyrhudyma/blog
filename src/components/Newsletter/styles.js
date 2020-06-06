@@ -101,8 +101,8 @@ export const SubTitle = styled.p`
 `
 
 export const SubscribeResponse = styled.div`
-  position: absolute;
-  bottom: -1.5rem;
+  margin-top: 1rem;
   color: #fff;
   font-size: 0.75rem;
+  text-align: center;
 `
