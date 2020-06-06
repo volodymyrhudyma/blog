@@ -39,13 +39,13 @@ There are a lot of benefits, but we'll take a look at the most important ones:
 
 ## Installing React
 
-There are a couple of ways to create React application. Unless you are an experienced React developer, I recommend you to always use `create-react-app` tool which is developed and maintained by Facebook(as well as React itself).
+There are a couple of ways to create React application. Unless you are an experienced React developer, I recommend you to always use **[create-react-app](https://github.com/facebook/create-react-app)** tool which is developed and maintained by Facebook(as well as React itself).
 
 It helps you to get started with coding without having to deal with some heavy configurations like **webpack** or **babel**.
 
-Make sure to create a new folder for your React projects to keep them in one place(I created `/Users/volodymyrhudyma/Projects/blog`) and enter that folder.
+Make sure to create a new folder for your React projects to store them in one place(I created `/Users/volodymyrhudyma/Projects/blog`) and enter that folder.
 
-**Important note**: make sure to have `NodeJS`, `npm` and `npx` installed before executing the following command.
+**Important note**: make sure to have **NodeJS**, **npm** and **npx** installed before executing the following command. If you've previously installed **create-react-app** globally via **npm** or **yarn,** it's recommended to uninstall the package to ensure that **npx** always uses the latest version.
 
 Within the newly created folder execute:
 
@@ -53,11 +53,11 @@ Within the newly created folder execute:
 
 This will take some time, usually about 20-30 seconds. 
 
-After successful installation open `my-first-app` in your favorite code editor and from the root folder execute:
+After successful installation open **my-first-app** in your favorite code editor and from the root folder execute:
 
 `npm start` or `yarn start`
 
-**Important note:** make sure to install `yarn` as well if you want to use it.
+**Important note:** make sure to install **yarn** as well if you want to use it.
 
 If everything wen well, the browser will open `http://localhost:3000/` and the first React application will be up and running:
 
@@ -73,7 +73,7 @@ The structure of created React application is the following:
 
 ![React application's structure](/img/screenshot-2020-06-04-at-17.55.58.png "The structure of React application created using create-react-app tool")
 
-Read more about it on the [official page](https://create-react-app.dev/docs/folder-structure/) of `create-react-app` tool.
+Read more about it on the [official page](https://create-react-app.dev/docs/folder-structure/) of **create-react-app** tool.
 
 ## JSX
 
@@ -91,7 +91,7 @@ Take a look at the `return` statement:
 
 React uses JSX for templating instead of regular JavaScript. 
 
-Remember that it's not necessary to use it, however, using it gives you a lot of benefits:
+Remember that it's not necessary to use it, however, using it gives you some benefits:
 
 * It is fast because it performs optimization while compiling code to JavaScript
 * It is type-safe and most of the errors can be caught during compilation
@@ -131,7 +131,7 @@ const heading = <h1 class="heading">JSX example</h1>;
 
 #### Expressions in JSX
 
-You are allowed to write any expression inside of curly braces `{}`:
+You are allowed to write any expression inside of the curly braces `{}`:
 
 ```javascript
 // Prints "This page has 20 articles"
@@ -150,7 +150,7 @@ const button = <button onClick={clickHandler}>Click me</button>;
 
 Almost everything in React is component. Think about components as of functions, which accept input (props) and return some output (React elements which describe what should be drawn on the screen).
 
-There are mainly 2 types of components in React: class and functional components.
+There are mainly 2 types of components in React: **class** and **functional** components.
 
 #### Class components
 
@@ -170,25 +170,11 @@ export default Title;
 
 Class components make use of ES6 classes and extend the `React.Component` class.
 
-**Important note:** `export default Title` in the example above exports `Title` to other modules, so this component can be imported using the following syntax: `import Title from "./Title"`. Apart from default export, named export is available as well:
-
-```javascript
-import React from "react";
-
-class Title extends React.Component {
-  render() {
-    return <h1 className="title">Title</h1>;
-  }
-}
-
-export const Title;
-```
-
-In this case `Title` component will be imported the following way: `import { Title } from "./Title"`.
+**Important note:** `export default Title` in the example above exports `Title` to other modules, so this component can be imported using the following syntax: `import Title from "./Title"`. 
 
 #### Functional components
 
-Let's rewrite `Title` class component to a functional:
+Let's refactor `Title` class component to the functional:
 
 ```javascript
 import React from "react";
@@ -216,13 +202,11 @@ export default Title;
 
 ## Props
 
-React props are like function arguments for components. 
-
-They are passed to components via HTML attributes.
-
-React’s data flow between components is uni-directional - from parent to child only.
+React props are like function arguments for components. They are passed to components via HTML attributes.
 
 **Important note:** props are read-only.
+
+React’s data flow between components is uni-directional - from parent to child only.
 
 In the following example we have `App` component which renders `Title` component using given `title` passed as a prop:
 
@@ -304,7 +288,7 @@ You have probably noticed that both previous examples were using class component
 
 That's for a reason - in earlier React versions, function components didn't give us a possibility to define state inside of them.
 
-That's why they were known as stateless in the past.
+That's why they were known as **stateless** in the past.
 
 But now, after the introduction of **React hooks**, we're allowed to use state inside of functional components as well.
 
@@ -335,7 +319,9 @@ Don't worry if something is not clear yet, we'll cover React hooks in detail lat
 
 ## Summary
 
-We've only covered very basic React concepts, but you should have an overview of it. It's hard to decide whether this technology meets your expectations having finished reading just one small article. That's why in the next sections we are going to build a simple application using React and learn its more advanced features.
+We've only covered very basic React concepts, but you should have an overview of it. It's hard to decide whether this technology meets your expectations having finished reading just one small article. 
+
+***That's why in the next posts we are going to build a simple application using React and learn its more advanced features.***
 
 * React is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called “components”
 * The best way to create React application for beginners is to use `create-react-app` tool
