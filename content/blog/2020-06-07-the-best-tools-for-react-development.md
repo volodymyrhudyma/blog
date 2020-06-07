@@ -21,11 +21,11 @@ Large libraries tend to increase the application's size which leads to poorer pe
 
 Having that in mind, let's assume we are dealing with a medium-sized project.
 
-## CRA
+## CRA (create-react-app)
 
 First and foremost, you have to decide if you are going to use the boilerplate (provided by the React team - **[create-react-app](https://github.com/facebook/create-react-app)** or any other available) or set up the project by yourself.
 
-*Unless you are en experienced React developer, I recommend to use create-react-app.*
+*Unless you are en experienced React developer, I recommend to use CRA.*
 
 Creating React application using CRA is as simple as executing one command:
 
@@ -39,8 +39,15 @@ Where **my-app** is your application's name.
 
 After setting up the project, you have to make an important decision - whether you need types in the application or not.
 
-Generally, it's a good idea to include typescript as it gives you a lot of benefits, like: enhancing code readability , allowing to catch code errors in compile time, easier refactoring and much, much more.
+Generally, it's a good idea to include typescript as it gives you a lot of benefits, like: enhancing code readability, allowing to catch code errors in compile time, easier refactoring and much, much more.
 
 If you are using **create-react-app**, you can easily add typescript at the moment of creation:
 
 `npx create-react-app my-app --template typescript`
+
+Or to existing application, build with CRA:
+
+* Install typescript
+
+  `yarn add typescript @types/node @types/react @types/react-dom @types/jest`
+* Rename any file to be a typescript file (for example `src/index.js `to `src/index.tsx`) and **restart your development server**
