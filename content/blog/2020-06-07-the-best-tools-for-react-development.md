@@ -103,3 +103,61 @@ Basically, **Wrapper** is just a **div** element with randomly generated class n
 To read the installation guide, please refer to the [official documentation](https://styled-components.com/docs).
 
 ## Jest + enzyme
+
+It's good practice - to cover all your components with unit tests to be sure that adding new features won't break any of the existing ones.
+
+**Jest** is a JavaScript test runner, library for creating, running and structuring tests.
+
+If you're using CRA, **jest** will already be installed and configured, if not - you have to install it manually:
+
+`yarn add --dev jest`
+
+Read the [official documentation](https://jestjs.io/docs/en/getting-started) to find out how to use it.
+
+**Enzyme** is a JavaScript Testing utility for React that makes it easier to test your React Components' output. You can also manipulate, traverse, and in some ways simulate runtime given the output.
+
+To install enzyme, run:
+
+`yarn add enzyme enzyme-adapter-react-16 react-test-renderer`
+
+> As of Enzyme 3, you will need to install Enzyme along with an Adapter corresponding to the version of React you are using. (The examples above use the adapter for React 16.).
+>
+> **react-test-renderer** is needed for [snapshot testing](https://jestjs.io/docs/en/snapshot-testing).
+
+After successful installation, you have to configure the adapter in the *global setup file.* Create `src/setupTests.js` with the following content:
+
+```javascript
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+configure({ adapter: new Adapter() });
+```
+
+If you're using CRA, then creating the file `src/setupTests.js` will be enough, as it will be executed automatically before running your tests.
+
+If not, you have to let **jest** know the path to this file.
+
+Open your **package.json** and add a new section to it with the following content:
+
+```javascript
+"jest": {
+  "setupFilesAfterEnv": ["<rootDir>/src/setupTests.js"]
+ }
+```
+
+That's it! Now you have everything configured to write your first unit test:
+
+```javascript
+import React from 'react';
+import { shallow } from 'enzyme';
+
+import App from './App';
+
+it('renders welcome message', () => {
+  const wrapper = shallow(<App />);
+  const welcome = <h2>Welcome to React</h2>;
+  expect(wrapper.contains(welcome)).toEqual(true);
+});
+```
+
+Please, refer to the [official documentation](https://enzymejs.github.io/enzyme/docs/api/) to read more about **Enzyme**.
