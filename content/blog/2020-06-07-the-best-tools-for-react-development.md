@@ -118,11 +118,9 @@ Read the [official documentation](https://jestjs.io/docs/en/getting-started) to 
 
 To install enzyme, run:
 
-`yarn add enzyme enzyme-adapter-react-16 react-test-renderer`
+`yarn add enzyme enzyme-adapter-react-16`
 
 > As of Enzyme 3, you will need to install Enzyme along with an Adapter corresponding to the version of React you are using. (The examples above use the adapter for React 16.).
->
-> **react-test-renderer** is needed for [snapshot testing](https://jestjs.io/docs/en/snapshot-testing).
 
 After successful installation, you have to configure the adapter in the *global setup file.* Create `src/setupTests.js` with the following content:
 
@@ -133,7 +131,7 @@ import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
 ```
 
-If you're using CRA, then creating the file `src/setupTests.js` will be enough, as it will be executed automatically before running your tests.
+If you're using CRA, then modifying the existing file `src/setupTests.js` will be enough.
 
 If not, you have to let **jest** know the path to this file.
 
