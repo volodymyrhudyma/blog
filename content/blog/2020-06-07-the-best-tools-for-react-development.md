@@ -161,3 +161,29 @@ it('renders welcome message', () => {
 The test above is just an example, it checks if the **App** component contains welcome message.
 
 Please, refer to the [official documentation](https://enzymejs.github.io/enzyme/docs/api/) to read more about **Enzyme**.
+
+## ESlint
+
+ESLintis a tool for identifying and reporting on patterns found in ​JavaScript code, with the goal of making code more consistent and avoiding bugs.
+
+## Prettier
+
+Prettier is an opinionated code formatter.
+
+## Path aliases
+
+## Storybook
+
+## Axios
+
+## Redux
+
+## Cypress
+
+## Husky
+
+## Dotenv
+
+## i18next
+
+## Moment
