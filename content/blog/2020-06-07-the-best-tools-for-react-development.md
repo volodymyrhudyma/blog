@@ -52,7 +52,7 @@ Or to existing application, build with CRA:
   `yarn add typescript @types/node @types/react @types/react-dom @types/jest`
 * Rename any file to be a typescript file (for example `src/index.js`to `src/index.tsx`) and **restart your development server**
 
-## **Styled components**
+## Styled components
 
 Styled Components is the library that enables writing of CSS in JavaScript using tagged template literals.
 
