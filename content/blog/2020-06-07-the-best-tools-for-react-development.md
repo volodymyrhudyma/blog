@@ -216,7 +216,7 @@ i18n
   });
 ```
 
-After, create file `src/translations/en.json` with the following content:
+Afterwards, create file `src/translations/en.json` with the following content:
 
 ```javascript
 {
