@@ -23,6 +23,24 @@ Having that in mind, let's assume we are dealing with a medium-sized project.
 
 ## CRA
 
-First and foremost, you have to decide if you are going to use the boilerplate (provided by the developers of React - **[create-react-app](https://github.com/facebook/create-react-app)** or any other available) or set up the project by yourself.
+First and foremost, you have to decide if you are going to use the boilerplate (provided by the React team - **[create-react-app](https://github.com/facebook/create-react-app)** or any other available) or set up the project by yourself.
 
 *Unless you are en experienced React developer, I recommend to use **create-react-app***.
+
+Creating React application using CRA is as simple as executing one command:
+
+`npx create-react-app my-app`
+
+Where **my-app** is your application's name.
+
+## Typescript
+
+**Typescript** is a programming language developed by Microsoft, typed superset of JavaScript which is compiled to plain JavaScript.
+
+After setting up the project, you have to make an important decision - whether you need types in the application or not.
+
+Generally, it's a good idea to include typescript as it gives you a lot of benefits, like: enhancing code readability , allowing to catch code errors in compile time, easier refactoring and much, much more.
+
+If you are using **create-react-app**, you can easily add typescript at the moment of creation:
+
+`npx create-react-app my-app --template typescript`
