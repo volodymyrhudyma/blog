@@ -60,7 +60,7 @@ export default function Template({ data, path }) {
           marginTop: 0,
           display: "flex",
           justifyContent: "space-between",
-          borderBottom: "1px solid rgb(204, 204, 204)",
+          borderBottom: "1px solid rgb(205, 205, 205)",
           paddingBottom: "1.45rem",
           cursor: "pointer",
           outline: "none",
