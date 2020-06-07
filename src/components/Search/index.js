@@ -18,7 +18,7 @@ const Results = connectStateResults(
       children
     ) : (
       <div style={{ marginBottom: "1rem" }}>
-        No results for "
+        Seems like no results were found for "
         <span style={{ fontWeight: "bold" }}>{state.query}</span>"
       </div>
     )
