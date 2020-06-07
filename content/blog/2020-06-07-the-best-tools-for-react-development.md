@@ -186,4 +186,14 @@ Prettier is an opinionated code formatter.
 
 ## i18next
 
-## Moment
+## Moment.js
+
+**Moment.js** is a JavaScript library which helps in parsing, validating, manipulating and displaying date and time in JavaScript.
+
+It's extremely useful if your app has to display date and time in different formats, using different languages etc, as working with **Date** object in JavaScript is nowhere near as good as with **moment**.
+
+Install it by executing:
+
+`yarn add moment`
+
+Read the [official documentation](https://momentjs.com/) to find out more.
