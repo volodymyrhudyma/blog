@@ -8,9 +8,11 @@ module.exports = {
   siteMetadata: {
     title: `Become JavaScript expert`,
     description: `Become an expert in JavaScript by learning from an experienced developer.`,
-    author: `https://www.vhudyma-portfolio.eu/`,
+    author: `https://www.vhudyma-portfolio.eu`,
+    siteUrl: `https://www.vhudyma-blog.eu`,
   },
   plugins: [
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-algolia`,
       options: {
