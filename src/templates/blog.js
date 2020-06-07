@@ -67,8 +67,6 @@ export default function Template({ data, path }) {
         }}
         onClick={toggleTOC}
         onKeyPress={toggleTOC}
-        role="button"
-        tabIndex="0"
       >
         Table of contents
         <span

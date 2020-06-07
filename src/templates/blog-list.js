@@ -4,8 +4,19 @@ import { Link, graphql } from "gatsby"
 import BlogPostItem from "@components/BlogPostItem"
 import Layout from "@components/Layout"
 import SEO from "@components/seo"
+import Search from "@components/Search"
 
-import { PaginationWrapper, PageInfo } from "./styles"
+import {
+  PaginationWrapper,
+  PageInfo,
+  SubTitle,
+  SearchWrapper,
+  TOCWrapper,
+} from "./styles"
+
+const searchIndices = [
+  { name: `Articles`, title: `Blog Articles`, hitComp: `PostHit` },
+]
 
 export default class BlogList extends React.Component {
   constructor(props) {
@@ -37,46 +48,45 @@ export default class BlogList extends React.Component {
         <SEO title="JavaScript Tutorials For Everyone" />
         <div
           style={{
-            padding: "0 2rem 0.725rem 2rem",
+            padding: "0 2rem 2rem 2rem",
             margin: "0 -2rem",
             backgroundColor: "#fafafa",
           }}
         >
           <h1>Complicated stuff in simple words</h1>
-          <p
-            role="button"
-            tabIndex="0"
-            onClick={this.toggleTOC}
-            onKeyPress={this.toggleTOC}
-            style={{
-              cursor: "pointer",
-              fontWeight: "600",
-              display: "inline-block",
-              outline: "none",
-            }}
-          >
-            Table of contents
-            <span
-              style={{
-                fontWeight: "400",
-                display: "inline-block",
-                marginLeft: "0.25rem",
-              }}
+          <SubTitle>
+            <TOCWrapper
+              role="button"
+              tabIndex="0"
+              onClick={this.toggleTOC}
+              onKeyPress={this.toggleTOC}
             >
-              (Total articles: {this.props.data.allPosts.edges.length})
-            </span>
-            <span
-              style={{
-                transform: showTOC ? "rotate(90deg)" : "rotate(-90deg)",
-                marginLeft: "0.5rem",
-                display: "inline-block",
-              }}
-            >
-              &#60;
-            </span>
-          </p>
+              Table of contents
+              <span
+                style={{
+                  fontWeight: "400",
+                  display: "inline-block",
+                  marginLeft: "0.25rem",
+                }}
+              >
+                (Total articles: {this.props.data.allPosts.edges.length})
+              </span>
+              <span
+                style={{
+                  transform: showTOC ? "rotate(90deg)" : "rotate(-90deg)",
+                  marginLeft: "0.5rem",
+                  display: "inline-block",
+                }}
+              >
+                &#60;
+              </span>
+            </TOCWrapper>
+            <SearchWrapper>
+              <Search collapse indices={searchIndices} />
+            </SearchWrapper>
+          </SubTitle>
           {showTOC && (
-            <div style={{ display: "flex" }}>
+            <div style={{ display: "flex", marginTop: "0.725rem" }}>
               <section style={{ flex: "auto" }}>
                 <ul style={{ margin: 0 }}>
                   {this.props.data.allPosts.edges.map(({ node }) => (
