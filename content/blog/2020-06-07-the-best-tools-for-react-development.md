@@ -176,13 +176,15 @@ Prettier is an opinionated code formatter.
 
 ## Axios
 
+**Axios** - Promise based HTTP client for the browser and node.js.
+
+Refer to the [official documentation](https://github.com/axios/axios) to find out more.
+
 ## Redux
 
 ## Cypress
 
 ## Husky
-
-## Dotenv
 
 ## React i18next
 
