@@ -25,7 +25,7 @@ Having that in mind, let's assume we are dealing with a medium-sized project.
 
 First and foremost, you have to decide if you are going to use the boilerplate (provided by the React team - **[create-react-app](https://github.com/facebook/create-react-app)** or any other available) or set up the project by yourself.
 
-*Unless you are en experienced React developer, I recommend to use **create-react-app***.
+*Unless you are en experienced React developer, I recommend to use **create-react-app**.*
 
 Creating React application using CRA is as simple as executing one command:
 
