@@ -160,4 +160,6 @@ it('renders welcome message', () => {
 });
 ```
 
+The test above is just an example, it checks if the **App** component contains welcome message.
+
 Please, refer to the [official documentation](https://enzymejs.github.io/enzyme/docs/api/) to read more about **Enzyme**.
