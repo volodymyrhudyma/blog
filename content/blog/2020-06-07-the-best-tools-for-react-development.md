@@ -20,3 +20,9 @@ The technology stack, chosen for each project size can differ. It's generally a 
 Large libraries tend to increase the application's size which leads to poorer performance.
 
 Having that in mind, let's assume we are dealing with a medium-sized project.
+
+## CRA
+
+First and foremost, you have to decide if you are going to use the boilerplate (provided by the developers of React - **[create-react-app](https://github.com/facebook/create-react-app)** or any other available) or set up the project by yourself.
+
+*Unless you are en experienced React developer, I recommend to use **create-react-app***.
