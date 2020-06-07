@@ -22,6 +22,11 @@ const Stats = connectStateResults(
     res && res.nbHits > 0 && `${res.nbHits} result${res.nbHits > 1 ? `s` : ``}`
 )
 
+const searchClient = algoliasearch(
+  process.env.GATSBY_ALGOLIA_APP_ID,
+  process.env.GATSBY_ALGOLIA_SEARCH_KEY
+)
+
 function Search({ indices, collapse }) {
   Search.handleClickOutside = e => {
     !hitsRef.current?.contains(e.target) && setFocus(false)
@@ -31,11 +36,6 @@ function Search({ indices, collapse }) {
 
   const [query, setQuery] = useState(``)
   const [focus, setFocus] = useState(false)
-
-  const searchClient = algoliasearch(
-    process.env.GATSBY_ALGOLIA_APP_ID,
-    process.env.GATSBY_ALGOLIA_SEARCH_KEY
-  )
 
   return (
     <InstantSearch
