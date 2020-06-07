@@ -14,7 +14,14 @@ import * as hitComps from "./hitComps"
 
 const Results = connectStateResults(
   ({ searchState: state, searchResults: res, children }) =>
-    res && res.nbHits > 0 ? children : `No results for '${state.query}'`
+    res && res.nbHits > 0 ? (
+      children
+    ) : (
+      <div style={{ marginBottom: "1rem" }}>
+        No results for "
+        <span style={{ fontWeight: "bold" }}>{state.query}</span>"
+      </div>
+    )
 )
 
 const Stats = connectStateResults(
