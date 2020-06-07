@@ -184,7 +184,68 @@ Prettier is an opinionated code formatter.
 
 ## Dotenv
 
-## i18next
+## React i18next
+
+**react-i18next** is a powerful internationalization framework for React / React Native which is based on **i18next**.
+
+It allows you to easily add multiple languages to your application.
+
+Install it by executing:
+
+`yarn add i18next react-i18next`
+
+After the installation, create `src/i18next.js` configuration file with the following content:
+
+```javascript
+import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
+
+import enTranslations from "./translations/en.json";
+
+i18n
+  .use(initReactI18next)
+  .init({
+    resources: {
+      en: enTranslations,
+    },
+    lng: "en",
+    fallbackLng: "en",
+    interpolation: {
+      escapeValue: false
+    }
+  });
+```
+
+After, create file `src/translations/en.json` with the following content:
+
+```javascript
+{
+  "app": {
+    "greeting": "Hello, world!"
+  }
+}
+```
+
+**react-i18next** provides us with `useTranslation` hook, which gives us an access to the `t` function, which is used to get the translation.
+
+Your **App** component can look like:
+
+```javascript
+import React from "react";
+
+const App = () => {
+  const { t } = useTranslation();
+
+  return <h1>{t("app.greeting")}</h1>;
+}
+  
+export default App;
+
+```
+
+`t` function receives translation key as an argument and searches that key in the translation file.
+
+Refer to the [official documentation](https://react.i18next.com/) to find out more.
 
 ## Moment.js
 
@@ -196,4 +257,4 @@ Install it by executing:
 
 `yarn add moment`
 
-Read the [official documentation](https://momentjs.com/docs/) to find out more.
+Refer to the [official documentation](https://momentjs.com/docs/) to find out more.
