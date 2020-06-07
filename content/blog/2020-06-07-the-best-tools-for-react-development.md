@@ -33,6 +33,8 @@ Creating React application using CRA is as simple as executing one command:
 
 Where **my-app** is your application's name.
 
+To read more about CRA, please refer to the [official documentation](https://create-react-app.dev/).
+
 ## Typescript
 
 **Typescript** is a programming language developed by Microsoft, typed superset of JavaScript which is compiled to plain JavaScript.
@@ -51,6 +53,8 @@ Or to existing application, build with CRA:
 
   `yarn add typescript @types/node @types/react @types/react-dom @types/jest`
 * Rename any file to be a typescript file (for example `src/index.js`to `src/index.tsx`) and **restart your development server**
+
+Read more about typescript [here](https://www.typescriptlang.org/docs/home.html).
 
 ## Styled components
 
@@ -96,6 +100,6 @@ Basically, **Wrapper** is just a **div** element with randomly generated class n
 
 ![Inspected styled component](/img/screenshot-2020-06-07-at-16.31.27.png "Inspected styled component")
 
-To read the installation guide, please refer to the [official docs](https://styled-components.com/docs/basics#installation).
+To read the installation guide, please refer to the [official documentation](https://styled-components.com/docs).
 
 ## Jest + enzyme
