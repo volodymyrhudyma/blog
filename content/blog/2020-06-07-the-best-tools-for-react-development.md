@@ -196,4 +196,4 @@ Install it by executing:
 
 `yarn add moment`
 
-Read the [official documentation](https://momentjs.com/) to find out more.
+Read the [official documentation](https://momentjs.com/docs/) to find out more.
