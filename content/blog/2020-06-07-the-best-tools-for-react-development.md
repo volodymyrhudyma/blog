@@ -315,6 +315,51 @@ One more major benefit of this approach comes into play when we will refactor ou
 
 ## Storybook
 
+**Storybook** is a tool that enables developers to create components in isolation in an isolated development environment.
+
+Any React component can be added to storybook for showcasing purposes.
+
+Install the tool by running:
+
+`yarn add -D @storybook/react`
+
+Then add a script to the **package.json**:
+
+`"storybook": "start-storybook -p 9000"`
+
+The script above starts storybook on port 9000.
+
+Finally, create the main storybook file `.storybook/main.js`, which tells Storybook where to find the stories:
+
+```javascript
+module.exports = {
+  stories: ['../src/**/*.stories.tsx'],
+};
+```
+
+That will load all the stories underneath your `../src `directory that match the pattern `*.stories.tsx`.
+
+Take a look at the example story:
+
+```javascript
+import React from 'react';
+import { storiesOf } from '@storybook/react';
+
+import Loader from './Loader';
+
+storiesOf('Loader', module).add('default', () => <Loader />);
+```
+
+Run storybook:
+
+`yarn storybook`
+
+And see what you've just added:
+
+![Loader component in Storybook](/img/screenshot-2020-06-08-at-21.57.48.png "Loader component in Storybook")
+
+Refer to the [](https://github.com/axios/axios)[official documentation](https://storybook.js.org/) to find out more.
+
 ## Axios
 
 **Axios** - Promise based HTTP client for the browser and node.js.
