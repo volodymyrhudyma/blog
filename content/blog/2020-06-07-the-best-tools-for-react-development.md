@@ -178,13 +178,82 @@ Prettier is an opinionated code formatter.
 
 **Axios** - Promise based HTTP client for the browser and node.js.
 
+To install the library, execute:
+
+`yarn add axios`
+
+Example GET request:
+
+```javascript
+axios.get('/endpoint-url')
+  .then(function (response) {
+    // handle success
+  })
+  .catch(function (error) {
+    // handle error
+  });
+```
+
+It's possible to use **async/await** instead of **Promise**. Just remember to use **try ... catch** block to handle errors:
+
+```javascript
+const example = async () => {
+  try {
+    const response = await axios.get('/endpoint-url');
+    // handle success
+  } catch (error) {
+    // handle error
+  }
+};
+```
+
 Refer to the [official documentation](https://github.com/axios/axios) to find out more.
 
 ## Redux
 
 ## Cypress
 
+**Cypress** - JavaScript end-to-end testing tool.
+
+> **End-to-end testing** is a technique that tests the entire software product from beginning to end to ensure the application flow behaves as expected
+
+To install cypress, run:
+
+`yarn add -D cypress`
+
+// TODO continue
+
+Refer to the [official documentation](https://www.cypress.io/) to find out more.
+
 ## Husky
+
+**Husky** is a tool that runs defined commands before **git commit** or **push**.
+
+It can be used to execute linter or run all your tests before pushing changes to repo, to make sure that you haven't broken anything unintentionally.
+
+To install husky, run:
+
+`yarn add -D husky`
+
+Then open your **package.json** and create a separate block for husky config:
+
+```javascript
+{
+  "husky": {
+    "hooks": {
+      // Run linter and all tests before making a commit
+      "pre-commit": "yarn lint && yarn test",
+      // Run all tests before pushing changes to repo
+      "pre-push": "yarn test",
+      "...": "..."
+    }
+  }
+}
+```
+
+That's it! Enjoy!
+
+Refer to the [official documentation](https://github.com/typicode/husky) to find out more.
 
 ## React i18next
 
@@ -218,7 +287,7 @@ i18n
   });
 ```
 
-Afterwards, create file `src/translations/en.json` with the following content:
+Then, create file `src/translations/en.json` with the following content:
 
 ```javascript
 {
@@ -242,7 +311,6 @@ const App = () => {
 }
   
 export default App;
-
 ```
 
 `t` function receives translation key as an argument and searches that key in the translation file.
