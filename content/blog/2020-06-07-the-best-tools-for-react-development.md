@@ -337,7 +337,7 @@ module.exports = {
 };
 ```
 
-That will load all the stories underneath your `../src `directory that match the pattern `*.stories.tsx`.
+That will load all the stories underneath your `../src` directory that match the pattern `*.stories.tsx`.
 
 Take a look at the example story:
 
@@ -396,6 +396,10 @@ const example = async () => {
 Refer to the [official documentation](https://github.com/axios/axios) to find out more.
 
 ## Redux
+
+**Redux** is a library that allows us to manage application's state in an easy and predictable way.
+
+Refer to the [official documentation](https://redux.js.org/introduction/getting-started) to find out more.
 
 ## Cypress
 
