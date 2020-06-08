@@ -206,15 +206,64 @@ And the final step is to add 2 scripts to the **package.json** file:
 
 `"lint:fix": "./node_modules/.bin/eslint --fix ."`
 
-The first script checks if all your files meet the specified criterias and throws errors in the terminal, if not.
+The first script checks if all your files meet the specified criteria and throws errors in the terminal, if not.
 
 The second one does exactly the same job, but it also tries to fix whatever can be fixed without the developer's help.
 
 **Important note:** the following scripts run eslint for all files. If you want to run it agains specific folder, replace `.` with the path to the folder, for example: `eslint src/`.
 
+Refer to the [](https://github.com/axios/axios)[official documentation](https://eslint.org/docs/user-guide/configuring) to find out more.
+
 ## Prettier
 
-Prettier is an opinionated code formatter.
+Prettier is used to autoformat the code, to enforce an opinionated code format.
+
+Usually it's installed together with ESLint, which makes sure to keep my code style in a good shape.
+
+**Important note**: we cover the installation process assuming that **eslint** is used.
+
+To begin with, install prettier:
+
+`yarn add -D prettier eslint-plugin-prettier eslint-config-prettier`
+
+Having prettier installed, change **.eslintrc** config to include it:
+
+```javascript
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": { "jsx": true }
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    // Add prettier configuration here
+    "prettier/@typescript-eslint",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    // Add prettier configuration here
+    "prettier/prettier": ["error", {}, { "usePrettierrc": true }]
+    // Configure eslint rules
+  }
+}
+```
+
+Finally, create **.prettierrc** file in the root folder with the following content:
+
+```javascript
+{
+  "tabWidth": 2,
+  "trailingComma": "all",
+  "jsxSingleQuote": false,
+  "singleQuote": true
+}
+```
+
+That's basically it! Provided configurations can be changed according to your needs, feel free to check the [official documentation](https://prettier.io/docs/en/) to find out more.
 
 ## Path aliases
 
