@@ -164,7 +164,53 @@ Please, refer to the [official documentation](https://enzymejs.github.io/enzyme/
 
 ## ESlint
 
-ESLintis a tool for identifying and reporting on patterns found in ​JavaScript code, with the goal of making code more consistent and avoiding bugs.
+**ESLint** is a tool for identifying and reporting on patterns found in ​JavaScript code, with the goal of making code more consistent and avoiding bugs.
+
+It's extremely useful when there are a lot of developers working with the project, as it allows to have one centralized code style configuration.
+
+**Important note**: we cover the installation process assuming that **typescript** is used.
+
+To install eslint along with all necessary libraries for react, run:
+
+`yarn add -D eslint eslint-plugin-react eslint-plugin-react-hooks @typescript-eslint/eslint-plugin @typescript-eslint/parser`
+
+* eslint - the core JavaScript linter
+* eslint-plugin-react - React specific linting rules for ESLint
+* eslint-plugin-react-hooks - This ESLint plugin enforces t[](https://reactjs.org/docs/hooks-rules.html)he [Rules of Hooks](https://reactjs.org/docs/hooks-rules.html)
+* @typescript-eslint/parser and @typescript-eslint/eslint-plugin - an ESLint-specific plugins which allow for TypeScript-specific linting rules to run
+
+After the installation, create a new file named **.eslintrc** in the root folder of your app and put the following content inside:
+
+```javascript
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": { "jsx": true }
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended"
+  ],
+  "rules": {
+    // Configure eslint rules
+  }
+}
+```
+
+And the final step is to add 2 scripts to the **package.json** file:
+
+`"lint": "./node_modules/.bin/eslint ."`
+
+`"lint:fix": "./node_modules/.bin/eslint --fix ."`
+
+The first script checks if all your files meet the specified criterias and throws errors in the terminal, if not.
+
+The second one does exactly the same job, but it also tries to fix whatever can be fixed without the developer's help.
+
+**Important note:** the following scripts run eslint for all files. If you want to run it agains specific folder, replace `.` with the path to the folder, for example: `eslint src/`.
 
 ## Prettier
 
@@ -221,7 +267,21 @@ To install cypress, run:
 
 `yarn add -D cypress`
 
-// TODO continue
+After successful installation, add a new script to your **package.json**:
+
+`"test:e2e": "./node_modules/.bin/cypress open"`
+
+And, finally, run in your terminal:
+
+`yarn test:e2e`
+
+When you run Cypress for the first time, it will create **cypress** folder, which contains all configurations along with some default test examples and **cypress.json** file.
+
+Finally, new chrome window will be opened with some example tests:
+
+![Cypress opened](/img/screenshot-2020-06-08-at-19.05.25.png "Opened cypress window")
+
+Click on **Run all specs** button the the right top of the browser's window to check if they all pass.
 
 Refer to the [official documentation](https://www.cypress.io/) to find out more.
 
@@ -251,7 +311,7 @@ Then open your **package.json** and create a separate block for husky config:
 }
 ```
 
-That's it! Enjoy!
+Then try to commit anything or make a push to the repository and enjoy how the defined commands are being executed!
 
 Refer to the [official documentation](https://github.com/typicode/husky) to find out more.
 
