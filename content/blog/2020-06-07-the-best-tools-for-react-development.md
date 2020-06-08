@@ -265,7 +265,53 @@ Finally, create **.prettierrc** file in the root folder with the following conte
 
 That's basically it! Provided configurations can be changed according to your needs, feel free to check the [official documentation](https://prettier.io/docs/en/) to find out more.
 
-## Path aliases
+## Typescript aliases
+
+Take a look at the following code. Can you tell what's wrong with it?
+
+```javascript
+import Header from "../../../components/Header";
+import Content from "../../../components/Content";
+import Footer from "../../../components/Footer";
+
+import { formatDate } from "../../../utils/date";
+```
+
+Right, import statements look ugly, as we have to step out of the current folder 3 times to access the required components.
+
+There's a good way to improve this - to use **typescript aliases**.
+
+Typescript aliases are configured within **tsconfig.json** file.
+
+It's necessary to provide **paths** and **baseUrl** properties to the **compilerOptions**:  
+
+```javascript
+{
+   "compilerOptions": {
+      ...
+      "baseUrl": "src",
+      "paths": {
+        "@components/*": ["components/*"],
+        "@utils/*": ["utils/*"]
+      }
+      ...
+    }
+  }
+```
+
+Now we are able to refactor the imports:
+
+```javascript
+import Header from "@components/Header";
+import Content from "@components/Content";
+import Footer from "@components/Footer";
+
+import { formatDate } from "@utils/date";
+```
+
+One more major benefit of this approach comes into play when we will refactor our components by moving them around.
+
+**We won't have to update any imports**, as we would have to without using typescript aliases.
 
 ## Storybook
 
