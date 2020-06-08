@@ -399,6 +399,12 @@ Refer to the [official documentation](https://github.com/axios/axios) to find ou
 
 **Redux** is a library that allows us to manage application's state in an easy and predictable way.
 
+Before implementing redux in your application, ask yourself if your app really needs it, as installing and configuring redux can be an overkill for a small project.
+
+Always consider using alternatives, such as [Context API](https://uk.reactjs.org/docs/context.html).
+
+// TODO finish with examples
+
 Refer to the [official documentation](https://redux.js.org/introduction/getting-started) to find out more.
 
 ## Cypress
