@@ -1,11 +1,11 @@
 ---
 title: The best tools for React development
-teaser: After you decided to proceed with React, there is number of useful
+teaser: After you decided to proceed with React, there is a number of useful
   technologies that will help you to speed up the development process. Choosing
   the right ones is crucial for the project's success...
 date: 2020-06-07T11:12:07.554Z
 ---
-After you decided to proceed with React, there is number of useful libraries that will help you to speed up the development process.
+After you decided to proceed with React, there is a number of useful libraries that will help you to speed up the development process.
 
 Choosing the right ones is crucial for the project's success.
 
@@ -25,7 +25,7 @@ Having that in mind, let's assume we are dealing with a medium-sized project.
 
 First and foremost, you have to decide if you are going to use the boilerplate (provided by the React team - **[create-react-app](https://github.com/facebook/create-react-app)** or any other available) or set up the project by yourself.
 
-*Unless you are en experienced React developer, I recommend to use CRA.*
+*Unless you are en experienced React developer, I recommend using CRA.*
 
 Creating React application using CRA is as simple as executing one command:
 
@@ -37,17 +37,17 @@ To read more about CRA, please refer to the [official documentation](https://cre
 
 ## Typescript
 
-**Typescript** is a programming language developed by Microsoft, typed superset of JavaScript which is compiled to plain JavaScript.
+**Typescript** is a programming language developed by Microsoft, a typed superset of JavaScript which is compiled to plain JavaScript.
 
 After setting up the project, you have to make an important decision - whether you need types in the application or not.
 
-Generally, it's a good idea to include typescript as it gives you a lot of benefits, like: enhancing code readability, allowing to catch code errors in compile time, easier refactoring and much, much more.
+Generally, it's a good idea to include typescript as it gives you a lot of benefits, like enhancing code readability, allowing to catch code errors in compile-time, easier refactoring, and much, much more.
 
 If you are using **create-react-app**, you can easily add typescript at the moment of creation:
 
 `npx create-react-app my-app --template typescript`
 
-Or to existing application, build with CRA:
+Or to the existing application, built with CRA:
 
 * Install typescript
 
@@ -68,6 +68,10 @@ Styled Components is the library that enables writing of CSS in JavaScript using
 > * Easily eliminating dead code
 > * No class name bugs
 > * State-based styling
+
+Install the library:
+
+`yarn add styled-components`
 
 See the example usage of **Wrapper** styled component:
 
@@ -96,7 +100,7 @@ const Loader = () => (
 export default Loader;
 ```
 
-Basically, **Wrapper** is just a **div** element with randomly generated class name and styles applied:
+**Wrapper** is just a **div** element with randomly generated class name and styles applied:
 
 ![Inspected styled component](/img/screenshot-2020-06-07-at-16.31.27.png "Inspected styled component")
 
@@ -106,7 +110,7 @@ To read the installation guide, please refer to the [official documentation](htt
 
 It's good practice - to cover all your components with unit tests to be sure that adding new features won't break any of the existing ones.
 
-**Jest** is a JavaScript test runner, library for creating, running and structuring tests.
+**Jest** is a JavaScript test runner, library for creating, running, and structuring tests.
 
 If you're using CRA, **jest** will already be installed and configured, if not - you have to install it manually:
 
@@ -122,7 +126,7 @@ To install enzyme, run:
 
 > As of Enzyme 3, you will need to install Enzyme along with an Adapter corresponding to the version of React you are using. (The examples above use the adapter for React 16.).
 
-After successful installation, you have to configure the adapter in the *global setup file.* Create `src/setupTests.js` with the following content:
+After a successful installation, you have to configure the adapter in the *global setup file.* Create `src/setupTests.js` with the following content:
 
 ```javascript
 import { configure } from 'enzyme';
@@ -135,7 +139,7 @@ If you're using CRA, then modifying the existing file `src/setupTests.js` will b
 
 If not, you have to let **jest** know the path to this file.
 
-Open your **package.json** and add a new section to it with the following content:
+Open your `package.json` and add a new section to it with the following content:
 
 ```javascript
 "jest": {
@@ -158,13 +162,13 @@ it('renders welcome message', () => {
 });
 ```
 
-The test above is just an example, it checks if the **App** component contains welcome message.
+The test above is just an example, it checks if the **App** component contains a welcome message.
 
 Please, refer to the [official documentation](https://enzymejs.github.io/enzyme/docs/api/) to read more about **Enzyme**.
 
 ## ESlint
 
-**ESLint** is a tool for identifying and reporting on patterns found in ​JavaScript code, with the goal of making code more consistent and avoiding bugs.
+**ESLint** is a tool for identifying and reporting on patterns found in ​JavaScript code, intending to make code more consistent and avoiding bugs.
 
 It's extremely useful when there are a lot of developers working with the project, as it allows to have one centralized code style configuration.
 
@@ -174,12 +178,12 @@ To install eslint along with all necessary libraries for react, run:
 
 `yarn add -D eslint eslint-plugin-react eslint-plugin-react-hooks @typescript-eslint/eslint-plugin @typescript-eslint/parser`
 
-* eslint - the core JavaScript linter
-* eslint-plugin-react - React specific linting rules for ESLint
-* eslint-plugin-react-hooks - This ESLint plugin enforces t[](https://reactjs.org/docs/hooks-rules.html)he [Rules of Hooks](https://reactjs.org/docs/hooks-rules.html)
-* @typescript-eslint/parser and @typescript-eslint/eslint-plugin - an ESLint-specific plugins which allow for TypeScript-specific linting rules to run
+* **eslint** - the core JavaScript linter
+* **eslint-plugin-react** - React specific linting rules for ESLint
+* **eslint-plugin-react-hooks** - This ESLint plugin enforces t[](https://reactjs.org/docs/hooks-rules.html)he [Rules of Hooks](https://reactjs.org/docs/hooks-rules.html)
+* **@typescript-eslint/parser** and **@typescript-eslint/eslint-plugin** - an ESLint-specific plugins which allow for TypeScript-specific linting rules to run
 
-After the installation, create a new file named **.eslintrc** in the root folder of your app and put the following content inside:
+After the installation, create a new file named `.eslintrc` in the root folder of your app and put the following content inside:
 
 ```javascript
 {
@@ -200,7 +204,7 @@ After the installation, create a new file named **.eslintrc** in the root folder
 }
 ```
 
-And the final step is to add 2 scripts to the **package.json** file:
+And the final step is to add 2 scripts to the `package.json` file:
 
 `"lint": "./node_modules/.bin/eslint ."`
 
@@ -208,9 +212,9 @@ And the final step is to add 2 scripts to the **package.json** file:
 
 The first script checks if all your files meet the specified criteria and throws errors in the terminal, if not.
 
-The second one does exactly the same job, but it also tries to fix whatever can be fixed without the developer's help.
+The second one does the same job, but it also tries to fix whatever can be fixed without the developer's help.
 
-**Important note:** the following scripts run eslint for all files. If you want to run it agains specific folder, replace `.` with the path to the folder, for example: `eslint src/`.
+**Important note:** the following scripts run eslint for all files. If you want to run it against specific folder, replace `.` with the path to the folder, for example `eslint src/`.
 
 Refer to the [](https://github.com/axios/axios)[official documentation](https://eslint.org/docs/user-guide/configuring) to find out more.
 
@@ -218,7 +222,7 @@ Refer to the [](https://github.com/axios/axios)[official documentation](https://
 
 Prettier is used to autoformat the code, to enforce an opinionated code format.
 
-Usually it's installed together with ESLint, which makes sure to keep my code style in a good shape.
+Usually, it's installed together with ESLint, which makes sure to keep my code style in a good shape.
 
 **Important note**: we cover the installation process assuming that **eslint** is used.
 
@@ -226,7 +230,7 @@ To begin with, install prettier:
 
 `yarn add -D prettier eslint-plugin-prettier eslint-config-prettier`
 
-Having prettier installed, change **.eslintrc** config to include it:
+Having prettier installed, change `.eslintrc` config to include it:
 
 ```javascript
 {
@@ -252,7 +256,7 @@ Having prettier installed, change **.eslintrc** config to include it:
 }
 ```
 
-Finally, create **.prettierrc** file in the root folder with the following content:
+Finally, create `.prettierrc` file in the root folder with the following content:
 
 ```javascript
 {
@@ -263,7 +267,7 @@ Finally, create **.prettierrc** file in the root folder with the following conte
 }
 ```
 
-That's basically it! Provided configurations can be changed according to your needs, feel free to check the [official documentation](https://prettier.io/docs/en/) to find out more.
+That's it! Provided configurations can be changed according to your needs, feel free to check the [official documentation](https://prettier.io/docs/en/) to find out more.
 
 ## Typescript aliases
 
@@ -281,9 +285,9 @@ Right, import statements look ugly, as we have to step out of the current folder
 
 There's a good way to improve this - to use **typescript aliases**.
 
-Typescript aliases are configured within **tsconfig.json** file.
+Typescript aliases are configured within `tsconfig.json` file.
 
-It's necessary to provide **paths** and **baseUrl** properties to the **compilerOptions**:  
+It's necessary to provide `paths` and `baseUrl` properties to the `compilerOptions`:  
 
 ```javascript
 {
@@ -299,7 +303,7 @@ It's necessary to provide **paths** and **baseUrl** properties to the **compiler
   }
 ```
 
-Now we are able to refactor the imports:
+Now we can refactor the imports:
 
 ```javascript
 import Header from "@components/Header";
@@ -323,7 +327,7 @@ Install the tool by running:
 
 `yarn add -D @storybook/react`
 
-Then add a script to the **package.json**:
+Then add a script to the `package.json`:
 
 `"storybook": "start-storybook -p 9000"`
 
@@ -397,9 +401,9 @@ Refer to the [official documentation](https://github.com/axios/axios) to find ou
 
 ## Redux
 
-**Redux** is a library that allows us to manage application's state in an easy and predictable way.
+**Redux** is a library that allows us to manage an application's state easily and predictably.
 
-Before implementing redux in your application, ask yourself if your app really needs it, as installing and configuring redux can be an overkill for a small project.
+Before implementing redux in your application, ask yourself if your app needs it, as installing and configuring redux can be an overkill for a small project.
 
 Always consider using alternatives, such as [Context API](https://uk.reactjs.org/docs/context.html).
 
@@ -417,7 +421,7 @@ To install cypress, run:
 
 `yarn add -D cypress`
 
-After successful installation, add a new script to your **package.json**:
+After successful installation, add a new script to your `package.json`:
 
 `"test:e2e": "./node_modules/.bin/cypress open"`
 
@@ -425,13 +429,13 @@ And, finally, run in your terminal:
 
 `yarn test:e2e`
 
-When you run Cypress for the first time, it will create **cypress** folder, which contains all configurations along with some default test examples and **cypress.json** file.
+When you run Cypress for the first time, it will create `cypress` folder, which contains all configurations along with some default test examples and `cypress.json` configuration file.
 
-Finally, new chrome window will be opened with some example tests:
+Finally, a new chrome window will be opened with some example tests:
 
 ![Cypress opened](/img/screenshot-2020-06-08-at-19.05.25.png "Opened cypress window")
 
-Click on **Run all specs** button the the right top of the browser's window to check if they all pass.
+Click on **Run all specs** button on the right top of the browser's window to check if they all pass.
 
 Refer to the [official documentation](https://www.cypress.io/) to find out more.
 
@@ -439,13 +443,13 @@ Refer to the [official documentation](https://www.cypress.io/) to find out more.
 
 **Husky** is a tool that runs defined commands before **git commit** or **push**.
 
-It can be used to execute linter or run all your tests before pushing changes to repo, to make sure that you haven't broken anything unintentionally.
+It can be used to execute linter or run all your tests before pushing changes to the repo, to make sure that you haven't broken anything unintentionally.
 
 To install husky, run:
 
 `yarn add -D husky`
 
-Then open your **package.json** and create a separate block for husky config:
+Then open your `package.json` and create a separate block for husky config:
 
 ```javascript
 {
@@ -507,7 +511,7 @@ Then, create file `src/translations/en.json` with the following content:
 }
 ```
 
-**react-i18next** provides us with `useTranslation` hook, which gives us an access to the `t` function, which is used to get the translation.
+**react-i18next** provides us with `useTranslation` hook, which gives us access to the `t` function, which is used to get the translation.
 
 Your **App** component can look like:
 
@@ -523,18 +527,20 @@ const App = () => {
 export default App;
 ```
 
-`t` function receives translation key as an argument and searches that key in the translation file.
+`t` function receives the translation key as an argument and searches that key in the translation file.
 
 Refer to the [official documentation](https://react.i18next.com/) to find out more.
 
 ## Moment.js
 
-**Moment.js** is a JavaScript library which helps in parsing, validating, manipulating and displaying date and time in JavaScript.
+**Moment.js** is a JavaScript library that helps in parsing, validating, manipulating, and displaying date and time in JavaScript.
 
-It's extremely useful if your app has to display date and time in different formats, using different languages etc, as working with **Date** object in JavaScript is nowhere near as good as with **moment**.
+It's extremely useful if your app has to display date and time in different formats, using different languages, etc, as working with **Date** object in JavaScript is nowhere near as good as with **moment**.
 
 Install it by executing:
 
 `yarn add moment`
 
 Refer to the [official documentation](https://momentjs.com/docs/) to find out more.
+
+## Summary
