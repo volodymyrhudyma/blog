@@ -1,5 +1,5 @@
 ---
-title: The best tools for React development
+title: The best tools for React development (June 2020)
 teaser: After you decided to proceed with React, there is a number of useful
   technologies that will help you to speed up the development process. Choosing
   the right ones is crucial for the project's success...
