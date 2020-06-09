@@ -31,7 +31,15 @@ Creating React application using CRA is as simple as executing one command:
 
 Where **my-app** is your application's name.
 
-Refer to the [official documentation](https://create-react-app.dev/) to find out more.
+After the installation process completes, start the project:
+
+`yarn start`
+
+Finally, the browser will open `http://localhost:3000/` and the React application will be up and running:
+
+![Running React application](/img/screenshot-2020-06-09-at-17.29.49.png "Running React application")
+
+Refer to the [official documentation](https://create-react-app.dev/) to read more.
 
 ## Typescript
 
