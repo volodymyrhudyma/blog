@@ -196,6 +196,10 @@ After the installation, create a new file named `.eslintrc` in the root folder o
 
 ```javascript
 {
+  "env": {
+    "browser": true,
+    "jest": true
+  },
   "root": true,
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -243,6 +247,10 @@ Having prettier installed, change `.eslintrc` config to include it:
 
 ```javascript
 {
+  "env": {
+    "browser": true,
+    "jest": true
+  },
   "root": true,
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -258,8 +266,6 @@ Having prettier installed, change `.eslintrc` config to include it:
     "plugin:prettier/recommended"
   ],
   "rules": {
-    // Add prettier configuration here
-    "prettier/prettier": ["error", {}, { "usePrettierrc": true }]
     // Configure eslint rules
   }
 }
@@ -584,7 +590,7 @@ Install it by executing:
 
 `yarn add i18next react-i18next`
 
-After the installation, create `src/i18next.js` configuration file with the following content:
+After the installation, create `src/i18n.js` configuration file with the following content:
 
 ```javascript
 import i18n from "i18next";
@@ -596,7 +602,9 @@ i18n
   .use(initReactI18next)
   .init({
     resources: {
-      en: enTranslations,
+      en: {
+        translation: enTranslations
+      },
     },
     lng: "en",
     fallbackLng: "en",
@@ -604,6 +612,36 @@ i18n
       escapeValue: false
     }
   });
+
+export default i18n;
+```
+
+After, import this `src/i18next.js` to the main file of your app (usually it's `src/index.js`:
+
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+import './index.css';
+
+import App from './App';
+import * as serviceWorker from './serviceWorker';
+
+// Add this line
+import './i18n';
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root'),
+);
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();
+
 ```
 
 Then, create file `src/translations/en.json` with the following content:
@@ -622,6 +660,7 @@ Your **App** component can look like:
 
 ```javascript
 import React from "react";
+import { useTranslation } from 'react-i18next';
 
 const App = () => {
   const { t } = useTranslation();
