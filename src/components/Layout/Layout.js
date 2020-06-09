@@ -76,6 +76,7 @@ const GlobalStyle = createGlobalStyle`
   code[class*="language-"] {
     font-size: 0.75rem;
     white-space: pre-wrap;
+    word-break: break-all;
   }
 
   :not(pre) > code[class*="language-"] {
