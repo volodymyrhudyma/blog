@@ -403,13 +403,109 @@ Refer to the [official documentation](https://github.com/axios/axios) to find ou
 
 **Redux** is a library that allows us to manage an application's state easily and predictably.
 
-Before implementing redux in your application, ask yourself if your app needs it, as installing and configuring redux can be an overkill for a small project.
+#### Core concepts
+
+* The application's state is a plain JavaScript object:
+
+```javascript
+{
+   users: [],
+   pending: false,
+   error: null
+}
+```
+
+* To change the state, you have to dispatch an action (which is a plain JavaScript object as well as the state):
+
+```javascript
+// Fetch started
+{
+  type: "FETCH_USERS",
+  payload: {
+     offset: 0,
+     limit: 10,
+  },
+}
+
+// Fetch succeeded
+{
+  type: "FETCH_USERS_FULFILLED",
+  payload: {
+    users: [
+      {
+        id: 1, 
+        name: "John",
+      },
+    ],
+  },
+}
+
+// Fetch failed
+{
+  type: "FETCH_USERS_REJECTED",
+  payload: {
+    error: "Something went wrong",
+  },
+}
+```
+
+* To tie state and actions together, we use reducers (simple JavaScript functions which take state and action as arguments, and return the next state of the app):
+
+```javascript
+const userReducer = (state, action) => {
+  switch (action.type) {
+    case "FETCH_USERS": {
+      return {
+        ...state,
+        pending: true,
+        error: null,
+      };
+    case "FETCH_USERS_FULFILLED": {
+      return {
+        ...state,
+        pending: false,
+        users: action.payload.users,
+      };
+    case "FETCH_USERS_REJECTED": {
+      return {
+        ...state,
+        pending: false,
+        users: [],
+        error: action.payload.error,
+      };
+    default:
+      return state;
+  }
+};
+```
+
+This is basically the whole idea of Redux.
+
+#### Three principles
+
+Redux can be described in three fundamental principles:
+
+* Single source of truth:
+
+  The global state of your application is stored in an object tree within a single store.
+
+  > **Store** is an object that holds the application's state tree. There should only be a single store in a Redux app, as the composition happens on the reducer level.
+* State is read-only:
+
+  The only way state can be changed is by firing an action.
+* Changes are made with pure functions:
+
+  To specify how the state tree is transformed by actions, you write pure reducers.
+
+That's in. Now, after you know the core concepts and three principles, you should make an important decision whether your app needs redux or not, as installing and configuring it can be an overkill for a small project.
 
 Always consider using alternatives, such as [Context API](https://uk.reactjs.org/docs/context.html).
 
-Adding redux to the React application requires some configurations, therefore we are not going to cover this process in the current article, but it the next one, so stay tuned!
+Adding redux to the React application requires a lot of configurations, which are too heavy to be described in the current article.
 
-Refer to the [REDUX](https://redux.js.org/introduction/getting-started) and [REACT_REDUX](https://react-redux.js.org/) docs to find out more.
+***Therefore, The installation guide REDUX + typescript is coming soon.***
+
+Refer to the [REDUX](https://redux.js.org/) and [REACT_REDUX](https://react-redux.js.org/) docs to find out more.
 
 ## Cypress
 
