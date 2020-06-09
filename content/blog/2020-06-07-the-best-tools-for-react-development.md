@@ -407,9 +407,9 @@ Before implementing redux in your application, ask yourself if your app needs it
 
 Always consider using alternatives, such as [Context API](https://uk.reactjs.org/docs/context.html).
 
-// TODO finish with examples
+Adding redux to the React application requires some configurations, therefore we are not going to cover this process in the current article, but it the next one, so stay tuned!
 
-Refer to the [official documentation](https://redux.js.org/introduction/getting-started) to find out more.
+Refer to the [REDUX](https://redux.js.org/introduction/getting-started) and [REACT_REDUX](https://react-redux.js.org/) docs to find out more.
 
 ## Cypress
 
