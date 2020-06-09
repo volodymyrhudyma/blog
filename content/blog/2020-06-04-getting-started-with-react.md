@@ -59,7 +59,7 @@ After successful installation open **my-first-app** in your favorite code editor
 
 **Important note:** make sure to install **yarn** as well if you want to use it.
 
-If everything wen well, the browser will open `http://localhost:3000/` and the first React application will be up and running:
+If everything went well, the browser will open `http://localhost:3000/` and the first React application will be up and running:
 
 ![React application started](/img/screenshot-2020-06-04-at-17.35.41.png "Application successfully started")
 
