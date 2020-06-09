@@ -5,7 +5,7 @@ teaser: After you decided to proceed with React, there is a number of useful
   the right ones is crucial for the project's success...
 date: 2020-06-07T11:12:07.554Z
 ---
-After you decided to proceed with React, there is a number of useful libraries that will help you to speed up the development process.
+After you decided to proceed with React, there is many libraries that will help you to speed up the development process.
 
 Choosing the right ones is crucial for the project's success.
 
@@ -497,7 +497,7 @@ Redux can be described in three fundamental principles:
 
   To specify how the state tree is transformed by actions, you write pure reducers.
 
-That's in. Now, after you know the core concepts and three principles, you should make an important decision whether your app needs redux or not, as installing and configuring it can be an overkill for a small project.
+That's it. Now, after you know the core concepts and three principles, you should make an important decision whether your app needs redux or not, as installing and configuring it can be an overkill for a small project.
 
 Always consider using alternatives, such as [Context API](https://uk.reactjs.org/docs/context.html).
 
@@ -505,7 +505,7 @@ Adding redux to the React application requires a lot of configurations, which ar
 
 ***Therefore, The installation guide REDUX + typescript is coming soon.***
 
-Refer to the [REDUX](https://redux.js.org/) and [REACT_REDUX](https://react-redux.js.org/) docs to find out more.
+Refer to the [REDUX](https://redux.js.org/) and [REACT-REDUX](https://react-redux.js.org/) docs to find out more.
 
 ## Cypress
 
@@ -640,3 +640,11 @@ Install it by executing:
 Refer to the [official documentation](https://momentjs.com/docs/) to find out more.
 
 ## Summary
+
+React has an amazing ecosystem built around the library, which is, of course, not limited to the tools, described in this article. 
+
+But these tools offer great help for developers to successfully deliver React projects. 
+
+I recommend you to try all of them and see how would they help you.
+
+What are your favorite React libraries? Let me know in the comments below!
