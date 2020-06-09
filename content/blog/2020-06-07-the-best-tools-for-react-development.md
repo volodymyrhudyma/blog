@@ -13,8 +13,6 @@ To begin with, it's necessary to know exactly what is the size of the project.
 
 Is it going to be a small one? medium? big?
 
-**Important note:** I assume the small project takes **up to 2 months** of development for 1 person, medium - **up to 12** and big - **more than 12**.
-
 The technology stack, chosen for each project size can differ. It's generally a bad idea - to install a library which provides thousands of functions just to use a few of them. 
 
 Large libraries tend to increase the application's size which leads to poorer performance.
@@ -33,7 +31,7 @@ Creating React application using CRA is as simple as executing one command:
 
 Where **my-app** is your application's name.
 
-To read more about CRA, please refer to the [official documentation](https://create-react-app.dev/).
+Refer to the [official documentation](https://create-react-app.dev/) to find out more.
 
 ## Typescript
 
