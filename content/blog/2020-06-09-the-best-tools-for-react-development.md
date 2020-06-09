@@ -1,11 +1,11 @@
 ---
 title: The best tools for React development (June 2020)
-teaser: After you decided to proceed with React, there is a number of useful
-  technologies that will help you to speed up the development process. Choosing
-  the right ones is crucial for the project's success...
+teaser: After you decided to proceed with React, there are many libraries that
+  will help you to speed up the development process. Choosing the right ones is
+  crucial for the project's success...
 date: 2020-06-09T11:12:07.554Z
 ---
-After you decided to proceed with React, there is many libraries that will help you to speed up the development process.
+After you decided to proceed with React, there are many libraries that will help you to speed up the development process.
 
 Choosing the right ones is crucial for the project's success.
 
@@ -641,7 +641,6 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
-
 ```
 
 Then, create file `src/translations/en.json` with the following content:
