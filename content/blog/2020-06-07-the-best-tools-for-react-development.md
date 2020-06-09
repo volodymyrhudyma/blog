@@ -80,6 +80,8 @@ Install the library:
 
 `yarn add styled-components`
 
+**Important note:** if you are using typescript, don't forget to install **types** as well: `yarn add @types/styled-components`.
+
 See the example usage of **Wrapper** styled component:
 
 ```javascript
