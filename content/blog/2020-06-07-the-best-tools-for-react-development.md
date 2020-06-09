@@ -59,6 +59,7 @@ Or to the existing application, built with CRA:
 
   `yarn add typescript @types/node @types/react @types/react-dom @types/jest`
 * Rename any file to be a typescript file (for example `src/index.js`to `src/index.tsx`) and **restart your development server**
+* Enjoy the typescript!
 
 Read more about typescript [here](https://www.typescriptlang.org/docs/home.html).
 
