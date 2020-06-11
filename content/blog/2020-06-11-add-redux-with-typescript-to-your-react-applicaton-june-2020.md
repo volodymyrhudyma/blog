@@ -368,7 +368,11 @@ You should see 2 buttons and the counter value on the screen:
 
 ![React redux counter application](/img/screenshot-2020-06-11-at-21.17.23.png "React redux counter application")
 
-Give yourself some time to click on the buttons and enjoy!
+Try to click on each of them and see if the counter value is changed.
+
+Open the developer tools and notice that each action is logged to the console thanks to the `redux-logger` middleware:
+
+![redux-logger in action](/img/screenshot-2020-06-11-at-21.44.36.png "redux-logger in action")
 
 ## Summary
 
