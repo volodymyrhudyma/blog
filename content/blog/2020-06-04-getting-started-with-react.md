@@ -1,5 +1,7 @@
 ---
 title: Getting started with React
+tag:
+  - React
 teaser: Having learnt some JavaScript basics and intermediate concepts we're
   ready to kick off with an advanced topics. Meet the React - a JavaScript
   library for building user interfaces.
