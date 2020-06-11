@@ -364,4 +364,10 @@ Click on them and see if everything is working.
 
 ## Summary
 
-The code is available on the [github repository](https://github.com/volodymyrhudyma/react-redux-typescript-app).
+In this article we've covered the simplest Redux + Typescript configuration for the React application.
+
+I hope you this guide was useful for you.
+
+See you in the next articles! 
+
+**P.S.** The code is available on the [github repository](https://github.com/volodymyrhudyma/react-redux-typescript-app).
