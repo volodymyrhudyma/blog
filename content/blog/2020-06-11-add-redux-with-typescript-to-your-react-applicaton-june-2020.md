@@ -8,7 +8,7 @@ teaser: Redux is a library that allows us to manage an application's state
   guide...
 date: 2020-06-11T16:56:10.691Z
 ---
-Redux is a library that allows us to manage an application's state easily and predictably.
+**Redux** is a library that allows us to manage an application's state easily and predictably.
 
 We won't focus on what are the benefits of using Redux or should you add it to your project, but on how to install and configure the library.
 
@@ -36,7 +36,7 @@ It's useful to include logger middleware to log all dispatched actions in the de
   >
   > Redux middleware **provides a third-party extension point between dispatching an action, and the moment it reaches the reducer.** It allows you to write action creators that return a function instead of an action.
 
-  Don't worry if you don't get why do we need this, we'll cover it up in detail later.
+  Don't worry if you don't get why do we need this, we'll explain it in detail later.
 * **@types/react-redux** - type declarations for react-redux library
 * **@types/redux-thunk** - type declarations for redux-thunk library
 * **redux-logger** - middleware for logging dispatched actions
@@ -44,7 +44,7 @@ It's useful to include logger middleware to log all dispatched actions in the de
 
 ## Configure Redux
 
-After the installation let's begin with creating store:
+After the installation let's proceed with creating store:
 
 > Think of the **store** as of something that holds your application's state.
 
@@ -62,11 +62,15 @@ export default function configureStore() {
 }
 ```
 
-As you can notice, the store is the result of executing `createStore` function, which takes `rootReducer` as the first argument and middlewares as the second.
+The store is the result of executing `createStore` function, which takes `rootReducer` as the first argument and middlewares as the second.
 
-`rootReducer` is a combination of all reducers that exist in your app. As your app grows more complex, it's a good idea to split your reducer function into separate functions, each managing independent parts of the state. 
+`rootReducer` is a combination of all reducers that exist in your app. 
 
-As you may have noticed, it doesn't exist yet, so let's add it. Create `src/store/rootReducer.ts` with the following content:
+As your app grows more complex, it's a good idea to split your reducer function into separate functions, each managing independent parts of the state. 
+
+As you may have noticed, it doesn't exist yet, so let's add it. 
+
+Create `src/store/rootReducer.ts` with the following content:
 
 ```javascript
 import { combineReducers } from 'redux';
@@ -80,7 +84,7 @@ export default combineReducers({
 
 This `rootReducer` imports all separate reducer functions and combines them into one, which can be passed to the store.
 
- The next step is to add a `counter` reducer. Create `src/store/counter/reducer.ts` with the following content:
+The next step is to add a `counter` reducer. Create `src/store/counter/reducer.ts` with the following content:
 
 ```javascript
 import {
@@ -114,7 +118,9 @@ export default (state = initialState, action: CounterActions) => {
 };
 ```
 
-In this reducer, we define the initial state, which holds our `counter` value, which equals `0` by default and we check the type of an action which has been fired `action.type` and change the state accordingly.
+We define the initial state, which holds our `counter` value equal to `0` by default, and which is passed as the first argument to the reducer.
+
+In the reducer's body we check the type of an action which has been fired (`action.type`) and change the state accordingly.
 
 If we fired `INCREMENT_COUNTER` action, we add `1`, if `DECREMENT_COUNTER` - we remove `1`.
 
@@ -122,7 +128,7 @@ If we fired `INCREMENT_COUNTER` action, we add `1`, if `DECREMENT_COUNTER` - we 
 
 The next step is to define **action types**. 
 
-As you should remember, actions are plain JavaScript objects. 
+As you should know, actions are plain JavaScript objects. 
 
 They must have a `type` property that indicates the type of action being performed.
 
@@ -137,7 +143,7 @@ export const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
 export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
 ```
 
-We'll have only 2 action types, which indicate incrementing or decrementing `counter` value.
+We have only 2 action types, which indicate incrementing or decrementing `counter` value.
 
 Since we're using **typescript**, it's necessary to create **types** for the initial state and each fired action.
 
@@ -200,7 +206,7 @@ export const decrementCounter = () => {
 };
 ```
 
-Note, how we return async function with receives `dispatch` as the first argument.
+Note, how we return async function, which receives `dispatch` as the first argument.
 
 This is possible thanks to the `redux-thunk` library, which allows us to write asynchronous logic.
 
@@ -228,15 +234,15 @@ export const fetchUser = () => {
 };
 ```
 
- Note, that you don't have to copy the above code into an application, it's just an example.
+*Note, that you don't have to copy the above code into an application, it's just an example.*
 
-Finally, we have to find a way to pull the data out of the store.
+Afterwards, we have to find a way to pull the data out of the store.
 
-We'll add **reselect** - simple “selector” library for Redux:
+We'll add `reselect` - simple “selector” library for Redux:
 
 `yarn add reselect`
 
-There is one major benefit of using **reselect** - it creates memoized selectors, which will re-run only if their arguments change.
+There is one major benefit of using `reselect` - it creates memoized selectors, which will re-run only if their arguments change.
 
 Create the file `src/store/counter/selectors.ts` with the following contents:
 
@@ -260,7 +266,9 @@ The first function simply gets the counter value and the second one represents a
 
 Reselect exposes the `createSelector` API which allows us to build a memoized selector. 
 
-What this means is that `getCounterSelector` will be calculated only the first time the function runs. If the same function is called again, but the input (the result of `getCounter`) has not changed, the function will simply return a cached value. 
+What this means is that `getCounterSelector` will be calculated only the first time the function runs. 
+
+If the same function is called again, but the input (the result of `getCounter`) has not changed, the function will simply return a cached value. 
 
 You may have notices that we import `AppState` type.
 
@@ -360,7 +368,7 @@ You should see 2 buttons and the counter value on the screen:
 
 ![React redux counter application](/img/screenshot-2020-06-11-at-21.17.23.png "React redux counter application")
 
-Click on them and see if everything is working.
+Give yourself some time to click on the buttons and enjoy!
 
 ## Summary
 
@@ -368,6 +376,6 @@ In this article we've covered the simplest Redux + Typescript configuration for 
 
 I hope you this guide was useful for you.
 
-See you in the next articles! 
+See you in the next articles.
 
 **P.S.** The code is available on the [github repository](https://github.com/volodymyrhudyma/react-redux-typescript-app).
