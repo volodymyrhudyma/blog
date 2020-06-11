@@ -361,3 +361,7 @@ You should see 2 buttons and the counter value on the screen:
 ![React redux counter application](/img/screenshot-2020-06-11-at-21.17.23.png "React redux counter application")
 
 Click on the them and see if everything is working.
+
+## Summary
+
+The code is available on the [github repository](https://github.com/volodymyrhudyma/react-redux-typescript-app).
