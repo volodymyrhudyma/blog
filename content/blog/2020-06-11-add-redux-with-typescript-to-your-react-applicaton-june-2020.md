@@ -67,7 +67,7 @@ As you can notice, store is the result of executing `createStore` function, whic
 
 `rootReducer` is basically a combination of all reducers that exist in your app. As your app grows more complex, it's a good idea to split your reducer function into separate functions, each managing independent parts of the state. 
 
-As you may have notices, it doesn't exist yet, so let's add it. Create `src/store/rootReducer.ts` with the following content:
+As you may have noticed, it doesn't exist yet, so let's add it. Create `src/store/rootReducer.ts` with the following content:
 
 ```javascript
 import { combineReducers } from 'redux';
@@ -235,3 +235,55 @@ export const fetchUser = () => {
 ```
 
  Note, that you don't have to copy the above code into an application, it's just an example.
+
+Finally, we have to find a way to pull the data out of the store.
+
+We'll add **reselect** - simple “selector” library for Redux.
+
+There is one major benefit of using **reselect** - it creates memoized selectors, which will re-run only if their arguments change.
+
+Create the file `src/store/counter/selectors.ts` with the following contents:
+
+```javascript
+import { createSelector } from 'reselect';
+
+import { AppState } from '../rootReducer';
+
+export const getCounter = (state: AppState) =>
+  state.counter.counter;
+
+export const getCounterSelector = createSelector(
+  getCounter,
+  counter => counter,
+);
+
+```
+
+In the above example, we’ve broken our counter retrieval function into two functions.
+
+The first function simply gets the counter value and the second one represents a memoized selector.
+
+Reselect exposes the `createSelector` API which allows us to build a memoized selector. 
+
+What this means is that `getCounterSelector` will be calculated only the first time the function runs. If the same function is called again, but the input (the result of `getCounter`) has not changed, the function will simply return a cached value. 
+
+You may have notices that we import `AppState` type.
+
+It's necessary to type the `state` argument in order to have a hint of what can be accessed from it.
+
+Change the `src/store/rootReducer.ts` to export `AppState`:
+
+```javascript
+import { combineReducers } from 'redux';
+
+import counter from './counter/reducer';
+
+const rootReducer = combineReducers({
+  counter,
+});
+
+export type AppState = ReturnType<typeof rootReducer>;
+
+export default rootReducer;
+
+```
