@@ -1,5 +1,7 @@
 ---
 title: Hoisting in JavaScript
+tag:
+  - JavaScript
 teaser: Hoisting is JavaScript's default behavior of moving declarations to the
   top of their scope. To begin with learning this mechanism, let's make sure we
   understand the differences between declaration**,** initialization and
