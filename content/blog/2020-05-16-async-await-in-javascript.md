@@ -1,5 +1,7 @@
 ---
 title: Async/await in JavaScript
+tag:
+  - JavaScript
 teaser: These keywords act as a syntactic sugar built on top of Promises, making
   asynchronous code look and feel like synchronous, therefore easier to produce
   and maintain. Async function - it's function, declared using...
