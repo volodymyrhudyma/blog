@@ -1,5 +1,7 @@
 ---
 title: Nullish coalescing operator
+tag:
+  - JavaScript
 teaser: The nullish coalescing operator "??" is a logical operator that returns
   right side operand if left side equals to null or undefined, otherwise returns
   right side. If you're familiar with logical OR operator, you may wonder what's
