@@ -12,9 +12,13 @@ Redux is a library that allows us to manage an application's state easily and pr
 
 We won't focus on what are the benefits of using Redux or should you add it to your project, but on how to install and configure the library.
 
+## Create React application
+
 To begin with, let's create a simple React application using **[create-react-app](https://github.com/facebook/create-react-app):**
 
 `npx create-react-app react-redux-guide --template typescript`
+
+## Install Redux
 
 After the React application has been successfully created, we can proceed with installing Redux:
 
@@ -37,6 +41,8 @@ It's useful to include logger middleware to log all dispatched actions in the de
 * **@types/redux-thunk** - type declarations for redux-thunk library
 * **redux-logger** - middleware for logging dispatched actions
 * **@types/redux-logger** - type declarations for redux-logger library
+
+## Configure Redux
 
 After the installation let's begin with creating store:
 
