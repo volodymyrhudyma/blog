@@ -287,3 +287,11 @@ export type AppState = ReturnType<typeof rootReducer>;
 export default rootReducer;
 
 ```
+
+That's it! We're done with the configuration, it's time to test it out.
+
+Modify `src/App.tsx` component:
+
+```javascript
+
+```
