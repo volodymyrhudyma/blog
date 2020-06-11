@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import get from "lodash/get"
 
 import BlogPostItem from "@components/BlogPostItem"
 import Layout from "@components/Layout"
@@ -11,7 +12,11 @@ import {
   PageInfo,
   SubTitle,
   SearchWrapper,
+  TOCTag,
   TOCWrapper,
+  TOCLink,
+  TOCSectionList,
+  TOCSectionListItem,
 } from "./styles"
 
 const searchIndices = [
@@ -32,6 +37,13 @@ export default class BlogList extends React.Component {
     }))
   }
 
+  groupBy = key => array =>
+    array.reduce((objectsByKeyValue, obj) => {
+      const value = get(obj, key)
+      objectsByKeyValue[value] = (objectsByKeyValue[value] || []).concat(obj)
+      return objectsByKeyValue
+    }, {})
+
   render() {
     const posts = this.props.data.postsPerPage.edges
     const {
@@ -43,6 +55,10 @@ export default class BlogList extends React.Component {
       currentPage - 1 === 1 ? "/" : `/${(currentPage - 1).toString()}`
     const nextPage = `/${(currentPage + 1).toString()}`
     const { showTOC } = this.state
+
+    const allPosts = this.props.data.allPosts.edges
+    const groupByTag = this.groupBy("node.frontmatter.tag")
+    const groupedTOC = groupByTag(allPosts)
     return (
       <Layout>
         <SEO title="JavaScript Tutorials For Everyone" />
@@ -86,17 +102,24 @@ export default class BlogList extends React.Component {
             </SearchWrapper>
           </SubTitle>
           {showTOC && (
-            <div style={{ display: "flex", marginTop: "0.725rem" }}>
+            <div style={{ display: "flex", marginTop: "2.725rem" }}>
               <section style={{ flex: "auto" }}>
-                <ul style={{ margin: 0 }}>
-                  {this.props.data.allPosts.edges.map(({ node }) => (
-                    <li style={{ listStyle: "none" }} key={node.fields.slug}>
-                      <Link to={node.fields.slug}>
-                        {node.frontmatter.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+                <TOCSectionList>
+                  {Object.keys(groupedTOC).map(tag => {
+                    return (
+                      <TOCSectionListItem key={tag}>
+                        <TOCTag>{tag}</TOCTag>
+                        {groupedTOC[tag].map(({ node }) => (
+                          <TOCLink key={node.fields.slug}>
+                            <Link to={node.fields.slug}>
+                              {node.frontmatter.title}
+                            </Link>
+                          </TOCLink>
+                        ))}
+                      </TOCSectionListItem>
+                    )
+                  })}
+                </TOCSectionList>
               </section>
             </div>
           )}
@@ -154,6 +177,7 @@ export const blogListQuery = graphql`
           frontmatter {
             title
             teaser
+            tag
             date(formatString: "MMMM DD, YYYY")
           }
         }
@@ -169,6 +193,7 @@ export const blogListQuery = graphql`
           }
           frontmatter {
             title
+            tag
           }
         }
       }

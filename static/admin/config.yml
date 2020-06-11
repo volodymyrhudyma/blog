@@ -16,6 +16,14 @@ collections:
       preview: false
     fields:
       - { label: "Title", name: "title", widget: "string" }
+      - {
+          label: "Tag",
+          name: "tag",
+          widget: "select",
+          options: ["React", "JavaScript", "Other"],
+          multiple: true,
+          default: JavaScript,
+        }
       - { label: "Teaser", name: "teaser", widget: "markdown" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Body", name: "body", widget: "markdown" }

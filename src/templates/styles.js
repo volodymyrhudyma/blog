@@ -46,3 +46,34 @@ export const TOCWrapper = styled.div`
     margin-right: 0;
   }
 `
+
+export const TOCTag = styled.div`
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+`
+
+export const TOCLink = styled.div`
+  margin-bottom: 0.25rem;
+`
+
+export const TOCSectionList = styled.ul`
+  margin: 0;
+  display: flex;
+
+  @media (max-width: 992px) {
+    display: block;
+  }
+`
+
+export const TOCSectionListItem = styled.li`
+  list-style: none;
+  flex: 1;
+
+  &:not(:last-child) {
+    margin-right: 2rem;
+
+    @media (max-width: 992px) {
+      margin-right: 0;
+    }
+  }
+`

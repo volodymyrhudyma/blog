@@ -7,13 +7,18 @@ export const Wrapper = styled.div`
 
 export const BlogTitle = styled.h2`
   margin-top: 0;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
 `
 
-export const BlogDate = styled.span`
-  font-size: 0.85rem;
+export const BlogDetail = styled.div`
+  display: flex;
+  align-items: center;
   margin-bottom: 0.5rem;
-  display: inline-block;
+`
+
+export const BlogDate = styled.div`
+  font-size: 0.85rem;
+  margin-right: 0.5rem;
 `
 
 export const Image = styled.div`
@@ -40,4 +45,13 @@ export const JST = styled.img`
   right: 0.5rem;
   bottom: 0.5rem;
   margin: 0;
+`
+
+export const BlogTag = styled.div`
+  display: inline-block;
+  font-size: 0.85rem;
+  color: #1ca086;
+  &:not(:last-child) {
+    margin-right: 0.5rem;
+  }
 `
