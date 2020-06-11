@@ -1,5 +1,7 @@
 ---
 title: Destructuring assignment in JavaScript
+tag:
+  - JavaScript
 teaser: Destructuring assignment is a special syntax that allows us to retrieve
   pieces of arrays or objects and assign them to a separate variables. This
   approach can be used for...
