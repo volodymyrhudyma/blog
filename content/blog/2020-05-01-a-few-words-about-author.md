@@ -1,5 +1,7 @@
 ---
 title: A few words about author
+tag:
+  - Other
 teaser: Hello, my name is Volodymyr Hudyma, I am software developer for more
   than 5 years now. I was born and lived in Ukraine till I turned 17 and it
   occurred that there was a big decision ahead of me...
