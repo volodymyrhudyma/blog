@@ -60,7 +60,6 @@ import rootReducer from './rootReducer';
 export default function configureStore() {
   return createStore(rootReducer, applyMiddleware(thunk, logger));
 }
-
 ```
 
 As you can notice, store is the result of executing `createStore` function, which takes `rootReducer` as the first argument and middlewares as the second.
@@ -77,7 +76,6 @@ import counter from './counter/reducer';
 export default combineReducers({
   counter,
 });
-
 ```
 
 This `rootReducer` imports all separate reducer functions and combines them into one, which can be passed to the store.
@@ -88,7 +86,7 @@ This `rootReducer` imports all separate reducer functions and combines them into
 import {
   INCREMENT_COUNTER,
   DECREMENT_COUNTER,
-} from './action-types';
+} from './actionTypes';
 
 import { CounterActions, CounterState } from './types';
 
@@ -114,7 +112,6 @@ export default (state = initialState, action: CounterActions) => {
       };
   }
 };
-
 ```
 
 In this reducer we define the initial state, which holds our `counter` value, which equals to `0` by default and we check the type of an action which has been fired `action.type` and change the state accordingly.
@@ -138,7 +135,6 @@ Put the following content inside of this file:
 ```javascript
 export const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
 export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
-
 ```
 
 We'll have only 2 action types, which indicate incrementing or decrementing `counter` value.
@@ -151,7 +147,7 @@ Create a file `src/store/counter/types.ts` with the following content:
 import {
   INCREMENT_COUNTER,
   DECREMENT_COUNTER,
-} from './action-types';
+} from './actionTypes';
 
 export type CounterState = {
   counter: number;
@@ -168,7 +164,6 @@ export type DecrementCounter = {
 export type CounterActions =
   | IncrementCounter
   | DecrementCounter;
-
 ```
 
 And we're ready to build our first **action.**
@@ -181,7 +176,7 @@ import { Dispatch } from 'redux';
 import {
   INCREMENT_COUNTER,
   DECREMENT_COUNTER,
-} from './action-types';
+} from './actionTypes';
 
 import {
   IncrementCounter,
@@ -203,7 +198,6 @@ export const decrementCounter = () => {
     });
   };
 };
-
 ```
 
 Note, how we return async function with receives `dispatch` as the first argument.
@@ -258,7 +252,6 @@ export const getCounterSelector = createSelector(
   getCounter,
   counter => counter,
 );
-
 ```
 
 In the above example, we’ve broken our counter retrieval function into two functions.
@@ -287,7 +280,6 @@ const rootReducer = combineReducers({
 export type AppState = ReturnType<typeof rootReducer>;
 
 export default rootReducer;
-
 ```
 
 That's it! We're done with the configuration, it's time to test it out.
