@@ -1,5 +1,7 @@
 ---
 title: Promises in JavaScript
+tag:
+  - JavaScript
 teaser: Promise - it is an object that produces some value in the future. This
   object represents the result of an asynchronous operation. Promise has 3
   states...
