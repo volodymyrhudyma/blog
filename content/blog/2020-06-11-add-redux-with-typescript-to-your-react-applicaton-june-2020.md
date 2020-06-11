@@ -46,7 +46,7 @@ It's useful to include logger middleware to log all dispatched actions in the de
 
 After the installation let's begin with creating store:
 
-> Think of **store** as of something that holds your application's state
+> Think of **store** as of something that holds your application's state.
 
 We'll create store under the following path `src/store/index.ts` with the following content:
 
@@ -173,7 +173,7 @@ export type CounterActions =
 
 And we're ready to build our first **action.**
 
-Create a new file `src/store/counter/action.ts` with the following content:
+Create a new file `src/store/counter/actions.ts` with the following content:
 
 ```javascript
 import { Dispatch } from 'redux';
@@ -238,7 +238,9 @@ export const fetchUser = () => {
 
 Finally, we have to find a way to pull the data out of the store.
 
-We'll add **reselect** - simple “selector” library for Redux.
+We'll add **reselect** - simple “selector” library for Redux:
+
+`yarn add reselect`
 
 There is one major benefit of using **reselect** - it creates memoized selectors, which will re-run only if their arguments change.
 
