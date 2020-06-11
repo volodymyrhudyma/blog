@@ -1,5 +1,7 @@
 ---
 title: The best tools for React development (June 2020)
+tag:
+  - React
 teaser: After you decided to proceed with React, there are many libraries that
   will help you to speed up the development process. Choosing the right ones is
   crucial for the project's success...
