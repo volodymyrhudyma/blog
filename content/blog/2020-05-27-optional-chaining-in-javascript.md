@@ -1,5 +1,7 @@
 ---
 title: Optional chaining in JavaScript
+tag:
+  - JavaScript
 teaser: When dealing with complex objects or API responses it is a common thing
   to access nested properties. In order to make sure the property is reachable
   without any errors being thrown, we have to make sure each of it's parent
