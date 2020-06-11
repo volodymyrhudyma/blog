@@ -311,7 +311,6 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
-
 ```
 
 That's it! We're done with the configuration, it's time to test it out.
@@ -321,8 +320,6 @@ Modify the content of `src/App.tsx` component:
 ```javascript
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
-import './App.css';
 
 import { getCounterSelector } from './store/counter/selectors';
 import { incrementCounter, decrementCounter } from './store/counter/actions';
@@ -341,12 +338,26 @@ function App() {
 
   return (
     <div className='App'>
-      <button onClick={handleIncrement}>Increment</button>
-      <button onClick={handleDecrement}>Decrement</button>
-      {counter}
+      <div>
+        <button onClick={handleIncrement}>Increment</button>
+      </div>
+      <div>
+        <button onClick={handleDecrement}>Decrement</button>
+      </div>
+      <div>{counter}</div>
     </div>
   );
 }
 
 export default App;
 ```
+
+And run the application:
+
+`yarn start`
+
+You should see 2 buttons and the counter value on the screen:
+
+![React redux counter application](/img/screenshot-2020-06-11-at-21.17.23.png "React redux counter application")
+
+Click on the them and see if everything is working.
