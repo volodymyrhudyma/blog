@@ -1,5 +1,7 @@
 ---
 title: Getting started with JavaScript
+tag:
+  - JavaScript
 teaser: Javascript is a dynamically-typed, interpreted programming language that
   was originally developed to add dynamic and interactive elements to web pages.
   It runs on the client-side, which means the code is processed by a web
