@@ -1,5 +1,7 @@
 ---
 title: Capturing groups in regular expressions
+tag:
+  - JavaScript
 teaser: What if we don't only need to check if the given string contains
   specific pattern, but get the part of a match? You can easily do so by using
   so called capturing groups...
