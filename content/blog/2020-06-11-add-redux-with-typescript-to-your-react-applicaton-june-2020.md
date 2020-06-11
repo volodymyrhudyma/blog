@@ -282,10 +282,71 @@ export type AppState = ReturnType<typeof rootReducer>;
 export default rootReducer;
 ```
 
-That's it! We're done with the configuration, it's time to test it out.
+Lastly, we have to make our React app aware of the entire Redux's store. 
 
-Modify `src/App.tsx` component:
+Add `Provider` with `store` to the `src/index.jsx` file:
 
 ```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 
+import './index.css';
+
+import * as serviceWorker from './serviceWorker';
+import configureStore from './store';
+
+import App from './App';
+
+ReactDOM.render(
+  <React.StrictMode>
+    <Provider store={configureStore()}>
+      <App />
+    </Provider>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();
+
+```
+
+That's it! We're done with the configuration, it's time to test it out.
+
+Modify the content of `src/App.tsx` component:
+
+```javascript
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import './App.css';
+
+import { getCounterSelector } from './store/counter/selectors';
+import { incrementCounter, decrementCounter } from './store/counter/actions';
+
+function App() {
+  const dispatch = useDispatch();
+  const counter = useSelector(getCounterSelector);
+
+  const handleIncrement = () => {
+    dispatch(incrementCounter());
+  };
+
+  const handleDecrement = () => {
+    dispatch(decrementCounter());
+  };
+
+  return (
+    <div className='App'>
+      <button onClick={handleIncrement}>Increment</button>
+      <button onClick={handleDecrement}>Decrement</button>
+      {counter}
+    </div>
+  );
+}
+
+export default App;
 ```
