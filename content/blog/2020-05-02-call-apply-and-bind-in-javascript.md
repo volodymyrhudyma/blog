@@ -1,5 +1,7 @@
 ---
 title: Call, apply and bind in Javascript
+tag:
+  - JavaScript
 teaser: "\"Call\", \"apply\" and \"bind\" are all methods within the function
   prototype, basically doing the same thing: allow us to call a function with
   given \"this\" context and arguments, but in a different ways. Let's see how
