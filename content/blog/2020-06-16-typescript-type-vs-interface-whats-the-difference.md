@@ -11,7 +11,7 @@ One of the most asked interview questions for JavaScript developers is: "What's 
 
 Even if you used both of them, the answer might not be obvious, as both of them are correct:
 
-```javascript
+```typescript
 type User = {
   firstName: string;
   lastName: string;
@@ -39,7 +39,7 @@ Let's see if we can clarify it a bit.
 
 By using `type` keyword, **we create an alias to the type**.
 
-```javascript
+```typescript
 type FirstName = string;
 
 type LastName = string;
@@ -59,7 +59,7 @@ Aliasing doesn't actually create a new type, it creates a name(alias) to refer t
 
 By using `interface` keyword, **we create a new type**.
 
-```javascript
+```typescript
 interface User {
   firstName: string;
   lastName: string;
@@ -73,7 +73,7 @@ As we have already mentioned, they are both very similar, however, there are som
 
 * It's only possible to use `type` to alias primitive types:
 
-```javascript
+```typescript
 type MyString = string;
 
 // "string" only refers to a type, but is being used as a value here
@@ -91,7 +91,7 @@ interface IMyString extends String {}
 
 * You can't declare **Tuples** with `interface`:
 
-```javascript
+```typescript
 type Tuple = [number, string];
 
 interface ITuple {
@@ -117,7 +117,7 @@ interface ITuple {
 
 * You can declare only one `type` per scope:
 
-```javascript
+```typescript
 type User = {
   firstName: string;
 };
@@ -130,7 +130,7 @@ type User = {
 
 But many `interface`s:
 
-```javascript
+```typescript
 interface User {
   firstName: string;
 };
@@ -144,7 +144,7 @@ All interfaces will be merged into one, containing all provided properties with 
 
 * You can declare computed properties only using `type` keyword:
 
-```javascript
+```typescript
 type Fields = "firstName" | "lastName";
 
 type User = {
@@ -166,7 +166,7 @@ interface IUser {
 
 * `type` does not have functionality of extending, `interface` has:
 
-```javascript
+```typescript
 type Animal = {
   sound: string;
 };
