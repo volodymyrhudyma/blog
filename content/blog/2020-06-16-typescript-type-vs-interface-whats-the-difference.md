@@ -5,7 +5,7 @@ tag:
 teaser: "One of the most asked interview questions for JavaScript developers is:
   \"What's the difference between type and interface in TypeScript?\". Even if
   you used both of them, the answer might not be obvious..."
-date: 2020-06-15T17:43:12.103Z
+date: 2020-06-16T17:43:12.103Z
 ---
 One of the most asked interview questions for JavaScript developers is: "What's the difference between `type` and `interface` in TypeScript?".
 
