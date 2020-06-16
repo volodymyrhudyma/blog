@@ -63,4 +63,4 @@ interface IMyString extends string {}
 interface IMyString extends String {}
 ```
 
-**Important note:** `String` starting from the capital letter is the JavaScript String type, which could be used for creating new strings. `string` is the TypeScript string type, which you can use to type variables, parameters, etc.
+**Important note:** `String` is the JavaScript String type, which could be used for creating new strings. `string` is the TypeScript string type, which you can use to type variables, parameters, etc.
