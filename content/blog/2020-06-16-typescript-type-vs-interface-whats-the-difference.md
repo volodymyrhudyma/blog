@@ -3,11 +3,11 @@ title: Typescript "type" vs "interface". What's the difference?
 tag:
   - JavaScript
 teaser: "One of the most asked interview questions for JavaScript developers is:
-  \"What's the difference between \"type\" and \"interface\" in typescript?\".
-  Even if you used both of them, the answer might not be obvious..."
+  \"What's the difference between type and interface in TypeScript?\". Even if
+  you used both of them, the answer might not be obvious..."
 date: 2020-06-15T17:43:12.103Z
 ---
-One of the most asked interview questions for JavaScript developers is: "What's the difference between "type" and "interface" in typescript?".
+One of the most asked interview questions for JavaScript developers is: "What's the difference between `type` and `interface` in TypeScript?".
 
 Even if you used both of them, the answer might not be obvious, as both of them are correct:
 
@@ -41,7 +41,9 @@ By using `type` keyword, **we create an alias to the type**.
 
 ```javascript
 type FirstName = string;
+
 type LastName = string;
+
 type Age = string | number;
 
 type User = {
@@ -80,7 +82,7 @@ interface IMyString extends string {}
 /* 
   WRONG!
   It's possible to extend "String", but don't forget
-  'string' instanceof String === false
+  "string" instanceof String === false
 */
 interface IMyString extends String {}
 ```
@@ -138,7 +140,7 @@ interface User {
 };
 ```
 
-In the end, all interfaces will be merged into one, containing all provided properties with their types.
+All interfaces will be merged into one, containing all provided properties with their types.
 
 * You can declare computed properties only using `type` keyword:
 
