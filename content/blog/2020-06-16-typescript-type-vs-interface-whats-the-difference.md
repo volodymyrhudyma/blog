@@ -53,7 +53,7 @@ type User = {
 };
 ```
 
-Aliasing doesn't actually create a new type, it creates a name(alias) to refer to that type.
+Aliasing doesn't create a new type, it creates a name(alias) to refer to that type.
 
 ## Interface
 
@@ -183,7 +183,7 @@ interface IDog extends Animal, Mammal {
 };
 ```
 
-**Important note:** We can merge `type` aliases using `&` operator, it's called **intersection**.
+**Important note:** We can merge `type` aliases using `&` operator, it's called an **intersection**.
 
 ## Summary
 
@@ -191,4 +191,4 @@ Having all the differences in mind, you are probably about to ask a question: "W
 
 There's no strict answer, the point is just to be consistent.
 
-Interfaces may be better choice for defining an object or creating a types for public API and types - for aliasing long custom types, like `number | string | boolean | null`.
+Interfaces may be a better choice for defining an object or creating types for public API and types - for aliasing long custom types, like `number | string | boolean | null`.
