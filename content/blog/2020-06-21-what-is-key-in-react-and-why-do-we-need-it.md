@@ -56,31 +56,9 @@ And the warning is gone! But do you know why?
 
 Let's find out what happens behind the scenes.
 
-## The key
-
-> Keys help React identify which items have changed, are added, or are removed. Keys should be given to the elements inside the array to give the elements a stable identity.
-
-Any value can be used as a key unless it's **unique**.
-
-The most popular concept is to use `id` if you pull data from the database.
-
-In case if you don't have `id`, it's also possible to use `index` of an element inside of the loop:
-
-```javascript
-const List = ({ data }) => (
-  <ul>
-    {data.map((item, index) => (
-      <li key={index}>{item.name}</li>
-    ))}
-  </ul>
-);
-```
-
-**Important note:** it's not recommended to use `index` as a `key` if an order of list elements may change. We'll see why later on.
-
 ## Why does React need it?
 
-To understand this better, let's learn a new term: Reconciliation**.**
+To understand this better, let's learn a new term: **Reconciliation.**
 
 **Reconciliation** - is a mechanism that keeps track of the changes in a component state and renders the updated state to the screen.
 
@@ -130,3 +108,39 @@ The things doesn't look right, as React will run 3 mutations instead of one beca
 The main problem here is inefficiency.
 
 We could have avoided 2 unnecessary mutations by providing a small hint to React: the `key` prop.
+
+## The "key" prop
+
+> Keys help React identify which items have changed, are added, or are removed. Keys should be given to the elements inside the array to give the elements a stable identity.
+
+Adding a **key** to an inefficient above example makes the tree conversion efficient:
+
+```phtml
+<!-- New element -->
+<li key={3}>Third element</li>
+
+<li key={1}>First element</li>
+<li key={2}>Second element</li>
+```
+
+Now, React knows that the new element is the one with the key **3**, other elements have just changed their positions.
+
+Any value can be used as a key unless it's **unique**.
+
+The most popular concept is to use `id` if you pull data from the database.
+
+In case if you don't have `id`, it's also possible to use `index` of an element inside of the loop:
+
+```javascript
+const List = ({ data }) => (
+  <ul>
+    {data.map((item, index) => (
+      <li key={index}>{item.name}</li>
+    ))}
+  </ul>
+);
+```
+
+**Important note:** it's not recommended to use `index` as a `key` if an order of list elements may change.
+
+## "index" as a key
