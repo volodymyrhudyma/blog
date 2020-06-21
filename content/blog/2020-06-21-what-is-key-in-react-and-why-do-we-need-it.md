@@ -145,7 +145,7 @@ const List = ({ data }) => (
 
 ## "index" as a key
 
-Using `index` as a key leads to unexpected errors when the order of your list elements can be changed.
+Using **index** as a key leads to unexpected errors when the order of your list elements can be changed.
 
 React doesn't understand which item was added/removed/reordered since **index** is given on each render based on the order of the items in the array.
 
