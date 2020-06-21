@@ -144,3 +144,48 @@ const List = ({ data }) => (
 **Important note:** it's not recommended to use `index` as a `key` if an order of list elements may change.
 
 ## "index" as a key
+
+Using an `index` as a key leads to unexpected errors when the order of your list elements can be changed.
+
+React doesn't understand which item was added/removed/reordered since `index` is given on each render based on the order of the items in the array.
+
+Consider the following example:
+
+```javascript
+const initialData = [
+  {
+    id: 1,
+    name: "First item",
+  },
+  {
+    id: 2,
+    name: "Second item",
+  },
+];
+
+const List = () => {
+  const [data, setData] = useState(initialData);
+
+  const handleRemove = (id) => {
+    const newData = data.filter((item) => item.id !== id);
+    setData(newData);
+  };
+
+  return (
+    <ul>
+      {data.map((item, index) => (
+        <li key={index}>
+          <input type="text" defaultValue={item.name} />
+          <button
+            onClick={() => {
+              handleRemove(item.id);
+            }}
+          >
+            Remove
+          </button>
+        </li>
+      ))}
+    </ul>
+  );
+};
+```
