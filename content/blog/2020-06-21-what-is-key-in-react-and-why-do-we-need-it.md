@@ -34,7 +34,6 @@ const App = () => (
     ]}
   />
 );
-
 ```
 
 You will receive a warning message in the console: `Each child in a list should have a unique "key" prop`.
@@ -78,3 +77,56 @@ const List = ({ data }) => (
 ```
 
 **Important note:** it's not recommended to use `index` as a `key` if an order of list elements may change. We'll see why later on.
+
+## Why does React need it?
+
+To understand this better, let's learn a new term: Reconciliation**.**
+
+**Reconciliation** - is a mechanism that keeps track of the changes in a component state and renders the updated state to the screen.
+
+When the state of your component changes, the `render` function will return a new tree of React elements, which will be obviously different from the previous one. 
+
+The job of React is to figure out what has changed in the quickiest possible way to efficiently update the UI.
+
+Let's see how it works by using lists as an example.
+
+Imagine rendering 2 list elements without any keys:
+
+```phtml
+<li>First element</li>
+<li>Second element</li>
+```
+
+And then adding a new element to the end of the list:
+
+```phtml
+<li>First element</li>
+<li>Second element</li>
+
+<!-- New element -->
+<li>Third element</li>
+```
+
+The new elements tree is produced and React now has to compare an old tree with the new one to identify what changes were made.
+
+React iterates over both lists of children at the same time and generates a mutation whenever there’s a difference.
+
+It will match the first 2 elements and generate a mutation for the third one.
+
+Looks good, right?
+
+But what if the new element was added to the beginning of the list?
+
+```phtml
+<!-- New element -->
+<li>Third element</li>
+
+<li>First element</li>
+<li>Second element</li>
+```
+
+The things doesn't look right, as React will run 3 mutations instead of one because it won't know that the **First element** and the **Second element** weren't touched because they changed their position.
+
+The main problem here is inefficiency.
+
+We could have avoided 2 unnecessary mutations by providing a small hint to React: the `key` prop.
