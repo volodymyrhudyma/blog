@@ -215,15 +215,15 @@ In other words, each item within an array should have unique key, but it should 
   {data.map((item) => (
     <li key={item.id}>
       {item.name}
-      {item.siblings.map((sibling) => (
-        <div key={sibling.id}>{sibling.name}</div>
+      {item.children.map((child) => (
+        <div key={child.id}>{child.name}</div>
       ))}
     </li>
   ))}
 </ul>
 ```
 
-`sibling.id` can be the same as `item.id` as they aren't siblings.
+`child.id` can be the same as `item.id` as they aren't siblings.
 
 ## Keys are not passed as a prop
 
