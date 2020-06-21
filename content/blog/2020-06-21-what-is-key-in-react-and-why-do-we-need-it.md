@@ -227,7 +227,7 @@ In other words, each item within an array should have unique key, but it should 
 
 ## Keys are not passed as a prop
 
-React doesn't automatically pass `key` as a prop to the component, which means that if you need access to it, you should pass it as another prop:
+React doesn't automatically pass **key** as a prop to the component, which means that if you need access to it, you should pass it as another prop:
 
 ```javascript
 <ul>
