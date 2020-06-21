@@ -201,3 +201,42 @@ Actually, it does but after we removed the first item, the second one received t
 Changing the `<li key={index}>` to `<li key={item.id}>` solves an issue:
 
 ![Id as a key .gif](/img/id-as-a-key.gif "Id as a key .gif")
+
+Be very careful of that, as those kinds of issues are extremely hard to debug.
+
+## Uniqueness among siblings
+
+Keys need to be unique, but only among their siblings.
+
+In other words, each item within an array should have unique key, but it should not be unique globally:
+
+```javascript
+<ul>
+  {data.map((item) => (
+    <li key={item.id}>
+      {item.name}
+      {item.siblings.map((sibling) => (
+        <div key={sibling.id}>{sibling.name}</div>
+      ))}
+    </li>
+  ))}
+</ul>
+```
+
+`sibling.id` can be the same as `item.id` as they aren't siblings.
+
+## Keys are not passed as a prop
+
+React doesn't automatically pass `key` as a prop to the component, which means that if you need access to it, you should pass it as another prop:
+
+```javascript
+<ul>
+  {data.map((item) => (
+    <ListItem key={item.id} id={item.id} />
+  ))}
+</ul>
+```
+
+To access `item.id` inside of the `ListItem` component, we should pass it separately.
+
+## Summary
