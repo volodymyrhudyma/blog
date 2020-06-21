@@ -189,3 +189,7 @@ const List = () => {
   );
 };
 ```
+
+This list is rendered based on `index`. Let's try to remove the first value:
+
+![Index as a key .gif](/img/index-as-a-key.gif "Index as a key .gif")
