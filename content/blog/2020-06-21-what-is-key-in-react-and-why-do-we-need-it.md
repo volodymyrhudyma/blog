@@ -199,3 +199,5 @@ And it doesn't get removed!
 Actually, it does but after we removed the first item, the second one received the key `0` and React thinks that we removed the item with the key `1` as it's not in the list anymore.
 
 Changing the `<li key={index}>` to `<li key={item.id}>` solves an issue:
+
+![Id as a key .gif](/img/id-as-a-key.gif "Id as a key .gif")
