@@ -240,3 +240,8 @@ React doesn't automatically pass `key` as a prop to the component, which means t
 To access `item.id` inside of the `ListItem` component, we should pass it separately.
 
 ## Summary
+
+The most important thing is to remember that `key` prop should be used not only to get rid of an annoying warning in the console, but to help React identify what elements have changed, are added, or are removed.
+
+* Always use **unique** `key` prop when rendering lists
+* Be careful when using `index` as a `key`, try to avoid it if possible
