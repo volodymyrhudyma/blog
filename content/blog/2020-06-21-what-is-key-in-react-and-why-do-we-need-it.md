@@ -9,7 +9,7 @@ date: 2020-06-21T06:37:02.679Z
 ---
 Almost each web application contains lists of elements printed to the screen. 
 
-If you render list elements without defining the `key` prop:
+If you render list elements without defining the **key** prop:
 
 ```javascript
 const List = ({ data }) => (
@@ -38,7 +38,7 @@ const App = () => (
 
 You will receive a warning message in the console: `Each child in a list should have a unique "key" prop`.
 
-This issue is easy to fix, just add a **unique** `key` prop for each `li` element which is being rendered inside of the loop:
+This issue is easy to fix, just add a **unique** **key** prop for each **li** element which is being rendered inside of the loop:
 
 ```javascript
 const List = ({ data }) => (
@@ -50,7 +50,7 @@ const List = ({ data }) => (
 );
 ```
 
-**Important note:** the `key` should always be unique, if React encounters 2 same keys being provided, it would show the same warning as if we didn't add it at all.
+**Important note:** **key** should always be unique, if React encounters 2 same keys being provided, it would show the same warning as if we didn't add it at all.
 
 And the warning is gone! But do you know why?
 
@@ -62,9 +62,9 @@ To understand this better, let's learn a new term: **Reconciliation.**
 
 **Reconciliation** - is a mechanism that keeps track of the changes in a component state and renders the updated state to the screen.
 
-When the state of your component changes, the `render` function will return a new tree of React elements, which will be obviously different from the previous one. 
+When the state of your component changes, the **render** function will return a new tree of React elements, which will be obviously different from the previous one. 
 
-The job of React is to figure out what has changed in the quickiest possible way to efficiently update the UI.
+The job of React is to figure out what has changed in the quickest possible way to efficiently update the UI.
 
 Let's see how it works by using lists as an example.
 
@@ -107,7 +107,7 @@ The things doesn't look right, as React will run 3 mutations instead of one beca
 
 The main problem here is inefficiency.
 
-We could have avoided 2 unnecessary mutations by providing a small hint to React: the `key` prop.
+We could have avoided 2 unnecessary mutations by providing a small hint to React: the **key** prop.
 
 ## The "key" prop
 
@@ -127,9 +127,9 @@ Now, React knows that the new element is the one with the key **3**, other eleme
 
 Any value can be used as a key unless it's **unique**.
 
-The most popular concept is to use `id` if you pull data from the database.
+The most popular concept is to use **id** if you pull data from the database.
 
-In case if you don't have `id`, it's also possible to use `index` of an element inside of the loop:
+In case if you don't have **id**, it's also possible to use **index** of an element inside of the loop:
 
 ```javascript
 const List = ({ data }) => (
@@ -145,9 +145,9 @@ const List = ({ data }) => (
 
 ## "index" as a key
 
-Using an `index` as a key leads to unexpected errors when the order of your list elements can be changed.
+Using `index` as a key leads to unexpected errors when the order of your list elements can be changed.
 
-React doesn't understand which item was added/removed/reordered since `index` is given on each render based on the order of the items in the array.
+React doesn't understand which item was added/removed/reordered since **index** is given on each render based on the order of the items in the array.
 
 Consider the following example:
 
@@ -190,13 +190,13 @@ const List = () => {
 };
 ```
 
-This list is rendered based on `index`. Let's try to remove the first value:
+This list is rendered based on **index**. Let's try to remove the first value:
 
 ![Index as a key .gif](/img/index-as-a-key.gif "Index as a key .gif")
 
 And it doesn't get removed!
 
-Actually, it does but after we removed the first item, the second one received the key `0` and React thinks that we removed the item with the key `1` as it's not in the list anymore.
+Actually, it does but after we removed the first item, the second one received the key **0** and React thinks that we removed the item with the key **1** as it's not on the list anymore.
 
 Changing the `<li key={index}>` to `<li key={item.id}>` solves an issue:
 
@@ -241,7 +241,7 @@ To access `item.id` inside of the `ListItem` component, we should pass it separa
 
 ## Summary
 
-The most important thing is to remember that `key` prop should be used not only to get rid of an annoying warning in the console, but to help React identify what elements have changed, are added, or are removed.
+The most important thing is to remember that **key** prop should be used not only to get rid of an annoying warning in the console, but to help React identify what elements have changed, are added, or are removed.
 
-* Always use **unique** `key` prop when rendering lists
-* Be careful when using `index` as a `key`, try to avoid it if possible
+* Always use **unique** **key** prop when rendering lists
+* Be careful when using **index** as a **key**, try to avoid it if possible
