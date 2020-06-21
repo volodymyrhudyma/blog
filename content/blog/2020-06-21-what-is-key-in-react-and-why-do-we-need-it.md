@@ -25,11 +25,11 @@ const App = () => (
     data={[
       {
         id: 1,
-        name: 'One',
+        name: "One",
       },
       {
         id: 2,
-        name: 'Two',
+        name: "Two",
       },
     ]}
   />
@@ -62,7 +62,7 @@ To understand this better, let's learn a new term: **Reconciliation.**
 
 **Reconciliation** - is a mechanism that keeps track of the changes in a component state and renders the updated state to the screen.
 
-When the state of your component changes, the **render** function will return a new tree of React elements, which will be obviously different from the previous one. 
+When the state of your component changes, the **render** function returns a new tree of React elements, which is obviously different from the previous one. 
 
 The job of React is to figure out what has changed in the quickest possible way to efficiently update the UI.
 
