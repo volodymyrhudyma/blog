@@ -193,3 +193,9 @@ const List = () => {
 This list is rendered based on `index`. Let's try to remove the first value:
 
 ![Index as a key .gif](/img/index-as-a-key.gif "Index as a key .gif")
+
+And it doesn't get removed!
+
+Actually, it does but after we removed the first item, the second one received the key `0` and React thinks that we removed the item with the key `1` as it's not in the list anymore.
+
+Changing the `<li key={index}>` to `<li key={item.id}>` solves an issue:
