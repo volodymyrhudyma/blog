@@ -141,7 +141,7 @@ const List = ({ data }) => (
 );
 ```
 
-**Important note:** it's not recommended to use `index` as a `key` if an order of list elements may change.
+**Important note:** it's not recommended to use **index** as a **key** if an order of list elements may change.
 
 ## "index" as a key
 
