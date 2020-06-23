@@ -58,8 +58,6 @@ Let's find out what happens behind the scenes.
 
 ## Why does React need it?
 
-
-
 [](http://localhost:8000#why-does-react-need-it)To understand this better, let's learn a new term: **Reconciliation.**
 
 **Reconciliation** - is a mechanism that keeps track of the changes in a component state and renders the updated state to the screen.
