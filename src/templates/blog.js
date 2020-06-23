@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
-import { graphql, Link } from "gatsby"
+import { Link } from "gatsby"
+import slugify from "slugify"
 
 import BackButton from "@components/BackButton"
 import Layout from "@components/Layout"
@@ -9,16 +10,30 @@ import SEO from "@components/seo"
 
 export default function Template({ data, path }) {
   const { article, comments } = data
-  const { frontmatter, html } = article
+  const { frontmatter } = article
 
+  const [html, setHtml] = useState(article.html)
   const [headings, setHeadings] = useState([])
   const [showTOC, setShowTOC] = useState(true)
 
   useEffect(() => {
-    const regex = /<h2>(.*)<\/h2>/g
-    const result = html.match(regex)
-    setHeadings(result)
-  }, [html])
+    const div = document.createElement("div")
+    div.innerHTML = html
+    const h2List = [...div.getElementsByTagName("h2")]
+    let newHtml = html
+    h2List.forEach(item => {
+      const element = `<h2>${item.innerHTML}</h2>`
+      const h2Start = newHtml.indexOf(element)
+      const insertElement = `<div id='${slugify(item.innerHTML)}' />`
+      newHtml = [
+        newHtml.slice(0, h2Start),
+        insertElement,
+        newHtml.slice(h2Start),
+      ].join("")
+    })
+    setHeadings(h2List)
+    setHtml(newHtml)
+  }, [])
 
   const toggleTOC = () => {
     setShowTOC(!showTOC)
@@ -88,7 +103,9 @@ export default function Template({ data, path }) {
           }}
         >
           {headings.map((item, index) => (
-            <li key={index}>{item.replace(/<\/?h2>/g, "")}</li>
+            <li key={index}>
+              <a href={`#${slugify(item.innerHTML)}`}>{item.innerHTML}</a>
+            </li>
           ))}
         </ul>
       )}
