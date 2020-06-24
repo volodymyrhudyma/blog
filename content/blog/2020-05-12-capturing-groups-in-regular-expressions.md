@@ -2,16 +2,16 @@
 title: Capturing groups in regular expressions
 tag:
   - JavaScript
-teaser: What if we don't only need to check if the given string contains
+teaser: What if we don't only need to check if the given string contains the
   specific pattern, but get the part of a match? You can easily do so by using
-  so called capturing groups...
+  so-called capturing groups...
 date: 2020-05-12T16:21:57.902Z
 ---
-So far, we have learnt how to define with regular expressions in order to check if the string contains specific pattern. 
+So far, we have learned how to define with regular expressions in order to check if the string contains the specific pattern. 
 
 But what if we don't only need to check it, but to get the part of a match?
 
-You can easily do so by using so called **capturing groups**.
+You can easily do so by using so-called **capturing groups**.
 
 **Important note**: make sure to check out the [previous article](/2020-05-10-regular-expressions-in-javascript/), where regular expressions are explained in-depth.
 
@@ -21,11 +21,11 @@ Capturing group can be created by using parentheses `(...)`.
 
 ## Accessing capturing group
 
-To access the content of capturing group, use dollar sign with the group number.
+To access the content of the capturing group, use a dollar sign with the group number.
 
 Group numbers start with `1` and are numbered from left to right.
 
-The first capturing group can be accessed using `$1`, second one by `$2` and so on.
+The first capturing group can be accessed using `$1`, the second one by `$2` and so on.
 
 ## Example #1
 
@@ -57,7 +57,7 @@ const pattern = /(\d)em/g;
 console.log(string.replace(pattern, "$1rem")); 
 ```
 
-You might ask: "Is there a chance to modify returned capturing group"?
+You might ask: "Is there a chance to modify the returned capturing group"?
 
 Yes, by using **function replacement**:
 
@@ -102,7 +102,7 @@ const pattern = /(\w+),\s(\w+)/;
 console.log(string.replace(pattern, "$2, $1")); // Prints "John, Andrew"
 ```
 
-Note, how we have an access to the first group using `$1` and to the second `$2` and how easy it is to swap their positions.
+Note, how we have access to the first group using `$1` and to the second `$2` and how easy it is to swap their positions.
 
 #### `string.replace(searchValue, newValue | function)`
 
@@ -124,7 +124,7 @@ console.log(string.replace(/John/g, "Andrew"));
 
 ## Named capturing groups
 
-All of defined capturing groups can be given name and referenced by it later.
+All of the defined capturing groups can be given name and referenced by it later.
 
 ```javascript
 (?<name>pattern)
@@ -212,7 +212,7 @@ The first group returned as `result[1]` encloses the whole tag content, second: 
 
 This method searches a string for a match against a regular expression, and returns the matches, as an array object or `null`.
 
-**Important note**: If the regular expression does not include the (`g`) modifier (to perform a global search), the  method will return only the first match in the string.
+**Important note**: If the regular expression does not include the (`g`) modifier (to perform a global search), the method will return only the first match in the string.
 
 Without `g` modifier:
 
@@ -260,7 +260,7 @@ Have you noticed that in the example above we received `$2, Andrew` instead of `
 ## Summary
 
 * Capturing groups are created using `(...)` syntax and numbered from left to right
-* Capturing groups can be accessed using `$` sign combined with group's number `$1`, `$2`, ... or if they were named, by using name `$<name>`
+* Capturing groups can be accessed using `$` sign combined with the group's number `$1`, `$2`, ... or if they were named, by using the name `$<name>`
 * Capturing groups can be made optional using `(...)?` syntax
 * Capturing groups can be nested. Nested groups are numbered from left to right as well
 * Non-capturing groups are created using `?:` syntax
