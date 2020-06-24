@@ -60,7 +60,7 @@ Or to the existing application, built with CRA:
 * Install typescript
 
   `yarn add typescript @types/node @types/react @types/react-dom @types/jest`
-* Rename any file to be a typescript file (for example `src/index.js`to `src/index.tsx`) and **restart your development server**
+* Rename any file to be a typescript file (for example `src/index.jsx` to `src/index.tsx`) and **restart your development server**
 * Enjoy the typescript!
 
 Read more about typescript [here](https://www.typescriptlang.org/docs/home.html).
@@ -229,13 +229,13 @@ The first script checks if all your files meet the specified criteria and throws
 
 The second one does the same job, but it also tries to fix whatever can be fixed without the developer's help.
 
-**Important note:** the following scripts run eslint for all files. If you want to run it against specific folder, replace `.` with the path to the folder, for example `eslint src/`.
+**Important note:** the following scripts run eslint for all files. If you want to run it against a specific folder, replace `.` with the path to the folder, for example `eslint src/`.
 
 Refer to the [](https://github.com/axios/axios)[official documentation](https://eslint.org/docs/user-guide/configuring) to find out more.
 
 ## Prettier
 
-Prettier is used to autoformat the code, to enforce an opinionated code format.
+Prettier is used to autoformat the code and to enforce an opinionated code formatting.
 
 Usually, it's installed together with ESLint, which makes sure to keep my code style in a good shape.
 
@@ -338,7 +338,7 @@ One more major benefit of this approach comes into play when we will refactor ou
 
 **Storybook** is a tool that enables developers to create components in isolation in an isolated development environment.
 
-Any React component can be added to storybook for showcasing purposes.
+Any React component can be added to the storybook for showcasing purposes.
 
 Install the tool by running:
 
@@ -348,7 +348,7 @@ Then add a script to the `package.json`:
 
 `"storybook": "start-storybook -p 9000"`
 
-The script above starts storybook on port 9000.
+The script above starts the storybook on port 9000.
 
 Finally, create the main storybook file `.storybook/main.js`, which tells Storybook where to find the stories:
 
@@ -509,7 +509,7 @@ Redux can be described in three fundamental principles:
   > **Store** is an object that holds the application's state tree. There should only be a single store in a Redux app, as the composition happens on the reducer level.
 * State is read-only:
 
-  The only way state can be changed is by firing an action.
+  The only way the state can be changed is by firing an action.
 * Changes are made with pure functions:
 
   To specify how the state tree is transformed by actions, you write pure reducers.
