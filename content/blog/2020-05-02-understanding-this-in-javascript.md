@@ -100,7 +100,7 @@ john.getFullName.apply(andrew); // Prints "Adrew Hopkins"
   *The reason, why we haven't included bind to the previous point is because bind returns new function which can be called later with passed context. In case of call or apply, the function gets invoked immediately.*
 
 ```javascript
-const fullName = john.getFullName.apply(andrew); // Prints nothing, has to be invoked
+const fullName = john.getFullName.bind(andrew); // Prints nothing, has to be invoked
 
 fullName(); // Prints "Adrew Hopkins", it remembers passed context
 ```
