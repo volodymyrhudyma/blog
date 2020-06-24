@@ -376,10 +376,10 @@ Open the developer tools and notice that each action is logged to the console th
 
 ## Summary
 
-In this article we've covered the simplest Redux + Typescript configuration for the React application.
+In this article, we've covered the simplest Redux + Typescript configuration for the React application.
 
-I hope you this guide was useful for you.
+I hope this guide was useful to you.
 
 See you in the next articles.
 
-**P.S.** The code is available on the [github repository](https://github.com/volodymyrhudyma/react-redux-typescript-app).
+**P.S.** The code is available on the G[ithub repository](https://github.com/volodymyrhudyma/react-redux-typescript-app).
