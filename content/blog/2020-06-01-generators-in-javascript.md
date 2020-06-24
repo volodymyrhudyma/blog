@@ -3,13 +3,13 @@ title: Generators in JavaScript
 tag:
   - JavaScript
 teaser: Generator function - a special kind of function that can stop midway and
-  continue execution from the place where it stopped. This function returns
+  continue execution from the place where it stopped. This function returns a
   generator object, which conforms to both - iterable and iterator protocol...
 date: 2020-06-01T13:51:11.139Z
 ---
 **Generator function** - a special kind of function that can stop midway and continue execution from the place where it stopped. 
 
-This function returns generator object, which conforms to both - iterable and iterator protocol.
+This function returns a generator object, which conforms to both - iterable and iterator protocol.
 
 For creating a generator function, `function*` syntax is used.
 
@@ -35,13 +35,13 @@ function* exampleGenerator() {
 };
 ```
 
-**Important note:** it's not possible to create generator using arrow function.
+**Important note:** it's not possible to create a generator using an arrow function.
 
 ## Iterable protocol
 
 This protocol defines the iteration behavior of objects. 
 
-That means, the way an object iterates through it’s items, and also allows us to handle and customize that behavior.
+That means the way an object iterates through its items, and also allows us to handle and customize that behavior.
 
 *In order to learn more about it, refer to [this article](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#The_iterable_protocol).*
 
@@ -106,7 +106,7 @@ console.log(result.next()); // Prints "{value: 3, done: false}"
 console.log(result.next()); // Prints "{value: undefined, done: true}"
 ```
 
-**Important note:** Every invocation of `next` returns an object of shape: `{value: any, done: true|false}`. When the `done` is `true`, generator stops and won't generate any more values.
+**Important note:** Every invocation of `next` returns an object of shape: `{value: any, done: true|false}`. When the `done` is `true`, the generator stops and won't generate any more values.
 
 * `Generator.prototype.return()` - returns given value and finishes the generator:
 
@@ -227,7 +227,7 @@ for (const result of generator) {
 
 Compare the amount of code and simplicity of both examples, which do the same thing.
 
-#### Waiting for promise to resolve
+#### Waiting for a promise to resolve
 
 Let's assume we have to fetch user details using the following code, based on Promise:
 
@@ -267,7 +267,7 @@ function* fetchUser() {
 
 #### Generating infinite/unique data streams
 
-You can use generators to create infinite data stream of unique identifiers:
+You can use generators to create an infinite data stream of unique identifiers:
 
 ```javascript
 function* idGenerator() {
@@ -286,9 +286,9 @@ console.log(id.next()); // Prints "{value: 2, done: false}"
 
 ## Summary
 
-We've covered the very basics of generators, by now you should have an understanding what are they and how do they work.
+We've covered the very basics of generators, by now you should have an understanding of what are they and how do they work.
 
 * Generator - function that can be suspended and resumed later on
 * Generator object is returned from the generator function, is can't be instantiated using `new` keyword
-* Generator has 3 built-it methods: `next()`, `return()`, `throw()`
+* Generator has 3 built-in methods: `next()`, `return()`, `throw()`
 * Generators can be used for: implementing iterables, waiting for Promise to resolve, generating infinite data streams and much more
