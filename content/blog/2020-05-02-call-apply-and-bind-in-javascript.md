@@ -8,17 +8,17 @@ teaser: "\"Call\", \"apply\" and \"bind\" are all methods within the function
   to use them..."
 date: 2020-05-02T10:53:21.451Z
 ---
-In this post we are going to discuss some famous JavaScript methods: `call`, `apply` and `bind`, see how they work, what are they used for and how to use them properly in order to get things working.
+In this post we are going to discuss some famous JavaScript methods: `call`, `apply` and `bind`, see how they work, what are they used for, and how to use them properly in order to get things working.
 
 ## Call, apply and bind
 
-They are all methods within the function prototype, basically doing the same thing: allow us to call a function with given `this` context and arguments, but in a different ways.
+They are all methods within the function prototype, basically doing the same thing: allow us to call a function with given `this` context and arguments, but in different ways.
 
 You can refer to [this article](/2020-05-02-understanding-this-in-javascript/) in order to learn more about `this` object in JavaScript.
 
 ## Call or Function.prototype.call
 
-Call is used to immediately execute function with given `this` context and arguments:
+`call` is used to immediately execute a function with given `this` context and arguments:
 
 ```javascript
 const user = {
@@ -58,7 +58,7 @@ Were you able to spot the difference?
 
 The behavior of `bind` method is exactly the same as of `apply` with just only one difference. But it's really huge.
 
-It is not executed immediately, but returns **bound** function:
+It is not executed immediately, but returns a **bound** function:
 
 ```javascript
 const user = {
@@ -75,7 +75,7 @@ const boundFunction = getFullName.bind(user, "Welcome", 10); // "bind" returns b
 boundFunction(); // Prints "Welcome, John Doe, your table number is: 10"
 ```
 
-We can pass arguments at the same time we execute `bind` method, as we did above or at the moment when we invoke bound function:
+We can pass arguments at the same time we execute `bind` method, as we did above or at the moment when we invoke the bound function:
 
 ```javascript
 const user = {
@@ -102,7 +102,7 @@ By using `call`, `apply` and `bind`, we can easily borrow methods from different
 
 Imagine the following situation: you have an array of numbers and need to find a maximum number. You know that there is `Math.max` function that does exactly what we need, so why don't we use it? 
 
-The problem is that `Math.max` does not accept array, but numbers:
+The problem is that `Math.max` does not accept an array, but numbers:
 
 ```javascript
 Math.max(10, 20, 30, 1, 100); // "100"
@@ -184,14 +184,14 @@ boundFilter("string1", function(val) {
 }).join(""); // "string"
 ```
 
-**Important note:** it's totally fine to change method names from `boundJoin` and `boundFilter` to `join` and `filter`. Those example names are used just to remind that `bind` isn't executed immediately, but returns new function.
+**Important note:** it's totally fine to change method names from `boundJoin` and `boundFilter` to `join` and `filter`. Those example names are used just to remind that `bind` isn't executed immediately, but returns a new function.
 
 ## Summary
 
-You should have solid understanding how `call`, `apply` and `bind` work by now. 
+You should have a solid understanding of how `call`, `apply` and `bind` work by now. 
 
 Those functions are often forgotten by developers so try to always keep them in mind and use if needed.
 
-* `call` is used to immediately execute function with given `this` context and arguments
+* `call` is used to immediately execute a function with given `this` context and arguments
 * `apply` behaves exactly the same way as `call`, with the only difference - it receives an array of the arguments as the second parameter
-* `bind` behaves exactly the same way as `apply`, but not gets executed immediately. It returns **bound** function
+* `bind` behaves exactly the same way as `apply`, but not gets executed immediately. It returns a **bound** function
