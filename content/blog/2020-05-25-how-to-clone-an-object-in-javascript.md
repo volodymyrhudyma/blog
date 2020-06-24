@@ -14,7 +14,7 @@ There are a lot of different ways to copy an object.
 
 Choosing the right method depends on what would you like to achieve.
 
-Before we start with listing the most popular methods and providing use cases for each and every of them, let's quickly remind ourselves what is **shallow** and **deep** copy and the differences between them.
+Before we start with listing the most popular methods and providing use cases for each and every one of them, let's quickly remind ourselves what is **shallow** and **deep** copy and the differences between them.
 
 ## Shallow copy
 
@@ -46,13 +46,13 @@ console.log(newUser);
 
 Property `other`references to an object which contains `age`. 
 
-When doing shallow copy, just the reference address of `other`is copied, not the value itself.
+When doing a shallow copy, just the reference address of `other`is copied, not the value itself.
 
 That's why when we modify `other.age`it gets updated in both `user`and `newUser`.
 
 ## Deep copy
 
-Making deep copy of an object means copying everything, the new copied object is completely independent from the original one:
+Making a deep copy of an object means copying everything, the newly copied object is completely independent of the original one:
 
 ```javascript
 import cloneDeep from "lodash/cloneDeep";
@@ -76,7 +76,7 @@ console.log(user);
 console.log(newUser);
 ```
 
-Having in mind the differences between shallow and deep copy, let's start with listing the most populars ways of copying the object:
+Having in mind the differences between shallow and deep copy, let's start with listing the most popular ways of copying the object:
 
 ## Spread operator
 
@@ -101,10 +101,10 @@ const newUser = {
 
 `Object.assign(target, ...sources)` accepts 2 parameters:
 
-* `target` - target object, where to copy
+* `target` - a target object, where to copy
 * `sources` - source objects, what to copy
 
-Copy one source object into empty target:
+Copy one source object into an empty target:
 
 ```javascript
 const user = {
@@ -117,7 +117,7 @@ const user = {
 const newUser = Object.assign({}, user);
 ```
 
-Copy multiple source objects into empty target:
+Copy multiple source objects into an empty target:
 
 ```javascript
 const user = {
@@ -136,7 +136,7 @@ const address = {
 const newUser = Object.assign({}, user, address);
 ```
 
-Copy one source object to existing target:
+Copy one source object to an existing target:
 
 ```javascript
 const target = {
@@ -161,7 +161,7 @@ const newUser = Object.assign(target, address);
 
 *does a deep copy*
 
-Note, that this is not optimal way of cloning an object, consider using [`cloneDeep`](https://lodash.com/docs/4.17.15#cloneDeep) from lodash:
+Note, that this is not the optimal way of cloning an object, consider using [`cloneDeep`](https://lodash.com/docs/4.17.15#cloneDeep) from lodash:
 
 ```javascript
 const user = {
@@ -200,7 +200,7 @@ const obj = {
 console.log(JSON.stringify(obj)); // Prints "{}"
 ```
 
-* Date (dates are parsed as strings, which means that you will loose original Date object):
+* Date (dates are parsed as strings, which means that you will lose original Date object):
 
 ```javascript
 const obj = {
@@ -229,7 +229,7 @@ user.brother = user;
 console.log(JSON.parse(JSON.stringify(user)));
 ```
 
-* and, most important, with functions:
+* and, most importantly, with functions:
 
 ```javascript
 const obj = {
@@ -239,7 +239,7 @@ const obj = {
 console.log(JSON.stringify(obj)); // Prints "{}"
 ```
 
-You can potentially loose some data without even knowing that, as you wouldn't even be warned by the JavaScript.
+You can potentially lose some data without even knowing that, as you wouldn't even be warned by the JavaScript.
 
 Calling `JSON.stringify` with such data types doesn't throw any errors.
 
@@ -247,7 +247,7 @@ To sum it up, try to avoid this way of cloning an object.
 
 ## Using external library
 
-The best way to create a deep copy of an object - is to use popular, well tested external library, like lodash.
+The best way to create a deep copy of an object - is to use a popular, well tested external library, like lodash.
 
 #### lodash
 
@@ -266,7 +266,7 @@ const user = {
 const newUser = cloneDeep(user);
 ```
 
-Lodash also implements [`clone`](https://lodash.com/docs/4.17.15#clone) method, which does shallow copy of an object:
+Lodash also implements [`clone`](https://lodash.com/docs/4.17.15#clone) method, which does a shallow copy of an object:
 
 ```javascript
 import clone from "lodash/clone";
@@ -285,9 +285,9 @@ const newUser = clone(user);
 
 There's always a possibility to create your own custom method that would clone an object, but that's like reinventing the wheel.
 
-You will spend a lot of time writing your own implementation, fixing bugs and covering the code with unit tests so there's no need to do that.
+You will spend a lot of time writing your own implementation, fixing bugs, and covering the code with unit tests so there's no need to do that.
 
-Always remember that if you encounter any kind of problem in programming, you are for sure not the first person to face that, so give yourself a try to search for a ready-to-use solution in the internet.
+Always remember that if you encounter any kind of problem in programming, you are for sure not the first person to face that, so give yourself a try to search for a ready-to-use solution on the internet.
 
 ## Summary
 
@@ -301,4 +301,4 @@ To create a deep clone on an object use:
 * JSON object (make sure to understand all pros and cons of this method)
 * External library, like [https://lodash.com/docs](https://lodash.com/docs/4.17.15)
 
-**Important note:** Never use assignment operator `=` for cloning objects.
+**Important note:** Never use the assignment operator `=` for cloning objects.
