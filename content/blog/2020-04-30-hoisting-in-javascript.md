@@ -12,7 +12,7 @@ date: 2020-04-30T18:10:27.744Z
 
 > Hoisting is JavaScript's default behavior of moving declarations to the top of their scope.
 
-To begin with learning this mechanism, let's make sure we understand the differences between **declaration, initialization** and **assignment.**
+To begin with, learning this mechanism, let's make sure we understand the differences between **declaration, initialization,** and **assignment.**
 
 ## Declaration
 
@@ -32,7 +32,7 @@ const a; // SyntaxError: Missing initializer in const declaration
 
 To initialize variable means to allocate some space in the memory for it. 
 
-Just after variable is declared, it is automatically initialized:
+Just after a variable is declared, it is automatically initialized:
 
 ```javascript
 var a; // Declared and automatically initialized
@@ -83,9 +83,9 @@ console.log(a); // Prints "undefined"
 a = 10;
 ```
 
-Thanks to hoisting mechanism, we are allowed to use variables before they are declared. However, we have to be careful, because hoisted variables are initialized with `undefined`. 
+Thanks to the hoisting mechanism, we are allowed to use variables before they are declared. However, we have to be careful, because hoisted variables are initialized with `undefined`. 
 
-Make sure to always declare and initialize variable before using it.
+Make sure to always declare and initialize a variable before using it.
 
 Variables are also hoisted in the function scope:
 
@@ -110,7 +110,7 @@ function example() {
 example();
 ```
 
-**Important note:** In order to avoid unexpected behavior, do not access variable before you declare it.
+**Important note:** In order to avoid unexpected behavior, do not access variables before you declare it.
 
 ## What about "let" and "const"?
 
@@ -130,7 +130,7 @@ const a = 10;
 
 Before we move to this section, let's remember how functions can be defined in JavaScript:
 
-* **Function declaration** - defines a named function. Use `function` keyword followed by name. Function declaration is **hoisted:**
+* **Function declaration** - defines a named function. Use `function` keyword followed by the name. Function declaration is **hoisted:**
 
 ```javascript
 printNumber(); // Prints "10"
@@ -150,7 +150,7 @@ const printNumber = function() {
 };
 ```
 
-* **Arrow function** - is short syntax for defining function expressions therefore it is **not hoisted:**
+* **Arrow function** - is a short syntax for defining function expressions therefore it is **not hoisted:**
 
 ```javascript
 printNumber(); // Uncaught ReferenceError: Cannot access 'printNumber' before initialization
@@ -203,11 +203,11 @@ function b(){
 const b; // SyntaxError: Identifier "b" has already been declared
 ```
 
-It's pretty much the expected behavior, as you should always  remember to choose unique names for your variables and functions.
+It's pretty much the expected behavior, as you should always remember to choose unique names for your variables and functions.
 
 ## Summary
 
-Imaging JavaScript interpreter making 2 iterations over your code. Firstly, it moves all variable and function declarations to the top of their scope and lastly, it executes your code from top to bottom (making assignments, executing functions etc.).
+Imaging JavaScript interpreter making 2 iterations over your code. Firstly, it moves all variable and function declarations to the top of their scope and lastly, it executes your code from top to bottom (making assignments, executing functions, etc.).
 
 Hoisting is often misunderstood concept even by experienced developers, so always be aware of it when writing JavaScript code.
 
@@ -216,4 +216,4 @@ Hoisting is often misunderstood concept even by experienced developers, so alway
 * Variable initialization - allocating some space in the memory for it
 * Assignment to a variable - providing value to previously declared and initialized variable
 * Variable assignments take precedence over function declaration
-* Function declarations take precedence over variable declaration
+* Function declarations take precedence over a variable declaration
