@@ -4,13 +4,18 @@ tag:
   - JavaScript
 teaser: Javascript is a dynamically-typed, interpreted programming language that
   was originally developed to add dynamic and interactive elements to web pages.
-  It runs on the client-side, which means the code is processed by a web
-  browser...
+  It runs both, on the client and server-side...
 date: 2020-04-26T07:02:40.028Z
 ---
 ## What is Javascript?
 
-Javascript is a dynamically-typed, interpreted programming language that was originally developed to add dynamic and interactive elements to web pages. It runs on the client-side, which means the code is processed by a web browser. 
+Javascript is a dynamically-typed, interpreted programming language that was originally developed to add dynamic and interactive elements to web pages. It runs both, on the client and server-side. 
+
+Running on the client-side means that the code is processed by the browser.
+
+Running on the server-side is possible with Node.js.
+
+> **Node.js** is an open source development platform for executing JavaScript code server-side.
 
 ## What does "interpreted" mean?
 
@@ -24,7 +29,7 @@ That’s the job for a JavaScript engine.
 
 In order to start coding in JavaScript, you don’t have to install any additional software. Each modern web browser comes with a JavaScript engine out-of-the-box. You can simply run scripts inside the browser.
 
-## What is dynamically-typed language?
+## What is a dynamically-typed language?
 
 Dynamically-typed languages are those where the interpreter assigns variables a type at runtime based on the variable's value.
 
@@ -44,7 +49,7 @@ console.log(typeof x); // Prints "string"
 
 You can reassign data of a different type to the variable and no error will be generated.
 
-It seems cool that you don't have to bother what type to use, but in most cases this approach leads to unexpected runtime errors:
+It seems cool that you don't have to bother what type to use, but in most cases, this approach leads to unexpected runtime errors:
 
 ```javascript
 let user = {
@@ -66,7 +71,7 @@ console.log(user.surname); // Prints "undefined"
 
 Have you found an error in the code above?
 
-You're absolutely right, we misspelled `surname` property. Notice that the code is allowed to be run even though Javascript can be smart enough to raise and error before you even finish to type misspelled property name. But it needs your hand.
+You're absolutely right, we misspelled `surname` property. Notice that the code is allowed to be run even though Javascript can be smart enough to raise an error before you even finish to type misspelled property name. But it needs your hand.
 
 ## Static type checking
 
@@ -134,11 +139,11 @@ There are 7 types considered to be **Primitive** and 1 **Reference** type*.*
 * Number - integers: `10`, floats: `10.20`
 * BigInt - created by appending `n` to the end of an integer literal: `10n`
 
-  * It is relatively new type added to represent integers of arbitrary length. `Number` primitive type has some limitations, it can not represent value larger than `2^53` (or less than `-2^53` for negatives). We can need really large numbers for cryptography or microsecond-precision timestamps
+  * It is a relatively new type added to represent integers of arbitrary length. `Number` primitive type has some limitations, it can not represent value larger than `2^53` (or less than `-2^53` for negatives). We can need really large numbers for cryptography or microsecond-precision timestamps
 * String - an array of characters: `this is string`
 * Symbol - unique value
 
-Everything else in an **Object** type (objects are used to store collections of data and more complex entities).
+Everything else is an **Object** type (objects are used to store collections of data and more complex entities).
 
 ## Primitives vs References
 
@@ -166,9 +171,9 @@ console.log(b); // Prints "3"
 console.log(d); // Prints "2"
 ```
 
-**Important note:** primitives are copied by value. Changing one of the variables above does not change the other because each of them stores its own copy of value.
+**Important note:** primitives are copied by value. Changing one of the variables above does not change the other because each of them stores its own copy of the value.
 
-If reference type is assigned to variable, it means that the variable actually contains reference to the value.
+If the reference type is assigned to a variable, it means that the variable actually contains a reference to the value.
 
 ```javascript
 const user = {
@@ -184,17 +189,17 @@ console.log(newUser.name); // Prints "Andrew", as we expect, right?
 console.log(user.name); // Prints "Andrew" as well! Pretty weird?
 ```
 
-Let me explain this: when you create an object `user` it's value `{name: "John", surname: "Doe"}` is stored in some location in your computer's memory. What the variable `user` receives is memory address which points to stored value.
+Let me explain this: when you create an object `user` it's value `{name: "John", surname: "Doe"}` is stored in some location in your computer's memory. What the variable `user` receives is a memory address which points to stored value.
 
-When you copy `user` value to another variable `newUser` it's the address what gets actually copied, not the value. 
+When you copy `user` value to another variable `newUser` it's the address that gets actually copied, not the value. 
 
 **Important note:** objects are copied by reference instead of by value.
 
-Both `user` and `newUser` contain reference to the same object in memory. Therefore, altering any of the values will cause both to update.
+Both `user` and `newUser` contain a reference to the same object in memory. Therefore, altering any of the values will cause both to update.
 
 ## Reassigning reference
 
-To reassign a reference means to replace old reference with a new one. Example:
+To reassign a reference means to replace the old reference with a new one. Example:
 
 ```javascript
 let user = {
@@ -210,7 +215,7 @@ user = {
 
 Now  `user` variable stores a reference to the new value `{ name: "Andrew", surname: "Hopkins" }` but the old value `{ name: "John", surname: "Doe" }` is still present in memory.
 
-When there are no references to values in memory, Javascript engine can perform **garbage collection**.
+When there are no references to values in memory, JavaScript engine can perform **garbage collection**.
 
 > Some high-level languages, such as JavaScript, utilize a form of automatic memory management known as **garbage collection**(GC). The purpose of a **garbage collector** is to monitor memory allocation and determine when a block of allocated memory is no longer needed and reclaim it.
 
@@ -237,7 +242,7 @@ console.log(johnsCar === andrewsCar); // Prints "false"
 
 You probably know what's going on, after mastering the previous section, right?
 
-Reference types are compared by reference**.** It basically means, that javascript checks if both objects point to the same memory location. If out case, it is not true, so equality operator returns `false`.
+Reference types are compared by reference**.** It basically means, that javascript checks if both objects point to the same memory location. If the case, it is not true, so equality operator returns `false`.
 
 Consider another example:
 
@@ -272,9 +277,9 @@ const andrewsCar = {
 console.log(JSON.stringify(johnsCar) === JSON.stringify(andrewsCar));
 ```
 
-Another options:
+Other options:
 
-* Write recursive function that will loop over object properties and make sure they are the same
+* Write a recursive function that will loop over object properties and make sure they are the same
 * Use well-tested and popular library ([underscore](https://underscorejs.org/#isEqual), [lodash](https://lodash.com/docs/4.17.15#isEqual)) -> *Recommended one*
 
 ## Comparison operators
@@ -284,7 +289,7 @@ Javascript has both **strict** `===` and **abstract** `==` equality comparisons.
 Strict comparison:
 
 * Only equals `true` if operands are of the same type
-* If operands have different type, we DO NOT do any type conversions
+* If operands have a different type, we DO NOT do any type conversions
 
 ```javascript
 1 === 1 // true
@@ -438,11 +443,13 @@ Abstract equality comparison:
 
 ## Summary
 
-Hopefully, you have an understanding how cool is JavaScript and how easy is to start working with it.
+Hopefully, you have an understanding of how cool is JavaScript and how easy is to start working with it.
 
 Quick recap:
 
-* Javascript is a dynamically-typed, interpreted programming language that was originally developed to add dynamic and interactive elements to web pages. It runs on the client-side, which means the code is processed by a web browser
+* Javascript is a dynamically-typed, interpreted programming language that was originally developed to add dynamic and interactive elements to web pages. It runs both, on the client and server-side
+* Running on the client-side means that the code is processed by the browser
+* Running on the server-side is possible with Node.js
 * There are 7 types considered to be primitive (boolean, null, undefined, number, bigint, string, symbol) and 1 reference type (object)
 * Primitives are copied by value, objects are copied by reference
 * Javascript has both strict `===` and abstract `==` equality comparisons
