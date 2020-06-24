@@ -3,12 +3,12 @@ title: Nullish coalescing operator
 tag:
   - JavaScript
 teaser: The nullish coalescing operator "??" is a logical operator that returns
-  right side operand if left side equals to null or undefined, otherwise returns
-  right side. If you're familiar with logical OR operator, you may wonder what's
-  the difference between it and nullish coalescing operator...
+  right-side operand if left side equals to null or undefined, otherwise returns
+  right side. If you're familiar with the logical OR operator, you may wonder
+  what's the difference between it and nullish coalescing operator...
 date: 2020-05-29T07:27:09.769Z
 ---
-The **nullish coalescing operator** is a logical operator that returns right side operand if left side equals to `null` or `undefined`, otherwise returns right side.
+The **nullish coalescing operator** is a logical operator that returns right-side operand if left side equals to `null` or `undefined`, otherwise returns right side.
 
 ## The syntax
 
@@ -32,9 +32,9 @@ const userName = user ?? "John";
 console.log(userName); // Prints "John"
 ```
 
-This example is basically the same as the one where user equals `null` as right hand side is being returned.
+This example is basically the same as the one where the user equals `null` as right-hand side is being returned.
 
-If `user` variable not equals `null` or `undefined`, it's value will be returned:
+If `user` variable is not equal to `null` or `undefined`, it's value will be returned:
 
 ```javascript
 // We have a bug in code. How the user can be equal to 0?!
@@ -75,11 +75,11 @@ const returnTwo = () => {
 console.log(returnOne() ?? returnTwo());
 ```
 
-## Is same as logical OR?
+## Is the same as logical OR?
 
 If you're familiar with logical **OR** `||` operator, you may wonder what's the difference between it and nullish coalescing operator.
 
-The answer is simple - logical **OR** returns right side if left side is **falsy** value, nullish coalescing operator returns right side if left side is `null` or `undefined` only.
+The answer is simple - logical **OR** returns right side if the left side is **falsy** value, nullish coalescing operator returns right side if the left side is `null` or `undefined` only.
 
 > If a value can be converted to true, the value is so-called **truthy**. If a value can be converted to false, the value is so-called **falsy**.
 
@@ -105,6 +105,6 @@ The following values are considered as falsy in JavaScript:
 
 ## Summary
 
-* The nullish coalescing operator "??" is a logical operator that returns right side operand if left side equals to null or undefined, otherwise returns right side
-* The difference between this operator and OR: logical OR returns right side if left side is falsy value, nullish coalescing operator returns right side if left side is `null` or `undefined` only
+* The nullish coalescing operator "??" is a logical operator that returns right-side operand if left side equals to null or undefined, otherwise returns right side
+* The difference between this operator and OR: logical OR returns right side if the left side is falsy value, nullish coalescing operator returns right side if the left side is `null` or `undefined` only
 * Falsy values in JavaScript: null, NaN, 0, empty string('', "", \`\`), undefined
