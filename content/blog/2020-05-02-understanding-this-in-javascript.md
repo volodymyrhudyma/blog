@@ -16,7 +16,7 @@ It is a special object in JavaScript that refers to an object it belongs to. The
 
 How do you know what `this` refers to? It's simple, take a look at the following rules:
 
-* By default it refers to the global object. If you execute code in browser, it will be equal to `window`:
+* By default, it refers to the global object. If you execute code in a browser, it will be equal to `window`:
 
 ```javascript
 console.log(this); // Prints "Window"
@@ -60,7 +60,7 @@ function handleClick(e) {
 </button>
 ```
 
-* In object method, it refers to an object instance:
+* In the object method, it refers to an object instance:
 
 ```javascript
 const person = {
@@ -97,7 +97,7 @@ john.getFullName.apply(andrew); // Prints "Adrew Hopkins"
 
 * `bind` function can bind it to any object:
 
-  *The reason, why we haven't included bind to the previous point is because bind returns new function which can be called later with passed context. In case of call or apply, the function gets invoked immediately.*
+  *The reason, why we haven't included bind to the previous point is because bind returns a new function which can be called later with passed context. In case of call or apply, the function gets invoked immediately.*
 
 ```javascript
 const fullName = john.getFullName.bind(andrew); // Prints nothing, has to be invoked
@@ -169,10 +169,10 @@ Using `this` keyword is a very tricky topic in JavaScript.
 
 Make sure to learn these simple rules and use them wisely to know which object `this` refers to in your code:
 
-* By default it refers to the global object. If you execute code in browser, it will be equal to `window`
-* In a function it refers to the global object as well
+* By default, it refers to the global object. If you execute code in a browser, it will be equal to `window`
+* In a function, it refers to the global object as well
 * In a function in strict mode, the value of it is `undefined`
 * In an event, it refers to an element that received an event
-* In object method, it refers to the object instance
+* In the object method, it refers to the object instance
 * `call`, `apply` and `bind` can bind it to any object
 * inside fat arrow function it refers to the same object it's referring to outside the function
