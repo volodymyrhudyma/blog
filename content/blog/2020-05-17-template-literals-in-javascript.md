@@ -2,12 +2,12 @@
 title: Template literals in JavaScript
 tag:
   - JavaScript
-teaser: Template literals are string literals which allow to embed an
+teaser: Template literals are string literals that allow embedding an
   expression. It is possible to use string interpolation and multi-line string
   features with them. In JavaScript, there are 3 ways of defining a string...
 date: 2020-05-17T16:00:02.738Z
 ---
-Template literals are string literals which allow to embed an expression. It is possible to use string interpolation and multi-line string features with them.
+Template literals are string literals that allow embedding an expression. It is possible to use string interpolation and multi-line string features with them.
 
 > Replacing placeholders with values inside of a string literal is called **string interpolation**.
 
@@ -24,7 +24,7 @@ const double = "I am a string";
 const backticks = `I am a string`;
 ```
 
-You are probably familiar with those 2 at the top, but have you seen string in backticks ``` `` ``` before?
+You are probably familiar with those 2 at the top but have you seen string in backticks ``` `` ``` before?
 
 ## Template literals
 
@@ -32,7 +32,7 @@ Template literals are enclosed by the backticks ``` `` ```.
 
 They can contain placeholders, which are enclosed by the dollar sign along with curly braces `${...}`.
 
-The expressions, that are passed as a placeholders are evaluated during the run-time and their result is inserted into the string.
+The expressions, that are passed as placeholders are evaluated during the run-time and their result is inserted into the string.
 
 ## Placeholders
 
@@ -86,7 +86,7 @@ console.log(string); // Prints "The result is: 10,20,30"
 
 ## Escaping placeholders
 
-In the template strings, placeholder expressions has special meanings, so it's not possible to use the following pattern without escaping `` `I love ${apple}` ``.
+In the template strings, placeholder expressions have special meanings, so it's not possible to use the following pattern without escaping `` `I love ${apple}` ``.
 
 Let's try:
 
@@ -95,7 +95,7 @@ Let's try:
 const string = `I love ${apple}`;
 ```
 
-In order to tell the interpreter to skip `${apple}` evaluation, you should use backslash before the placeholder, like this: `\${apple}`:
+In order to tell the interpreter to skip `${apple}` evaluation, you should use a backslash before the placeholder, like this: `\${apple}`:
 
 ```javascript
 const string = `I love \${apple}`;
@@ -130,7 +130,7 @@ string";
 ].join('');
 ```
 
-Those ways look ugly and contain some unnecessary markup. They can easily be rewrited using template literals:
+Those ways look ugly and contain some unnecessary markup. They can easily be rewritten using template literals:
 
 ```javascript
 `I am 
@@ -160,7 +160,7 @@ console.log(string); // Prints: "The result is 10"
 
 ## Tagged templates
 
-Tagged templates is more advanced form of template literals.
+Tagged templates is a more advanced form of template literals.
 
 Tags allow you to parse template literals with a function. The first argument of a tag function contains an array of string values. The remaining arguments are related to the expressions.
 
@@ -205,11 +205,11 @@ cookieCounter`The person is ${age} years old`;
 
 ## Summary
 
-Template literals allow to put values inside of a strings in a very readable and concise way and allow clumsy concatenation approach.
+Template literals allow us to put values inside of a string in a very readable and concise way and allow a clumsy concatenation approach.
 
 * Template literal is wrapped by backticks ``` `` ``` 
 * Template literal can be given a value by putting it into the placeholder `${...}` 
 * Placeholder can be escaped by using backslash `\${apple}`
-* Template literals are great to create multi-line string
+* Template literals are great to create a multi-line string
 * Template literals can be nested
 * Template literals can be tagged
