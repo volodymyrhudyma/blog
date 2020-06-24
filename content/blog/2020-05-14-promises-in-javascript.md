@@ -21,7 +21,7 @@ Once a promise has been fulfilled or rejected, it is immutable which means it ca
 
 In JavaScript, **callback functions** were initially used to handle asynchronous operations. 
 
-However, managing callbacks tends to be tricky when you want to do some complex operations and you may end up in a callback hell. 
+However, managing callbacks tends to be tricky when you want to do some complex operations and you may end up in callback hell. 
 
 That's what is solved by promises.
 
@@ -37,7 +37,7 @@ const promise = new Promise((resolve, reject) => {
 
 In the function body, we write some logic that if being executed successfully, results in resolving a promise. 
 
-If something has failed, promise is rejected.
+If something has failed, a promise is rejected.
 
 After resolving, `then` method is called, after rejecting - `catch`:
 
@@ -77,9 +77,9 @@ Promises can be consumed by registering the following methods: `then` and `catch
 
 #### then
 
-For simplicity's sake we are used to say that `then` is fired only in case if promise is resolved. 
+For simplicity's sake, we are used to say that `then` is fired only in case if the promise is resolved. 
 
-But that's not true, `then` is invoked when a promise is either resolved or rejected. It takes 2 functions as an arguments: the first function is executed if promise is resolved, the second one - if rejected:
+But that's not true, `then` is invoked when a promise is either resolved or rejected. It takes 2 functions as an arguments: the first function is executed if the promise is resolved, the second one - if rejected:
 
 ```javascript
 const promise = new Promise((resolve, reject) => { 
@@ -119,7 +119,7 @@ promise
 
 #### catch
 
-`catch` is fired if promise is rejected or some error occurred at the execution.
+`catch` is fired if the promise is rejected or some error occurred at the execution.
 
 `catch` takes one function as a parameter. This method is just a shorthand for `then(null, errorHandler)`.
 
@@ -313,7 +313,7 @@ Promise.race([promise1, promise2, promise3])
 
 Returns a new Promise object that is resolved with the given value.
 
-If the value is a thenable (i.e. has a `then` method), the returned promise will "follow" that thenable, adopting its eventual state; otherwise the returned promise will be fulfilled with the value. 
+If the value is a thenable (i.e. has a `then` method), the returned promise will "follow" that thenable, adopting its eventual state; otherwise, the returned promise will be fulfilled with the value. 
 
 Generally, if you don't know if a value is a promise or not, `Promise.resolve(value)` it instead and work with the return value as a promise:
 
