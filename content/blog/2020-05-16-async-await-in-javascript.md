@@ -4,7 +4,7 @@ tag:
   - JavaScript
 teaser: These keywords act as a syntactic sugar built on top of Promises, making
   asynchronous code look and feel like synchronous, therefore easier to produce
-  and maintain. Async function - it's function, declared using...
+  and maintain. Async function - it is a function, declared using...
 date: 2020-05-16T08:14:59.458Z
 ---
 These keywords act as a syntactic sugar built on top of Promises, making asynchronous code look and feel like synchronous, therefore easier to produce and maintain.
@@ -13,7 +13,7 @@ These keywords act as a syntactic sugar built on top of Promises, making asynchr
 
 ## Async function
 
-Async function - it's function, declared using `async` keyword. This function always returns a Promise which will be resolved or rejected and knows how to handle `await` inside of it:
+Async function - it is a function, declared using `async` keyword. This function always returns a Promise which will be resolved or rejected and knows how to handle `await` inside of it:
 
 ```javascript
 const example = async () => 1;
@@ -32,9 +32,9 @@ example()
 
 ## Await keyword
 
-The real benefits of using `async` keyword become apparent when you start combining is with `await`. In fact, `await` is only valid inside of `async` functions, you won't be able to get use of this keyword in regular function,.
+The real benefits of using `async` keyword become apparent when you start combining is with `await`. In fact, `await` is only valid inside of `async` functions, you won't be able to use this keyword in a regular function.
 
-The keyword `await` makes JavaScript wait until that Promise settles(either resolves or rejects) and returns its result:
+The keyword `await` makes JavaScript wait until that promise settles(either resolves or rejects) and returns its result:
 
 ```javascript
 const example = async () => {
@@ -94,7 +94,7 @@ Note, how the order of logging **"Before await"** and **"After await"** has chan
 
 Have you noticed that something is wrong? Why do we still use `then` when we are talking about `async/await`? 
 
-Actually, there's good reason for that: `await` won’t work in the top-level code, so basically we can't do that (as you remember, `await` has to be used in pair with `async`):
+Actually, there's a good reason for that: `await` won’t work in the top-level code, so basically we can't do that (as you remember, `await` has to be used in pair with `async`):
 
 ```javascript
 const result = await example(); // Bad
@@ -157,13 +157,13 @@ example(); // TypeError: Failed to fetch
 
 Async/await is really useful to know about, but there are a couple of downsides to consider.
 
-These keywords make your code to look and behave in synchronous manner. 
+These keywords make your code look and behave in a synchronous manner. 
 
 The `await` keyword blocks code execution until the Promise settles, exactly as it would with the synchronous operation.
 
-**Important note:** it does allow other tasks to continue, just you own code is blocked. That doesn’t cost any CPU resources, because the engine can do other jobs in the meantime: execute other scripts, handle events, etc.
+**Important note:** it does allow other tasks to continue, just your own code is blocked. That doesn’t cost any CPU resources, because the engine can do other jobs in the meantime: execute other scripts, handle events, etc.
 
-In case of having multiple `await` statements, you code execution is slowed down due to waiting for each promise to resolve.
+In case of having multiple `await` statements, your code execution is slowed down due to waiting for each promise to resolve.
 
 Fortunately, this issue can be resolved by storing each Promise in variable and using `Promise.all` method to wait until all promises complete.
 
@@ -206,9 +206,9 @@ Promise.all([promise1, promise2, promise3])
 
 ## Summary
 
-Async/await is very powerful tool and it strongly helps you to increase the readability of your code.
+Async/await is a very powerful tool and it strongly helps you to increase the readability of your code.
 
-* Async/await is just a syntactic sugar for Promises
+* Async/await is just syntactic sugar for Promises
 * Async function always returns Promise
 * Await keyword can't be used outside of the `async` function
 * Await keyword blocks your code execution until the Promise resolves, however other tasks can be done in the meantime
