@@ -186,7 +186,7 @@ var a;
 console.log(a); // Prints "Function a"
 ```
 
-## What about "let" and "const"?
+## Using "let" and "const"?
 
 ```javascript
 function a(){
@@ -200,7 +200,7 @@ function b(){
   console.log("Function b")
 };
 
-const b; // SyntaxError: Identifier "a" has already been declared
+const b; // SyntaxError: Identifier "b" has already been declared
 ```
 
 It's pretty much the expected behavior, as you should always  remember to choose unique names for your variables and functions.
