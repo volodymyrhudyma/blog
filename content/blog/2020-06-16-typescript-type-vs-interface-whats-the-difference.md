@@ -110,7 +110,6 @@ interface ITuple {
 
 // No error is shown, but this is wrong 
 [0, "second", "third"] as ITuple;
-
 ```
 
 **Tuple** - new data type, introduced by TypeScript. It enables storing multiple fields of different types.
@@ -160,11 +159,9 @@ type User = {
 interface IUser {
   [field in Fields]: string;
 };
-
-
 ```
 
-* `type` does not have functionality of extending, `interface` has:
+* `type` does not have the functionality of extending, `interface` has:
 
 ```typescript
 type Animal = {
