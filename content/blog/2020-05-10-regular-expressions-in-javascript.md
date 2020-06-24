@@ -2,12 +2,12 @@
 title: Regular expressions in JavaScript
 tag:
   - JavaScript
-teaser: Regular expression is a sequence of characters that define search
-  pattern that is used to search an occurrences in text and/or replace them.
-  There are 2 ways of defining regex in JavaScript...
+teaser: Regular expression is a sequence of characters that define a search
+  pattern that is used to find occurrences in text and/or replace them. There
+  are 2 ways of defining regex in JavaScript...
 date: 2020-05-10T11:01:06.424Z
 ---
-Regular expression is a sequence of characters that define search pattern that is used to search an occurrences in text and/or replace them. JavaScript has built-in regex support.
+Regular expression is a sequence of characters that define a search pattern that is used to find occurrences in text and/or replace them. JavaScript has built-in regex support.
 
 ## How to create regex?
 
@@ -28,13 +28,13 @@ We'll cover this topic later on.
 
 ## Literal notation vs constructor
 
-**Literal notation** results in compilation of the regular expression when the expression is evaluated. 
+**Literal notation** results in the compilation of the regular expression when the expression is evaluated. 
 
 Use literal notation when the regular expression will remain constant. 
 
 **Example**: if you use literal notation to construct a regular expression used in a loop, the regular expression won't be recompiled on each iteration.
 
-**Constructor** of the regular expression object results in runtime compilation of the regular expression. 
+**Constructor** of the regular expression object results in a runtime compilation of the regular expression. 
 
 Use the constructor function when you know the regular expression pattern will be changing, or you don't know the pattern and are getting it from another source, such as user input.
 
@@ -82,7 +82,7 @@ Meta-characters are building blocks of regular expressions with a special meanin
 
 #### Quantifiers
 
-Quantifiers are symbols that indicate the scope of search string:
+Quantifiers are symbols that indicate the scope of the search string:
 
 * `+` - match the preceding expression 1 or more times
 * `*` - match the preceding expression 0 or more times
@@ -177,6 +177,6 @@ But wait, what if we don't only need to check it, but to get the part of a match
 
 ## Summary
 
-If you only start learning regular expressions, it can seem like it's very complex topic, but as soon as you dive into it deeper you would have solid understanding of all its principles and you will finally enjoy using them.
+If you only start learning regular expressions, it can seem like it's a very complex topic, but as soon as you dive into it deeper you would have a solid understanding of all its principles and you will finally enjoy using them.
 
 **P.S.** You can have fun with regular expressions online, make sure to check out <https://regex101.com/>.
