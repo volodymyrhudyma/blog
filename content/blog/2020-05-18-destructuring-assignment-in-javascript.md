@@ -3,17 +3,17 @@ title: Destructuring assignment in JavaScript
 tag:
   - JavaScript
 teaser: Destructuring assignment is a special syntax that allows us to retrieve
-  pieces of arrays or objects and assign them to a separate variables. This
+  pieces of arrays or objects and assign them to separate variables. This
   approach can be used for...
 date: 2020-05-18T14:10:49.470Z
 ---
-Destructuring assignment is a special syntax that allows us to retrieve pieces of arrays or objects and assign them to a separate variables.
+Destructuring assignment is a special syntax that allows us to retrieve pieces of arrays or objects and assign them to separate variables.
 
-This approach can be used for: arrays, objects and iterables.
+This approach can be used for: arrays, objects, and iterables.
 
 ## Destructuring arrays
 
-Let's start with taking a grasp of how arrays are destructured.
+Let's start by taking a grasp of how arrays are destructured.
 
 Consider the following example that doesn't use the pattern:
 
@@ -29,7 +29,7 @@ console.log(secondNumber); // Prints "2"
 console.log(thirdNumber); // Prints "3"
 ```
 
-Imagine having much array of much bigger size, code starts rapid growing.
+Imagine having many arrays of much bigger size, code starts rapid growing.
 
 Let's add some destructuring:
 
@@ -81,7 +81,7 @@ console.log(thirdNumber); // Prints "3"
 
 In the example above, the second number is skipped.
 
-#### Desctructure all items but first
+#### Destructure all items but first
 
 You can capture all trailing items in an array with a "rest" pattern:
 
@@ -94,9 +94,9 @@ console.log(firstNumber); // Prints "1"
 console.log(rest); // Prints "[2, 3]"
 ```
 
-#### Desctructure non existing element
+#### Destructure non-existing element
 
-Destructuring non existing element results in `undefined`:
+Destructuring non-existing element results in `undefined`:
 
 ```javascript
 const numbers = [1, 2];
@@ -110,7 +110,7 @@ console.log(thirdNumber); // Prints "undefined"
 
 #### Set default value
 
-If you want default value to replace non existing while destructuring, you can use assignment operator:
+If you want the default value to replace non existing while destructuring, you can use the assignment operator:
 
 ```javascript
 const numbers = [1, 2];
@@ -134,7 +134,7 @@ console.log(secondNumber); // Prints "2"
 console.log(thirdNumber); // Prints "3"
 ```
 
-In the example above, assigned number `30` is ignored.
+In the example above, the assigned number `30` is ignored.
 
 ## Destructuring objects
 
@@ -226,7 +226,7 @@ console.log(userName); // Prints "undefined"
 console.log(rest); // Prints {surname: "Doe", age: 18}
 ```
 
-#### Destructure non existing element:
+#### Destructure non-existing element:
 
 Results in `undefined`:
 
@@ -245,7 +245,7 @@ console.log(userAge); // Prints "18"
 
 #### Set default value
 
-Default value can be set using assignment operator:
+The default value can be set using the assignment operator:
 
 ```javascript
 const user = {
@@ -278,7 +278,7 @@ console.log(age); // Prints "18"
 
 Sometimes, you can face the situation, when the variable that you try to destructure value to, has already been declared.
 
-In this case, you can destructure value into variable with another name using colon `:`:
+In this case, you can destructure value into a variable with another name using the colon `:`:
 
 ```javascript
 const user = {
@@ -314,7 +314,7 @@ Code blocks begin with a curly brace, statements must not begin with it.
 
 We can create a function that accepts a single object with multiple properties as a parameter instead of many individual parameters. 
 
-Inside of such function we can use access parameters by using destructuring:
+Inside of such function, we can use access parameters by using destructuring:
 
 ```javascript
 const createUser = ({
@@ -383,7 +383,7 @@ const user = createUser({
 
 ## Multiple return values
 
-The function can return multiple values (using array literal), which can be destructured later on:
+The function can return multiple values (using an array literal), which can be destructured later on:
 
 ```javascript
 const example = () => [1, 2, 3];
@@ -397,8 +397,8 @@ console.log(thirdNumber); // Prints "3"
 
 ## Summary
 
-* Objects, arrays and iterables can be destructured
+* Objects, arrays, and iterables can be destructured
 * Destructuring means extracting specified values into separate variables
 * Nested data can be destructured as well
 * Destructured elements can be given names and default values
-* Destructuring non existing element results in `undefined`
+* Destructuring non-existing element results in `undefined`
