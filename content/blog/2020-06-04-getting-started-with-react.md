@@ -2,9 +2,9 @@
 title: Getting started with React
 tag:
   - React
-teaser: Having learnt some JavaScript basics and intermediate concepts we're
-  ready to kick off with an advanced topics. Meet the React - a JavaScript
-  library for building user interfaces.
+teaser: Having learned some JavaScript basics and intermediate concepts we're
+  ready to kick off with advanced topics. Meet the React - a JavaScript library
+  for building user interfaces.
 date: 2020-06-04T14:35:00.882Z
 ---
 React is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called “components”.
@@ -17,17 +17,17 @@ There are a lot of benefits, but we'll take a look at the most important ones:
 
 * **Easy to learn and use**
 
-  React comes with a good supply of tutorials and great documentation as well as big ecosystem and community.
+  React comes with a good supply of tutorials and great documentation as well as a big ecosystem and community.
 * **Learn once, write anywhere**
 
   An experienced React developer can write native apps for Android and IOS using React Native framework.
 * **Write once, use anywhere**
 
-  In React you can create reusable components which help your code to be easier to maintain.
+  In React you can create reusable components that help your code to be easier to maintain.
 * **Implements Virtual DOM**
 
   React implements Virtual DOM which represents the real DOM as a JSON object and all operations on it are really fast.
-* **Supports SSR(Server side rendering) as well as CSR(Client side rendering)**
+* **Supports SSR(Server-side rendering) as well as CSR(Client-side rendering)**
 
   React can render both on server and client with minimum configurations.
 * **Has great tools for developers**
@@ -37,17 +37,17 @@ There are a lot of benefits, but we'll take a look at the most important ones:
   If you're using Redux (state management library for React), you are provided with `redux-logger` library which is great for debugging.
 * **React is popular**
 
-  If you wonder whether to get your hands dirty with the new technology or not, try to find how many websites are using it. In case of React, we have: facebook, instagram, netflix, dropbox, codeacademy etc.
+  If you wonder whether to get your hands dirty with the new technology or not, try to find how many websites are using it. In the case of React, we have facebook, instagram, netflix, dropbox, codeacademy, etc.
 
 ## Installing React
 
-There are a couple of ways to create React application. Unless you are an experienced React developer, I recommend you to always use **[create-react-app](https://github.com/facebook/create-react-app)** tool which is developed and maintained by Facebook(as well as React itself).
+There are a couple of ways to create React application. Unless you are an experienced React developer, I recommend you always use the **[create-react-app](https://github.com/facebook/create-react-app)** tool which is developed and maintained by Facebook(as well as React itself).
 
 It helps you to get started with coding without having to deal with some heavy configurations like **webpack** or **babel**.
 
 Make sure to create a new folder for your React projects to store them in one place(I created `/Users/volodymyrhudyma/Projects/blog`) and enter that folder.
 
-**Important note**: make sure to have **NodeJS**, **npm** and **npx** installed before executing the following command. If you've previously installed **create-react-app** globally via **npm** or **yarn,** it's recommended to uninstall the package to ensure that **npx** always uses the latest version.
+**Important note**: make sure to have **NodeJS**, **npm,** and **npx** installed before executing the following command. If you've previously installed **create-react-app** globally via **npm** or **yarn,** it's recommended to uninstall the package to ensure that **npx** always uses the latest version.
 
 Within the newly created folder execute:
 
@@ -71,7 +71,7 @@ The change will be applied immediately, as the page will automatically reload if
 
 ## Application's structure
 
-The structure of created React application is the following:
+The structure of the created React application is the following:
 
 ![React application's structure](/img/screenshot-2020-06-04-at-17.55.58.png "The structure of React application created using create-react-app tool")
 
@@ -97,9 +97,9 @@ Remember that it's not necessary to use it, however, using it gives you some ben
 
 * It is fast because it performs optimization while compiling code to JavaScript
 * It is type-safe and most of the errors can be caught during compilation
-* It makes coding templates faster, if you are familiar with HTML
+* It makes coding templates faster if you are familiar with HTML
 
-In order to have better understanding of JSX, let's take a look at the code without using it:
+In order to have a better understanding of JSX, let's take a look at the code without using it:
 
 ```javascript
 const heading = React.createElement("h1", { className: "heading" }, "An example without using JSX");;
@@ -150,13 +150,13 @@ const button = <button onClick={clickHandler}>Click me</button>;
 
 ## Components
 
-Almost everything in React is component. Think about components as of functions, which accept input (props) and return some output (React elements which describe what should be drawn on the screen).
+Almost everything in React is a component. Think about components as of functions, which accept input (props) and return some output (React elements which describe what should be drawn on the screen).
 
 There are mainly 2 types of components in React: **class** and **functional** components.
 
 #### Class components
 
-Let's begin with an example of simple class component:
+Let's begin with an example of a simple class component:
 
 ```javascript
 import React from "react";
@@ -210,7 +210,7 @@ React props are like function arguments for components. They are passed to compo
 
 React’s data flow between components is uni-directional - from parent to child only.
 
-In the following example we have `App` component which renders `Title` component using given `title` passed as a prop:
+In the following example, we have `App` component which renders `Title` component using given `title` passed as a prop:
 
 ```javascript
 import React from "react";
@@ -280,11 +280,11 @@ class App extends React.Component {
 export default App;
 ```
 
-In the example above, when user clicks on `button` element, component's state gets updated and component is re-rendered with the new data.
+In the example above, when the user clicks on `button` element, component's state gets updated and component is re-rendered with the new data.
 
-Basically, `setState` method triggers re-rendering process.
+Basically, `setState` method triggers the re-rendering process.
 
-#### Can I use state in functional component?
+#### Can I use state in a functional component?
 
 You have probably noticed that both previous examples were using class components.
 
@@ -330,5 +330,5 @@ We've only covered very basic React concepts, but you should have an overview of
 * React uses JSX syntax
 * React has mainly 2 component types: class and functional components
 * Props are component's parameters
-* State is built-in object which allows component to manage it's own data
+* State is a built-in object which allows the component to manage its own data
 * In the newest versions of React state can be used in both, class and functional components
