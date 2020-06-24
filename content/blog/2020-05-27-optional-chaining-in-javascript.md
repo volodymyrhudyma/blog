@@ -4,13 +4,13 @@ tag:
   - JavaScript
 teaser: When dealing with complex objects or API responses it is a common thing
   to access nested properties. In order to make sure the property is reachable
-  without any errors being thrown, we have to make sure each of it's parent
+  without any errors being thrown, we have to make sure each of its parent
   properties exists...
 date: 2020-05-27T02:39:48.934Z
 ---
-When dealing with complex objects or API responses it's common thing to access nested properties. 
+When dealing with complex objects or API responses it's a common thing to access nested properties. 
 
-In order to make sure the property is reachable without any errors being thrown, we have to make sure each of it's parent properties exists.
+In order to make sure the property is reachable without any errors being thrown, we have to make sure each of its parent properties exists.
 
 Consider the following example:
 
@@ -39,7 +39,7 @@ const street = user.address && user.address.street;
 console.log(street); // Prints "undefined"
 ```
 
-What if we won't do the check and `address` does not exist?
+What if we won't do the check and `address` doesn't exist?
 
 ```javascript
 const user = {
@@ -70,7 +70,7 @@ Pretty cool, huh?
 
 The code stops evaluation at the place of `?.` never accessing `street` property. 
 
-## Short circuiting
+## Short-circuiting
 
 If the expression on the left of `?.` is either `null` or `undefined`, the right side is not evaluated:
 
@@ -108,9 +108,9 @@ const street = user.address?.street;
 console.log(street); // Prints "undefined"
 ```
 
-## Call non existing function
+## Call non-existing function
 
-Optional chaining also works with functions, `functionName?.()` syntax can be used to execute function that may not exist:
+Optional chaining also works with functions, `functionName?.()` syntax can be used to execute a function that may not exist:
 
 ```javascript
 const user1 = {
@@ -135,7 +135,7 @@ console.log(user2FullName); // Prints "undefined"
 
 ## Retrieve dynamic parameter
 
-`?.[key]` syntax can be used in order to get dynamic parameter from an object:
+`?.[key]` syntax can be used in order to get a dynamic parameter from an object:
 
 ```javascript
 const user = {
@@ -168,7 +168,7 @@ delete user.address?.street;
 console.log(user);
 ```
 
-If street does not exist, no error will be thrown:
+If the street does not exist, no error will be thrown:
 
 ```javascript
 const user = {
@@ -196,7 +196,7 @@ It does not work, because the example above evaluates to: `undefined = "Street"`
 
 ## Summary
 
-To learn optional chaining in depth, read [this proposal](https://github.com/tc39/proposal-optional-chaining) on github.
+To learn optional chaining in-depth, read [this proposal](https://github.com/tc39/proposal-optional-chaining) on Github.
 
 * Optional chaining operator is `?.`
 * If the expression on the left of `?.` is either `null` or `undefined`, the right side is not evaluated
