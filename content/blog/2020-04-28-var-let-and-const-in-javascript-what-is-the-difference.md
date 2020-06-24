@@ -8,7 +8,7 @@ teaser: During a long time "var" keyword was a king in JavaScript world. You
   issues especially if you are not familiar with all pitfalls...
 date: 2020-04-28T19:16:33.434Z
 ---
-**Important note:** We are not taking into an account **[hoisting](https://scotch.io/tutorials/understanding-hoisting-in-javascript)** in this article as it is more advanced JavaScript concept.
+**Important note:** We are not taking into an account **[hoisting](/2020-04-30-hoisting-in-javascript/)** in this article as it is more advanced JavaScript concept.
 
 ## You probably know "var" keyword
 
