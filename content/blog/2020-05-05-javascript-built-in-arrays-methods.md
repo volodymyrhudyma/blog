@@ -2,11 +2,11 @@
 title: JavaScript built-in array methods
 tag:
   - JavaScript
-teaser: In this article we are going to explore all built-in array methods that
-  are available for a use by default. We'll start from the most used ones...
+teaser: In this article, we are going to explore all built-in array methods that
+  are available for use by default. We'll start with the most used ones...
 date: 2020-05-05T15:41:23.309Z
 ---
-In the [previous article](/2020-05-04-arrays-in-javascript/) we had a brief introduction to arrays in JavaScript. Today we are going to explore all built-in array methods that are available for a use by default. We'll start from the most used ones.
+In the [previous article](/2020-05-04-arrays-in-javascript/), we had a brief introduction to arrays in JavaScript. Today we are going to explore all built-in array methods that are available for use by default. We'll start with the most used ones.
 
 **Important note:** all examples will contain fat arrow functions instead of function declarations or function expressions:
 
@@ -68,7 +68,7 @@ console.log(mappedNumbers); // Prints [0, 2, 4, 10, 16, 20]
 
 *does not change the original array*
 
-Returns the value of the first element in an array that meets given condition:
+Returns the value of the first element in an array that meets the given condition:
 
 ```javascript
 const numbers = [0, 1, 2, 5, 8, 10];
@@ -96,13 +96,13 @@ const sum = numbers.reduce((accumulator, item) => accumulator + item);
 console.log(sum); // Prints "26"
 ```
 
-**Important note:** in order to reduce array to a single value going from right-to-left you can use `reduceRight` function.
+**Important note:** in order to reduce an array to a single value going from right-to-left you can use `reduceRight` function.
 
 #### push
 
 *changes the original array*
 
-Adds new elements to the end of an array and returns new length of an array:
+Adds new elements to the end of an array and returns the new length of an array:
 
 ```javascript
 const numbers = [0, 1, 2, 5, 8, 10];
@@ -118,7 +118,7 @@ console.log(numbers); // Prints "[0, 1, 2, 5, 8, 10, 20]"
 
 *changes the original array*
 
-Removes last element of an array and returns it:
+Removes the last element of an array and returns it:
 
 ```javascript
 const numbers = [0, 1, 2, 5, 8, 10];
@@ -134,7 +134,7 @@ console.log(numbers); // Prints "[ 0, 1, 2, 5, 8 ]"
 
 *changes the original array*
 
-Adds element to the beginning of an array and returns the new length:
+Adds an element to the beginning of an array and returns the new length:
 
 ```javascript
 const numbers = [0, 1, 2, 5, 8, 10];
@@ -166,7 +166,7 @@ console.log(numbers); // Prints "[1, 2, 5, 8, 10]"
 
 *does not change the original array*
 
-Checks if an array contains specified element:
+Checks if an array contains a specified element:
 
 ```javascript
 const numbers = [0, 1, 2, 5, 8, 10];
@@ -193,7 +193,7 @@ console.log(deletedElements); // Prints "[0, 1]"
 console.log(numbers); // Prints "[2, 5, 8, 10]"
 ```
 
-Adds elements to an array and returns deleted elements(if some were deleted) or empty array(if no elements were deleted):
+Adds elements to an array and returns deleted elements(if some were deleted) or an empty array(if no elements were deleted):
 
 ```javascript
 const numbers = [0, 1, 2, 5, 8, 10];
@@ -327,7 +327,7 @@ console.log(numbers); // Prints "[5, 3, 2, 1, 0]"
 
 *does not change the original array*
 
-Returns new array as a part of original one, sliced using given condition:
+Returns new array as a part of the original one, sliced using given condition:
 
 ```javascript
 const numbers = [0, 1, 2, 3, 5];
@@ -352,7 +352,7 @@ const result = numbers.join();
 console.log(result); // Prints "0,1,2,5,8,10"
 ```
 
-**Important note:** you can pass the separator as the only argument of `join` function and the elements will be separated by it. The default separator is comma `,`.
+**Important note:** you can pass the separator as the only argument of `join` function and the elements will be separated by it. The default separator is a comma `,`.
 
 #### keys
 
@@ -410,7 +410,7 @@ console.log(Array.isArray(numbers)); // Prints "true"
 
 *does not change the original array*
 
-Checks if any of array elements meet the specified criteria. Returns `true` if finds at least one match, otherwise returns `false`:
+Checks if any of the array elements meet the specified criteria. Returns `true` if finds at least one match, otherwise returns `false`:
 
 ```javascript
 const numbers = [0, 1, 2, 5, 8, 10];
@@ -466,7 +466,7 @@ numbers.fill(10);
 console.log(numbers); // Prints "[10, 10, 10]"
 ```
 
-**Important note:** you can specify start and end position of an elements which should be filled. If not specified, all elements will be filled:
+**Important note:** you can specify the start and end position of elements that should be filled. If not specified, all elements will be filled:
 
 ```javascript
 const numbers = [0, 1, 2, 3, 5, 8];
@@ -532,6 +532,6 @@ console.log(numbers); // Prints "[1, 2, 3, 2, 3, 6, 7, 8]"
 
 ## Summary
 
-We have just covered basic built-in array methods, so you should understand how they work and how to get use of them.
+We have just covered basic built-in array methods, so you should understand how they work and how to use them.
 
 It's not necessary to learn them by heart, you can always refer to documentation in order to find some implementation details.
