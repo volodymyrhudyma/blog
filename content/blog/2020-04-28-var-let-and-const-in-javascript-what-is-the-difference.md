@@ -8,11 +8,11 @@ teaser: During a long time "var" keyword was a king in JavaScript world. You
   issues especially if you are not familiar with all pitfalls...
 date: 2020-04-28T19:16:33.434Z
 ---
-**Important note:** We are not taking into an account **[hoisting](/2020-04-30-hoisting-in-javascript/)** in this article as it is more advanced JavaScript concept.
+**Important note:** We are not taking into account **[hoisting](/2020-04-30-hoisting-in-javascript/)** in this article as it is a more advanced JavaScript concept.
 
-## You probably know "var" keyword
+## You probably know the "var" keyword
 
-During a long time `var` keyword was a king in JavaScript world. You didn't yet have to bother about how to declare variable, but how to choose the perfect name for it.
+During a long time `var` keyword was a king in JavaScript world. You didn't yet have to bother about how to declare a variable, but how to choose the perfect name for it.
 
 ```javascript
 var userName = "John";
@@ -24,13 +24,13 @@ But using `var` keyword sometimes leads to unexpected issues especially if you a
 
 You should always remember that `var` is **globally** scoped in case if it is declared outside of the function and **locally/function** scoped if it is declared inside of the function body.
 
-> **Scope** in JavaScript refers to the current context of code, which determines the accessibility of variables to JavaScript. The two types of scopeare **local** and **global**: Global variables are those declared outside of a block. Local variables are those declared inside of a block.
+> **Scope** in JavaScript refers to the current context of code, which determines the accessibility of variables to JavaScript. The two types of scope are **local** and **global**: Global variables are those declared outside of a block. Local variables are those declared inside of a block.
 
-Globally scoped variable is accessible in the whole window. Locally/function scoped variable is accessible only within function body it was declared in.
+Globally scoped variable is accessible in the whole window. Locally/function scoped variable is accessible only within the function body it was declared in.
 
 > **Local scope** is also called function scope because local scope is created by functions in JavaScript.
 
-In the following example we will create both global and local variable and point out differences between them:
+In the following example, we will create both global and local variable and point out differences between them:
 
 ```javascript
 var globalVariable = "global";
@@ -53,7 +53,7 @@ console.log(globalVariable); // Prints "global"
 
 Variables declared using `var` keyword can be re-declared and updated.
 
-You can unintentionally redeclare variable and get unexpected result when accessing it in your code. Don't you feel like you should receive the following error in the next example: *Duplicate declaration "userName"?*
+You can unintentionally redeclare variable and get an unexpected result when accessing it in your code. Don't you feel like you should receive the following error in the next example: *Duplicate declaration "userName"?*
 
 ```javascript
 var userName = "John";
@@ -164,7 +164,7 @@ And actually this is awesome. Once you declared your variable as `const` you are
 
 But... wait. Really? What about objects?
 
-## \#1 pitfall
+## \#3 pitfall
 
 Consider the following example:
 
