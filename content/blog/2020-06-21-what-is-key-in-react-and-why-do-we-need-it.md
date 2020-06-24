@@ -103,7 +103,7 @@ But what if the new element was added to the beginning of the list?
 <li>Second element</li>
 ```
 
-The things doesn't look right, as React will run 3 mutations instead of one because it won't know that the **First element** and the **Second element** weren't touched because they changed their position.
+The things don't look right, as React will run 3 mutations instead of one because it won't know that the **First element** and the **Second element** weren't touched because they changed their position.
 
 The main problem here is inefficiency.
 
@@ -129,7 +129,7 @@ Any value can be used as a key unless it's **unique**.
 
 The most popular concept is to use **id** if you pull data from the database.
 
-In case if you don't have **id**, it's also possible to use **index** of an element inside of the loop:
+In case if you don't have an **id**, it's also possible to use an **index** of an element inside of the loop:
 
 ```javascript
 const List = ({ data }) => (
@@ -141,13 +141,13 @@ const List = ({ data }) => (
 );
 ```
 
-**Important note:** it's not recommended to use **index** as a **key** if an order of list elements may change.
+**Important note:** it's not recommended to use an **index** as a **key** if an order of list elements may change.
 
 ## "index" as a key
 
 Using **index** as a key leads to unexpected errors when the order of your list elements can be changed.
 
-React doesn't understand which item was added/removed/reordered since **index** is given on each render based on the order of the items in the array.
+React doesn't understand which item was added/removed/reordered since an **index** is given on each render based on the order of the items in the array.
 
 Consider the following example:
 
@@ -190,13 +190,13 @@ const List = () => {
 };
 ```
 
-This list is rendered based on **index**. Let's try to remove the first value:
+This list is rendered based on an **index**. Let's try to remove the first value:
 
 ![Index as a key .gif](/img/index-as-a-key.gif "Index as a key .gif")
 
 And it doesn't get removed!
 
-Actually, it does but after we removed the first item, the second one received the key **0** and React thinks that we removed the item with the key **1** as it's not on the list anymore.
+Actually, it does but after we removed the first item, the second one received the key **0**, and React thinks that we removed the item with the key **1** as it's not on the list anymore.
 
 Changing the `<li key={index}>` to `<li key={item.id}>` solves an issue:
 
@@ -208,7 +208,7 @@ Be very careful of that, as those kinds of issues are extremely hard to debug.
 
 Keys need to be unique, but only among their siblings.
 
-In other words, each item within an array should have unique key, but it should not be unique globally:
+In other words, each item within an array should have a unique key, but it should not be unique globally:
 
 ```javascript
 <ul>
@@ -243,5 +243,5 @@ To access `item.id` inside of the `ListItem` component, we should pass it separa
 
 The most important thing is to remember that **key** prop should be used not only to get rid of an annoying warning in the console, but to help React identify what elements have changed, are added, or are removed.
 
-* Always use **unique** **key** prop when rendering lists
-* Be careful when using **index** as a **key**, try to avoid it if possible
+* Always use a **unique** **key** prop when rendering lists
+* Be careful when using an **index** as a **key**, try to avoid it if possible
