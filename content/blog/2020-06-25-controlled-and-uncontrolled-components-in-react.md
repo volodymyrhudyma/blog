@@ -18,6 +18,10 @@ The element is controlled when **its state is controlled by us**, or to be more 
 
 The state becomes the **"Single Source of Truth"**, which is something we should always strive for.
 
+**Important note:** basically, it can be said that the element is controlled, when the `value` property is provided. However, you should remember that providing `value` property without `onChange` handler leads to a warning: 
+
+![Value prop without onChange handler warning](/img/screenshot-2020-06-25-at-20.47.03.png "Value prop without onChange handler warning")
+
 Take a look at the following `Example` component:
 
 ```javascript
@@ -95,4 +99,17 @@ const Example = () => {
 
 Note, that we have access to the `input` element by using `ref.current` and to its value by `ref.current.value`.
 
-This approach is useful when you want to gather all the data just after the user submits it.
+**Important note:** uncontrolled components aren't re-rendered when the user types something, therefore have a little bit better performance.
+
+## Which approach is better?
+
+As it's officially stated in the React documentation, we should use controlled components as much as possible.
+
+Then, why do we even have a possibility to define uncontrolled components?
+
+They are useful if:
+
+* you have a simple form that doesn't need any instant validation(validation can be done only after the user presses submit button)
+* you have to retrieve form values after the user presses submit button
+* the fields inside of your form don't depend on each other
+* you are interacting with libraries that don't follow the "React pattern". Using uncontrolled components will help you to "speak the same language"
