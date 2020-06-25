@@ -1,0 +1,96 @@
+---
+title: Controlled and uncontrolled components in React
+tag:
+  - React
+teaser: Almost every React application requires the user to fill in some kind of
+  form, which can consist of different elements, like inputs, text areas,
+  selects, etc. There are 2 ways of defining those elements, the controlled and
+  uncontrolled way...
+date: 2020-06-25T17:39:25.700Z
+---
+Almost every React application requires the user to fill in some kind of form, which can consist of different elements, like `<input />`, `<textarea />`, `<select />`, etc. 
+
+There are 2 ways of defining those elements, the controlled and uncontrolled way.
+
+## The controlled way
+
+The element is controlled when **its state is controlled by us**, or to be more precise, **by the React component**.
+
+The state becomes the **"Single Source of Truth"**, which is something we should always strive for.
+
+Take a look at the following `Example` component:
+
+```javascript
+const Example = () => {
+  const [name, setName] = useState('');
+
+  const handleChange = (e: any) => {
+    setName(e.target.value);
+  };
+
+  return <input type="text" value={name} onChange={handleChange} />;
+};
+```
+
+We store the user's input inside of the `name` variable, which is being updated every time the user types something inside of the input.
+
+The `name` variable can be printed below to see how it gets updated:
+
+```javascript
+const Example = () => {
+  const [name, setName] = useState('');
+
+  const handleChange = (e: any) => {
+    setName(e.target.value);
+  };
+
+  return (
+    <>
+      <input type="text" value={name} onChange={handleChange} />
+      <div>Input: {name}</div>
+    </>
+  );
+};
+```
+
+![Controlled input gif](/img/controlled-input.gif "Controlled input gif")
+
+When the user types something in the input, **the component is re-rendered**. 
+
+## The uncontrolled way
+
+The uncontrolled components act like traditional HTML elements.
+
+The state of each component is stored inside of the DOM(Document Object Model), not in the component, which means that you don't have to take care of updating the state.
+
+The only thing you should take care of is pulling out that state to your React component.
+
+How can you do that? By using a reference (`ref`).
+
+> Refs provide a way to access DOM nodes or React elements created in the render method.
+
+Let's see an example of getting the value using `ref`:
+
+```javascript
+const Example = () => {
+  const ref = useRef(null);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(ref.current.value);
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input type="text" ref={ref} />
+      <button>Submit</button>
+    </form>
+  );
+};
+```
+
+![Uncontrolled input gif](/img/uncontrolled-input.gif "Uncontrolled input git")
+
+Note, that we have access to the `input` element by using `ref.current` and to its value by `ref.current.value`.
+
+This approach is useful when you want to gather all the data just after the user submits it.
