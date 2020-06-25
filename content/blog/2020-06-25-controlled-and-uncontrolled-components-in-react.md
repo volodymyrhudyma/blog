@@ -53,6 +53,8 @@ const Example = () => {
 };
 ```
 
+
+
 ![Controlled input gif](/img/controlled-input.gif "Controlled input gif")
 
 When the user types something in the input, **the component is re-rendered**. 
