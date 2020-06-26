@@ -2,13 +2,12 @@
 title: What are the controlled and uncontrolled components in React?
 tag:
   - React
-teaser: Almost every React application requires the user to fill in some kind of
-  form, which can consist of different elements, like inputs, text areas,
-  selects, etc. There are 2 ways of defining those elements, the controlled and
-  uncontrolled way...
+teaser: We, as software developers, often build different kinds of forms, which
+  consist of different elements, like inputs, text areas, selects, etc. There
+  are 2 ways of defining those elements, the controlled and uncontrolled way...
 date: 2020-06-26T14:00:00.000Z
 ---
-Almost every React application requires the user to fill in some kind of form, which can consist of different elements, like `<input />`, `<textarea />`, `<select />`, etc. 
+We, as software developers, often build different kinds of forms, which consist of different elements, like `<input />`, `<textarea />`, `<select />`, etc. 
 
 There are 2 ways of defining those elements, the controlled and uncontrolled way.
 
