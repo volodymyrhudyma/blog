@@ -138,7 +138,9 @@ Why do we neglect readability?
   It will be someone else’s problem. 
 
   We live in the now.
-* **we are not capable of finding better solution**
+* **we lack the expertise**
+
+  This is one of the reasons why legacy code is produced, because finding the most elegant solutions requires a certain amount of knowledge.
 
 ## Read the documentation
 
