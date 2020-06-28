@@ -31,58 +31,80 @@ So what do I do to keep things simple? The answer is - **write less code wheneve
 
 #### Real-world example
 
-Imagine, you have to display how many **hours** passed between 2 given dates: "**2020-06-26 13:00**" and "**2020-06-28 18:00**" (date format is **YYYY-MM-DD HH:mm**).
+Imagine, you have to display how many **hours** passed between 2 given dates: "**2020-06-26 13:00**" and "**2020-06-28 18:20**" (date format is **YYYY-MM-DD HH:mm**).
 
-The first solution, that came to my mind it the following:
+The first solution, that came to my mind is to use the `Date` object:
 
 ```javascript
-const calculateHoursAndMinutesDiff = (startDate, endDate) => {
+const calculateHoursDiff = (startDate, endDate) => {
   const diff = Math.abs(new Date(endDate) - new Date(startDate)) / 36e5;
-  const [hours, minutes] = diff.toString().split(".");
-  return `${hours} hours, ${minutes} minutes`;
+  const [hours] = diff.toString().split(".");
+  return `${hours} hours`;
 };
 
 // Prints "53 hours"
-calculateHoursAndMinutesDiff(
+calculateHoursDiff(
   "2020-06-26 13:00",
-  "2020-06-28 18:00",
+  "2020-06-28 18:20",
 );
 
 ```
 
-Looks good, but hey, there are some helpful libraries for dealing with date and time in JavaScript. What if we try to use one of them?
+Seems pretty clear, but hey, are all those lines of code are really necessary to complete such a simple task?
+
+Do we really need the `Math.abs`? 
+
+Why do we have to divide the diff result by `36e5`? 
+
+Where does this strange number `36e5` come from? 
+
+Why do we need to convert `diff` to string and split it?
+
+Don't you feel like there are too many questions for 3 lines of code, even though they are easy to answer?
+
+Let's search for alternative solutions.
 
 #### Using moment.js library
 
 ```javascript
-const calculateHoursAndMinutesDiff = (startDate, endDate) => {
-  const diff = moment(endDate).diff(moment(startDate), 'hours');
+import moment from "moment";
+
+const calculateHoursDiff = (startDate, endDate) => {
+  const diff = moment(endDate).diff(moment(startDate), "hours");
   return `${diff} hours`;
 };
 
 // Prints "53 hours"
-calculateHoursAndMinutesDiff(
+calculateHoursDiff(
   "2020-06-26 13:00",
-  "2020-06-28 18:00",
+  "2020-06-28 18:20",
 );
 ```
 
-Wow, much more readable.
+Seems much better, as we use popular and tested external library, that implements diffing algorytm internally.
+
+There is a small drawback in this solution, as it requires a bit of library knowledge.
+
+#### Using date-fns library
+
+> **date-fns** is a modern JavaScript date utility library. It provides the most comprehensive, yet simple and consistent toolset for manipulating **JavaScript dates** in **a browser** & **Node.js**.
 
 ```javascript
-const calculateHoursAndMinutesDiff = (startDate, endDate) => {
-    const diff = differenceInHours(new Date(endDate), new Date(startDate));
-    return `${diff} hours`;
+import { differenceInHours } from 'date-fns';
+
+const calculateHoursDiff = (startDate, endDate) => {
+  const diff = differenceInHours(new Date(endDate), new Date(startDate));
+  return `${diff} hours`;
 };
 
 // Prints "53 hours"
-calculateHoursAndMinutesDiff(
+calculateHoursDiff(
   "2020-06-26 13:00",
   "2020-06-28 18:00",
 );
 ```
 
-That's it.
+In the example above we just imported ready-to-use `differenceInHours` function that takes 2 `Date` objects as arguments and calculated the difference for us.
 
 ## Readability over everything
 
