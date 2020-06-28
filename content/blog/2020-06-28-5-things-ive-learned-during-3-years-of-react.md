@@ -15,7 +15,7 @@ Mastering them is one of the keys to becoming a good programmer and a valuable p
 
 ## Keep It Simple, Stupid
 
-The first and most important principle is called "**KISS**" (Keep It Simple, Stupid).
+*The first and most important principle is called "**KISS**" (Keep It Simple, Stupid).*
 
 It states that most systems work best if they are kept simple rather than made complicated, so simplicity should be a primary objective and any unnecessary complexions should be avoided wherever possible.
 
@@ -143,6 +143,14 @@ Why do we neglect readability?
   This is one of the reasons why legacy code is produced, because finding the most elegant solutions requires a certain amount of knowledge.
 
 ## Read the documentation
+
+*Documentation is a gift. Make sure you open it, read it and use it.*
+
+Documentation is the only resource that covers all aspects of the technology. 
+
+You will never learn as much by browsing through articles or viewing tutorials, as by simply reading the documentation from start to finish.
+
+Developers often only refer to the documentation when they encounter some bugs for which no solutions are offered with stackoverflow.
 
 ## Write tests
 
