@@ -100,13 +100,45 @@ const calculateHoursDiff = (startDate, endDate) => {
 // Prints "53 hours"
 calculateHoursDiff(
   "2020-06-26 13:00",
-  "2020-06-28 18:00",
+  "2020-06-28 18:20",
 );
 ```
 
-In the example above we just imported ready-to-use `differenceInHours` function that takes 2 `Date` objects as arguments and calculated the difference for us.
+In the example above we import ready-to-use `differenceInHours` function that calculates the difference for us.
 
 ## Readability over everything
+
+*The solution should not be more complex than the problem.*
+
+This is the second most important thing I have learned in the last years.
+
+**Your goal** is to write code that is **transparent** for any human being, who knows the programming language you use.
+
+Why do we neglect readability?
+
+* **in favor of performance**
+
+  The truth is that the vast majority of the applications we build do not require strong performance optimizations, unless they are complex app that will be maintained for decades. 
+
+  It doesn't really matter if your table component in the landing page does a few extra re-renders, as the user wouldn't even notice it.
+
+  What matters is the client's budget, which will be spent on the refactoring.
+* **we think it would be someone else's problem**
+
+  You feel the pressure, the deadline is tight and the fix to the annoying bug that occurred just a few hours before the release has not yet been found.
+
+  After hundreds of different solutions have been tried out, the one that works has been finally detected.
+
+  As always, `// TODO refactor` comment is added, and the change is pushed to the repository.
+
+  The partial success has been achieved at the price of unnecessary complexity, duplication, latent errors, and vast problems with long-term maintenance.
+
+  We know, but choose to ignore the likelihood that most of our code is too complex to maintain over decades or longer.
+
+  It will be someone else’s problem. 
+
+  We live in the now.
+* **we are not capable of finding better solution**
 
 ## Read the documentation
 
