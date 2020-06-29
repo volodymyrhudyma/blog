@@ -19,7 +19,7 @@ Mastering them is one of the keys to becoming a good programmer and a valuable p
 
 It states that most systems work best if they are kept simple rather than made complicated, so simplicity should be a primary objective and any unnecessary complexions should be avoided wherever possible.
 
-Usually the problems we face in a programming world have much, much more than the only solution. 
+Usually, the problems we face in a programming world have much, much more than the only solution. 
 
 In most cases, the first way of reacting to the problem is not the most optimal one, but the one most often chosen.
 
@@ -31,7 +31,7 @@ So what do I do to keep things simple? The answer is - **write less code wheneve
 
 #### Real-world example
 
-Imagine, you have to display how many **hours** passed between 2 given dates: "**2020-06-26 13:00**" and "**2020-06-28 18:20**" (date format is **YYYY-MM-DD HH:mm**).
+Imagine, you have to display how many **hours** passed between 2 given dates: "**2020-06-26 13:00**" and "**2020-06-28 18:20**" (the date format is **YYYY-MM-DD HH:mm**).
 
 The first solution, that came to my mind is to use the `Date` object:
 
@@ -49,7 +49,7 @@ calculateHoursDiff(
 );
 ```
 
-Seems pretty clear, but hey, are all those lines of code are really necessary to complete such a simple task?
+It looks pretty clear, but hey, are all those lines of code are really necessary to complete such a simple task?
 
 Do we really need the `Math.abs`? 
 
@@ -80,7 +80,7 @@ calculateHoursDiff(
 );
 ```
 
-Seems much better, as we use popular and tested external library, that implements diffing algorytm internally.
+Looks much better, as we use a popular and tested external library, that implements diffing algorithm internally.
 
 There is a small drawback in this solution, as it requires a bit of library knowledge.
 
@@ -173,4 +173,12 @@ Don't get me wrong, tests won't eliminate all of the bugs, but they can drastica
 
 They make you and your partners feel much more confident when applying the changes, refactoring the code, deploying to the production as having all of them passing ensures that nothing is broken.
 
-## Learn from your team
+#### Test bug fixes
+
+Unfortunately, we are not able to prevent all errors in our applications.
+
+But we can prevent them from showing up a second time. 
+
+**Cover each fix with unit tests** to ensure that it does not break again at this point once more.
+
+## Do not make everything reusable
