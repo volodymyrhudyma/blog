@@ -192,14 +192,16 @@ But we can prevent them from showing up a second time.
 
 Reusable components are those that can be used multiple times in your React application.
 
-In general, it's a good idea to create as many reusable components as possible to produce less code and thus fewer errors.
+In general, it is a good idea to create as many reusable components as possible to produce less code and thus fewer errors.
 
-But we do not live in a perfect world, so the components we try to reuse, sometimes do not look exactly the same on different pages, but differ only slightly.
+But we do not live in a perfect world, so the components we try to reuse, sometimes do not look exactly the same on various pages, but differ only slightly.
 
-So how should we deal with such differences? 
+So how should we deal with such inconsistencies? 
 
 By passing over new props that say what exactly is to be reproduced in a different way.
 
-It's not a good idea to have a lot of these props.
+Having a lot of these props makes the code messy and not clear enough to be considered readable.
 
-If it is necessary, then perhaps you have to think about creating separate components?
+If it is necessary, you may need to **consider creating separate components**.
+
+## Summary
