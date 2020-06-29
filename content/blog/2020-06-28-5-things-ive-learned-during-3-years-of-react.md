@@ -204,4 +204,38 @@ Having a lot of these props makes the code messy and not clear enough to be cons
 
 If it is necessary, you may need to **consider creating separate components**.
 
+#### Bad
+
+```javascript
+<Card
+  title={title}
+  subTitle={subTitle}
+  showReadMore={isRowLayout}
+  readMoreIcon={isRowLayout && icon}
+  columns={isColumnLayout && 2}
+/>
+```
+
+One `Card` component handles 2 layouts that are completely different.
+
+#### Good
+
+```javascript
+<ColumnCard
+  title={title}
+  subTitle={subTitle}
+  columns={2}
+/>
+    
+<RowCard
+  title={title}
+  subTitle={subTitle}
+  readMoreIcon={icon}
+/>
+```
+
+We created separate `ColumnCard` and `RowCard` components. 
+
+Each of them is responsible for rendering its own layout.
+
 ## Summary
