@@ -189,3 +189,13 @@ But we can prevent them from showing up a second time.
 **Cover each fix with unit tests** to ensure that it does not break again at this point once more.
 
 ## Do not make everything reusable
+
+Reusable components are those that can be used multiple times in your React application.
+
+In general, it's a good idea to create as many reusable components as possible to produce less code and thus fewer errors.
+
+But we do not live in a perfect world, so the components we try to reuse, sometimes do not look exactly the same on different pages, but differ only slightly.
+
+So how should we deal with such differences? 
+
+By passing over new props that say what exactly is to be reproduced in a different way.
