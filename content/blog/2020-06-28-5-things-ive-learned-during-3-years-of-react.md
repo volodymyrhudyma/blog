@@ -199,3 +199,7 @@ But we do not live in a perfect world, so the components we try to reuse, someti
 So how should we deal with such differences? 
 
 By passing over new props that say what exactly is to be reproduced in a different way.
+
+It's not a good idea to have a lot of these props.
+
+If it is necessary, then perhaps you have to think about creating separate components?
