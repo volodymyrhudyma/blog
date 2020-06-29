@@ -147,11 +147,18 @@ Documentation is the only resource that covers all aspects of technology.
 
 You will never learn as much by browsing through articles or viewing tutorials, as by simply reading the documentation from start to finish.
 
-Developers often only refer to the documentation when they encounter some bugs for which no solutions are offered with StackOverflow.
+Reading the documentation takes time, just like any other learning process. 
 
-Always read the documentation before you start using new technology.
+If you feel exhausted, take a short break, do some quick exercises, and clear your head. 
+
+Remember, that it is impossible to learn everything in-depth and in a very short period of time.
+
+As the saying goes, **Rome wasn’t built in a day**.
 
 ## Write tests
+
+*\- Should I write tests?*\
+*\- Yes!*
 
 Covering an application with tests brings a lot of benefits, some of them are:
 
