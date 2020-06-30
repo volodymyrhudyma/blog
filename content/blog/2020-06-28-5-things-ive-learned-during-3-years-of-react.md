@@ -9,7 +9,7 @@ date: 2020-06-28T10:05:49.440Z
 ---
 Recently it turned out, that I have been working with React for a little over 3 years, so now is the perfect time to summarize what I learned during this adventure.
 
-Actually, all the things we are referring to here are not strictly related to the React library, they could be used by any software developer, regardless of their experience with any programming language.
+All the principles we are referring to here are not strictly related to the React library, they could be used by any software developer, regardless of their experience with any programming language.
 
 Mastering them is one of the keys to becoming a good programmer and a valuable person in the team.
 
@@ -119,7 +119,7 @@ Why do we neglect readability?
 
   The truth is that the vast majority of the applications we build do not require strong performance optimizations unless they are very complex. 
 
-  It doesn't really matter if your table component in the landing page does a few extra re-renders, as the user wouldn't even notice it.
+  It doesn't really matter if your table component on the landing page does a few extra re-renders, as the user wouldn't even notice it.
 * **we think it would be someone else's problem**
 
   You feel the pressure, the deadline is tight and the fix to the annoying bug that occurred just a few hours before the release has not yet been found.
@@ -128,7 +128,7 @@ Why do we neglect readability?
 
   As always, `// TODO refactor` comment is added, and the change is pushed to the repository.
 
-  The partial success has been achieved at the price of unnecessary complexity, duplication, latent errors, and vast problems with long-term maintenance.
+  Partial success has been achieved at the price of unnecessary complexity, duplication, latent errors, and vast problems with long-term maintenance.
 
   We know, but choose to ignore the likelihood that most of our code is too complex to maintain over decades or longer.
 
@@ -139,15 +139,40 @@ Why do we neglect readability?
 
   This is one of the reasons why legacy code is produced because finding the most elegant solutions requires a certain amount of knowledge.
 
+#### Bad
+
+```typescript
+const getActiveUsers = (users) => {
+  let activeUsers = [];
+  for(let i = 0; i < users.length; i++) {
+    const user = users[i];
+    if(user.isActive) {
+      activeUsers.push(user);
+    }
+  }
+  return activeUsers;
+};
+```
+
+#### Good
+
+```typescript
+const getActiveUsers = (users) => {
+  return users.filter(user => user.isActive);
+};
+```
+
 ## Read the documentation
 
 *Documentation is a gift. Make sure you open it, read it, and use it.*
+
+![Books image](/img/abstract-art-black-and-white-books-207732.jpg "Books image")
 
 Documentation is the only resource that covers all aspects of technology. 
 
 You will never learn as much by browsing through articles or viewing tutorials, as by simply reading the documentation from start to finish.
 
-Reading the documentation takes time, just like any other learning process. 
+Reading it takes time, just like any other learning process. 
 
 If you feel exhausted, take a short break, do some quick exercises, and clear your head. 
 
@@ -155,12 +180,16 @@ Remember, that it is impossible to learn everything in-depth and in a very short
 
 As the saying goes, **Rome wasn’t built in a day**.
 
+Personally, I did not like to read the docs, because I wanted to use the technology as soon as possible until I realized that my approach leads to bad code due to my ignorance.
+
+Times change and now there is no room for doubt about how to start learning new technologies.
+
 ## Write tests
 
 *\- Should I write tests?*\
-*\- Yes!*
+*\- Yes, yes, and yes!*
 
-Covering an application with tests brings a lot of benefits, some of them are:
+Covering an application with tests brings a lot of benefits. Here are some of them:
 
 * tests provide a convenient way to make sure the application is not broken unless they all pass
 * tests allow us to spend less time doing manual testing
@@ -188,6 +217,38 @@ But we can prevent them from showing up a second time.
 
 **Cover each fix with unit tests** to ensure that it does not break again at this point once more.
 
+Let's assume we have the following component, which is not rendering proper content:
+
+```javascript
+const Example = ({ isFetching, data }) => (
+  <Wrapper>
+    {!isFetching ? <Loader /> : <DataTable data={data} />
+  </Wrapper>
+);
+```
+
+Have you managed to spot an error?
+
+Right, we should have written `isFetching` instead of `!isFetching`.
+
+Imaging this bug was noticed on the production and you have to make a quick fix.
+
+To ensure this situation never happens again, it's good practice to cover this case with a simple unit test:
+
+```javascript
+describe('Example component', () => {
+  it('should render loader if fetching', () => {
+    const component = shallow(<Example isFetching />);
+    expect(component.find(Loader)).toBeTruthy();
+  });
+  
+  it('should render data table if not fetching', () => {
+    const component = shallow(<Example isFetching={false} />);
+    expect(component.find(DataTable)).toBeTruthy();
+  });
+});
+```
+
 ## Do not make everything reusable
 
 Reusable components are those that can be used multiple times in your React application.
@@ -198,7 +259,7 @@ But we do not live in a perfect world, so the components we try to reuse, someti
 
 So how should we deal with such inconsistencies? 
 
-By passing over new props that say what exactly is to be reproduced in a different way.
+By creating new props that indicate what exactly is to be reflected in a different way.
 
 Having a lot of these props makes the code messy and not clear enough to be considered readable.
 
