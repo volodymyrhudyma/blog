@@ -166,7 +166,7 @@ const getActiveUsers = (users) => {
 
 *Documentation is a gift. Make sure you open it, read it, and use it.*
 
-![Books image](/img/abstract-art-black-and-white-books-207732.jpg "Books image")
+![Books photo](/img/pile-of-books-159866.jpg "Books photo")
 
 Documentation is the only resource that covers all aspects of technology. 
 
@@ -188,6 +188,8 @@ Times change and now there is no room for doubt about how to start learning new 
 
 *\- Should I write tests?*\
 *\- Yes, yes, and yes!*
+
+![Tests pyramid](/img/tests.png "Tests pyramid")
 
 Covering an application with tests brings a lot of benefits. Here are some of them:
 
@@ -251,6 +253,8 @@ describe('Example component', () => {
 
 ## Do not make everything reusable
 
+*Messy, but reusable code should not be produced.*
+
 Reusable components are those that can be used multiple times in your React application.
 
 In general, it is a good idea to create as many reusable components as possible to produce less code and thus fewer errors.
@@ -300,3 +304,11 @@ We created separate `ColumnCard` and `RowCard` components.
 Each of them is responsible for rendering its own layout.
 
 ## Summary
+
+In this article, I shared with you some principles that I consider to be the most important takeaways from the last few years of working with React.
+
+They all seem obvious, but it is really important to keep them in mind when building different types of applications.
+
+The truth is that most of us will not be able to comprehend them until we fail each one.
+
+**Do not be afraid to fail, be afraid not to learn from your mistakes.**
