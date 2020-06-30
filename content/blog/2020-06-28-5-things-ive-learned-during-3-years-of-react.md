@@ -166,7 +166,7 @@ const getActiveUsers = (users) => {
 
 *Documentation is a gift. Make sure you open it, read it, and use it.*
 
-![Book photo](/img/book.jpg "Book photo")
+![Book photo](/img/book.png "Book photo")
 
 Documentation is the only resource that covers all aspects of technology. 
 
