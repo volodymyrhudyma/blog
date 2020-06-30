@@ -189,7 +189,7 @@ Times change and now there is no room for doubt about how to start learning new 
 *\- Should I write tests?*\
 *\- Yes, yes, and yes!*
 
-![Tests pyramid](/img/tests.png "Tests pyramid")
+![Tests pyramid](/img/tests.jpg "Tests pyramid")
 
 Covering an application with tests brings a lot of benefits. Here are some of them:
 
