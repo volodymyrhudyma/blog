@@ -3,8 +3,8 @@ title: 5 things I have learned during 3 years of React
 tag:
   - React
 teaser: Recently it turned out, that I have been working with React for a little
-  over 3 years, so now is the perfect time to summarize what I learned during
-  this adventure...
+  over 3 years, so now is the perfect time to summarize what I have learned
+  during this adventure...
 date: 2020-07-01T10:05:49.440Z
 ---
 Recently it turned out, that I have been working with React for a little over 3 years, so now is the perfect time to summarize what I learned during this adventure.
