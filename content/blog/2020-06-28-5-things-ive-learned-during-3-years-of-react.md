@@ -1,15 +1,15 @@
 ---
-title: 5 things I've learned during 3 years of React
+title: 5 things I have learned during 3 years of React
 tag:
   - React
 teaser: Recently it turned out, that I have been working with React for a little
   over 3 years, so now is the perfect time to summarize what I learned during
   this adventure...
-date: 2020-06-28T10:05:49.440Z
+date: 2020-07-01T10:05:49.440Z
 ---
 Recently it turned out, that I have been working with React for a little over 3 years, so now is the perfect time to summarize what I learned during this adventure.
 
-All the principles we are referring to here are not strictly related to the React library, they could be used by any software developer, regardless of their experience with any programming language.
+All the principles we are referring to here are not strictly related to the React library, they can be used by any software developer, regardless of their experience with any programming language.
 
 Mastering them is one of the keys to becoming a good programmer and a valuable person in the team.
 
@@ -17,7 +17,7 @@ Mastering them is one of the keys to becoming a good programmer and a valuable p
 
 *The first and most important principle is called "**KISS**" (Keep It Simple, Stupid).*
 
-It states that most systems work best if they are kept simple rather than made complicated, so simplicity should be a primary objective and any unnecessary complexions should be avoided wherever possible.
+It states that most systems work best if they are kept simple rather than made complicated, so simplicity should be a primary objective and any unnecessary complexities should be avoided wherever possible.
 
 Usually, the problems we face in a programming world have much, much more than the only solution. 
 
@@ -25,7 +25,7 @@ In most cases, the first way of reacting to the problem is not the most optimal 
 
 There are various reasons for this, such as pressure from the client or the desire to complete this task faster and move on to the next one, etc.
 
-It's extremely hard to avoid violating this principle, as we can see from the amount of legacy code developers have to support, but it's definitely possible.
+It is extremely hard to avoid violating this principle, as we can see from the amount of legacy code developers have to support, but it is definitely possible.
 
 So what do I do to keep things simple? The answer is - **write less code whenever possible without sacrificing readability**.
 
@@ -49,7 +49,7 @@ calculateHoursDiff(
 );
 ```
 
-It looks pretty clear, but hey, are all those lines of code are really necessary to complete such a simple task?
+It looks pretty clear, but hey, are all these lines of code really necessary to complete such a simple task?
 
 Do we really need the `Math.abs`? 
 
@@ -57,11 +57,11 @@ Why do we have to divide the diff result by `36e5`?
 
 Where does this strange number `36e5` come from? 
 
-Why do we need to convert `diff` to string and split it?
+Why do we have to convert `diff` into a string and split it?
 
-Don't you feel like there are too many questions for 3 lines of code, even though they are easy to answer?
+Do not you feel that there are too many questions for 3 lines of code, even though they are easy to answer?
 
-Let's search for alternative solutions.
+Let us look for alternative solutions.
 
 #### Using moment.js library
 
@@ -80,16 +80,16 @@ calculateHoursDiff(
 );
 ```
 
-Looks much better, as we use a popular and tested external library, that implements diffing algorithm internally.
+Looks much better, because we use a popular and tested external library, that implements diffing algorithm internally.
 
-There is a small drawback in this solution, as it requires a bit of library knowledge.
+This solution has a small disadvantage - it requires a bit of library knowledge.
 
 #### Using date-fns library
 
 > **date-fns** is a modern JavaScript date utility library. It provides the most comprehensive, yet simple and consistent toolset for manipulating **JavaScript dates** in **a browser** & **Node.js**.
 
 ```javascript
-import { differenceInHours } from 'date-fns';
+import { differenceInHours } from "date-fns";
 
 const calculateHoursDiff = (startDate, endDate) => {
   const diff = differenceInHours(new Date(endDate), new Date(startDate));
@@ -103,23 +103,23 @@ calculateHoursDiff(
 );
 ```
 
-In the example above we import ready-to-use `differenceInHours` function that calculates the difference for us.
+In the example above we import the ready-to-use function `differenceInHours`, which calculates the difference for us.
 
 ## Readability over everything
 
 *The solution should not be more complex than the problem.*
 
-This is the second most important thing I have learned in the last years.
+This is the second most important thing I have learned in the last few years.
 
-**Your goal** is to write code that is **transparent** for any human being, who knows the programming language you use.
+**Your goal** is to write code that is **transparent** to everyone, who knows the programming language you use.
 
 Why do we neglect readability?
 
-* **in favor of performance**
+* **for the sake of performance**
 
   The truth is that the vast majority of the applications we build do not require strong performance optimizations unless they are very complex. 
 
-  It doesn't really matter if your table component on the landing page does a few extra re-renders, as the user wouldn't even notice it.
+  It does not really matter if your table component on the landing page does a few extra re-renders, as the user would not even notice it.
 * **we think it would be someone else's problem**
 
   You feel the pressure, the deadline is tight and the fix to the annoying bug that occurred just a few hours before the release has not yet been found.
@@ -166,36 +166,36 @@ const getActiveUsers = (users) => {
 
 *Documentation is a gift. Make sure you open it, read it, and use it.*
 
-Documentation is the only resource that covers all aspects of technology. 
+Documentation is the only resource that covers all aspects of the technology. 
 
 You will never learn as much by browsing through articles or viewing tutorials, as by simply reading the documentation from start to finish.
 
 Reading it takes time, just like any other learning process. 
 
-If you feel exhausted, take a short break, do some quick exercises, and clear your head. 
+If you feel exhausted, take a short break, do a few short exercises, and clear your head. 
 
-Remember, that it is impossible to learn everything in-depth and in a very short period of time.
+Remember, that it is impossible to learn everything thoroughly and in a very short time.
 
-As the saying goes, **Rome wasn’t built in a day**.
+As the saying goes, **Rome was not built in a day**.
 
 Personally, I did not like to read the docs, because I wanted to use the technology as soon as possible until I realized that my approach leads to bad code due to my ignorance.
 
-Times change and now there is no room for doubt about how to start learning new technologies.
+Times are changing and now there is no room for doubt about how to start learning new technologies.
 
 ## Write tests
 
 *\- Should I write tests?*\
 *\- Yes, yes, and yes!*
 
-Covering an application with tests brings a lot of benefits. Here are some of them:
+Covering an application with tests has many advantages. Here are some of them:
 
-* tests provide a convenient way to make sure the application is not broken unless they all pass
-* tests allow us to spend less time doing manual testing
-* tests make sure your code is of a good quality
+* tests provide a convenient way to ensure the application is not broken unless they all pass
+* tests allow us to spend less time on manual testing
+* tests ensure that your code is of good quality
 
 The only possible answer to the question: "**Should I write tests?**" should be: "**Yes!**", unless you are just checking the market fit.
 
-One of the main reasons, why we don't write tests is the lack of budget. 
+One of the main reasons, why we do not write tests is the lack of budget. 
 
 Typically, having good test coverage requires 20-30% more time spent on development.
 
@@ -203,9 +203,9 @@ They just seem too expensive.
 
 This may be true in the short term, but if we take into consideration the time you will need to fix all the annoying bugs that could be avoided by writing tests, then writing tests can actually save a lot of time and money.
 
-Don't get me wrong, tests won't eliminate all of the bugs, but they can drastically reduce their number.
+Do not get me wrong, tests will not eliminate all errors, but they can drastically reduce their number.
 
-They make you and your partners feel much more confident when applying the changes, refactoring the code, deploying to the production as having all of them passing ensures that nothing is broken.
+They give you and your partners much greater confidence in applying the changes, refactoring the code, deploying to the production as having all of them passing ensures that nothing is broken.
 
 #### Test bug fixes
 
@@ -215,7 +215,7 @@ But we can prevent them from showing up a second time.
 
 **Cover each fix with unit tests** to ensure that it does not break again at this point once more.
 
-Let's assume we have the following component, which is not rendering proper content:
+Suppose that we have the following component, which is not rendering proper content:
 
 ```javascript
 const Example = ({ isFetching, data }) => (
@@ -225,22 +225,22 @@ const Example = ({ isFetching, data }) => (
 );
 ```
 
-Have you managed to spot an error?
+Have you succeeded in discovering a mistake?
 
 Right, we should have written `isFetching` instead of `!isFetching`.
 
-Imaging this bug was noticed on the production and you have to make a quick fix.
+Imagine this bug was noticed on the production and you have to make a quick fix.
 
-To ensure this situation never happens again, it's good practice to cover this case with a simple unit test:
+To ensure that this situation never happens again, it is good practice to cover this case with a simple unit test:
 
 ```javascript
-describe('Example component', () => {
-  it('should render loader if fetching', () => {
+describe("Example component", () => {
+  it("should render loader if fetching", () => {
     const component = shallow(<Example isFetching />);
     expect(component.find(Loader)).toBeTruthy();
   });
   
-  it('should render data table if not fetching', () => {
+  it("should render data table if not fetching", () => {
     const component = shallow(<Example isFetching={false} />);
     expect(component.find(DataTable)).toBeTruthy();
   });
@@ -295,16 +295,16 @@ One `Card` component handles 2 layouts that are completely different.
 />
 ```
 
-We created separate `ColumnCard` and `RowCard` components. 
+We have created separate `ColumnCard` and `RowCard` components. 
 
-Each of them is responsible for rendering its own layout.
+Each of them is responsible for rendering their own layout.
 
 ## Summary
 
-In this article, I shared with you some principles that I consider to be the most important takeaways from the last few years of working with React.
+In this article, I have shared with you some principles that I consider to be the most important takeaways from the last few years of working with React.
 
 They all seem obvious, but it is really important to keep them in mind when building different types of applications.
 
-The truth is that most of us will not be able to comprehend them until we fail each one.
+The truth is that most of us will not be able to understand them until we fail each one.
 
 **Do not be afraid to fail, be afraid not to learn from your mistakes.**
