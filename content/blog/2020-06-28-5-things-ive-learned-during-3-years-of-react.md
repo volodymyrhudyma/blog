@@ -166,8 +166,6 @@ const getActiveUsers = (users) => {
 
 *Documentation is a gift. Make sure you open it, read it, and use it.*
 
-![Book photo](/img/book.png "Book photo")
-
 Documentation is the only resource that covers all aspects of technology. 
 
 You will never learn as much by browsing through articles or viewing tutorials, as by simply reading the documentation from start to finish.
@@ -188,8 +186,6 @@ Times change and now there is no room for doubt about how to start learning new 
 
 *\- Should I write tests?*\
 *\- Yes, yes, and yes!*
-
-![Tests pyramid](/img/tests.jpg "Tests pyramid")
 
 Covering an application with tests brings a lot of benefits. Here are some of them:
 
