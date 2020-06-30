@@ -7,7 +7,7 @@ teaser: Recently it turned out, that I have been working with React for a little
   during this adventure...
 date: 2020-07-01T10:05:49.440Z
 ---
-Recently it turned out, that I have been working with React for a little over 3 years, so now is the perfect time to summarize what I learned during this adventure.
+Recently it turned out, that I have been working with React for a little over 3 years, so now is the perfect time to summarize what I have learned during this adventure.
 
 All the principles we are referring to here are not strictly related to the React library, they can be used by any software developer, regardless of their experience with any programming language.
 
