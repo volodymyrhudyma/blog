@@ -7,9 +7,9 @@ teaser: Server-side rendering has become increasingly popular in recent years.
   rendering approach. However, it also has some drawbacks, like...
 date: 2020-07-05T06:04:11.690Z
 ---
-Server-side rendering has become increasingly popular in recent years.
+**Server-side rendering (SSR)** has become increasingly popular in recent years.
 
-By using it, we can do many things that are not possible with a client-side rendering approach. 
+By using it, we can do many things that are not possible with a **client-side rendering (CSR)** approach. 
 
 The main advantages of SSR are:
 
@@ -23,7 +23,7 @@ Before we proceed with the detailed discussion of the benefits of both approache
 
 ## Client-side rendering
 
-**Client-side rendering (CSR)** means that our page is rendered in the browser by JavaScript.
+**CSR** means that our page is rendered in the browser by JavaScript.
 
 Instead of getting the HTML page populated with the content, we get an empty page that contains some JavaScript, which is responsible for filling the page with the content.
 
@@ -93,7 +93,7 @@ It is good practice to show the loading screen or some placeholders while the da
 
 ## Server-side rendering
 
-**Server-side rendering (SSR)** means that our page is rendered on the server.
+**SSR** means that our page is rendered on the server.
 
 When the user opens a website, the HTML received from the server is populated with the content:
 
