@@ -4,7 +4,7 @@ tag:
   - JavaScript
 teaser: Server-side rendering has become increasingly popular in recent years.
   By using it, we can do many things that are not possible with a client-side
-  rendering approach. For example...
+  rendering approach. However, it also has some drawbacks, like...
 date: 2020-07-04T06:04:11.690Z
 ---
 Server-side rendering(SSR) has become increasingly popular in recent years.
@@ -25,22 +25,35 @@ Before we proceed with the detailed discussion of the benefits of both approache
 
 Instead of getting the HTML page populated with the content, we get an empty page that contains some JavaScript, which is responsible for filling the page with the content.
 
+Example HTML response:
+
+![Empty HTML response when using CSR](/img/screenshot-2020-07-04-at-12.24.25.png "Empty HTML response when using CSR")
+
+After executing JavaScript files, the whole React application will be rendered inside the `<div id="root></div>` unless you change that:
+
+![HTML structure after executing JavaScript by the browser](/img/screenshot-2020-07-04-at-12.26.12.png "HTML structure after executing JavaScript by the browser")
+
 The following steps are executed to make an application visible after the user opens a website:
 
-1. The browser makes a request to the server:\
-   - "Hey, server! Could you send me the contents of the website?"
-2. The server answers the browser with a simple HTML structure, containing links to all styles and JavaScript files: \
-   - "Ok, here you go!"
-3. The browser downloads all JavaScript files: \
-   - "Thanks, buddy. I see there are some JavaScript files. Let's download them first."
-4. The browser executes React code: \
-   - "The download is complete. Time to run the scripts."
-5. If no errors occurred during the execution, the app is ready for use: \
-   - "Ok, I got it for you, my dear user. Now it is time to have a little rest."
+1. The browser makes a request to the server:
+
+   \- "Hey, server! Could you send me the contents of the website?"
+2. The server answers the browser with a simple HTML structure, containing links to all styles and JavaScript files:
+
+   \- "Ok, here you go!"
+3. The browser downloads all JavaScript files:
+
+   \- "Thanks, buddy. I see there are some JavaScript files. Let's download them first."
+4. The browser executes React code:
+
+   \- "The download is complete. Time to run the scripts."
+5. If no errors occurred during the execution, the app is ready for use:
+
+   \- "Ok, I got it for you, my dear user. Now it is time to have a little rest."
 
 During the execution time of all the above steps, the app is not viewable, because we simply do not know yet what to display.
 
-It is good practice to display the loading screen or some placeholders while the data is being retrieved to make the user feel that something is happening and the initial loading does not really take much time.
+It is good practice to show the loading screen or some placeholders while the data is being retrieved to make the user feel that something is happening and the initial loading does not really take much time.
 
 #### Props
 
@@ -76,6 +89,12 @@ It is good practice to display the loading screen or some placeholders while the
   Since the HTML is not available in the initial render, browsers cannot cache the HTML structure of the page.
 
 ## Server-side rendering
+
+**Server-side rendering** means that our page is rendered on the server.
+
+When the user opens a website, the HTML received from the server is populated with the content:
+
+![HTML structure after executing JavaScript on the server](/img/screenshot-2020-07-04-at-12.36.35.png "HTML structure after executing JavaScript on the server")
 
 ## The difference
 
