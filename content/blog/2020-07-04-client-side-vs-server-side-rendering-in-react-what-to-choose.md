@@ -1,5 +1,5 @@
 ---
-title: Client-side vs server-side rendering in React. What to choose?
+title: Client-side vs server-side rendering. What to choose?
 tag:
   - JavaScript
 teaser: Server-side rendering has become increasingly popular in recent years.
@@ -18,6 +18,8 @@ The main advantages of SSR are:
 * Better UX
 
 Before we proceed with the detailed discussion of the benefits of both approaches, we should familiarise ourselves with them.
+
+**Important note:** In the following sections we assume that the **React** library is used.
 
 ## Client-side rendering
 
