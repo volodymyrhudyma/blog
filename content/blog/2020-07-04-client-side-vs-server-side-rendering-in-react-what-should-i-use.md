@@ -5,7 +5,7 @@ tag:
 teaser: Server-side rendering has become increasingly popular in recent years.
   By using it, we can do many things that are not possible with a client-side
   rendering approach. However, it also has some drawbacks, like...
-date: 2020-07-04T06:04:11.690Z
+date: 2020-07-05T06:04:11.690Z
 ---
 Server-side rendering (SSR) has become increasingly popular in recent years.
 
