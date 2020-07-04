@@ -41,14 +41,14 @@ The following steps are executed to make an application visible after the user o
 
 1. The browser makes a request to the server:
 
-   \- "Hey, server! Could you send me the contents of the website?"
+   \- "Hey, bro! Could you send me the contents of the website?"
 2. The server answers the browser with a simple HTML structure, containing links to all styles and JavaScript files:
 
    \- "Ok, here you go!"
 3. The browser downloads all JavaScript files:
 
    \- "Thanks, buddy. I see there are some JavaScript files. Let's download them first."
-4. The browser executes React code:
+4. The browser executes JavaScript:
 
    \- "The download is complete. Time to run the scripts."
 5. If no errors occurred during the execution, the app is ready for use:
@@ -73,6 +73,11 @@ It is good practice to show the loading screen or some placeholders while the da
   **However, there is one potential drawback** of the CSR: the users with underpowered devices can experience lag issues as their devices struggle to render the page due to the lack of resources.
 
   Nowadays this drawback has become less of a concern, as CPUs get cheaper and more powerful.
+* Allows websites to run without an internet
+
+  CSR-based web applications can run without the internet, as long as lazy-loading is not required and you do not call the external API.
+
+  Navigating this kind of application feels like a simple desktop one.
 
 #### Cons
 
@@ -88,9 +93,6 @@ It is good practice to show the loading screen or some placeholders while the da
   When using the CSR approach, there’s basically nothing for Google to index in the source code, as all that we have is the simple HTML without any data yet.
 
   **The second wave** can occur a few hours to even a few weeks later, Google returns to the page when additional resources are available to fully render and index the JS generated content.
-* Caching issue
-
-  Since the HTML is not available in the initial render, browsers cannot cache the HTML structure of the page.
 
 ## Server-side rendering
 
@@ -102,18 +104,71 @@ When the user opens a website, the HTML received from the server is populated wi
 
 **Important note:** notice, that the React application is rendered inside `<div id="main"></div>`.
 
+The following steps are executed to make an application visible after the user opens a website:
+
+1. The browser makes a request to the server:
+
+   \- "Hey, bro! Could you send me the contents of the website?"
+2. The server answers the browser with a **FULL** **HTML structure**, containing links to all styles and JavaScript files. **During this step the user can already see the website content**:
+
+   \- "Ok, here you go!"
+3. The browser downloads all JavaScript files:
+
+   \- "Thanks, buddy. I see there are some JavaScript files. Let's download them first."
+4. The browser executes JavaScript:
+
+   \- "The download is complete. Time to run the scripts."
+5. If no errors occurred during the execution, the app is ready for use:
+
+   \- "Ok, I got it for you, my dear user. Now it is time to have a little rest."
+
+When using **SSR** user is able to see the website **during the second step**.
+
+When using **CSR** user is able to see the website **during the fifth step**.
+
 #### Pros
 
 * Fast initial load
+
+  For the first page load, it doesn’t take two round trips to the server before the user sees the content.
+
+  In SSR, the application's performance depends on the server’s resources and the user’s network speed.
+
+  Nowadays servers are considerably powerful, so the bundles of HTML pages are sent across very quickly.
 * Good for SEO
+
+  Search engine crawlers see the full HTML code and can easily index it.
 
 #### Cons
 
-* Full page reloads
+* Full-page reloads
+
+  Every user interaction requires a full-page reload. 
+
+  User interactions, such as clicking on a button ofter trigger GET or POST requests on the web server and it always generates the entire HTML page.
 * High server load
 
-## The difference
+  Rendering a full app on the server is going to be CPU-intensive, so if you expect high traffic, prepare for corresponding server load and costs.
+* Development constraints
+
+  Some external libraries may need special treatment to be able to run in a server-rendered app.
 
 ## Choosing the right way
+
+Choosing the right way of building your website is extremely important. 
+
+The wrong choice can cost you a redevelopment of the whole application.
+
+#### You may need CSR if
+
+* SEO is not very important (e.g. you are building an application for internal use only)
+* You require a lot of user interactions (your website is **interaction-focused**)
+
+#### You may need SSR if
+
+* Having good SEO is crucial
+* You do not require a lot of user interactions (your website is **content-focused**)
+* You accept higher server costs
+* You require very quick initial loading time (most of your first-time users visit your site through **deep content links**)
 
 ## Summary
