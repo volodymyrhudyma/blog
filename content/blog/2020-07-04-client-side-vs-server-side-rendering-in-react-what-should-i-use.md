@@ -29,9 +29,13 @@ Example HTML response:
 
 ![Empty HTML response when using CSR](/img/screenshot-2020-07-04-at-12.24.25.png "Empty HTML response when using CSR")
 
+**Important note:** notice, that `<div id="root"></div>` element, which will render the whole React app is empty.
+
 After executing JavaScript files, the whole React application will be rendered inside the `<div id="root></div>` unless you change that:
 
 ![HTML structure after executing JavaScript by the browser](/img/screenshot-2020-07-04-at-12.26.12.png "HTML structure after executing JavaScript by the browser")
+
+**Important note:** notice, that `<div id="root"></div>` element is not empty now, React application is rendered inside.
 
 The following steps are executed to make an application visible after the user opens a website:
 
@@ -55,7 +59,7 @@ During the execution time of all the above steps, the app is not viewable, becau
 
 It is good practice to show the loading screen or some placeholders while the data is being retrieved to make the user feel that something is happening and the initial loading does not really take much time.
 
-#### Props
+#### Pros
 
 * After slow initial load, all next pages will be loaded much faster
 
@@ -95,6 +99,18 @@ It is good practice to show the loading screen or some placeholders while the da
 When the user opens a website, the HTML received from the server is populated with the content:
 
 ![HTML structure after executing JavaScript on the server](/img/screenshot-2020-07-04-at-12.36.35.png "HTML structure after executing JavaScript on the server")
+
+**Important note:** notice, that the React application is rendered inside `<div id="main"></div>`.
+
+#### Pros
+
+* Fast initial load
+* Good for SEO
+
+#### Cons
+
+* Full page reloads
+* High server load
 
 ## The difference
 
