@@ -166,4 +166,4 @@ That's possible, we can use the **Universal Web App**, which does the initial re
 
 It allows for a great SEO, quick first render, and good speed when browsing the website.
 
-But that is the topic for the next article, so stay tuned!
+But that is the topic for the next article, so stay tuned.
