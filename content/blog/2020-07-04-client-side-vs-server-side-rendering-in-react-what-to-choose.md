@@ -19,7 +19,7 @@ The main advantages of SSR are:
 
 Before we proceed with the detailed discussion of the benefits of both approaches, we should familiarise ourselves with them.
 
-**Important note:** In the following sections we assume that the **React** library is used.
+**Important note:** In the following sections we assume that the React library is used.
 
 ## Client-side rendering
 
