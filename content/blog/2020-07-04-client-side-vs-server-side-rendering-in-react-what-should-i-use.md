@@ -41,19 +41,19 @@ The following steps are executed to make an application visible after the user o
 
 1. The browser makes a request to the server:
 
-   \- "Hey, bro! Could you send me the contents of the website?"
+   *\- "Hey, bro! Could you send me the contents of the website?"*
 2. The server answers the browser with a simple HTML structure, containing links to all styles and JavaScript files:
 
-   \- "Ok, here you go!"
+   *\- "Ok, here you go!"*
 3. The browser downloads all JavaScript files:
 
-   \- "Thanks, buddy. I see there are some JavaScript files. Let's download them first."
+   *\- "Thanks, buddy. I see there are some JavaScript files. Let's download them first."*
 4. The browser executes JavaScript:
 
-   \- "The download is complete. Time to run the scripts."
+   *\- "The download is complete. Time to run the scripts."*
 5. If no errors occurred during the execution, the app is ready for use:
 
-   \- "Ok, I got it for you, my dear user. Now it is time to have a little rest."
+   *\- "Ok, I got it for you, my dear user. Now it is time to have a little rest."*
 
 During the execution time of all the above steps, the app is not viewable, because we simply do not know yet what to display.
 
@@ -73,11 +73,6 @@ It is good practice to show the loading screen or some placeholders while the da
   **However, there is one potential drawback** of the CSR: the users with underpowered devices can experience lag issues as their devices struggle to render the page due to the lack of resources.
 
   Nowadays this drawback has become less of a concern, as CPUs get cheaper and more powerful.
-* Allows websites to run without an internet
-
-  CSR-based web applications can run without the internet, as long as lazy-loading is not required and you do not call the external API.
-
-  Navigating this kind of application feels like a simple desktop one.
 
 #### Cons
 
