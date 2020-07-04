@@ -1,5 +1,5 @@
 ---
-title: Client-side vs server-side rendering in React. What should I use?
+title: Client-side vs server-side rendering in React. What to choose?
 tag:
   - JavaScript
 teaser: Server-side rendering has become increasingly popular in recent years.
@@ -7,7 +7,7 @@ teaser: Server-side rendering has become increasingly popular in recent years.
   rendering approach. However, it also has some drawbacks, like...
 date: 2020-07-04T06:04:11.690Z
 ---
-Server-side rendering(SSR) has become increasingly popular in recent years.
+Server-side rendering (SSR) has become increasingly popular in recent years.
 
 By using it, we can do many things that are not possible with a client-side rendering approach. 
 
@@ -29,7 +29,7 @@ Example HTML response:
 
 ![Empty HTML response when using CSR](/img/screenshot-2020-07-04-at-12.24.25.png "Empty HTML response when using CSR")
 
-**Important note:** notice, that `<div id="root"></div>` element, which will render the whole React app is empty.
+**Important note:** notice, that `<div id="root"></div>` element is empty.
 
 After executing JavaScript files, the whole React application will be rendered inside the `<div id="root></div>` unless you change that:
 
@@ -105,7 +105,7 @@ The following steps are executed to make an application visible after the user o
 2. The server answers the browser with a **FULL** **HTML structure**, containing links to all styles and JavaScript files. **During this step, the user can already see the website content**.
 3. The browser downloads all JavaScript files.
 4. The browser executes JavaScript.
-5. If no errors occurred during the execution, the app is ready for use.
+5. If no errors occurred during the execution, the **app becomes interactive**.
 
 When using **SSR** user is able to see the website **during the second step**.
 
@@ -157,3 +157,13 @@ The wrong choice can cost you a redevelopment of the whole application.
 * You require very quick initial loading time (most of your first-time users visit your site through **deep content links**)
 
 ## Summary
+
+To sum up, **CSR** makes out app faster and more interactive, **SSR** speeds up the initial render and improves SEO.
+
+But wait, what if we did not have to focus on choosing the one thing, but get the best out of 2 approaches instead? 
+
+That's possible, we can use the **Universal Web App**, which does the initial render on the server, and then **CSR** takes over.
+
+It allows for a great SEO, quick first render, and good speed when browsing the website.
+
+But that is the topic for the next article, so stay tuned!
