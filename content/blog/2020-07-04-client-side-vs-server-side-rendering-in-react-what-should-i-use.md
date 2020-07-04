@@ -106,21 +106,11 @@ When the user opens a website, the HTML received from the server is populated wi
 
 The following steps are executed to make an application visible after the user opens a website:
 
-1. The browser makes a request to the server:
-
-   \- "Hey, bro! Could you send me the contents of the website?"
-2. The server answers the browser with a **FULL** **HTML structure**, containing links to all styles and JavaScript files. **During this step the user can already see the website content**:
-
-   \- "Ok, here you go!"
-3. The browser downloads all JavaScript files:
-
-   \- "Thanks, buddy. I see there are some JavaScript files. Let's download them first."
-4. The browser executes JavaScript:
-
-   \- "The download is complete. Time to run the scripts."
-5. If no errors occurred during the execution, the app is ready for use:
-
-   \- "Ok, I got it for you, my dear user. Now it is time to have a little rest."
+1. The browser makes a request to the server.
+2. The server answers the browser with a **FULL** **HTML structure**, containing links to all styles and JavaScript files. **During this step, the user can already see the website content**.
+3. The browser downloads all JavaScript files.
+4. The browser executes JavaScript.
+5. If no errors occurred during the execution, the app is ready for use.
 
 When using **SSR** user is able to see the website **during the second step**.
 
