@@ -158,12 +158,12 @@ The wrong choice can cost you a redevelopment of the whole application.
 
 ## Summary
 
-To sum up, **CSR** makes out app faster and more interactive, **SSR** speeds up the initial render and improves SEO.
+In summary, **CSR** makes the app faster and more interactive, **SSR** speeds up the initial render and improves the SEO.
 
-But wait, what if we did not have to focus on choosing the one thing, but get the best out of 2 approaches instead? 
+But wait, what if we did not have to focus on choosing one thing, but get the best out of 2 approaches instead? 
 
-That's possible, we can use the **Universal Web App**, which does the initial render on the server, and then **CSR** takes over.
+This is possible, we can use the **Universal Web App**, which does the initial rendering on the server, and then **CSR** takes over.
 
-It allows for a great SEO, quick first render, and good speed when browsing the website.
+It enables excellent SEO, fast first rendering, and good speed when browsing the site.
 
 But that is the topic for the next article, so stay tuned.
