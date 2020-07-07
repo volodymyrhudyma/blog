@@ -21,7 +21,7 @@ Netlify is a service that automates builds, deployments, and manages your websit
 
 Nowadays it’s one of the fastest and easiest deployment solutions.
 
-Furthermore, it offers a free plan which we are going to use. It is great for hosting personal projects, hobby sites, or experiments.
+Furthermore, it offers a free plan and automatically provides you with the **HTTPS**. It is great for hosting personal projects, hobby sites, or experiments.
 
 ## Requirements
 
@@ -130,6 +130,10 @@ Click on the **Counter** link and you should be redirected to the following page
 
 ![New counter page](/img/screenshot-2020-07-07-at-18.12.23.png "New counter page")
 
+The last step is to create a build for our application by executing:
+
+`yarn build`
+
 ## Creating Netlify account
 
 To create an account on Netlify, go to <https://www.netlify.com/> and click the "Sign up" link at the right top of the page.
@@ -175,3 +179,35 @@ Next, choose a name for your website:
 ![Netlify terminal instructions](/img/screenshot-2020-07-07-at-18.42.16.png "Netlify terminal instructions")
 
 I will leave it for Netlify to pick the random name, so just click **Enter**, without typing anything (you can provide any available name).
+
+The next step is to provide a path to the directory we want to publish. In our case, it's going to be `build`, so type it and press enter:
+
+![Netlify terminal instructions](/img/screenshot-2020-07-07-at-18.46.45.png "Netlify terminal instructions")
+
+At this point, our website has already been deployed to the **draft URL**, which is viewable in the browser:
+
+![Netlify terminal instructions](/img/screenshot-2020-07-07-at-18.48.44.png "Netlify terminal instructions")
+
+In my case the URL is the following: `https://5f04a75593f5867055fe6f8d--vibrant-brahmagupta-1ba4c2.netlify.app`, your is going to be different.
+
+Make sure to check the website by opening it.
+
+If everything works as you expect, go back to the terminal and deploy it to your main URL, which was randomly chosen by Netlify for you (or defined by you) in one of the previous steps:
+
+`yarn netlify deploy --prod`
+
+You will be asked to provide publish directory once more, so make sure to type `build` and click **Enter**.
+
+![Netlify terminal instructions](/img/screenshot-2020-07-07-at-18.53.19.png "Netlify terminal instructions")
+
+Notice the 3 URLs we received in the terminal:
+
+* Logs
+
+  Represents current deploy's logs
+* Unique Deploy URL
+
+  Represents the unique URL of the current deploy
+* Website URL
+
+  Represents the production URL with the latest deployed changes
