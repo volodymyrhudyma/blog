@@ -228,7 +228,9 @@ The next step is to pick the repository you want to deploy:
 
 **Important note:** if you can not find your repository in the list, you need to provide Netlify with access to it. To do that, click on the link below the list: **Can’t see your repo here? Configure the Netlify app on GitHub.**
 
-Finally, provide the deploy settings. The most important: what branch to deploy (we will deploy `master`), what command should be executed to build the project (in our case `yarn build`), and what folder should be deployed (in our case `build` folder).
+Finally, provide the deploy settings. The most important: what branch to deploy (we will deploy `master`), what command should be executed to build the project (in our case `yarn build`), and what folder should be deployed (in our case `build` folder):
+
+![Netlify deploy from Github](/img/screenshot-2020-07-07-at-22.33.40.png "Netlify deploy from Github")
 
 Now it's time to relax a bit and have a coffee.
 
