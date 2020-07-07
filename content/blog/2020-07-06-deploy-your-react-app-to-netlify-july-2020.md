@@ -41,7 +41,7 @@ To install the necessary dependencies and run the app, execute:
 
 This is a simple app built in [this article](/2020-06-11-add-redux-with-typescript-to-your-react-applicaton-june-2020/), which shows a simple counter and allows to increase or decrease its value:
 
-![Counter app screenshot](/img/screenshot-2020-07-07-at-17.48.43.png "Counter app screenshot")
+![Counter app screenshot](/img/screenshot-2020-07-07-at-22.20.49.png "Counter app screenshot")
 
 To make in a little more complicated, let's add Router `react-router-dom` and 2 pages: **home** and **counter**:
 
@@ -124,11 +124,11 @@ export default Counter;
 
 And navigate to your app in the browser. You should see the following home page:
 
-![New home page](/img/screenshot-2020-07-07-at-18.12.18.png "New home page")
+![New home page](/img/screenshot-2020-07-07-at-22.21.25.png "New home page")
 
 Click on the **Counter** link and you should be redirected to the following page:
 
-![New counter page](/img/screenshot-2020-07-07-at-18.12.23.png "New counter page")
+![New counter page](/img/screenshot-2020-07-07-at-22.22.02.png "New counter page")
 
 The last step is to create a build for our application by executing:
 
@@ -144,7 +144,7 @@ You should be able to log in and see the empty dashboard:
 
 ![Netlify dashboard](/img/screenshot-2020-07-07-at-17.52.16.png "Netlify dashboard")
 
-## Install netlify-cli
+## Installing netlify-cli
 
 We will start with `netlify-cli` library, which is a command line interface (CLI) that lets you deploy sites or configure continuous deployment straight from the command line.
 
@@ -211,3 +211,31 @@ Notice the 3 URLs we received in the terminal:
 * Website URL
 
   Represents the production URL with the latest deployed changes
+
+## Deploying from Github
+
+Netlify provides us with the possibility to deploy the website directly from Github.
+
+To do this, login to the Netlify, go to the dashboard and click **New site from Git** button at the right.
+
+Then, select Github (you are allowed to deploy from Gitlab and Bitbucket as well):
+
+![Netlify deploy from Github](/img/screenshot-2020-07-07-at-22.28.05.png "Netlify deploy from Github")
+
+The next step is to pick the repository you want to deploy:
+
+![Netlify deploy from Github](/img/screenshot-2020-07-07-at-22.29.52.png "Netlify deploy from Github")
+
+**Important note:** if you can not find your repository in the list, you need to provide Netlify with access to it. To do that, click on the link below the list: **Can’t see your repo here? Configure the Netlify app on GitHub.**
+
+Finally, provide the deploy settings. The most important: what branch to deploy (we will deploy `master`), what command should be executed to build the project (in our case `yarn build`), and what folder should be deployed (in our case `build` folder).
+
+Now it's time to relax a bit and have a coffee.
+
+Netlify is going to build and deploy the website for you.
+
+Once the deploy is complete, your site will accessible:
+
+![Netlify site deploy success](/img/screenshot-2020-07-07-at-22.37.23.png "Netlify site deploy success")
+
+## Summary
