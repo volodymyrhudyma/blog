@@ -7,7 +7,7 @@ teaser: Building a website is only the first step in the launching process.
   them is to deploy it to the hosting...
 date: 2020-07-08T20:50:37.712Z
 ---
-Building a website is only the first step in the launching process.
+uilding a website is only the first step in the launching process.
 
 There are a few more steps to be taken before the site goes live, and one of them is to deploy it to the hosting.
 
@@ -27,8 +27,7 @@ Furthermore, it offers a free plan which we are going to use. It is great for ho
 
 * An application, built with React
 * Netlify account
-* Github account
-* Github repository containing an application
+* Installed `netlify-cli` library
 
 ## Preparing an application
 
@@ -137,6 +136,42 @@ To create an account on Netlify, go to <https://www.netlify.com/> and click the 
 
 Then choose how you want to register, provide your data, and verify your email.
 
-You should be able to log in and see the dashboard:
+You should be able to log in and see the empty dashboard:
 
 ![Netlify dashboard](/img/screenshot-2020-07-07-at-17.52.16.png "Netlify dashboard")
+
+## Install netlify-cli
+
+We will start with `netlify-cli` library, which is a command line interface (CLI) that lets you deploy sites or configure continuous deployment straight from the command line.
+
+`yarn add netlify-cli -g`
+
+**Important note**: We will install the library globally in order to be able to access it in the upcoming projects.
+
+After the successful installation, we can run `netlify` command from any directory.
+
+To deploy our app, let's execute from the root folder:
+
+`yarn netlify deploy`
+
+We will be asked to grant an access to the **Netlify CLI**:
+
+![Netlify grant an access to Netlify CLI](/img/screenshot-2020-07-07-at-18.35.52.png "Netlify grant an access to Netlify CLI")
+
+Click **Authorize** and go back to the terminal and follow the instructions:
+
+![Netlify terminal instructions](/img/screenshot-2020-07-07-at-18.38.29.png "Netlify terminal instructions")
+
+In this step, select the **Create & configure a new site** option, since we are deploying a new project.
+
+Then you will be asked to select your team:
+
+![Netlify terminal instructions](/img/screenshot-2020-07-07-at-18.40.44.png "Netlify terminal instructions")
+
+Since most probably you will have only one team, select it.
+
+Next, choose a name for your website:
+
+![Netlify terminal instructions](/img/screenshot-2020-07-07-at-18.42.16.png "Netlify terminal instructions")
+
+I will leave it for Netlify to pick the random name, so just click **Enter**, without typing anything (you can provide any available name).
