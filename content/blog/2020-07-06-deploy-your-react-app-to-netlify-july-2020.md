@@ -21,13 +21,11 @@ Netlify is a service that automates builds, deployments, and manages your websit
 
 Nowadays it’s one of the fastest and easiest deployment solutions.
 
-Furthermore, it offers a free plan and automatically provides you with the **HTTPS**. It is great for hosting personal projects, hobby sites, or experiments.
+It provides:
 
-## Requirements
-
-* An application, built with React
-* Netlify account
-* Installed `netlify-cli` library
+* free plan for playing around with the platform
+* HTTPS for each website by default 
+* built-in DNS management
 
 ## Preparing an application
 
@@ -144,15 +142,15 @@ You should be able to log in and see the empty dashboard:
 
 ![Netlify dashboard](/img/screenshot-2020-07-07-at-17.52.16.png "Netlify dashboard")
 
-## Installing netlify-cli
+## Deploying from the terminal
 
-We will start with `netlify-cli` library, which is a command line interface (CLI) that lets you deploy sites or configure continuous deployment straight from the command line.
+We will start with `netlify-cli` library, which is a command-line interface (CLI) that lets you deploy sites or configure continuous deployment straight from the command line.
 
 `yarn add netlify-cli -g`
 
 **Important note**: We will install the library globally in order to be able to access it in the upcoming projects.
 
-After the successful installation, we can run `netlify` command from any directory.
+After the successful installation, we can run `yarn netlify` from any directory.
 
 To deploy our app, let's execute from the root folder:
 
@@ -241,3 +239,9 @@ Once the deploy is complete, your site will accessible:
 ![Netlify site deploy success](/img/screenshot-2020-07-07-at-22.37.23.png "Netlify site deploy success")
 
 ## Summary
+
+In this article, we have learned how to deploy React application to the Netlify platform in 2 different ways: by using terminal or Netlify admin panel. 
+
+Both ways are done with almost no configuration and in almost no time, which is a great developer's experience.
+
+I personally use Netlify for hosting 8 different projects (coded not only in React) and I am more than satisfied with using this platform.
