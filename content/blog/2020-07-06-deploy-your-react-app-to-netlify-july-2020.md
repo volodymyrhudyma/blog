@@ -7,7 +7,7 @@ teaser: Building a website is only the first step in the launching process.
   them is to deploy it to the hosting...
 date: 2020-07-08T20:50:37.712Z
 ---
-uilding a website is only the first step in the launching process.
+Building a website is only the first step in the launching process.
 
 There are a few more steps to be taken before the site goes live, and one of them is to deploy it to the hosting.
 
