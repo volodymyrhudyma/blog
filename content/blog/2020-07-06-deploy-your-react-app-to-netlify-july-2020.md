@@ -224,7 +224,7 @@ Then, select Github (you are allowed to deploy from Gitlab and Bitbucket as well
 
 The next step is to pick the repository you want to deploy:
 
-![Netlify deploy from Github](/img/screenshot-2020-07-07-at-22.29.52.png "Netlify deploy from Github")
+![Netlify deploy from Github](/img/screenshot-2020-07-07-at-22.43.01.png "Netlify deploy from Github")
 
 **Important note:** if you can not find your repository in the list, you need to provide Netlify with access to it. To do that, click on the link below the list: **Can’t see your repo here? Configure the Netlify app on GitHub.**
 
