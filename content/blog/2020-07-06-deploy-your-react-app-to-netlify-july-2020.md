@@ -1,15 +1,15 @@
 ---
-title: Deploy your React app to Netlify (July 2020)
+title: Deploy your React app to Netlify (Full Guide, July 2020)
 tag:
   - React
 teaser: Building a website is only the first step in the launching process.
   There are a few more steps to be taken before the site goes live, and one of
-  them is to deploy it to the hosting...
+  them is the deployment on hosting...
 date: 2020-07-08T20:50:37.712Z
 ---
 Building a website is only the first step in the launching process.
 
-There are a few more steps to be taken before the site goes live, and one of them is to deploy it to the hosting.
+There are a few more steps to be taken before the site goes live, and one of them is the deployment on hosting.
 
 Having a smooth deployment process is crucial for being able to constantly deliver new features and maintain the website.
 
@@ -19,11 +19,11 @@ Today we are going to focus on how to deploy your **React** application to the *
 
 Netlify is a service that automates builds, deployments, and manages your websites.
 
-Nowadays it’s one of the fastest and easiest deployment solutions.
+Nowadays it is one of the fastest and easiest deployment solutions.
 
 It provides:
 
-* free plan for playing around with the platform
+* free plan to play around with the platform
 * HTTPS for each website by default 
 * built-in DNS management
 
@@ -33,15 +33,15 @@ For the purposes of this tutorial, we can clone [boilerplate](https://github.com
 
 `git clone git@github.com:volodymyrhudyma/react-redux-typescript-app.git`
 
-To install the necessary dependencies and run the app, execute:
+To install the required dependencies and run the app, execute:
 
 `yarn && yarn start`
 
-This is a simple app built in [this article](/2020-06-11-add-redux-with-typescript-to-your-react-applicaton-june-2020/), which shows a simple counter and allows to increase or decrease its value:
+This is a simple app built in [this article](/2020-06-11-add-redux-with-typescript-to-your-react-applicaton-june-2020/), which shows a simple counter and allows you to increment or decrement its value:
 
 ![Counter app screenshot](/img/screenshot-2020-07-07-at-22.20.49.png "Counter app screenshot")
 
-To make in a little more complicated, let's add Router `react-router-dom` and 2 pages: **home** and **counter**:
+To make it a little more complicated, we will add Router `react-router-dom` and 2 pages: **home** and **counter**:
 
 `yarn add react-router-dom @types/react-router-dom`
 
@@ -120,7 +120,7 @@ const Counter = () => {
 export default Counter;
 ```
 
-And navigate to your app in the browser. You should see the following home page:
+And navigate to your app in the browser. You should see the following homepage:
 
 ![New home page](/img/screenshot-2020-07-07-at-22.21.25.png "New home page")
 
@@ -134,9 +134,9 @@ The last step is to create a build for our application by executing:
 
 ## Creating Netlify account
 
-To create an account on Netlify, go to <https://www.netlify.com/> and click the "Sign up" link at the right top of the page.
+To create an account on Netlify, go to <https://www.netlify.com/> and click the "Sign up" link at the top right of the page.
 
-Then choose how you want to register, provide your data, and verify your email.
+Then choose how you want to register, enter your details, and verify your email.
 
 You should be able to log in and see the empty dashboard:
 
@@ -144,19 +144,19 @@ You should be able to log in and see the empty dashboard:
 
 ## Deploying from the terminal
 
-We will start with `netlify-cli` library, which is a command-line interface (CLI) that lets you deploy sites or configure continuous deployment straight from the command line.
+We will start with `netlify-cli` library, which is a command-line interface (CLI) that allows you to deploy sites or configure continuous deployment directly from the command line.
 
 `yarn add netlify-cli -g`
 
-**Important note**: We will install the library globally in order to be able to access it in the upcoming projects.
+**Important note**: We will install the library globally in order to be able to access it in the future projects.
 
-After the successful installation, we can run `yarn netlify` from any directory.
+After successful installation, we can run `yarn netlify` from any directory.
 
 To deploy our app, let's execute from the root folder:
 
 `yarn netlify deploy`
 
-We will be asked to grant an access to the **Netlify CLI**:
+We are asked to grant access to the **Netlify CLI**:
 
 ![Netlify grant an access to Netlify CLI](/img/screenshot-2020-07-07-at-18.35.52.png "Netlify grant an access to Netlify CLI")
 
@@ -166,7 +166,7 @@ Click **Authorize** and go back to the terminal and follow the instructions:
 
 In this step, select the **Create & configure a new site** option, since we are deploying a new project.
 
-Then you will be asked to select your team:
+You will then be asked to select your team:
 
 ![Netlify terminal instructions](/img/screenshot-2020-07-07-at-18.40.44.png "Netlify terminal instructions")
 
@@ -176,9 +176,9 @@ Next, choose a name for your website:
 
 ![Netlify terminal instructions](/img/screenshot-2020-07-07-at-18.42.16.png "Netlify terminal instructions")
 
-I will leave it for Netlify to pick the random name, so just click **Enter**, without typing anything (you can provide any available name).
+I leave it up to Netlify to choose the random name, so just click **Enter**, without typing anything (you can provide any available name).
 
-The next step is to provide a path to the directory we want to publish. In our case, it's going to be `build`, so type it and press enter:
+The next step is to specify a path to the directory we want to publish. In our case, it is going to be `build`, so type it in and press enter:
 
 ![Netlify terminal instructions](/img/screenshot-2020-07-07-at-18.46.45.png "Netlify terminal instructions")
 
@@ -186,7 +186,7 @@ At this point, our website has already been deployed to the **draft URL**, which
 
 ![Netlify terminal instructions](/img/screenshot-2020-07-07-at-18.48.44.png "Netlify terminal instructions")
 
-In my case the URL is the following: `https://5f04a75593f5867055fe6f8d--vibrant-brahmagupta-1ba4c2.netlify.app`, your is going to be different.
+In my case the URL is the following: `https://5f04a75593f5867055fe6f8d--vibrant-brahmagupta-1ba4c2.netlify.app`, yours will be different.
 
 Make sure to check the website by opening it.
 
@@ -194,7 +194,7 @@ If everything works as you expect, go back to the terminal and deploy it to your
 
 `yarn netlify deploy --prod`
 
-You will be asked to provide publish directory once more, so make sure to type `build` and click **Enter**.
+You will be asked once again to provide publish directory, so make sure to type `build` and click **Enter**.
 
 ![Netlify terminal instructions](/img/screenshot-2020-07-07-at-18.53.19.png "Netlify terminal instructions")
 
@@ -226,22 +226,22 @@ The next step is to pick the repository you want to deploy:
 
 **Important note:** if you can not find your repository in the list, you need to provide Netlify with access to it. To do that, click on the link below the list: **Can’t see your repo here? Configure the Netlify app on GitHub.**
 
-Finally, provide the deploy settings. The most important: what branch to deploy (we will deploy `master`), what command should be executed to build the project (in our case `yarn build`), and what folder should be deployed (in our case `build` folder):
+Finally, provide the deploy settings. The most important ones are: which branch to deploy (we will deploy `master`), which command to execute to build the project (in our case `yarn build`), and which folder to deploy (in our case `build` folder):
 
 ![Netlify deploy from Github](/img/screenshot-2020-07-07-at-22.33.40.png "Netlify deploy from Github")
 
-Now it's time to relax a bit and have a coffee.
+Now it's time to relax a little and have a coffee.
 
-Netlify is going to build and deploy the website for you.
+Netlify will build and deploy the website for you.
 
-Once the deploy is complete, your site will accessible:
+Once the deployment is complete, your site will accessible:
 
 ![Netlify site deploy success](/img/screenshot-2020-07-07-at-22.37.23.png "Netlify site deploy success")
 
 ## Summary
 
-In this article, we have learned how to deploy React application to the Netlify platform in 2 different ways: by using terminal or Netlify admin panel. 
+In this article, we have learned how to deploy React application to the Netlify platform in 2 different ways: by using a terminal or Netlify admin panel. 
 
 Both ways are done with almost no configuration and in almost no time, which is a great developer's experience.
 
-I personally use Netlify for hosting 8 different projects (coded not only in React) and I am more than satisfied with using this platform.
+I personally use Netlify to host 8 different projects (which are not only coded in React) and I am more than satisfied with using this platform.
