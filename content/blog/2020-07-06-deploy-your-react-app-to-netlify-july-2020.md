@@ -1,5 +1,5 @@
 ---
-title: Deploy your React app to Netlify (Full Guide, July 2020)
+title: Deploy your React application to Netlify (Full Guide, July 2020)
 tag:
   - React
 teaser: Building a website is only the first step in the launching process.
