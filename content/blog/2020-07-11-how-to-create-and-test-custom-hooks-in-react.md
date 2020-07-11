@@ -64,7 +64,7 @@ Looks awesome, clean and short.
 
 But what if we have to create one more `ProjectList` component that contains exactly the same logic, but fetches projects, not users? 
 
-This leads to the code duplication and violates the **DRY(Don't Repeat Yourself)** principle.
+This leads to the code duplication and violates the **DRY (Don't Repeat Yourself)** principle.
 
 To avoid this, we will build a custom `useFetch` hook (I strongly recommend to use the library that provides you with a ready-to-use solution, but only for demo purposes, we will build our own hook) that allows us to replace the `useState` and `useEffect` hook with only one line of code:
 
@@ -90,9 +90,9 @@ export default useFetch;
 And use it in the `UserList` component:
 
 ```tsx
-import React from 'react';
+import React from "react";
 
-import useFetch from './useFetch';
+import useFetch from "./useFetch";
 
 interface IUser {
   id: number;
@@ -158,7 +158,6 @@ describe("useFetch hook tests", () => {
     expect(result.current).toEqual(users);
   });
 });
-
 ```
 
 Let's review the test by splitting it to the steps:
