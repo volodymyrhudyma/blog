@@ -156,8 +156,10 @@ Let's review the test by dividing it to the steps:
 
 1. Mock **axios** in order to not make a real call to the API in your test.
 2. The type definition for **axios.get** doesn't include a **mockImplementation** property, so we have to type it correctly.
-3. Mock the **axios.get** and return the necessary data.
-4. Render **useFetch** hook by using **renderHook** function, which returns the **result** and **waitForNextUpdate**.
+
+Mock the **axios.get** and return the necessary data.
+
+1. Render **useFetch** hook by using **renderHook** function, which returns the **result** and **waitForNextUpdate**.
 
    The **current** value or the **result** will reflect whatever is returned from the **callback** passed to **renderHook** (in our case **result.current** equals to the retuned **data** variable from the state (**const \[data, setData] = ...**).
 
@@ -170,5 +172,80 @@ Let's review the test by dividing it to the steps:
 ## Useful custom hooks
 
 In this chapter, I will share with you some custom hooks that I find very helpful.
+
+#### Remote data fetching
+
+Of course, the first one is probably the most popular one.
+
+In this post, we build the very basic version of it, which could be extended with a lot of different features, like error handling, progress indicator, ability to use not only **axios**, but a different HTTP client.
+
+For data fetching, I highly recommend you to take a look at the [`react-swr`](https://github.com/vercel/swr) library:
+
+```javascript
+import fetch from "unfetch";
+
+const fetcher = url => fetch(url).then(r => r.json());
+
+const { data } = useSWR("/api/data", fetcher)
+```
+
+#### Window resize event
+
+Getting the current size of the browser window is a common need in a lot of applications.
+
+Instead of repeating yourself by copying the following snippet of code:
+
+```typescript
+const handleResize = () => {
+  // Your logic here
+};
+
+useEffect(() => {
+  window.addEventListener('resize', handleResize);
+  return () => {
+    window.removeEventListener('resize', handleResize);
+  };
+}, []);
+```
+
+We can use [`use-react-observer`](https://www.npmjs.com/package/use-resize-observer) library and get the same result with almost one-liner:
+
+```typescript
+const { ref } = useResizeObserver({
+  onResize: ({ width, height }) => {
+    // Your logic here
+  },
+});
+```
+
+#### Debouncing events
+
+Debouncing events is a very powerful optimization technique.
+
+``[`use-debounce`](https://www.npmjs.com/package/use-debounce) package provides us with an awesome hook we can use to any value that could be fast-changing.
+
+In case if you need a simple implementation, you can use this:
+
+```typescript
+import { useState, useEffect } from 'react';
+
+const useDebounce = (value, delay) => {
+  const [debouncedValue, setDebouncedValue] = useState(value);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedValue(value);
+    }, delay);
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [value]);
+
+  return debouncedValue;
+};
+
+export default useDebounce;
+```
 
 ## Summary
