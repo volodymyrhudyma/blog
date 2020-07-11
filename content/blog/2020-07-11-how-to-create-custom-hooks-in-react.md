@@ -2,32 +2,32 @@
 title: How to create and test custom hooks in React?
 tag:
   - React
-teaser: Hooks are functions that let you “hook into” React state and lifecycle
-  features from function components. React provides a few built-in hooks, but
-  sometimes you need to extend their functionality...
+teaser: Hooks are functions that allow you to “hook into” React state and
+  lifecycle features of functional components. React has a few built-in hooks,
+  but sometimes you need to extend their functionality...
 date: 2020-07-11T08:49:03.974Z
 ---
-Hooks are functions that let you “hook into” React state and lifecycle features from function components. 
+Hooks are functions that allow you to “hook into” React state and lifecycle features of functional components. 
 
-React provides a few built-in hooks, but sometimes you need to extend their functionality. 
+React has a few built-in hooks, but sometimes you need to extend their functionality. 
 
-That's when custom hooks come into play.
+That is when custom hooks come into play.
 
 ## Custom hooks
 
-**The custom hook** is a simple JavaScript function, which allows us to compose built-in hooks in order to reuse some logic between **FUNCTIONAL** React components (yeah, they do not work with class components).
+**The custom hook** is a simple JavaScript function that allows us to compose built-in hooks to reuse some logic between **FUNCTIONAL** React components (yes, they do not work with class components).
 
-The name of the custom hook should start with **use** to follow the hooks naming convention (all hooks in React start with this word, right?).
+The name of the custom hook should start with **use** to follow the naming convention for hooks (all hooks in React start with this word, right?).
 
 ## Creating custom hook
 
-**Important note:** before even thinking about creating a new custom hook, make sure to check if it is available somewhere on the internet. There's a high probability that you do not have to write them by yourself, but just to install an external library.
+**Important note:** before you even think about creating a new custom hook, you should check if it is available somewhere on the internet. There is a high probability that you will not have to write it by yourself, but just to install an external library.
 
-Imagine building `UserList` component, which fetches users from the API:
+Imagine building `UserList` component that fetches users from the API:
 
 ```tsx
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 interface IUser {
   id: number;
@@ -44,7 +44,7 @@ const UserList = () => {
   const fetchUsers = async () => {
     const {
       data,
-    } = await axios.get('http://some-example.endpoint/users');
+    } = await axios.get("https://some-example.endpoint/users");
     setUsers(data);
   };
 
@@ -62,15 +62,15 @@ export default UserList;
 
 Looks awesome, clean and short. 
 
-But what if we have to create one more `ProjectList` component which contains exactly the same logic, but fetches projects, not users? 
+But what if we have to create one more `ProjectList` component that contains exactly the same logic, but fetches projects, not users? 
 
-That leads to the code duplication and violating the **DRY(Don't Repeat Yourself)** principle.
+This leads to the code duplication and violates the **DRY(Don't Repeat Yourself)** principle.
 
-To avoid that, we will build `useFetch` custom hook (I highly recommend you to use library which provides you a ready-to-use solution, but just for the demo purposes, we build our own hook), which will allow us to replace `useState` and `useEffect` hook with just one line of code:
+To avoid this, we will build a custom `useFetch` hook (I strongly recommend to use the library that provides you with a ready-to-use solution, but only for demo purposes, we will build our own hook) that allows us to replace the `useState` and `useEffect` hook with only one line of code:
 
 ```typescript
-import { useState, useEffect } from 'react';
-import axios, { AxiosRequestConfig } from 'axios';
+import { useState, useEffect } from "react";
+import axios, { AxiosRequestConfig } from "axios";
 
 const useFetch = <T>(url: string, config?: AxiosRequestConfig): T[] => {
   const [data, setData] = useState<T[]>([]);
@@ -90,8 +90,10 @@ export default useFetch;
 And use it in the `UserList` component:
 
 ```tsx
+import useFetch from "./useFetch";
+
 const UserList = () => {
-  const users = useFetch<IUser>('http://some-example.endpoint/users');
+  const users = useFetch<IUser>("https://some-example.endpoint/users");
 
   return (
     <div>
@@ -107,33 +109,33 @@ Building an application this way leads to less code duplication and more reusabi
 
 ## Testing custom hook
 
-To test our custom hook `useFetch` we need some basic `jest` configuration.
+To test our custom hook `useFetch` we need a basic `jest` configuration.
 
-If you are not sure how to configure it, check out [this article](/2020-06-09-the-best-tools-for-react-development/), section **Jest + enzyme**.
+If you are not sure how to configure it, read [this article](/2020-06-09-the-best-tools-for-react-development/), **Jest + enzyme** section.
 
-Having it configured, the next step is to install some React hook testing utilities:
+Once it is configured, the next step is to install some React hook testing utilities:
 
 `yarn add @testing-library/react-hooks -D`
 
-That's it, we are ready to test our custom hook:
+That is it, we are ready to test our custom hook:
 
 ```typescript
-import axios from 'axios';
-import { renderHook } from '@testing-library/react-hooks';
+import axios from "axios";
+import { renderHook } from "@testing-library/react-hooks";
 
-import useFetch from './useFetch';
+import useFetch from "./useFetch";
 
 // 1
-jest.mock('axios');
+jest.mock("axios");
 
 // 2
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
-describe('useFetch hook tests', () => {
-  it('should properly fetch data', async () => {
-    const url = 'http://some-example.endpoint/users';
+describe("useFetch hook tests", () => {
+  it("should properly fetch data", async () => {
+    const url = "https://some-example.endpoint/users";
 
-    const users = [{ id: 1, name: 'John' }];
+    const users = [{ id: 1, name: "John" }];
   
     // 3
     mockedAxios.get.mockImplementation(() =>
@@ -152,12 +154,12 @@ describe('useFetch hook tests', () => {
 
 ```
 
-Let's review the test by dividing it to the steps:
+Let's review the test by splitting it to the steps:
 
 1. Mock **axios** in order to not make a real call to the API in your test.
-2. The type definition for **axios.get** doesn't include a **mockImplementation** property, so we have to type it correctly.
+2. The type definition for **axios.get** does not contain a **mockImplementation** property, so we have to type it correctly.
 3. Mock the **axios.get** and return the necessary data.
-4. Render **useFetch** hook by using **renderHook** function, which returns the **result** and **waitForNextUpdate**.
+4. Render the **useFetch** hook by using **renderHook** function, which returns the **result** and **waitForNextUpdate**.
 
    The **current** value or the **result** will reflect whatever is returned from the **callback** passed to **renderHook** (in our case **result.current** equals to the retuned **data** variable from the state (**const \[data, setData] = ...**).
 
@@ -165,17 +167,17 @@ Let's review the test by dividing it to the steps:
 
    Basically, the first time the hook renders, an empty array is being returned, as we did not manage to finish an API call yet.
 
-   The second render happens after we got the result from an API and updated state with it.
+   The second render happens after we receive the result from an API and update the state with it.
 
 ## Useful custom hooks
 
-In this chapter, I will share with you some custom hooks that I find very helpful.
+In this chapter, I will introduce some custom hooks that I find very helpful.
 
 #### Remote data fetching
 
 Of course, the first one is probably the most popular one.
 
-In this post, we build the very basic version of it, which could be extended with a lot of different features, like error handling, progress indicator, ability to use not only **axios**, but a different HTTP client.
+In this article, we built the basic version of it, which could be extended with a lot of different features, like error handling, progress indicator, the possibility to use not only **axios**, but also another HTTP client.
 
 For data fetching, I highly recommend you to take a look at the [`react-swr`](https://github.com/vercel/swr) library:
 
@@ -189,9 +191,9 @@ const { data } = useSWR("/api/data", fetcher)
 
 #### Window resize event
 
-Getting the current size of the browser window is a common need in a lot of applications.
+Determining the current size of the browser window is a common need in many applications.
 
-Instead of repeating yourself by copying the following snippet of code:
+Instead of repeating yourself by copying the following code snippet:
 
 ```typescript
 const handleResize = () => {
@@ -199,14 +201,14 @@ const handleResize = () => {
 };
 
 useEffect(() => {
-  window.addEventListener('resize', handleResize);
+  window.addEventListener("resize", handleResize);
   return () => {
-    window.removeEventListener('resize', handleResize);
+    window.removeEventListener("resize", handleResize);
   };
 }, []);
 ```
 
-We can use [`use-react-observer`](https://www.npmjs.com/package/use-resize-observer) library and get the same result with almost one-liner:
+We can use the [`use-react-observer`](https://www.npmjs.com/package/use-resize-observer) library and get the same result with almost a one-liner:
 
 ```typescript
 const { ref } = useResizeObserver({
@@ -218,14 +220,14 @@ const { ref } = useResizeObserver({
 
 #### Debouncing events
 
-Debouncing events is a very powerful optimization technique.
+Event debouncing is a very powerful optimization technique.
 
-``[`use-debounce`](https://www.npmjs.com/package/use-debounce) package provides us with an awesome hook we can use to any value that could be fast-changing.
+The [`use-debounce`](https://www.npmjs.com/package/use-debounce) package provides us with a fantastic hook that we can use for any value that could be fast-changing.
 
-In case if you need a simple implementation, you can use this:
+In case you need a simple implementation, you can use this code snippet:
 
 ```typescript
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 const useDebounce = (value, delay) => {
   const [debouncedValue, setDebouncedValue] = useState(value);
@@ -250,8 +252,8 @@ export default useDebounce;
 
 Custom react hooks allow you to compose built-in hooks and create some reusable logic based on them.
 
-They can extract the business logic out of the functional components, making them pure and not responsible for the things, they do not have to be.
+They can extract the business logic from the functional components, making them pure and not responsible for the things, they do not have to be.
 
-When building custom hooks, there is one important rule to remember - the name should always start with **use**.
+When building custom hooks, there is one important rule to follow - the name should always begin with **use**.
 
-This is not required, which means that you can choose any name you want and the hook will still be working, but it is better to follow the naming convention.
+This is not required, which means that you can choose any name you like and the hook will still work, but it is always better to follow the naming convention.
