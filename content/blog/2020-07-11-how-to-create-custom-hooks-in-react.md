@@ -90,7 +90,14 @@ export default useFetch;
 And use it in the `UserList` component:
 
 ```tsx
-import useFetch from "./useFetch";
+import React from 'react';
+
+import useFetch from './useFetch';
+
+interface IUser {
+  id: number;
+  name: string;
+}
 
 const UserList = () => {
   const users = useFetch<IUser>("https://some-example.endpoint/users");
@@ -115,7 +122,7 @@ If you are not sure how to configure it, read [this article](/2020-06-09-the-bes
 
 Once it is configured, the next step is to install some React hook testing utilities:
 
-`yarn add @testing-library/react-hooks -D`
+`yarn add @testing-library/react-hooks react-test-renderer -D`
 
 That is it, we are ready to test our custom hook:
 
