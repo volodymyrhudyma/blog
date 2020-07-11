@@ -90,9 +90,9 @@ export default useFetch;
 And use it in the `UserList` component:
 
 ```tsx
-import React from 'react';
+import React from "react";
 
-import useFetch from './useFetch';
+import useFetch from "./useFetch";
 
 interface IUser {
   id: number;
