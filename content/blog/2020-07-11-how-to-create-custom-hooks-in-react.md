@@ -1,5 +1,5 @@
 ---
-title: How to create custom hooks in React?
+title: How to create and test custom hooks in React?
 tag:
   - React
 teaser: Hooks are functions that let you “hook into” React state and lifecycle
@@ -19,7 +19,7 @@ That's when custom hooks come into play.
 
 The name of the custom hook should start with **use** to follow the hooks naming convention (all hooks in React start with this word, right?).
 
-## Creating a custom hook
+## Creating custom hook
 
 **Important note:** before even thinking about creating a new custom hook, make sure to check if it is available somewhere on the internet. There's a high probability that you do not have to write them by yourself, but just to install an external library.
 
@@ -105,8 +105,70 @@ const UserList = () => {
 
 Building an application this way leads to less code duplication and more reusability of the business logic.
 
+## Testing custom hook
+
+To test our custom hook `useFetch` we need some basic `jest` configuration.
+
+If you are not sure how to configure it, check out [this article](/2020-06-09-the-best-tools-for-react-development/), section **Jest + enzyme**.
+
+Having it configured, the next step is to install some React hook testing utilities:
+
+`yarn add @testing-library/react-hooks -D`
+
+That's it, we are ready to test our custom hook:
+
+```typescript
+import axios from 'axios';
+import { renderHook } from '@testing-library/react-hooks';
+
+import useFetch from './useFetch';
+
+// 1
+jest.mock('axios');
+
+// 2
+const mockedAxios = axios as jest.Mocked<typeof axios>;
+
+describe('useFetch hook tests', () => {
+  it('should properly fetch data', async () => {
+    const url = 'http://some-example.endpoint/users';
+
+    const users = [{ id: 1, name: 'John' }];
+  
+    // 3
+    mockedAxios.get.mockImplementation(() =>
+      Promise.resolve({ status: 200, data: users })
+    );
+
+    // 4
+    const { result, waitForNextUpdate } = renderHook(() => useFetch(url));
+    expect(result.current).toEqual([]);
+
+    await waitForNextUpdate();
+
+    expect(result.current).toEqual(users);
+  });
+});
+
+```
+
+Let's review the test by dividing it to the steps:
+
+1. Mock `axios` in order to not make a real call to the API in your test
+2. The type definition for `axios.get` doesn't include a `mockImplementation` property, so we have to type it correctly.
+3. Mock the `axios.get` and return the necessary data.
+4. Render `useFetch` hook by using `renderHook` function, which returns the `result` and `waitForNextUpdate`.
+
+   The `current` value or the `result` will reflect whatever is returned from the `callback` passed to `renderHook` (in our case `result.current` equals to the retuned `data` variable from the state (`const [data, setData] = ...`).
+
+   The `waitForNextUpdate` returns a Promise that resolves the next time the hook renders, commonly when the state is updated as the result of an asynchronous update.
+
+   Basically, the first time the hook renders, an empty array is being returned, as we did not manage to finish an API call yet.
+
+   The second render happens after we got the result from an API and updated state with it.
+
 ## Useful custom hooks
 
-## Testing custom hook
+In this chapter, I will share with you some custom hooks that I find very helpful.
 
 ## Summary
