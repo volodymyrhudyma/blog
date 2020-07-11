@@ -156,10 +156,8 @@ Let's review the test by dividing it to the steps:
 
 1. Mock **axios** in order to not make a real call to the API in your test.
 2. The type definition for **axios.get** doesn't include a **mockImplementation** property, so we have to type it correctly.
-
-Mock the **axios.get** and return the necessary data.
-
-1. Render **useFetch** hook by using **renderHook** function, which returns the **result** and **waitForNextUpdate**.
+3. Mock the **axios.get** and return the necessary data.
+4. Render **useFetch** hook by using **renderHook** function, which returns the **result** and **waitForNextUpdate**.
 
    The **current** value or the **result** will reflect whatever is returned from the **callback** passed to **renderHook** (in our case **result.current** equals to the retuned **data** variable from the state (**const \[data, setData] = ...**).
 
@@ -249,3 +247,11 @@ export default useDebounce;
 ```
 
 ## Summary
+
+Custom react hooks allow you to compose built-in hooks and create some reusable logic based on them.
+
+They can extract the business logic out of the functional components, making them pure and not responsible for the things, they do not have to be.
+
+When building custom hooks, there is one important rule to remember - the name should always start with **use**.
+
+This is not required, which means that you can choose any name you want and the hook will still be working, but it is better to follow the naming convention.
