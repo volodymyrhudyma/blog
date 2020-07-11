@@ -154,14 +154,14 @@ describe('useFetch hook tests', () => {
 
 Let's review the test by dividing it to the steps:
 
-1. Mock `axios` in order to not make a real call to the API in your test
-2. The type definition for `axios.get` doesn't include a `mockImplementation` property, so we have to type it correctly.
-3. Mock the `axios.get` and return the necessary data.
-4. Render `useFetch` hook by using `renderHook` function, which returns the `result` and `waitForNextUpdate`.
+1. Mock **axios** in order to not make a real call to the API in your test.
+2. The type definition for **axios.get** doesn't include a **mockImplementation** property, so we have to type it correctly.
+3. Mock the **axios.get** and return the necessary data.
+4. Render **useFetch** hook by using **renderHook** function, which returns the **result** and **waitForNextUpdate**.
 
-   The `current` value or the `result` will reflect whatever is returned from the `callback` passed to `renderHook` (in our case `result.current` equals to the retuned `data` variable from the state (`const [data, setData] = ...`).
+   The **current** value or the **result** will reflect whatever is returned from the **callback** passed to **renderHook** (in our case **result.current** equals to the retuned **data** variable from the state (**const \[data, setData] = ...**).
 
-   The `waitForNextUpdate` returns a Promise that resolves the next time the hook renders, commonly when the state is updated as the result of an asynchronous update.
+   The **waitForNextUpdate** returns a Promise that resolves the next time the hook renders, commonly when the state is updated as the result of an asynchronous update.
 
    Basically, the first time the hook renders, an empty array is being returned, as we did not manage to finish an API call yet.
 
