@@ -71,15 +71,15 @@ UI kits are reusable resource sets that could be used in your project. They allo
 
 This approach leads to reducing the time and costs of development.
 
-There is a lot of ready-to-use UI kits, such as:
+There is a lot of ready-to-use UI kits, such as
 
 * ``[`material-ui`](https://github.com/mui-org/material-ui)``
 
   Set of React components, designed and developed by Google
-* [`react-bootstrap`](https://github.com/react-bootstrap/react-bootstrap)``
+* [](https://github.com/react-bootstrap/react-bootstrap)``[`react-bootstrap`](https://github.com/react-bootstrap/react-bootstrap)``
 
   Bootstrap components, written in React
-* ``[`ant-design`](https://github.com/ant-design/ant-design/)``
+* ``[`ant-design`](https://github.com/ant-design/ant-design)``
 
   Enterprise-class UI designed for web applications
 
