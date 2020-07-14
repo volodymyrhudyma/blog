@@ -63,7 +63,63 @@ Using external libraries could save you a lot of development time if you do not 
 
 This is a perfect use case for building an **MVP** (Minimum Viable Product) or **PoC** (Proof of Concept).
 
-## Build UI kit
+## Build or use existing UI kit
+
+React is perfect for creating reusable components, which can be either developed from scratch or used existing.
+
+UI kits are reusable resource sets that could be used in your project. They allow creating an outstanding visual interface without having to design components from the very beginning.
+
+This approach leads to reducing the time and costs of development.
+
+There is a lot of ready-to-use UI kits, such as:
+
+* ``[`material-ui`](https://github.com/mui-org/material-ui)``
+
+  Set of React components, designed and developed by Google
+* [`react-bootstrap`](https://github.com/react-bootstrap/react-bootstrap)``
+
+  Bootstrap components, written in React
+* ``[`ant-design`](https://github.com/ant-design/ant-design/)``
+
+  Enterprise-class UI designed for web applications
+
+#### Pros of using the existing UI kit:
+
+* **speed of development**
+
+  Integrating UI kit into your project is relatively easy and you are allowed to use the existing components just after all necessary configurations.
+* **cross-browser and cross-device compatibility**
+
+  Good UI kits ensure cross-browser and cross-device compatibility out of the box.
+
+#### Cons of using the existing UI kit:
+
+* **harder customization**
+
+  In most cases, you are not allowed you to fully customize the code according to your needs.
+* **need to purchase the PRO version**
+
+  Not all existing UI kits give you all components for free.
+* **generic look**
+
+  Make sure it is acceptable for your project to look "standard"
+* **size**
+
+  UI kits tend to be big in size, therefore they may slow down your tiny project.
+
+In the vast majority of projects, we create custom designs, which are based on the company's style guide.
+
+It does not make sense to re-create the same components (Inputs, Checkboxes, Radio buttons) from scratch for every new project.
+
+A custom UI kit could be created based on the given style guide.
+
+This solution requires a lot of work at the beginning, but you will end up having a custom UI kit, which is highly customizable and can be used for any further projects.
+
+#### To sum up:
+
+Same, as for external libraries, using ready UI kits could save you a lot of development time, but would cost you harder customization.
+
+This is a perfect use case for building an **MVP** (Minimum Viable Product) or **PoC** (Proof of Concept).
 
 ## Use storybook
 
