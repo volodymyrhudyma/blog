@@ -2,7 +2,7 @@
 title: How to save up to 50% development time in React?
 tag:
   - React
-teaser: // TODO
+teaser: How to save up to 50% development time in React?
 date: 2020-07-14T17:22:31.632Z
 ---
 ## Prepare a boilerplate
