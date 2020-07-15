@@ -137,4 +137,30 @@ The storybook could be used as documentation for the project, especially when a 
 
 In summary, installing and configuring Storybook takes some time, but once this is done, your project will benefit greatly.
 
-## Use IDE hints
+## Use React snippets for your IDE
+
+If you use the VS Code, there is a great extension: [Reactjs code snippets](https://marketplace.visualstudio.com/items?itemName=xabikos.ReactSnippets) which could be installed to the IDE.
+
+> In order to install an extension you need to launch the Command Palette (**Ctrl + Shift + P** or **Cmd + Shift + P**) and type Extensions. There you have either the option to show the already installed snippets or install new ones.
+>
+> Or you can click on the link above and then click to the **Install** button at the top.
+
+After installation, go to the extension settings and check the list of available commands:
+
+![Reactjs available snippets](/img/screenshot-2020-07-15-at-17.57.17.png "Reactjs available snippets")
+
+And try to use them by simply typing and pressing Enter:
+
+![Reactjs snippets example usage](/img/jul-15-2020-17-56-14.gif "Reactjs snippets example usage")
+
+This means an enormous saving of time, as the skeleton does not have to be manually coded for each component.
+
+## Use Prettier (code formatter)
+
+The use of code formatters offers more significant advantages than just shortening development time, but it is definitely worth mentioning. 
+
+You do not have to worry about indentations or spacing, just concentrate on writing code and let the formatter do the rest.
+
+![Prettier in React](/img/jul-15-2020-18-13-26.gif "Prettier in React")
+
+## Summary
