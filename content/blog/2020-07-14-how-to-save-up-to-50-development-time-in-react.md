@@ -2,9 +2,17 @@
 title: How to save up to 50% development time in React?
 tag:
   - React
-teaser: How to save up to 50% development time in React?
+teaser: Custom software development can be expensive because the development
+  team creates an application from scratch. But there are a few things you can
+  do to reduce the cost of developing a custom software solution...
 date: 2020-07-14T17:22:31.632Z
 ---
+Custom software development can be expensive because the development team creates an application from scratch. 
+
+But there are a few things you can do to reduce the cost of developing a custom software solution.
+
+Let's go through them one by one.
+
 ## Prepare a boilerplate
 
 The first thing that will save a lot of time is to use a boilerplate.
@@ -12,6 +20,8 @@ The first thing that will save a lot of time is to use a boilerplate.
 It is not necessary to set up each new project from scratch, since the installation and configuration of all common libraries takes a lot of time
 
 The most popular React starter is [`create-react-app`](https://github.com/facebook/create-react-app). 
+
+![Create React App image](/img/screenshot-2020-07-15-at-18.24.42.png "Create React App image")
 
 I strongly recommend you to use it unless you are an experienced developer and can configure your own boilerplate that is customizable and meets your craziest needs.
 
@@ -57,7 +67,7 @@ When we have to meet tight deadlines, it's usually better to use external librar
 
   If you only want to use a few functions from the specific library, you must download the full library, which contains a lot of unneeded code.
 
-#### To sum up:
+#### Summary:
 
 Using external libraries can save you a lot of development time if you do not want to have full control over the code.
 
@@ -115,7 +125,7 @@ A custom UI kit could be created on the basis of the given style guide.
 
 This solution requires a lot of work in the beginning, but in the end you will have a tailor-made UI kit that is highly customizable and can be used for all further projects.
 
-#### To sum up:
+#### Summary:
 
 Just, as with external libraries, using ready-made UI kits could save you a lot of development time, but would cost you harder customization.
 
@@ -126,6 +136,8 @@ This is a perfect use case for building an **MVP** (Minimum Viable Product) or *
 **Storybook** is a tool that allows developers to create components in isolation in an isolated development environment.
 
 Any React component can be added to the storybook for showcasing purposes.
+
+![Storybook example](/img/sb.png "Storybook example")
 
 In larger teams, it is extremely useful for a team member to have a quick overview of all available components in one place. Then it is much easier to decide whether to use existing components or create your own.
 
@@ -161,6 +173,8 @@ The use of code formatters offers more significant advantages than just shorteni
 
 You do not have to worry about indentations or spacing, just concentrate on writing code and let the formatter do the rest.
 
-![Prettier in React](/img/jul-15-2020-18-13-26.gif "Prettier in React")
+![Prettier in React](/img/jul-15-2020-18-17-15.gif "Prettier in React")
 
-## Summary
+## Summary 
+
+There are a lot of tools that offer great help in speeding up the development process. In this article, from my point of view, we have reviewed the main ones.
