@@ -177,4 +177,8 @@ You do not have to worry about indentations or spacing, just concentrate on writ
 
 ## Summary 
 
-There are a lot of tools that offer great help in speeding up the development process. In this article, from my point of view, we have reviewed the main ones.
+Using React as a library for your application is a good choice and allows you to optimize the time spent on building the application. 
+
+One of the biggest advantages of React is its ecosystem. Almost everything you can think of exists within it and can be used in a few minutes.
+
+There are many instruments that are a great help in accelerating the development process. In this article, we have reviewed the most important of them.
