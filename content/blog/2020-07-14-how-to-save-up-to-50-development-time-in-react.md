@@ -7,37 +7,37 @@ date: 2020-07-14T17:22:31.632Z
 ---
 ## Prepare a boilerplate
 
-The first thing that will save a lot of time is using a boilerplate.
+The first thing that will save a lot of time is to use a boilerplate.
 
-There is no need to set up each new project from scratch, as it takes a lot of time to install and configure all common libraries.
+It is not necessary to set up each new project from scratch, since the installation and configuration of all common libraries takes a lot of time
 
 The most popular React starter is [`create-react-app`](https://github.com/facebook/create-react-app). 
 
-I strongly recommend you to use it unless you are an experienced developer and can configure your own boilerplate that is customizable and fulfills your craziest needs.
+I strongly recommend you to use it unless you are an experienced developer and can configure your own boilerplate that is customizable and meets your craziest needs.
 
-If you decide to build your own started pack, feel free to read [this article](/2020-06-09-the-best-tools-for-react-development/) that describes most of the tools you would want to have.
+If you decide to create your own started pack, feel free to read [this article](/2020-06-09-the-best-tools-for-react-development/) that describes most of the tools you will need.
 
 ## Use available libraries
 
-Most projects require "standard" features, like integration with an external API, displaying different lists, filtering or sorting them, etc.
+Most projects require "standard" features, such as integration with an external API, displaying different lists, filtering or sorting them, etc.
 
-We have to choose if we want to build them by ourselves or find ready-to-use solutions and integrate them into our project.
+We have to decide whether we want to build them by ourselves or find ready-to-use solutions and integrate them into our project.
 
-The option we end up with depends on the different factors.
+Which option we have in the end depends on the various factors.
 
-If we have to meet tight deadlines, usually it is better to use external libraries, **to save some time and effort**.
+When we have to meet tight deadlines, it's usually better to use external libraries, **to save some time and effort**.
 
 #### Pros of using external libraries:
 
 * **better quality** 
 
-  Usually, an external library is of better quality than you would write (probably), as it is the result of the combined efforts of thousands of people.
+  An external library is of better quality than you would (probably) write, as it is the result of the collective efforts of thousands of people.
 * **well-tested solution**
 
-  Usually, libraries are well-tested and have most of the edge-cases fixed.
+  Usually, the libraries are well-tested and have most of the edge-cases fixed.
 * **library familiarity**
 
-  It will take some time for new team members to get familiar with your custom code, however, they might have used the library before, so it will take much less effort to understand what is going on.
+  It will take some time for new team members to become familiar with your custom code. However, since they may have used the library before, it will take much less effort to understand what is going on.
 * **good documentation**
 
   If developers in your team are not familiar with the library, there is always good documentation they can refer to. Custom solutions, usually, lack the docs. 
@@ -46,39 +46,39 @@ If we have to meet tight deadlines, usually it is better to use external librari
 
 * **harder customization**
 
-  In most cases, you are not allowed you to fully customize the code according to your needs.
+  In most cases, you are not allowed to fully customize the code to your needs.
 * **security issues**
 
-  There is a chance that the library will use the dependency version, that has some security issues and you would not be able to change it until the author decides to do so. 
+  There is a chance that the library is using the dependency version, which has some security issues and you cannot change it until the author decides to do so. 
 * **licensing issues**
 
-  While most libraries are free, before downloading each one you have to carefully check if you are allowed to use it in the commercial project for free.
+  While most libraries are free, before downloading each one you must carefully check if you are allowed to use it for free in the commercial project.
 * **size**
 
-  If you need to use only a few functions from the specific library, you have to download the full library, which contains a lot of code you do not need.
+  If you only want to use a few functions from the specific library, you must download the full library, which contains a lot of unneeded code.
 
 #### To sum up:
 
-Using external libraries could save you a lot of development time if you do not want to have full control over the code.
+Using external libraries can save you a lot of development time if you do not want to have full control over the code.
 
 This is a perfect use case for building an **MVP** (Minimum Viable Product) or **PoC** (Proof of Concept).
 
 ## Build or use existing UI kit
 
-React is perfect for creating reusable components, which can be either developed from scratch or used existing.
+React is perfect for creating reusable components that can either be developed from scratch or used existing.
 
-UI kits are reusable resource sets that could be used in your project. They allow creating an outstanding visual interface without having to design components from the very beginning.
+UI kits are reusable sets of resources that could be used in your project. They allow you to create an outstanding visual interface without having to design components from the very beginning.
 
-This approach leads to reducing the time and costs of development.
+This approach leads to a reduction of time and cost of development.
 
-There is a lot of ready-to-use UI kits, such as
+There are a lot of ready-to-use UI kits available, such as:
 
 * ``[`material-ui`](https://github.com/mui-org/material-ui)``
 
   Set of React components, designed and developed by Google
 * [](https://github.com/react-bootstrap/react-bootstrap)``[`react-bootstrap`](https://github.com/react-bootstrap/react-bootstrap)``
 
-  Bootstrap components, written in React
+  Bootstrap components written in React
 * ``[`ant-design`](https://github.com/ant-design/ant-design)``
 
   Enterprise-class UI designed for web applications
@@ -87,40 +87,54 @@ There is a lot of ready-to-use UI kits, such as
 
 * **speed of development**
 
-  Integrating UI kit into your project is relatively easy and you are allowed to use the existing components just after all necessary configurations.
+  Integrating UI kit into your project is relatively simple and you are allowed to use the existing components just after all necessary configurations have been made.
 * **cross-browser and cross-device compatibility**
 
-  Good UI kits ensure cross-browser and cross-device compatibility out of the box.
+  Good UI kits ensure cross-browser and cross-device compatibility right from the start.
 
 #### Cons of using the existing UI kit:
 
 * **harder customization**
 
-  In most cases, you are not allowed you to fully customize the code according to your needs.
+  In most cases you are not allowed to fully customize the code to your needs.
 * **need to purchase the PRO version**
 
-  Not all existing UI kits give you all components for free.
+  Not all available UI kits give you all the components for free.
 * **generic look**
 
-  Make sure it is acceptable for your project to look "standard"
+  Make sure that it is acceptable for your project to look "standard"
 * **size**
 
-  UI kits tend to be big in size, therefore they may slow down your tiny project.
+  UI kits tend to be big, so they can slow down your tiny project.
 
-In the vast majority of projects, we create custom designs, which are based on the company's style guide.
+In the vast majority of projects, we create custom designs, based on the company's style guide.
 
-It does not make sense to re-create the same components (Inputs, Checkboxes, Radio buttons) from scratch for every new project.
+It does not make sense to re-create the same components (Inputs, Checkboxes, Radio buttons) from scratch for each new project.
 
-A custom UI kit could be created based on the given style guide.
+A custom UI kit could be created on the basis of the given style guide.
 
-This solution requires a lot of work at the beginning, but you will end up having a custom UI kit, which is highly customizable and can be used for any further projects.
+This solution requires a lot of work in the beginning, but in the end you will have a tailor-made UI kit that is highly customizable and can be used for all further projects.
 
 #### To sum up:
 
-Same, as for external libraries, using ready UI kits could save you a lot of development time, but would cost you harder customization.
+Just, as with external libraries, using ready-made UI kits could save you a lot of development time, but would cost you harder customization.
 
 This is a perfect use case for building an **MVP** (Minimum Viable Product) or **PoC** (Proof of Concept).
 
 ## Use storybook
+
+**Storybook** is a tool that allows developers to create components in isolation in an isolated development environment.
+
+Any React component can be added to the storybook for showcasing purposes.
+
+In larger teams, it is extremely useful for a team member to have a quick overview of all available components in one place. Then it is much easier to decide whether to use existing components or create your own.
+
+The other great advantage of using Storybook is that you are forced to produce a reusable code of high quality. 
+
+By writing components in isolation without being bound to specific application requirements, you make them reusable, which results in having a lot of independent building blocks in your application.
+
+The storybook could be used as documentation for the project, especially when a new person is introduced to the project.
+
+In summary, installing and configuring Storybook takes some time, but once this is done, your project will benefit greatly.
 
 ## Use IDE hints
