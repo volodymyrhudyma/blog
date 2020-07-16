@@ -35,7 +35,7 @@ We have to decide whether we want to build them by ourselves or find ready-to-us
 
 Which option we have in the end depends on the various factors.
 
-When we have to meet tight deadlines, it's usually better to use external libraries, **to save some time and effort**.
+When we have to meet tight deadlines, it's usually better to use external libraries, to save some time and effort.
 
 #### Pros of using external libraries:
 
@@ -106,7 +106,7 @@ There are a lot of ready-to-use UI kits available, such as:
 
 * **harder customization**
 
-  In most cases you are not allowed to fully customize the code to your needs.
+  In most cases, you are not allowed to fully customize the code to your needs.
 * **need to purchase the PRO version**
 
   Not all available UI kits give you all the components for free.
@@ -175,10 +175,10 @@ You do not have to worry about indentations or spacing, just concentrate on writ
 
 ![Prettier in React](/img/jul-15-2020-18-17-15.gif "Prettier in React")
 
-## Summary 
+## Summary
 
-Using React as a library for your application is a good choice and allows you to optimize the time spent on building the application. 
+Using React as a library for your application is a good choice and allows you to optimize the time spent on building the application.
 
-One of the biggest advantages of React is its ecosystem. Almost everything you can think of exists within it and can be used in a few minutes.
+One of the biggest advantages of React is its ecosystem. There are many instruments that are a great help in accelerating the development process. 
 
-There are many instruments that are a great help in accelerating the development process. In this article, we have reviewed the most important of them.
+In this article, we have reviewed, in my opinion, the most important of them.
