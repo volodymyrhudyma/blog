@@ -17,7 +17,7 @@ Let's go through them one by one.
 
 The first thing that will save a lot of time is to use a boilerplate.
 
-It is not necessary to set up each new project from scratch, since the installation and configuration of all common libraries takes a lot of time
+It is not necessary to set up each new project from scratch, since the installation and configuration of all common libraries takes a lot of time.
 
 The most popular React starter is [`create-react-app`](https://github.com/facebook/create-react-app). 
 
