@@ -15,7 +15,7 @@ So basically you are allowing users to use **your** **code** with **their own ty
 
 ## The problem
 
-Imaging the following situation: you build a `Select` component and it receives some props. One of these is `options`, which contains all available options that are displayed on the list.
+Imagine the following situation: you build a `Select` component and it receives some props. One of these is `options`, which contains all available options that are displayed on the list.
 
 Due to the fact that you are using TypeScript, it is necessary to specify a type for each `option` element:
 
