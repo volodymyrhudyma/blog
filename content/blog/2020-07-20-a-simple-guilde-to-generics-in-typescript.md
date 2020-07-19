@@ -129,7 +129,6 @@ const result = identity<number>(10);
 // Use type argument inference
 // Compiler sets the type automatically, based on the type of provided value
 const result = identity(10);
-
 ```
 
 **Important note:** while type argument inference can be a helpful tool to keep code short and readable, you may better need to explicitly pass the type arguments for more complex types, as the compiler may fail to guess the proper type.
@@ -158,7 +157,7 @@ const identity = <T extends ILength>(argument: T): T => {
 };
 ```
 
-## More complex examples
+## More complex example
 
 You can declare a type parameter that is constrained by another type parameter.
 
