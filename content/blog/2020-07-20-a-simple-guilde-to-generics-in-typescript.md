@@ -15,9 +15,9 @@ So basically you are allowing users to use **your** **code** with **their own ty
 
 ## The problem
 
-Consider the following situation: you are building a `Select` component and it receives some props. One of them is `options`, that contains all available options that are displayed on the list.
+Imaging the following situation: you build a `Select` component and it receives some props. One of these is `options`, which contains all available options that are displayed on the list.
 
-Due to the fact that you are using TypeScript, it is necessary to provide a type for each `option` item:
+Due to the fact that you are using TypeScript, it is necessary to specify a type for each `option` element:
 
 ```typescript
 type Option = {
@@ -26,9 +26,9 @@ type Option = {
 };
 ```
 
-So far the type looks good, but there is one potential problem: what if the `value` will contain a `number`?
+So far the type looks good, but there is a potential problem: What if the `value` contains a `number`?
 
-Quick and dirty ways of fixing this issue:
+Quick and dirty ways to fix this problem:
 
 ```typescript
 type Option = {
@@ -51,7 +51,7 @@ type Option = {
 };
 ```
 
-But this code leads to losing the type along the way, as when we will receive an `Option` (in `onChange` handler, for example) we would not be able to tell if the value is `string` or `number`.
+But this code causes the type to be lost on the way, because if we get an `option` (e.g. in the `onChange` handler), we cannot tell if the value is `string` or `number`.
 
 ## The solution
 
@@ -161,9 +161,9 @@ const identity = <T extends ILength>(argument: T): T => {
 
 You can declare a type parameter that is constrained by another type parameter.
 
-For example, let's create a function that gets a property value from an object by the name.
+For example, let's create a function that retrieves a property value from an object by name.
 
-We would like to ensure that we’re not accidentally grabbing a property that does not exist so we’ll place a constraint between the two types:
+We want to make sure that we do not accidentally grab a property that does not exist, so we will make a restriction between the two types:
 
 ```typescript
 const getProperty = <T, K extends keyof T>(obj: T, key: K): number => {
