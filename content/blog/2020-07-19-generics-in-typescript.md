@@ -1,11 +1,11 @@
 ---
-title: Generics in TypeScript
+title: A simple guide to generics in TypeScript
 tag:
   - JavaScript
 teaser: One of the main tools in the toolbox for producing reusable code is
   generic types. They allow the code to be used with a variety of types rather
   than a single one...
-date: 2020-07-19T16:23:55.982Z
+date: 2020-07-20T16:23:55.982Z
 ---
 One of the main tools in the toolbox for producing reusable code is generics.
 
