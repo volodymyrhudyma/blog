@@ -28,7 +28,7 @@ type Option = {
 
 So far the type looks good, but there is one potential problem: what if the `value` will contain a `number`?
 
-A quick way of fixing this issue:
+Quick and dirty ways of fixing this issue:
 
 ```typescript
 type Option = {
@@ -42,6 +42,12 @@ type Value = string | number;
 type Option = {
   name: string;
   value: Value;
+};
+
+// Or use any (do not even consider that!)
+type Option = {
+  name: string;
+  value: any;
 };
 ```
 
@@ -57,15 +63,13 @@ type Option<T> = {
   value: T;
 };
 
-// Or, to be more precise
-type Value = string | number
+// Or, to allow only string or number
+type Value = string | number;
 
-// Value can be string or number
 type Option<T extends Value> = {
   name: string;
   value: T;
 };
-
 ```
 
 Now, to use the proper type for the `value`:
@@ -93,3 +97,39 @@ const stringOptions: Option<string> = [
   },
 ];
 ```
+
+As you may have noticed, we use type variable to retrieve a type from the user and use it as a `value` type.
+
+## The identity function
+
+> **The identity function** is a function that will return back whatever is passed in.
+
+An example of an identity function without generics:
+
+```typescript
+const identity = (argument: number): number => {
+  return argument;
+}
+```
+
+ An example of an identity function with generics:
+
+```typescript
+const identity<T> = (argument: T): T => {
+  return argument;
+}
+```
+
+Once we have defined the identity function, we can use it in one of two ways:
+
+```typescript
+// Pass the type argument to the function
+const result = identity<number>(10);
+
+// Use type argument inference
+// Compiler sets the type automatically, based on the type of provided value
+const result = identity(10);
+
+```
+
+**Important note:** while type argument inference can be a helpful tool to keep code short and readable, you may better need to explicitly pass the type arguments for more complex types, as the compiler may fail to guess the proper type.
