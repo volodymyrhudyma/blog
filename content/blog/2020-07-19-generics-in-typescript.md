@@ -109,15 +109,15 @@ An example of an identity function without generics:
 ```typescript
 const identity = (argument: number): number => {
   return argument;
-}
+};
 ```
 
  An example of an identity function with generics:
 
 ```typescript
-const identity<T> = (argument: T): T => {
+const identity = <T>(argument: T): T => {
   return argument;
-}
+};
 ```
 
 Once we have defined the identity function, we can use it in one of two ways:
@@ -133,3 +133,52 @@ const result = identity(10);
 ```
 
 **Important note:** while type argument inference can be a helpful tool to keep code short and readable, you may better need to explicitly pass the type arguments for more complex types, as the compiler may fail to guess the proper type.
+
+What if the identity function should receive an array and return its length?
+
+```typescript
+const identity = <T>(argument: T[]): T[] => {
+  return argument.length;
+};
+
+// The second way
+const identity = <T>(argument: Array<T>): Array<T> => {
+  return argument.length;
+};
+
+// The third way
+// We do not limit function to arrays only
+// But allow to pass types which have length property
+interface ILength {
+  length: number;
+}
+
+const identity = <T extends ILength>(argument: T): T => {
+  return argument.length;
+};
+```
+
+## More complex examples
+
+You can declare a type parameter that is constrained by another type parameter.
+
+For example, let's create a function that gets a property value from an object by the name.
+
+We would like to ensure that we’re not accidentally grabbing a property that does not exist so we’ll place a constraint between the two types:
+
+```typescript
+const getProperty = <T, K extends keyof T>(obj: T, key: K): number => {
+  return obj[key];
+}
+
+const x = { a: 1, b: 2, c: 3 };
+
+getProperty(x, "a"); // returns "1"
+getProperty(x, "e"); // error: Argument of type "e" isn't assignable to "a" | "b" | "c".
+```
+
+## Summary
+
+The main reason to use generics in TypeScript is to enable types to act as parameters.
+
+It helps us to produce more reusable and maintainable code without any type duplicates.
