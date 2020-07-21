@@ -61,7 +61,7 @@ export default class BlogList extends React.Component {
     const groupedTOC = groupByTag(allPosts)
     return (
       <Layout>
-        <SEO title="JavaScript Tutorials For Everyone" />
+        <SEO title="JavaScript And ReactJS Tutorials With Best Practices" />
         <div
           style={{
             padding: "0 2rem 2rem 2rem",

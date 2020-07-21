@@ -6,8 +6,8 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `Become JavaScript expert`,
-    description: `Become an expert in JavaScript by learning from an experienced developer.`,
+    title: `Become JavaScript And ReactJS Expert`,
+    description: `Become an expert in JavaScript and ReactJS by reading the best and easiest tutorials you can find.`,
     author: `https://www.vhudyma-portfolio.eu`,
     siteUrl: `https://www.vhudyma-blog.eu`,
   },
@@ -105,7 +105,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `JavaScript Tutorials For Everyone`,
+        name: `JavaScript And ReactJS Tutorials With Best Practices`,
         short_name: `starter`,
         start_url: `/`,
         background_color: `#1ca086`,
