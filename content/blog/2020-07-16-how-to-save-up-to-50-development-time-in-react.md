@@ -2,6 +2,8 @@
 title: How to save up to 50% development time in React?
 tag:
   - React
+metaDescription: Learn how you can reduce the cost of developing a custom
+  software solution by up to 50% when using ReactJs.
 teaser: Custom software development can be expensive because the development
   team creates an application from scratch. But there are a few things you can
   do to reduce the cost of developing a custom software solution...
