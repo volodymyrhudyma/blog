@@ -2,6 +2,8 @@
 title: How to clone an object in JavaScript?
 tag:
   - JavaScript
+metaDescription: There are many different ways to copy an object in JavaScript.
+  Learn how to create a shallow and deep copy of an object.
 teaser: Due to the fact that objects are reference values in JavaScript, copying
   them is not as easy as just assigning to another variable. There are a lot of
   different ways to copy an object. Choosing the right method depends on what
