@@ -2,6 +2,9 @@
 title: Destructuring assignment in JavaScript
 tag:
   - JavaScript
+metaDescription: "Destructuring assignment is a special syntax that allows us to
+  retrieve pieces of arrays or objects and assign them to separate variables.
+  This approach can be used for: arrays, objects, and iterables."
 teaser: Destructuring assignment is a special syntax that allows us to retrieve
   pieces of arrays or objects and assign them to separate variables. This
   approach can be used for...
