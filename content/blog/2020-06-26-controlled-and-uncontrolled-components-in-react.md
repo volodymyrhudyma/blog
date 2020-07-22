@@ -2,6 +2,8 @@
 title: What are the controlled and uncontrolled components in React?
 tag:
   - React
+metaDescription: Learn the differences between Controlled and Uncontrolled
+  components in React. Find the advantages and disadvantages of both approaches.
 teaser: We, as software developers, often build different kinds of forms, which
   consist of different elements, like inputs, text areas, selects, etc. There
   are 2 ways of defining those elements, the controlled and uncontrolled way...
