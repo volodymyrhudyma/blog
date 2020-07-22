@@ -2,6 +2,9 @@
 title: A simple guide to generics in TypeScript
 tag:
   - JavaScript
+metaDescription: Learn how to use generic types in TypeScript to increase code
+  reusability. Generics allow the code to be used with a variety of types rather
+  than a single one.
 teaser: One of the main tools in the toolbox for producing reusable code is
   generic types. They allow the code to be used with a variety of types rather
   than a single one...
