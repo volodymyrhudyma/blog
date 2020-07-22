@@ -2,6 +2,9 @@
 title: Getting started with React
 tag:
   - React
+metaDescription: React is a declarative, efficient, and flexible JavaScript
+  library for building user interfaces. It lets you compose complex UIs from
+  small and isolated pieces of code called components.
 teaser: Having learned some JavaScript basics and intermediate concepts we're
   ready to kick off with advanced topics. Meet the React - a JavaScript library
   for building user interfaces.
