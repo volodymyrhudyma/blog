@@ -2,6 +2,8 @@
 title: Objects in JavaScript
 tag:
   - JavaScript
+metaDescription: Everything in JavaScript, except Primitives are Objects, that's
+  why it's the most important part of the language.
 teaser: Everything in JavaScript, except "Primitives" are "Objects", that's why
   it's the most important part of the language. Understanding objects is
   essential in order to become professional. Objects are collections of
