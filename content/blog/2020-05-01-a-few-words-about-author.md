@@ -2,13 +2,15 @@
 title: A few words about author
 tag:
   - Other
-teaser: Hello, my name is Volodymyr Hudyma, I am software developer for more
+metaDescription: Hello, my name is Volodymyr Hudyma, I am a software developer
+  for more than 5 years now. I was born and lived in Ukraine till I turned 17
+  and it occurred that there was a big decision ahead of me.
+teaser: Hello, my name is Volodymyr Hudyma, I am a software developer for more
   than 5 years now. I was born and lived in Ukraine till I turned 17 and it
   occurred that there was a big decision ahead of me...
 date: 2020-04-20T10:21:23.175Z
 ---
-
-Hello, my name is Volodymyr Hudyma, I am software developer for more than 5 years now.
+Hello, my name is Volodymyr Hudyma, I am a software developer for more than 5 years now.
 
 ## About me
 
@@ -68,4 +70,4 @@ Be well, do good deeds and keep in touch.
 
 Click here to read the [first article](/2020-04-26-getting-started-with-javascript).
 
-**_P.S. You are allowed to use any information provided in these blog for any of your needs._**
+***P.S. You are allowed to use any information provided in these blog for any of your needs.***
