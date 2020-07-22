@@ -2,6 +2,9 @@
 title: Template literals in JavaScript
 tag:
   - JavaScript
+metaDescription: In JavaScript, there are 3 ways of defining a string and one of
+  them is using template literals. Template literals are string literals that
+  allow embedding an expression.
 teaser: Template literals are string literals that allow embedding an
   expression. It is possible to use string interpolation and multi-line string
   features with them. In JavaScript, there are 3 ways of defining a string...
