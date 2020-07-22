@@ -2,6 +2,9 @@
 title: Optional chaining in JavaScript
 tag:
   - JavaScript
+metaDescription: "Optional chaining in JavaScript is a new error-proof way to
+  access nested object properties, even if an intermediate property doesn't
+  exist. "
 teaser: When dealing with complex objects or API responses it is a common thing
   to access nested properties. In order to make sure the property is reachable
   without any errors being thrown, we have to make sure each of its parent
