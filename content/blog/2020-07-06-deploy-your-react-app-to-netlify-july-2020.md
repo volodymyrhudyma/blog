@@ -2,6 +2,9 @@
 title: Deploy your React application to Netlify (Full Guide, July 2020)
 tag:
   - React
+metaDescription: Learn how to deploy and host ReactJs application with Netlify.
+  Netlify is a service that automates builds, deployments, and manages your
+  websites.
 teaser: Building a website is only the first step in the launching process.
   There are a few more steps to be taken before the site goes live, and one of
   them is the deployment on hosting...
