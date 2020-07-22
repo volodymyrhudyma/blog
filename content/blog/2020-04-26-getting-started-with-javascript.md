@@ -2,6 +2,9 @@
 title: Getting started with JavaScript
 tag:
   - JavaScript
+metaDescription: Javascript is a dynamically-typed, interpreted programming
+  language that was originally developed to add dynamic and interactive elements
+  to web pages. It runs both, on the client and server-side.
 teaser: Javascript is a dynamically-typed, interpreted programming language that
   was originally developed to add dynamic and interactive elements to web pages.
   It runs both, on the client and server-side...
