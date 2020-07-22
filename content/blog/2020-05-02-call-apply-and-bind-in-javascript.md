@@ -4,11 +4,11 @@ tag:
   - JavaScript
 metaDescription: 'Call, apply and bind are all methods within the function
   prototype, basically doing the same thing: allow us to call a function with
-  given "this" context and arguments, but in a different ways.'
+  given "this" context and arguments, but in different ways.'
 teaser: "\"Call\", \"apply\" and \"bind\" are all methods within the function
   prototype, basically doing the same thing: allow us to call a function with
-  given \"this\" context and arguments, but in a different ways. Let's see how
-  to use them..."
+  given \"this\" context and arguments, but in different ways. Let's see how to
+  use them..."
 date: 2020-05-02T10:53:21.451Z
 ---
 In this post we are going to discuss some famous JavaScript methods: `call`, `apply` and `bind`, see how they work, what are they used for, and how to use them properly in order to get things working.
