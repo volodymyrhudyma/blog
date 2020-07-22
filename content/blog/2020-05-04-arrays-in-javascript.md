@@ -2,6 +2,9 @@
 title: Arrays in JavaScript
 tag:
   - JavaScript
+metaDescription: Array in JavaScript is an ordered collection of values where
+  each value has its own position, known as an index. In an array index of the
+  first element is 0.
 teaser: Array in JavaScript is an ordered collection of values where each value
   has its own position, known as an index. In an array index of the first
   element is 0, index of the second element is 1, and so on. The difference
