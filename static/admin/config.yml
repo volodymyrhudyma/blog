@@ -24,6 +24,7 @@ collections:
           multiple: true,
           default: JavaScript,
         }
+      - { label: "Meta description", name: "metaDescription", widget: "string" }
       - { label: "Teaser", name: "teaser", widget: "markdown" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Body", name: "body", widget: "markdown" }

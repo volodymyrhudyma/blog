@@ -41,7 +41,10 @@ export default function Template({ data, path }) {
 
   return (
     <Layout>
-      <SEO title={frontmatter.title} description={frontmatter.teaser} />
+      <SEO
+        title={frontmatter.title}
+        description={frontmatter.metaDescription}
+      />
       <div
         style={{
           padding: "0 2rem 0.725rem 2rem",
@@ -125,6 +128,7 @@ export const pageQuery = graphql`
         title
         teaser
         date(formatString: "MMMM DD, YYYY")
+        metaDescription
       }
       fields {
         slug
