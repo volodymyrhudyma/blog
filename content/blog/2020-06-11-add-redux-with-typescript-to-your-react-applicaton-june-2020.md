@@ -2,6 +2,9 @@
 title: Add Redux with Typescript to your React applicaton (June 2020)
 tag:
   - React
+metaDescription: Configuring React application to use Redux can be confusing,
+  especially at the beginning, so here's a practical step-by-step guide how to
+  do it.
 teaser: Redux is a library that allows us to manage an application's state
   easily and predictably. Configuring React application to use Redux can be
   confusing, especially at the beginning, so here's a practical step-by-step
