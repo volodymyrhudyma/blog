@@ -2,6 +2,9 @@
 title: What is "key" in React and why do we need it?
 tag:
   - React
+metaDescription: Keys help React identify which items have changed, are added,
+  or are removed. Keys should be given to the elements inside the array to give
+  the elements a stable identity.
 teaser: Almost each web application contains lists of elements printed to the
   screen. If you render list elements without defining the "key" prop, you will
   receive a warning message in the console. Let's find out why...
