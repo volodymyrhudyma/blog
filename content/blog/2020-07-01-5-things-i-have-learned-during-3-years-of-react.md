@@ -2,6 +2,9 @@
 title: 5 things I have learned during 3 years of React
 tag:
   - React
+metaDescription: Read about some of my most important takeaways after 3 years of
+  working with ReactJs. Understanding them is one of the keys to becoming a good
+  programmer and a valuable person in the team.
 teaser: Recently it turned out, that I have been working with React for a little
   over 3 years, so now is the perfect time to summarize what I have learned
   during this adventure...
