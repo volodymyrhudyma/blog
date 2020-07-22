@@ -2,6 +2,9 @@
 title: Generators in JavaScript
 tag:
   - JavaScript
+metaDescription: Generator function - a special kind of function that can stop
+  midway and continue execution from the place where it stopped. Learn how to
+  use generators in JavaScript.
 teaser: Generator function - a special kind of function that can stop midway and
   continue execution from the place where it stopped. This function returns a
   generator object, which conforms to both - iterable and iterator protocol...
