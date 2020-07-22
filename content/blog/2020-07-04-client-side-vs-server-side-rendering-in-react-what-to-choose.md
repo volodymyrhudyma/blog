@@ -2,6 +2,8 @@
 title: Client-side vs server-side rendering. What to choose?
 tag:
   - JavaScript
+metaDescription: Server-Side Rendering vs. Client-Side Rendering. Learn what the
+  differences between the two approaches are and which one is the best.
 teaser: Server-side rendering has become increasingly popular in recent years.
   By using it, we can do many things that are not possible with a client-side
   rendering approach. However, it also has some drawbacks, like...
