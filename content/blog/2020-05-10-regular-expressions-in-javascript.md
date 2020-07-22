@@ -2,6 +2,8 @@
 title: Regular expressions in JavaScript
 tag:
   - JavaScript
+metaDescription: "Regular expression is a sequence of characters that define a
+  search pattern that is used to find occurrences in text and/or replace them. "
 teaser: Regular expression is a sequence of characters that define a search
   pattern that is used to find occurrences in text and/or replace them. There
   are 2 ways of defining regex in JavaScript...
