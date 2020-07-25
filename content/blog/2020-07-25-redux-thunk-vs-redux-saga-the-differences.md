@@ -276,4 +276,97 @@ More effects can be found in [the documentation](https://redux-saga.js.org/docs/
 
 ## Comparison
 
+Knowing the fundamentals of both approaches we are able to compare both of them.
+
+To begin with, we should not think of one approach as much better than another, as both libraries are doing their work extremely well.
+
+#### The advantages of Redux Thunk
+
+* **easy-to-learn**
+
+  Configuring and using the Redux Thunk library is a very easy process therefore it is perfect for beginners to learn the whole concept of middlewares.
+
+#### The advantages of Redux Saga
+
+* **easy-to-test**
+
+  Saga's Effect concept makes it extremely easy-to-test. When testing the Generator, all we need to do is to check that it yields the expected instruction, we do not have to mock anything.
+* **built-in throttling, debouncing, race conditions and cancellation**
+
+  Redux Saga a lot of built-in features, which Redux Thunk lacks. For example, you can throttle requests, debounce or cancel them and handle race conditions.
+
+## Testing
+
+In this chapter, we will compare the unit testing of code that uses Redux Thunk and Redux Saga.
+
+#### Redux Thunk test
+
+The code:
+
+```typescript
+export const fetchBuildingShape = () => {
+  return async (dispatch) => {
+    dispatch({
+      type: "FETCH_BUILDING_SHAPE",
+    });
+    try {
+      const { data } = await api.getBuildingShape();
+      dispatch({
+        type: "FETCH_BUILDING_SHAPE_FULFILLED",
+        payload: data,
+      });
+    } catch (error) {
+      dispatch({
+        type: "FETCH_BUILDING_SHAPE_REJECTED",
+        payload: error.toString(),
+      });
+    }
+  };
+};
+```
+
+The test:
+
+```typescript
+import thunk from 'redux-thunk';
+import configureMockStore from 'redux-mock-store';
+import MockAdapter from 'axios-mock-adapter';
+
+import axios from '@constants/axios';
+
+import { fetchBuildingShape } from './actions';
+import {
+  FETCH_BUILDING_SHAPE,
+  FETCH_BUILDING_SHAPE_FULFILLED,
+} from './action-types';
+
+const axiosMock = new MockAdapter(axios);
+
+const middlewares = [thunk];
+const mockStore = configureMockStore(middlewares);
+
+describe('fetchBuildingShape action', () => {
+  it('should fire FETCH_BUILDING_SHAPE_FULFILLED in case of success', () => {
+    const data = {
+      floors: 9,
+      elevators: 2,
+    };
+
+    axiosMock.onGet('/building').reply(200, data);
+
+    const expectedActions = [
+      { type: FETCH_BUILDING_SHAPE },
+      { type: FETCH_BUILDING_SHAPE_FULFILLED, payload: data },
+    ];
+
+    const store = mockStore();
+
+    return store.dispatch(fetchBuildingShape()).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
+});
+
+```
+
 ## Summary
