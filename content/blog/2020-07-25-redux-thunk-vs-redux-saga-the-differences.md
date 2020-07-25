@@ -96,7 +96,7 @@ function addTodo(payload) {
 }
 ```
 
-Action creators make actions partable and easy-to-test.
+Action creators make actions portable and easy-to-test.
 
 Having all the information above in mind, this is how the action creators look like when using Thunk:
 
@@ -145,7 +145,6 @@ export const fetchBuildingShape = () => {
     }
   };
 };
-
 ```
 
 We interact with an external API to fetch the shape of the building.
@@ -189,7 +188,24 @@ const importantNumber = 100;
 const store = createStore(rootReducer, applyMiddleware(thunk.withExtraArgument(importantNumber)));
 ```
 
+To pass multiple things, wrap them all into a single object:
+
+```typescript
+const importantNumber = 100;
+const importantString = "XcFdwq123";
+
+thunk.withExtraArgument({ importantNumber, importantString });
+```
+
+The reason that we need to use middleware such as Redux Thunk is because the **Redux store only supports synchronous data flow.**
+
 ## Redux Saga
+
+**Redux Saga** is a library that aims to make application side effects (i.e. asynchronous things like data fetching and impure things like accessing the browser cache) easier to manage, more efficient to execute, easy to test, and better at handling failures.
+
+Saga represents a single thread in your application that is responsible only for handling side-effects.
+
+The library is built on top of generators, which results in bringing some major benefits, like an ability to exit function and later re-enter.
 
 ## Comparison
 
