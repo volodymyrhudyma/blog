@@ -10,6 +10,12 @@ teaser: Today, the vast majority of applications have to deal with asynchronous
   them in an easy way...
 date: 2020-07-25T06:35:42.544Z
 ---
+Today, the vast majority of applications have to deal with asynchronous tasks.
+
+In React, there are 2 most popular libraries that allow you to handle them in an easy way: **Redux Thunk** and **Redux Saga**.
+
+But before we learn and compare them, we should remind ourselves of some basic concepts.
+
 ## Redux
 
 **Redux** is a library that allows us to manage the state of an application in a simple and predictable way.
