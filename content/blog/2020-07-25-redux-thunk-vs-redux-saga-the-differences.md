@@ -88,12 +88,10 @@ In our example above we have extended the action with `payload` that represents 
 Do you know what are **action creators**? They are just **functions that return actions** and nothing more:
 
 ```typescript
-function addTodo(payload) {
-  return {
-    type: "ADD_TODO",
-    payload,
-  };
-}
+const addTodo = (payload) => ({
+  type: "ADD_TODO",
+  payload,
+});
 ```
 
 Action creators make actions portable and easy-to-test.
@@ -206,6 +204,59 @@ The reason that we need to use middleware such as Redux Thunk is because the **R
 Saga represents a single thread in your application that is responsible only for handling side-effects.
 
 The library is built on top of generators, which results in bringing some major benefits, like an ability to exit function and later re-enter.
+
+**Important note:** we would not cover the installation process in this tutorial. Please, refer to [the documentation](https://redux-saga.js.org/).
+
+Consider the following example:
+
+```typescript
+// building/actions.ts
+export const fetchBuildingShapeAction = () => ({
+  type: "FETCH_BUILDING_SHAPE_REQUESTED",
+});
+
+// building/sagas.ts
+import { call, put, takeLatest } from "redux-saga/effects"
+
+function* fetchBuildingShapeSaga = () => {
+   yield put({
+     type: "FETCH_BUILDING_SHAPE_STARTED", 
+   });
+   try {
+      const data = yield call(api.getBuildingShape);
+      yield put({
+        type: "FETCH_BUILDING_SHAPE_FULFILLED", 
+        payload: data,
+      });
+   } catch (error) {
+      yield put({
+        type: "FETCH_BUILDING_SHAPE_REJECTED", 
+        error: error.toString(),
+      });
+   }
+};
+
+function* buildingSaga() {
+  yield takeLatest("FETCH_BUILDING_SHAPE_REQUESTED", fetchBuildingShapeSaga);
+}
+
+export default buildingSaga;
+```
+
+The sagas can be divided into 2 types (The terms refer to a way of organizing the control flow in Redux Saga):
+
+* saga watcher `buildingSaga`
+
+  It watches the dispatched actions and spawns a new task on every action.
+* saga worker `fetchBuildingShapeSaga`
+
+  It is responsible for handling side-effects.
+
+In our example, the watcher executes `fetchBuildingShapeSaga` function each time `FETCH_BUILDING_SHAPE_REQUESTED` action is dispatched. As simple as that.
+
+You may have noticed the following code:
+
+`import { call, put, takeLatest } from "redux-saga/effects"`
 
 ## Comparison
 
