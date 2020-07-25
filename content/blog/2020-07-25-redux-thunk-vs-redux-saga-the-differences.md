@@ -467,3 +467,7 @@ it("should fetch building shape", async () => {
 To read more about testing sagas refer to the [official documentation](https://redux-saga.js.org/docs/advanced/Testing.html).
 
 ## Summary
+
+In this article we have reviewed the two most popular approaches to handle asynchronous code in the Redux application and identified the advantages of each one.
+
+In conclusion, Redux Saga provides more functionality out-of-the-box, but requires more knowledge to be wisely used.
