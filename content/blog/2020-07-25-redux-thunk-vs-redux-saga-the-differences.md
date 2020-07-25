@@ -2,8 +2,12 @@
 title: Redux Thunk vs. Redux Saga. The differences.
 tag:
   - React
-metaDescription: Meta desc
-teaser: Teaser
+metaDescription: The most important differences between Redux Thunk and Redux
+  Saga. Get to know both approaches and choose the one that best suits your
+  project.
+teaser: Today, the vast majority of applications have to deal with asynchronous
+  tasks. In React, there are 2 most popular libraries that allow you to handle
+  them in an easy way...
 date: 2020-07-25T06:35:42.544Z
 ---
 ## Redux
