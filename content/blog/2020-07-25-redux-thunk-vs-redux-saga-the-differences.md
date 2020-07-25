@@ -328,35 +328,31 @@ export const fetchBuildingShape = () => {
 The test:
 
 ```typescript
-import thunk from 'redux-thunk';
-import configureMockStore from 'redux-mock-store';
-import MockAdapter from 'axios-mock-adapter';
+import thunk from "redux-thunk";
+import configureMockStore from "redux-mock-store";
+import MockAdapter from "axios-mock-adapter";
 
-import axios from '@constants/axios';
+import axios from "@constants/axios";
 
-import { fetchBuildingShape } from './actions';
-import {
-  FETCH_BUILDING_SHAPE,
-  FETCH_BUILDING_SHAPE_FULFILLED,
-} from './action-types';
+import { fetchBuildingShape } from "./actions";
 
 const axiosMock = new MockAdapter(axios);
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
-describe('fetchBuildingShape action', () => {
-  it('should fire FETCH_BUILDING_SHAPE_FULFILLED in case of success', () => {
+describe("fetchBuildingShape action", () => {
+  it("should fire FETCH_BUILDING_SHAPE_FULFILLED in case of success", () => {
     const data = {
       floors: 9,
       elevators: 2,
     };
 
-    axiosMock.onGet('/building').reply(200, data);
+    axiosMock.onGet("/building").reply(200, data);
 
     const expectedActions = [
-      { type: FETCH_BUILDING_SHAPE },
-      { type: FETCH_BUILDING_SHAPE_FULFILLED, payload: data },
+      { type: "FETCH_BUILDING_SHAPE" },
+      { type: "FETCH_BUILDING_SHAPE_FULFILLED", payload: data },
     ];
 
     const store = mockStore();
@@ -368,5 +364,106 @@ describe('fetchBuildingShape action', () => {
 });
 
 ```
+
+#### Redux Saga test
+
+The code:
+
+```typescript
+import { call, put, takeLatest } from "redux-saga/effects";
+
+export function* fetchBuildingShapeSaga = () => {
+   yield put({
+     type: "FETCH_BUILDING_SHAPE_STARTED", 
+   });
+   try {
+      const data = yield call(api.getBuildingShape);
+      yield put({
+        type: "FETCH_BUILDING_SHAPE_FULFILLED", 
+        payload: data,
+      });
+   } catch (error) {
+      yield put({
+        type: "FETCH_BUILDING_SHAPE_REJECTED", 
+        error: error.toString(),
+      });
+   }
+};
+
+function* buildingSaga() {
+  yield takeLatest("FETCH_BUILDING_SHAPE_REQUESTED", fetchBuildingShapeSaga);
+}
+
+export default buildingSaga;
+```
+
+The test:
+
+```typescript
+import { call, put } from 'redux-saga/effects';
+
+import { fetchBuildingShape } from "./actions";
+import api from "./api";
+
+it('should fetch building shape', () => {
+  const gen = fetchBuildingShapeSaga();
+
+  expect(gen.next().value).toEqual(
+    put({
+      type: 'FETCH_BUILDING_SHAPE_STARTED',
+    }),
+  );
+  expect(gen.next().value).toEqual(call(api.getBuildingShape));
+  expect(gen.next().value).toEqual(
+    put({
+      type: 'FETCH_BUILDING_SHAPE_FULFILLED',
+    }),
+  );
+  expect(gen.next().done).toBeTruthy();
+});
+```
+
+Although it may be useful to test each step of a saga, in practice this makes for brittle tests. Instead, it may be preferable to run the whole saga and assert that the expected effects have occurred:
+
+```typescript
+import axios from 'axios';
+import MockAdapter from 'axios-mock-adapter';
+import { runSaga } from 'redux-saga';
+
+import { fetchBuildingShape } from "./actions";
+import api from "./api";
+
+const axiosMock = new MockAdapter(axios);
+
+it("should fetch building shape", async () => {
+  const data = {
+    floors: 9,
+    elevators: 2,
+  };
+
+  axiosMock.onGet('/building').reply(200, data);
+
+  const dispatched = [];
+
+  await runSaga(
+    {
+      dispatch: action => dispatched.push(action),
+    },
+    fetchBuildingShapeSaga,
+  );
+
+  expect(dispatched).toEqual([
+    {
+      type: 'FETCH_BUILDING_SHAPE_STARTED',
+    },
+    {
+      type: 'FETCH_BUILDING_SHAPE_FULFILLED',
+      payload: data,
+    },
+  ]);
+});
+```
+
+To read more about testing sagas refer to the [official documentation](https://redux-saga.js.org/docs/advanced/Testing.html).
 
 ## Summary
