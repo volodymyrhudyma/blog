@@ -216,7 +216,7 @@ export const fetchBuildingShapeAction = () => ({
 });
 
 // building/sagas.ts
-import { call, put, takeLatest } from "redux-saga/effects"
+import { call, put, takeLatest } from "redux-saga/effects";
 
 function* fetchBuildingShapeSaga = () => {
    yield put({
@@ -256,7 +256,23 @@ In our example, the watcher executes `fetchBuildingShapeSaga` function each time
 
 You may have noticed the following code:
 
-`import { call, put, takeLatest } from "redux-saga/effects"`
+`import { call, put, takeLatest } from "redux-saga/effects";`
+
+To understand what do those functions mean, we have to understand the Effects in Redux Saga.
+
+#### The Effects
+
+In Redux Saga, sagas are implemented using generator functions. To express the saga logic, we yield plain JavaScript objects from the generator. We call those objects **Effects**.
+
+> An **Effect** is an object that contains some information to be interpreted by the middleware. It is an instruction for middleware to perform some operation.
+
+To create Effects, you have to use the functions provided by the library in the `redux-saga/effects` package.
+
+* `call(fn, ...args)` - creates an Effect description that instructs the middleware to call the function `fn` with `args` as arguments.
+* `put(action)` - creates an Effect description that instructs the middleware to schedule the dispatching of an action to the store. This dispatch may not be immediate since other tasks might lie ahead in the saga task queue or still be in progress.
+* `takeLatest(pattern, saga, ...args)` - forks a saga on each action dispatched to the store that matches pattern. And automatically cancels any previous saga task started previously if it's still running.
+
+More effects can be found in [the documentation](https://redux-saga.js.org/docs/api/).
 
 ## Comparison
 
