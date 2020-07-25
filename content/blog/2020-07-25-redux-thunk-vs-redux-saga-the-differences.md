@@ -8,11 +8,11 @@ date: 2020-07-25T06:35:42.544Z
 ---
 ## Redux
 
-**Redux** is a library that allows us to manage an application's state easily and predictably.
+**Redux** is a library that allows us to manage the state of an application in a simple and predictable way.
 
-The main concept behind the Redux is that the entire application's state is stored in one central location called **store**.
+The main concept behind Redux is that the entire state of an application state is stored in a central location called **store**.
 
-Each component of the React application (Redux could be used not only with React) can connect to that store and pull the necessary data out.
+Any component of the React application (Redux could be used not only with React) can connect to that store and extract the necessary data.
 
 To configure your React application with Redux you can refer to [this article](/2020-06-11-add-redux-with-typescript-to-your-react-applicaton-june-2020/).
 
@@ -68,9 +68,9 @@ To read more about middlewares in Redux: <https://redux.js.org/api/applymiddlewa
 
 This awesome middleware allows you to write action creators that **return a function instead of an action**. 
 
-The Thunk can be used to delay an action execution or execute specific actions only if a certain condition is met.
+The Thunk can be used to delay an action execution or execute specific actions only when a certain condition is met.
 
-To begin with, a plain Redux action looks the following way:
+To begin with, a plain Redux action looks like this:
 
 ```typescript
 {
@@ -149,9 +149,9 @@ We interact with an external API to fetch the shape of the building.
 
 The first action we dispatch is `FETCH_BUILDING_SHAPE` which tells us that `fetchBuildingShape` action creator has started its work, so we can show a loading indicator for the users.
 
-Inside of the `try` block we send a request to an API to get the data and dispatch `FETCH_BUILDING_SHAPE_FULFILLED` action to pass the received data to the store.
+Within the `try` block we send a request to an API to get the data and dispatch `FETCH_BUILDING_SHAPE_FULFILLED` action to pass the received data to the store.
 
-In case if the API request failed, the `FETCH_BUILDING_SHAPE_REJECTED` action is fired and information about the error is passed to the store.
+If the API request fails, the `FETCH_BUILDING_SHAPE_REJECTED` action is fired and information about the error is passed to the store.
 
 #### What is a thunk?
 
@@ -176,10 +176,10 @@ Remember me saying that the Thunk function returned by action creator received o
  Since 2.1.0, Redux Thunk supports injecting a custom argument using the `withExtraArgument` function:
 
 ```typescript
-import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
+import { createStore, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
 
-import rootReducer from './rootReducer';
+import rootReducer from "./rootReducer";
 
 const importantNumber = 100;
 
@@ -276,21 +276,23 @@ More effects can be found in [the documentation](https://redux-saga.js.org/docs/
 
 ## Comparison
 
-Knowing the fundamentals of both approaches we are able to compare both of them.
+Since we know the basics of both approaches, we are able to compare them.
 
-To begin with, we should not think of one approach as much better than another, as both libraries are doing their work extremely well.
+First of all, we should not think that one approach is so much better than the other, because both libraries do their job very well.
 
 #### The advantages of Redux Thunk
 
 * **easy-to-learn**
 
-  Configuring and using the Redux Thunk library is a very easy process therefore it is perfect for beginners to learn the whole concept of middlewares.
+  Configuring and using the Redux Thunk library is a very simple process, so it is perfect for beginners to learn the whole concept of middleware.
+
+  If you need something to get started quickly, Redux Thunk may be the best choice.
 
 #### The advantages of Redux Saga
 
 * **easy-to-test**
 
-  Saga's Effect concept makes it extremely easy-to-test. When testing the Generator, all we need to do is to check that it yields the expected instruction, we do not have to mock anything.
+  Saga's Effect concept makes it extremely easy-to-test. When testing the Generator, all we need to do is to check that it yields the expected instruction.
 * **built-in throttling, debouncing, race conditions and cancellation**
 
   Redux Saga a lot of built-in features, which Redux Thunk lacks. For example, you can throttle requests, debounce or cancel them and handle race conditions.
@@ -362,7 +364,6 @@ describe("fetchBuildingShape action", () => {
     });
   });
 });
-
 ```
 
 #### Redux Saga test
@@ -400,23 +401,24 @@ export default buildingSaga;
 The test:
 
 ```typescript
-import { call, put } from 'redux-saga/effects';
+import { call, put } from "redux-saga/effects";
 
 import { fetchBuildingShape } from "./actions";
 import api from "./api";
 
-it('should fetch building shape', () => {
+it("should fetch building shape", () => {
   const gen = fetchBuildingShapeSaga();
 
   expect(gen.next().value).toEqual(
     put({
-      type: 'FETCH_BUILDING_SHAPE_STARTED',
+      type: "FETCH_BUILDING_SHAPE_STARTED",
     }),
   );
+  // We do not have to mock api.getBuildingShape
   expect(gen.next().value).toEqual(call(api.getBuildingShape));
   expect(gen.next().value).toEqual(
     put({
-      type: 'FETCH_BUILDING_SHAPE_FULFILLED',
+      type: "FETCH_BUILDING_SHAPE_FULFILLED",
     }),
   );
   expect(gen.next().done).toBeTruthy();
@@ -426,9 +428,9 @@ it('should fetch building shape', () => {
 Although it may be useful to test each step of a saga, in practice this makes for brittle tests. Instead, it may be preferable to run the whole saga and assert that the expected effects have occurred:
 
 ```typescript
-import axios from 'axios';
-import MockAdapter from 'axios-mock-adapter';
-import { runSaga } from 'redux-saga';
+import axios from "axios";
+import MockAdapter from "axios-mock-adapter";
+import { runSaga } from "redux-saga";
 
 import { fetchBuildingShape } from "./actions";
 import api from "./api";
@@ -441,7 +443,7 @@ it("should fetch building shape", async () => {
     elevators: 2,
   };
 
-  axiosMock.onGet('/building').reply(200, data);
+  axiosMock.onGet("/building").reply(200, data);
 
   const dispatched = [];
 
@@ -454,10 +456,10 @@ it("should fetch building shape", async () => {
 
   expect(dispatched).toEqual([
     {
-      type: 'FETCH_BUILDING_SHAPE_STARTED',
+      type: "FETCH_BUILDING_SHAPE_STARTED",
     },
     {
-      type: 'FETCH_BUILDING_SHAPE_FULFILLED',
+      type: "FETCH_BUILDING_SHAPE_FULFILLED",
       payload: data,
     },
   ]);
@@ -468,6 +470,6 @@ To read more about testing sagas refer to the [official documentation](https://r
 
 ## Summary
 
-In this article we have reviewed the two most popular approaches to handle asynchronous code in the Redux application and identified the advantages of each one.
+In this article we have reviewed the two most popular approaches to handle asynchronous code in Redux applications and identified the advantages of each one.
 
-In conclusion, Redux Saga provides more functionality out-of-the-box, but requires more knowledge to be wisely used.
+In summary, Redux Saga provides more functionality out-of-the-box, but requires more knowledge to be wisely used.
