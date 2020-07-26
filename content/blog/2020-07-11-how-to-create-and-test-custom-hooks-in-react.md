@@ -1,5 +1,6 @@
 ---
 title: How to create and test custom hooks in React?
+popular: true
 tag:
   - React
 metaDescription: Hooks are functions that allow you to “hook into” React state
