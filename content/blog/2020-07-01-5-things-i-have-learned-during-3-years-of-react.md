@@ -1,5 +1,6 @@
 ---
 title: 5 things I have learned during 3 years of React
+popular: true
 tag:
   - React
 metaDescription: Read about some of my most important takeaways after 3 years of
