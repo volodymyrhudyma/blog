@@ -1,5 +1,6 @@
 ---
 title: The best tools for React development (June 2020)
+popular: true
 tag:
   - React
 metaDescription: There are many tools that will help you to speed up the
