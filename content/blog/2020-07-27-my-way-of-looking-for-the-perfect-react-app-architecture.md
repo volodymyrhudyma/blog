@@ -22,13 +22,25 @@ The first methodology I used has nothing to do with good architectural principle
 
 Due to the lack of experience in the front-end area, all my components ended up in a directory called `components`.
 
-Of course, these components had to be styled, so all my styles lived in a separate directory - `styles`.
+Of course, these components had to be styled, so all my CSS files lived in a separate directory - `styles`.
 
 Various configurations and utils were hardcoded into the components, which quickly grew in size and could not be maintained.
 
 // Screenshot
 
-## CSS in JS
+## CSS-in-JS
+
+A few months later, after we were tired of maintaining a bunch of CSS code with global styles that were constantly overlapping, long selectors with strange names and lots of dead code, we decided to try a new CSS-in JS approach that would eliminate these problems. 
+
+Therefore a new library called `styled-components` was installed. 
+
+Of course, we had to adapt our architecture to the new approach, so we decided to create a separate folder for each component that contained 2 files: the component itself and its styles. 
+
+This way, we did not have to browse through all the files within the `styles` directory to find styles for a specific component.
+
+Seemed much better.
+
+// Screenshot
 
 ## UI Kit
 
