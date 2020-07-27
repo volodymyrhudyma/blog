@@ -34,7 +34,7 @@ A few months later, after we were tired of maintaining a bunch of CSS code with 
 
 Therefore a new library called `styled-components` was installed. 
 
-Of course, we had to adapt our architecture to the new approach, so we decided to create a separate folder for each component that contained 2 files: the component itself and its styles. 
+Of course, the architecture had to be adapted to the new approach, so it was decided to create a separate folder for each component, containing 2 files: the component itself and its styles. 
 
 This way, we did not have to browse through all the files within the `styles` directory to find styles for a specific component.
 
