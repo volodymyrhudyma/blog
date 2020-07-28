@@ -62,7 +62,7 @@ We were confronted with many problems related to the fact that we did not have g
 
 After we had spent some time doing research, Redux seemed like a good choice.
 
-The installation and configuration takes some time, especially if you have never used it before, brings a lot of benefits. 
+The installation and configuration take some time, especially if you have never used it before, brings a lot of benefits. 
 
 A new application structure was as follows:
 
@@ -130,7 +130,7 @@ That is why I ended up completely agreeing with Dan Abramov's statement.
 
 I no longer spend as much time selecting the perfect design methodology as I did even a few months ago. 
 
-Requirements change and there is a great chance that the "perfect" architecture will be rewritten/refactored/improved for the "better" one, and this process is constant.
+Requirements change and there is a great chance that the "perfect" architecture will be rewritten/refactored/improved for the "better" one, and this is a never-ending story.
 
 Start with the simplest directory structure you think is appropriate, create your components, deliver new functionality, keep the customer happy, but do not spend too much time thinking about the potential architecture problems you will most likely never face.
 
@@ -138,4 +138,8 @@ Start with the simplest directory structure you think is appropriate, create you
 
 ## Summary
 
-Even if you start with a bad directory structure, it is relatively easy to change the architecture approach into something that meets your requirements best.
+In summary, I cannot say that one architecture is better than another, because all of them have their strong and weak sides.
+
+It is about being able to choose the one that is best suited to your situation. 
+
+While you may have the misfortune to choose the inappropriate design with React, it's not that hard to change the approach.
