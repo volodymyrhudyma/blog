@@ -1,0 +1,28 @@
+_id: c99b2dd0-d076-11ea-aca2-29dd26cf0179
+name: americanman
+message: >-
+  Nice article, can you look in my questions?
+
+
+  what even is a hook?
+
+  Is it for javascript or what a beast it is?
+
+  is it a new syntax JS world?
+
+  just look at it:
+
+  const [count, setCount] = useState(0);
+
+  So we have array with two values in it.
+
+  then we have useState function with passed 0 argument;
+
+  so it looks like the function returns some value and add assigns it to count?
+
+  but then later on you can use setState(argument) and assign some value to
+  count, how is that works?
+
+  Thank you.
+slug: /2020-07-11-how-to-create-and-test-custom-hooks-in-react/
+date: '2020-07-28T02:05:20.105Z'
