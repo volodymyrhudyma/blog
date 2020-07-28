@@ -1,5 +1,5 @@
 ---
-title: My way of looking for the perfect React app architecture
+title: My way of looking for the perfect React architecture
 tag:
   - React
 metaDescription: The best React application architecture. This article describes
@@ -8,7 +8,7 @@ teaser: 'When someone asked Dan Abramov what is an optimal structure for React
   applications, he replied: "Move files around until it feels right". I thought
   it was a joke at first, and started trying different architectural approaches
   until I realized he was absolutely right...'
-date: 2020-07-27T18:11:58.078Z
+date: 2020-07-29T18:11:58.078Z
 ---
 When someone asked Dan Abramov what is an optimal structure for React applications, he replied: "Move files around until it feels right".
 
