@@ -14,7 +14,7 @@ When someone asked Dan Abramov what is an optimal structure for React applicatio
 
 I thought it was a joke at first, and started trying different architectural approaches until I realized he was absolutely right.
 
-The whole journey to understand such a simple concept took almost 3 years.
+The whole journey to understand such a simple concept took about 3 years.
 
 ## The Oldie
 
