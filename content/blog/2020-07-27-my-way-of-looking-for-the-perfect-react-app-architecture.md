@@ -70,6 +70,22 @@ A new application structure was as follows:
 
 ## Containers/Presentational Components
 
+Shortly after we added Redux to the project, we started connecting components to the store, and at first, it felt fine, but after a few days some of the drawbacks became apparent.
+
+The components connected to the store were responsible for both, the retrieval and presentation of the data.
+
+We lacked reusability because the components could only be reused under exactly the same circumstances.
+
+So, the separation of data-fetching and rendering concerns has been made. 
+
+The components were divided into 2 types: containers and presentational. 
+
+The container components were responsible for interacting with an API and extracting data from the store, and the presentation components were rendering the layout based on the props they received.
+
+We have made our presentational components reusable.
+
+// Screenshot 
+
 ## Atomic Design
 
 ## The Random
