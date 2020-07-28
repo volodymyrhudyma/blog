@@ -88,6 +88,30 @@ We have made our presentational components reusable.
 
 ## Atomic Design
 
+Once upon a time, I was reading React tutorials and stumbled upon a new design methodology named **Atomic Design**.
+
+The idea is to separate the components in atoms, molecules, organisms, templates and pages. Each of the separated parts has its own responsibilities, let's find out what are they.
+
+#### Atoms
+
+Atoms are the smallest possible components, such as buttons, inputs, titles, etc.
+
+#### Molecules
+
+Molecules are the composition of one or more components of atoms. They can have their own properties and create functionalities by using atoms, which don’t have any function or action by themselves.
+
+#### Organisms
+
+Organisms are the combination of molecules that work together or molecules with atoms. At this level, the components begin to have the final shape, but they are still ensured to be independent, portable and reusable enough to be reusable in any content.
+
+#### Templates
+
+Templates create relationships between organisms and other components. This is where we begin to see the layout in action.
+
+#### Pages
+
+These are instances of templates where “gaps” are filled with content, resulting in the final view.
+
 ## The Random
 
 ## Summary
