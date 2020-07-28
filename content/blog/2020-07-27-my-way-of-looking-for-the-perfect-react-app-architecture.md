@@ -54,10 +54,6 @@ Components like inputs, labels, tables were placed there.
 
 // Screenshot
 
-## Unit tests
-
-// Screenshot
-
 ## Redux
 
 Managing state in a medium to large React application becomes difficult without a library that provides an easy way to do it. 
