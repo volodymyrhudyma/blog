@@ -112,6 +112,10 @@ Templates create relationships between organisms and other components. This is w
 
 These are instances of templates where “gaps” are filled with content, resulting in the final view.
 
+![Atomic design image](/img/atomic-design-process.png "Atomic design image")
+
+This design approach helps us to build a good project structure that is easy to maintain and easy to understand, if it is set up correctly.
+
 ## The Random
 
 ## Summary
