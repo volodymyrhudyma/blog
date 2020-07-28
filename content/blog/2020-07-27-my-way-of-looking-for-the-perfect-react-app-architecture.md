@@ -54,7 +54,11 @@ Components like inputs, labels, tables were placed there.
 
 // Screenshot
 
-## With Redux
+## Unit tests
+
+// Screenshot
+
+## Redux
 
 Managing state in a medium to large React application becomes difficult without a library that provides an easy way to do it. 
 
@@ -116,6 +120,26 @@ These are instances of templates where “gaps” are filled with content, resul
 
 This design approach helps us to build a good project structure that is easy to maintain and easy to understand, if it is set up correctly.
 
+// Screenshot
+
 ## The Random
 
+After using Atomic Design for a while, it was obvious that breaking up large projects into these small parts was an efficient way to work. 
+
+But is it a good method for smaller projects? Does not this make the development process more complex? 
+
+I constantly had the feeling that many things were too complicated for this simple work they had to do. 
+
+That is why I ended up completely agreeing with Dan Abramov's statement.
+
+I no longer spend as much time selecting the perfect design methodology as I did even a few months ago. 
+
+Requirements change and there is a great chance that the "perfect" architecture will be rewritten/refactored/improved for the "better" one, and this process is constant.
+
+Start with the simplest directory structure you think is appropriate, create your components, deliver new functionality, keep the customer happy, but do not spend too much time thinking about the potential architecture problems you will most likely never face.
+
+// Screenshot
+
 ## Summary
+
+Even if you start with a bad directory structure, it is relatively easy to change the architecture approach into something that meets your requirements best.
