@@ -68,7 +68,7 @@ The installation and configuration take some time, especially if you have never 
 
 A new application structure was as follows:
 
-// Screenshot
+![Redux screenshot](/img/screenshot-2020-07-29-at-17.12.11.png "Redux screenshot")
 
 ## Containers/Presentational Components
 
@@ -86,7 +86,7 @@ The container components were responsible for interacting with an API and extrac
 
 We have made our presentational components reusable.
 
-// Screenshot 
+![Containers/presentational architecture screenshot](/img/screenshot-2020-07-29-at-17.16.07.png "Containers/presentational architecture screenshot")
 
 ## Atomic Design
 
@@ -118,9 +118,9 @@ These are instances of templates where “gaps” are filled with content, resul
 
 This design approach helps us to build a good project structure that is easy to maintain and easy to understand, if it is set up correctly.
 
-// Screenshot
+![Atomic design screenshot](/img/screenshot-2020-07-29-at-17.21.44.png "Atomic design screenshot")
 
-## The Random
+## The current
 
 After using Atomic Design for a while, it was obvious that breaking up large projects into these small parts was an efficient way to work. 
 
