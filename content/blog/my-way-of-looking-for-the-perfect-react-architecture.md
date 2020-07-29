@@ -52,7 +52,9 @@ We came up with the solution to create a separate folder for reusable components
 
 Components like inputs, labels, tables were placed there.
 
-// Screenshot
+This was also a good time to introduce unit tests into the application.
+
+![Ui-kit screenshot](/img/screenshot-2020-07-29-at-17.03.37.png "Ui-kit screenshot")
 
 ## Redux
 
