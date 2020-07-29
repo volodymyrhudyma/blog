@@ -26,7 +26,7 @@ Of course, these components had to be styled, so all my CSS files lived in a sep
 
 Various configurations and utils were hardcoded into the components, which quickly grew in size and could not be maintained.
 
-// Screenshot
+![The oldie screenshot](/img/screenshot-2020-07-29-at-16.53.17.png "The oldie screenshot")
 
 ## CSS-in-JS
 
