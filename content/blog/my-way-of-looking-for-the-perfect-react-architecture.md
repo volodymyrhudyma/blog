@@ -30,7 +30,7 @@ Various configurations and utils were hardcoded into the components, which quick
 
 ## CSS-in-JS
 
-A few months later, after we were tired of maintaining a bunch of CSS code with global styles that were constantly overlapping, long selectors with strange names and lots of dead code, we decided to try a new CSS-in JS approach that would eliminate these problems. 
+A few months later, after we (me and the team) got tired of maintaining a bunch of CSS code with global styles that were constantly overlapping, long selectors with strange names and lots of dead code, we decided to try a new CSS-in JS approach that would eliminate these problems. 
 
 Therefore a new library called `styled-components` was installed. 
 
@@ -72,7 +72,7 @@ A new application structure was as follows:
 
 ## Containers/Presentational Components
 
-Shortly after we added Redux to the project, we started connecting components to the store, and at first, it felt fine, but after a few days some of the drawbacks became apparent.
+Shortly after we added Redux to the project, we started connecting components to the store, and at first, it felt fine, but after a few days, some of the drawbacks became apparent.
 
 The components connected to the store were responsible for both, the retrieval and presentation of the data.
 
@@ -80,7 +80,7 @@ We lacked reusability because the components could only be reused under exactly 
 
 So, the separation of data-fetching and rendering concerns has been made. 
 
-The components were divided into 2 types: containers and presentational. 
+The components were divided into 2 types: **containers** and **presentational**. 
 
 The container components were responsible for interacting with an API and extracting data from the store, and the presentation components were rendering the layout based on the props they received.
 
@@ -116,7 +116,7 @@ These are instances of templates where “gaps” are filled with content, resul
 
 ![Atomic design image](/img/atomic-design-process.png "Atomic design image")
 
-This design approach helps us to build a good project structure that is easy to maintain and easy to understand, if it is set up correctly.
+This design approach helps us to build a good project structure that is easy to maintain and easy to understand if it is set up correctly.
 
 ![Atomic design screenshot](/img/screenshot-2020-07-29-at-17.21.44.png "Atomic design screenshot")
 
@@ -140,8 +140,6 @@ Start with the simplest directory structure you think is appropriate, create you
 
 ## Summary
 
-In summary, I cannot say that one architecture is better than another, because all of them have their strong and weak sides.
+In summary, it is not correct to say that one architecture is better than another, because all of them have their strong and weak sides.
 
-It is about being able to choose the one that is best suited to your situation. 
-
-While you may have the misfortune to choose the inappropriate design with React, it's not that hard to change the approach.
+It is about being able to choose the one that is best suited to your situation.
