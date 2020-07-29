@@ -40,7 +40,7 @@ This way, we did not have to browse through all the files within the `styles` di
 
 Seemed much better.
 
-// Screenshot
+![CSS-in-JS screenshot](/img/screenshot-2020-07-29-at-16.58.53.png "CSS-in-JS screenshot")
 
 ## UI Kit
 
