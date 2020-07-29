@@ -136,7 +136,7 @@ Requirements change and there is a great chance that the "perfect" architecture 
 
 Start with the simplest directory structure you think is appropriate, create your components, deliver new functionality, keep the customer happy, but do not spend too much time thinking about the potential architecture problems you will most likely never face.
 
-// Screenshot
+![The current screenshot](/img/screenshot-2020-07-29-at-17.28.50.png "The current screenshot")
 
 ## Summary
 
