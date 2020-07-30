@@ -1,0 +1,29 @@
+_id: bf7e0a60-d270-11ea-afae-c5664ba14479
+name: Author
+message: >-
+  Hey, americanman! 
+
+
+  Thanks for leaving a comment, I will try to answer your questions. 
+
+  To begin with, hook is a simple function that lets you use state and other
+  React features in functional component.
+
+  It is React-specific feature, not really a new syntax. Hook is just a simple
+  JavaScript function.
+
+
+  When you pass "0" to the "useState" hook, it will return "0" as the first
+  element of an array which will get destructured into "count", and "setCount"
+  function (you can name it as you want, it's just a good practice to follow the
+  naming convention) as the second element.
+
+
+  Later you won't have to use "setState", but "setCount" which calls "setState"
+  internally.
+
+
+  I recommend you to read the documentation, it's awesome:
+  https://reactjs.org/docs/hooks-intro.html.
+slug: /2020-07-11-how-to-create-and-test-custom-hooks-in-react/
+date: '2020-07-30T14:27:08.247Z'

@@ -70,7 +70,7 @@ A new application structure was as follows:
 
 ![Redux screenshot](/img/screenshot-2020-07-29-at-17.12.11.png "Redux screenshot")
 
-## Containers/Presentational Components
+## Containers and Presentational Components
 
 Shortly after we added Redux to the project, we started connecting components to the store, and at first, it felt fine, but after a few days, some of the drawbacks became apparent.
 
