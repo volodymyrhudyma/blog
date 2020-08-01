@@ -55,7 +55,7 @@ In the end, *truthy* value is converted to **true**, *falsy* to **false.**
 !!{} // true
 ```
 
-## The Remainder
+## The remainder
 
 **The remainder** (`%`) operator returns the remainder left over when one operand is divided by a second operand.
 
@@ -72,7 +72,7 @@ It always takes the sign of the dividend.
 -4 % 10 // -4
 ```
 
-## The nullish coalescing 
+## The nullish coalescing
 
 **The nullish coalescing** (`??`) operator is a logical operator that returns right-side operand if left side equals to **null** or **undefined**, otherwise returns left side.
 
