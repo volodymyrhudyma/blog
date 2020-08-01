@@ -29,8 +29,8 @@ In the end, *truthy* value is converted to **true**, *falsy* to **false.**
 !0 // true
 !!0 // false
 
-!'' // true
-!!'' // false
+!"" // true
+!!"" // false
 
 !undefined // true
 !!undefined // false
@@ -81,7 +81,7 @@ To learn this operator more, refer to [this article](/2020-05-29-nullish-coalesc
 
 ## ?.
 
-**The optional chaining** operator (`?.`) is an error-proof way to access nested object properties, even if an intermediate property doesn’t exist. 
+**The optional chaining** operator (`?.`) is an error-proof way to access nested object properties, even if an intermediate property does not exist. 
 
 It stops the evaluation and returns **undefined** if the part before **?.** is **null** or **undefined**.
 
@@ -244,8 +244,8 @@ console.log(c >>> b); //  00111111111111111111111111111110, outputs 1073741822
 
 ## Summary
 
-In this article we have reviewed some of the JavaScript operators, which could have been used more often, for example optional chaining or nullish coalescing.
+In this article we reviewed some of the JavaScript operators that could have been used more often, such as optional chaining or nullish coalescing.
 
-When it comes to the bitwise operators, most of us have not even touched them, but they have some interesting use cases we should be aware of. 
+As for the bitwise operators, most of us have not even touched them, but they have some interesting use cases we should know about. 
 
-You can read [this article](https://blog.logrocket.com/interesting-use-cases-for-javascript-bitwise-operators/) to check them out.
+Read [this article](https://blog.logrocket.com/interesting-use-cases-for-javascript-bitwise-operators/) to check them.
