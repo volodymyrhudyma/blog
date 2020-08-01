@@ -2,8 +2,8 @@
 title: My way of looking for the perfect React architecture
 tag:
   - React
-metaDescription: The best React application architecture. This article describes
-  some different approaches I have tried over the last 3 years.
+metaDescription: This article describes the best React application architecture
+  approaches I have tried over the last 3 years.
 teaser: 'When someone asked Dan Abramov what is an optimal structure for React
   applications, he replied: "Move files around until it feels right". I thought
   it was a joke at first, and started trying different architectural approaches
