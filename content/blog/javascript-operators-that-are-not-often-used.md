@@ -197,7 +197,7 @@ const a = 5;     // 00000000000000000000000000000101
 console.log(~a); // 11111111111111111111111111111010, outputs -6
 ```
 
-## <<
+## (<<)
 
 **The left shift** (`<<`) operator shifts the first operand the specified number bits to the left, shifting in zeros from the right.
 
@@ -210,7 +210,7 @@ console.log(a << b); // 00000000000000000000000000010100, outputs 20
 
 **Important note:** Bitwise shifting any number `x` to the left by `y` bits yields `x * 2 ** y`. For example, `5 << 2`translates to: `5 * (2 ** 2) = 5 * (4) = 20`.
 
-## \>>
+## (>>)
 
 **The sign-propagating right shift** (`>>`) operator shifts the first operand the specified number of bits to the right. 
 
@@ -229,7 +229,7 @@ const c = -5;
 console.log(c >> b);  // -00000000000000001111111111111110, outputs -2
 ```
 
-## \>>>
+## (>>>)
 
 **The zero-fill right shift** (`>>>`) operator shifts the first operand the specified number of bits to the right. 
 
