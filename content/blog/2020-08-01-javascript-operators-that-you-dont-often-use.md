@@ -48,7 +48,9 @@ In the end, *truthy* value is converted to **true**, *falsy* to **false.**
 
 ## %
 
-**The remainder** (`%`) operator returns the remainder left over when one operand is divided by a second operand. It always takes the sign of the dividend.
+**The remainder** (`%`) operator returns the remainder left over when one operand is divided by a second operand.
+
+It always takes the sign of the dividend.
 
 ```javascript
 10 % 2 // 0
@@ -241,3 +243,9 @@ console.log(c >>> b); //  00111111111111111111111111111110, outputs 1073741822
 ```
 
 ## Summary
+
+In this article we have reviewed some of the JavaScript operators, which could have been used more often, for example optional chaining or nullish coalescing.
+
+When it comes to the bitwise operators, most of us have not even touched them, but they have some interesting use cases we should be aware of. 
+
+You can read [this article](https://blog.logrocket.com/interesting-use-cases-for-javascript-bitwise-operators/) to check them out.
