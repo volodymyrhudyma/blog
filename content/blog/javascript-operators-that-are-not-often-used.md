@@ -2,10 +2,19 @@
 title: JavaScript operators that are not often used
 tag:
   - JavaScript
-metaDescription: META
-teaser: TEASER
+metaDescription: Learn unique JavaScript operators that are not used very often.
+  For example, optional chaining, nullish coalescing and bitwise operators.
+teaser: JavaScript supports a lot of operators that serve many purposes, such as
+  assigning, comparing values, performing arithmetic operations, and much more.
+  As was to be expected, there are the most and the less popular ones...
 date: 2020-08-01T08:14:10.012Z
 ---
+JavaScript supports a lot of operators that serve many purposes, such as assigning, comparing values, performing arithmetic operations, and much more.
+
+As was to be expected, there are the most and the less popular ones.
+
+Today we will focus on learning the JavaScript operators, which are not often used.
+
 ## !!
 
 **The double negation** (`!!`) is not an operator itself, but a combination of 2 **negations**. 
@@ -197,10 +206,9 @@ const a = 5;         // 00000000000000000000000000000101
 const b = 2;         // 00000000000000000000000000000010
 
 console.log(a << b); // 00000000000000000000000000010100, outputs 20
-
 ```
 
-**Important note:** Bitwise shifting any number `x` to the left by `y` bits yields `x * 2 ** y`. For example, `5 << 2 `translates to: `5 * (2 ** 2) = 5 * (4) = 20`.
+**Important note:** Bitwise shifting any number `x` to the left by `y` bits yields `x * 2 ** y`. For example, `5 << 2`translates to: `5 * (2 ** 2) = 5 * (4) = 20`.
 
 ## ">>"
 
@@ -219,7 +227,6 @@ console.log(a >> b); // 00000000000000000000000000000001, outputs 1
 const c = -5;
 
 console.log(c >> b);  // -00000000000000001111111111111110, outputs -2
-
 ```
 
 ## ">>>"
@@ -239,7 +246,6 @@ console.log(a >>> b); // 00000000000000000000000000000001, outputs 1
 const c = -5;
 
 console.log(c >>> b); //  00111111111111111111111111111110, outputs 1073741822
-
 ```
 
 ## Summary
