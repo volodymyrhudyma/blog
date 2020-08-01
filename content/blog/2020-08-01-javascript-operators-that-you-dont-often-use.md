@@ -1,5 +1,5 @@
 ---
-title: JavaScript operators that you don't often use
+title: JavaScript operators that you do not often use
 tag:
   - JavaScript
 metaDescription: META
