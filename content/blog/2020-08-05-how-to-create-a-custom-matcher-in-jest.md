@@ -143,12 +143,6 @@ module.exports = {
 The next step is to create a file named `setupTests.ts` in the root directory and put the following code inside:
 
 ```typescript
-// jest-dom adds custom jest matchers for asserting on DOM nodes.
-// allows you to do things like:
-// expect(element).toHaveTextContent(/react/i)
-// learn more: https://github.com/testing-library/jest-dom
-import "@testing-library/jest-dom/extend-expect";
-
 expect.extend({
   toEqualTemperatureRange(result) {
     const { min, max, diff } = result;
@@ -212,7 +206,6 @@ it("should skip diff if min and max are equal", () => {
 
   expect(result).toEqualTemperatureRange();
 });
-
 ```
 
 The `toEqualTemperatureRange` function receives one argument, which comes from the `expect` function.
