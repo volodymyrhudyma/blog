@@ -8,7 +8,7 @@ metaDescription: Learn how to use API provided by Jest to create custom
 teaser: A matcher (or an assertion) is a function used to check for a particular
   condition. Jest offers a variety of matchers out-of-the-box, but sometimes
   there is a need to extend their functionality...
-date: 2020-08-05T15:32:20.997Z
+date: 2020-08-06T15:32:20.997Z
 ---
 It's good practice - to cover all your components with unit tests to be sure that adding new features would not break any of the existing ones.
 
