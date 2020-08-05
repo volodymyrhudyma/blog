@@ -6,7 +6,7 @@ metaDescription: META
 teaser: TEASER
 date: 2020-08-05T15:32:20.997Z
 ---
-It's good practice - to cover all your components with unit tests to be sure that adding new features won't break any of the existing ones.
+It's good practice - to cover all your components with unit tests to be sure that adding new features would not break any of the existing ones.
 
 While there are many tools available for JavaScript and React.js unit testing, we will focus on **Jest**.
 
@@ -53,7 +53,7 @@ expect(false).toBeFalsy();
 // Deep value equality 
 expect({ name: "John" }).toEqual({ name: "Andrew" });
 
-// ensure that a mock function was called with specific arguments
+// Ensure that a mock function was called with specific arguments
 expect(functionMock).toHaveBeenCalledWith("arg"); 
 ```
 
@@ -66,10 +66,9 @@ While Jest is extremely powerful, there are always some project-specific things,
 For example, you may have a function that calculates min and max temperature of the day and calculates the diff if min is not equal to max, otherwise diff is not returned:
 
 ```typescript
-import * as actions from './actions';
+import * as actions from "./actions";
 
 interface ITemperatureRange {
-  date: Date;
   min: number;
   max: number;
   diff?: number;
@@ -79,7 +78,6 @@ export const getDayTemparatureRange = (date: Date): ITemperatureRange => {
   const { max, min } = actions.fetchTemp(date);
 
   return {
-    date,
     min,
     max,
     ...(max !== min && {
@@ -92,40 +90,36 @@ export const getDayTemparatureRange = (date: Date): ITemperatureRange => {
 And some unit tests for it:
 
 ```typescript
-import * as actions from './actions';
+import * as actions from "./actions";
 
-import { getDayTemparatureRange } from './temp';
+import { getDayTemparatureRange } from "./temp";
 
-it('should return temperature range', () => {
+it("should return temperature range", () => {
   const response = {
     min: 10,
     max: 18,
   };
-  jest.spyOn(actions, 'fetchTemp').mockImplementation(() => response);
-  const date = new Date();
+  jest.spyOn(actions, "fetchTemp").mockImplementation(() => response);
 
-  const result = getDayTemparatureRange(date);
+  const result = getDayTemparatureRange(new Date());
 
   expect(result).toEqual({
-    date,
     min: response.min,
     max: response.max,
     diff: response.max - response.min,
   });
 });
 
-it('should skip diff if min and max are equal', () => {
+it("should skip diff if min and max are equal", () => {
   const response = {
     min: 18,
     max: 18,
   };
-  jest.spyOn(actions, 'fetchTemp').mockImplementation(() => response);
-  const date = new Date();
+  jest.spyOn(actions, "fetchTemp").mockImplementation(() => response);
 
-  const result = getDayTemparatureRange(date);
+  const result = getDayTemparatureRange(new Date());
 
   expect(result).toEqual({
-    date,
     min: response.min,
     max: response.max,
   });
@@ -136,6 +130,97 @@ Notice, how we duplicate `toEqual({ ... })` is those 2 unit tests.
 
 We can extract that logic to a separate matcher, named `toEqualTemperatureRange`:
 
+```typescript
+// jest-dom adds custom jest matchers for asserting on DOM nodes.
+// allows you to do things like:
+// expect(element).toHaveTextContent(/react/i)
+// learn more: https://github.com/testing-library/jest-dom
+import "@testing-library/jest-dom/extend-expect";
 
+expect.extend({
+  toEqualTemperatureRange(result) {
+    const { min, max, diff } = result;
+
+    // If no min temp or
+    // No max temp or
+    // Min and max are present and not equal, but diff is not here
+    // The code is wrong
+    if (!min || !max || (min && max && min !== max && !diff)) {
+      return {
+        pass: false,
+        message: () => "Returned structure is not expected",
+      };
+    }
+
+    // If min is equal to max, make sure diff is not returned
+    if (min === max) {
+      // If diff is returned, the code is wrong
+      if (diff !== undefined) {
+        return {
+          pass: false,
+          message: () => "Diff should not be present if min is equal to max",
+        };
+      }
+    }
+    return {
+      pass: true,
+      message: () => "The result is equal to the temparature range object",
+    };
+  },
+});
+```
+
+And use it in our tests:
+
+```typescript
+import * as actions from "./actions";
+
+import { getDayTemparatureRange } from "./temp";
+
+it("should return temperature range", () => {
+  const response = {
+    min: 10,
+    max: 18,
+  };
+  jest.spyOn(actions, "fetchTemp").mockImplementation(() => response);
+
+  const result = getDayTemparatureRange(new Date());
+
+  expect(result).toEqualTemperatureRange();
+});
+
+it("should skip diff if min and max are equal", () => {
+  const response = {
+    min: 18,
+    max: 18,
+  };
+  jest.spyOn(actions, "fetchTemp").mockImplementation(() => response);
+
+  const result = getDayTemparatureRange(new Date());
+
+  expect(result).toEqualTemperatureRange();
+});
+
+```
+
+The `toEqualTemperatureRange` function receives one argument, which comes from the `expect` function.
+
+It can accept more arguments, which will come directly from the custom matcher:
+
+```typescript
+// Test
+expect(arg1).customMatcher(arg2, arg3);
+
+// Custom matcher
+expect.extend({
+  toEqualTemperatureRange(arg1, arg2, arg3) {}
+});
+```
+
+The matcher has to return an object with 2 properties: `pass` and `message`.
+
+The first one indicates whether there was a match or not, and the second provides a function with no arguments that returns an error message in case of failure.
+
+Thus, when `pass` is false, `message` should return the error message for when `expect(x).customMatcher()` fails. And when `pass` is true, `message` should return the error message for when `expect(x).not.yourMatcher()` fails.
 
 ## Summary
