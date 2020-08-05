@@ -2,8 +2,12 @@
 title: How to create a custom matcher in Jest?
 tag:
   - React
-metaDescription: META
-teaser: TEASER
+metaDescription: Learn how to use API provided by Jest to create custom
+  matchers. Jest is a JavaScript test runner, library for creating, running, and
+  structuring tests.
+teaser: A matcher (or an assertion) is a function used to check for a particular
+  condition. Jest offers a variety of matchers out-of-the-box, but sometimes
+  there is a need to extend their functionality...
 date: 2020-08-05T15:32:20.997Z
 ---
 It's good practice - to cover all your components with unit tests to be sure that adding new features would not break any of the existing ones.
@@ -14,7 +18,7 @@ While there are many tools available for JavaScript and React.js unit testing, w
 
 ## Install jest
 
-To install jest, execute the following command in the project's root folder:
+To install jest, run the following command in the root folder of the project:
 
 `yarn add --dev jest`
 
@@ -33,15 +37,15 @@ it("should return sum", () => {
 });
 ```
 
-Take a look at the test once more. The `expect(result)` function returns an "expectation" object, on which a matcher `toEqual` is called.
+Look at the test again . The `expect(result)` function returns an "expectation" object, on which a matcher `toEqual` is called.
 
-When Jest runs, it tracks all the failing matchers so that it can print out nice error messages for you.
+When Jest is running, it keeps track of all the failed matchers so it can print nice error messages for you.
 
 ## What is a matcher?
 
-A **matcher** (or an **assertion**) is a function that is used to check for a specific condition.
+A **matcher** (or an **assertion**) is a function used to check for a particular condition. 
 
-Jest provides a lot of matchers out-of-the-box, some of the most commonly used ones:
+Jest offers a variety of matchers out-of-the-box, some of the most commonly used ones:
 
 ```javascript
 // Ensure that the value is truthy
@@ -61,9 +65,9 @@ See the full list of available matchers [here](https://jestjs.io/docs/en/expect)
 
 ## Create a custom matcher
 
-While Jest is extremely powerful, there are always some project-specific things, which could be extracted somewhere to increase the readability of the tests.
+Although Jest is extremely powerful, there are always some project-specific things that could be extracted somewhere to increase the readability of the tests.
 
-For example, you may have a function that calculates min and max temperature of the day and calculates the diff if min is not equal to max, otherwise diff is not returned:
+For example, you can have a function that calculates the minimum and maximum temperature of the day and calculates the diff if min is not equal to max, otherwise the diff is not returned:
 
 ```typescript
 import * as actions from "./actions";
@@ -130,7 +134,7 @@ Notice, how we duplicate `toEqual({ ... })` is those 2 unit tests.
 
 While in our case this is not a big deal, in case of having more complex `getDayTemparatureRange` function, it could be.
 
-We can extract that logic to a separate matcher, named `toEqualTemperatureRange` that would be responsible for checking if the returned result is correct or not.
+We can extract this logic into a separate matcher, called `toEqualTemperatureRange` which is responsible for checking the correctness of the returned result.
 
 To do that, create `jest.config.js` with the following content:
 
@@ -232,4 +236,4 @@ Thus, when `pass` is false, `message` should return the error message for when `
 
 Using custom matchers can save many lines of code and increase the readability and maintainability of tests.
 
-This is a cool feature, that is definitely worth trying.
+This is a cool feature, it's definitely worth a try.
