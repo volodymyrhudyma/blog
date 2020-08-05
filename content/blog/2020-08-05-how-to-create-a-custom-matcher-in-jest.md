@@ -128,7 +128,19 @@ it("should skip diff if min and max are equal", () => {
 
 Notice, how we duplicate `toEqual({ ... })` is those 2 unit tests.
 
-We can extract that logic to a separate matcher, named `toEqualTemperatureRange`:
+While in our case this is not a big deal, in case of having more complex `getDayTemparatureRange` function, it could be.
+
+We can extract that logic to a separate matcher, named `toEqualTemperatureRange` that would be responsible for checking if the returned result is correct or not.
+
+To do that, create `jest.config.js` with the following content:
+
+```javascript
+module.exports = {
+  setupFilesAfterEnv: ["<rootDir>/setupTests.ts"],
+};
+```
+
+The next step is to create a file named `setupTests.ts` in the root directory and put the following code inside:
 
 ```typescript
 // jest-dom adds custom jest matchers for asserting on DOM nodes.
@@ -170,7 +182,7 @@ expect.extend({
 });
 ```
 
-And use it in our tests:
+And the custom matcher is ready-to-use:
 
 ```typescript
 import * as actions from "./actions";
@@ -224,3 +236,7 @@ The first one indicates whether there was a match or not, and the second provide
 Thus, when `pass` is false, `message` should return the error message for when `expect(x).customMatcher()` fails. And when `pass` is true, `message` should return the error message for when `expect(x).not.yourMatcher()` fails.
 
 ## Summary
+
+Using custom matchers can save many lines of code and increase the readability and maintainability of tests.
+
+This is a cool feature, that is definitely worth trying.
