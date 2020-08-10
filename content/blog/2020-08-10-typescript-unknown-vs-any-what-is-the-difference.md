@@ -6,7 +6,8 @@ metaDescription: "Learn the main differences between the TypeScript's 2 top
   types: unknown and any. Any represents every possible value, unknown is much
   less permissive and type-safe counterpart of any."
 teaser: "In TypeScript, there are 2 top types: any and unknown, that are both
-  very similar, but unknown is much less permissive..."
+  very similar, but unknown is much less permissive and type-safe counterpart of
+  any..."
 date: 2020-08-11T18:21:01.880Z
 ---
 TypeScript has 2 so called top types - any and unknown.
