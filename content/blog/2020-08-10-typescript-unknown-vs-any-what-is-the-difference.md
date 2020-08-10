@@ -18,9 +18,9 @@ In the next sections we will get familiar with both keywords, determine the most
 
 ## The "any" type
 
-Sometimes we want to describe a variable we don’t know the type of. 
+Sometimes we want to describe a variable we do not know the type of. 
 
-That’s exactly why we need **any** type. 
+That is exactly why we need **any** type. 
 
 It represents **every possible value**:
 
@@ -52,7 +52,7 @@ But writing code in this manner leads to some unpredictable errors, TypeScript c
 
 ## The "unknown" type
 
-Just like with **any**, we use the **unknown** type to describe a variable we don’t know the type of:
+Just like with **any**, we use the **unknown** type to describe a variable we do not know the type of:
 
 ```typescript
 let a: unknown;
@@ -79,7 +79,6 @@ const f: null = a; // Error
 // But
 const j: unknown = a; // Looks good!
 const e: any = a; // Looks good!
-
 ```
 
 The **unknown** type is only assignable to the **any** type and itself.
@@ -99,7 +98,7 @@ None of these operations are allowed anymore.
 
 By switching from **any** to **unknown** we reduced the number of available actions from all possible to almost nothing.
 
-We can't perform any operations on the **unknown** type without narrowing it down.
+We can not perform any operations on the **unknown** type without narrowing it down.
 
 ## Narrowing down the "unknown" type
 
@@ -186,12 +185,12 @@ In an intersection type, **unknown** is absorbed by every type.
 Any type which intersects with **unknown**, does not change:
 
 ```typescript
-type A = unknown && number; // number
-type B = unknown && string; // string
-type C = unknown && boolean; // boolean
+type A = unknown & number; // number
+type B = unknown & string; // string
+type C = unknown & boolean; // boolean
 
 // But
-type D = unknown && any; // any
+type D = unknown & any; // any
 ```
 
 **Important note:** if intersection type contains **any**, it evaluates to **any**.
