@@ -10,11 +10,11 @@ teaser: "In TypeScript, there are 2 top types: any and unknown, that are both
   any..."
 date: 2020-08-11T18:21:01.880Z
 ---
-TypeScript has 2 so called top types - any and unknown.
+TypeScript has 2 so called top types - **any** and **unknown**.
 
 > **Top type** is a supertype of every other type, which means that we can assign anything to it.
 
-In the next sections we will get familiar with both keywords, determine the most important differences between them and find out when we can use each one.
+In the next few sections, we will familiarise ourselves with both keywords, identify the most important differences between them, and find out when we can use each of them.
 
 ## The "any" type
 
@@ -48,7 +48,7 @@ a[0];
 
 Using it allows us to escape from the type system and write code as if it was pure JavaScript, which gives us a lot of freedom.
 
-But writing code in this manner leads to some unpredictable errors, TypeScript can easily prevent.
+But writing code this way leads to some unpredictable errors that TypeScript can easily prevent.
 
 ## The "unknown" type
 
@@ -115,7 +115,7 @@ const b: string = a as string;
 console.log(b.toLowerCase()); // Prints "string"
 ```
 
-**Important note:** be aware that TypeScript would not check if your assertion is correct, is will think you know better, therefore the following error is likely to happen:
+**Important note:** be aware that TypeScript would not check whether your assertion is correct, and think you know better, therefore the following error is likely to happen:
 
 ```typescript
 const a: unknown = 1;
@@ -201,7 +201,7 @@ In TypeScript, there are 2 top types: **any** and **unknown**.
 
 They are both very similar, but **unknown** is much less permissive.
 
-We need to do some type checks before doing anything with a variable of an **unknown** type, which makes it more type-safe and preferred way of saying that the type value is not known. 
+We need to do some type checking before we do anything with a variable of **unknown** type, which makes it more type-safe and preferred way to say that the type value is not known. 
 
 Try to avoid **any** as much as possible.
 
