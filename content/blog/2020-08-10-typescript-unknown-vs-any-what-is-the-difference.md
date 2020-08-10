@@ -14,7 +14,7 @@ TypeScript has top types - **any** and **unknown**.
 
 > **Top type** is a supertype of every other type, which means that we can assign anything to it.
 
-In the next few sections, we will familiarise ourselves with both keywords, identify the most important differences between them, and find out when we can use each of them.
+In the next few sections, we will familiarise ourselves with both keywords, identify the most important differences between them, and find out when we can use each.
 
 ## The "any" type
 
