@@ -10,7 +10,7 @@ teaser: "In TypeScript, there are 2 top types: any and unknown, that are both
   any..."
 date: 2020-08-11T18:21:01.880Z
 ---
-TypeScript has top types - **any** and **unknown**.
+TypeScript has two top types - **any** and **unknown**.
 
 > **Top type** is a supertype of every other type, which means that we can assign anything to it.
 
