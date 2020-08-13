@@ -97,3 +97,15 @@ console.log(bar); // Prints: { a: "A", b: "B" } good!
 ```
 
 The `bar` object remains unchanged.
+
+## The benefits of immutability
+
+What are the good parts about writing the code in immutable way?
+
+* **Increasing predictability**
+
+  Mutation hides change which creates unexpected side effects leading to nasty bugs. 
+* **Change tracking**
+
+  Objects can be compared by reference and if they are equal, it means that nothing has changed, because changing an object in an immutable way creates a new instance which holds another reference.
+* ...
