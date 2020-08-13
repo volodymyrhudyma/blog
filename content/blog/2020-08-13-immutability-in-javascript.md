@@ -3,7 +3,7 @@ title: Immutability in JavaScript
 tag:
   - JavaScript
 metaDescription: META
-teaser: TEASER
+teaser: // TEASER
 date: 2020-08-15T16:40:12.111Z
 ---
 Immutability is a very important concept in the programming world. It's been around for a long time, but has recently grown into the JavaScript community.
