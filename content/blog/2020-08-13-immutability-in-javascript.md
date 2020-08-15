@@ -192,7 +192,7 @@ const newUser = {
   surname: "Jane",
 };
 
-console.log(user === newUser); // Of coursse, prints "false"
+console.log(user === newUser); // Of course, prints "false"
 console.log(user.address === newUser.address); // Prints "true", do you understand why?
 ```
 
