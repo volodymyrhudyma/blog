@@ -199,3 +199,11 @@ user = null;
 ```
 
 ## Summary
+
+**Each time we want to modify an object’s (remember arrays are also objects in JavaScript) content, we create a new object with updated content.**
+
+Immutability provides the right way to change the data or state of an application.
+
+Immutable states make it possible for code to quickly determine if a change has occurred. We do not need to do a recursive comparison, comparing references is enough.
+
+While it may sound like an advanced concept at the beginning, give it a try and you will be excited.
