@@ -6,7 +6,9 @@ metaDescription: META
 teaser: // TEASER
 date: 2020-08-15T16:40:12.111Z
 ---
-Immutability is one of the core principles in functional programming. It's been around for a long time, but has recently grown into the JavaScript community.
+Immutability is one of the core principles in functional programming. 
+
+It's been around for a long time, but has recently grown into the JavaScript community.
 
 To understand it better, lets firstly find out what is mutability and why it should be avoided.
 
