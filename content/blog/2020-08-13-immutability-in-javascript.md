@@ -2,15 +2,20 @@
 title: Immutability in JavaScript
 tag:
   - JavaScript
-metaDescription: META
-teaser: // TEASER
+metaDescription: Learn the difference between Immutable and Mutable data types.
+  Immutable means unchanging over time or unable to be changed, so modifying the
+  copy of an immutable object does not change the original.
+teaser: Immutability is one of the core principles of functional programming. It
+  has been around for a long time, but has recently evolved into the JavaScript
+  community. To understand it better, let's first find out what is mutability
+  and why it should be avoided...
 date: 2020-08-15T16:40:12.111Z
 ---
-Immutability is one of the core principles in functional programming. 
+Immutability is one of the core principles of functional programming. 
 
-It's been around for a long time, but has recently grown into the JavaScript community.
+It has been around for a long time, but has recently evolved into the JavaScript community.
 
-To understand it better, lets firstly find out what is mutability and why it should be avoided.
+To understand it better, let's first find out what is mutability and why it should be avoided.
 
 ## Mutability
 
@@ -152,18 +157,18 @@ What are the good parts about writing the code in immutable way?
   Mutation hides change which creates unexpected side effects leading to nasty bugs. 
 * **Change tracking**
 
-  Objects can be compared by reference and if they are equal, it means that nothing has changed, because changing an object in an immutable way creates a new instance which holds another reference.
+  Objects can be compared by reference and if they are equal, it means that nothing has changed, because changing an object in an immutable way creates a new instance that contains another reference.
 * **History preview**
 
-  History entries can be collected in separate (immutable) objects and the state can be replaced with them at any given moment. Need to undo something? Just bring back the state saved while undoing and that's it.
+  History entries can be collected in separate (immutable) objects and the state can be replaced with them at any given moment. Need to undo something? Just restore the state saved while undoing and that is it.
 
 ## The drawbacks of immutability
 
-We already know that you have to create a new object instance in order to modify it.
+We already know that you need to create a new object instance to modify it.
 
-But isn't it much more expensive operation rather than simple modifying the original instance?
+But is not that much more expensive than a simple modification of the original instance?
 
-That would have been true if we did not have **structural sharing** and **garbage collection**.
+That would have been the case if we did not have **structural sharing** and **garbage collection**.
 
 #### Structural sharing
 
@@ -245,10 +250,12 @@ user = null;
 
 ## Summary
 
-**Each time we want to modify an object’s (remember arrays are also objects in JavaScript) content, we create a new object with updated content.**
+**Every time we want to change the content of an object (remember that arrays are also objects in JavaScript), we create a new object with updated content.**
 
 Immutability provides the right way to change the data or state of an application.
 
-Immutable states make it possible for code to quickly determine if a change has occurred. We do not need to do a recursive comparison, comparing references is enough.
+Immutable states allow the code to quickly determine whether a change has occurred. 
 
-While it may sound like an advanced concept at the beginning, give it a try and you will be excited.
+We do not need to perform a recursive comparison, the comparison of references is sufficient.
+
+Even though it may sound like an advanced concept at first, try it out and you will be excited.
