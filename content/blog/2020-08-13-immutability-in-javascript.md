@@ -98,6 +98,49 @@ console.log(bar); // Prints: { a: "A", b: "B" } good!
 
 The `bar` object remains unchanged.
 
+## Creating immutable objects
+
+In this section we will review the tools JavaScript provides to create immutable objects.
+
+Primitives are already immutable, but for Arrays and Object we have some built-in methods.
+
+#### Spread operator
+
+Spread operator (`...`) allows to create a new object using the own properties of an existing object:
+
+```javascript
+const user = {
+  name: "John",
+};
+
+const newUser = {
+  ...user,
+};
+
+console.log(user === newUser); // Prints "false" as the are different objects
+```
+
+#### Object.assign
+
+The `Object.assign(target, source)` copies all enumerable own properties from one or more source objects to a target object and returns it:
+
+```javascript
+const source = { 
+  name: "John",
+  surmame: "Doe",
+};
+
+const result = Object.assign({}, source);
+
+console.log(source === result); // Prints "false"
+```
+
+**Important note:** do not forget that the `target` object is modified, so in order to properly copy `source`, you will need to pass an empty object as a first argument.
+
+#### External libraries
+
+There are a lot of external libraries available to deal with immutability, like [immutable.js](https://github.com/immutable-js/immutable-js) and [immer.js](https://github.com/immerjs/immer).
+
 ## The benefits of immutability
 
 What are the good parts about writing the code in immutable way?
