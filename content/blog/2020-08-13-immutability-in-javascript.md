@@ -46,7 +46,7 @@ With **Primitive values**, assigning the original variable to a new variable **c
 
 With **Objects and Arrays**, assigning the original variable to a new one **creates a reference** to the original variable.
 
-That's why you can modify the copies of Primitives without affecting the original value:
+That is why you can modify the copies of Primitives without affecting the original value:
 
 ```javascript
 const num = 10;
@@ -232,7 +232,7 @@ We recreate only the parts we need, so the memory is not wasted.
 
 A mechanism named **garbage collector** efficiently looks for all objects that are not used anymore, then disposes of them. 
 
-After creating new versions of our immutable objects, as soon as GC it realises that our code won’t need old ones, the memory will be quickly freed.
+After creating new versions of our immutable objects, as soon as GC it realises that our code would not need old ones, the memory will be quickly freed.
 
 ```javascript
 // The "user" variable references the object {name: "John"}
