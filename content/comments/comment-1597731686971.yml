@@ -1,0 +1,9 @@
+_id: 0bcb2250-e11b-11ea-9664-b902fc54f03d
+name: Aaro
+message: >-
+  Very nice article, but I think there is a typo in the What about "let" and
+  "const"? section. 
+
+  Shouldn't it be const 'b'?
+slug: /2020-04-30-hoisting-in-javascript/
+date: '2020-08-18T06:21:26.968Z'
