@@ -124,7 +124,7 @@ const updatedUser = {
 console.log(updatedUser);
 ```
 
-#### Update nested object
+#### Add/Update nested property
 
 ```javascript
 const user = {
@@ -152,7 +152,38 @@ const updatedUser = {
 console.log(updatedUser);
 ```
 
-#### Update nested array
+#### Remove nested property
+
+```javascript
+import cloneDeep from "lodash/cloneDeep";
+
+const user = {
+  name: "John",
+  surname: "Doe",
+  address: {
+    street: "Example street",
+    house: {
+      name: "Example house",
+      number: 1,
+    }
+  }
+};
+
+// Create a deep copy
+const userCopy = cloneDeep(user);
+
+// Delete nested item
+delete userCopy.address.house;
+
+//  { 
+//    name: "John", 
+//    surname: "Doe", 
+//    address: { street: "Example street" } 
+//  }
+console.log(userCopy);
+```
+
+#### Update nested array item
 
 ```javascript
 const user = {
@@ -163,7 +194,7 @@ const user = {
       street: "Example street",
       house: 1
     },
-     {
+    {
       street: "Random street",
       house: 7
     },
@@ -189,6 +220,39 @@ const updatedUser = {
 //   addresses: [
 //     { street: "Example street", house: 1 },
 //     { street: "Random street", house: 2 }
+//   ]
+// }
+console.log(updatedUser);
+```
+
+#### Remove nested array item
+
+```javascript
+const user = {
+  name: "John",
+  surname: "Doe",
+  addresses: [
+    {
+      street: "Example street",
+      house: 1
+    },
+    {
+      street: "Random street",
+      house: 7
+    },
+  ]
+};
+
+const updatedUser = {
+  ...user,
+  addresses: user.addresses.filter(address => address.house !== 7),
+};
+
+// {
+//   name: "John",
+//   surname: "Doe",
+//   addresses: [
+//     { street: "Example street", house: 1 },
 //   ]
 // }
 console.log(updatedUser);
