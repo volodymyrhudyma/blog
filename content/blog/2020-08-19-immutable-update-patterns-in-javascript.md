@@ -2,10 +2,84 @@
 title: Immutable update patterns in JavaScript
 tag:
   - JavaScript
-metaDescription: Meta
+metaDescription: "Immutable Update Patterns in JavaScript. Find how to update
+  Objects and Arrays in an immutable way by using deep and shallow copies. "
 teaser: Teaser
 date: 2020-08-20T14:48:31.472Z
 ---
+In this article, we will focus on practical examples of how to modify array/object in an immutable way.
+
+Before we start learning, let's review what shallow and deep copies are and how they differ.
+
+## Shallow copy
+
+**Shallow copy** is a bit-wise copy of an object. A new object is created that has an exact copy of the values in the original object. 
+
+If any of the fields of the object are references to other objects, just the reference addresses are copied:
+
+```javascript
+const user = {
+  name: "John",
+  surname: "Doe",
+  other: {
+    age: 18,
+  },
+};
+
+const newUser = {
+  ...user,
+};
+
+newUser.other.age = 22;
+
+// Prints {name: "John", surname: "Doe", age: 22}
+console.log(user);
+
+// Prints {name: "John", surname: "Doe", age: 22}
+console.log(newUser);
+```
+
+Property `other` references to an object which contains `age`.
+
+When doing a shallow copy, just the reference address of `other` is copied, not the value itself.
+
+That's why when we modify `other.age` it gets updated in both `user` and `newUser`.
+
+## Deep copy
+
+**Deep copy** is a full copy of an object. The newly copied object is completely independent of the original one:
+
+```javascript
+import cloneDeep from "lodash/cloneDeep";
+
+const user = {
+  name: "John",
+  surname: "Doe",
+  other: {
+    age: 18,
+  },
+};
+
+const newUser = cloneDeep(user);
+
+newUser.other.age = 22;
+
+// Prints {name: "John", surname: "Doe", age: 18}
+console.log(user);
+
+// Prints {name: "John", surname: "Doe", age: 22}
+console.log(newUser);
+```
+
+Modifying `other.age` does not affect the `user` object, as `newUser` is a deep copy.
+
+## Things to remember
+
+* Spread operator (`...`) only does a shallow copy of an object
+* Use an external library to create a deep copy, for example **[lodash](https://lodash.com/)**
+* `map`/`filter`/`slice`/`concat` return a new array
+* `splice` modifies an array
+
 ## Array
 
 #### Add #1
@@ -14,8 +88,10 @@ date: 2020-08-20T14:48:31.472Z
 const users = ["John", "Andrew"];
 const cars = ["Volvo", "Nissan"];
 
-// "John", "Andrew", "Volvo", "Nissan"
 const result = [...users, ...cars];
+
+// "John", "Andrew", "Volvo", "Nissan"
+console.log(result);
 ```
 
 #### Add #2
@@ -24,8 +100,10 @@ const result = [...users, ...cars];
 const users = ["John", "Andrew"];
 const cars = ["Volvo", "Nissan"];
 
-// "John", "Andrew", "Volvo", "Nissan"
 const result = users.concat(cars);
+
+// "John", "Andrew", "Volvo", "Nissan"
+console.log(result);
 ```
 
 #### Remove #1
@@ -34,8 +112,10 @@ const result = users.concat(cars);
 const users = ["John", "Andrew", "Mary"];
 const index = 1;
 
-// "John", "Mary"
 const result = users.filter((user, i) => i !== index);
+
+// "John", "Mary"
+console.log(result);
 ```
 
 #### Remove #2
@@ -44,8 +124,10 @@ const result = users.filter((user, i) => i !== index);
 const users = ["John", "Andrew", "Mary"];
 const index = 1;
 
-// "John", "Mary"
 const result = [...users.slice(0, index), ...users.slice(index, 2)];
+
+// "John", "Mary"
+console.log(result);
 ```
 
 #### Update #1
@@ -54,13 +136,15 @@ const result = [...users.slice(0, index), ...users.slice(index, 2)];
 const users = ["John", "Andrew", "Mary"];
 const index = 1;
 
-// "John", "Mark", "Mary"
 const result = users.map((user, i) => {
   if(i === index) {
     return "Mark";
   }
   return user;
 });
+
+// "John", "Mark", "Mary"
+console.log(result);
 ```
 
 #### Update #2
@@ -69,8 +153,10 @@ const result = users.map((user, i) => {
 const users = ["John", "Andrew", "Mary"];
 const index = 1;
 
-// "John", "Mark", "Mary"
 const result = [...users.slice(0, index), "Mark", ...users.slice(index + 1)];
+
+// "John", "Mark", "Mary"
+console.log(result);
 ```
 
 ## Object
@@ -149,7 +235,7 @@ const updatedUser = {
 //   surname: "Doe",
 //   address: { street: "Example street", house: 2 }
 // }
-console.log(updatedUser);
+console.log(updatedUser); 
 ```
 
 #### Remove nested property
