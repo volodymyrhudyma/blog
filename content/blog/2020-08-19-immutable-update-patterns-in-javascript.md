@@ -344,6 +344,49 @@ const updatedUser = {
 console.log(updatedUser);
 ```
 
-## Common mistakes
+## The most common mistake
+
+The most common mistake people make is modifying the original array/object while thinking they are doing an update in an immutable way.
+
+In most cases, it results from a poor understanding of what are shallow and deep copies and how they differ:
+
+```javascript
+const user = {
+  name: "John",
+  surname: "Doe",
+  other: {
+    age: 18,
+  },
+};
+
+// This is a shallow copy
+const newUser = {
+  ...user,
+};
+
+// Don't do that, as it modifies the original object
+newUser.other.age = 22;
+```
+
+The right way to update the nested property:
+
+```javascript
+const user = {
+  name: "John",
+  surname: "Doe",
+  other: {
+    age: 18,
+  },
+};
+
+// This the proper way to update nested properties
+const newUser = {
+  ...user,
+  other: {
+    ...user.other,
+    age: 22,
+  }
+};
+```
 
 ## Summary
