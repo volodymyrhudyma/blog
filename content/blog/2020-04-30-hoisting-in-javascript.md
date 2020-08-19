@@ -126,7 +126,7 @@ let a = 10;
 
 console.log(b); // ReferenceError: b is not defined
 
-const a = 10;
+const b = 10;
 ```
 
 ## Function hoisting
