@@ -379,7 +379,7 @@ const user = {
   },
 };
 
-// This the proper way to update nested properties
+// This is the proper way to update nested properties
 const newUser = {
   ...user,
   other: {
