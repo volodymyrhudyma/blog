@@ -2,12 +2,15 @@
 title: Immutable update patterns in JavaScript
 tag:
   - JavaScript
-metaDescription: "Immutable Update Patterns in JavaScript. Find how to update
-  Objects and Arrays in an immutable way by using deep and shallow copies. "
-teaser: Teaser
+metaDescription: "Immutable Update Patterns in JavaScript. Find the best ways to
+  update nested Objects and Arrays in an immutable way by using deep and shallow
+  copies. "
+teaser: Today we will learn how to update (nested) Arrays/Objects in an
+  immutable way. This is a must-know, especially if you create your projects in
+  React using the Redux library, so prepare well and let's get started...
 date: 2020-08-20T14:48:31.472Z
 ---
-In this article, we will focus on practical examples of how to modify an Array/Object in an immutable way.
+In this article we will focus on practical examples of how to modify an Array/Object in an immutable way.
 
 Before we start learning, let's remember what shallow and deep copies are and how they differ.
 
@@ -215,7 +218,6 @@ To remove a property, that is one-level deep, destructure it from an object and 
 > **The rest parameter** gathers all remaining arguments.
 
 ```javascript
-
 const user = {
   name: "John",
   surname: "Doe",
