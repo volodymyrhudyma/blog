@@ -213,7 +213,7 @@ console.log(updatedUser);
 
 #### Remove property
 
-To remove a property, that is one-level deep, destructure it from an object and use **rest parameter** to retrieve all other properties.
+To remove a property, that is **one-level deep**, destructure it from an object and use **rest parameter** to retrieve all other properties.
 
 > **The rest parameter** gathers all remaining arguments.
 
