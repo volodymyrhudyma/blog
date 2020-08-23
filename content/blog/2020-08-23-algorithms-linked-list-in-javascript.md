@@ -82,10 +82,10 @@ To begin with, let's implement the main `LinkedList` class:
 ```javascript
 class LinkedList {
   constructor() {
-    // head sotres the first node of the list
+    // Stores the first node of the list
     this.head = null;
     
-    // size stores the length of the list
+    // Stores the length of the list
     this.size = 0;
   }
 }
@@ -96,10 +96,10 @@ And `Node` class:
 ```javascript
 class Node {
   constructor(element) {
-    // element stores the data
+    // Stores the data
     this.element = element;
     
-    // next stores the reference to the next element in the list
+    // Stores the reference to the next element in the list
     this.next = null;
   }
 }
@@ -110,7 +110,7 @@ Great, having the basic classes we can start implementing some necessary functio
 
 #### add(element)
 
-This function adds an element to the end of the list:
+This function adds an **element** to the end of the list:
 
 ```javascript
 /**
@@ -142,3 +142,69 @@ add(element) {
 }
 
 ```
+
+To add an element to the end of the list we do the following:
+
+**If the list is empty**
+
+* add an element to the head
+
+**If the list is not empty**
+
+* iterate to the end of the list
+* add an element
+
+#### insertAt(element, index)
+
+This function inserts an **element** at the given **index** in a list: 
+
+```javascript
+/**
+ *
+ * Insert an element at the given index in a list
+ */
+insertAt(element, index) {
+  // If the index is bigger than 0 and the size of the list, it is wrong
+  if (index > 0 && index > this.size) {
+    return false;
+  } else {
+    // Create a new node
+    const node = new Node(element);
+
+    let current = this.head;
+    let previous;
+
+    // If the index is 0
+    // We add a reference to the current head
+    // And replace the current head with the new element
+    if (index == 0) {
+      node.next = this.head;
+      this.head = node;
+    } else {
+      current = this.head;
+      let i = 0;
+
+      // Iterate over the list to find the insert position
+      while (i < index) {
+        i++;
+        previous = current;
+        current = current.next;
+      }
+
+      // Add an element
+      node.next = current;
+      previous.next = node;
+    }
+
+    // Update the size of the list
+    this.size++;
+  }
+}
+
+```
+
+To insert an element at the given index in a list we do the following:
+
+* If the index is not 0 and is bigger than the size of the list, do nothing
+* If the index is 0, we add a reference to the current head element and replace the current head with the new element
+* If the index is in range `[0; size - 1]` we iterate the list to find the insert position and add an element
