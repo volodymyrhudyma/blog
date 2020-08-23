@@ -10,7 +10,7 @@ date: 2020-08-24T08:55:49.732Z
 
 A **linked list** is the linear collection of data whose order is not given by their physical placement in memory (unlike arrays). Instead, **each element contains a reference to the next one**.
 
-An element of the linked list is called a **node**, which is an object containing two items: **data** and a **reference** to the next node:
+An element of the linked list is called a **node**, which is an object containing two items: **element** and a **reference** to the next node:
 
 ![Linked list illustration](/img/singly-linked-list.svg "Linked list illustration")
 
@@ -45,11 +45,11 @@ const linkedList = {
 // Linked list filled with values
 const linkedList = {
   head: {
-    data: 1,
+    element: 1,
     next: {
-      data: 2,
+      element: 2,
       next: {
-        data: 3,
+        element: 3,
         next: null,
       },
     },
@@ -70,3 +70,75 @@ Since the linked list is a very similar data structure to an array, in this sect
 * Linked lists use more memory than arrays due to storage used by their pointers
 * Linked lists do not allow random access to data, therefore search operations are expensive, as the data needs to be read in order from the beginning
 * Singly-linked lists are cumbersome to navigate backward and while this might be a smaller problem with doubly-linked lists, more memory is consumed in allocating space for a reference to the previous node
+
+## Implementation in JavaScript
+
+In this section, we will implement a **Singly-linked list** using JavaScript.
+
+#### The basic classes
+
+To begin with, let's implement the main `LinkedList` class:
+
+```javascript
+class LinkedList {
+  constructor() {
+    // head sotres the first node of the list
+    this.head = null;
+    
+    // size stores the length of the list
+    this.size = 0;
+  }
+}
+```
+
+And `Node` class:
+
+```javascript
+class Node {
+  constructor(element) {
+    // element stores the data
+    this.element = element;
+    
+    // next stores the reference to the next element in the list
+    this.next = null;
+  }
+}
+
+```
+
+Great, having the basic classes we can start implementing some necessary functions which are going to be located in the `LinkedList` class.
+
+#### add(element)
+
+This function adds an element to the end of the list:
+
+```javascript
+/**
+ *
+ * Add an element to the end of the list
+ */
+add(element) {
+  // Create a new Node
+  const node = new Node(element);
+
+  // If the list is empty, make the "element" to be a "head"
+  if (this.head == null) {
+    this.head = node;
+  } else {
+    // Store the current node
+    let current = this.head;
+
+    // Iterate to the end of the list
+    while (current.next) {
+      current = current.next;
+    }
+
+    // Add node to the end of the list
+    current.next = node;
+  }
+
+  // Update the size of the list
+  this.size++;
+}
+
+```
