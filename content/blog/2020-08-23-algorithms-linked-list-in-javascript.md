@@ -265,7 +265,7 @@ This function removes and returns  an **element** from the list is it was found,
  *
  * Remove and returns given element from the list
  */
-removeElement(element) {
+remove(element) {
   let current = this.head;
   let previous = null;
 
@@ -312,6 +312,72 @@ That's pretty much it when it comes to implementation. Now let's use the above m
 
 ## Usage in JavaScript
 
+Create a linked list and add `1`, `2` and `3` to it:
+
 ```javascript
-// HOHO
+const list = new LinkedList();
+
+list.add(1);
+list.add(2);
+list.add(3);
+
+
+// LinkedList {
+//  head: Node {
+//    element: 1,
+//    next: Node { element: 2, next: Node { element: 3, next: null } }
+//  },
+//  size: 3
+// }
+console.log(list);
 ```
+
+Insert `2.5` between `2` and `3` in the linked list:
+
+```javascript
+// Assuming that we have list from the example above
+list.insertAt(2.5, 2);
+
+// LinkedList {
+//  head: Node {
+//    element: 1,
+//    next: Node {
+//      element: 2,
+//      next: Node { element: 2.5, next: Node { element: 3, next: null } }
+//    }
+//  },
+//  size: 4
+// }
+console.log(list);
+```
+
+Remove an element from the `2-nd` position:
+
+```javascript
+// Assuming that we have list from the example above
+list.removeFrom(2);
+
+// LinkedList {
+//  head: Node {
+//    element: 1,
+//    next: Node { element: 2, next: Node { element: 3, next: null } }
+//  },
+//  size: 3
+// }
+console.log(list);
+```
+
+Remove the last element from the list:
+
+```javascript
+// Assuming that we have list from the example above
+list.remove(3);
+
+// LinkedList {
+//  head: Node { element: 1, next: Node { element: 2, next: null } },
+//  size: 2
+// }
+console.log(list);
+```
+
+## Summary
