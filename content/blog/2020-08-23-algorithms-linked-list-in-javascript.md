@@ -208,3 +208,50 @@ To insert an element at the given index in a list we do the following:
 * If the index is not 0 and is bigger than the size of the list, do nothing
 * If the index is 0, we add a reference to the current head element and replace the current head with the new element
 * If the index is in range `[0; size - 1]` we iterate the list to find the insert position and add an element
+
+#### removeFrom(index)
+
+This function removes and returns an element from the given position (**index**):
+
+```javascript
+/**
+ * Remove and return an element from the specified position
+ */
+removeFrom(index) {
+  // If the index is bigger than 0 and the size of the list, it is wrong
+  if (index > 0 && index > this.size) return -1;
+  else {
+    let current = this.head;
+    let previous = current;
+    let i = 0;
+
+    // If the index is 0
+    // We delete the head element by assigning it to null
+    if (index === 0) {
+      this.head = current.next;
+    } else {
+      // Iterate over the list to find the remove position
+      while (i < index) {
+        i++;
+        previous = current;
+        current = current.next;
+      }
+
+      // Remove the element
+      previous.next = current.next;
+    }
+
+    // Update the size of the lit
+    this.size--;
+
+    // Return the removed element
+    return current.element;
+  }
+}
+```
+
+To remove an element from the given position in a list we do the following:
+
+* If the index is not 0 and is bigger than the size of the list, return `-1`
+* If the index is 0, we remove the head by assigning it to `current.next` that equals to `null`
+* If the index is in range `[0; size - 1]` we iterate the list to find the position and remove an element
