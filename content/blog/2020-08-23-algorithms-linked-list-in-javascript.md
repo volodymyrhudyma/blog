@@ -255,3 +255,63 @@ To remove an element from the given position in a list we do the following:
 * If the index is not 0 and is bigger than the size of the list, return `-1`
 * If the index is 0, we remove the head by assigning it to `current.next` that equals to `null`
 * If the index is in range `[0; size - 1]` we iterate the list to find the position and remove an element
+
+#### remove(element)
+
+This function removes and returns  an **element** from the list is it was found, otherwise returns `-1`:
+
+```javascript
+/**
+ *
+ * Remove and returns given element from the list
+ */
+removeElement(element) {
+  let current = this.head;
+  let previous = null;
+
+  // Iterate over the list to find the position of the element
+  while (current != null) {
+    // Compare current element with given element
+    // If found then remove and return it
+    if (current.element === element) {
+      
+      // If previous is null that means we deleted the head
+      // So update it
+      if (previous == null) {
+        this.head = current.next;
+      } else {
+        previous.next = current.next;
+      }
+
+      // Update the size of the list
+      this.size--;
+
+      // Return removed element
+      return current.element;
+    }
+    previous = current;
+    current = current.next;
+  }
+
+  // Return "-1" if element has not been found
+  return -1;
+}
+```
+
+To remove an element from the list we iterate the whole list and search for the given element.
+
+**If the element is found:**
+
+* Remove it and return the removed element
+
+**If the element is not found:**
+
+* return `-1`
+
+That's pretty much it when it comes to implementation. Now let's use the above methods and create our first linked list.
+
+## Usage in JavaScript
+
+```javascript
+// HOHO
+```
