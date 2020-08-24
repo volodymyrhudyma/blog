@@ -11,7 +11,7 @@ teaser: A linked list is the linear collection of data whose order is not given
   contains a reference to the next one...
 date: 2020-08-24T08:55:49.732Z
 ---
-Linked list is one of the most basic and important algorithms, which is really hard to mention when you get into this complex topic.
+Linked list is one of the most basic and important algorithms, which is really hard not to mention when you get into this complex topic.
 
 ## The definition
 
