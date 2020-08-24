@@ -219,6 +219,7 @@ This function removes and returns an element from the given position (**index**)
 
 ```javascript
 /**
+ *
  * Remove and return an element from the specified position
  */
 removeFrom(index) {
