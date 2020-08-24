@@ -224,8 +224,9 @@ This function removes and returns an element from the given position (**index**)
  */
 removeFrom(index) {
   // If the index is bigger than 0 and the size of the list, it is wrong
-  if (index > 0 && index > this.size) return -1;
-  else {
+  if (index > 0 && index > this.size) {
+    return -1;
+  } else {
     let current = this.head;
     let previous = current;
     let i = 0;
