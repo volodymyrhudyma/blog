@@ -2,13 +2,20 @@
 title: Algorithms | Linked List in JavaScript
 tag:
   - JavaScript
-metaDescription: META
-teaser: TEASER
+metaDescription: "A linked list is the linear collection of data whose order is
+  not given by their physical placement in memory. There are 3 types of linked
+  lists: singly-linked lists, doubly-linked lists and circular-linked lists.
+  Learn the differences between them and arrays."
+teaser: A linked list is the linear collection of data whose order is not given
+  by their physical placement in memory (unlike array). Instead, each element
+  contains a reference to the next one...
 date: 2020-08-24T08:55:49.732Z
 ---
+Linked list is one of the most basic and important algorithms, which is really hard to mention when you get into this complex topic.
+
 ## The definition
 
-A **linked list** is the linear collection of data whose order is not given by their physical placement in memory (unlike arrays). Instead, **each element contains a reference to the next one**.
+A **linked list** is the linear collection of data whose order is not given by their physical placement in memory (unlike array). Instead, **each element contains a reference to the next one**.
 
 An element of the linked list is called a **node**, which is an object containing two items: **element** and a **reference** to the next node:
 
@@ -103,10 +110,9 @@ class Node {
     this.next = null;
   }
 }
-
 ```
 
-Great, having the basic classes we can start implementing some necessary functions which are going to be located in the `LinkedList` class.
+Having the basic classes we can start implementing some necessary functions which are going to be located in the `LinkedList` class.
 
 #### add(element)
 
@@ -140,7 +146,6 @@ add(element) {
   // Update the size of the list
   this.size++;
 }
-
 ```
 
 To add an element to the end of the list we do the following:
@@ -200,13 +205,12 @@ insertAt(element, index) {
     this.size++;
   }
 }
-
 ```
 
 To insert an element at the given index in a list we do the following:
 
-* If the index is not 0 and is bigger than the size of the list, do nothing
-* If the index is 0, we add a reference to the current head element and replace the current head with the new element
+* If the index is not `0` and is bigger than the size of the list, do nothing
+* If the index is `0`, we add a reference to the current head element and replace the current head with the new element
 * If the index is in range `[0; size - 1]` we iterate the list to find the insert position and add an element
 
 #### removeFrom(index)
@@ -252,8 +256,8 @@ removeFrom(index) {
 
 To remove an element from the given position in a list we do the following:
 
-* If the index is not 0 and is bigger than the size of the list, return `-1`
-* If the index is 0, we remove the head by assigning it to `current.next` that equals to `null`
+* If the index is not `0` and is bigger than the size of the list, return `-1`
+* If the index is `0`, we remove the head by assigning it to `current.next` that equals to `null`
 * If the index is in range `[0; size - 1]` we iterate the list to find the position and remove an element
 
 #### remove(element)
@@ -308,7 +312,9 @@ To remove an element from the list we iterate the whole list and search for the 
 
 * return `-1`
 
-That's pretty much it when it comes to implementation. Now let's use the above methods and create our first linked list.
+That is pretty much all when it comes to implementation. 
+
+Now let's use the above methods and create our first linked list.
 
 ## Usage in JavaScript
 
@@ -381,3 +387,9 @@ console.log(list);
 ```
 
 ## Summary
+
+Linked lists are not something you will use on a daily basis, but they are a basic data structure in computer science, which is build into higher-level programming languages.
+
+A solid understanding of how linked lists work is important for a good overall understanding of how to create and use other data structures.
+
+As for JavaScript, is most cases it is better to use built-in data structure - **Array** , which is optimized for production, rather than creating you own.
