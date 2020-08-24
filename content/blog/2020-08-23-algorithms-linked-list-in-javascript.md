@@ -390,7 +390,7 @@ console.log(list);
 
 ## Summary
 
-Linked lists are not something you will use on a daily basis, but they are a basic data structure in computer science, which is build into higher-level programming languages.
+Linked lists are not something you will use on a daily basis, but they are a basic data structure in computer science, which is built into higher-level programming languages.
 
 A solid understanding of how linked lists work is important for a good overall understanding of how to create and use other data structures.
 
