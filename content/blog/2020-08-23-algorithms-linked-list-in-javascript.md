@@ -4,8 +4,8 @@ tag:
   - JavaScript
 metaDescription: "A linked list is the linear collection of data whose order is
   not given by their physical placement in memory. There are 3 types of linked
-  lists: singly-linked lists, doubly-linked lists and circular-linked lists.
-  Learn the differences between them and arrays."
+  lists: singly-linked, doubly-linked and circular-linked. Learn the differences
+  between them and arrays."
 teaser: A linked list is the linear collection of data whose order is not given
   by their physical placement in memory (unlike array). Instead, each element
   contains a reference to the next one...
