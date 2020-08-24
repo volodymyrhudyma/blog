@@ -21,9 +21,9 @@ An element of the linked list is called a **node**, which is an object containin
 
 ![Linked list illustration](/img/singly-linked-list.svg "Linked list illustration")
 
-The entry point of a list is called the **head**, which contains a reference to the next node and so on until we reach the last node, which is linked to a terminator used to signify the end of the list (`null`).
+The entry point of a list is called the **head**, which contains a reference to the next node and so on until we reach the last node, which is linked to a terminator used to signify the end of the list (**null**).
 
-If a list is empty, the head is a `null` reference.
+If a list is empty, the head is a **null** reference.
 
 There are 3 types of linked lists, so far we have been talking about **Singly-linked list** where each node contains only one reference - to the next node.
 
