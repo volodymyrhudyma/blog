@@ -63,6 +63,55 @@ We do not live in a perfect world, and Binary Search has advantages and disadvan
 
 ## Implementation in JavaScript
 
+```javascript
+const binarySearch = function (array, target) {
+  // Store the middle element
+  let guess;
+  
+  // Store the first element
+  let min = 0;
+  
+  // Store the last element
+  let max = array.length - 1;
+
+  // While we still have elements in an array
+  while (min <= max) {
+    
+    // Get the middle element position
+    guess = Math.floor((min + max) / 2);
+    
+    // If the middle element is equal to the taget, return its position
+    if (array[guess] === target) {
+      return guess;
+      
+    // If the middle element is smaller than the target
+    // Start the next iteration from the next element 
+    } else if (array[guess] < target) {
+      min = guess + 1;
+      
+    // If bigger - start from the previous element
+    } else {
+      max = guess - 1;
+    }
+  }
+
+  // Return -1 in case if target element was not found
+  return -1;
+}
+
+```
+
 ## Usage in JavaScript
 
+```javascript
+// Assuming that the binarySearch function from the example above is accessible
+const arr = [1, 256, 264, 345, 669, 930, 1567];
+
+const result = binarySearch(arr, 930);
+
+console.log(result); // Prints "5"
+```
+
 ## Summary
+
+Binary search is a great way to find the target element within a large set of sorted data.
