@@ -52,7 +52,7 @@ The complexity of the Binary Search is `O(logN)` where `N` is the number of elem
 
 Best-case performance - `O(1)`, when the target element is in the middle of an array.
 
-Worst-case performance - `O(log2N)`, when the target element is found at the end, when an array is narrowed down to single item.
+Worst-case performance - `O(logN)`, when the target element is found at the end, when an array is narrowed down to single item.
 
 ## Pros and Cons
 
