@@ -42,6 +42,8 @@ This happens until the target value is found.
 
 If the search ends with the remaining half being empty, the target is not in the array.
 
+![Binary search illustration (source: Wikipedia)](/img/bs.svg "Binary search illustration (source: Wikipedia)")
+
 ## The complexity
 
 The complexity of the Binary Search is `O(logN)` where `N` is the number of elements within an array.
@@ -110,7 +112,6 @@ const binarySearch = function (array, target) {
   // Return -1 in case if target element was not found
   return -1;
 }
-
 ```
 
 ## Usage in JavaScript
