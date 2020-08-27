@@ -42,6 +42,8 @@ This happens until the target value is found.
 
 If the search ends with the remaining half being empty, the target is not in the array.
 
+**Example:** search for the `7`:
+
 ![Binary search illustration (source: Wikipedia)](/img/bs.svg "Binary search illustration (source: Wikipedia)")
 
 ## The complexity
