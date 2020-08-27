@@ -3,7 +3,7 @@ title: Algorithms | Binary Search in JavaScript
 tag:
   - JavaScript
 metaDescription: // META
-teaser: // TEASER
+teaser: " // TEASER"
 date: 2020-08-28T15:16:53.113Z
 ---
 The search is fundamental for every programming language. 
