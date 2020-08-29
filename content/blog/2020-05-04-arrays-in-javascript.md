@@ -308,7 +308,7 @@ console.log(users instanceof Array); // Prints "true"
 
 ## Array properties and methods
 
-JavaScript arrays have a lot of built properties and methods, in order to learn more about them, read [this article](link).
+JavaScript arrays have a lot of built properties and methods, in order to learn more about them, read [this article](/2020-05-05-javascript-built-in-arrays-methods/).
 
 ## Summary
 
