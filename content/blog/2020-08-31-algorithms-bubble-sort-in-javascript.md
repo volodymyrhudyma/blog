@@ -23,6 +23,14 @@ In this article we will learn more about **Bubble Sort** and why it might be an 
 
 ![Bubble sort illustration](/img/bubble-sort.gif "Bubble sort illustration")
 
+The next reasonable question you can have after learning how it works may be: "Why Bubble Sort is called Bubble Sort?".
+
+It got its name because elements tend to move upwards in the right order, like bubbles that rise to the surface.
+
+See the visualization:
+
+![Bubble sort visualization](/img/iikvbtg.gif "Bubble sort visualization")
+
 ## The complexity
 
 Best-case performance - `O(1)`, if the list is already sorted.
@@ -56,6 +64,8 @@ const bubbleSort = (arr) => {
   
   for(let i = 0; i < length; i++) {
     for(let j = 0; j < length; j++) {
+      
+      // If the element from the left is greater, swap them
       if(arr[j] > arr[j + 1]) {
         const tmp = arr[j];
         arr[j] = arr[j + 1];
@@ -71,7 +81,6 @@ const bubbleSort = (arr) => {
 The second implementation is more optimized. We stop an algorithm if we have not performed any swap:
 
 ```javascript
-
 const bubbleSort = (arr) => {
   const length = arr.length;
   let swapped;
@@ -79,6 +88,8 @@ const bubbleSort = (arr) => {
   do {
     swapped = false;
     for(let i = 0; i < length; i++) {
+      
+      // If the element from the left is greater, swap them
       if(arr[i] > arr[i + 1]) {
         const tmp = arr[i];
         arr[i] = arr[i + 1];
@@ -96,15 +107,13 @@ const bubbleSort = (arr) => {
 
 ```javascript
 // Assuming that the bubbleSort function from the example above is accessible
-
 const arr = [10, 34, 3, 2];
 
-// Prints "[2, 3, 10, 34]"
-console.log(bubbleSort(arr));
+console.log(bubbleSort(arr)); // Prints "[2, 3, 10, 34]"
 ```
 
 ## Summary
 
-Thanks to its simplicity, Bubble Sort is often used to introduce the concept of a sorting algorithm, but it is one of the most inefficient sorting algorithms with and average complexity of `O(N2)`.
+Due to its simplicity Bubble Sort it is often used to introduce the concept of a sorting algorithm, but it is one of the most inefficient sorting algorithms with an average complexity of `O(N2)`. 
 
-It offers a great start for diving into the world of more complex sorting algorithms, so make sure to play with it around.
+It provides a good introduction to the world of more complex sorting algorithms, so be sure to play around with it.
