@@ -7,8 +7,8 @@ metaDescription: Learn and implement Bubble Sort in JavaScript in two ways.
   it inefficient especially for larger data sets.
 teaser: Sorting a list is one of the most common problems most programmers face.
   If you know many ways to perform a sorting operation, you can choose the best
-  and most efficient one. In this article we will learn more about **Bubble
-  Sort** and why it might be an inefficient choice...
+  and most efficient one. In this article we will learn more about Bubble Sort
+  and why it might be an inefficient choice...
 date: 2020-08-31T07:17:01.506Z
 ---
 Sorting a list is one of the most common problems most programmers face. 
@@ -33,7 +33,7 @@ See the visualization:
 
 ## The complexity
 
-Best-case performance - `O(1)`, if the list is already sorted.
+Best-case performance - `O(1)`, if the list is sorted.
 
 Worst-case performance - `O(N2)`, if the list is not sorted.
 
