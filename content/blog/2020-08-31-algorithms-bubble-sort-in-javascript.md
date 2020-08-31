@@ -29,7 +29,7 @@ It got its name because elements tend to move upwards in the right order, like b
 
 See the visualization:
 
-![Bubble sort visualization](/img/iikvbtg.gif "Bubble sort visualization")
+![Bubble sort visualization](/img/ezgif.com-gif-maker.gif "Bubble sort visualization")
 
 ## The complexity
 
