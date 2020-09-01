@@ -3,7 +3,7 @@ title: Algorithms | Quick Sort in JavaScript
 tag:
   - JavaScript
 metaDescription: // META
-teaser: // TEASER
+teaser: // TEASEr
 date: 2020-09-01T17:30:41.647Z
 ---
 ## The definition
