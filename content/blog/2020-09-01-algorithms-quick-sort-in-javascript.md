@@ -6,6 +6,12 @@ metaDescription: // META
 teaser: // TEASEr
 date: 2020-09-01T17:30:41.647Z
 ---
+Quick Sort algorithm is one of the most popular sorting algorithms developed by the British computer scientist [](https://en.wikipedia.org/wiki/Tony_Hoare "Tony Hoare")**Tony Hoare** in **1959[](https://en.wikipedia.org/wiki/Quicksort#cite_note-1)** and published in **1961**.
+
+If implemented well, it can be about two to three times faster than its main competitors, merge sort and heapsort.
+
+In this article we will learn more about **Quick Sort** and how it can be implemented most efficiently.
+
 ## The definition
 
 **Quick Sort** is an efficient sorting algorithm that follows the "divide-and-conquer" approach.
@@ -32,19 +38,19 @@ Average - `O(NlogN)`.
 
 ## Pros and Cons
 
-Even though Quick Sort is an efficient algoritthm, the efficiency is majorly impacted by which element is chosen as the pivot point.
+Even though Quick Sort is an efficient algorithm, the efficiency is majorly impacted by which element is chosen as the pivot point.
 
 #### Pros
 
 * Simplicity
 * High performance if the pivot element was correctly chosen 
-* Being an in-place algorithm, which means that it requires small additional amounts of memory to perform a sorting operation.
+* Being an in-place algorithm, which means that it requires small additional amounts of memory to perform a sorting operation
 
   > In computer science, an **in-place algorithm** is an algorithm which transforms input using no auxiliary data structure. However a small amount of extra storage space is allowed for auxiliary variables. 
   >
   > The input is usually overwritten by the output as the algorithm executes. 
   >
-  > In-place algorithm updates input sequence only through replacement or swapping of elements
+  > In-place algorithm updates input sequence only through replacement or swapping of elements.
 
 #### Cons
 
@@ -122,4 +128,33 @@ const partition = (arr, left, right) => {
 
 ## Usage in JavaScript
 
+```javascript
+// Assuming that the quickSort function from the example above is accessible
+const arr = [1, 56, 31, 12, 14, 3, 4];
+
+console.log(quickSort(arr)); // Prints "[1, 3, 4, 12, 14, 31, 56]"
+```
+
+## Default sorting in JavaScript
+
+In JavaScript, there is built-in `sort` function:
+
+```javascript
+const arr = [1, 56, 31, 12, 14, 3, 4];
+
+// Sort in ascending order
+console.log(arr.sort((a, b) => a - b)); // Prints "[1, 3, 4, 12, 14, 31, 56]"
+
+// Sort in desceding order
+console.log(arr.sort((a, b) => b - a)); // Prints "[56, 31, 14, 12, 4, 3, 1]"
+```
+
+The ECMAscript standard does not specify which sorting algorithm should be used with this function, so different browsers use different algorithms.
+
+For example, **Insertion Sort** is used by default in **Chrome's V8 engine** and **Merge Sort** in **Mozilla** and **Safari**.
+
 ## Summary
+
+Quick sort is an efficient sorting algorithm, based on partitioning the list of elements into smaller arrays that are sorted recursively.
+
+It is extremely fast for larger datasets if the pivot element is selected correctly.
