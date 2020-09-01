@@ -32,6 +32,24 @@ Average - `O(NlogN)`.
 
 ## Pros and Cons
 
+Even though Quick Sort is an efficient algoritthm, the efficiency is majorly impacted by which element is chosen as the pivot point.
+
+#### Pros
+
+* Simplicity
+* High performance if the pivot element was correctly chosen 
+* Being an in-place algorithm, which means that it requires small additional amounts of memory to perform a sorting operation.
+
+  > In computer science, an **in-place algorithm** is an algorithm which transforms input using no auxiliary data structure. However a small amount of extra storage space is allowed for auxiliary variables. 
+  >
+  > The input is usually overwritten by the output as the algorithm executes. 
+  >
+  > In-place algorithm updates input sequence only through replacement or swapping of elements
+
+#### Cons
+
+* The efficiency of the algorithm highly depends on the chosen pivot element. Choosing the wrong one leads to poorer performance
+
 ## Implementation in JavaScript
 
 ## Usage in JavaScript
