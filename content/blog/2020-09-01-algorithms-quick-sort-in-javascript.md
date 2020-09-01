@@ -52,6 +52,74 @@ Even though Quick Sort is an efficient algoritthm, the efficiency is majorly imp
 
 ## Implementation in JavaScript
 
+```javascript
+const quickSort = (arr, left = 0, right = arr.length - 1) => {
+  const length = arr.length;
+  
+  // Only if there are two or more items, an array is partitioned
+  if(length > 1) {
+    
+    // Partition an array and get the left pointer
+    const index = partition(arr, left, right);
+    
+    // If the left is less than index - 1
+    // Then there are still items on the left to be sorted
+    if(left < index - 1) {
+      quickSort(arr, left, index - 1);
+    }
+    
+    // If the index is less than right
+    // Then there are still items on the right to be sorted
+    if(index < right) {
+      quickSort(arr, index, right);
+    }
+  }
+  
+  // If array contains zero or one item, return it
+  return arr;
+}
+
+const partition = (arr, left, right) => {
+  // Get the pivot value from the middle of an array
+  const middle = Math.floor((left + right) / 2);
+  const pivot = arr[middle];
+  
+  // Assign the left and right pointers
+  let i = left, j = right;
+  
+  // While there are items in an array to be processed
+  while(i <= j) {
+    
+    // Move left pointer to the right until the value at the
+    // left is greater than the pivot value
+    while(arr[i] < pivot) {
+      i++;
+    }
+    
+    // Move right pointer to the left until
+    // The value at the right is less than the pivot value
+    while(arr[j] > pivot) {
+      j--;
+    }
+    
+    // If the left pointer is less than or equal
+    // To the right pointer, then swap values
+    if(i <= j) {
+      // Perform swap using ES6 syntax
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+      
+      // Shift the pointers so the loop continues in the right spot
+      i++;
+      j--;
+    }
+  }
+    
+  // Return the value of the left pointer because
+  // It is used to determine where to start partitioning the next time
+  return i;
+}
+```
+
 ## Usage in JavaScript
 
 ## Summary
