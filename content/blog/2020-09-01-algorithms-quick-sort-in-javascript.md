@@ -5,10 +5,10 @@ tag:
 metaDescription: "Learn Quick Sort in JavaScript - efficient sorting algorithm
   that follows the \"divide-and-conquer\" approach, it's advantages and
   disadvantages and thy it works best for sorting large datasets. "
-teaser: Quick Sort algorithm is one of the most popular sorting algorithms
-  developed by the British computer scientist Tony Hoare in 1959 and published
-  in 1961. If implemented well, it can be about two to three times faster than
-  its main competitors...
+teaser: Quick Sort is one of the most popular sorting algorithms developed by
+  the British computer scientist Tony Hoare in 1959 and published in 1961. If
+  implemented well, it can be about two to three times faster than its main
+  competitors...
 date: 2020-09-02T17:30:41.647Z
 ---
 Quick Sort is one of the most popular sorting algorithms developed by the British computer scientist **Tony Hoare** in **1959** and published in **1961**.
