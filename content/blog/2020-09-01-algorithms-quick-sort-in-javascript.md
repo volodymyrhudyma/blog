@@ -11,11 +11,11 @@ teaser: Quick Sort algorithm is one of the most popular sorting algorithms
   its main competitors...
 date: 2020-09-02T17:30:41.647Z
 ---
-Quick Sort algorithm is one of the most popular sorting algorithms developed by the British computer scientist **Tony Hoare** in **1959** and published in **1961**.
+Quick Sort is one of the most popular sorting algorithms developed by the British computer scientist **Tony Hoare** in **1959** and published in **1961**.
 
 If implemented well, it can be about two to three times faster than its main competitors, merge sort and heapsort.
 
-In this article we will learn more about **Quick Sort** and how it can be implemented most efficiently
+In this article we will learn more about **Quick Sort** and how it can be implemented most efficiently.
 
 ## The definition
 
