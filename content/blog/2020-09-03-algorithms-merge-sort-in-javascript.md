@@ -6,6 +6,14 @@ metaDescription: // Meta
 teaser: // Teaser
 date: 2020-09-04T15:10:01.066Z
 ---
+In previous articles we have covered **Bubble Sort** and **Quick Sort** and found out that the first one is the slowest one and is mainly used for educational purposes.
+
+The latter is fast and efficient, but has a significant disadvantage - the complexity of `O(N2)` if the pivot element is wrongly chosen.
+
+As we are beginning to find out, there is no such thing as a perfect sorting algorithm, each one has its own advantages and disadvantages.
+
+Today we will learn **Merge Sort** and see how it works in practice.
+
 ## The definition
 
 **Merge sort** is an efficient sorting algorithm that follows the "divide-and-conquer" approach.
@@ -102,3 +110,5 @@ console.log(mergeSort(arr)); // Prints "[1, 2, 3, 12, 23, 46]"
 Merge Sort is an efficient sorting algorithm that is useful for sorting linked lists and large records.
 
 Its average complexity is `O(NlogN)` and it produces a stable sort, which means that the same items in the original list retain their original positions in the sorted list.
+
+Make sure to play with it and see you in the next article.
