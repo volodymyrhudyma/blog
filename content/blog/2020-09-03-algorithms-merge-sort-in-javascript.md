@@ -16,6 +16,10 @@ This one is considered sorted.
 
 ![Merge sort illustration](/img/merge-sort-example-300px.gif "Merge sort illustration")
 
+The visualization:
+
+![Merge sort visualization](/img/300px-merge_sort_animation2.gif "Merge sort visualization")
+
 ## The complexity
 
 Best-case performance - `O(NlogN)`.
@@ -28,7 +32,7 @@ Average - `O(NlogN)`.
 
 Merge sort works very well for large data structures, even better than Quick Sort, which is considered very efficient. 
 
-It can be adapted to work with very large lists stored on media with slow-access speeds, such as disk storage or network-attached storage
+It can be adapted to work with very large lists stored on media with slow-access speeds, such as disk storage or network-attached storage.
 
 #### Pros
 
