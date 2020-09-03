@@ -2,8 +2,12 @@
 title: Algorithms | Merge Sort in JavaScript
 tag:
   - JavaScript
-metaDescription: // Meta
-teaser: // Teaser
+metaDescription: "Learn Merge Sort in JavaScript - efficient sorting algorithm
+  that follows the \"divide-and-conquer\" approach, it's advantages and
+  disadvantages and why it is one of the best sorting algorithms. "
+teaser: Merge sort is an efficient sorting algorithm that was invented by John
+  von Neumann in 1945. It follows the "divide-and-conquer" approach and works by
+  dividing the unsorted list by (n) sublists, each containing one element...
 date: 2020-09-04T15:10:01.066Z
 ---
 In previous articles we have covered **Bubble Sort** and **Quick Sort** and found out that the first one is the slowest one and is mainly used for educational purposes.
@@ -12,7 +16,7 @@ The latter is fast and efficient, but has a significant disadvantage - the compl
 
 As we are beginning to find out, there is no such thing as a perfect sorting algorithm, each one has its own advantages and disadvantages.
 
-Today we will learn **Merge Sort** and see how it works in practice.
+Today we will learn **Merge Sort**, an algorithm that was invented by John von Neumann in 1945 and see how it works in practice.
 
 ## The definition
 
@@ -38,9 +42,7 @@ Average - `O(NlogN)`.
 
 ## Pros and Cons
 
-Merge sort works very well for large data structures, even better than Quick Sort, which is considered very efficient. 
-
-It can be adapted to work with very large lists stored on media with slow-access speeds, such as disk storage or network-attached storage.
+Merge Sort can be adapted to work with very large lists stored on media with slow-access speeds, such as disk storage or network-attached storage.
 
 #### Pros
 
