@@ -2,8 +2,13 @@
 title: Algorithms | Insertion Sort in JavaScript
 tag:
   - JavaScript
-metaDescription: // META
-teaser: // TEASER
+metaDescription: "Learn Insertion Sort in JavaScript - a simple sorting
+  algorithm that builds the final sorted array one item at a time, its
+  advantages and disadvantages and why it is one of the best sorting algorithms
+  for small or almost sorted data sets. "
+teaser: "**Insertion sort** is a simple sorting algorithm that builds the final
+  sorted array one item at a time. It works best for small or almost sorted
+  records and is not efficient for the larger or unsorted ones..."
 date: 2020-09-06T06:22:41.797Z
 ---
 Today we will learn a very simple algorithm that works best for small or almost sorted records and is not efficient for the larger or unsorted ones.
