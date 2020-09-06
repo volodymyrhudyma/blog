@@ -73,10 +73,10 @@ const insertionSort = (arr) => {
   // For each element in an array
   for(let i = 0; i < arr.length; i++) {
   
-    // Get the current element;
+    // Get the current element
     const current = arr[i];
     
-    // Get the previous element index
+    // Get the index of the previous element
     let j = i - 1;
     
     // We skip the first element, as it is considered sorted
@@ -86,7 +86,7 @@ const insertionSort = (arr) => {
       // Shift element to the right
       arr[j + 1] = arr[j];
       
-      // Go to the previous element's index
+      // Go to the previous index
       j--;
     }
     
