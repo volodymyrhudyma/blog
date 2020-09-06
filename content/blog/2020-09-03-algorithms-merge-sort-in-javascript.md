@@ -2,9 +2,9 @@
 title: Algorithms | Merge Sort in JavaScript
 tag:
   - JavaScript
-metaDescription: "Learn Merge Sort in JavaScript - efficient sorting algorithm
-  that follows the \"divide-and-conquer\" approach, it's advantages and
-  disadvantages and why it is one of the best sorting algorithms. "
+metaDescription: 'Learn Merge Sort in JavaScript - efficient sorting algorithm
+  that follows the "divide-and-conquer" approach, its advantages and
+  disadvantages and why it is one of the best sorting algorithms. '
 teaser: Merge sort is an efficient sorting algorithm that was invented by John
   von Neumann in 1945. It follows the "divide-and-conquer" approach and works by
   dividing the unsorted list by (n) sublists, each containing one element...
