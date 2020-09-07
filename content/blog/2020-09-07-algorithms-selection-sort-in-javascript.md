@@ -10,7 +10,7 @@ teaser: In this article, we will learn Selection Sort - a simple and
   the most widely-used sorting algorithms, such as...
 date: 2020-09-08T17:27:38.224Z
 ---
-In this article, we will learn Selection Sort - a simple and easy-to-implement comparison algorithm, which serves as a basis for some of the most widely-used sorting algorithms.
+In this article, we will learn Selection Sort - a simple and easy-to-implement comparison algorithm, which serves as a basis for some of the most widely-used sorting algorithms, such as Heap Sort. It is often used for educational purposes due to its simplicity.
 
 It has retained its name because it repeatedly selects the next-smallest element and swaps it into the right place.
 
