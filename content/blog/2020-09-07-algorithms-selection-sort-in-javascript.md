@@ -28,7 +28,7 @@ An algorithm works by finding the smallest (or the largest, depending on the ord
 
 This process continues until the entire input array is sorted:
 
-![Selection Sort illustration](/img/snappymasculineamericancicada-size_restricted.gif "Selection Sort illustration")
+![Selection Sort illustration](/img/f20b8898585b3ca03843d93ce2c35a68.gif "Selection Sort illustration")
 
 The visualization:
 
