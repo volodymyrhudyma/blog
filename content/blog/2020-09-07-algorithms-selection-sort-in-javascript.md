@@ -26,11 +26,11 @@ An algorithm works by finding the smallest (or the largest, depending on the ord
 
 This process continues until the entire input array is sorted:
 
-![Selection sort illustration](/img/sortowanie_przez_wybór_animacja.gif "Selection sort illustration")
+![Selection Sort illustration](/img/sortowanie_przez_wybór_animacja.gif "Selection Sort illustration")
 
 The visualization:
 
-![Selection sort visualization](/img/selection_sort_animation.gif "Selection sort visualization")
+![Selection Sort visualization](/img/selection_sort_animation.gif "Selection Sort visualization")
 
 ## The complexity
 
