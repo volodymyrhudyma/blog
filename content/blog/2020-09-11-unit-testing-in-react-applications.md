@@ -61,17 +61,27 @@ Whenever you find a bug, fix it and cover it with the unit tests to make sure th
 
 Of course, there is some stuff that does not to be unit tested.
 
-To begin with, you should not test the code which has already been tested by others. A good example are popular libraries, which are used in your project. Most of them have extremely high code coverage and in most cases work as they are expected to.
+You should not test the code which has already been tested by others. 
+
+A good example are popular libraries, which are used in your project. Most of them have extremely high code coverage and in most cases work as they are expected to.
 
 If you code uses third-party, mock it and just make sure that the function is called under given circumstances and with given parameters.
 
 Trivial code COULD not be tested as well, but that is the matter of the preference. For example, we could trust a getter that returns a constant value to be working fine, if that is the current business requirement. 
 
-But the trivial code would not necessary remain trivial.
+But it would not necessary remain trivial.
 
-Businesses tend to grow and change their requirements according to their needs and the "trivial" code acquires complexity and remains untested.
+Businesses tend to grow and change their requirements according to their needs and the trivial code acquires complexity and remains untested.
 
-## Ideal test coverage
+There is a high chance that the change would cause a harm for the project, therefore you either have to add a test for it or check if this piece of code is indirectly tested somewhere else.
+
+## Ideal code coverage
+
+What is test coverage? 
+
+> Test coverage is a measure used to describe the degree to which the source code of a program is executed when a particular test suite runs. 
+>
+> A program with high test coverage, measured as a percentage, has had more of its source code executed during testing, which suggests it has a lower chance of containing undetected software bugs compared to a program with low test coverage.
 
 ## Testing simple component in React
 
