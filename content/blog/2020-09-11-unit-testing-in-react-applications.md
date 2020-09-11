@@ -77,7 +77,7 @@ There is a high chance that the change would cause a harm for the project, there
 
 ## Ideal code coverage
 
-What is test coverage? 
+What is test coverage?
 
 > Test coverage is a measure used to describe the degree to which the source code of a program is executed when a particular test suite runs. 
 >
