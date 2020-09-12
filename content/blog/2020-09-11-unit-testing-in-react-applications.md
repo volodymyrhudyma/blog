@@ -18,7 +18,7 @@ Without testing, the functioning of your application is a matter of pure luck.
 
 Depending on your application, there are different types of tests that can be automated.
 
-In this article we will learn about Unit Testing and why it is crucial for the majority of projects.
+In this article we will learn about **Unit Testing** and why it is crucial for the majority of projects.
 
 ## What is Unit Testing?
 
