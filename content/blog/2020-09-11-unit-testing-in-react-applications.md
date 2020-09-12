@@ -1,11 +1,16 @@
 ---
-title: Unit Testing in React Applications
+title: Unit Testing React Components | Redux-Thunk | Redux-Saga (Full Guide,
+  September 2020)
 tag:
   - React
-metaDescription: // META
+metaDescription: Learn what is Unit Testing and how to Test Stateful and
+  Stateless React Components | Redux-Thunk actions, reducers, selectors |
+  Redux-Saga sagas with Jest and Enzyme.
 teaser: // TEASER
-date: 2020-09-11T22:42:06.499Z
+date: 2020-09-12T22:42:06.499Z
 ---
+
+
 ## What is Unit Testing?
 
 **Unit Testing** is a software testing method in which individual units of source code are tested to determine whether they function as expected separately.
