@@ -9,7 +9,7 @@ metaDescription: Learn what is Unit Testing and how to Test Stateful and
 teaser: Each application must be automatically tested to ensure that everything
   works as intended and that the new features can be delivered without
   destroying the existing ones. Without testing, the functioning of your
-  application is a matter of pure luck.
+  application is a matter of pure luck...
 date: 2020-09-12T22:42:06.499Z
 ---
 Each application must be automatically tested to ensure that everything works as intended and that the new features can be delivered without destroying the existing ones.
