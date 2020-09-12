@@ -769,4 +769,8 @@ describe('fetchUsersSaga tests', () => {
 
 ## Summary
 
-Hopefully, you have enjoyed our trip through the world of testing.
+I hope, you enjoyed our journey through the world of testing.
+
+We learned why and how to test **React Components** / **Redux-Thunk** / **Redux-Saga** with the help of **Jest** test runner and **Enzyme** testing utility.
+
+If testing is new to you, it may seem overwhelming at first, but I swear if you learn this subject will bring an enormous number of benefits to each of your projects.
