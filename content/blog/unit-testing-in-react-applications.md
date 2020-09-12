@@ -41,7 +41,7 @@ Having the majority of your application's code covered with tests brings many be
   The presence of unit testing allows existing code to be refactored with the assurance that nothing would fail as long as the tests pass after the refactoring.
 * **code quality**
 
-  **Unit Testing forces you to write the code in good quality. The more difficult your code is to understand, the more difficult it is to test.**
+  Unit Testing forces you to write the code in good quality. The more difficult your code is to understand, the more difficult it is to test.
 * **early bug reports**
 
   Writing tests forces developers to think thoroughly about the tested code, identify edge cases and potential problems, and to ensure that nothing would fail because of them.
