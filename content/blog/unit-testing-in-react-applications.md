@@ -558,14 +558,15 @@ export default (state = initialState, action: UserActions) => {
         ...state,
         pending: false,
         data: action.payload,
+        error: "",
       };
     }
     case "FETCH_USER_REJECTED": {
       return {
         ...state,
         pending: false,
-        error: action.payload,
         data: [],
+        error: action.payload,
       };
     }
     default:
@@ -586,7 +587,7 @@ import { UserState } from "./types";
 const initialState: UserState = {
   pending: false,
   data: [],
-  error: false,
+  error: "",
 };
 
 describe("User reducer tests", () => {
@@ -598,7 +599,7 @@ describe("User reducer tests", () => {
     ).toEqual({
       pending: true,
       data: [],
-      error: false,
+      error: "",
     });
   });
 
@@ -619,7 +620,7 @@ describe("User reducer tests", () => {
           name: "John",
         },
       ],
-      error: false,
+      error: "",
     });
   });
 
