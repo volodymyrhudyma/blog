@@ -406,7 +406,7 @@ it('should display found items', () => {
 ```typescript
 import { Dispatch } from 'redux';
 
-import * as api from '../../api';
+import * as api from './api';
 
 export const fetchUsers = () => {
   return async (dispatch: Dispatch) => {
@@ -592,6 +592,40 @@ describe('Users reducer', () => {
 ```
 
 #### Testing selectors
+
+```tsx
+import { createSelector } from 'reselect';
+
+import { AppState } from './rootReducer';
+
+const users = (state: AppState) => state.user.data;
+
+export const usersSelector = createSelector(users, (users) => users);
+
+```
+
+```tsx
+import { usersSelector } from './selectors';
+
+import { AppState } from './rootReducer';
+
+describe('usersSelector tests', () => {
+  it('should return users', () => {
+    const state: AppState = {
+      user: {
+        pending: false,
+        data: [{ name: 'John' }],
+        error: '',
+      },
+    };
+
+    const users = usersSelector(state);
+
+    expect(users).toEqual(state.user.data);
+  });
+});
+
+```
 
 ## Testing redux-saga
 
