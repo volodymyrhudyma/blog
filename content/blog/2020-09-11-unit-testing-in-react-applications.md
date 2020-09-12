@@ -125,7 +125,7 @@ export default Article;
 
 In this article we will be use **Jest** and **Enzyme**, a delightful testing framework with a popular testing utility that provides us with the best testing experience. 
 
-The complete installation and configuration guide for both is available [here](/2020-06-09-the-best-tools-for-react-development/#Jest-+-enzyme).
+> The complete installation and configuration guide for both is available [here](/2020-06-09-the-best-tools-for-react-development/#Jest-+-enzyme).
 
 Before we create the tests, we should find out what needs to be tested.
 
@@ -394,6 +394,204 @@ it('should display found items', () => {
 ```
 
 ## Testing redux-thunk
+
+**Redux Thunk** is one of the most popular middlewares for Redux. It allows you to write asynchronous logic that interacts with the store.
+
+> The complete installation and configuration guide for Redux Thunk is available [](/2020-06-09-the-best-tools-for-react-development/#Jest-+-enzyme)[here](/2020-06-11-add-redux-with-typescript-to-your-react-applicaton-june-2020/).
+
+#### Testing action creators
+
+**Action creators** are functions which return plain objects. When testing action creators, we want to test whether the right action was returned.
+
+```typescript
+import { Dispatch } from 'redux';
+
+import * as api from '../../api';
+
+export const fetchUsers = () => {
+  return async (dispatch: Dispatch) => {
+    dispatch({
+      type: 'FETCH_USERS',
+    });
+    try {
+      const data = await api.fetchUsers('');
+      dispatch({
+        type: 'FETCH_USERS_FULFILLED',
+        payload: data,
+      });
+    } catch (error) {
+      dispatch({
+        type: 'FETCH_USERS_REJECTED',
+        payload: error.toString(),
+      });
+    }
+  };
+};
+```
+
+```typescript
+import thunk from 'redux-thunk';
+import configureMockStore from 'redux-mock-store';
+import MockAdapter from 'axios-mock-adapter';
+
+import axios from 'axios';
+
+import { fetchUsers } from './actions';
+
+const axiosMock = new MockAdapter(axios);
+
+const middlewares = [thunk];
+const mockStore = configureMockStore(middlewares);
+
+describe('fetchUsers action', () => {
+  afterEach(() => {
+    axiosMock.reset();
+  });
+
+  it('should fire FETCH_USERS and FETCH_USERS_FULFILLED in case of success', async () => {
+    const data = [
+      {
+        name: 'John',
+      },
+    ];
+
+    axiosMock.onGet('/users').reply(200, data);
+
+    const expectedActions = [
+      { type: 'FETCH_USERS' },
+      { type: 'FETCH_USERS_FULFILLED', payload: data },
+    ];
+
+    const store = mockStore();
+
+    await store.dispatch(fetchUsers());
+
+    expect(store.getActions()).toEqual(expectedActions);
+  });
+
+  it('should fire FETCH_USERS and FETCH_USERS_REJECTED in case of an error', async () => {
+    axiosMock.onGet('/users').networkError();
+
+    const expectedActions = [
+      { type: 'FETCH_USERS' },
+      {
+        type: 'FETCH_USERS_REJECTED',
+        payload: 'Error: Network Error',
+      },
+    ];
+
+    const store = mockStore();
+
+    await store.dispatch(fetchUsers());
+
+    expect(store.getActions()).toEqual(expectedActions);
+  });
+});
+```
+
+#### Testing reducers
+
+```javascript
+import { UserState, UserActions } from './types';
+
+const initialState: UserState = {
+  pending: false,
+  data: [],
+  error: '',
+};
+
+export default (state = initialState, action: UserActions) => {
+  switch (action.type) {
+    case 'FETCH_USER': {
+      return {
+        ...state,
+        pending: true,
+      };
+    }
+    case 'FETCH_USER_FULFILLED': {
+      return {
+        ...state,
+        pending: false,
+        data: action.payload,
+      };
+    }
+    case 'FETCH_USER_REJECTED': {
+      return {
+        ...state,
+        pending: false,
+        error: action.payload,
+        data: [],
+      };
+    }
+    default:
+      return {
+        ...state,
+      };
+  }
+};
+```
+
+```tsx
+import reducer from './reducer';
+
+import { UserState } from './types';
+
+const initialState: UserState = {
+  pending: false,
+  data: [],
+  error: false,
+};
+
+describe('Users reducer', () => {
+  it('should handle FETCH_USER', () => {
+    expect(
+      reducer(initialState, {
+        type: 'FETCH_USER',
+      })
+    ).toEqual({
+      pending: true,
+      data: [],
+      error: false,
+    });
+  });
+
+  it('should handle FETCH_USER_FULFILLED', () => {
+    expect(
+      reducer(initialState, {
+        type: 'FETCH_USER_FULFILLED',
+        payload: [
+          {
+            name: 'John',
+          },
+        ],
+      })
+    ).toEqual({
+      pending: false,
+      data: [
+        {
+          name: 'John',
+        },
+      ],
+      error: false,
+    });
+  });
+
+  it('should handle FETCH_USER_REJECTED', () => {
+    expect(
+      reducer(initialState, {
+        type: 'FETCH_USER_REJECTED',
+        payload: 'Something went wrong',
+      })
+    ).toEqual({
+      pending: false,
+      data: [],
+      error: 'Something went wrong',
+    });
+  });
+});
+```
+
+#### Testing selectors
 
 ## Testing redux-saga
 
