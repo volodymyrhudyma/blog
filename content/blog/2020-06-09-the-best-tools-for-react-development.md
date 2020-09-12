@@ -129,7 +129,7 @@ It's good practice - to cover all your components with unit tests to be sure tha
 
 If you're using CRA, **jest** will already be installed and configured, if not - you have to install it manually:
 
-`yarn add --dev jest`
+`yarn add -D jest`
 
 Read the [official documentation](https://jestjs.io/docs/en/getting-started) to find out how to use it.
 
@@ -137,7 +137,7 @@ Read the [official documentation](https://jestjs.io/docs/en/getting-started) to 
 
 To install enzyme, run:
 
-`yarn add enzyme enzyme-adapter-react-16`
+`yarn add -D enzyme enzyme-adapter-react-16`
 
 > As of Enzyme 3, you will need to install Enzyme along with an Adapter corresponding to the version of React you are using. (The examples above use the adapter for React 16.).
 
