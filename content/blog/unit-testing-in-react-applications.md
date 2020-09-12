@@ -353,8 +353,8 @@ Here the following things should be tested:
 * `Input` component should be rendered
 * `Button` component should be rendered
 * By default, we do not show any `Item` components
-* `fetchUsers` function should be called after clicking on the `Button` if the user has not provided any `query`
-* `fetchUsers` function should be called with a `query` as an argument after clicking on the `Button` if the user has provided it
+* **fetchUsers** function should be called after clicking on the `Button` if the user has not provided any **query**
+* **fetchUsers** function should be called with a **query** as an argument after clicking on the `Button` if the user has provided it
 * The correct number of `Item` components with the correct data should be displayed after performing a search 
 
 ```tsx
