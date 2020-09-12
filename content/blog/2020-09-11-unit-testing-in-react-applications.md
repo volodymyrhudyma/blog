@@ -97,23 +97,88 @@ For most projects, figures such as 70-80% seem appropriate. Increasing these fig
 
 This section summarizes all the knowledge we have gained so far and puts them into practice.
 
-Let's create a simple React component that prints article's title, teaser and publish date to the screen:
+Let's create a simple React component that prints the article's title, teaser and publish date to the screen:
 
 ```tsx
-import React from "react";
+import React, { FC } from 'react';
 
-const { Wrapper, Title, Teaser, Date } from "./styled";
+import { Wrapper, Title, Teaser, Date } from './styled';
 
-const Article = ({ title, teaser, publishDate }) => (
+export interface Props {
+  title: string;
+  teaser: string;
+  publishDate: string;
+}
+
+const Article: FC<Props> = ({ title, teaser, publishDate }) => (
   <Wrapper>
     <Title>{title}</Title>
-    <Teaser>{teaser}<Teaser>
+    <Teaser>{teaser}</Teaser>
     <Date>{publishDate}</Date>
   </Wrapper>
 );
+
+export default Article;
 ```
 
- **Important note:** in the example above we assume that [styled-components](https://styled-components.com/docs) library is used. 
+**Important note:** in the example above we assume that [styled-components](https://styled-components.com/docs) library is used.
+
+In this article, we will be using **Jest** and **Enzyme**, a delightful test framework with a popular testing utility to provide us the best testing experience. 
+
+The full guide on how to install and configure both of them is available [here](/2020-06-09-the-best-tools-for-react-development/#Jest-+-enzyme).
+
+Finally, create the tests:
+
+```tsx
+import React from 'react';
+import { shallow } from 'enzyme';
+
+import { Title, Teaser, Date } from './styled';
+
+import Article, { Props } from './Article';
+
+const props: Props = {
+  title: 'Title',
+  teaser: 'Teaser',
+  publishDate: '2020-09-12',
+};
+
+it('should render title', () => {
+  const wrapper = shallow(<Article {...props} />);
+
+  expect(wrapper.find(Title).text()).toEqual(props.title);
+});
+
+it('should render teaser', () => {
+  const wrapper = shallow(<Article {...props} />);
+
+  expect(wrapper.find(Teaser).text()).toEqual(props.teaser);
+});
+
+it('should render date', () => {
+  const wrapper = shallow(<Article {...props} />);
+
+  expect(wrapper.find(Date).text()).toEqual(props.publishDate);
+});
+```
+
+As you probably noticed, we could have created one test that checks all three fields instead of three:
+
+```tsx
+it('should render title, teaser and date', () => {
+  const wrapper = shallow(<Article {...props} />);
+
+  expect(wrapper.find(Title).text()).toEqual(props.title);
+  expect(wrapper.find(Teaser).text()).toEqual(props.teaser);
+  expect(wrapper.find(Date).text()).toEqual(props.publishDate);
+});
+```
+
+But that solution has one drawback - if one of the fields would fail to render, it would take more time to figure out what exactly failed, as your test is responsible for checking three of them.
+
+We used Shallow Rendering to test the component as a unit, in isolation. 
+
+By using `shallow` method we do not render child components.
 
 ## Testing complex component in React
 
