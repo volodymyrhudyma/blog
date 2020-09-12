@@ -457,12 +457,13 @@ it("should fetch building shape", async () => {
 
   const dispatched = [];
 
-  await runSaga(
+  const saga = await runSaga(
     {
       dispatch: action => dispatched.push(action),
     },
     fetchBuildingShapeSaga,
   );
+  await saga.toPromise();
 
   expect(dispatched).toEqual([
     {
