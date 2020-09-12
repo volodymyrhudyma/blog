@@ -569,7 +569,7 @@ const initialState: UserState = {
   error: false,
 };
 
-describe('Users reducer', () => {
+describe('User reducer tests', () => {
   it('should handle FETCH_USER', () => {
     expect(
       reducer(initialState, {
@@ -660,4 +660,113 @@ describe('usersSelector tests', () => {
 
 ## Testing redux-saga
 
+**Redux Saga** is a library that aims to make application side effects (i.e. asynchronous things like data fetching and impure things like accessing the browser cache) easier to manage, more efficient to execute, easy to test, and better at handling failures.
+
+#### Testing sagas
+
+```typescript
+import { call, put, takeLatest } from "redux-saga/effects";
+
+import * as api from './api';
+
+export function* fetchUsersSaga = () => {
+   yield put({
+     type: "FETCH_USERS_STARTED", 
+   });
+   try {
+      const data = yield call(api.fetchUsers);
+      yield put({
+        type: "FETCH_USERS_FULFILLED", 
+        payload: data,
+      });
+   } catch (error) {
+      yield put({
+        type: "FETCH_USERS_REJECTED", 
+        error: error.toString(),
+      });
+   }
+};
+
+function* usersSaga() {
+  yield takeLatest("FETCH_USERS_REQUESTED", fetchUsersSaga);
+}
+
+export default usersSaga;
+```
+
+```typescript
+import axios from "axios";
+import MockAdapter from "axios-mock-adapter";
+import { runSaga } from "redux-saga";
+
+import api from "./api";
+
+import { fetchBuildingShape } from "./actions";
+
+const axiosMock = new MockAdapter(axios);
+
+describe('fetchUsersSaga tests', () => {
+  afterEach(() => {
+    axiosMock.reset();
+  });
+
+  it('should fire FETCH_USERS_STARTED and FETCH_USERS_FULFILLED in case of success', async () => {
+    const data = [
+      {
+        name: 'John',
+      },
+    ];
+
+    axiosMock.onGet('/users').reply(200, data);
+
+    const dispatched = [];
+
+    const saga = await runSaga(
+      {
+        dispatch: (action) => dispatched.push(action),
+      },
+      fetchUsers
+    );
+    await saga.toPromise();
+
+    expect(dispatched).toEqual([
+      {
+        type: 'FETCH_USERS_STARTED',
+      },
+      {
+        type: 'FETCH_USERS_FULFILLED',
+        payload: data,
+      },
+    ]);
+  });
+
+  it('should fire FETCH_USERS_STARTED and FETCH_USERS_REJECTED in case of success', async () => {
+    axiosMock.onGet('/users').networkError();
+
+    const dispatched = [];
+
+    const saga = await runSaga(
+      {
+        dispatch: (action) => dispatched.push(action),
+      },
+      fetchUsers
+    );
+    await saga.toPromise();
+
+    expect(dispatched).toEqual([
+      {
+        type: 'FETCH_USERS_STARTED',
+      },
+      {
+        type: 'FETCH_USERS_REJECTED',
+        payload: 'Error: Network Error',
+      },
+    ]);
+  });
+});
+
+```
+
 ## Summary
+
+Hopefully, you have enjoyed our trip through the world of testing.
