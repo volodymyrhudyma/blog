@@ -93,7 +93,7 @@ Developers should stop testing when it feels like the tests become contrived and
 
 For most projects, figures such as 70-80% seem appropriate. Increasing these figures will result in slower bug-detection rate, which is not that cost-effective.
 
-## Testing simple component in React
+## Testing stateless components in React
 
 This section summarizes all the knowledge we have gained so far and puts them into practice.
 
@@ -188,7 +188,7 @@ We use Shallow Rendering to test the component as a unit, in isolation.
 
 By using `shallow` method we do not render any child components.
 
-## Testing complex component in React
+## Testing stateful components in React
 
 We already know how to perform simple React Components tests that are only responsible for rendering text on the screen. 
 
@@ -267,7 +267,53 @@ it('should render provided text', () => {
 
 If all these tests are passed and green, you can be sure that the component works and delivers its value to users.
 
-## Testing container component in React
+## Testing complex components in React
+
+In this section we will test the React Component that retrieves data from an external API based on the input provided by the user and displays it in a list:
+
+```tsx
+import React, { FC, useState, ChangeEvent } from 'react';
+
+import { Wrapper, Input, Button, Item } from './styled';
+
+import * as api from './api';
+
+export interface ApiData {
+  name: string;
+}
+
+const UserList: FC = () => {
+  const [query, setQuery] = useState('');
+  const [data, setData] = useState<ApiData[]>([]);
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setQuery(e.target.value);
+  };
+
+  const handleSearch = async () => {
+    const data = await api.fetchUsers(query);
+    setData(data);
+  };
+
+  return (
+    <Wrapper>
+      <Input type='text' value={query} onChange={handleChange} />
+      <Button onClick={handleSearch}>Search</Button>
+      {data.map((item, index) => (
+        <Item key={index}>{item.name}</Item>
+      ))}
+    </Wrapper>
+  );
+};
+
+export default UserList;
+```
+
+Tests:
+
+```tsx
+
+```
 
 ## Testing redux-thunk
 
