@@ -95,6 +95,26 @@ For most projects, figures such as 70-80% seem appropriate. Increasing these fig
 
 ## Testing simple component in React
 
+This section summarizes all the knowledge we have gained so far and puts them into practice.
+
+Let's create a simple React component that prints article's title, teaser and publish date to the screen:
+
+```tsx
+import React from "react";
+
+const { Wrapper, Title, Teaser, Date } from "./styled";
+
+const Article = ({ title, teaser, publishDate }) => (
+  <Wrapper>
+    <Title>{title}</Title>
+    <Teaser>{teaser}<Teaser>
+    <Date>{publishDate}</Date>
+  </Wrapper>
+);
+```
+
+ **Important note:** in the example above we assume that [styled-components](https://styled-components.com/docs) library is used. 
+
 ## Testing complex component in React
 
 ## Testing container component in React
