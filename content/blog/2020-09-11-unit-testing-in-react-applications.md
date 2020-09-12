@@ -429,17 +429,35 @@ export const fetchUsers = () => {
 };
 ```
 
+The action calls `fetchUsers` function that uses `axios` to perform a call to an API (`/users` endpoint).
+
+In tests, we do not want to send a real request, but to just mock it and return some example response. 
+
+Install the following libraries:
+
+* `redux-mock-store`
+
+  A mock store for testing Redux async action creators and middleware. 
+
+  The mock store will create an array of dispatched actions which serve as an action log for tests.
+* `axios-mock-adapter`  
+
+  Axios adapter that allows to easily mock requests.[](https://github.com/ctimmerm/axios-mock-adapter#installation)
+
+`yarn add -D redux-mock-store axios-mock-adapter`
+
 ```typescript
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 import MockAdapter from 'axios-mock-adapter';
-
 import axios from 'axios';
 
 import { fetchUsers } from './actions';
 
+// Create axios mock
 const axiosMock = new MockAdapter(axios);
 
+// Mock store
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
@@ -455,6 +473,8 @@ describe('fetchUsers action', () => {
       },
     ];
 
+    // Mock the request sent to "/users" endpoint
+    // Return 200 with mocked data
     axiosMock.onGet('/users').reply(200, data);
 
     const expectedActions = [
@@ -470,6 +490,9 @@ describe('fetchUsers action', () => {
   });
 
   it('should fire FETCH_USERS and FETCH_USERS_REJECTED in case of an error', async () => {
+    
+    // Mock the request sent to "/users" endpoint
+    // Return "Network Error"
     axiosMock.onGet('/users').networkError();
 
     const expectedActions = [
@@ -490,6 +513,8 @@ describe('fetchUsers action', () => {
 ```
 
 #### Testing reducers
+
+A reducer should return the new state after applying the action to the previous state.
 
 ```javascript
 import { UserState, UserActions } from './types';
@@ -530,6 +555,8 @@ export default (state = initialState, action: UserActions) => {
   }
 };
 ```
+
+Call `reducer` function and apply the initial state and action you want to test as parameters:
 
 ```tsx
 import reducer from './reducer';
@@ -593,6 +620,8 @@ describe('Users reducer', () => {
 
 #### Testing selectors
 
+A selector is a function that accepts Redux state as an argument and returns data that is derived from that state.
+
 ```tsx
 import { createSelector } from 'reselect';
 
@@ -603,6 +632,8 @@ const users = (state: AppState) => state.user.data;
 export const usersSelector = createSelector(users, (users) => users);
 
 ```
+
+To test selector, create the state, apply it as an argument and check if the correct result has been returned:
 
 ```tsx
 import { usersSelector } from './selectors';
