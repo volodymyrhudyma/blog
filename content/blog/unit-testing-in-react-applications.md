@@ -208,6 +208,26 @@ We use Shallow Rendering to test the component as a unit, in isolation.
 
 By using `shallow` method we do not render any child components.
 
+## Collecting test coverage with Jest
+
+Before we proceed to the next section, let's measure the test coverage of the `Article` component.
+
+This can be easily done with Jest.
+
+Update the `scripts` section in `package.json` file with the following line:
+
+`"test:coverage": "jest --coverage --coverageDirectory=test-cov"`
+
+From now on we can execute this script via the command line to get the coverage report:
+
+`yarn test:coverage`
+
+Go to the `test-cov` directory where Jest outputs its coverage files and open `icov-report/index.html`:
+
+![Jest test coverage report](/img/знімок-екрана-о-00.37.29.png "Jest test coverage report")
+
+Observe the test coverage for `Article` component, it is **100%**.
+
 ## Testing stateful components in React
 
 We already know how to perform simple React Components tests that are only responsible for rendering text on the screen. 
