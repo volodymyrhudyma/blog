@@ -28,7 +28,7 @@ Unit tests are automated tests written by the software developers to ensure that
 
 The main purpose of this type of testing is to isolate different parts of the program and ensure that they are correct.
 
-## The benefits of having Unit Tests
+## The benefits of Unit Testing
 
 Testing is essential to guarantee the application works as expected.
 
@@ -93,7 +93,7 @@ Businesses tend to grow and change their requirements according to their needs, 
 
 There is a high probability that the change would harm the project, so you either need to add a test for it, or verify that this piece of code is indirectly tested elsewhere.
 
-## Ideal test coverage
+## Test coverage
 
 What is test coverage?
 
@@ -214,7 +214,7 @@ Before we proceed to the next section, let's measure the test coverage of the `A
 
 This can be easily done with Jest.
 
-Update the `scripts` section in `package.json` file with the following line:
+Update the **scripts** section in **package.json** file with the following line:
 
 `"test:coverage": "jest --coverage --coverageDirectory=test-cov"`
 
@@ -222,7 +222,7 @@ From now on we can execute this script via the command line to get the coverage 
 
 `yarn test:coverage`
 
-Go to the `test-cov` directory where Jest outputs its coverage files and open `icov-report/index.html`:
+Go to the **test-cov** directory where Jest outputs its coverage files and open **icov-report/index.html**:
 
 ![Jest test coverage report](/img/знімок-екрана-о-00.37.29.png "Jest test coverage report")
 
