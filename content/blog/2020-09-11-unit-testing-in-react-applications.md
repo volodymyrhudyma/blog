@@ -6,11 +6,20 @@ tag:
 metaDescription: Learn what is Unit Testing and how to Test Stateful and
   Stateless React Components | Redux-Thunk actions, reducers, selectors |
   Redux-Saga sagas with Jest and Enzyme.
-teaser: Every application requires automated testing to ensure that everything
-  works as intended. Without testing, the functioning of your application is
-  just a matter of luck.
+teaser: Each application must be automatically tested to ensure that everything
+  works as intended and that the new features can be delivered without
+  destroying the existing ones. Without testing, the functioning of your
+  application is a matter of pure luck.
 date: 2020-09-12T22:42:06.499Z
 ---
+Each application must be automatically tested to ensure that everything works as intended and that the new features can be delivered without destroying the existing ones.
+
+Without testing, the functioning of your application is a matter of pure luck.
+
+Depending on your application, there are different types of tests that can be automated.
+
+In this article we will learn about Unit Testing and why it is crucial for the majority of projects.
+
 ## What is Unit Testing?
 
 **Unit Testing** is a software testing method in which individual units of source code are tested to determine whether they function as expected separately.
@@ -37,7 +46,7 @@ Having the majority of your application's code covered with tests brings many be
 
   Writing tests forces developers to think thoroughly about the tested code, identify edge cases and potential problems, and to ensure that nothing would fail because of them.
 
-  Failing unit tests are a sign that the software is not yet ready for the production.
+  Failing unit tests are a sign that the software is not yet ready for production.
 * **documentation**
 
   If the functionality provided by the specific code is unclear but well-tested, the developer can gain a basic understanding of it by reading unit tests.
@@ -52,9 +61,9 @@ Having the majority of your application's code covered with tests brings many be
 
 The answer to this question is simple - **everything**... in a perfect world.
 
-But we do not live in a perfect world, and covering every part of your application with tests is extremely time consuming and costly for customers.
+But we do not live in a perfect world, and covering every part of your application with tests is extremely time-consuming and costly for customers.
 
-It is therefore best to identify the parts of your application which contain some essential business-logic and make sure everything that works as expected. 
+It is, therefore, best to identify the parts of your application that contain some essential business-logic and make sure everything that works as expected. 
 
 If you work on the MVP (Minimum Viable Product) and you know that some parts of your code will most likely be changed in the future, but the functionality remains the same, add some unit tests to make sure nothing is broken after refactoring.
 
@@ -68,7 +77,7 @@ Of course, there is some stuff that does not to be unit tested.
 
 You should not test code that has already been tested by others. 
 
-A good example are popular libraries that are used in your project. 
+A good example - popular libraries that are used in your project. 
 
 Most of them have high code coverage and in most cases work as expected.
 
@@ -78,7 +87,7 @@ Trivial code COULD not be tested as well, but that is the matter of preference.
 
 For example, we could trust a getter that delivers a constant value to be working fine, if that is the current business requirement. 
 
-But it would not necessary remain trivial.
+But it would not necessarily remain trivial.
 
 Businesses tend to grow and change their requirements according to their needs, and trivial code acquires complexity and remains untested.
 
