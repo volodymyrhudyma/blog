@@ -182,6 +182,75 @@ By using `shallow` method we do not render child components.
 
 ## Testing complex component in React
 
+We already know how to test simple React Components which are responsible only for rendering text to the screen. 
+
+Now let's look at a more complex example with some `useState` usage and conditional logic inside:
+
+```tsx
+import React, { FC, useState, ChangeEvent } from 'react';
+
+import { Wrapper, Input, Text } from './styled';
+
+const Search: FC = () => {
+  const [query, setQuery] = useState('');
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setQuery(e.target.value);
+  };
+
+  return (
+    <Wrapper>
+      <Input type='text' value={query} onChange={handleChange} />
+      <Text>{query ? query : 'No query provided'}</Text>
+    </Wrapper>
+  );
+};
+
+export default Search;
+```
+
+There is `Seach` component that allows the user to type any value into the input and see the value printed below. 
+
+If no value was provided, we display "*No query provided*" text.
+
+Create the tests:
+
+```tsx
+import React from 'react';
+import { shallow } from 'enzyme';
+
+import { Input, Text } from './styled';
+
+import Search from './Search';
+
+it('should render input', () => {
+  const wrapper = shallow(<Search />);
+
+  expect(wrapper.find(Input).length).toBeTruthy();
+});
+
+it('should render no query text', () => {
+  const wrapper = shallow(<Search />);
+
+  expect(wrapper.find(Text).text()).toEqual('No query provided');
+});
+
+it('should render provided text', () => {
+  const wrapper = shallow(<Search />);
+  const input = wrapper.find(Input);
+
+  // We simulate typing "Hello, world!" into the input
+  input.simulate('change', {
+    target: {
+      value: 'Hello, world!',
+    },
+  });
+
+  expect(wrapper.find(Text).text()).toEqual('Hello, world!');
+});
+
+```
+
 ## Testing container component in React
 
 ## Testing redux-thunk
