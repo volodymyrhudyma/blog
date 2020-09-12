@@ -10,7 +10,7 @@ teaser: Each application must be automatically tested to ensure that everything
   works as intended and that the new features can be delivered without
   destroying the existing ones. Without testing, the functioning of your
   application is a matter of pure luck...
-date: 2020-09-13T17:06:00.000Z
+date: 2020-09-13T17:08:00.000Z
 ---
 Each application must be automatically tested to ensure that everything works as intended and that the new features can be delivered without destroying the existing ones.
 
