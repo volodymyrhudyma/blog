@@ -118,9 +118,9 @@ This section summarizes all the findings we have gained so far and puts them int
 Let's create a simple React component that prints the **title**, **teaser** and **publish date** of the article on the screen:
 
 ```tsx
-import React, { FC } from 'react';
+import React, { FC } from "react";
 
-import { Wrapper, Title, Teaser, Date } from './styled';
+import { Wrapper, Title, Teaser, Date } from "./styled";
 
 export interface Props {
   title: string;
@@ -158,32 +158,32 @@ Missing teasers could cause the user to skip the article, resulting in the loss 
 Finally, add some tests:
 
 ```tsx
-import React from 'react';
-import { shallow } from 'enzyme';
+import React from "react";
+import { shallow } from "enzyme";
 
-import { Title, Teaser, Date } from './styled';
+import { Title, Teaser, Date } from "./styled";
 
-import Article, { Props } from './Article';
+import Article, { Props } from "./Article";
 
 const props: Props = {
-  title: 'Title',
-  teaser: 'Teaser',
-  publishDate: '2020-09-12',
+  title: "Title",
+  teaser: "Teaser",
+  publishDate: "2020-09-12",
 };
 
-it('should render title', () => {
+it("should render title", () => {
   const wrapper = shallow(<Article {...props} />);
 
   expect(wrapper.find(Title).text()).toEqual(props.title);
 });
 
-it('should render teaser', () => {
+it("should render teaser", () => {
   const wrapper = shallow(<Article {...props} />);
 
   expect(wrapper.find(Teaser).text()).toEqual(props.teaser);
 });
 
-it('should render date', () => {
+it("should render date", () => {
   const wrapper = shallow(<Article {...props} />);
 
   expect(wrapper.find(Date).text()).toEqual(props.publishDate);
@@ -193,7 +193,7 @@ it('should render date', () => {
 As you probably noticed, we could have created one test that checks all three fields instead of three:
 
 ```tsx
-it('should render title, teaser and date', () => {
+it("should render title, teaser and date", () => {
   const wrapper = shallow(<Article {...props} />);
 
   expect(wrapper.find(Title).text()).toEqual(props.title);
@@ -215,12 +215,12 @@ We already know how to perform simple React Components tests that are only respo
 Now let's look at a more complex example with a `useState` usage and conditional logic in it:
 
 ```tsx
-import React, { FC, useState, ChangeEvent } from 'react';
+import React, { FC, useState, ChangeEvent } from "react";
 
-import { Wrapper, Input, Text } from './styled';
+import { Wrapper, Input, Text } from "./styled";
 
 const Search: FC = () => {
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
@@ -228,8 +228,8 @@ const Search: FC = () => {
 
   return (
     <Wrapper>
-      <Input type='text' value={query} onChange={handleChange} />
-      <Text>{query ? query : 'No query provided'}</Text>
+      <Input type="text" value={query} onChange={handleChange} />
+      <Text>{query ? query : "No query provided"}</Text>
     </Wrapper>
   );
 };
@@ -250,37 +250,37 @@ Secondly, make sure that if the user has not touched the input, the default text
 Finally, simulate entering a text into the input and check whether this text is actually rendered on the screen:
 
 ```tsx
-import React from 'react';
-import { shallow } from 'enzyme';
+import React from "react";
+import { shallow } from "enzyme";
 
-import { Input, Text } from './styled';
+import { Input, Text } from "./styled";
 
-import Search from './Search';
+import Search from "./Search";
 
-it('should render input', () => {
+it("should render input", () => {
   const wrapper = shallow(<Search />);
 
   expect(wrapper.find(Input).length).toBeTruthy();
 });
 
-it('should render no query text', () => {
+it("should render no query text", () => {
   const wrapper = shallow(<Search />);
 
-  expect(wrapper.find(Text).text()).toEqual('No query provided');
+  expect(wrapper.find(Text).text()).toEqual("No query provided");
 });
 
-it('should render provided text', () => {
+it("should render provided text", () => {
   const wrapper = shallow(<Search />);
   const input = wrapper.find(Input);
 
   // We simulate typing "Hello, world!" into the input
-  input.simulate('change', {
+  input.simulate("change", {
     target: {
-      value: 'Hello, world!',
+      value: "Hello, world!",
     },
   });
 
-  expect(wrapper.find(Text).text()).toEqual('Hello, world!');
+  expect(wrapper.find(Text).text()).toEqual("Hello, world!");
 });
 ```
 
@@ -291,18 +291,18 @@ If all these tests are passed and green, you can be sure that the component work
 In this section we will test the React Component, which retrieves data from an external API based on the input provided by the user and displays it in a list:
 
 ```tsx
-import React, { FC, useState, ChangeEvent } from 'react';
+import React, { FC, useState, ChangeEvent } from "react";
 
-import { Wrapper, Input, Button, Item } from './styled';
+import { Wrapper, Input, Button, Item } from "./styled";
 
-import * as api from './api';
+import * as api from "./api";
 
 export interface ApiData {
   name: string;
 }
 
 const UserList: FC = () => {
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState("");
   const [data, setData] = useState<ApiData[]>([]);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -316,7 +316,7 @@ const UserList: FC = () => {
 
   return (
     <Wrapper>
-      <Input type='text' value={query} onChange={handleChange} />
+      <Input type="text" value={query} onChange={handleChange} />
       <Button onClick={handleSearch}>Search</Button>
       {data.map((item, index) => (
         <Item key={index}>{item.name}</Item>
@@ -338,78 +338,78 @@ Here the following things should be tested:
 * The correct number of `Item` components with the correct data should be displayed after performing a search 
 
 ```tsx
-import React from 'react';
-import { shallow, mount } from 'enzyme';
+import React from "react";
+import { shallow, mount } from "enzyme";
 
-import { Input, Button, Item } from './styled';
+import { Input, Button, Item } from "./styled";
 
-import * as api from './api';
+import * as api from "./api";
 
-import UserList, { ApiData } from './UserList';
+import UserList, { ApiData } from "./UserList";
 
-it('should render input', () => {
+it("should render input", () => {
   const wrapper = shallow(<UserList />);
 
   expect(wrapper.find(Input).length).toBeTruthy();
 });
 
-it('should render button', () => {
+it("should render button", () => {
   const wrapper = shallow(<UserList />);
 
   expect(wrapper.find(Button).length).toBeTruthy();
 });
 
-it('should not render any items by default', () => {
+it("should not render any items by default", () => {
   const wrapper = shallow(<UserList />);
 
   expect(wrapper.find(Item).length).toBeFalsy();
 });
 
-it('should call fetchUsers function with empty query', () => {
+it("should call fetchUsers function with empty query", () => {
   const wrapper = shallow(<UserList />);
   const button = wrapper.find(Button);
-  const fetchUsersSpy = jest.spyOn(api, 'fetchUsers').mockResolvedValue([]);
+  const fetchUsersSpy = jest.spyOn(api, "fetchUsers").mockResolvedValue([]);
 
-  button.prop('onClick')();
+  button.prop("onClick")();
 
-  expect(fetchUsersSpy).toBeCalledWith('');
+  expect(fetchUsersSpy).toBeCalledWith("");
 });
 
-it('should call fetchUsers function with passed query', () => {
+it("should call fetchUsers function with passed query", () => {
   const wrapper = shallow(<UserList />);
   const input = wrapper.find(Input);
   const button = wrapper.find(Button);
-  const fetchUsersSpy = jest.spyOn(api, 'fetchUsers').mockResolvedValue([]);
+  const fetchUsersSpy = jest.spyOn(api, "fetchUsers").mockResolvedValue([]);
 
-  input.prop('onChange')({
+  input.prop("onChange")({
     target: {
-      value: 'John',
+      value: "John",
     },
   });
-  button.prop('onClick')();
+  button.prop("onClick")();
 
-  expect(fetchUsersSpy).toBeCalledWith('John');
+  expect(fetchUsersSpy).toBeCalledWith("John");
 });
 
-it('should display found items', () => {
+it("should display found items", () => {
   const wrapper = shallow(<UserList />);
   const users: ApiData[] = [
     {
-      name: 'John',
+      name: "John",
     },
     {
-      name: 'Andrew',
+      name: "Andrew",
     },
   ];
-  jest.spyOn(api, 'fetchUsers').mockResolvedValue(users);
+  jest.spyOn(api, "fetchUsers").mockResolvedValue(users);
   const button = wrapper.find(Button);
 
-  button.simulate('click');
+  button.simulate("click");
 
   const items = wrapper.find(Item);
   expect(items.length).toEqual(2);
-  expect(items.first().text()).toEqual('John');
-  expect(items.last().text()).toEqual('Andrew');
+  expect(items.first().text()).toEqual("John");
+  expect(items.last().text()).toEqual("Andrew");
 });
 ```
 
@@ -424,24 +424,24 @@ it('should display found items', () => {
 **Action creators** are functions that return plain objects. When testing action creators, we want to test whether the correct action was returned.
 
 ```typescript
-import { Dispatch } from 'redux';
+import { Dispatch } from "redux";
 
-import * as api from './api';
+import * as api from "./api";
 
 export const fetchUsers = () => {
   return async (dispatch: Dispatch) => {
     dispatch({
-      type: 'FETCH_USERS',
+      type: "FETCH_USERS",
     });
     try {
-      const data = await api.fetchUsers('');
+      const data = await api.fetchUsers("");
       dispatch({
-        type: 'FETCH_USERS_FULFILLED',
+        type: "FETCH_USERS_FULFILLED",
         payload: data,
       });
     } catch (error) {
       dispatch({
-        type: 'FETCH_USERS_REJECTED',
+        type: "FETCH_USERS_REJECTED",
         payload: error.toString(),
       });
     }
@@ -467,12 +467,12 @@ Install the following libraries:
 `yarn add -D redux-mock-store axios-mock-adapter`
 
 ```typescript
-import thunk from 'redux-thunk';
-import configureMockStore from 'redux-mock-store';
-import MockAdapter from 'axios-mock-adapter';
-import axios from 'axios';
+import thunk from "redux-thunk";
+import configureMockStore from "redux-mock-store";
+import MockAdapter from "axios-mock-adapter";
+import axios from "axios";
 
-import { fetchUsers } from './actions';
+import { fetchUsers } from "./actions";
 
 // Create axios mock
 const axiosMock = new MockAdapter(axios);
@@ -481,25 +481,25 @@ const axiosMock = new MockAdapter(axios);
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
-describe('fetchUsers action', () => {
+describe("fetchUsers action", () => {
   afterEach(() => {
     axiosMock.reset();
   });
 
-  it('should fire FETCH_USERS and FETCH_USERS_FULFILLED in case of success', async () => {
+  it("should fire FETCH_USERS and FETCH_USERS_FULFILLED in case of success", async () => {
     const data = [
       {
-        name: 'John',
+        name: "John",
       },
     ];
 
     // Mock the request sent to "/users" endpoint
     // Return 200 with mocked data
-    axiosMock.onGet('/users').reply(200, data);
+    axiosMock.onGet("/users").reply(200, data);
 
     const expectedActions = [
-      { type: 'FETCH_USERS' },
-      { type: 'FETCH_USERS_FULFILLED', payload: data },
+      { type: "FETCH_USERS" },
+      { type: "FETCH_USERS_FULFILLED", payload: data },
     ];
 
     const store = mockStore();
@@ -509,17 +509,17 @@ describe('fetchUsers action', () => {
     expect(store.getActions()).toEqual(expectedActions);
   });
 
-  it('should fire FETCH_USERS and FETCH_USERS_REJECTED in case of an error', async () => {
+  it("should fire FETCH_USERS and FETCH_USERS_REJECTED in case of an error", async () => {
     
     // Mock the request sent to "/users" endpoint
     // Return "Network Error"
-    axiosMock.onGet('/users').networkError();
+    axiosMock.onGet("/users").networkError();
 
     const expectedActions = [
-      { type: 'FETCH_USERS' },
+      { type: "FETCH_USERS" },
       {
-        type: 'FETCH_USERS_REJECTED',
-        payload: 'Error: Network Error',
+        type: "FETCH_USERS_REJECTED",
+        payload: "Error: Network Error",
       },
     ];
 
@@ -537,30 +537,30 @@ describe('fetchUsers action', () => {
 A reducer should return the new state after applying the action to the previous state.
 
 ```javascript
-import { UserState, UserActions } from './types';
+import { UserState, UserActions } from "./types";
 
 const initialState: UserState = {
   pending: false,
   data: [],
-  error: '',
+  error: "",
 };
 
 export default (state = initialState, action: UserActions) => {
   switch (action.type) {
-    case 'FETCH_USER': {
+    case "FETCH_USER": {
       return {
         ...state,
         pending: true,
       };
     }
-    case 'FETCH_USER_FULFILLED': {
+    case "FETCH_USER_FULFILLED": {
       return {
         ...state,
         pending: false,
         data: action.payload,
       };
     }
-    case 'FETCH_USER_REJECTED': {
+    case "FETCH_USER_REJECTED": {
       return {
         ...state,
         pending: false,
@@ -579,9 +579,9 @@ export default (state = initialState, action: UserActions) => {
 Call `reducer` function and apply the initial state and action you want to test as parameters:
 
 ```tsx
-import reducer from './reducer';
+import reducer from "./reducer";
 
-import { UserState } from './types';
+import { UserState } from "./types";
 
 const initialState: UserState = {
   pending: false,
@@ -589,11 +589,11 @@ const initialState: UserState = {
   error: false,
 };
 
-describe('User reducer tests', () => {
-  it('should handle FETCH_USER', () => {
+describe("User reducer tests", () => {
+  it("should handle FETCH_USER", () => {
     expect(
       reducer(initialState, {
-        type: 'FETCH_USER',
+        type: "FETCH_USER",
       })
     ).toEqual({
       pending: true,
@@ -602,13 +602,13 @@ describe('User reducer tests', () => {
     });
   });
 
-  it('should handle FETCH_USER_FULFILLED', () => {
+  it("should handle FETCH_USER_FULFILLED", () => {
     expect(
       reducer(initialState, {
-        type: 'FETCH_USER_FULFILLED',
+        type: "FETCH_USER_FULFILLED",
         payload: [
           {
-            name: 'John',
+            name: "John",
           },
         ],
       })
@@ -616,23 +616,23 @@ describe('User reducer tests', () => {
       pending: false,
       data: [
         {
-          name: 'John',
+          name: "John",
         },
       ],
       error: false,
     });
   });
 
-  it('should handle FETCH_USER_REJECTED', () => {
+  it("should handle FETCH_USER_REJECTED", () => {
     expect(
       reducer(initialState, {
-        type: 'FETCH_USER_REJECTED',
-        payload: 'Something went wrong',
+        type: "FETCH_USER_REJECTED",
+        payload: "Something went wrong",
       })
     ).toEqual({
       pending: false,
       data: [],
-      error: 'Something went wrong',
+      error: "Something went wrong",
     });
   });
 });
@@ -643,9 +643,9 @@ describe('User reducer tests', () => {
 A selector is a function that accepts Redux state as an argument and returns data that is derived from that state.
 
 ```tsx
-import { createSelector } from 'reselect';
+import { createSelector } from "reselect";
 
-import { AppState } from './rootReducer';
+import { AppState } from "./rootReducer";
 
 const users = (state: AppState) => state.user.data;
 
@@ -655,17 +655,17 @@ export const usersSelector = createSelector(users, (users) => users);
 To test selector, create the state, apply it as an argument and check if the correct result has been returned:
 
 ```tsx
-import { usersSelector } from './selectors';
+import { usersSelector } from "./selectors";
 
-import { AppState } from './rootReducer';
+import { AppState } from "./rootReducer";
 
-describe('usersSelector tests', () => {
-  it('should return users', () => {
+describe("usersSelector tests", () => {
+  it("should return users", () => {
     const state: AppState = {
       user: {
         pending: false,
-        data: [{ name: 'John' }],
-        error: '',
+        data: [{ name: "John" }],
+        error: "",
       },
     };
 
@@ -685,7 +685,7 @@ describe('usersSelector tests', () => {
 ```typescript
 import { call, put, takeLatest } from "redux-saga/effects";
 
-import * as api from './api';
+import * as api from "./api";
 
 export function* fetchUsersSaga = () => {
    yield put({
@@ -723,19 +723,19 @@ import { fetchBuildingShape } from "./actions";
 
 const axiosMock = new MockAdapter(axios);
 
-describe('fetchUsersSaga tests', () => {
+describe("fetchUsersSaga tests", () => {
   afterEach(() => {
     axiosMock.reset();
   });
 
-  it('should fire FETCH_USERS_STARTED and FETCH_USERS_FULFILLED in case of success', async () => {
+  it("should fire FETCH_USERS_STARTED and FETCH_USERS_FULFILLED in case of success", async () => {
     const data = [
       {
-        name: 'John',
+        name: "John",
       },
     ];
 
-    axiosMock.onGet('/users').reply(200, data);
+    axiosMock.onGet("/users").reply(200, data);
 
     const dispatched = [];
 
@@ -749,17 +749,17 @@ describe('fetchUsersSaga tests', () => {
 
     expect(dispatched).toEqual([
       {
-        type: 'FETCH_USERS_STARTED',
+        type: "FETCH_USERS_STARTED",
       },
       {
-        type: 'FETCH_USERS_FULFILLED',
+        type: "FETCH_USERS_FULFILLED",
         payload: data,
       },
     ]);
   });
 
-  it('should fire FETCH_USERS_STARTED and FETCH_USERS_REJECTED in case of success', async () => {
-    axiosMock.onGet('/users').networkError();
+  it("should fire FETCH_USERS_STARTED and FETCH_USERS_REJECTED in case of success", async () => {
+    axiosMock.onGet("/users").networkError();
 
     const dispatched = [];
 
@@ -773,11 +773,11 @@ describe('fetchUsersSaga tests', () => {
 
     expect(dispatched).toEqual([
       {
-        type: 'FETCH_USERS_STARTED',
+        type: "FETCH_USERS_STARTED",
       },
       {
-        type: 'FETCH_USERS_REJECTED',
-        payload: 'Error: Network Error',
+        type: "FETCH_USERS_REJECTED",
+        payload: "Error: Network Error",
       },
     ]);
   });
