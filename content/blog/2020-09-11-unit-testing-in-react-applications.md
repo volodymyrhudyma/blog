@@ -97,7 +97,7 @@ For most projects, figures such as 70-80% seem appropriate. Increasing these fig
 
 This section summarizes all the knowledge we have gained so far and puts them into practice.
 
-Let's create a simple React component that prints the article's title, teaser and publish date to the screen:
+Let's create a simple React component that prints the title, teaser and publish date of the article on the screen:
 
 ```tsx
 import React, { FC } from 'react';
@@ -121,13 +121,21 @@ const Article: FC<Props> = ({ title, teaser, publishDate }) => (
 export default Article;
 ```
 
-**Important note:** in the example above we assume that [styled-components](https://styled-components.com/docs) library is used.
+**Important note:** in the example above, we assume that the [styled-components](https://styled-components.com/docs) library is used.
 
-In this article, we will be using **Jest** and **Enzyme**, a delightful test framework with a popular testing utility to provide us the best testing experience. 
+In this article we will be use **Jest** and **Enzyme**, a delightful testing framework with a popular testing utility that provides us with the best testing experience. 
 
-The full guide on how to install and configure both of them is available [here](/2020-06-09-the-best-tools-for-react-development/#Jest-+-enzyme).
+The complete installation and configuration guide for both is available [here](/2020-06-09-the-best-tools-for-react-development/#Jest-+-enzyme).
 
-Finally, create the tests:
+Before we create the tests, we should find out what needs to be tested.
+
+We should test everything that gives the product any value.
+
+The `Article` component displays title, teaser and date? Test it! Test if the expected data is displayed on the user's screen.
+
+Missing teasers could cause the user to skip the article, resulting in the loss of a potential customer.
+
+Finally, add some tests:
 
 ```tsx
 import React from 'react';
@@ -174,17 +182,17 @@ it('should render title, teaser and date', () => {
 });
 ```
 
-But that solution has one drawback - if one of the fields would fail to render, it would take more time to figure out what exactly failed, as your test is responsible for checking three of them.
+But this solution has a disadvantage - if one of the fields was not rendered, it would take more time to find out what exactly failed, because your test is responsible for checking three fields.
 
-We used Shallow Rendering to test the component as a unit, in isolation. 
+We use Shallow Rendering to test the component as a unit, in isolation. 
 
-By using `shallow` method we do not render child components.
+By using `shallow` method we do not render any child components.
 
 ## Testing complex component in React
 
-We already know how to test simple React Components which are responsible only for rendering text to the screen. 
+We already know how to perform simple React Components tests that are only responsible for rendering text on the screen. 
 
-Now let's look at a more complex example with some `useState` usage and conditional logic inside:
+Now let's look at a more complex example with a `useState` usage and conditional logic in it:
 
 ```tsx
 import React, { FC, useState, ChangeEvent } from 'react';
@@ -209,11 +217,17 @@ const Search: FC = () => {
 export default Search;
 ```
 
-There is `Seach` component that allows the user to type any value into the input and see the value printed below. 
+There is a `Seach` component that allows the user to enter any value into the input and see it printed below. 
 
-If no value was provided, we display "*No query provided*" text.
+If no value has been entered, the text "*No query provided*" is displayed.
 
-Create the tests:
+Let us first think about what needs to be tested in this case.
+
+Firstly, check whether the user actually sees the `Input` component on the screen.
+
+Secondly, make sure that if the user has not touched the input, the default text is displayed.
+
+Finally, simulate entering a text into the input and check whether this text is actually rendered on the screen:
 
 ```tsx
 import React from 'react';
@@ -250,6 +264,8 @@ it('should render provided text', () => {
 });
 
 ```
+
+If all these tests are passed and green, you can be sure that the component works and delivers its value to users.
 
 ## Testing container component in React
 
