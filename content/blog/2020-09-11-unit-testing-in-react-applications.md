@@ -262,7 +262,6 @@ it('should render provided text', () => {
 
   expect(wrapper.find(Text).text()).toEqual('Hello, world!');
 });
-
 ```
 
 If all these tests are passed and green, you can be sure that the component works and delivers its value to users.
@@ -309,10 +308,89 @@ const UserList: FC = () => {
 export default UserList;
 ```
 
-Tests:
+Here the following things should be tested:
+
+* `Input` component should be rendered
+* `Button` component should be rendered
+* By default, we do not show any `Item` components
+* `fetchUsers` function should be called after the click on `Button` if the user has not provided any `query`
+* `fetchUsers` function should be called with a `query` as an argument after the click on `Button` if the user has provided it
+* Proper number of `Item` components with proper data should be rendered after we perform a search 
 
 ```tsx
+import React from 'react';
+import { shallow, mount } from 'enzyme';
 
+import { Input, Button, Item } from './styled';
+
+import * as api from './api';
+
+import UserList, { ApiData } from './UserList';
+
+it('should render input', () => {
+  const wrapper = shallow(<UserList />);
+
+  expect(wrapper.find(Input).length).toBeTruthy();
+});
+
+it('should render button', () => {
+  const wrapper = shallow(<UserList />);
+
+  expect(wrapper.find(Button).length).toBeTruthy();
+});
+
+it('should not render any items by default', () => {
+  const wrapper = shallow(<UserList />);
+
+  expect(wrapper.find(Item).length).toBeFalsy();
+});
+
+it('should call fetchUsers function with empty query', () => {
+  const wrapper = shallow(<UserList />);
+  const button = wrapper.find(Button);
+  const fetchUsersSpy = jest.spyOn(api, 'fetchUsers').mockResolvedValue([]);
+
+  button.prop('onClick')();
+
+  expect(fetchUsersSpy).toBeCalledWith('');
+});
+
+it('should call fetchUsers function with passed query', () => {
+  const wrapper = shallow(<UserList />);
+  const input = wrapper.find(Input);
+  const button = wrapper.find(Button);
+  const fetchUsersSpy = jest.spyOn(api, 'fetchUsers').mockResolvedValue([]);
+
+  input.prop('onChange')({
+    target: {
+      value: 'John',
+    },
+  });
+  button.prop('onClick')();
+
+  expect(fetchUsersSpy).toBeCalledWith('John');
+});
+
+it('should display found items', () => {
+  const wrapper = shallow(<UserList />);
+  const users: ApiData[] = [
+    {
+      name: 'John',
+    },
+    {
+      name: 'Andrew',
+    },
+  ];
+  jest.spyOn(api, 'fetchUsers').mockResolvedValue(users);
+  const button = wrapper.find(Button);
+
+  button.simulate('click');
+
+  const items = wrapper.find(Item);
+  expect(items.length).toEqual(2);
+  expect(items.first().text()).toEqual('John');
+  expect(items.last().text()).toEqual('Andrew');
+});
 ```
 
 ## Testing redux-thunk
