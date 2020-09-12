@@ -63,11 +63,15 @@ Of course, there is some stuff that does not to be unit tested.
 
 You should not test code that has already been tested by others. 
 
-A good example are popular libraries that are used in your project. Most of them have extremely high code coverage and in most cases work as expected.
+A good example are popular libraries that are used in your project. 
+
+Most of them have high code coverage and in most cases work as expected.
 
 If you use third-party code, mock it and just make sure that the function is called under given circumstances and with given parameters.
 
-Trivial code COULD not be tested as well, but that is the matter of preference. For example, we could trust a getter that delivers a constant value to be working fine, if that is the current business requirement. 
+Trivial code COULD not be tested as well, but that is the matter of preference. 
+
+For example, we could trust a getter that delivers a constant value to be working fine, if that is the current business requirement. 
 
 But it would not necessary remain trivial.
 
@@ -83,21 +87,21 @@ What is test coverage?
 >
 > A program with high test coverage, measured as a percentage, has had more of its source code executed during testing, which suggests it has a lower chance of containing undetected software bugs compared to a program with low test coverage.
 
-When we think about how many percent of the code should be tested, there is only one number that comes to mind: 100.
+When we think about how many percent of the code should be tested, there is only one number that comes to mind: **100**.
 
-This number seems like a best effort, but even it is estimated to detect about half of the errors in the system.
+This number seems like the best effort, but even it is estimated to detect about half of the errors in the system.
 
-On the one hand, a low test coverage indicates poor testing, but on the other hand - high guarantees nothing.
+On the one hand, low test coverage indicates poor testing, but on the other hand - high guarantees nothing.
 
 Developers should stop testing when it feels like the tests become contrived and you are focusing on getting higher test coverage numbers instead of finding bugs.
 
-For most projects, figures such as 70-80% seem appropriate. Increasing these figures will result in slower bug-detection rate, which is not that cost-effective.
+For most projects, figures such as 70-80% seem appropriate. Increasing these figures will result in a slower bug-detection rate, which is not that cost-effective.
 
 ## Testing stateless components in React
 
-This section summarizes all the knowledge we have gained so far and puts them into practice.
+This section summarizes all the findings we have gained so far and puts them into practice.
 
-Let's create a simple React component that prints the title, teaser and publish date of the article on the screen:
+Let's create a simple React component that prints the **title**, **teaser** and **publish date** of the article on the screen:
 
 ```tsx
 import React, { FC } from 'react';
@@ -121,9 +125,9 @@ const Article: FC<Props> = ({ title, teaser, publishDate }) => (
 export default Article;
 ```
 
-**Important note:** in the example above, we assume that the [styled-components](https://styled-components.com/docs) library is used.
+**Important note:** the above example assumes that the [styled-components](https://styled-components.com/docs) library is used.
 
-In this article we will be use **Jest** and **Enzyme**, a delightful testing framework with a popular testing utility that provides us with the best testing experience. 
+We will be using **Jest** and **Enzyme**, a delightful testing framework with a popular testing utility that provides us with the best testing experience. 
 
 > The complete installation and configuration guide for both is available [here](/2020-06-09-the-best-tools-for-react-development/#Jest-+-enzyme).
 
@@ -131,7 +135,9 @@ Before we create the tests, we should find out what needs to be tested.
 
 We should test everything that gives the product any value.
 
-The `Article` component displays title, teaser and date? Test it! Test if the expected data is displayed on the user's screen.
+The `Article` component displays title, teaser and publish date? Test them all! 
+
+Test if the expected data is displayed on the user's screen.
 
 Missing teasers could cause the user to skip the article, resulting in the loss of a potential customer.
 
@@ -268,7 +274,7 @@ If all these tests are passed and green, you can be sure that the component work
 
 ## Testing complex components in React
 
-In this section we will test the React Component that retrieves data from an external API based on the input provided by the user and displays it in a list:
+In this section we will test the React Component, which retrieves data from an external API based on the input provided by the user and displays it in a list:
 
 ```tsx
 import React, { FC, useState, ChangeEvent } from 'react';
@@ -313,9 +319,9 @@ Here the following things should be tested:
 * `Input` component should be rendered
 * `Button` component should be rendered
 * By default, we do not show any `Item` components
-* `fetchUsers` function should be called after the click on `Button` if the user has not provided any `query`
-* `fetchUsers` function should be called with a `query` as an argument after the click on `Button` if the user has provided it
-* Proper number of `Item` components with proper data should be rendered after we perform a search 
+* `fetchUsers` function should be called after clicking on the `Button` if the user has not provided any `query`
+* `fetchUsers` function should be called with a `query` as an argument after clicking on the `Button` if the user has provided it
+* The correct number of `Item` components with the correct data should be displayed after performing a search 
 
 ```tsx
 import React from 'react';
@@ -401,7 +407,7 @@ it('should display found items', () => {
 
 #### Testing action creators
 
-**Action creators** are functions which return plain objects. When testing action creators, we want to test whether the right action was returned.
+**Action creators** are functions that return plain objects. When testing action creators, we want to test whether the correct action was returned.
 
 ```typescript
 import { Dispatch } from 'redux';
@@ -429,9 +435,9 @@ export const fetchUsers = () => {
 };
 ```
 
-The action calls `fetchUsers` function that uses `axios` to perform a call to an API (`/users` endpoint).
+The action calls `fetchUsers` function that uses `axios` to make a call to an API (`/users` endpoint).
 
-In tests, we do not want to send a real request, but to just mock it and return some example response. 
+When testing, we do not want to send a real request, but only mock it and return a sample response. 
 
 Install the following libraries:
 
@@ -439,10 +445,10 @@ Install the following libraries:
 
   A mock store for testing Redux async action creators and middleware. 
 
-  The mock store will create an array of dispatched actions which serve as an action log for tests.
-* `axios-mock-adapter`  
+  The Mock Store will create a series of sent actions that will serve as an action log for tests.
 
-  Axios adapter that allows to easily mock requests.[](https://github.com/ctimmerm/axios-mock-adapter#installation)
+  `axios-mock-adapter`  
+* Axios adapter that allows us to easily mock requests.[](https://github.com/ctimmerm/axios-mock-adapter#installation)
 
 `yarn add -D redux-mock-store axios-mock-adapter`
 
@@ -630,7 +636,6 @@ import { AppState } from './rootReducer';
 const users = (state: AppState) => state.user.data;
 
 export const usersSelector = createSelector(users, (users) => users);
-
 ```
 
 To test selector, create the state, apply it as an argument and check if the correct result has been returned:
@@ -655,7 +660,6 @@ describe('usersSelector tests', () => {
     expect(users).toEqual(state.user.data);
   });
 });
-
 ```
 
 ## Testing redux-saga
@@ -764,7 +768,6 @@ describe('fetchUsersSaga tests', () => {
     ]);
   });
 });
-
 ```
 
 ## Summary
