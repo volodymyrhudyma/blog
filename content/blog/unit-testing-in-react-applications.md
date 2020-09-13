@@ -388,6 +388,8 @@ it("should not render any items by default", () => {
 it("should call fetchUsers function with empty query", () => {
   const wrapper = shallow(<UserList />);
   const button = wrapper.find(Button);
+  // Mock "fetchUsers" function not to call the real API
+  // "spyOn" returns mocked function so we can track calls
   const fetchUsersSpy = jest.spyOn(api, "fetchUsers").mockResolvedValue([]);
 
   button.prop("onClick")();
