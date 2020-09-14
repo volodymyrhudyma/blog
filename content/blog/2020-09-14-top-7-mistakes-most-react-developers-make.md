@@ -54,13 +54,15 @@ Then click on the "**Immutable update**" button and notice how the `count` has c
 
 ![Mutable vs immutable state update](/img/mut-immut.gif "Mutable vs immutable state update")
 
+Obviously, we received `2` because the state has been updated two times: directly and via `setState` method.
+
 Using `setState` rerenders the component, kicking off the process called reconciliation.
 
 > **Reconciliation** is the process of updating DOM (Document Object Model) by making changes to the component based on the change in state.
 
 // Explain reconciliation in-detail for the current example
 
-As you might have guessed, modifying the state directly will trigger the reconciliation process, therefore would not re-render the component. 
+As you might have guessed, modifying the state directly will not trigger the reconciliation process, therefore would not re-render the component.
 
 ## Not batching updates
 
