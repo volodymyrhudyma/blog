@@ -221,7 +221,7 @@ React will mutate every `li` element instead of realizing that two of them can b
 
 Solving this issue is the topic of the next point.
 
- **   2. The developer can hint at which child elements may be stable across different renders with a `key` prop**
+2. **The developer can hint at which child elements may be stable across different renders with a `key` prop**
 
 React supports `key` attribute, which is used by the library to match children in the original tree with children in the subsequent tree:
 
