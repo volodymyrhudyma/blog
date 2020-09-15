@@ -54,7 +54,11 @@ Nothing?
 
 Then click on the "**Immutable update**" button and notice how the `count` has changed to `2`:
 
+
+
 ![Mutable vs Immutable state update](/img/mut-immut.gif "Mutable vs Immutable state update")
+
+
 
 Obviously, we received `2` because the state has been updated two times: directly and via `setState` method.
 
