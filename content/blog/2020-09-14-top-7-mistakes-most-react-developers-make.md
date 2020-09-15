@@ -240,7 +240,7 @@ React supports `key` attribute, which is used by the library to match children i
 
 Now React knows that the elements with the keys "**one**" and "**two**" have just changed their position and the element with the key "**three**" is the new one.
 
-As you might have guessed, modifying the state directly will not trigger the whole reconciliation process, therefore would not re-render the component.
+After general overview of how React performs updates, you might have guessed that modifying the state directly will not trigger the whole reconciliation process, therefore would not re-render the component.
 
 ## Not batching updates
 
