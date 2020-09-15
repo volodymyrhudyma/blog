@@ -185,7 +185,7 @@ Then, the `render` method is called and the diff algorithm recurses.
 
 When recursing on children of a DOM node, React iterates over both lists of children simultaneously and creates a mutation if any difference has been found.
 
-For example, adding an element to the end of the list:
+For example, adding an element to the end of the list is efficient:
 
 ```jsx
 <ul>
