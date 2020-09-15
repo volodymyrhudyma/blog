@@ -36,11 +36,11 @@ class App extends Component {
 
   render() {
     return (
-      <Fragment>
-        <Button onClick={this.handleMutableUpdate}>Mutable update</Button>
-        <Button onClick={this.handleImmutableUpdate}>Immutable update</Button>
-        <Text>Count: {this.state.count}</Text>
-      </Fragment>
+      <>
+        <button onClick={this.handleMutableUpdate}>Mutable update</button>
+        <button onClick={this.handleImmutableUpdate}>Immutable update</button>
+        <div>Count: {this.state.count}</div>
+      </>
     );
   }
 }
@@ -60,7 +60,90 @@ Using `setState` rerenders the component, kicking off the process called reconci
 
 > **Reconciliation** is the process of updating DOM (Document Object Model) by making changes to the component based on the change in state.
 
-// Explain reconciliation in-detail for the current example
+You can think of `render` as of function that creates a tree of React elements.
+
+When the state gets updated, it produces a different tree and React needs to figure out how to efficiently update the DOM to match the most recent tree.
+
+The default created by the React for the example above:
+
+```typescript
+{
+  $$typeof: Symbol(react.element),
+  key: null,
+  props: {
+    children: [
+      {
+        $$typeof: Symbol(react.element),
+        key: null,
+        props: {
+          children: "Mutable update",
+          onClick: Function,
+        },
+        ref: null,
+        type: "button",
+      },
+      {
+        $$typeof: Symbol(react.element),
+        key: null,
+        props: {
+          children: "Immutable update",
+          onClick: Function,
+        },
+        ref: null,
+        type: "button",
+      },
+      {
+        $$typeof: Symbol(react.element),
+        key: null,
+        props: {
+          children: [
+            "Count: ",
+            0,
+          ],
+        },
+        ref: null,
+        type: "div",
+      },
+    ],
+  },
+  ref: null,
+  type: Symbol(react.fragment),
+}
+```
+
+This is how the new tree looks like, after clicking on the "**Immutable update**" button (it remained the same except for the element with a type of "**div**"):
+
+```javascript
+{
+  ...,
+  props: {
+    children: [
+      ...,
+      ...,
+      {
+        ...,
+        props: {
+          children: [
+            "Count: ",
+            1,
+          ],
+        },
+        ...,
+      },
+    ],
+  },
+  ...,
+}
+```
+
+There are some generic solutions to the given problem - transform one tree into another, however all of them have `O(N3)` complexity which makes then inefficient.
+
+Imagine having to do 1 million comparisons to display 1000 elements. Far too expensive to be used in real projects.
+
+That is why React implements a heuristic algorithm with `O(N)` complexity based on the following two assumptions:
+
+* Two elements of different types will produce different trees
+* The developer can hint at which child elements may be stable across different renders with a `key` prop
 
 As you might have guessed, modifying the state directly will not trigger the reconciliation process, therefore would not re-render the component.
 
