@@ -114,36 +114,60 @@ The default created by the React for the example above:
 This is how the new tree looks like, after clicking on the "**Immutable update**" button (it remained the same except for the element with a type of "**div**"):
 
 ```javascript
+// The structure is the same, just this child element slightly changed
 {
-  ...,
+  $$typeof: Symbol(react.element),
+  key: null,
   props: {
     children: [
-      ...,
-      ...,
-      {
-        ...,
-        props: {
-          children: [
-            "Count: ",
-            1,
-          ],
-        },
-        ...,
-      },
+      "Count: ",
+      1,
     ],
   },
-  ...,
-}
+  ref: null,
+  type: "div",
+},
 ```
 
-There are some generic solutions to the given problem - transform one tree into another, however all of them have `O(N3)` complexity which makes then inefficient.
+The problem to be solved: **transform one tree into another most efficiently**.
 
-Imagine having to do 1 million comparisons to display 1000 elements. Far too expensive to be used in real projects.
+There are some generic algorithms that solve the given problem, however, all of them have `O(N3)` complexity which makes them inefficient.
+
+Imagine having to do 1 million comparisons to display 1000 elements. 
+
+Far too expensive to be used in real projects.
 
 That is why React implements a heuristic algorithm with `O(N)` complexity based on the following two assumptions:
 
 * Two elements of different types will produce different trees
+
+For example, when the root elements have different types, React will tear down old tree an build a new one from scratch:
+
+```javascript
+<div>
+  <MyComponent />
+<div>
+  
+<span>
+  <MyComponent />
+<span>
+```
+
+Old `MyComponent` will be destroyed and a new one will be re-mounted even though nothing related to it has changed.
+
+When the elements have the same type, React goes through their attributes and only updates the changed ones:
+
+```javascript
+<div className="parent" />
+  
+<div className="child" />
+```
+
+React knows to only modify `className`.
+
 * The developer can hint at which child elements may be stable across different renders with a `key` prop
+
+// TBC
 
 As you might have guessed, modifying the state directly will not trigger the reconciliation process, therefore would not re-render the component.
 
