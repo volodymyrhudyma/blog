@@ -143,9 +143,9 @@ Imagine having to do 1 million comparisons to display 1000 elements.
 
 Far too expensive to be used in real projects.
 
-That is why React implements a heuristic algorithm with `O(N)` complexity based on the following two assumptions:
+That is why React implements a heuristic algorithm with `O(N)` complexity based on the two assumptions.
 
-1. **Two elements of different types will produce different trees.**
+#### Assumption #1: two elements of different types will produce different trees
 
 For example, when the root elements have different types, React will tear down old tree an build a new one from scratch:
 
@@ -221,7 +221,7 @@ React will mutate every `li` element instead of realizing that two of them can b
 
 Solving this issue is the topic of the next point.
 
-2. **The developer can hint at which child elements may be stable across different renders with a `key` prop.**
+#### **Assumption #2: the developer can hint at which child elements may be stable across different renders with a `key` prop.**
 
 React supports `key` attribute, which is used by the library to match children in the original tree with children in the subsequent tree:
 
@@ -246,7 +246,7 @@ After general overview of how React performs updates, you might have guessed tha
 
 After figuring out what `key` is used for, it is necessary to know the right way to set it, as not setting it properly results in unexpected errors.
 
-1. **It should be unique among siblings.**
+#### Rule #1: "key" should be unique among siblings
 
 In other words, each item within an array should have a unique key, but it should not be unique globally:
 
@@ -271,7 +271,7 @@ The following warning will be shown in the console:
 
 ![React duplicated keys warning](/img/screenshot-2020-09-15-at-22.54.50.png "React duplicated keys warning")
 
-\    2. **Use "index" as a "key" only if the list is static (it is not possible to reorder/add/remove elements).**
+#### Rule #2: Use "index" as a "key" only if the list is static (it is not possible to reorder/add/remove elements)
 
 Using **index** as a key leads to unexpected errors when the order of your list elements can be changed:
 
