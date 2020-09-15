@@ -14,7 +14,7 @@ But what are the reasons behind it? What happens if the state is directly modifi
 
 Consider the following example:
 
-```tsx
+```jsx
 import React, { Component, Fragment } from 'react';
 
 import { Button, Text } from './styled';
@@ -48,7 +48,9 @@ class App extends Component {
 export default App;
 ```
 
-Notice what happens when the "**Mutable update**" button is clicked **once**. Basically... seems like nothing.
+Notice what happens when the "**Mutable update**" button is clicked **once**.
+
+Nothing?
 
 Then click on the "**Immutable update**" button and notice how the `count` has changed to `2`:
 
@@ -66,7 +68,7 @@ When the state gets updated, it produces a different tree and React needs to fig
 
 The default created by the React for the example above:
 
-```typescript
+```jsx
 {
   $$typeof: Symbol(react.element),
   key: null,
@@ -113,7 +115,7 @@ The default created by the React for the example above:
 
 This is how the new tree looks like, after clicking on the "**Immutable update**" button (it remained the same except for the element with a type of "**div**"):
 
-```javascript
+```jsx
 // The structure is the same, just this child element slightly changed
 {
   $$typeof: Symbol(react.element),
@@ -139,11 +141,11 @@ Far too expensive to be used in real projects.
 
 That is why React implements a heuristic algorithm with `O(N)` complexity based on the following two assumptions:
 
-* Two elements of different types will produce different trees
+1. **Two elements of different types will produce different trees**
 
 For example, when the root elements have different types, React will tear down old tree an build a new one from scratch:
 
-```javascript
+```jsx
 <div>
   <MyComponent />
 <div>
@@ -151,13 +153,19 @@ For example, when the root elements have different types, React will tear down o
 <span>
   <MyComponent />
 <span>
+  
+<MyParent>
+  <MyComponent />
+</MyParent>
 ```
 
-Old `MyComponent` will be destroyed and a new one will be re-mounted even though nothing related to it has changed.
+Old `MyComponent` will be destroyed and **destroy** lifecycle hook will be executed and a new one will be re-mounted executing **mount** hook even though nothing related to it has changed.
 
-When the elements have the same type, React goes through their attributes and only updates the changed ones:
+If there were any more child components, they all would also be destroyed and re-mounted.
 
-```javascript
+When the DOM elements have the same type, React goes through their attributes and only updates the changed ones:
+
+```jsx
 <div className="parent" />
   
 <div className="child" />
@@ -165,11 +173,70 @@ When the elements have the same type, React goes through their attributes and on
 
 React knows to only modify `className`.
 
-* The developer can hint at which child elements may be stable across different renders with a `key` prop
+When the Component elements have the same type, the instance stays the same in order to maintain the state across the renders.
 
-// TBC
+React updates the props of the underlying component instance to match the new element and calls the update lifecycle hook on it.
 
-As you might have guessed, modifying the state directly will not trigger the reconciliation process, therefore would not re-render the component.
+Then, the `render` method is called and the diff algorithm recurses.
+
+When recursing on children of a DOM node, React iterates over both lists of children simultaneously and creates a mutation if any difference has been found.
+
+For example, adding an element to the end of the list:
+
+```jsx
+<ul>
+  <li>One</li>
+  <li>Two</li>
+</ul>
+
+<ul>
+  <li>One</li>
+  <li>Two</li>
+  <li>Three</li>
+</ul>
+```
+
+React will match the first two elements and insert the third one.
+
+But adding an element at the beginning or in the middle has worst performance:
+
+```jsx
+<ul>
+  <li>One</li>
+  <li>Two</li>
+</ul>
+
+<ul>
+  <li>Three</li>
+  <li>One</li>
+  <li>Two</li>
+</ul>
+```
+
+React will mutate every `li` element instead of realizing that two of them can be kept.
+
+Solving this issue is the topic of the next point.
+
+ **   2. The developer can hint at which child elements may be stable across different renders with a `key` prop**
+
+React supports `key` attribute, which is used by the library to match children in the original tree with children in the subsequent tree:
+
+```jsx
+<ul>
+  <li key="one">One</li>
+  <li key="two">Two</li>
+</ul>
+
+<ul>
+  <li key="three">Three</li>
+  <li key="one">One</li>
+  <li key="two">Two</li>
+</ul>
+```
+
+Now React knows that the elements with the keys "**one**" and "**two**" have just changed their position and the element with the key "**three**" is the new one.
+
+As you might have guessed, modifying the state directly will not trigger the whole reconciliation process, therefore would not re-render the component.
 
 ## Not batching updates
 
