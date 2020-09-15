@@ -145,7 +145,7 @@ Far too expensive to be used in real projects.
 
 That is why React implements a heuristic algorithm with `O(N)` complexity based on the following two assumptions:
 
-1. **Two elements of different types will produce different trees**
+1. **Two elements of different types will produce different trees.**
 
 For example, when the root elements have different types, React will tear down old tree an build a new one from scratch:
 
@@ -221,7 +221,7 @@ React will mutate every `li` element instead of realizing that two of them can b
 
 Solving this issue is the topic of the next point.
 
-2. **The developer can hint at which child elements may be stable across different renders with a `key` prop**
+2. **The developer can hint at which child elements may be stable across different renders with a `key` prop.**
 
 React supports `key` attribute, which is used by the library to match children in the original tree with children in the subsequent tree:
 
@@ -242,13 +242,101 @@ Now React knows that the elements with the keys "**one**" and "**two**" have jus
 
 After general overview of how React performs updates, you might have guessed that modifying the state directly will not trigger the whole reconciliation process, therefore would not re-render the component.
 
+## Not using "key" properly
+
+After figuring out what `key` is used for, it is necessary to know the right way to set it, as not setting it properly results in unexpected errors.
+
+1. **It should be unique among siblings.**
+
+In other words, each item within an array should have a unique key, but it should not be unique globally:
+
+```jsx
+<ul>
+  {data.map((item) => (
+    <li key={item.id}>
+      {item.name}
+      {item.children.map((child) => (
+        <div key={child.id}>{child.name}</div>
+      ))}
+    </li>
+  ))}
+</ul>
+```
+
+`child.id` can be the same as `item.id` as they aren't siblings.
+
+Wondering what happens if React encounters two elements with the same **key**?
+
+The following warning will be shown in the console:
+
+![React duplicated keys warning](/img/screenshot-2020-09-15-at-22.54.50.png "React duplicated keys warning")
+
+\    2. **Use "index" as a "key" only if the list is static (it is not possible to reorder/add/remove elements).**
+
+Using **index** as a key leads to unexpected errors when the order of your list elements can be changed:
+
+React doesn't understand which item was added/removed/reordered since an **index** is given on each render based on the order of the items in the array.
+
+Consider the following example:
+
+```jsx
+const initialData = [
+  {
+    id: 1,
+    name: "First item",
+  },
+  {
+    id: 2,
+    name: "Second item",
+  },
+];
+
+const List = () => {
+  const [data, setData] = useState(initialData);
+
+  const handleRemove = (id) => {
+    const newData = data.filter((item) => item.id !== id);
+    setData(newData);
+  };
+
+  return (
+    <ul>
+      {data.map((item, index) => (
+        <li key={index}>
+          <input type="text" defaultValue={item.name} />
+          <button
+            onClick={() => {
+              handleRemove(item.id);
+            }}
+          >
+            Remove
+          </button>
+        </li>
+      ))}
+    </ul>
+  );
+};
+```
+
+This list is rendered based on an **index**. Let's try to remove the first value:
+
+![Index as a key](/img/index-as-a-key.gif "Index as a key")
+
+And it doesn't get removed!
+
+Actually, it does but after we removed the first item, the second one received the key **0**, and React thinks that we removed the item with the key **1** as it's not on the list anymore.
+
+Changing the `<li key={index}>` to `<li key={item.id}>` solves an issue:
+
+![Id as a key](/img/id-as-a-key.gif "Id as a key")
+
+Be very careful of that, as those kinds of issues are extremely hard to debug.
+
 ## Not batching updates
 
 ## Forgetting to bind function declaration
 
 ## Misunderstanding deep and shallow copies
-
-## Not using "key" properly
 
 ## Omitting lazy loading
 
