@@ -54,11 +54,7 @@ Nothing?
 
 Then click on the "**Immutable update**" button and notice how the `count` has changed to `2`:
 
-
-
 ![Mutable vs Immutable state update](/img/mut-immut.gif "Mutable vs Immutable state update")
-
-
 
 Obviously, we received `2` because the state has been updated two times: directly and via `setState` method.
 
@@ -333,6 +329,149 @@ Changing the `<li key={index}>` to `<li key={item.id}>` solves an issue:
 Be very careful of that, as those kinds of issues are extremely hard to debug.
 
 ## Not batching updates
+
+If you know React well, you might disagree with the above statement and you would be right.
+
+Indeed, React batches updates.
+
+But not all of them.
+
+Consider the following example:
+
+```jsx
+import React, { useState } from 'react';
+
+const App = () => {
+  const [name, setName] = useState('');
+  const [surname, setSurname] = useState('');
+  const [age, setAge] = useState(0);
+
+  const handleClick = () => {
+    // These updates are batched
+    setName('John');
+    setSurname('Doe');
+    setAge(18);
+  };
+
+  return (
+    <>
+      <button onClick={handleClick}>Fetch user</button>
+      <div>Name: {name}</div>
+      <div>Surname: {surname}</div>
+      <div>Age: {age}</div>
+    </>
+  );
+};
+
+export default App;
+```
+
+Even though the state is modified three times, the updates are batched and the component re-renders only once.
+
+But, if the state is updated inside of the **asynchronous callback**, those updates are not batched:
+
+```jsx
+// These updates are NOT batched
+// The component rerenders three times!
+const handleClick = () => {
+  setTimeout(() => {
+    setName('John');
+    setSurname('Doe');
+    setAge(18);
+  }, 1000);
+};
+
+...
+
+const handleClick = () => {
+  fetchUser.then(() => {
+    setName('John');
+    setSurname('Doe');
+    setAge(18);
+  });
+};
+
+...
+
+// Even this causes multiple re-renders
+const handleClick = async () => {
+  await fetchUser();
+  setName('John');
+  setSurname('Doe');
+  setAge(18);
+};
+```
+
+This is the concept a lot of developers are not aware of, which leads to unnecessary updates and poorer performance.
+
+No worries, there are at least two ways to fix this issue.
+
+#### Unify the state
+
+It is possible to replace state variables: `name`, `surname` and `age` with just one object: `user` containing all those properties:
+
+```jsx
+// Unified state
+const [user, setUser] = useState({
+  name: '',
+  surname: '',
+  age: 0,
+});
+
+// Event handler
+const handleClick = () => {
+  setUser({
+    name: "John",
+    surname: "Doe",
+    age: 18,
+  });
+};
+```
+
+#### Wrap updates in `unstable_batchedUpdates` callback
+
+The name of the method is a bit concerning but it is safe to use in production.
+
+One thing to remember when using this callback is that for the web it should be implemented from the `react-dom` package:
+
+```jsx
+import { unstable_batchedUpdates } from 'react-dom';
+
+...
+
+const handleClick = () => {
+  setTimeout(() => {
+    unstable_batchedUpdates(() => {
+      setName('John');
+      setSurname('Doe');
+      setAge(18);
+    });
+  }, 1000);
+};
+
+... 
+
+const handleClick = () => {
+  fetchUser.then(() => {
+    unstable_batchedUpdates(() => {
+      setName('John');
+      setSurname('Doe');
+      setAge(18);
+    });
+  });
+};
+
+...
+
+const handleClick = async () => {
+  await fetchUser();
+  unstable_batchedUpdates(() => {
+    setName('John');
+    setSurname('Doe');
+    setAge(18);
+  });
+};
+```
 
 ## Forgetting to bind function declaration
 
