@@ -58,7 +58,7 @@ Then click on the "**Immutable update**" button and notice how the `count` has c
 
 Obviously, we received `2` because the state has been updated two times: directly and via `setState` method.
 
-Using `setState` rerenders the component, kicking off the process called reconciliation.
+Using `setState` re-renders the component, kicking off the process called reconciliation.
 
 > **Reconciliation** is the process of updating DOM (Document Object Model) by making changes to the component based on the change in state.
 
@@ -372,7 +372,7 @@ But, if the state is updated inside of the **asynchronous callback**, those upda
 
 ```jsx
 // These updates are NOT batched
-// The component rerenders three times!
+// The component re-renders three times!
 const handleClick = () => {
   setTimeout(() => {
     setName('John');
@@ -474,6 +474,90 @@ const handleClick = async () => {
 ```
 
 ## Misunderstanding deep and shallow copies
+
+**Shallow copy** is a bit-wise copy of an object. 
+
+A new object is created that has an exact copy of the values in the original object. 
+
+If any of the fields of the object are references to other objects, just the reference addresses are copied i.e., only the memory address is copied:
+
+```javascript
+const user = {
+  name: "John",
+  surname: "Doe",
+  other: {
+    age: 18,
+  },
+};
+
+const newUser = {
+  ...user,
+};
+
+newUser.other.age = 22;
+
+// Prints {name: "John", surname: "Doe", age: 22}
+console.log(user);
+
+// Prints {name: "John", surname: "Doe", age: 22}
+console.log(newUser);
+```
+
+Modifying `other` object updates the original value, as the spread operator does only shallow copy.
+
+To update nested property, **each level of nested data should be copied**:
+
+```javascript
+const user = {
+  name: "John",
+  surname: "Doe",
+  other: {
+    age: 18,
+  },
+};
+
+const newUser = {
+  ...user,
+  other: {
+    ...user.other,
+    age: 22,
+  },
+};
+
+// Prints {name: "John", surname: "Doe", age: 22}
+console.log(user);
+
+// Prints {name: "John", surname: "Doe", age: 22}
+console.log(newUser);
+```
+
+**Deep copy** is the copy that is fully disconnected from the original variable:
+
+```javascript
+import cloneDeep from "lodash/cloneDeep";
+
+const user = {
+  name: "John",
+  surname: "Doe",
+  other: {
+    age: 18,
+  },
+};
+
+const newUser = cloneDeep(user);
+
+newUser.other.age = 22;
+
+// Prints {name: "John", surname: "Doe", age: 18}
+console.log(user);
+
+// Prints {name: "John", surname: "Doe", age: 22}
+console.log(newUser);
+```
+
+We can safely modify `other` object, as now it is not connected to the `user` object.
+
+The best way to create a deep copy is to use an external library, like [lodash](https://lodash.com/).
 
 ## Forgetting to bind function declaration
 
