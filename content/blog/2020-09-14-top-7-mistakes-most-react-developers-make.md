@@ -559,10 +559,30 @@ We can safely modify `other` object, as now it is not connected to the `user` ob
 
 The best way to create a deep copy is to use an external library, like [lodash](https://lodash.com/).
 
+## Calling functions instead of passing as a reference
+
+Make sure you are not calling the function when you pass it to the component.
+
+The following example contains **invalid code** because `handleClick` function is called instead of being passed as a reference:
+
+```jsx
+render() {
+  return <button onClick={this.handleClick()}>Click Me</button>
+}
+```
+
+Pass the function itself instead:
+
+```jsx
+render() {
+  return <button onClick={this.handleClick}>Click Me</button>
+}
+```
+
+This problem is often seen in a code of inexperienced developers, but it is not that uncommon.
+
 ## Forgetting to bind function declaration
 
 ## Omitting lazy loading
-
-## Executing passed callbacks in render
 
 ## Summary
