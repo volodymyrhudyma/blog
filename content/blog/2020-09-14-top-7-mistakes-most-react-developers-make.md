@@ -432,7 +432,7 @@ const handleClick = () => {
 
 The name of the method is a bit concerning but it is safe to use in production.
 
-One thing to remember when using this callback is that for the web it should be implemented from the `react-dom` package:
+One thing to remember when using this callback is that for the web it should be imported from the `react-dom` package:
 
 ```jsx
 import { unstable_batchedUpdates } from 'react-dom';
@@ -473,9 +473,9 @@ const handleClick = async () => {
 };
 ```
 
-## Forgetting to bind function declaration
-
 ## Misunderstanding deep and shallow copies
+
+## Forgetting to bind function declaration
 
 ## Omitting lazy loading
 
