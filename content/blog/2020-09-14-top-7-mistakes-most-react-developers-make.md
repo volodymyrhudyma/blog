@@ -631,7 +631,7 @@ But why? In the **render** function **this** refers to the current instance of t
 But it is not that simple. Behind the scenes, React assigns **this.handleClick** to another variable:
 
 ```javascript
-const onClick = this.sayName;
+const onClick = this.handleClick;
 
 // We lose "this" context
 onClick();
