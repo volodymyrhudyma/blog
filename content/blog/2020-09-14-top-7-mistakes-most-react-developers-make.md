@@ -666,6 +666,59 @@ Arrow functions do not create their own **this** binding, they inherit it from t
 
 To learn more about the context of **this** refer to [this article](/2020-05-02-understanding-this-in-javascript/).
 
+### Solution #3 and #4
+
+The **handleClick** method can be bound inside of the render as well:
+
+```jsx
+render() {
+  return <button onClick={this.handleClick.bind(this)}>Greet me</button>;
+}
+```
+
+Or use arrow function callback:
+
+```jsx
+render() {
+  return <button onClick={() => this.handleClick()}>Greet me</button>;
+}
+```
+
+Although these are also possible solutions, they are not recommended ones.
+
+Let's find out why in the next chapter.
+
 ## Creating new functions every render
 
+Binding function to the context means creating a new one.
+
+If the function is bound in the **constructor**, then only one function will be created.
+
+If the function is bound in the **render**, then a new function is created every render.
+
+In the case of 1000 renders you will end up with 1000 unnecessary functions being created.
+
+The same rules apply for arrow function callbacks, they create a new function every render, therefore lead to poorer performance.
+
+To sum up, this approach should be avoided:
+
+```jsx
+// Do not do that!
+render() {
+  return <button onClick={() => this.handleClick()}>Greet me</button>;
+}
+
+...
+
+render() {
+  return <button onClick={this.handleClick.bind(this)}>Greet me</button>;
+}
+```
+
 ## Summary
+
+One of the key steps for becoming a good React developer is to learn not only how things should be done, but how should not.
+
+In this article we reviewed 7 common mistakes most developers make and how to avoid them.
+
+Do you know more anti-patterns? Share them in the comments below.
