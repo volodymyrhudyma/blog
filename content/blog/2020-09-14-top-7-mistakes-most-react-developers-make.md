@@ -4,8 +4,16 @@ tag:
   - React
 metaDescription: // META
 teaser: // TEASER
-date: 2020-09-16T16:26:17.605Z
+date: 2020-09-18T20:47:32.472Z
 ---
+**React** is an awesome JavaScript library for building user interfaces.
+
+It brings an enormous number of benefits for both, clients and developers.
+
+But, much like any tool, when not used properly it creates more problems than actually solves.
+
+Today we will take a look at 7 most common mistakes most of React developers do.
+
 ## Direct state modification
 
 Every developer who starts working with React is being taught that the state should not be modified directly.
