@@ -643,7 +643,7 @@ The reason is obvious: **this** is **undefined**.
 
 But why? In the **render** function, **this** refers to the current instance of the React component, the component contains the **handleClick** function, so everything seems to be fine.
 
-But it's not that simple. Behind the scenes, React assigns **this.handleClick** to another variable:
+But it is not that simple. Behind the scenes, React assigns **this.handleClick** to another variable:
 
 ```javascript
 const onClick = this.handleClick;
