@@ -713,7 +713,7 @@ If the function is bound in the **render**, then a new function is created each 
 
 In case of 1000 renders you will end up creating 1000 unnecessary functions.
 
-The same rules apply to arrow function callbacks, they create a new function on every render and therefore lead to a worse performance.
+The same rules apply to arrow function callbacks, they create a new function on every render and therefore lead to worse performance.
 
 In summary, this approach should be avoided:
 
