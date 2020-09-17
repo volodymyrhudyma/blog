@@ -6,19 +6,19 @@ metaDescription: // META
 teaser: // TEASER
 date: 2020-09-18T20:47:32.472Z
 ---
-**React** is an awesome JavaScript library for building user interfaces.
+**React** is a great JavaScript library for creating user interfaces.
 
-It brings an enormous number of benefits for both, clients and developers.
+It brings an enormous number of advantages for both, customers and developers.
 
-But, much like any tool, when not used properly it creates more problems than actually solves.
+But like any tool, if it is not used properly, it creates more problems than it actually solves.
 
-Today we will take a look at 7 most common mistakes most of React developers do.
+Today we will take a look at the 7 most common mistakes that most of React developers make.
 
 ## Direct state modification
 
-Every developer who starts working with React is being taught that the state should not be modified directly.
+Every developer who starts working with React is taught that the state should not be modified directly.
 
-But what are the reasons behind it? What happens if the state is directly modified?
+But what are the reasons for this? What happens if the state is directly changed?
 
 Consider the following example:
 
@@ -58,23 +58,23 @@ export default App;
 
 Notice what happens when the "**Mutable update**" button is clicked **once**.
 
-Nothing?
+Nothing?!
 
 Then click on the "**Immutable update**" button and notice how the **count** has changed to **2**:
 
 ![Mutable vs Immutable state update](/img/sep-17-2020-22-55-13.gif "Mutable vs Immutable state update")
 
-Obviously, we received **2** because the state has been updated two times: directly and via **setState** method.
+Obviously we got **2** because the state was updated twice: directly and via the **setState** method.
 
-Using **setState** re-renders the component, kicking off the process called reconciliation.
+By **setState** the component is re-rendered, thus starting the process of reconciliation.
 
-> **Reconciliation** is the process of updating DOM (Document Object Model) by making changes to the component based on the change in state.
+> **Reconciliation** is the process of updating DOM (Document Object Model) with changes to the component based on the change of state.
 
-You can think of **render** as of function that creates a tree of React elements.
+You can think of **render** as a function that creates a tree of React elements.
 
-When the state gets updated, it produces a different tree and React needs to figure out how to efficiently update the DOM to match the most recent tree.
+When the state gets updated, it creates a different tree and React needs to figure out how to efficiently update DOM to match the latest tree.
 
-The default created by the React for the example above:
+The default created by the React for the above example:
 
 ```jsx
 {
@@ -121,7 +121,7 @@ The default created by the React for the example above:
 }
 ```
 
-This is how the new tree looks like, after clicking on the "**Immutable update**" button (it remained the same except for the element with a type of "**div**"):
+This is what the new tree looks like after clicking on the "**Immutable update**" button (it remained the same except for the element with a type of "**div**"):
 
 ```jsx
 // The structure is the same, just this child element slightly changed
@@ -139,19 +139,19 @@ This is how the new tree looks like, after clicking on the "**Immutable update**
 },
 ```
 
-The problem to be solved: **transform one tree into another most efficiently**.
+The problem to solve: **transform one tree into another most efficiently**.
 
-There are some generic algorithms that solve the given problem, however, all of them have `O(N3)` complexity which makes them inefficient.
+There are some generic algorithms that solve the given problem, but they all have an `O(N3)` complexity that makes them inefficient.
 
-Imagine having to do 1 million comparisons to display 1000 elements. 
+Imagine having to make 1 million comparisons to display 1000 elements. 
 
 Far too expensive to be used in real projects.
 
-That is why React implements a heuristic algorithm with `O(N)` complexity based on the two assumptions.
+For this reason, React implements a heuristic algorithm with `O(N)` complexity based on the two assumptions.
 
 #### Assumption #1: two elements of different types will produce different trees
 
-For example, when the root elements have different types, React will tear down the old tree and build a new one from scratch:
+For example, if the root elements have different types, React will tear down the old tree and build a new one from scratch:
 
 ```jsx
 <div>
@@ -167,11 +167,11 @@ For example, when the root elements have different types, React will tear down t
 </MyParent>
 ```
 
-Old `MyComponent` will be destroyed and **destroy** lifecycle hook will be executed and a new one will be re-mounted executing **mount** hook even though nothing related to it has changed.
+The old `MyComponent` will be **unmounted** and a new one will be **mounted**, although nothing has changed.
 
-If there were any more child components, they all would also be destroyed and re-mounted.
+If there were any othe child components, they too would all also be destroyed and re-mounted.
 
-When the DOM elements have the same type, React goes through their attributes and only updates the changed ones:
+If the DOM elements are of the same type, React goes through their attributes and updates pnly the changed ones:
 
 ```jsx
 <div className="parent" />
@@ -181,13 +181,13 @@ When the DOM elements have the same type, React goes through their attributes an
 
 React knows to only modify `className`.
 
-When the Component elements have the same type, the instance stays the same in order to maintain the state across the renders.
+If the component elements have the same type, the instance remains the same to maintain the state across  renderings.
 
 React updates the props of the underlying component instance to match the new element and calls the update lifecycle hook on it.
 
 Then, the `render` method is called and the diff algorithm recurses.
 
-When recursing on children of a DOM node, React iterates over both lists of children simultaneously and creates a mutation if any difference has been found.
+When recursing on children of a DOM node, React iterates over both child lists al the same time and creates a mutation if a difference is found.
 
 For example, adding an element to the end of the list is efficient:
 
@@ -206,7 +206,7 @@ For example, adding an element to the end of the list is efficient:
 
 React will match the first two elements and insert the third one.
 
-But adding an element at the beginning or in the middle has worst performance:
+But adding an element at the beginning or in the middle has a worse performance:
 
 ```jsx
 <ul>
@@ -221,11 +221,11 @@ But adding an element at the beginning or in the middle has worst performance:
 </ul>
 ```
 
-React will mutate every `li` element instead of realizing that two of them can be kept.
+React will mutate each `li` element instead of realizing that two can be retained.
 
-Solving this issue is the topic of the next point.
+The solution to this problem is the subject of the next point.
 
-#### **Assumption #2: the developer can hint at which child elements may be stable across different renders with a `key` prop**
+#### **Assumption #2: the developer can use a "key" prop to indicate which child elements might be stable across different renders**
 
 React supports `key` attribute, which is used by the library to match children in the original tree with children in the subsequent tree:
 
@@ -244,15 +244,15 @@ React supports `key` attribute, which is used by the library to match children i
 
 Now React knows that the elements with the keys "**one**" and "**two**" have just changed their position and the element with the key "**three**" is the new one.
 
-After a general overview of how React performs updates, you might have guessed that modifying the state directly will not trigger the whole reconciliation process, therefore would not re-render the component.
+After a general overview of how React performs updates, you might have guessed that a direct change of state would not trigger the entire reconciliation process and therefore the component could not be re-rendered.
 
 ## Not using "key" properly
 
-After figuring out what `key` is used for, it is necessary to know the right way to set it, as not setting it properly results in unexpected errors.
+After you have found out what the `key` is used for, it is necessary to know how to set it correctly, because if you do not do that, it will lead to unexpected errors.
 
 #### Rule #1: "key" should be unique among siblings
 
-In other words, each item within an array should have a unique key, but it should not be unique globally:
+In other words, every element within an array should have a unique key, but it should not be globally unique:
 
 ```jsx
 <ul>
@@ -267,19 +267,19 @@ In other words, each item within an array should have a unique key, but it shoul
 </ul>
 ```
 
-`child.id` can be the same as `item.id` as they are not siblings.
+`child.id` can be the same as `item.id` because they are not siblings.
 
-Wondering what happens if React encounters two elements with the same **key**?
+Wondering what happens when React encounters two elements with the same **key**?
 
-The following warning will be shown in the console:
+The following warning is displayed in the console:
 
 ![React duplicated keys warning](/img/screenshot-2020-09-15-at-22.54.50.png "React duplicated keys warning")
 
 #### Rule #2: Use "index" as a "key" only if the list is static (it is not possible to reorder/add/remove elements)
 
-Using **index** as a key leads to unexpected errors when the order of your list elements can be changed:
+Using **index** as a key will cause unexpected errors if the order of your list elements can be changed:
 
-React does not understand which item was added/removed/reordered since an **index** is given on each render based on the order of the items in the array.
+React does not understand which element has been added/removed/reordered since an **index** is given on each render based on the order of the items in the array.
 
 Consider the following example:
 
@@ -328,21 +328,21 @@ Let's try to remove the first value:
 
 ![Index as a key](/img/index-as-a-key.gif "Index as a key")
 
-And it does not get removed!
+And it did not get removed!
 
-Actually, it does but after we removed the first item, the second one received the key **0**, and React thinks that we removed the item with the key **1** as it is not on the list anymore.
+Actually, it did but after we removed the first item, the second one got the key **0**, and React thinks we removed the item with the key **1** because it is no longer on the list.
 
-Changing the `<li key={index}>` to `<li key={item.id}>` solves an issue:
+Changing from `<li key={index}>` to `<li key={item.id}>` solves an issue:
 
 ![Id as a key](/img/id-as-a-key.gif "Id as a key")
 
-Be very careful of that, as those kinds of issues are extremely hard to debug.
+Be very careful with this, as this type of issue is extremely hard to debug.
 
 ## Not batching updates
 
-If you know React well, you might disagree with the above statement and you would be right.
+If you know React well, you might not agree with the above statement and you would be right.
 
-Indeed, React batches updates.
+In fact, React batches updates.
 
 But not all of them.
 
@@ -378,7 +378,7 @@ export default App;
 
 Even though the state is modified three times, the updates are batched and the component re-renders only once.
 
-But, if the state is updated inside of the **asynchronous callback**, those updates are not batched:
+However, if the state is updated within the **asynchronous callback**, these updates are not batched:
 
 ```jsx
 // These updates are NOT batched
@@ -412,13 +412,13 @@ const handleClick = async () => {
 };
 ```
 
-This is the concept a lot of developers are not aware of, which leads to unnecessary updates and poorer performance.
+This is the concept that many developers are unaware of, resulting in unnecessary updates and poorer performance.
 
-No worries, there are at least two ways to fix this issue.
+No worries, there are at least two ways to solve this problem.
 
-#### Unify the state
+#### Way #1: unify the state
 
-It is possible to replace state variables: `name`, `surname` and `age` with just one object: `user` containing all those properties:
+It is possible to replace the state variables: `name`, `surname` and `age` with a single object: `user` which contains all these properties:
 
 ```jsx
 // Unified state
@@ -438,11 +438,11 @@ const handleClick = () => {
 };
 ```
 
-#### Wrap updates in `unstable_batchedUpdates` callback
+#### Way #2: wrap updates in `unstable_batchedUpdates` callback
 
 The name of the method is a bit concerning but it is safe to use in production.
 
-One thing to remember when using this callback is that for the web it should be imported from the `react-dom` package:
+When using this callback, note that it should be imported from the `react-dom` package for the web:
 
 ```jsx
 import { unstable_batchedUpdates } from "react-dom";
@@ -515,7 +515,7 @@ console.log(newUser);
 
 Modifying `other` object updates the original value, as the spread operator does only shallow copy.
 
-To update nested property, **each level of nested data should be copied**:
+To update the nested property, **each level of the nested data should be copied**:
 
 ```javascript
 const user = {
@@ -565,15 +565,15 @@ console.log(user);
 console.log(newUser);
 ```
 
-We can safely modify `other` object, as now it is not connected to the `user` object.
+We can safely modify the `other` object, since it is now not connected to the `user` object.
 
-The best way to create a deep copy is to use an external library, like [lodash](https://lodash.com/).
+The best way to make a deep copy is to use an external library, such as [lodash](https://lodash.com/).
 
 ## Calling functions instead of passing as a reference
 
-Make sure you are not calling the function when you pass it to the component.
+Make sure that you do not call the function when you pass it to the component.
 
-The following example contains **invalid code** because `handleClick` function is called instead of being passed as a reference:
+The following example contains **invalid code** because `handleClick` function is called instead of being passed by reference:
 
 ```jsx
 render() {
@@ -589,11 +589,11 @@ render() {
 }
 ```
 
-This problem is often seen in a code of inexperienced developers, but it is not that uncommon.
+This problem is often seen in code written by inexperienced developers, but it is not that uncommon.
 
 ## Forgetting to bind function declaration
 
-To begin with, in JavaScript `bind` method is used to create a new function with given `this` context:
+JavaScript uses the `bind` method is used to create a new function with given `this` context:
 
 ```javascript
 const user = {
@@ -636,9 +636,9 @@ The following error will be thrown:
 
 The reason is obvious: **this** is **undefined**. 
 
-But why? In the **render** function **this** refers to the current instance of the React component, that component contains **handleClick** function, so everything seems to be just fine.
+But why? In the **render** function, **this** refers to the current instance of the React component, the component contains the **handleClick** function, so everything seems to be fine.
 
-But it is not that simple. Behind the scenes, React assigns **this.handleClick** to another variable:
+But it's not that simple. Behind the scenes, React assigns **this.handleClick** to another variable:
 
 ```javascript
 const onClick = this.handleClick;
@@ -647,13 +647,13 @@ const onClick = this.handleClick;
 onClick();
 ```
 
-In the example above, when we call **onClick** function, the context of **this** is lost.
+If we call the **onClick** function in the above example, the context of **this** is lost.
 
-Its context is decided at the time function is called, not at the time it is defined.
+The context is determined at the time the function is called, not at the time of its definition.
 
 #### Solution #1
 
-One of the possible solutions to this problem is to bind the **handleClick** function in the constructor:
+One possible solution to this problem is to bind the **handleClick** function in the constructor:
 
 ```javascript
 constructor(props) {
@@ -664,7 +664,7 @@ constructor(props) {
 
 #### Solution #2
 
-The second way of handling that is to use arrow functions instead of function declarations:
+The second way of handling is to use arrow functions instead of function declarations:
 
 ```jsx
 handleClick = () => {
@@ -678,7 +678,7 @@ To learn more about the context of **this** refer to [this article](/2020-05-02-
 
 ### Solution #3 and #4
 
-The **handleClick** method can be bound inside of the render as well:
+The **handleClick** method can also be bound within the render as well:
 
 ```jsx
 render() {
@@ -694,23 +694,23 @@ render() {
 }
 ```
 
-Although these are also possible solutions, they are not recommended ones.
+These are also possible but not recommended solutions. 
 
-Let's find out why in the next chapter.
+In the next chapter let's find out why.
 
 ## Creating new functions every render
 
-Binding function to the context means creating a new one.
+To bind a function to the context means to create a new one.
 
-If the function is bound in the **constructor**, then only one function will be created.
+If the function is bound in the **constructor**, then only one function is created.
 
-If the function is bound in the **render**, then a new function is created every render.
+If the function is bound in the **render**, then a new function is created each time the render is executed.
 
-In the case of 1000 renders you will end up with 1000 unnecessary functions being created.
+In case of 1000 renders you will end up creating 1000 unnecessary functions.
 
-The same rules apply for arrow function callbacks, they create a new function every render, therefore lead to poorer performance.
+The same rules apply to arrow function callbacks, they create a new function on every render and therefore lead to a worse performance.
 
-To sum up, this approach should be avoided:
+In summary, this approach should be avoided:
 
 ```jsx
 // Do not do that!
@@ -727,8 +727,10 @@ render() {
 
 ## Summary
 
-One of the key steps for becoming a good React developer is to learn not only how things should be done, but how should not.
+One of the most important steps to becoming a good React developer is to learn not only how things should be done, but also how should not.
 
-In this article we reviewed 7 common mistakes most developers make and how to avoid them.
+In this article we reviewed 7 common mistakes that most developers make and how to avoid them.
 
-Do you know more anti-patterns? Share them in the comments below.
+Do you know of any other anti-patterns? 
+
+Share them in the comments below.
