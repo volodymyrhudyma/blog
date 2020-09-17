@@ -2,8 +2,13 @@
 title: Top 7 Mistakes Most React Developers Make
 tag:
   - React
-metaDescription: // META
-teaser: // TEASER
+metaDescription: Learn top 7 most common React mistakes that should be avoided.
+  To become a good programmer, you should not only learn best practices, but
+  also be aware of anti-patterns.
+teaser: React is a great JavaScript library for creating user interfaces. It
+  brings an enormous number of advantages for both, customers and developers.
+  But like any tool, if it is not used properly, it creates more problems than
+  it actually solves...
 date: 2020-09-18T20:47:32.472Z
 ---
 **React** is a great JavaScript library for creating user interfaces.
