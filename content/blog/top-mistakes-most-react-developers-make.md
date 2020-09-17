@@ -703,7 +703,7 @@ These are also possible but not recommended solutions.
 
 In the next chapter let's find out why.
 
-## Creating new functions every render
+## Creating new functions on every render
 
 To bind a function to the context means to create a new one.
 
