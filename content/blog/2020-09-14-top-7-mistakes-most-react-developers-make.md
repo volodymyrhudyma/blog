@@ -23,9 +23,9 @@ But what are the reasons behind it? What happens if the state is directly modifi
 Consider the following example:
 
 ```jsx
-import React, { Component, Fragment } from 'react';
+import React, { Component, Fragment } from "react";
 
-import { Button, Text } from './styled';
+import { Button, Text } from "./styled";
 
 class App extends Component {
   state = {
@@ -60,17 +60,17 @@ Notice what happens when the "**Mutable update**" button is clicked **once**.
 
 Nothing?
 
-Then click on the "**Immutable update**" button and notice how the `count` has changed to `2`:
+Then click on the "**Immutable update**" button and notice how the **count** has changed to **2**:
 
 ![Mutable vs Immutable state update](/img/sep-17-2020-22-55-13.gif "Mutable vs Immutable state update")
 
-Obviously, we received `2` because the state has been updated two times: directly and via `setState` method.
+Obviously, we received **2** because the state has been updated two times: directly and via **setState** method.
 
-Using `setState` re-renders the component, kicking off the process called reconciliation.
+Using **setState** re-renders the component, kicking off the process called reconciliation.
 
 > **Reconciliation** is the process of updating DOM (Document Object Model) by making changes to the component based on the change in state.
 
-You can think of `render` as of function that creates a tree of React elements.
+You can think of **render** as of function that creates a tree of React elements.
 
 When the state gets updated, it produces a different tree and React needs to figure out how to efficiently update the DOM to match the most recent tree.
 
@@ -151,7 +151,7 @@ That is why React implements a heuristic algorithm with `O(N)` complexity based 
 
 #### Assumption #1: two elements of different types will produce different trees
 
-For example, when the root elements have different types, React will tear down old tree an build a new one from scratch:
+For example, when the root elements have different types, React will tear down the old tree and build a new one from scratch:
 
 ```jsx
 <div>
@@ -244,7 +244,7 @@ React supports `key` attribute, which is used by the library to match children i
 
 Now React knows that the elements with the keys "**one**" and "**two**" have just changed their position and the element with the key "**three**" is the new one.
 
-After general overview of how React performs updates, you might have guessed that modifying the state directly will not trigger the whole reconciliation process, therefore would not re-render the component.
+After a general overview of how React performs updates, you might have guessed that modifying the state directly will not trigger the whole reconciliation process, therefore would not re-render the component.
 
 ## Not using "key" properly
 
@@ -267,7 +267,7 @@ In other words, each item within an array should have a unique key, but it shoul
 </ul>
 ```
 
-`child.id` can be the same as `item.id` as they aren't siblings.
+`child.id` can be the same as `item.id` as they are not siblings.
 
 Wondering what happens if React encounters two elements with the same **key**?
 
@@ -279,7 +279,7 @@ The following warning will be shown in the console:
 
 Using **index** as a key leads to unexpected errors when the order of your list elements can be changed:
 
-React doesn't understand which item was added/removed/reordered since an **index** is given on each render based on the order of the items in the array.
+React does not understand which item was added/removed/reordered since an **index** is given on each render based on the order of the items in the array.
 
 Consider the following example:
 
@@ -322,13 +322,15 @@ const List = () => {
 };
 ```
 
-This list is rendered based on an **index**. Let's try to remove the first value:
+This list is rendered based on an **index**. 
+
+Let's try to remove the first value:
 
 ![Index as a key](/img/index-as-a-key.gif "Index as a key")
 
-And it doesn't get removed!
+And it does not get removed!
 
-Actually, it does but after we removed the first item, the second one received the key **0**, and React thinks that we removed the item with the key **1** as it's not on the list anymore.
+Actually, it does but after we removed the first item, the second one received the key **0**, and React thinks that we removed the item with the key **1** as it is not on the list anymore.
 
 Changing the `<li key={index}>` to `<li key={item.id}>` solves an issue:
 
@@ -347,17 +349,17 @@ But not all of them.
 Consider the following example:
 
 ```jsx
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const App = () => {
-  const [name, setName] = useState('');
-  const [surname, setSurname] = useState('');
+  const [name, setName] = useState("");
+  const [surname, setSurname] = useState("");
   const [age, setAge] = useState(0);
 
   const handleClick = () => {
     // These updates are batched
-    setName('John');
-    setSurname('Doe');
+    setName("John");
+    setSurname("Doe");
     setAge(18);
   };
 
@@ -383,8 +385,8 @@ But, if the state is updated inside of the **asynchronous callback**, those upda
 // The component re-renders three times!
 const handleClick = () => {
   setTimeout(() => {
-    setName('John');
-    setSurname('Doe');
+    setName("John");
+    setSurname("Doe");
     setAge(18);
   }, 1000);
 };
@@ -393,8 +395,8 @@ const handleClick = () => {
 
 const handleClick = () => {
   fetchUser.then(() => {
-    setName('John');
-    setSurname('Doe');
+    setName("John");
+    setSurname("Doe");
     setAge(18);
   });
 };
@@ -404,8 +406,8 @@ const handleClick = () => {
 // Even this causes multiple re-renders
 const handleClick = async () => {
   await fetchUser();
-  setName('John');
-  setSurname('Doe');
+  setName("John");
+  setSurname("Doe");
   setAge(18);
 };
 ```
@@ -421,8 +423,8 @@ It is possible to replace state variables: `name`, `surname` and `age` with just
 ```jsx
 // Unified state
 const [user, setUser] = useState({
-  name: '',
-  surname: '',
+  name: "",
+  surname: "",
   age: 0,
 });
 
@@ -443,15 +445,15 @@ The name of the method is a bit concerning but it is safe to use in production.
 One thing to remember when using this callback is that for the web it should be imported from the `react-dom` package:
 
 ```jsx
-import { unstable_batchedUpdates } from 'react-dom';
+import { unstable_batchedUpdates } from "react-dom";
 
 ...
 
 const handleClick = () => {
   setTimeout(() => {
     unstable_batchedUpdates(() => {
-      setName('John');
-      setSurname('Doe');
+      setName("John");
+      setSurname("Doe");
       setAge(18);
     });
   }, 1000);
@@ -462,8 +464,8 @@ const handleClick = () => {
 const handleClick = () => {
   fetchUser.then(() => {
     unstable_batchedUpdates(() => {
-      setName('John');
-      setSurname('Doe');
+      setName("John");
+      setSurname("Doe");
       setAge(18);
     });
   });
@@ -474,8 +476,8 @@ const handleClick = () => {
 const handleClick = async () => {
   await fetchUser();
   unstable_batchedUpdates(() => {
-    setName('John');
-    setSurname('Doe');
+    setName("John");
+    setSurname("Doe");
     setAge(18);
   });
 };
@@ -611,7 +613,7 @@ boundFunction(); // Prints "John Doe"
 Consider the following example of the React component:
 
 ```jsx
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class Welcome extends Component<any> {
   handleClick() {
