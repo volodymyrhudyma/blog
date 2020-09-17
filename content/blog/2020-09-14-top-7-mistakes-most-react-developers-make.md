@@ -583,6 +583,89 @@ This problem is often seen in a code of inexperienced developers, but it is not 
 
 ## Forgetting to bind function declaration
 
-## Omitting lazy loading
+To begin with, in JavaScript `bind` method is used to create a new function with given `this` context:
+
+```javascript
+const user = {
+  name: "John",
+  surname: "Doe",
+};
+
+function getFullName() {
+  return this.name + " " + this.surname;
+};
+
+const boundFunction = getFullName.bind(user); // "bind" returns bound function
+
+boundFunction(); // Prints "John Doe"
+```
+
+Consider the following example of the React component:
+
+```jsx
+import React, { Component } from 'react';
+
+class Welcome extends Component<any> {
+  handleClick() {
+    console.log(this.props.greeting);
+  }
+
+  render() {
+    return <button onClick={this.handleClick}>Greet me</button>;
+  }
+}
+
+export default Welcome;
+```
+
+What would happen after clicking the button?
+
+The following error will be thrown:
+
+![Unbound function React error](/img/screenshot-2020-09-17-at-18.12.56.png "Unbound function React error")
+
+The reason is obvious: **this** is **undefined**. 
+
+But why? In the **render** function **this** refers to the current instance of the React component, that component contains **handleClick** function, so everything seems to be just fine.
+
+But it is not that simple. Behind the scenes, React assigns **this.handleClick** to another variable:
+
+```javascript
+const onClick = this.sayName;
+
+// We lose "this" context
+onClick();
+```
+
+In the example above, when we call **onClick** function, the context of **this** is lost.
+
+Its context is decided at the time function is called, not at the time it is defined.
+
+#### Solution #1
+
+One of the possible solutions to this problem is to bind the **handleClick** function in the constructor:
+
+```javascript
+constructor(props) {
+  super(props);
+  this.handleClick = this.handleClick.bind(this);
+}
+```
+
+#### Solution #2
+
+The second way of handling that is to use arrow functions instead of function declarations:
+
+```jsx
+handleClick = () => {
+  console.log(this.props.greeting);
+}
+```
+
+Arrow functions do not create their own **this** binding, they inherit it from the parent scope.
+
+To learn more about the context of **this** refer to [this article](/2020-05-02-understanding-this-in-javascript/).
+
+## Creating new functions every render
 
 ## Summary
