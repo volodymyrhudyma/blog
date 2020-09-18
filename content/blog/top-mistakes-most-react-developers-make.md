@@ -176,7 +176,7 @@ The old `MyComponent` will be **unmounted** and a new one will be **mounted**, a
 
 If there were any othe child components, they too would all also be destroyed and re-mounted.
 
-If the DOM elements are of the same type, React goes through their attributes and updates pnly the changed ones:
+If the DOM elements are of the same type, React goes through their attributes and updates only the changed ones:
 
 ```jsx
 <div className="parent" />
