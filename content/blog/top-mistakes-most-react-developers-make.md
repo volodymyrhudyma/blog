@@ -620,7 +620,7 @@ Consider the following example of the React component:
 ```jsx
 import React, { Component } from "react";
 
-class Welcome extends Component<any> {
+class Welcome extends Component {
   handleClick() {
     console.log(this.props.greeting);
   }
