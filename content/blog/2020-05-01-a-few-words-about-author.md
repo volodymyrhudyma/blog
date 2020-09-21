@@ -70,4 +70,4 @@ Be well, do good deeds and keep in touch.
 
 Click here to read the [first article](/2020-04-26-getting-started-with-javascript).
 
-***P.S. You are allowed to use any information provided in these blog for any of your needs.***
+***P.S. You are allowed to use any information provided in this blog for any of your needs.***
