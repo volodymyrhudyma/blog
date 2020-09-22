@@ -33,9 +33,12 @@ The visualization:
 There are two types of heaps:
 
 * **Max heap** - the value of the root node is **greater than** any of its children
+
+![Max heap](/img/max-heap.svg "Max heap")
+
 * **Min heap** - the value of the root node is **smaller than** any of its children
 
-![Min and max heap example](/img/1mghtrv.png "Min and max heap example")
+![Min heap](/img/min-heap.png "Min heap")
 
 ## Build tree from an array
 
