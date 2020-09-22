@@ -6,6 +6,10 @@ metaDescription: // META
 teaser: // TEASER
 date: 2020-09-23T19:58:05.574Z
 ---
+The topic of today is **Heap Sort** - sorting algorithm that is widely used due to its simplicity and efficiency.
+
+It uses heap data structure to find the largest element in each step.
+
 ## The definition
 
 **Heap sort** is a comparison-based algorithm that can be considered as improved Selection Sort.
@@ -33,14 +37,14 @@ There are two types of heaps:
 
 ![Min and max heap example](/img/1mghtrv.png "Min and max heap example")
 
-## Build heap from array
+## Build tree from an array
 
 Before we building the Heap Sort in JavaScript, it is crucial to understand how array indexes are mapped to tree positions.
 
 Consider the following array:
 
 ```javascript
-const arr = [10, 4, 7, 11, 2, 1];
+const arr = [10, 4, 7, 11, 2, 1, 9];
 ```
 
 It's binary tree representation:
@@ -49,13 +53,32 @@ It's binary tree representation:
       10
     /    \
    4      7
-  / \    /
- 11  2  1
+  / \    / \
+ 11  2  1   9
+```
+
+If we observe carefully, and assume that the index of any element is `i`, we can notice the following rules:
+
+* The left child is at index `(2*i + 1)`
+* The right child is at index `(2*i + 2)`
+* The parent is at index `(i - 1) / 2`
+
+Let's test these rules out:
+
+```javascript
+Index of the "7" is "2"
+
+Then index of the left child is (2 * 2 + 1) = 5
+Which equals to "1"
+
+Then index of the right child is (2 * 2 + 2) = 6
+Which equals to "9"
+
+Then index of the parent element is (2 - 1) / 2 = 0.5 = ~0
+Which equals to "10"
 ```
 
 ## The complexity
-
-Although it is slower than a well-implemented Quick Sort, it has the advantage of a better worst-case runtime.
 
 Best-case performance - `O(NlogN)` if the keys are distinct and `O(N)` if the keys are equal.
 
@@ -64,6 +87,18 @@ Worst-case performance - `O(NlogN)`.
 Average - `O(NlogN)`.
 
 ## Pros and Cons
+
+Although it is slower than a well-implemented Quick Sort, it has the advantage of a better worst-case runtime.
+
+#### Pros
+
+* Efficiency, therefore it is widely used
+* Good worst-case performance
+* In-place algorithm
+
+#### Cons
+
+* Unstable sort
 
 ## Implementation in JavaScript
 
