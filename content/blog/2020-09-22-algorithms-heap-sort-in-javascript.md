@@ -33,6 +33,26 @@ There are two types of heaps:
 
 ![Min and max heap example](/img/1mghtrv.png "Min and max heap example")
 
+## Build heap from array
+
+Before we building the Heap Sort in JavaScript, it is crucial to understand how array indexes are mapped to tree positions.
+
+Consider the following array:
+
+```javascript
+const arr = [10, 4, 7, 11, 2, 1];
+```
+
+It's binary tree representation:
+
+```javascript
+      10
+    /    \
+   4      7
+  / \    /
+ 11  2  1
+```
+
 ## The complexity
 
 Although it is slower than a well-implemented Quick Sort, it has the advantage of a better worst-case runtime.
