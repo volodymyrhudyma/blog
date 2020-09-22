@@ -2,11 +2,15 @@
 title: Algorithms | Heap Sort in JavaScript
 tag:
   - JavaScript
-metaDescription: // META
-teaser: // TEASER
+metaDescription: Learn Heap Sort in JavaScript - simple, in-place, unstable,
+  comparison sorting algorithm, its advantages and disadvantages and why it is a
+  good and widely-used choice.
+teaser: The topic of today is Heap Sort - a sorting algorithm that is widely
+  used because of its simplicity and efficiency. It uses heap data structure to
+  find the largest element in each step...
 date: 2020-09-23T19:58:05.574Z
 ---
-The topic of today is **Heap Sort** - sorting algorithm that is widely used due to its simplicity and efficiency.
+The topic of today is **Heap Sort** - a sorting algorithm that is widely used because of its simplicity and efficiency.
 
 It uses heap data structure to find the largest element in each step.
 
@@ -14,11 +18,11 @@ It uses heap data structure to find the largest element in each step.
 
 **Heap sort** is a comparison-based algorithm that can be considered as improved Selection Sort.
 
-Like Selection Sort, divides an input on two parts, sorted and unsorted one.
+Like Selection Sort, divides an input into two parts, one sorted and one unsorted.
 
-It iteratively shrinks the unsorted region by extracting the largest element from it and inserting it into the sorted region.
+It reduces the unsorted area iteratively by pulling the largest element from it and inserting it into the sorted area.
 
-It maintains the unsorted region in a data structure called **heap** to find the largest element more quickly:
+It retains the unsorted region in a data structure called **heap** to find the largest element faster:
 
 ![Heap Sort example](/img/heap_sort_example.gif "Heap Sort example")
 
@@ -28,7 +32,7 @@ The visualization:
 
 ## What is heap?
 
-**Heap** is a tree-based data structure where the root node is compared to its children and arranged accordingly.
+**Heap** is a tree-based data structure in which the root node is compared with its children and arranged accordingly.
 
 There are two types of heaps:
 
@@ -42,7 +46,7 @@ There are two types of heaps:
 
 ## Build tree from an array
 
-Before we building the Heap Sort in JavaScript, it is crucial to understand how array indexes are mapped to tree positions.
+Before we build the Heap Sort in JavaScript, it is crucial to understand how array indexes are mapped to tree positions.
 
 Consider the following array:
 
@@ -60,7 +64,7 @@ It's binary tree representation:
  11  2  1   9
 ```
 
-If we observe carefully, and assume that the index of any element is `i`, we can notice the following rules:
+If we observe carefully and assume that the index of any element is `i`, we can observe the following rules:
 
 * The left child is at index `(2*i + 1)`
 * The right child is at index `(2*i + 2)`
@@ -83,7 +87,7 @@ Which equals to "10"
 
 ## The complexity
 
-Best-case performance - `O(NlogN)` if the keys are distinct and `O(N)` if the keys are equal.
+Best-case performance - `O(NlogN)` if the keys are different and `O(N)` if the keys are the same.
 
 Worst-case performance - `O(NlogN)`.
 
@@ -96,12 +100,12 @@ Although it is slower than a well-implemented Quick Sort, it has the advantage o
 #### Pros
 
 * Efficiency, therefore it is widely used
-* Good worst-case performance
+* Good worst-case scenario
 * In-place algorithm
 
 #### Cons
 
-* Unstable sort
+* Unstable sorting
 
 ## Implementation in JavaScript
 
