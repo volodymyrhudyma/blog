@@ -155,7 +155,7 @@ const heapify = (heap, i, max) => {
       index = rightChild;
     }
 
-    // If no of the above conditions is true
+    // If none of the above conditions is true
     // Just return
     if (index === i) {
       return;
