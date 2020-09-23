@@ -49,7 +49,7 @@ There are two types of heaps:
 
 ![Min heap](/img/min-heap.png "Min heap")
 
-## Build tree from an array
+## Build a tree from an array
 
 Before we build the Heap Sort in JavaScript, it is crucial to understand how array indexes are mapped to tree positions.
 
