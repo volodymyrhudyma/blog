@@ -164,7 +164,7 @@ const heapify = (heap, i, max) => {
     // Else swap elements
     swap(heap, i, index);
 
-    // And continue by using the swapped one
+    // Continue by using the swapped index
     i = index;
   }
 }
@@ -185,7 +185,7 @@ const heapSort = (arr) => {
   lastElement = arr.length - 1;
 
   // Continue heap sorting until we have
-  // one element left
+  // One element left
   while (lastElement > 0) {
     swap(arr, 0, lastElement);
     heapify(arr, 0, lastElement);
