@@ -139,7 +139,7 @@ const heapify = (heap, i, max) => {
     // Using the known formula
     leftChild = 2 * i + 1;
     
-    // Get the left child index 
+    // Get the right child index 
     // Using the known formula
     rightChild = leftChild + 1;
 
