@@ -50,15 +50,43 @@ The algorithm is called **not-in-place** if it transforms input using additional
 
 Examples of not-in-place algorithms:
 
-* Merge Sort - works by dividing the unsorted list by `n` sublists, each containing one element and repeatedly merging these sublists, producing new sorted sublists until one left.
+* **Merge Sort** - works by dividing the unsorted list by `n` sublists, each containing one element and repeatedly merging these sublists, producing new sorted sublists until one left.
 
   The space complexity is `O(N)`.
 
 ## Divide-and-conquer algorithm
 
+**Divide and conquer** is an [](https://en.wikipedia.org/wiki/Algorithm_design_paradigm "Algorithm design paradigm")algorithm design paradigm based on multi-branched [](https://en.wikipedia.org/wiki/Recursion "Recursion")recursion.
+
+Algorithms that use this paradigm work by recursively breaking down a problem into two or more sub-problems of the same or related type, until these become simple enough to be solved directly. 
+
+The solutions to the sub-problems are then combined to give a solution to the original problem.
+
+This divide-and-conquer technique is the basis of efficient algorithms for all kinds of problems, not only for sorting.
+
+Examples of divide-and-conquer algorithms:
+
+* **Quick Sort**
+* **Merge Sort**
+
 ## Comparison-based algorithm
 
+**The comparison-based algorithm** is a type of sorting algorithm that only operates on the input array by comparing pairs of elements and moving elements around based on the results of these comparisons.
+
+Examples of comparison-based algorithms:
+
+* **Bubble Sort**
+* **Insertion Sort**
+* **Selection Sort**
+* **Heap Sort**
+* **Quick Sort**
+* **Merge Sort**
+
 ## Stable algorithm
+
+**A stable sorting algorithm** preserves the order of records with equal keys.
+
+The sorting algorithm can be considered as stable if two objects with equal keys appear in the same order in sorted output as they were in the unsorted input.
 
 ## Unstable algorithm
 
