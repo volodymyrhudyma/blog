@@ -6,9 +6,17 @@ metaDescription: Learn Big O Notation - concept used to describe required
   execution time or space used by an algorithm. Take a look at in-place,
   not-in-place, stable, unstable, divide-and-conquer, comparison-based
   algorithms.
-teaser: // TEASER
+teaser: In the previous articles we had a brief overview of the most popular
+  sorting algorithms and their implementations. But there are much more things
+  that we should have a basic understanding of in we are into this topic...
 date: 2020-09-26T07:52:11.294Z
 ---
+In the previous articles we had a brief overview of the most popular sorting algorithms and their implementations.
+
+But there are much more things that we should have a basic understanding of in we are into this topic.
+
+Let's take a look and learn all of them today.
+
 ## In-place algorithm
 
 The algorithm is called **in-place** if it transforms input almost without using any extra memory, however, a small constant extra space used **for variables** is allowed.
