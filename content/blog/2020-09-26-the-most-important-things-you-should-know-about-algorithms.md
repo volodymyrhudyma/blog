@@ -106,10 +106,29 @@ Examples of unstable sorting algorithms:
 * **Heap Sort**
 * **Quick Sort**
 
+## Big O notation
+
+In the previous sections we were talking a bit about space complexity, but do we really understand what does `O(...)` mean?
+
+It is called **Big O notation**. 
+
+In computer science, it is used to describe required execution time or space used by an algorithm.
+
+The best way to understand this concept is to look at some examples.
+
+* **O(1)** - an algorithm will always execute in the same time or space, regardless of the input size:
+* **O(N)** - the complexity of an algorithm grows linearly to the size of input:
+* **O(N2)** - the complexity is proportional to the square of the input size:
+* **O(2N) -** the complexity doubles each time something is added to the input:
+* **O(logN)** - the complexity goes up linearly while the **N** goes up exponentially:
+* **O(NlogN)** - for each input, the algorithm is running an operation at **O(logN)**:
+
+The following image shows the number of operations **N** versus the input size **n**:
+
+![Algorithms complexity explained](/img/1920px-comparison_computational_complexity.svg.png "Algorithms complexity explained")
+
 ## Space complexity
 
 ## Time complexity
-
-## Big O notation
 
 ## Summary
