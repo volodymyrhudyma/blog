@@ -46,7 +46,7 @@ Examples of in-place sorting algorithms:
 
   Can be considered as an improved Selection Sort: Heap Sort does not waste time with a linear-time scan of the unsorted region; rather, heap sort maintains the unsorted region in a **heap data structure** to more quickly find the largest element in each step.
 
-  The space complexity is `O(1)`. h
+  The space complexity is `O(1)`.
 * **Quick Sort(?)** - works by selecting a **pivot** element from the array and partitioning the other elements into two sub-arrays, according to whether they are less than or greater than the pivot. 
 
   The sub-arrays are then sorted recursively.
