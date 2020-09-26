@@ -241,8 +241,30 @@ The following image shows the number of operations **N** versus the input size *
 
 ![Algorithms complexity explained](/img/webp.net-resizeimage-1-.png "Algorithms complexity explained")
 
-## Space complexity
+## Algorithm complexity
 
-## Time complexity
+**The complexity of an algorithm** is a measure of needed time, space or other resources needed to complete the execution.
+
+Usually, this involves determining a function that relates the length of an algorithm's input to the number of steps it takes (its **time complexity**) or the number of storage locations it uses (its **space complexity**). 
+
+An algorithm is said to be efficient when this function's values are small, or grow slowly compared to a growth in the size of the input.
+
+Different inputs of the same length may cause the algorithm to have different behavior, so **best**, **worst** and **average** case descriptions might all be of practical interest. 
+
+When not otherwise specified, the function describing the performance of an algorithm is usually an upper bound, determined from the worst case inputs to the algorithm.
+
+Let's take a look at the **Quick Sort** algorithm:
+
+* Best-case time complexity is `O(NlogN)`, if each time we divide an array into two nearly equal or equal pieces
+* Worst-case time complexity is `O(N2)`, if one of the pieces has a length equal to the size **N - 1** and it happens repeatedly in every partition
+
+  This can occur if the selected pivot element is the smallest or the largest one on the list, or in some implementations when all elements are equal.
+* Average-case time complexity is `O(NlogN)`
 
 ## Summary
+
+In this article we filled in all the gaps that could have appeared in the process of learning different types of search and sorting algorithms.
+
+Knowing these simple concepts, try to keep you code as performant as possible.
+
+Although it seems like an obvious concept, a lot of developers still neglect this and it leads to writing legacy code, that is slow but just works.
