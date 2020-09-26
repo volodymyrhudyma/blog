@@ -125,7 +125,7 @@ The best way to understand this concept is to look at some examples.
 
 The following image shows the number of operations **N** versus the input size **n**:
 
-![Algorithms complexity explained](/img/1920px-comparison_computational_complexity.svg.png "Algorithms complexity explained")
+![Algorithms complexity explained](/img/webp.net-resizeimage.png "Algorithms complexity explained")
 
 ## Space complexity
 
