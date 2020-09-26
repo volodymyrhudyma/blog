@@ -14,7 +14,7 @@ The algorithm is called **in-place** if it transforms input almost without using
 
 The input is usually overwritten by the output, as the input sequence is updated only through replacement or swapping of elements.
 
-Examples of in-place algorithms:
+Examples of in-place sotring algorithms:
 
 * **Bubble Sort** - repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order.
 
@@ -48,7 +48,7 @@ Examples of in-place algorithms:
 
 The algorithm is called **not-in-place** if it transforms input using additional memory, which depends on input size.
 
-Examples of not-in-place algorithms:
+Examples of not-in-place sorting algorithms:
 
 * **Merge Sort** - works by dividing the unsorted list by `n` sublists, each containing one element and repeatedly merging these sublists, producing new sorted sublists until one left.
 
@@ -64,7 +64,7 @@ The solutions to the sub-problems are then combined to give a solution to the or
 
 This divide-and-conquer technique is the basis of efficient algorithms for all kinds of problems, not only for sorting.
 
-Examples of divide-and-conquer algorithms:
+Examples of divide-and-conquer sorting algorithms:
 
 * **Quick Sort**
 * **Merge Sort**
@@ -73,7 +73,7 @@ Examples of divide-and-conquer algorithms:
 
 **The comparison-based algorithm** is a type of sorting algorithm that only operates on the input array by comparing pairs of elements and moving elements around based on the results of these comparisons.
 
-Examples of comparison-based algorithms:
+Examples of comparison-based sorting algorithms:
 
 * **Bubble Sort**
 * **Insertion Sort**
@@ -88,7 +88,23 @@ Examples of comparison-based algorithms:
 
 The sorting algorithm can be considered as stable if two objects with equal keys appear in the same order in sorted output as they were in the unsorted input.
 
+It is important to use only a stable sorting algorithm if the problem that needs to be solved requires retention of that relative order.
+
+Examples of stable sorting algorithms:
+
+* **Bubble Sort**
+* **Insertion Sort**
+* **Merge Sort**
+
 ## Unstable algorithm
+
+**The unstable sorting algorithm** does not preserve the order of records with equal keys.
+
+Examples of unstable sorting algorithms:
+
+* **Selection Sort**
+* **Heap Sort**
+* **Quick Sort**
 
 ## Space complexity
 
