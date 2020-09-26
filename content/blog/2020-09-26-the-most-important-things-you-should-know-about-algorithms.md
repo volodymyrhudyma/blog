@@ -6,26 +6,26 @@ metaDescription: Learn Big O Notation - concept used to describe required
   execution time or space used by an algorithm. Take a look at in-place,
   not-in-place, stable, unstable, divide-and-conquer, comparison-based
   algorithms.
-teaser: In the previous articles we had a brief overview of the most popular
-  sorting algorithms and their implementations. But there are much more things
-  that we should have a basic understanding of in we are into this topic...
+teaser: In the previous articles we had a short overview of the most popular
+  sorting algorithms and their implementations. But there are many more things
+  we should have a basic understanding of when dealing with this topic...
 date: 2020-09-26T07:52:11.294Z
 ---
-In the previous articles we had a brief overview of the most popular sorting algorithms and their implementations.
+In the previous articles we had a short overview of the most popular sorting algorithms and their implementations.
 
-But there are much more things that we should have a basic understanding of in we are into this topic.
+But there are many more things we should have a basic understanding of when dealing with this topic.
 
 Let's take a look and learn all of them today.
 
 ## In-place algorithm
 
-The algorithm is called **in-place** if it transforms input almost without using any extra memory, however, a small constant extra space used **for variables** is allowed.
+The algorithm is called **in-place** when it transforms input almost with almost no additional memory, however, a small constant extra space used **for variables** is allowed.
 
 > The strict definition of in-place algorithms includes all algorithms with `O(1)` space complexity.
 
-The input is usually overwritten by the output, as the input sequence is updated only through replacement or swapping of elements.
+The input is usually overwritten by the output because the input sequence is only updated by replacing or swapping elements.
 
-Examples of in-place sotring algorithms:
+Examples of in-place sorting algorithms:
 
 * **Bubble Sort** - repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order.
 
@@ -44,16 +44,16 @@ Examples of in-place sotring algorithms:
   The space complexity is `O(1)`. 
 * **Heap Sort** - divides its input into a sorted and an unsorted region and iteratively shrinks the unsorted region by extracting the largest element from it and inserting it into the sorted region.
 
-  Can be considered as an improved Selection Sort: heapsort does not waste time with a linear-time scan of the unsorted region; rather, heap sort maintains the unsorted region in a **heap data structure** to more quickly find the largest element in each step.
+  Can be considered as an improved Selection Sort: Heap Sort does not waste time with a linear-time scan of the unsorted region; rather, heap sort maintains the unsorted region in a **heap data structure** to more quickly find the largest element in each step.
 * **Quick Sort(?)** - works by selecting a **pivot** element from the array and partitioning the other elements into two sub-arrays, according to whether they are less than or greater than the pivot. 
 
   The sub-arrays are then sorted recursively.
 
-  On the one hand, the space complexity of this algorithm is `O(logN)`, which disqualifies it from being an in-place algorithm, as it is greater that `O(1)`.
+  On the one hand, the space complexity of this algorithm is `O(logN)`, which disqualifies it from being an in-place algorithm, since it is greater than `O(1)`.
 
-  But on the other hand, it qualifies as an in-place algorithm, as the algorithm is just swapping elements within the input data structure.
+  On the other hand, it can be qualified as an in-place algorithm, since the algorithm only exchanges elements within the input data structure.
 
-  In summary, qualifying Quick Sort to be in-place or not-in-place depends on the definition of in-place algorithms, which can be found different in different sources.
+  In summary, qualifying Quick Sort as in-place or not-in-place depends on the definition of in-place algorithms, which can be different in different sources.
 
 ## Not-in-place algorithm
 
@@ -69,9 +69,9 @@ Examples of not-in-place sorting algorithms:
 
 **Divide and conquer** is an [](https://en.wikipedia.org/wiki/Algorithm_design_paradigm "Algorithm design paradigm")algorithm design paradigm based on multi-branched [](https://en.wikipedia.org/wiki/Recursion "Recursion")recursion.
 
-Algorithms that use this paradigm work by recursively breaking down a problem into two or more sub-problems of the same or related type, until these become simple enough to be solved directly. 
+Algorithms using this paradigm work by recursively decomposing a problem into two or more sub-problems of the same or related type until they are simple enough to be solved directly. 
 
-The solutions to the sub-problems are then combined to give a solution to the original problem.
+The solutions for the sub-problems are then combined to find a solution for the original problem.
 
 This divide-and-conquer technique is the basis of efficient algorithms for all kinds of problems, not only for sorting.
 
@@ -82,7 +82,7 @@ Examples of divide-and-conquer sorting algorithms:
 
 ## Comparison-based algorithm
 
-**The comparison-based algorithm** is a type of sorting algorithm that only operates on the input array by comparing pairs of elements and moving elements around based on the results of these comparisons.
+**The comparison-based algorithm** is a kind of sorting algorithm that works only on the input array by comparing pairs of elements and moving elements around based on the results of these comparisons.
 
 Examples of comparison-based sorting algorithms:
 
@@ -97,9 +97,9 @@ Examples of comparison-based sorting algorithms:
 
 **A stable sorting algorithm** preserves the order of records with equal keys.
 
-The sorting algorithm can be considered as stable if two objects with equal keys appear in the same order in sorted output as they were in the unsorted input.
+The sorting algorithm can be considered stable if two objects with the same keys appear in sorted output in the same order as in the unsorted input.
 
-It is important to use only a stable sorting algorithm if the problem that needs to be solved requires retention of that relative order.
+It is important to use only a stable sorting algorithm if the problem to be solved requires retention of this relative order.
 
 Examples of stable sorting algorithms:
 
@@ -117,13 +117,13 @@ Examples of unstable sorting algorithms:
 * **Heap Sort**
 * **Quick Sort**
 
-## Big O notation
+## Big O notation with examples
 
-In the previous sections we were talking a bit about space complexity, but do we really understand what does `O(...)` mean?
+In the previous sections we have talked a little about space complexity, but do we really understand what does `O(...)` mean?
 
 It is called **Big O notation**. 
 
-In computer science, it is used to describe required execution time or space used by an algorithm.
+In computer science, it is used to describe the required execution time or the space used by an algorithm.
 
 The best way to understand this concept is to look at some examples.
 
@@ -254,15 +254,15 @@ The following image shows the number of operations **N** versus the input size *
 
 ## Algorithm complexity
 
-**The complexity of an algorithm** is a measure of needed time, space or other resources needed to complete the execution.
+**The complexity of an algorithm** is a measure of the time, space, or other resources required for its execution.
 
 Usually, this involves determining a function that relates the length of an algorithm's input to the number of steps it takes (its **time complexity**) or the number of storage locations it uses (its **space complexity**). 
 
-An algorithm is said to be efficient when this function's values are small, or grow slowly compared to a growth in the size of the input.
+An algorithm is considered efficient if the values of this function are small, or grow slowly compared to an increase in the size of the input.
 
-Different inputs of the same length may cause the algorithm to have different behavior, so **best**, **worst** and **average** case descriptions might all be of practical interest. 
+Different inputs of equal length may cause the algorithm to behave differently, so **best**, **worst**. and **average** case descriptions may be of practical interest. 
 
-When not otherwise specified, the function describing the performance of an algorithm is usually an upper bound, determined from the worst case inputs to the algorithm.
+Unless otherwise specified, the function that describes the performance of an algorithm is usually an upper bound, determined from the worst-case inputs to the algorithm.
 
 Let's take a look at the **Quick Sort** algorithm:
 
@@ -274,8 +274,8 @@ Let's take a look at the **Quick Sort** algorithm:
 
 ## Summary
 
-In this article we filled in all the gaps that could have appeared in the process of learning different types of search and sorting algorithms.
+In this article we filled in all the gaps that could have arisen when learning different types of search and sorting algorithms.
 
-Knowing these simple concepts, try to keep you code as performant as possible.
+Once you learn these simple concepts, try to keep your code as performant as possible.
 
-Although it seems like an obvious concept, a lot of developers still neglect this and it leads to writing legacy code, that is slow but just works.
+Although it seems to be an obvious concept, many developers still neglect it and it leads to writing legacy code that is slow but just works.
