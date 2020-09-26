@@ -117,11 +117,122 @@ In computer science, it is used to describe required execution time or space use
 The best way to understand this concept is to look at some examples.
 
 * **O(1)** - an algorithm will always execute in the same time or space, regardless of the input size:
+
+  ```javascript
+  const getLastElement = arr => arr[arr.length - 1];
+
+  console.log(getLastElement([1, 2, 3])); // Prints "3"
+  ```
 * **O(N)** - the complexity of an algorithm grows linearly to the size of input:
+
+  ```javascript
+  const findValue = (arr, value) => {
+    for(let i = 0; i < arr.length; i++) {
+      if(arr[i] === value) {
+        return 1;
+      }
+    }
+    
+    return -1;
+  }
+
+  console.log(findValue([1, 6, 75], 75)); // Prints "1"
+  console.log(findValue([1, 6, 75], 2)); // Prints "-1"
+  ```
 * **O(N2)** - the complexity is proportional to the square of the input size:
-* **O(2N) -** the complexity doubles each time something is added to the input:
-* **O(logN)** - the complexity goes up linearly while the **N** goes up exponentially:
-* **O(NlogN)** - for each input, the algorithm is running an operation at **O(logN)**:
+
+  ```javascript
+  const findValue = (arr, value) => {
+    for(let i = 0; i < arr.length; i++) {
+      for(let j = 0; j < arr[i].length; j++) {
+        if(arr[i][j] === value) {
+          return 1;
+        }
+      }
+    }
+    
+    return -1;
+  }
+
+  const arr = [
+    [
+      1, 2, 3
+    ],
+    [
+      4, 5, 6
+    ],
+  ];
+
+  console.log(findValue(arr, 6)); // Prints "1"
+  console.log(findValue(arr, 7)); // Prints "-1"
+  ```
+* **O(logN)** - the complexity goes up linearly while the **N** goes up exponentially (a good example - binary search implementation):
+
+  ```javascript
+  const binarySearch = function (array, target) {
+    let guess;
+    let min = 0;
+    let max = array.length - 1;
+
+    while (min <= max) {
+      guess = Math.floor((min + max) / 2);
+      
+      if (array[guess] === target) {
+        return guess;
+      } else if (array[guess] < target) {
+        min = guess + 1;
+      } else {
+        max = guess - 1;
+      }
+    }
+
+    return -1;
+  }
+  ```
+* **O(NlogN)** - for each input, the algorithm is running an operation at **O(logN)** (a good example - merge sort implementation):
+
+  ```javascript
+  const merge = (left, right) => {
+    let result = [];
+    
+    while(left.length && right.length) {
+      if(left[0] < right[0]) {
+        result.push(left.shift());
+      } else {
+        result.push(right.shift());
+      }
+    }
+    
+    return result.concat(left.slice().concat(right.slice()));
+  };
+
+  const mergeSort = arr => {
+    if(arr.length <= 1) {
+      return arr;
+    }
+    
+    const mid = Math.floor(arr.length / 2);
+    const left = mergeSort(arr.slice(0, mid));
+    const right = mergeSort(arr.slice(mid));
+    
+    return merge(left, right);
+  };
+  ```
+* **O(2N)** - number of calculations doubles each time a new element is added to an input (a good example - recursive calculation of Fibonacci numbers):
+
+  ```javascript
+  // program to display fibonacci sequence using recursion
+  const fibonacci = num => {
+    if(num <= 1) {
+      return num;
+    }
+    return fibonacci(num - 1) + fibonacci(num - 2);
+  }
+
+  console.log(fibonacci(10)); // Prints "55"
+  ```
+
+
 
 The following image shows the number of operations **N** versus the input size **n**:
 
