@@ -2,9 +2,12 @@
 title: The Most Important Things You Should Know About Algorithms
 tag:
   - JavaScript
-metaDescription: // META
+metaDescription: Learn Big O Notation - concept used to describe required
+  execution time or space used by an algorithm. Take a look at in-place,
+  not-in-place, stable, unstable, divide-and-conquer, comparison-based
+  algorithms.
 teaser: // TEASER
-date: 2020-09-27T07:52:11.294Z
+date: 2020-09-26T07:52:11.294Z
 ---
 ## In-place algorithm
 
