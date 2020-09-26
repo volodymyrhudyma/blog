@@ -154,7 +154,7 @@ console.log(findValue([1, 6, 75], 75)); // Prints "1"
 console.log(findValue([1, 6, 75], 2)); // Prints "-1"
 ```
 
-* **O(N2)** - the complexity is proportional to the square of the input size:
+* **O(N^2)** - the complexity is proportional to the square of the input size:
 
 ```javascript
 const findValue = (arr, value) => {
@@ -236,7 +236,7 @@ const mergeSort = arr => {
 };
 ```
 
-* **O(2N)** - number of calculations doubles each time a new element is added to an input (a good example - recursive calculation of Fibonacci numbers):
+* **O(2^N)** - number of calculations doubles each time a new element is added to an input (a good example - recursive calculation of Fibonacci numbers):
 
 ```javascript
 // program to display fibonacci sequence using recursion
@@ -269,7 +269,7 @@ Unless otherwise specified, the function that describes the performance of an al
 Let's take a look at the **Quick Sort** algorithm:
 
 * Best-case time complexity is `O(NlogN)`, if each time we divide an array into two nearly equal or equal pieces
-* Worst-case time complexity is `O(N2)`, if one of the pieces has a length equal to the size **N - 1** and it happens repeatedly in every partition
+* Worst-case time complexity is `O(N^2)`, if one of the pieces has a length equal to the size **N - 1** and it happens repeatedly in every partition
 
   This can occur if the selected pivot element is the smallest or the largest one on the list, or in some implementations when all elements are equal.
 * Average-case time complexity is `O(NlogN)`
