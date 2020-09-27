@@ -2,6 +2,7 @@
 title: My way of looking for the perfect React architecture
 tag:
   - React
+popular: true
 metaDescription: This article describes the best React application architecture
   approaches I have tried over the last 3 years.
 teaser: 'When someone asked Dan Abramov what is an optimal structure for React
