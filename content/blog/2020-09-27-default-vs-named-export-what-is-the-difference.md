@@ -4,7 +4,7 @@ tag:
   - JavaScript
 popular: false
 metaDescription: // META
-teaser: // TEASER
+teaser: // TEASERR
 date: 2020-09-29T20:30:23.187Z
 ---
 ## Named export
