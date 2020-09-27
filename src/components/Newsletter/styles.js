@@ -1,13 +1,21 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 2rem;
-  padding: 3rem 2rem;
-  background-color: #1ca086;
+
+  ${({ mini }) =>
+    mini
+      ? css`
+          padding: 1.5rem 1rem;
+          background-color: #292929;
+        `
+      : css`
+          padding: 3rem 2rem;
+          background-color: #187d38;
+        `}
 
   @media (max-width: 768px) {
     padding: 2rem;
@@ -17,8 +25,19 @@ export const Wrapper = styled.div`
 export const Form = styled.form`
   margin: 0;
   display: flex;
-  width: 23rem;
+
   position: relative;
+
+  ${({ mini }) =>
+    mini
+      ? css`
+          width: 100%;
+          flex-direction: column;
+        `
+      : css`
+          width: 23rem;
+          flex-direction: row;
+        `}
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -67,9 +86,17 @@ export const Button = styled.button`
   color: #fff;
   outline: none;
   background-color: transparent;
-  margin-left: 1rem;
   cursor: pointer;
   padding: 0.25rem 2rem;
+
+  ${({ mini }) =>
+    mini
+      ? css`
+          margin-top: 1rem;
+        `
+      : css`
+          margin-left: 1rem;
+        `}
 
   @media (max-width: 768px) {
     margin: auto;
@@ -92,7 +119,15 @@ export const Title = styled.h2`
 export const SubTitle = styled.p`
   margin: 0;
   color: #fff;
-  margin-bottom: 3rem;
+
+  ${({ mini }) =>
+    mini
+      ? css`
+          margin-bottom: 2rem;
+        `
+      : css`
+          margin-bottom: 3rem;
+        `}
   text-align: center;
 
   @media (max-width: 768px) {
@@ -105,4 +140,8 @@ export const SubscribeResponse = styled.div`
   color: #fff;
   font-size: 0.75rem;
   text-align: center;
+
+  a {
+    color: #fff;
+  }
 `

@@ -11,7 +11,7 @@ import {
   SubscribeResponse,
 } from "./styles"
 
-const Newsletter = () => {
+const Newsletter = ({ title, subtitle, mini }) => {
   const [email, setEmail] = useState("")
   const [mailChimpResponse, setMailChimpResponse] = useState("")
 
@@ -29,21 +29,23 @@ const Newsletter = () => {
   }
 
   return (
-    <Wrapper>
-      <Title>Subscribe to the newsletter</Title>
-      <SubTitle>Receive all new posts directly to your e-mail</SubTitle>
-      <Form onSubmit={handleSubmit}>
+    <Wrapper mini={mini}>
+      <Title>{title}</Title>
+      <SubTitle mini={mini}>{subtitle}</SubTitle>
+      <Form mini={mini} onSubmit={handleSubmit}>
         <Input
           type="text"
           name="email"
           value={email}
           onChange={handleEmailChange}
-          placeholder="Type your e-mail address here..."
+          placeholder="Type your e-mail address..."
         />
-        <Button>Submit</Button>
+        <Button mini={mini}>Submit</Button>
       </Form>
       {mailChimpResponse && (
-        <SubscribeResponse>{mailChimpResponse.msg}</SubscribeResponse>
+        <SubscribeResponse
+          dangerouslySetInnerHTML={{ __html: mailChimpResponse.msg }}
+        />
       )}
     </Wrapper>
   )

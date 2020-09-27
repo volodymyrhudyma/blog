@@ -13,27 +13,21 @@ import {
 
 const BlogPostItem = ({ post }) => (
   <Wrapper>
-    <Image>
-      {post.frontmatter.title}
-      <JST src="./favicon/favicon.png" />
-    </Image>
-    <div>
-      <BlogTitle>
-        <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
-      </BlogTitle>
-      <BlogDetail>
-        <BlogDate>{post.frontmatter.date}</BlogDate>
-        {post.frontmatter.tag.map(tag => (
-          <BlogTag key={tag}>#{tag}</BlogTag>
-        ))}
-      </BlogDetail>
-      <p style={{ margin: 0 }}>
-        {post.frontmatter.teaser}
-        <Link style={{ marginLeft: "0.25rem" }} to={post.fields.slug}>
-          Read more
-        </Link>
-      </p>
-    </div>
+    <BlogTitle>
+      <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
+    </BlogTitle>
+    <BlogDetail>
+      <BlogDate>{post.frontmatter.date}</BlogDate>
+      {post.frontmatter.tag.map(tag => (
+        <BlogTag key={tag}>#{tag}</BlogTag>
+      ))}
+    </BlogDetail>
+    <p style={{ margin: 0 }}>
+      {post.frontmatter.teaser}
+      <Link style={{ marginLeft: "0.25rem" }} to={post.fields.slug}>
+        Read more
+      </Link>
+    </p>
   </Wrapper>
 )
 

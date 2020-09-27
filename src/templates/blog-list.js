@@ -62,14 +62,7 @@ export default class BlogList extends React.Component {
     return (
       <Layout>
         <SEO title="JavaScript And ReactJS Tutorials With Best Practices" />
-        <div
-          style={{
-            padding: "0 2rem 2rem 2rem",
-            margin: "0 -2rem",
-            backgroundColor: "#fafafa",
-          }}
-        >
-          <h1>Complicated stuff in simple words</h1>
+        {/* <div>
           <SubTitle>
             <TOCWrapper
               role="button"
@@ -123,12 +116,10 @@ export default class BlogList extends React.Component {
               </section>
             </div>
           )}
-        </div>
-        <div style={{ marginTop: "2rem" }}>
-          {posts.map(({ node }) => (
-            <BlogPostItem key={node.fields.slug} post={node} />
-          ))}
-        </div>
+        </div> */}
+        {posts.map(({ node }) => (
+          <BlogPostItem key={node.fields.slug} post={node} />
+        ))}
         {numPages > 1 && (
           <PaginationWrapper>
             <div

@@ -8,6 +8,8 @@ import AddComment from "@components/AddComment/AddComment"
 import CommentList from "@components/CommentList/CommentList"
 import SEO from "@components/seo"
 
+import { BlogTag } from "../components/BlogPostItem/styles"
+
 export default function Template({ data, path }) {
   const { article, comments } = data
   const { frontmatter } = article
@@ -40,28 +42,28 @@ export default function Template({ data, path }) {
   }
 
   return (
-    <Layout>
+    <Layout hideHero>
       <SEO
         title={frontmatter.title}
         description={frontmatter.metaDescription}
       />
-      <div
-        style={{
-          padding: "0 2rem 0.725rem 2rem",
-          margin: "0 -2rem 2rem -2rem",
-          backgroundColor: "#fafafa",
-        }}
-      >
-        <h1 style={{ marginBottom: "0.5rem" }}>{frontmatter.title}</h1>
+      <div>
+        <h1 style={{ marginTop: 0, marginBottom: "0.5rem" }}>
+          {frontmatter.title}
+        </h1>
         <span
           style={{
             fontSize: "0.85rem",
             display: "inline-block",
             marginBottom: "1.45rem",
+            marginRight: "0.75rem",
           }}
         >
           {frontmatter.date}
         </span>
+        {frontmatter.tag.map(tag => (
+          <BlogTag key={tag}>#{tag}</BlogTag>
+        ))}
         <div style={{ marginBottom: "1.45rem" }}>
           You are here:{" "}
           <Link style={{ marginRight: "0.25rem" }} to="/">
@@ -75,7 +77,6 @@ export default function Template({ data, path }) {
       </div>
       <h2
         style={{
-          marginTop: 0,
           display: "flex",
           justifyContent: "space-between",
           borderBottom: "1px solid rgb(205, 205, 205)",
@@ -126,6 +127,7 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
+        tag
         teaser
         date(formatString: "MMMM DD, YYYY")
         metaDescription
