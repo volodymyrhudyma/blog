@@ -2,7 +2,7 @@
 title: The best tools for React development (June 2020)
 tag:
   - React
-popular: false
+popular: true
 metaDescription: There are many tools that will help you to speed up the
   development process in React. Read an article to find out the most important
   of them.
