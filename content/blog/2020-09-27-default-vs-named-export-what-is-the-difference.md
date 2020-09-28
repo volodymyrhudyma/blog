@@ -3,7 +3,9 @@ title: Default vs. Named Export. What is the difference?
 tag:
   - JavaScript
 popular: false
-metaDescription: // META
+metaDescription: "Named Exports vs. Default Exports.The differences between both
+  approaches: names exports are used to export several values from the module,
+  default - only one value."
 teaser: // TEASERR
 date: 2020-09-29T20:30:23.187Z
 ---
@@ -111,6 +113,8 @@ import * as userFunctions from "./users";
 // Example: "userFunctions.fetchUsers()"
 ```
 
+This way of importing creates a **module object** that grabs all exports and makes them available as members of an object **userFunctions**. 
+
 In this chapter, we used named exports - each item in the module has been referred by its name, and this name was used to refer to it on import as well.
 
 With named exports, there is no limit on the number of exported items from a single file.
@@ -181,12 +185,44 @@ Import statement:
 import fetchUsers, { transformUsers, getAdminUsers } from "./users";
 ```
 
+## Renaming imported function
+
+Sometimes, especially when using external libraries, it can happen that the name of the imported function is already used in your code:
+
+```javascript
+import { isObject } from "./lodash";
+
+// SyntaxError: Identifier "isObject" has already been declared
+const isObject = () => {
+  ...
+};
+```
+
+The solution is to rename the import by using **as** keyword followed by the new function name:
+
+```javascript
+import { isObject as lodashIsObject } from "./lodash";
+
+// OK
+const isObject = () => {
+  ...
+};
+```
+
+**Important note:** exports can be renamed as well:
+
+```javascript
+export { function1 as fn1, function2 as fn2 };
+```
+
 ## Summary
 
-In summary, named exports are useful to export several values. 
+In summary, named exports are used to export several values. 
 
 During the import, it will be possible to use the same name to refer to the exported value.
 
-Default exports are useful to export a single value from the file. 
+Default exports are used to export a single value from the file. 
 
 During the import, the name of the value can be different from the exported one.
+
+It is possible to combine both approaches in a single file.
