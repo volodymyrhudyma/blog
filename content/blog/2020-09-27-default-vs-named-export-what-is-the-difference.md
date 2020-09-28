@@ -16,9 +16,11 @@ Back in the days when JavaScript programs were small pieces of scripts that adde
 
 Today, JavaScript applications are rapidly growing in size, prompting programmers to consider providing mechanisms for extracting the code into separate files that can be imported on demand, making the code more maintainable and reusable. 
 
-This is exactly why modules were created.
+This is exactly why modules were introduced in ES6 (2015).
 
 ## Module in JavaScript
+
+What is a module? A module is just a file.
 
 Take a look at the trivial example of two modules (**user** and **project**):
 
@@ -47,7 +49,7 @@ For the sake of simplicity, we will stick with the `.js` extension in this artic
 
 ## Named export
 
-After configuring the application to use modules and adding some functions to the module files, there is a need to have a reliable way of accessing them.
+After adding first modules containing some functions to an application, there is a need to have a reliable way of accessing them.
 
 First of all, the functions we should have access to should be exported from the file.
 
