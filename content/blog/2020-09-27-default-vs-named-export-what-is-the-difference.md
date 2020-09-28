@@ -159,13 +159,11 @@ import fetchProjects from "./projects";
 
 // OR
 import anyNameWeLike from "./projects";
-
-
 ```
 
 For default export, it is possible to export only a single value per file.
 
-## Using both
+## Combining both approaches
 
 It is also possible to combine both approaches in the single file:
 
