@@ -117,8 +117,76 @@ With named exports, there is no limit on the number of exported items from a sin
 
 ## Default export
 
-There is another type of export, that is allowed only one per file - **default export**.
+There is another type of export, that is allowed only one per file - **default export**:
+
+```javascript
+// project.js
+
+export default () => {
+  ...
+};
+```
+
+Or alternative syntax:
+
+```javascript
+// project.js
+
+const fetchProjects = () => {
+  ...
+};
+  
+export default fetchProjects;
+```
+
+To import the function that was exported using the default export:
+
+```javascript
+// The naming is completely independent
+// We can use any name we like
+import fetchProjects from "./projects";
+
+// OR
+import anyNameWeLike from "./projects";
+
+
+```
 
 ## Using both
 
+It is also possible to combine both approaches in the single file:
+
+```javascript
+// user.js
+
+const fetchUsers = () => {
+  ...
+};
+
+export const transformUsers = () => {
+  ...
+};
+  
+export const getAdminUsers = () => {
+  ...
+};
+  
+export { transformUsers, getAdminUsers };
+export default fetchUsers;
+```
+
+Import statement:
+
+```javascript
+import fetchUsers, { transformUsers, getAdminUsers } from "./users";
+```
+
 ## Summary
+
+In summary, named exports are useful to export several values. 
+
+During the import, it will be possible to use the same name to refer to the exported value.
+
+Default exports are useful to export a single value from the file. 
+
+During the import, the name of the value can be different from the exported one.
