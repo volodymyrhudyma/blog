@@ -128,7 +128,7 @@ For named exports there is no limit to the number of values exported from a sing
 
 ## Default export
 
-There is another type of export, that is allowed only one per file - **default export**:
+There is another type of export that is only allowed once per file - **default export**:
 
 ```javascript
 // project.js
@@ -163,7 +163,7 @@ import anyNameWeLike from "./projects";
 
 ```
 
-With default export, it is possible to export only a single value per file.
+For default export, it is possible to export only a single value per file.
 
 ## Using both
 
@@ -196,7 +196,7 @@ import fetchUsers, { transformUsers, getAdminUsers } from "./users";
 
 ## Renaming imported function
 
-Sometimes, especially when using external libraries, it can happen that the name of the imported function is already used in your code:
+Sometimes, it can happen that the name of the imported function may already be used in your code:
 
 ```javascript
 import { isObject } from "./lodash";
@@ -226,7 +226,7 @@ export { function1 as fn1, function2 as fn2 };
 
 ## Summary
 
-In summary, named exports are used to export several values. 
+In summary, named exports are used to export multiple values. 
 
 During the import, it will be possible to use the same name to refer to the exported value.
 
