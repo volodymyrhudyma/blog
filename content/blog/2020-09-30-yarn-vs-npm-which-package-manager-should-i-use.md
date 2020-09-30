@@ -30,6 +30,49 @@ The package manager belongs to npm, Inc. that was acquired by the Github in Marc
 
 **Yarn** is a package manager developed by Facebook as an alternative to **npm**.
 
+## Latest versions comparison
+
+In this section we will compare the latest versions of both package managers in terms of speed.
+
+The list of dependencies to be installed (**without lockfile**):
+
+```json
+"dependencies": {
+  "@testing-library/jest-dom": "^4.2.4",
+  "@testing-library/react": "^9.3.2",
+  "@testing-library/user-event": "^7.1.2",
+  "@types/jest": "^24.0.0",
+  "@types/node": "^12.0.0",
+  "@types/react": "^16.9.0",
+  "@types/react-dom": "^16.9.0",
+  "@types/react-redux": "^7.1.9",
+  "@types/redux-thunk": "^2.1.0",
+  "@types/styled-components": "^5.1.3",
+  "moment": "^2.28.0",
+  "react": "^16.13.1",
+  "react-dom": "^16.13.1",
+  "react-redux": "^7.2.0",
+  "react-scripts": "3.4.1",
+  "redux": "^4.0.5",
+  "redux-thunk": "^2.3.0",
+  "reselect": "^4.0.0",
+  "styled-components": "^5.2.0",
+  "typescript": "~3.7.2"
+}
+```
+
+Yarn **1.22.10**:
+
+![Yarn install time](/img/screenshot-2020-09-30-at-21.46.19.png "Yarn install time")
+
+It took on average 30-35 seconds to install the dependencies using the latest yarn version.
+
+Npm **6.14.8**:
+
+![Npm install time](/img/screenshot-2020-09-30-at-21.49.46.png "Npm install time")
+
+Npm is a little slower than yarn, it took on average 40-45 seconds to install the dependencies.
+
 ## The Differences
 
 ## Summary
