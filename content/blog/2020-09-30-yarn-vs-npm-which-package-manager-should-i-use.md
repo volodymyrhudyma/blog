@@ -67,11 +67,11 @@ The main differences between npm and yarn are:
 
   Global installation drops modules in `{prefix}/lib/node_modules`, and puts executable files in `{prefix}/bin`, where `{prefix}` is usually something like `/usr/local`. 
 
-  It also installs man pages in `{prefix}/share/man`, if they’re supplied.
+  It also installs man pages in `{prefix}/share/man`, if they are supplied.
 
   > **A man page** (short for **manual page**) is a form of software documentation usually found on a Unix or Unix-like operating system.
 
-  The local installation installs your package in the current working directory. Node modules end up in `./node_modules`, executables are put in `./node_modules/.bin/`, and man pages aren’t installed at all.
+  The local installation installs your package in the current working directory. Node modules end up in `./node_modules`, executables are put in `./node_modules/.bin/`, and man pages are not installed at all.
 * **yarn** has **why** command which checks why dependency is present in the project.
 
   It also checks which other packages depend upon it, or whether it was explicitly marked as a dependency in the **package.json** manifest.
