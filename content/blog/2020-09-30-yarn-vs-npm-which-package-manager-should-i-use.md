@@ -28,51 +28,47 @@ The package manager belongs to npm, Inc. that was acquired by the Github in Marc
 
 ## Yarn
 
-**Yarn** is a package manager developed by Facebook as an alternative to **npm**.
+**Yarn** is a package manager developed by Facebook as an alternative to npm.
+
+Do not think of this tool as a replacement for the npm, as it relies on the modules from the npm registry (you use it to install the dependencies hosted on npm, right?).
+
+Consider it as a new installer that relies on the same npm structure and has a different installation method.
+
+It was developed when the team of Facebook developers faced some npm limitations.
+
+> Many of our projects at Facebook, like React, depend on code in the npm registry. However, as we scaled internally, we faced problems with consistency when installing dependencies across different machines and users, the amount of time it took to pull dependencies in, and had some security concerns with the way the npm client executes code from some of those dependencies automatically. We attempted to build solutions around these issues, but they often raised new issues themselves...
+
+Read more about the reasons for creating yarn [here](https://engineering.fb.com/web/yarn-a-new-package-manager-for-javascript/).
 
 ## Latest versions comparison
 
-In this section we will compare the latest versions of both package managers in terms of speed.
+According to these [benchmarks](https://github.com/pnpm/benchmarks-of-javascript-package-managers), the latest versions of npm and yarn are not much different in terms of speed.
 
-The list of dependencies to be installed (**without lockfile**):
+In general, yarn tends to be a little faster than the npm in the most popular use cases.
 
-```json
-"dependencies": {
-  "@testing-library/jest-dom": "^4.2.4",
-  "@testing-library/react": "^9.3.2",
-  "@testing-library/user-event": "^7.1.2",
-  "@types/jest": "^24.0.0",
-  "@types/node": "^12.0.0",
-  "@types/react": "^16.9.0",
-  "@types/react-dom": "^16.9.0",
-  "@types/react-redux": "^7.1.9",
-  "@types/redux-thunk": "^2.1.0",
-  "@types/styled-components": "^5.1.3",
-  "moment": "^2.28.0",
-  "react": "^16.13.1",
-  "react-dom": "^16.13.1",
-  "react-redux": "^7.2.0",
-  "react-scripts": "3.4.1",
-  "redux": "^4.0.5",
-  "redux-thunk": "^2.3.0",
-  "reselect": "^4.0.0",
-  "styled-components": "^5.2.0",
-  "typescript": "~3.7.2"
-}
-```
-
-Yarn **1.22.10**:
-
-![Yarn install time](/img/screenshot-2020-09-30-at-21.46.19.png "Yarn install time")
-
-It took on average 30-35 seconds to install the dependencies using the latest yarn version.
-
-Npm **6.14.8**:
-
-![Npm install time](/img/screenshot-2020-09-30-at-21.49.46.png "Npm install time")
-
-Npm is a little slower than yarn, it took on average 40-45 seconds to install the dependencies.
+But if you really care about the performance - consider using **[pnpm](https://github.com/pnpm/pnpm)** instead.
 
 ## The Differences
+
+The main differences between npm and yarn are:
+
+* **npm** is installed automatically with Node.js, **yarn** has to be installed manually
+* **npm** generates **package-lock.json** file, **yarn** generates **yarn-lock.json**
+* **npm** uses **\-g** flag to install package globally, **yarn** uses the word **global**
+
+  Global installation drops modules in `{prefix}/lib/node_modules`, and puts executable files in `{prefix}/bin`, where `{prefix}` is usually something like `/usr/local`. 
+
+  It also installs man pages in `{prefix}/share/man`, if they’re supplied.
+
+  > **A man page** (short for **manual page**) is a form of software documentation usually found on a Unix or Unix-like operating system.
+
+  The local installation installs your package in the current working directory. Node modules end up in `./node_modules`, executables are put in `./node_modules/.bin/`, and man pages aren’t installed at all.
+* **yarn** has **why** command which checks why dependency is present in the project.
+
+  It also checks which other packages depend upon it, or whether it was explicitly marked as a dependency in the **package.json** manifest.
+* **yarn** allows checking the licenses for all installed packages using the **yarn licenses list** command
+
+  After this command has been executed, yarn will print out all installed packages in alphabetical order along with the license information.
+* **npm** fetches the packages from the registry each time **install** command is executed, **yarn** stores the dependencies locally and fetches from the disk during **yarn add** command execution (assuming the specific version of the package has already been installed and cached)
 
 ## Summary
