@@ -53,6 +53,15 @@ But if you really care about the performance - consider using **[pnpm](https://g
 The main differences between npm and yarn are:
 
 * **npm** is installed automatically with Node.js, **yarn** has to be installed manually
+* **npm** has 17.2K stars on Github, **yarn** has 39K (at the moment this article is written)
+* the latest **yarn** version is a little faster than the latest **npm** for most cases
+
+  In the past, **yarn** was much, much faster, until the **npm** version **5.0** came out, which claims to be 5x times faster than its previous versions.
+* **yarn** is more secure because **npm** automatically executes a code which allows other packages to get included in the fly
+
+  Yarn installs those files which are only from the **yarn.lock** or **package.json** files. 
+
+  It has been deemed as a more secure solution.
 * **npm** generates **package-lock.json** file, **yarn** generates **yarn-lock.json**
 * **npm** uses **\-g** flag to install package globally, **yarn** uses the word **global**
 
@@ -72,3 +81,9 @@ The main differences between npm and yarn are:
 * **npm** fetches the packages from the registry each time **install** command is executed, **yarn** stores the dependencies locally and fetches from the disk during **yarn add** command execution (assuming the specific version of the package has already been installed and cached)
 
 ## Summary
+
+Both tools are great to be used for managing the project dependencies.
+
+Yarn brings some improvements, like more security or a little better speed and some new commands, like checking why the given package is installed and printing out the licenses for each installed dependency.
+
+That is why I personally prefer to use it over the npm.
