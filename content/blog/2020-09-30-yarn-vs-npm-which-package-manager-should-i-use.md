@@ -53,7 +53,7 @@ If they work and print the version installed, everything is fine:
 
 ## Yarn
 
-**Yarn** is a package manager developed by Facebook as an alternative to npm.
+**Yarn** is a package manager developed by Facebook as an alternative to npm, released in 2016.
 
 Do not think of this tool as a replacement for the npm, as it relies on the modules from the npm registry (you use it to install the dependencies hosted on npm, right?).
 
@@ -117,6 +117,10 @@ The main differences between npm and yarn are:
 * Both package managers have a cache, but, according to the benchmarks, **yarn** cache is faster.
 
 ## Most used commands
+
+After setting up the environment, it is necessary to know some basic commands to jump into the development with these awesome tools.
+
+Here is the list of the most popular and used commands for both, yarn and npm.
 
 #### Install all dependencies
 
