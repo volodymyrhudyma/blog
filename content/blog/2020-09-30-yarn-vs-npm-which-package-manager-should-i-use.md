@@ -52,18 +52,18 @@ But if you really care about the performance - consider using **[pnpm](https://g
 
 The main differences between npm and yarn are:
 
-* **npm** is installed automatically with Node.js, **yarn** has to be installed manually
-* **npm** has 17.2K stars on Github, **yarn** has 39K (at the moment this article is written)
-* the latest **yarn** version is a little faster than the latest **npm** for most cases
+* **Npm** is installed automatically with Node.js, **yarn** has to be installed manually.
+* N**pm** has 17.2K stars on Github, **yarn** has 39K (at the moment this article is written).
+* The latest **yarn** version is a little faster than the latest **npm** for most cases.
 
   In the past, **yarn** was much, much faster, until the **npm** version **5.0** came out, which claims to be 5x times faster than its previous versions.
-* **yarn** is more secure because **npm** automatically executes a code which allows other packages to get included in the fly
+* Y**arn** is more secure because **npm** automatically executes a code which allows other packages to get included in the fly.
 
   Yarn installs those files which are only from the **yarn.lock** or **package.json** files. 
 
   It has been deemed as a more secure solution.
-* **npm** generates **package-lock.json** file, **yarn** generates **yarn-lock.json**
-* **npm** uses **\-g** flag to install package globally, **yarn** uses the word **global**
+* **Npm** generates **package-lock.json** file, **yarn** generates **yarn-lock.json.**
+* **Npm** uses **\-g** flag to install package globally, **yarn** uses the word **global.**
 
   Global installation drops modules in `{prefix}/lib/node_modules`, and puts executable files in `{prefix}/bin`, where `{prefix}` is usually something like `/usr/local`. 
 
@@ -72,13 +72,13 @@ The main differences between npm and yarn are:
   > **A man page** (short for **manual page**) is a form of software documentation usually found on a Unix or Unix-like operating system.
 
   The local installation installs your package in the current working directory. Node modules end up in `./node_modules`, executables are put in `./node_modules/.bin/`, and man pages are not installed at all.
-* **yarn** has **why** command which checks why dependency is present in the project.
+* **Yarn** has **why** command which checks why dependency is present in the project.
 
   It also checks which other packages depend upon it, or whether it was explicitly marked as a dependency in the **package.json** manifest.
-* **yarn** allows checking the licenses for all installed packages using the **yarn licenses list** command
+* **Yarn** allows checking the licenses for all installed packages using the **yarn licenses list** command.
 
   After this command has been executed, yarn will print out all installed packages in alphabetical order along with the license information.
-* **npm** fetches the packages from the registry each time **install** command is executed, **yarn** stores the dependencies locally and fetches from the disk during **yarn add** command execution (assuming the specific version of the package has already been installed and cached)
+* Both package managers have a cache, but, according to the benchmarks, **yarn** cache is faster.
 
 ## Summary
 
