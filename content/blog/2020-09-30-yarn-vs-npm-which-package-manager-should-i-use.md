@@ -86,11 +86,14 @@ But if you really care about the performance - consider using **[pnpm](https://g
 The main differences between npm and yarn are:
 
 * **Npm** is installed automatically with Node.js, **yarn** has to be installed manually.
-* N**pm** has 17.2K stars on Github, **yarn** has 39K (at the moment this article is written).
+* By default, yarn saves added dependency to the package.json, npm not.
+
+  In order to save a dependency, the flag `--save` must be provided.
+* **Npm** has 17.2K stars on Github, **yarn** has 39K (at the moment this article is written).
 * The latest **yarn** version is a little faster than the latest **npm** for most cases.
 
   In the past, **yarn** was much, much faster, until the **npm** version **5.0** came out, which claims to be 5x times faster than its previous versions.
-* Y**arn** is more secure because **npm** automatically executes a code which allows other packages to get included in the fly.
+* **Yarn** is more secure because **npm** automatically executes a code which allows other packages to get included in the fly.
 
   Yarn installs those files which are only from the **yarn.lock** or **package.json** files. 
 
@@ -113,11 +116,39 @@ The main differences between npm and yarn are:
   After this command has been executed, yarn will print out all installed packages in alphabetical order along with the license information.
 * Both package managers have a cache, but, according to the benchmarks, **yarn** cache is faster.
 
-## The most used commands
+## Most used commands
 
-\|   |   |   |   |   |
+#### Install all dependencies
 
-\|   |   |   |   |   |     
+`yarn | npm install`
+
+#### Install  dependency
+
+`yarn add <package> | npm install <package>`
+
+#### Install dev dependency
+
+`yarn add <package> --dev | npm install <package> --save-dev`
+
+#### Install global dependency
+
+`yarn add <package> global | npm install <package> --global`
+
+#### Uninstall dependency
+
+`yarn remove <package> | npm uninstall <package>`
+
+#### Uninstall dev dependency
+
+`yarn remove <package> | npm uninstall <package> --save-dev`
+
+#### Uninstall global dependency
+
+`yarn remove <package> global | npm uninstall <package> --global`
+
+#### Update dependencies
+
+`yarn upgrade | npm update`
 
 ## Summary
 
