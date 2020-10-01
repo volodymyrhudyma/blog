@@ -157,7 +157,7 @@ const Layout = ({ children }) => {
                   </SidebarClose>
                   <SidebarTitle>Hello,</SidebarTitle>
                   <SidebarImage>
-                    <Avatar src="https://media-exp1.licdn.com/dms/image/C4D03AQHB3M-_Sj7VJQ/profile-displayphoto-shrink_400_400/0?e=1601510400&v=beta&t=4ziCd2z8N68ATA2US3e3UHweGdlouNYmZwQ4Br661-M" />
+                    <Avatar src="https://i.ibb.co/V29JgcX/DSC-0024.jpg" />
                   </SidebarImage>
                   <SidebarDescription>
                     I am Volodymyr Hudyma <BoldText>React developer</BoldText>{" "}
