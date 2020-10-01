@@ -1,5 +1,5 @@
 ---
-title: Yarn vs. Npm. Which package manager is the best?
+title: Yarn vs. Npm in 2020
 tag:
   - Other
 metaDescription: // META
@@ -25,6 +25,31 @@ It consists of the command line client and online database of private and public
 This registry is accessed via the client, and all available packages can be browsed via the [npm website](https://www.npmjs.com/).
 
 The package manager belongs to npm, Inc. that was acquired by the Github in March 2020.
+
+## Install npm
+
+Npm is installed automatically with Node.js.
+
+There are a few ways of installing it on your system:
+
+* Using **nvm** (Node Version Manager) -> the recommended approach
+
+  Refer to [this article](https://tecadmin.net/install-nodejs-with-nvm/) for the full guide.
+* Using Node installer -> can lead to permission errors
+
+  Download and install Node.js from [here](https://nodejs.org/).
+
+In order to verify the installation, execute the following commands:
+
+`node -v`
+
+And
+
+`npm -v`
+
+If they work and print the version installed, everything is fine:
+
+![Npm version check](/img/screenshot-2020-10-01-at-22.26.33.png "Npm version check")
 
 ## Yarn
 
