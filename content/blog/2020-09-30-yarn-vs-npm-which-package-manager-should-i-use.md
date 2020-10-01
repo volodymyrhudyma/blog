@@ -65,6 +65,14 @@ It was developed when the team of Facebook developers faced some npm limitations
 
 Read more about the reasons for creating yarn [here](https://engineering.fb.com/web/yarn-a-new-package-manager-for-javascript/).
 
+## Install yarn
+
+Yarn offers [great documentation](https://classic.yarnpkg.com/en/docs/install) that describes a lot of ways to install it on your machine.
+
+Verify the version installed:
+
+![Yarn version check](/img/screenshot-2020-10-01-at-22.35.06.png "Yarn version check")
+
 ## Latest versions comparison
 
 According to these [benchmarks](https://github.com/pnpm/benchmarks-of-javascript-package-managers), the latest versions of npm and yarn are not much different in terms of speed.
@@ -104,6 +112,12 @@ The main differences between npm and yarn are:
 
   After this command has been executed, yarn will print out all installed packages in alphabetical order along with the license information.
 * Both package managers have a cache, but, according to the benchmarks, **yarn** cache is faster.
+
+## The most used commands
+
+\|   |   |   |   |   |
+
+\|   |   |   |   |   |     
 
 ## Summary
 
