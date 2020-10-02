@@ -125,13 +125,17 @@ Each time a dependency is added, updated or removed, the lock file is automatica
 
 Npm uses **\-g** flag to install a package globally, yarn uses the word **global**.
 
-In a global installation, modules are placed in `{prefix}/lib/node_modules` and executable files are stored in `{prefix}/bin`, where `{prefix}` is usually something like `/usr/local`. 
+In a global installation with node, modules are placed in `{prefix}/lib/node_modules` and executable files are stored in `{prefix}/bin`, where `{prefix}` is usually something like `/usr/local`. 
 
 It also installs man pages in `{prefix}/share/man` if they are included.
 
 > **A man page** (short for **manual page**) is a form of software documentation usually found on a Unix or Unix-like operating system.
 
-The local installation installs your package into the current working directory. Node modules end up in `./node_modules`, executable files are put in `./node_modules/.bin/`, and man pages are not installed at all.
+The location for the packages installed globally with yarn: `~/.config/yarn/global`.
+
+The local installation for both will install the package into the current working directory. 
+
+Node modules end up in `./node_modules`, executable files are put in `./node_modules/.bin/`, and man pages are not installed at all.
 
 #### New CLI commands
 
@@ -183,7 +187,7 @@ Here is a list of the most popular and frequently used commands for both package
 
 #### Install global dependency
 
-`yarn add <package> global | npm install <package> --global`
+`yarn global add <package> | npm install <package> --global`
 
 #### Uninstall dependency
 
