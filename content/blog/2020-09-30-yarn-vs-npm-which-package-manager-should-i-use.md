@@ -85,35 +85,39 @@ But if you really care about the performance - consider using **[pnpm](https://g
 
 #### Installation
 
-**Npm** is installed automatically with Node.js | **Yarn** has to be installed manually.
+Npm is installed automatically with Node.js, yarn has to be installed manually.
 
 #### Saving installed dependencies
 
-**Npm** does not save added dependencies by default (**\--save**/**\--save-dev** flag has to be added), **yarn** does.
+Npm does not save added dependencies by default (**\--save**/**\--save-dev** flag has to be added), yarn does.
 
 #### Popularity
 
-**Npm** has 17.2K stars on Github, **yarn** has 39K (at the moment this article is written).
+Npm has 17.2K stars on Github, yarn has 39K (at the moment this article is written).
 
 #### Speed
 
-The latest **yarn** version is a little faster than the latest **npm** for most cases.
+The latest yarn version is a little faster than the latest npm for most cases.
 
-In the past, **yarn** was much, much faster, until the **npm** version **5.0** came out, which claims to be 5x times faster than its previous versions.
+In the past, yarn was much, much faster, until the npm version 5.0 came out, which claims to be 5x times faster than its previous versions.
 
 #### Security
 
-**Yarn** is more secure because **npm** automatically executes a code which allows other packages to get included in the fly.
+Yarn is more secure because npm automatically executes a code which allows other packages to get included in the fly.
 
 Yarn installs those files which are only from the **yarn.lock** or **package.json** files. 
 
 #### Lock files
 
-**Npm** generates **package-lock.json** file, **yarn** generates **yarn-lock.json.**
+Npm generates **package-lock.json** file, yarn generates **yarn-lock.json**.
+
+The purpose of the lock file is to lock down the versions of installed dependencies, specified in the **package.json** file.
+
+Each time, a dependency is added, updated, or removed, the lock file will be automatically updated.
 
 #### Global packages installation
 
-**Npm** uses **\-g** flag to install package globally, **yarn** uses the word **global.**
+Npm uses **\-g** flag to install a package globally, yarn uses the word **global**.
 
 Global installation drops modules in `{prefix}/lib/node_modules`, and puts executable files in `{prefix}/bin`, where `{prefix}` is usually something like `/usr/local`. 
 
@@ -125,11 +129,19 @@ The local installation installs your package in the current working directory. N
 
 #### New CLI commands
 
-**Yarn** provides **why** command which checks why dependency is present in the project.
+Yarn provides **why** command which checks why dependency is present in the project.
 
 It also checks which other packages depend upon it, or whether it was explicitly marked as a dependency in the **package.json** manifest.
 
-**Yarn** allows checking the licenses for all installed packages using the **yarn licenses list** command.
+The output of `yarn why <package>`:
+
+![Yarn why command output](/img/screenshot-2020-10-02-at-18.06.38.png "Yarn why command output")
+
+Yarn allows checking the licenses for all installed packages using the **yarn licenses list** command.
+
+The output of `yarn licenses list`:
+
+![Yarn licenses list command output](/img/screenshot-2020-10-02-at-18.08.31.png "Yarn licenses list command output")
 
 After this command has been executed, yarn will print out all installed packages in alphabetical order along with the license information.
 
