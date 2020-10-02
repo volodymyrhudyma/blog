@@ -95,9 +95,9 @@ Npm does not save added dependencies by default (**\--save**/**\--save-dev** fla
 
 #### Popularity
 
-Npm has 17.2K stars on Github, yarn has 39K (at the moment this article is written).
+Npm has **17.2K** stars on Github, yarn has **39K** (at the moment of writing this article).
 
-#### Speed
+#### Performance
 
 The latest yarn version is a little faster than the latest npm for most cases.
 
