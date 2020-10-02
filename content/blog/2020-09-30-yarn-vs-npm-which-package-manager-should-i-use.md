@@ -4,7 +4,7 @@ tag:
   - Other
 metaDescription: // META
 teaser: // TEASER
-date: 2020-10-02T16:39:17.688Z
+date: 2020-10-03T16:39:17.688Z
 ---
 In the JavaScript world, people share millions of pieces of code in order to avoid spending time on some necessary functionalities, which are already done by others.
 
@@ -196,6 +196,24 @@ Here is the list of the most popular and used commands for both, yarn and npm.
 #### Update dependencies
 
 `yarn upgrade | npm update`
+
+## Yarn workspaces
+
+Workspaces are a new way to set up the project's architecture.
+
+They let you organize the codebase using a **monorepo**. 
+
+> **Monorepo** (mono repository) is a software development strategy where code for many projects is stored in the same repository.
+
+The idea is to have multiple isolated packages (projects) in a single repository.
+
+Alternatively, packages can be stored in separate repositories, but this has a negative impact on the developer's experience, shareability, and maintainability of the code.
+
+Imagine having to open 5 pull requests, instead of doing only one.
+
+There is no alternative for this feature in npm.
+
+To find out more about workspaces, read [this article](https://classic.yarnpkg.com/en/docs/workspaces/).
 
 ## Summary
 
