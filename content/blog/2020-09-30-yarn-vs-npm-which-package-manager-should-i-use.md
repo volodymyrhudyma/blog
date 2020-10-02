@@ -83,38 +83,59 @@ But if you really care about the performance - consider using **[pnpm](https://g
 
 ## The Differences
 
-The main differences between npm and yarn are:
+#### Installation
 
-* **Npm** is installed automatically with Node.js, **yarn** has to be installed manually.
-* By default, yarn saves added dependency to the package.json, npm not.
+**Npm** is installed automatically with Node.js | **Yarn** has to be installed manually.
 
-  In order to save a dependency, the flag `--save` must be provided.
-* **Npm** has 17.2K stars on Github, **yarn** has 39K (at the moment this article is written).
-* The latest **yarn** version is a little faster than the latest **npm** for most cases.
+#### Saving installed dependencies
 
-  In the past, **yarn** was much, much faster, until the **npm** version **5.0** came out, which claims to be 5x times faster than its previous versions.
-* **Yarn** is more secure because **npm** automatically executes a code which allows other packages to get included in the fly.
+**Npm** does not save added dependencies by default (**\--save**/**\--save-dev** flag has to be added), **yarn** does.
 
-  Yarn installs those files which are only from the **yarn.lock** or **package.json** files. 
+#### Popularity
 
-  It has been deemed as a more secure solution.
-* **Npm** generates **package-lock.json** file, **yarn** generates **yarn-lock.json.**
-* **Npm** uses **\-g** flag to install package globally, **yarn** uses the word **global.**
+**Npm** has 17.2K stars on Github, **yarn** has 39K (at the moment this article is written).
 
-  Global installation drops modules in `{prefix}/lib/node_modules`, and puts executable files in `{prefix}/bin`, where `{prefix}` is usually something like `/usr/local`. 
+#### Speed
 
-  It also installs man pages in `{prefix}/share/man`, if they are supplied.
+The latest **yarn** version is a little faster than the latest **npm** for most cases.
 
-  > **A man page** (short for **manual page**) is a form of software documentation usually found on a Unix or Unix-like operating system.
+In the past, **yarn** was much, much faster, until the **npm** version **5.0** came out, which claims to be 5x times faster than its previous versions.
 
-  The local installation installs your package in the current working directory. Node modules end up in `./node_modules`, executables are put in `./node_modules/.bin/`, and man pages are not installed at all.
-* **Yarn** has **why** command which checks why dependency is present in the project.
+#### Security
 
-  It also checks which other packages depend upon it, or whether it was explicitly marked as a dependency in the **package.json** manifest.
-* **Yarn** allows checking the licenses for all installed packages using the **yarn licenses list** command.
+**Yarn** is more secure because **npm** automatically executes a code which allows other packages to get included in the fly.
 
-  After this command has been executed, yarn will print out all installed packages in alphabetical order along with the license information.
-* Both package managers have a cache, but, according to the benchmarks, **yarn** cache is faster.
+Yarn installs those files which are only from the **yarn.lock** or **package.json** files. 
+
+#### Lock files
+
+**Npm** generates **package-lock.json** file, **yarn** generates **yarn-lock.json.**
+
+#### Global packages installation
+
+**Npm** uses **\-g** flag to install package globally, **yarn** uses the word **global.**
+
+Global installation drops modules in `{prefix}/lib/node_modules`, and puts executable files in `{prefix}/bin`, where `{prefix}` is usually something like `/usr/local`. 
+
+It also installs man pages in `{prefix}/share/man`, if they are supplied.
+
+> **A man page** (short for **manual page**) is a form of software documentation usually found on a Unix or Unix-like operating system.
+
+The local installation installs your package in the current working directory. Node modules end up in `./node_modules`, executables are put in `./node_modules/.bin/`, and man pages are not installed at all.
+
+#### New CLI commands
+
+**Yarn** provides **why** command which checks why dependency is present in the project.
+
+It also checks which other packages depend upon it, or whether it was explicitly marked as a dependency in the **package.json** manifest.
+
+**Yarn** allows checking the licenses for all installed packages using the **yarn licenses list** command.
+
+After this command has been executed, yarn will print out all installed packages in alphabetical order along with the license information.
+
+#### Caching
+
+Both package managers have a cache, but, according to the benchmarks, **yarn** cache is faster.
 
 ## Most used commands
 
