@@ -22,7 +22,9 @@ It was written in JavaScript and initially released in January 2010 by Isaac Z. 
 
 It consists of the command line client and online database of private and public packages called the npm registry.
 
-This registry is accessed via the client, and all available packages can be browsed via the [npm website](https://www.npmjs.com/).
+This registry is accessed via the client, and all available packages can be browsed via the [npm website](https://www.npmjs.com/):
+
+![Browse npm packages](/img/screenshot-2020-10-02-at-18.13.44.png "Browse npm packages")
 
 The package manager belongs to npm, Inc. that was acquired by the Github in March 2020.
 
@@ -141,7 +143,7 @@ Yarn allows checking the licenses for all installed packages using the **yarn li
 
 The output of `yarn licenses list`:
 
-![Yarn licenses list command output](/img/screenshot-2020-10-02-at-18.08.31.png "Yarn licenses list command output")
+![Yarn licenses list command output](/img/screenshot-2020-10-02-at-18.10.50.png "Yarn licenses list command output")
 
 After this command has been executed, yarn will print out all installed packages in alphabetical order along with the license information.
 
@@ -154,6 +156,14 @@ Both package managers have a cache, but, according to the benchmarks, **yarn** c
 After setting up the environment, it is necessary to know some basic commands to jump into the development with these awesome tools.
 
 Here is the list of the most popular and used commands for both, yarn and npm.
+
+#### Initialize a project
+
+`yarn init | npm init`
+
+#### Run tests
+
+`yarn test | npm test`
 
 #### Install all dependencies
 
@@ -193,4 +203,4 @@ Both tools are great to be used for managing the project dependencies.
 
 Yarn brings some improvements, like more security or a little better speed and some new commands, like checking why the given package is installed and printing out the licenses for each installed dependency.
 
-That is why I personally prefer to use it over the npm.
+That is why I prefer to use it.
