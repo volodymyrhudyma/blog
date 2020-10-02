@@ -1,8 +1,10 @@
 ---
-title: Yarn vs. Npm in 2020
+title: Yarn vs. Npm In 2020
 tag:
   - Other
-metaDescription: // META
+metaDescription: NPM vs YARN. Learn the similarities and differences between Npm
+  and Yarn. The best package manager for use in 2020. Yarn was developed by
+  Facebook as an alternative to npm and released in 2016.
 teaser: In the JavaScript world, people share millions of pieces of code to
   avoid spending time on some necessary functionality, that is already done by
   others. Shared code, in turn, may depend on...
