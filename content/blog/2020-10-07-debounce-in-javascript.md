@@ -174,6 +174,6 @@ export default App;
 
 ## Debounce function from scratch
 
-## Debounce in lodash
+In the above examples we were using **debounce** function provided by **[lodash](https://lodash.com/)**.
 
 ## Summary
