@@ -38,7 +38,35 @@ Basically, we say: "Hey, wait for the user to stop typing for 500ms and sent a r
 
 This prevents your UI from doing unnecessary updates which slow the application down and do not really provide much value for the end user.
 
-Let's look at the code:
+Look at the wrong implementation:
+
+```javascript
+import React, { useState } from "react";
+
+import axios from "axios";
+
+const App = () => {
+  const [value, setValue] = useState("");
+
+  const handleChange = (e) => {
+    const { value } = e.target;
+    setValue(value);
+    handleSearch(value);
+  };
+
+  const handleSearch = (value) => axios.get(`search?query=${value}`);
+
+  return <input value={value} onChange={handleChange} />;
+};
+
+export default App;
+```
+
+![Not debounced api call](/img/no-debounce.gif "Not debounced api call")
+
+Notice how many requests are sent to the backend.
+
+Another implementation, using the debounce technique:
 
 ```javascript
 import React, { useState, useCallback } from "react";
@@ -66,7 +94,6 @@ const App = () => {
 };
 
 export default App;
-
 ```
 
 For each provided character, we save it to the state and execute **handleSearch**, which is a debounced function wrapper in **useCallback** hook.
