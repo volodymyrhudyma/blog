@@ -1,12 +1,12 @@
 ---
-title: Debounce in JavaScript
+title: Debounce in React
 tag:
-  - JavaScript
+  - React
 metaDescription: // Meta
 teaser: // Teaser
 date: 2020-10-08T20:59:14.958Z
 ---
-JavaScript is often used to accomplish different tasks, including the ones that need a lot of complex calculations.
+React is often used to accomplish different tasks, including the ones that need a lot of complex calculations.
 
 Doing this kinds of calculations too often affects the application's performance.
 
@@ -106,13 +106,71 @@ The **useCallback** hook caches the first debounced function for any subsequent 
 
 The above code in action:
 
-![Debounced api call](/img/oct-07-2020-23-45-30.gif "Debounced api call")
+![Debounced api call](/img/debounce.gif "Debounced api call")
 
 Look, how one request was sent after waiting 500ms from the moment user stopped typing.
 
 That's huge optimization.
 
 #### Use case #2
+
+Some code needs to be run when the window of the browser is being resized.
+
+Wrong implementation:
+
+```javascript
+import React, { useEffect } from "react";
+
+const App = () => {
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const handleResize = () => {
+    console.log("Resize");
+  };
+
+  return <div />;
+};
+
+export default App;
+
+```
+
+![Window resize no debounce](/img/resize-ndb.gif "Window resize no debounce")
+
+Correct implementation:
+
+```javascript
+import React, { useEffect, useCallback } from "react";
+
+import debounce from "lodash/debounce";
+
+const App = () => {
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const handleResize = useCallback(
+    debounce(() => {
+      console.log("Resize");
+    }, 50),
+    []
+  );
+
+  return <div />;
+};
+
+export default App;
+```
+
+![Window resize debounce](/img/resize-db.gif "Window resize debounce")
 
 ## Debounce function from scratch
 
