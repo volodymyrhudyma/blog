@@ -123,7 +123,7 @@ This is a huge optimization.
 
 Some code must be executed when the browser window is resized.
 
-The following implementation is not quite correct, because the resize handler is called every time the screen is resized by 1 pixel:
+The following implementation is not quite correct, because the resize handler is called too many times:
 
 ```javascript
 import React, { useEffect } from "react";
