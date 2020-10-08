@@ -39,7 +39,7 @@ Every time the users enters a character, a request is sent.
 
 Don not you feel there is no need to send a bunch of requests while the user is still typing a word?
 
-A debounce function can be used here to send **one** request only after the user has **stopped typing for a certain amount of time**.
+A debounce function can be used here to send one request only after the user has **stopped typing for a certain amount of time**.
 
 Basically, we say: "Hey, wait until the user stops typing for 500ms and send a request".
 
