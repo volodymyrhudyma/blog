@@ -104,7 +104,7 @@ To avoid this a small refactoring is needed:
 //...
 
 // Execute complex operation only if "divClickCount" is changed
-const result = useMemo(() => performComplexOperation(divClickCount), []);
+const result = useMemo(() => performComplexOperation(divClickCount), [divClickCount]);
 
 // ...
 ```
