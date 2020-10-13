@@ -52,9 +52,68 @@ If it uses memoization and gets called for the first time with arguments (**10**
 
 ## Example
 
+There is a component that allows the user to click on a **div** and **button** elements.
+
+Each click is registered in the state and after the click on the **div** we should perform some complex operation:
+
 ```jsx
+import React, { useState, useMemo } from 'react';
+
+const App = () => {
+  const [divClickCount, setDivClickCount] = useState(0);
+  const [buttonClickCount, setButtonClickCount] = useState(0);
+
+  const performComplexOperation = (divClicksCount) => {
+    let result = 0;
+    for (let i = 0; i < 1000000000; i++) {
+      result += 1;
+    }
+    return result;
+  };
+
+  const result = performComplexOperation(divClickCount);
+
+  return (
+    <>
+      <div onClick={() => setDivClickCount(divClickCount + 1)}>
+        Div element
+      </div>
+      <div>Div click count: {divClickCount}</div>
+      <br />
+      <button onClick={() => setButtonClickCount(buttonClickCount + 1)}>
+        Button element
+      </button>
+      <div>Button click count: {buttonClickCount}</div>
+      <br />
+      <div>Result: {result}</div>
+    </>
+  );
+};
+
+export default App;
 
 ```
+
+Performing complex operation slows the application down noticeably, even if we click on the **button** element:
+
+![Not using useMemo hook](/img/slow.gif "Not using useMemo hook")
+
+To avoid this a small refactoring is needed:
+
+```javascript
+//...
+
+// Execute complex operation only if "divClickCount" is changed
+const result = useMemo(() => performComplexOperation(divClickCount), []);
+
+// ...
+```
+
+We allow complex calculations only if the **div** element has been clicked.
+
+Clicking on the **button** element should not be blocked anymore:
+
+![Example with using useMemo hook](/img/fast.gif "Example with using useMemo hook")
 
 ## Do not overuse
 
@@ -88,11 +147,11 @@ const App = () => {
 
 On the one hand, the array of users is created only once, but on the other hand, we are making an unnecessary function call.
 
-Remember that performance optimizations are not free. 
+Performance optimizations always come with a cost but do not always come with a benefit to offset that cost.
 
-They always come with a cost but do not always come with a benefit to offset that cost.
+#### More examples
 
-Read [this article](https://blog.logrocket.com/rethinking-hooks-memoization/) to find out more about overusing this hook.
+Read [this article](https://blog.logrocket.com/rethinking-hooks-memoization/) to find out more examples of overusing this hook.
 
 ## Summary
 
