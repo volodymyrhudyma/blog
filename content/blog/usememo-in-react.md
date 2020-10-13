@@ -1,5 +1,5 @@
 ---
-title: useMemo in React
+title: "React Hooks: useMemo"
 tag:
   - React
 metaDescription: Learn how to optimize your React application by using the
@@ -55,7 +55,7 @@ const sum = (a, b) => a + b;
 
 If it uses memoization and gets called for the first time with arguments (**10**, **10)**, the result **20** will be remembered and the next time we call it with the same arguments, no calculations will be performed to return the expected result.
 
-## Example
+## Example usage
 
 There is a component that allows the user to click on a **div** and **button** elements.
 
@@ -96,7 +96,6 @@ const App = () => {
 };
 
 export default App;
-
 ```
 
 Performing complex operation slows the application down noticeably, even if we click on the **button** element:
@@ -120,7 +119,7 @@ Clicking on the **button** element should not be blocked anymore:
 
 ![Example with using useMemo hook](/img/fast.gif "Example with using useMemo hook")
 
-## Do not overuse
+## Do not overuse it
 
 It is extremely easy to overuse the **useMemo** hook after learning all its benefits.
 
