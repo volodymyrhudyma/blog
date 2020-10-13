@@ -60,9 +60,11 @@ If it uses memoization and gets called for the first time with arguments (**10**
 
 It is extremely easy to overuse the **useMemo** hook after learning all its benefits.
 
-But be careful, as sometimes the savings are so minimal that it is not worth making the code more complex.
+Be careful, as sometimes the savings are so minimal that it is not worth making the code more complex.
 
-Consider the following example:
+#### Example #1
+
+Wrapping inexpensive operations:
 
 ```jsx
 const App = () => {
@@ -73,7 +75,7 @@ const App = () => {
 };
 ```
 
-It can be refactored to:
+With the **useMemo** hook:
 
 ```jsx
 const App = () => {
@@ -86,4 +88,18 @@ const App = () => {
 
 On the one hand, the array of users is created only once, but on the other hand, we are making an unnecessary function call.
 
+Remember that performance optimizations are not free. 
+
+They always come with a cost but do not always come with a benefit to offset that cost.
+
+Read [this article](https://blog.logrocket.com/rethinking-hooks-memoization/) to find out more about overusing this hook.
+
 ## Summary
+
+The **useMemo** hook helps to increase the performance of an application by remembering the result of the expensive function calculation and not executing it twice with the same parameters.
+
+While it is extremely useful, overusing it leads to performance and maintenance problems.
+
+Remember that performance optimizations are not free, even **useMemo** comes with a cost of allocating memory.
+
+Give this hook a try and see if your application will benefit from using it.
