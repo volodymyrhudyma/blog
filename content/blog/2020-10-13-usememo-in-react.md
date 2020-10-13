@@ -49,3 +49,41 @@ const sum = (a, b) => a + b;
 ```
 
 If it uses memoization and gets called for the first time with arguments (**10**, **10)**, the result **20** will be remembered and the next time we call it with the same arguments, no calculations will be performed to return the expected result.
+
+## Example
+
+```jsx
+
+```
+
+## Do not overuse
+
+It is extremely easy to overuse the **useMemo** hook after learning all its benefits.
+
+But be careful, as sometimes the savings are so minimal that it is not worth making the code more complex.
+
+Consider the following example:
+
+```jsx
+const App = () => {
+  // The array of "users" is initialized every render
+  const users = ["John", "Andrew", "Mary"];
+  
+  // ...
+};
+```
+
+It can be refactored to:
+
+```jsx
+const App = () => {
+  // The array of "users" is initialized only once
+  const users = useMemo(() => ["John", "Andrew", "Mary"], []);
+  
+  // ...
+};
+```
+
+On the one hand, the array of users is created only once, but on the other hand, we are making an unnecessary function call.
+
+## Summary
