@@ -2,8 +2,13 @@
 title: useMemo in React
 tag:
   - React
-metaDescription: // META
-teaser: // TEASER
+metaDescription: Learn how to optimize your React application by using the
+  useMemo hook. This hook memoizes the output and will only recompute it if only
+  one of its dependencies changed.
+teaser: Memoization is an optimization technique that is used to speed up
+  computer programs by storing the results of expensive function calls and
+  returning the cached result when the same inputs occur again. A memoized
+  function...
 date: 2020-10-14T18:11:58.132Z
 ---
 Since the 16.8 version React offers hooks - functions that let you hook into React state and lifecycle features from function components.
