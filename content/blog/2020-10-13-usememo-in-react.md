@@ -1,0 +1,51 @@
+---
+title: useMemo in React
+tag:
+  - React
+metaDescription: // META
+teaser: // TEASER
+date: 2020-10-14T18:11:58.132Z
+---
+Since the 16.8 version React offers hooks - functions that let you hook into React state and lifecycle features from function components.
+
+One important thing to remember is that hooks do not work with class components.
+
+The full list of available hooks can be found in the [official documentation](https://reactjs.org/docs/hooks-reference.html).
+
+Today we will focus on the useMemo that allows optimizing expensive calculations.
+
+## The hook
+
+The **useMemo** hook expects a function and array of dependencies to be provided:
+
+```javascript
+const result = useMemo(() => expensiveOperation(a, b), [a, b]);
+```
+
+React will only recompute the memoized **result** only if **a** or **b** is changed.
+
+If no array of dependencies provided, the function will be executed for every render.
+
+This technique allows us to optimize performing expensive calculations.
+
+**Important note:** this hook runs during the rendering process, so do not put there the code you would not normally add to the **render** function (like calling an API, it needs to be done in the **useEffect** hook).
+
+## Memoization
+
+**Memoization** is an optimization technique that is used to speed up computer programs by storing the results of expensive function calls and returning the cached result when the same inputs occur again.
+
+A memoized function remembers the returned result when called with specific inputs. 
+
+When subsequent calls occur with the remembered input, the remembered result is returned and no calculations are performed.
+
+Memoization is a way to lower a function's time cost in exchange for space cost.
+
+Memoized functions become optimized for speed in exchange for higher use of computer memory space.
+
+Consider the following function that adds up two integers:
+
+```javascript
+const sum = (a, b) => a + b;
+```
+
+If it uses memoization and gets called for the first time with arguments (**10**, **10)**, the result **20** will be remembered and the next time we call it with the same arguments, no calculations will be performed to return the expected result.
