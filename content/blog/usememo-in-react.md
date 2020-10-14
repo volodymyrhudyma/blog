@@ -11,58 +11,58 @@ teaser: Memoization is an optimization technique that is used to speed up
   function...
 date: 2020-10-14T18:11:58.132Z
 ---
-Since the 16.8 version React offers hooks - functions that let you hook into React state and lifecycle features from function components.
+Since the version 16.8, React provides hooks - functions that allow you to hook into React state and lifecycle features from functional components.
 
 One important thing to remember is that hooks do not work with class components.
 
-The full list of available hooks can be found in the [official documentation](https://reactjs.org/docs/hooks-reference.html).
+The complete list of available hooks can be found in the [official documentation](https://reactjs.org/docs/hooks-reference.html).
 
-Today we will focus on the useMemo that allows optimizing expensive calculations.
+Today we will concentrate on the useMemo, which can be used to optimize expensive calculations.
 
 ## The hook
 
-The **useMemo** hook expects a function and array of dependencies to be provided:
+The **useMemo** hook expects a function and an array of dependencies to be provided:
 
 ```javascript
 const result = useMemo(() => expensiveOperation(a, b), [a, b]);
 ```
 
-React will only recompute the memoized **result** only if **a** or **b** is changed.
+React recomputes the memoized **result** only if **a** or **b** is changed.
 
-If no array of dependencies provided, the function will be executed for every render.
+If no array of dependencies is specified, the function will be executed on every render.
 
-This technique allows us to optimize performing expensive calculations.
+This technique allows us to optimize the execution of expensive calculations.
 
-**Important note:** this hook runs during the rendering process, so do not put there the code you would not normally add to the **render** function (like calling an API, it needs to be done in the **useEffect** hook).
+**Important note:** this hook runs during the rendering process, so do not put there the code you would normally not add to the **render** function (like calling an API, this must be done in the **useEffect** hook).
 
 ## Memoization
 
-**Memoization** is an optimization technique that is used to speed up computer programs by storing the results of expensive function calls and returning the cached result when the same inputs occur again.
+**Memoization** is an optimization technique used to speed up computer programs by storing the results of expensive function calls and returning the cached result when the same inputs occur again.
 
 A memoized function remembers the returned result when called with specific inputs. 
 
-When subsequent calls occur with the remembered input, the remembered result is returned and no calculations are performed.
+If subsequent calls are made with the remembered input, the remembered result is returned and no calculations are performed.
 
-Memoization is a way to lower a function's time cost in exchange for space cost.
+Memoization is a way of reducing the time costs of a function in exchange for the cost of space.
 
-Memoized functions become optimized for speed in exchange for higher use of computer memory space.
+Memoized functions are optimized for speed in exchange for higher use of computer memory.
 
-Consider the following function that adds up two integers:
+Consider the following function that adds two integers:
 
 ```javascript
 const sum = (a, b) => a + b;
 ```
 
-If it uses memoization and gets called for the first time with arguments (**10**, **10)**, the result **20** will be remembered and the next time we call it with the same arguments, no calculations will be performed to return the expected result.
+If it uses memoization and is called for the first time with arguments (**10**, **10)**, the result **20** will be remembered and the next time it is called with the same arguments, no calculations are performed to obtain the expected result.
 
 ## Example usage
 
-There is a component that allows the user to click on a **div** and **button** elements.
+There is a component that allows the user to click on a **div** and **button** element.
 
-Each click is registered in the state and after the click on the **div** we should perform some complex operation:
+Every click is registered in the state and after clicking on the **div** a complex operation is performed:
 
 ```jsx
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo } from "react";
 
 const App = () => {
   const [divClickCount, setDivClickCount] = useState(0);
@@ -98,11 +98,11 @@ const App = () => {
 export default App;
 ```
 
-Performing complex operation slows the application down noticeably, even if we click on the **button** element:
+Performing a complex operation slows down the application noticeably, even if we click on the **button** element:
 
 ![Not using useMemo hook](/img/slow.gif "Not using useMemo hook")
 
-To avoid this a small refactoring is needed:
+To avoid this a small refactoring is necessary:
 
 ```javascript
 //...
@@ -113,17 +113,17 @@ const result = useMemo(() => performComplexOperation(divClickCount), [divClickCo
 // ...
 ```
 
-We allow complex calculations only if the **div** element has been clicked.
+We only allow complex calculations if the **div** element has been clicked.
 
-Clicking on the **button** element should not be blocked anymore:
+Clicking on the **button** element should no longer be blocked:
 
 ![Example with using useMemo hook](/img/fast.gif "Example with using useMemo hook")
 
 ## Do not overuse it
 
-It is extremely easy to overuse the **useMemo** hook after learning all its benefits.
+It is extremely easy to overuse the **useMemo** hook after you have learned all its advantages.
 
-Be careful, as sometimes the savings are so minimal that it is not worth making the code more complex.
+Be careful, because sometimes the savings are so minimal that it is not worth making the code more complex.
 
 #### Example #1
 
@@ -149,20 +149,20 @@ const App = () => {
 };
 ```
 
-On the one hand, the array of users is created only once, but on the other hand, we are making an unnecessary function call.
+On the one hand, the array of users is created only once, but on the other hand, we make an unnecessary function call.
 
-Performance optimizations always come with a cost but do not always come with a benefit to offset that cost.
+Performance optimizations are always associated with costs, but not always with a benefit that offsets these costs.
 
 #### More examples
 
-Read [this article](https://blog.logrocket.com/rethinking-hooks-memoization/) to find out more examples of overusing this hook.
+Read [this article](https://blog.logrocket.com/rethinking-hooks-memoization/) to find more examples of overusing this hook.
 
 ## Summary
 
-The **useMemo** hook helps to increase the performance of an application by remembering the result of the expensive function calculation and not executing it twice with the same parameters.
+The **useMemo** hook helps to increase the performance of an application by remembering the result of the expensive function calculation and not running it twice with the same parameters.
 
-While it is extremely useful, overusing it leads to performance and maintenance problems.
+Although it is extremely useful, its excessive use leads to performance and maintenance problems.
 
-Remember that performance optimizations are not free, even **useMemo** comes with a cost of allocating memory.
+Remember that performance optimizations are not free, even **useMemo** is associated with memory allocation costs.
 
-Give this hook a try and see if your application will benefit from using it.
+Try this hook and see if your application benefits from it.
