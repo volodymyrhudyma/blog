@@ -459,3 +459,7 @@ Quick recap:
 * Strict comparison only results in true if both operands are of the same type
 * Abstract equality comparison converts operands to the same type and applies strict comparison
 * Unexpected type casting in JavaScript is called coercion
+
+## Suggested reading
+
+Hiring managers looking to spot the best Javascript developers may want [to check out this article](https://www.toptal.com/javascript#hiring-guide) from Toptal.
