@@ -3,7 +3,7 @@ title: BroadcastChannel API in JavaScript
 tag:
   - JavaScript
 metaDescription: // META
-teaser: "## // TEASER"
+teaser: // This is a teaser
 date: 2020-10-17T20:53:00.000Z
 ---
 ## Basics
