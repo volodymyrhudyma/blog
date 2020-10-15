@@ -4,7 +4,7 @@ tag:
   - JavaScript
 metaDescription: // META
 teaser: "## // TEASER"
-date: 2020-10-17T19:53:49.383Z
+date: 2020-10-17T20:53:00.000Z
 ---
 ## Basics
 
