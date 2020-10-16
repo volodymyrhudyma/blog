@@ -170,4 +170,18 @@ Let's add this feature to our website with the help of BroadcastChannel API:
 
 **Important note:** The channel would not broadcast to itself, which means that if the `doLogout` action is not performed manually after clicking on the button, the user would not get logged out from the current tab.
 
+## Npm library
+
+There is an npm library named **[broadcast-channel](https://www.npmjs.com/package/broadcast-channel)** that behaves similar to the BroadcastChannel API which is currently only featured in some browsers, but supports all of them and ... **Node environment**. 
+
+Yes, you can send messaged between different Node processes as well. Such a cool feature.
+
+In order to test if your browser is supported, visit the [demo app](https://pubkey.github.io/broadcast-channel/e2e.html).
+
 ## Summary
+
+The Broadcast Channel API is a very simple API that allows cross-context communication. 
+
+It can be used to detect user actions in the current tab and propagate them to all other opened tabs on the same origin.
+
+It is widely supported between the browsers, however there are polyfills as well as npm packages that allow you to use this feature in older browsers as well as in Node processes.
