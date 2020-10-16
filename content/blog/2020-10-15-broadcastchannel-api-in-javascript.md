@@ -40,7 +40,6 @@ To begin with, create a channel and store a reference to it in a variable:
 
 ```javascript
 const testChannel = new BroadcastChannel("test");
-
 ```
 
 After the channel was created, we can send a message to it:
@@ -55,7 +54,6 @@ After posting the message to the BroadcastChannel, a `message` event is dispatch
 
 ```javascript
 testChannel.onmessage = event => { console.log(event); }
-
 ```
 
 Finally, after the work has been done, close the connection:
@@ -180,7 +178,7 @@ In order to test if your browser is supported, visit the [demo app](https://pubk
 
 ## Summary
 
-The Broadcast Channel API is a very simple API that allows cross-context communication. 
+The BroadcastChannel API is a very simple API that allows cross-context communication. 
 
 It can be used to detect user actions in the current tab and propagate them to all other opened tabs on the same origin.
 
