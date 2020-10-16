@@ -70,7 +70,7 @@ Remember we were talking about logging user out on all opened tabs?
 
 Let's add this feature to our website with the help of BroadcastChannel API:
 
-```javascript
+```html
 <button class="logout">Logout</button>
 
 <script>  
