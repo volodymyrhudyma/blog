@@ -71,8 +71,49 @@ Remember we were talking about logging user out on all opened tabs?
 Let's add this feature to our website with the help of BroadcastChannel API:
 
 ```javascript
-Lala
+<button class="logout">Logout</button>
+
+<script>  
+  const logoutAction = () => {
+    // Perform logout
+    console.log("User was logged out");
+  };
+
+  // Create a new "logout" channel
+  const channel = new BroadcastChannel("logout");
+
+  // Find the button by class name
+  const button = document.querySelector(".logout");
+
+  // Listen for the button click
+  button.addEventListener("click", (e) => {
+    // If the button was clicked
+    // Firstly, perform logout manually
+    // Because the channel would not broadcast to itself
+    logoutAction();
+    
+    // Send message to all subscribers
+    // You can send any object
+    channel.postMessage({
+        action: "logout",
+        payload: "Eric Bidelman",
+    });
+  });
+
+  // Listen for the "message" event
+  channel.onmessage = function (e) {
+    // If message event received
+    // And action is "logout"
+    if (e.data.action === "logout") {
+      
+      // Perform logout action
+      logoutAction();
+    }
+  };
+</script>
 ```
+
+**Important note:** The channel would not broadcast to itself, which means that if the `doLogout` action is not performed manually after clicking on the button, the user would not get logged out from the current tab. 
 
 ## Structured clone algorithm
 
