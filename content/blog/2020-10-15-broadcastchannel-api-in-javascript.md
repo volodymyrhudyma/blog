@@ -32,7 +32,7 @@ Before we dig into the code, it is necessary to check the browser support to mak
 
 ## Browser support
 
-According to **[caniuse.com](https://caniuse.com/broadcastchannel)**, the BroadcastChannel API is available for **78,85%** of the users (as of 16/10/2020).
+According to **[caniuse.com](https://caniuse.com/broadcastchannel)**, the BroadcastChannel API is available for **78,85%** of the users (as of 17/10/2020).
 
 It is not supported in IE11, Safari and older versions of Edge, so if these browsers are widely used among your customers, you will either need to find a polyfill or choose another solution.
 
