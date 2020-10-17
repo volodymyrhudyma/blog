@@ -109,7 +109,7 @@ What are the advantages of the Structured Clone algorithm over the JSON method f
 JSON.parse(JSON.stringify(data));
 ```
 
-The JSON approach has many limitations, which were fully covered in one of my [earlier articles](/2020-05-25-how-to-clone-an-object-in-javascript/#JSON-object). 
+The JSON approach has many limitations, which were fully covered in one of my [earlier articles](2020-05-25-how-to-clone-an-object-in-javascript/#JSON-object).
 
 **JSON.stringify** has some problems with:
 
