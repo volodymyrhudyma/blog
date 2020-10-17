@@ -6,76 +6,76 @@ metaDescription: // META
 teaser: // This is a teaser
 date: 2020-10-17T20:53:00.000Z
 ---
-The **BroadcastChannel API** is a new Web API that allows communicating between different windows/tabs/iframes **of the same origin**.
+The **BroadcastChannel API** is a new Web API that enables communication between different windows/tabs/iframes **of the same origin**.
 
-> A **Web API** is an application programming interface for either a web server or a web browser. It is a set of functions which can be accessed using the HTTP protocol.
+> A **Web API** is an application programming interface for either a web server or a web browser. It is a set of functions that can be accessed via the HTTP protocol.
 >
 > A list of all available Web APIs can be found [here](https://developer.mozilla.org/en-US/docs/Web/API).
 
 ## Why is it needed?
 
-The first question that came to my mind when I was reading about this concept was: "What purpose does it serve?".
+The first question that came to my mind when I read about this concept was: "What purpose does it serve?".
 
-Imagine opening an application on two different tabs and performing an action on one of them. Normally, the action is expected to be propagated to all opened tabs, but on the vast majority of applications it is not.
+Imagine you open an application on two different tabs and perform an action on one of them. Normally, the action is expected to apply to all open tabs, but this is not the case for the vast majority of applications.
 
-The tabs are not communicating, therefore they are not aware of the state of each other.
+The tabs do not communicate with each other, therefore they are not aware of their mutual state.
 
-This can lead to some security problems, like not logging the user out on all opened tabs, but just on the current one.
+This can lead to some security problems, e.g. the user is not logged out on all open tabs, but only on the current one.
 
-Fortunately, the BroadcastChannel API helps us to solve this issue.
+Fortunately, the BroadcastChannel API helps us to solve this problem.
 
-Before we dig into the code, it is necessary to check the browser support to be sure it is safe to use in production.
+Before we dig into the code, it is necessary to check the browser support to make sure that it is safe to use in production.
 
 ## Browser support
 
-According to **[caniuse.com](https://caniuse.com/broadcastchannel)**, the BroadcastChannel API is available for **78,85%** of the users (as for 16.10.2020).
+According to **[caniuse.com](https://caniuse.com/broadcastchannel)**, the BroadcastChannel API is available for **78,85%** of the users (as of 16/10/2020).
 
-It is not supported in IE11, Safari and older versions of Edge, so if these browsers are widely used among your clients, you have either to find a polyfill or choose another solution.
+It is not supported in IE11, Safari and older versions of Edge, so if these browsers are widely used among your customers, you will either need to find a polyfill or choose another solution.
 
-> In web development, a **polyfill** is code that implements a feature on web browsers that do not support the feature.
+> In web development, a **polyfill** is code that implements a feature on web browsers that do not support it.
 
 ## API overview
 
-To begin with, create a channel and store a reference to it in a variable:
+First, create a channel and save a reference to it in a variable:
 
 ```javascript
 const testChannel = new BroadcastChannel("test");
 ```
 
-After the channel was created, we can send a message to it:
+Once the channel is created, we can send a message to it:
 
 ```javascript
 testChannel.postMessage("Test message");
 ```
 
-**Important note:** `postMessage` takes **any object** as an argument, we are not limited to send only strings.
+**Important note:** `postMessage` takes **any object** as an argument, we are not limited to sending strings only.
 
-After posting the message to the BroadcastChannel, a `message` event is dispatched to each object subscribed to this channel:
+After the message is sent to the BroadcastChannel, a `message` event is dispatched to each object that subscribes to that channel:
 
 ```javascript
 testChannel.onmessage = event => { console.log(event); }
 ```
 
-Finally, after the work has been done, close the connection:
+Finally, after the work is done, close the connection:
 
 ```javascript
 testChannel.close();
 ```
 
-Before proceeding to the next section, let's get back to the argument of the **postMessage** function.
+Before we continue with the next section, let's get back to the argument of the **postMessage** function.
 
-Actually, saying that it can take any object is a bit incorrect, because really it can not, however, in 99% of the cases you should not worry about an argument type.
+Actually, the claim that it can take any object is a bit wrong, because actually it can not, but in 99% of the cases, you should not worry about an argument type.
 
-The data sent by the **postMessage** is serialized using the **Structured Clone algorithm**.
+The data sent by the **postMessage** is serialized with the **Structured Clone algorithm**.
 
-On the one hand, it means that you can pass a variety of data without having to do serialization by yourself, but on the other hand, you are limited to some set of types.
+On the one hand, this means that you can transfer a variety of data without having to serialize yourself, but on the other hand you are limited to some set of types.
 
-Thins that do not work with Structured Clone algorithm:
+Things that do not work with the Structured Clone algorithm:
 
 * Functions
 * Symbols
-* DOM nodes
-* Certain object properties, like **lastIndex** of **RegExp**, getters, setters, prototype chain etc
+* DOM Nodes
+* Certain object properties, such as **lastIndex** of **RegExp**, getters, setters, prototype chain, etc
 
 The following example throws an error:
 
@@ -91,23 +91,23 @@ Error message:
 
 The **Structured Clone algorithm** is a new algorithm defined by the HTML5 specification for serializing complex JavaScript objects.
 
-The algorithm iterates over all the fields of the original object, duplicating the values of each field into a new object.
+The algorithm iterates over all fields of the original object, duplicating the values of each field into a new object.
 
-If a field is, itself, an object with fields, those fields are walked over recursively until every field and sub-field is duplicated into the new object.
+If a field itself is an object with fields, these fields are traversed recursively until each field and sub-field is duplicated in the new object.
 
-One of its uses is to transfer the data via **postMessage**.
+One of its purposes is the transmission of the data by **postMessage**.
 
 #### Advantages over JSON
 
-What advantages does the Structured Clone algorithm has over the JSON way of copying data?
+What are the advantages of the Structured Clone algorithm over the JSON method for copying data?
 
 ```javascript
 JSON.parse(JSON.stringify(data));
 ```
 
-The JSON approach has way more limitations, which were fully covered in one of my [previous articles](/2020-05-25-how-to-clone-an-object-in-javascript/#JSON-object). 
+The JSON approach has many limitations, which were fully covered in one of my [earlier articles](/2020-05-25-how-to-clone-an-object-in-javascript/#JSON-object). 
 
-**JSON.stringify** has some troubles with:
+**JSON.stringify** has some problems with:
 
 * Undefined values
 * Symbols
@@ -119,9 +119,9 @@ To read more about the advantages of the Structured Clone approach, read [this a
 
 ## Real-world example
 
-Remember we were talking about logging user out on all opened tabs?
+Remember we talked about logging out users on all open tabs?
 
-Let's add this feature to our website with the help of BroadcastChannel API:
+Let's add this feature to our website using the BroadcastChannel API:
 
 ```html
 <button class="logout">Logout</button>
@@ -141,7 +141,7 @@ Let's add this feature to our website with the help of BroadcastChannel API:
   // Listen for the button click
   button.addEventListener("click", (e) => {
     // If the button was clicked
-    // Firstly, perform logout manually
+    // First, perform logout manually
     // Because the channel would not broadcast to itself
     logoutAction();
     
@@ -166,20 +166,20 @@ Let's add this feature to our website with the help of BroadcastChannel API:
 </script>
 ```
 
-**Important note:** The channel would not broadcast to itself, which means that if the `doLogout` action is not performed manually after clicking on the button, the user would not get logged out from the current tab.
+**Important note:** The channel would not broadcast to itself, which means that if the `doLogout` action is not performed manually after clicking the button, the user would not be logged out of the current tab.
 
 ## Npm library
 
-There is an npm library named **[broadcast-channel](https://www.npmjs.com/package/broadcast-channel)** that behaves similar to the BroadcastChannel API which is currently only featured in some browsers, but supports all of them and ... **Node environment**. 
+There is an npm library called **[broadcast-channel](https://www.npmjs.com/package/broadcast-channel)** that behaves similarly to the BroadcastChannel API which is currently only available in a few browsers, but supports all of them and ... **Node environment**. 
 
-Yes, you can send messaged between different Node processes as well. Such a cool feature.
+Yes, you can also send messages between different Node processes. Such a cool feature.
 
-In order to test if your browser is supported, visit the [demo app](https://pubkey.github.io/broadcast-channel/e2e.html).
+To test if your browser is supported, please visit the [demo app](https://pubkey.github.io/broadcast-channel/e2e.html).
 
 ## Summary
 
-The BroadcastChannel API is a very simple API that allows cross-context communication. 
+The BroadcastChannel API is a very simple API that enables cross-context communication. 
 
-It can be used to detect user actions in the current tab and propagate them to all other opened tabs on the same origin.
+It can be used to detect user actions in the current tab and transfer them to all other open tabs of the same origin.
 
-It is widely supported between the browsers, however there are polyfills as well as npm packages that allow you to use this feature in older browsers as well as in Node processes.
+It is widely supported between browsers, but there are both polyfills and npm packages that allow you to use this feature in both older browsers and Node processes.
