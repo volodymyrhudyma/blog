@@ -16,6 +16,8 @@ Converting floating numbers to integers is a common task when creating web appli
 Even though there are numerous ways to do this in JavaScript, often developers do not know other ways rather than using the **Math** object or **parseInt** function.
 
 > The JavaScript **Math** object allows you to perform mathematical tasks on numbers.
+>
+> All available functions can be found [here](https://www.w3schools.com/js/js_math.asp).
 
 ## Math.ceil
 
