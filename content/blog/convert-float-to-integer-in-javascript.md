@@ -1,5 +1,5 @@
 ---
-title: Convert Float to Integer in JavaScript
+title: 9 Ways To Convert Float To Integer In JavaScript
 tag:
   - JavaScript
 metaDescription: Learn all available options to convert Float to Integer in
