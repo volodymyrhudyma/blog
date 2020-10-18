@@ -106,7 +106,7 @@ If a number is **positive**, it **rounds down**.
 
 If a number is **negative**, it **rounds up**.
 
-Basically, this operator removes everything after the floating-point.
+Furthermore, this operator removes everything after the floating-point.
 
 ```javascript
 // Positive
@@ -118,4 +118,35 @@ console.log(10.9 | 0); // 10
 console.log(-10.1 | 0); // -10
 console.log(-10.5 | 0); // -10
 console.log(-10.9 | 0); // -10
+```
+
+## Double bitwise NOT
+
+The bitwise NOT operator (`~`) takes its operand, converts it to a 32-bit integer, and inverts each bit.
+
+So **0** becomes **1** and vice-versa.
+
+To simplify a bit, it yields to `-(x+1)`:
+
+```javascript
+console.log(~10); // -(10 + 1) = 11
+console.log(~-10); // -(-10 + 1) = 9
+```
+
+The double bitwise NOT is not an operator itself, it is a combination of two bitwise NOT operators working together.
+
+It yields to `-(-(x+1)+1)`, which can be simplified to `x`, so we end up with our original number.
+
+But, there is an important thing to remember: **it truncates everything after the floating-point:**
+
+```javascript
+// Positive
+console.log(~~10.1); // 10
+console.log(~~10.5); // 10
+console.log(~~10.9); // 10
+
+// Negative
+console.log(~~-10.1); // -10
+console.log(~~-10.5); // -10
+console.log(~~-10.9); // -10
 ```
