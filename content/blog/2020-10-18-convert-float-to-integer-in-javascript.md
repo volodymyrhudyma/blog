@@ -2,8 +2,13 @@
 title: Convert Float to Integer in JavaScript
 tag:
   - JavaScript
-metaDescription: // META
-teaser: // TEASERR
+metaDescription: Learn all available options to convert Float to Integer in
+  JavaScript. The most popular ways to convert Float to Integer is to use Math
+  object or parseInt function.
+teaser: Converting floating numbers to integers is a common task when creating
+  web applications. Even though there are numerous ways to do this in
+  JavaScript, often developers do not know other ways rather than using the Math
+  object or...
 date: 2020-10-18T08:28:42.140Z
 ---
 Converting floating numbers to integers is a common task when creating web applications.
