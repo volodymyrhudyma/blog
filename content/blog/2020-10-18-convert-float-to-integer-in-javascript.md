@@ -182,3 +182,9 @@ console.log(y - y % 1); // -10
 ```
 
 ## Summary
+
+As we have seen, there are a lot of ways to convert a floating number to an integer.
+
+The most used methods are **Math** object and **parseInt** function, but nevertheless, it is important to know all available options in case you would like to use one of them.
+
+What is your favorite way? Let me know in the comments.
