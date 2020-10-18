@@ -14,6 +14,8 @@ Even though there are numerous ways to do this in JavaScript, often developers d
 
 ## Math.ceil
 
+Rounds number up to the next largest integer.
+
 ```javascript
 // Positive
 Math.ceil(10.1); // 11
@@ -27,6 +29,8 @@ Math.ceil(-10.9); // -10
 ```
 
 ## Math.floor
+
+Rounds number down to the next smallest integer.
 
 ```javascript
 // Positive
@@ -42,6 +46,8 @@ Math.floor(-10.9); // -11
 
 ## Math.round
 
+Rounds number to the nearest integer.
+
 ```javascript
 // Positive
 Math.round(10.1); // 10
@@ -55,6 +61,8 @@ Math.round(-10.9); // -11
 ```
 
 ## Math.trunc
+
+Returns the integer part of the number by removing any fractional digits. 
 
 ```javascript
 // Positive
@@ -70,19 +78,35 @@ Math.trunc(-10.9); // -10
 
 ## parseInt
 
+Parses a string argument and returns an integer of the specified radix.
+
+> The **radix** parameter is used to specify which numeral system to be used. It is an integer between **2** and **36**.
+
 ```javascript
+const radix = 10;
+
 // Positive
-parseInt(10.1); // 10
-parseInt(10.5); // 10
-parseInt(10.9); // 10
+parseInt("10.1", radix); // 10
+parseInt("10.5", radix); // 10
+parseInt("10.9", radix); // 10
 
 // Negative
-parseInt(-10.1); // -10
-parseInt(-10.5); // -10
-parseInt(-10.9); // -10
+parseInt("-10.1", radix); // -10
+parseInt("-10.5", radix); // -10
+parseInt("-10.9", radix); // -10
 ```
 
 ## Bitwise OR
+
+Returns **1** in each bit position for which the corresponding bits of either or both operands are **1**s.
+
+The behavior of this operator changes depending on whether you deal with positive or negative numbers.
+
+If a number is **positive**, it **rounds down**. 
+
+If a number is **negative**, it **rounds up**.
+
+Basically, this operator removes everything after the floating-point.
 
 ```javascript
 // Positive
