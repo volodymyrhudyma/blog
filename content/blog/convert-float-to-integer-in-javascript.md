@@ -19,7 +19,7 @@ Even though there are numerous ways to do this in JavaScript, often developers d
 
 ## Math.ceil
 
-Rounds number up to the next largest integer:
+Rounds number up to the next largest integer (do not forget that the negative number **\-10** is bigger than **\-11**):
 
 ```javascript
 // Positive
@@ -67,6 +67,8 @@ Math.round(-10.9); // -11
 
 ## Math.trunc
 
+*This function is an addition of ES6, earlier versions of JavaScript do not contain it.*
+
 Returns the integer part of the number by removing any fractional digits:
 
 ```javascript
@@ -81,7 +83,7 @@ Math.trunc(-10.5); // -10
 Math.trunc(-10.9); // -10
 ```
 
-## parseInt
+## ParseInt
 
 Parses a string argument and returns an integer of the specified radix.
 
@@ -101,7 +103,21 @@ parseInt("-10.5", radix); // -10
 parseInt("-10.9", radix); // -10
 ```
 
-## Bitwise OR
+**Important note:** **radix** is often omitted by the developers, which means that we let the **parseInt** function guess the type of number by the passed argument.
+
+If radix is **0**, **undefined** or unspecified, JavaScript assumes:
+
+* If the input string starts with "0x" or "0X", radix is assumed to be 16.
+* If the input string starts with "0", radix is assumed to be 8 or 10.
+
+  Exactly which radix is chosen depends on implementation. 
+
+  ECMAScript 5 clarifies that 10 should be used, but not all browsers support this yet. 
+
+  For this reason, **radix must always be specified**.
+* If the input string starts with any other value, radix is assumed to be 10.
+
+## Bitwise OR (|)
 
 Returns **1** in each bit position for which the corresponding bits of either or both operands are **1**s.
 
@@ -125,7 +141,7 @@ console.log(-10.5 | 0); // -10
 console.log(-10.9 | 0); // -10
 ```
 
-## Bitwise XOR
+## Bitwise XOR (^)
 
 Returns **1** in each bit position for which the corresponding bits of either but not both operands are **1**s.
 
@@ -143,7 +159,7 @@ console.log(-10.5 ^ 0); // -10
 console.log(-10.9 ^ 0); // -10
 ```
 
-## Double bitwise NOT
+## Double bitwise NOT (\~\~)
 
 The bitwise NOT operator (`~`) takes its operand, converts it to a 32-bit integer, and inverts each bit.
 
