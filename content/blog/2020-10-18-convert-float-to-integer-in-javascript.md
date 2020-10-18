@@ -14,7 +14,7 @@ Even though there are numerous ways to do this in JavaScript, often developers d
 
 ## Math.ceil
 
-Rounds number up to the next largest integer.
+Rounds number up to the next largest integer:
 
 ```javascript
 // Positive
@@ -30,7 +30,7 @@ Math.ceil(-10.9); // -10
 
 ## Math.floor
 
-Rounds number down to the next smallest integer.
+Rounds number down to the next smallest integer:
 
 ```javascript
 // Positive
@@ -46,7 +46,7 @@ Math.floor(-10.9); // -11
 
 ## Math.round
 
-Rounds number to the nearest integer.
+Rounds number to the nearest integer:
 
 ```javascript
 // Positive
@@ -62,7 +62,7 @@ Math.round(-10.9); // -11
 
 ## Math.trunc
 
-Returns the integer part of the number by removing any fractional digits. 
+Returns the integer part of the number by removing any fractional digits:
 
 ```javascript
 // Positive
@@ -120,6 +120,24 @@ console.log(-10.5 | 0); // -10
 console.log(-10.9 | 0); // -10
 ```
 
+## Bitwise XOR
+
+Returns **1** in each bit position for which the corresponding bits of either but not both operands are **1**s.
+
+The behavior of this operator is the same as of the Bitwise OR in terms of converting a floating number to an integer:
+
+```javascript
+// Positive
+console.log(10.1 ^ 0); // 10
+console.log(10.5 ^ 0); // 10
+console.log(10.9 ^ 0); // 10
+
+// Negative
+console.log(-10.1 ^ 0); // -10
+console.log(-10.5 ^ 0); // -10
+console.log(-10.9 ^ 0); // -10
+```
+
 ## Double bitwise NOT
 
 The bitwise NOT operator (`~`) takes its operand, converts it to a 32-bit integer, and inverts each bit.
@@ -150,3 +168,17 @@ console.log(~~-10.1); // -10
 console.log(~~-10.5); // -10
 console.log(~~-10.9); // -10
 ```
+
+## Subtract the fractional part
+
+To perform this we need to use the remainder operator `%` that returns the remainder left over when one operand is divided by a second operand:
+
+```javascript
+const x = 10.5;
+const y = -10.5;
+
+console.log(x - x % 1); // 10
+console.log(y - y % 1); // -10
+```
+
+## Summary
