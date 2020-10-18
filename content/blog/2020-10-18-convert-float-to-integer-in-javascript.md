@@ -3,7 +3,7 @@ title: Convert Float to Integer in JavaScript
 tag:
   - JavaScript
 metaDescription: // META
-teaser: // TEASER
+teaser: // TEASERR
 date: 2020-10-18T08:28:42.140Z
 ---
 Converting floating numbers to integers is a common task when creating web applications.
