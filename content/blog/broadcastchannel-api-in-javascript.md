@@ -132,7 +132,7 @@ Let's add this feature to our website using the BroadcastChannel API:
 
 <script>  
   const logoutAction = () => {
-    // Perform logout
+    // Perform logout action
     console.log("User was logged out");
   };
 
