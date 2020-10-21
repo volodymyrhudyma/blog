@@ -228,7 +228,7 @@ If the component returns the same result when the same props are passed, it can 
 
 This function remembers the result of rendering and if the props are not changed between the renders, the memoized result is returned, skipping the whole rendering process.
 
-```javascript
+```jsx
 const User = ({ name, surname }) {
   return (
     <>
