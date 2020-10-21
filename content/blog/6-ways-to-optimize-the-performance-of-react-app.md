@@ -116,6 +116,88 @@ Blue means infrequent updates, turning to green, yellow and red, which means tha
 
 Seeing a red is not necessarily a bad thing, but if you perform a simple action, like entering text into the input and see red means that something is wrong and some optimizations are needed.
 
+Getting back to our example, we can notice yellow border, which is ok, but... it wraps the whole App component, which means that the whole component is re-rendered when we filter users.
+
+I feel like updating the projects list is completely unnecessary. 
+
+Imagine having thousands of items in the projects list instead of six, how long would it take to re-render them when typing a single letter?
+
+The better approach is to split large **App** component into two: **Users** and **Projects**, each one is responsible only for one thing:
+
+```jsx
+// This component is responsible only for filtering users
+const Users = () => {
+  const [userQuery, setUserQuery] = useState('');
+  const [users, setUsers] = useState<string[]>([]);
+
+  useEffect(() => {
+    fetchUsers(userQuery);
+  }, [userQuery]);
+
+  const handleUserChange = (e: any) => {
+    setUserQuery(e.target.value);
+  };
+
+  const fetchUsers = (query: string) => {
+    setUsers(
+      USERS.filter(
+        (user) => user.toLowerCase().indexOf(query.toLowerCase()) > -1
+      )
+    );
+  };
+
+  return (
+    <div style={{ marginRight: '30px' }}>
+      Find users:
+      <input value={userQuery} onChange={handleUserChange} />
+      {users.map((user) => (
+        <li key={user}>{user}</li>
+      ))}
+    </div>
+  );
+};
+
+// This component is responsible only for filtering projects
+const Projects = () => {
+  const [projectQuery, setProjectQuery] = useState('');
+  const [projects, setProjects] = useState<string[]>([]);
+
+  useEffect(() => {
+    fetchProjects(projectQuery);
+  }, [projectQuery]);
+
+  const handleProjectChange = (e: any) => {
+    setProjectQuery(e.target.value);
+  };
+
+  const fetchProjects = (query: string) => {
+    setProjects(
+      PROJECTS.filter(
+        (project) => project.toLowerCase().indexOf(query.toLowerCase()) > -1
+      )
+    );
+  };
+
+  return (
+    <div>
+      Find projects:
+      <input value={projectQuery} onChange={handleProjectChange} />
+      {projects.map((project) => {
+        return <li key={project}>{project}</li>;
+      })}
+    </div>
+  );
+};
+
+// Render both components inside of the App
+const App = () => (
+  <div style={{ display: 'flex' }}>
+    <Users />
+    <Projects />
+  </div>
+);
+```
+
 ## Use Memoization
 
 ## Use Code Splitting
