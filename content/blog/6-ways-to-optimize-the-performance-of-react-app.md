@@ -229,14 +229,12 @@ If the component returns the same result when the same props are passed, it can 
 This function remembers the result of rendering and if the props are not changed between the renders, the memoized result is returned, skipping the whole rendering process.
 
 ```jsx
-const User = ({ name, surname }) {
-  return (
-    <>
-      <div>Name: {name}</div>
-      <div>Surname: {surname}</div>
-    </>
-  );
-}
+const User = ({ name, surname }) => (
+  <>
+    <div>Name: {name}</div>
+    <div>Surname: {surname}</div>
+  </>
+);
 
 export default React.memo(User);
 ```
