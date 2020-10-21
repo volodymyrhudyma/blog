@@ -206,6 +206,22 @@ Keep this in mind, when designing your components, as it can bring a huge advant
 
 ## Use Memoization
 
+**Memoization** is an optimization technique used to speed up computer programs by storing the results of expensive function calls and returning the cached result when the same inputs occur again.
+
+#### useMemo hook
+
+React provides this hook, which implements the Memiozation concept for us:
+
+```javascript
+const result = useMemo(() => expensiveOperation(a, b), [a, b]);
+```
+
+As you have seen, the hook expects a function and an array of dependencies to be provided.
+
+If any of these dependencies changes, the memoized **result** is recomputed.
+
+To learn more about **useMemo**, read [this article](usememo-in-react/).
+
 ## Use Code Splitting
 
 ## Use Debouncing
