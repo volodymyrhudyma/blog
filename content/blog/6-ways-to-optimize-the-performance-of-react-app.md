@@ -198,6 +198,10 @@ const App = () => (
 );
 ```
 
+After this update, filtering users is being done in a separate component, having absolutely no impact on projects:
+
+![Filtering users does not have any impact on projects](/img/ezgif.com-gif-maker-2-.gif "Filtering users does not have any impact on projects")
+
 ## Use Memoization
 
 ## Use Code Splitting
