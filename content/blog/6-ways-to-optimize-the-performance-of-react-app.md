@@ -96,6 +96,16 @@ We have one big component called **App** which contains two inputs with two list
 
 ![App Component Screenshot](/img/screenshot-2020-10-21-at-22.01.38.png "App Component Screenshot")
 
+The code is straightforward, I have been facing it pretty often. Actually, there is nothing wrong here.
+
+But... can you guess how it can be optimized?
+
+Open Chrome DevTools, select **Components** tab, click on the **settings icon** on the right and turn "**Highlight updates when components render**" mode on:
+
+![Highlight updates when components render mode on](/img/oct-21-2020-22-07-32.gif "Highlight updates when components render mode on")
+
+Then get back to the application and try to enter something in the input to filter users:
+
 ## Use Memoization
 
 ## Use Code Splitting
