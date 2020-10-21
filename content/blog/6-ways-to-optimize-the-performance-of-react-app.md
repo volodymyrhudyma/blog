@@ -20,7 +20,7 @@ Before proceeding, install [React Developer Tools](https://chrome.google.com/web
 
 After the installation, the following open Chrome DevTools and check if the following tabs appeared:
 
-![Components and Profiler Tab](/img/screenshot-2020-10-21-at-21.56.35.png "Components and Profiler Tab")
+![Components and Profiler Tab](/img/ezgif.com-gif-maker.gif "Components and Profiler Tab")
 
 Consider the following example (even though it seems like a lot of code, it is straightforward and easy-to-understand, do not be scared):
 
