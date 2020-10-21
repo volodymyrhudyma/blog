@@ -6,7 +6,6 @@ metaDescription: // META
 teaser: // TEASERR
 date: 2020-10-22T16:34:44.913Z
 ---
-
 ## Avoid Large Components
 
 The first and one of the most important rules is "Keep your components as small as possible".
@@ -127,17 +126,17 @@ The better approach is to split large **App** component into two: **Users** and 
 // This component is responsible only for filtering users
 const Users = () => {
   const [userQuery, setUserQuery] = useState('');
-  const [users, setUsers] = useState<string[]>([]);
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
     fetchUsers(userQuery);
   }, [userQuery]);
 
-  const handleUserChange = (e: any) => {
+  const handleUserChange = (e) => {
     setUserQuery(e.target.value);
   };
 
-  const fetchUsers = (query: string) => {
+  const fetchUsers = (query) => {
     setUsers(
       USERS.filter(
         (user) => user.toLowerCase().indexOf(query.toLowerCase()) > -1
@@ -155,21 +154,23 @@ const Users = () => {
     </div>
   );
 };
+```
 
+```jsx
 // This component is responsible only for filtering projects
 const Projects = () => {
   const [projectQuery, setProjectQuery] = useState('');
-  const [projects, setProjects] = useState<string[]>([]);
+  const [projects, setProjects] = useState([]);
 
   useEffect(() => {
     fetchProjects(projectQuery);
   }, [projectQuery]);
 
-  const handleProjectChange = (e: any) => {
+  const handleProjectChange = (e) => {
     setProjectQuery(e.target.value);
   };
 
-  const fetchProjects = (query: string) => {
+  const fetchProjects = (query) => {
     setProjects(
       PROJECTS.filter(
         (project) => project.toLowerCase().indexOf(query.toLowerCase()) > -1
@@ -187,7 +188,9 @@ const Projects = () => {
     </div>
   );
 };
+```
 
+```jsx
 // Render both components inside of the App
 const App = () => (
   <div style={{ display: 'flex' }}>
