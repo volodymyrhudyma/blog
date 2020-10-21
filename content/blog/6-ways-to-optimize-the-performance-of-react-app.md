@@ -220,7 +220,26 @@ As you have seen, the hook expects a function and an array of dependencies to be
 
 If any of these dependencies changes, the memoized **result** is recomputed.
 
-To learn more about **useMemo**, read [this article](usememo-in-react/).
+To learn more about **useMemo**, read [this article](/usememo-in-react/).
+
+#### React.memo HOC
+
+If the component returns the same result when the same props are passed, it can be wrapped into **React.memo** to gain a performance boost.
+
+This function remembers the result of rendering and if the props are not changed between the renders, the memoized result is returned, skipping the whole rendering process.
+
+```javascript
+const User = ({ name, surname }) {
+  return (
+    <>
+      <div>Name: {name}</div>
+      <div>Surname: {surname}</div>
+    </>
+  );
+}
+
+export default React.memo(User);
+```
 
 ## Use Code Splitting
 
