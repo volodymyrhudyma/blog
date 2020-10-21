@@ -1,11 +1,12 @@
 ---
-title: 6 Ways to Optimize the Performance of React App
+title: 7 Ways to Optimize the Performance of React App
 tag:
   - React
 metaDescription: // META
 teaser: // TEASERR
 date: 2020-10-22T16:34:44.913Z
 ---
+
 ## Avoid Large Components
 
 The first and one of the most important rules is "Keep your components as small as possible".
@@ -25,71 +26,69 @@ After the installation, the following open Chrome DevTools and check if the foll
 Consider the following example (even though it seems like a lot of code, it is straightforward and easy-to-understand, do not be scared):
 
 ```jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react"
 
-const USERS = ['John', 'Andrew', 'Mary', 'Justin', 'Brian', 'Jeremy'];
+const USERS = ["John", "Andrew", "Mary", "Justin", "Brian", "Jeremy"]
 
-const PROJECTS = ['Ninja', 'Apple', 'Pineapple', 'Code', 'Secret', 'Meme'];
+const PROJECTS = ["Ninja", "Apple", "Pineapple", "Code", "Secret", "Meme"]
 
 const App = () => {
-  const [userQuery, setUserQuery] = useState('');
-  const [projectQuery, setProjectQuery] = useState('');
-  const [users, setUsers] = useState([]);
-  const [projects, setProjects] = useState([]);
+  const [userQuery, setUserQuery] = useState("")
+  const [projectQuery, setProjectQuery] = useState("")
+  const [users, setUsers] = useState([])
+  const [projects, setProjects] = useState([])
 
   useEffect(() => {
-    fetchUsers(userQuery);
-  }, [userQuery]);
+    fetchUsers(userQuery)
+  }, [userQuery])
 
   useEffect(() => {
-    fetchProjects(projectQuery);
-  }, [projectQuery]);
+    fetchProjects(projectQuery)
+  }, [projectQuery])
 
-  const handleUserChange = (e) => {
-    setUserQuery(e.target.value);
-  };
+  const handleUserChange = e => {
+    setUserQuery(e.target.value)
+  }
 
-  const handleProjectChange = (e) => {
-    setProjectQuery(e.target.value);
-  };
+  const handleProjectChange = e => {
+    setProjectQuery(e.target.value)
+  }
 
-  const fetchUsers = (query) => {
+  const fetchUsers = query => {
     setUsers(
-      USERS.filter(
-        (user) => user.toLowerCase().indexOf(query.toLowerCase()) > -1
-      )
-    );
-  };
+      USERS.filter(user => user.toLowerCase().indexOf(query.toLowerCase()) > -1)
+    )
+  }
 
-  const fetchProjects = (query) => {
+  const fetchProjects = query => {
     setProjects(
       PROJECTS.filter(
-        (project) => project.toLowerCase().indexOf(query.toLowerCase()) > -1
+        project => project.toLowerCase().indexOf(query.toLowerCase()) > -1
       )
-    );
-  };
+    )
+  }
 
   return (
-    <div style={{ display: 'flex' }}>
-      <div style={{ marginRight: '30px' }}>
+    <div style={{ display: "flex" }}>
+      <div style={{ marginRight: "30px" }}>
         Find users:
         <input value={userQuery} onChange={handleUserChange} />
-        {users.map((user) => (
+        {users.map(user => (
           <li key={user}>{user}</li>
         ))}
       </div>
       <div>
         Find projects:
         <input value={projectQuery} onChange={handleProjectChange} />
-        {projects.map((project) => {
-          return <li key={project}>{project}</li>;
+        {projects.map(project => {
+          return <li key={project}>{project}</li>
         })}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App
 ```
 
 We have one big component called **App** which contains two inputs with two lists that can be fintered based on the text entered:
@@ -118,7 +117,7 @@ Seeing a red is not necessarily a bad thing, but if you perform a simple action,
 
 Getting back to our example, we can notice yellow border, which is ok, but... it wraps the whole App component, which means that the whole component is re-rendered when we filter users.
 
-I feel like updating the projects list is completely unnecessary. 
+I feel like updating the projects list is completely unnecessary.
 
 Imagine having thousands of items in the projects list instead of six, how long would it take to re-render them when typing a single letter?
 
@@ -213,7 +212,7 @@ Keep this in mind, when designing your components, as it can bring a huge advant
 React provides this hook, which implements the Memiozation concept for us:
 
 ```javascript
-const result = useMemo(() => expensiveOperation(a, b), [a, b]);
+const result = useMemo(() => expensiveOperation(a, b), [a, b])
 ```
 
 As you have seen, the hook expects a function and an array of dependencies to be provided.
@@ -234,9 +233,9 @@ const User = ({ name, surname }) => (
     <div>Name: {name}</div>
     <div>Surname: {surname}</div>
   </>
-);
+)
 
-export default React.memo(User);
+export default React.memo(User)
 ```
 
 ## Use Code Splitting
