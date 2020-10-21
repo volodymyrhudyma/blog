@@ -94,7 +94,7 @@ export default App;
 
 We have one big component called **App** which contains two inputs with two lists that can be fintered based on the text entered:
 
-![App Component Screenshot](/img/screenshot-2020-10-21-at-22.01.38.png "App Component Screenshot")
+![App Component Screenshot](/img/screenshot-2020-10-21-at-22.09.38.png "App Component Screenshot")
 
 The code is straightforward, I have been facing it pretty often. Actually, there is nothing wrong here.
 
