@@ -104,7 +104,17 @@ Open Chrome DevTools, select **Components** tab, click on the **settings icon** 
 
 ![Highlight updates when components render mode on](/img/oct-21-2020-22-07-32.gif "Highlight updates when components render mode on")
 
-Then get back to the application and try to enter something in the input to filter users:
+Keep the DevTools opened, go back to the application and try to enter something in the input to filter users:
+
+![React component updates highlighted](/img/ezgif.com-gif-maker-1-.gif "React component updates highlighted")
+
+Do you see that yellow border started to appear?
+
+The React Developer Tools highlights components that are re-rendering. Depending of the frequency of updates, different colors are used.
+
+Blue means infrequent updates, turning to green, yellow and red, which means that components update frequently.
+
+Seeing a red is not necessarily a bad thing, but if you perform a simple action, like entering text into the input and see red means that something is wrong and some optimizations are needed.
 
 ## Use Memoization
 
