@@ -344,7 +344,9 @@ const App = () => {
 
 To read more about debouncing, refer to [this article](/debounce-in-react/).
 
-## Define Functions Outside of Components
+## Tree Shake
+
+
 
 ## Do Not Mount Unnecessarily
 
