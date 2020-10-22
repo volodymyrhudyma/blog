@@ -241,7 +241,33 @@ const User = ({ name, surname }) => (
 export default React.memo(User)
 ```
 
-## Use Code Splitting
+## Use Lazy Loading
+
+**Lazy loading** is a design pattern used to defer initialization of an object until it is needed. It can contribute to the performance of your application.
+
+To lazy load React components, **React.lazy** is used. It lets you render a dynamic import as if it was a regular component:
+
+```javascript
+// Before
+import Example from './Example';
+
+// After
+const Example = React.lazy(() => import('./Example'));
+```
+
+This will load the bundle which contains the **App** component when it first renders.
+
+The component that is lazy loaded should be rendered inside of the **Suspense** component, which allows us to show fallback content, like loading indicator or text when we are waiting for the lazy load to complete:
+
+```jsx
+const Example = React.lazy(() => import('./Example'));
+
+const App = () => (
+  <Suspense fallback={<Loader />}>
+    <Example />
+  </Suspense>
+);
+```
 
 ## Use Debouncing
 
