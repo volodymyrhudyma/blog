@@ -290,8 +290,8 @@ const App = () => (
 A good place to start with is with routes:
 
 ```jsx
-const Home = lazy(() => import('./routes/Home'));
-const Blog = lazy(() => import('./routes/Blog'));
+const Home = React.lazy(() => import('./routes/Home'));
+const Blog = React.lazy(() => import('./routes/Blog'));
 
 const App = () => (
   <Router>
