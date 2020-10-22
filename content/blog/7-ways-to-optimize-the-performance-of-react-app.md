@@ -368,6 +368,30 @@ As you may noticed, importing everything from a library never gets tree-shaken a
 
 To read more refer to [this article](https://developers.google.com/web/fundamentals/performance/optimizing-javascript/tree-shaking).
 
-## Do Not Mount Unnecessarily
+## Avoid Unnecessary Remounting
+
+Consider the following example:
+
+```jsx
+// Rendering components in "<div>"
+<div>
+  <View1 />
+  <View2 />
+</div>
+
+// Changing parent element to "<span>"
+<div>
+  <View1 />
+  <View2 />
+</div>
+```
+
+What happens if the parent element changes from the **div** to **span**?
+
+Internal components **View1** and **View2** will be unmounted and mounted again.
+
+If the root elements have different types, the old tree will be torn down a new one will be built from scratch, that is how the Reconciliation works in React.
+
+Keep it in mind and try not to modify parent elements if that is not required.
 
 ## Paginate Your Data
