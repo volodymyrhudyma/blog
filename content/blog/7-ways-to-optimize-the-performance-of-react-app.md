@@ -4,7 +4,7 @@ tag:
   - React
 metaDescription: // META
 teaser: // TEASERR
-date: 2020-10-22T16:34:44.913Z
+date: 2020-10-23T16:34:44.913Z
 ---
 ## Avoid Large Components
 
