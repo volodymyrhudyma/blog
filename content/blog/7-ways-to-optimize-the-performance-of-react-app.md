@@ -346,7 +346,27 @@ To read more about debouncing, refer to [this article](/debounce-in-react/).
 
 ## Tree Shake
 
+**Tree shaking** is a term used to indicate the dead code elimination. It helps to reduce the bundle size by deleting the unused code.
 
+> CommonJS does not support tree shaking. Try not to use it if possible.
+
+```javascript
+// Loads all library
+const lodash = require("lodash");
+
+// Loads all library
+import _ from "lodash";
+
+// Can be configured to use tree shaking
+import { debounce } from "lodash";
+
+// Loads only the "debounce" function
+import debounce from "lodash/debounce";
+```
+
+As you may noticed, importing everything from a library never gets tree-shaken and leads to increasing the bundle size, but importing only specific functions can be configured to use tree shaking in production build.
+
+To read more refer to [this article](https://developers.google.com/web/fundamentals/performance/optimizing-javascript/tree-shaking).
 
 ## Do Not Mount Unnecessarily
 
