@@ -305,6 +305,45 @@ const App = () => (
 
 ## Use Debouncing
 
+**Debouncing** is a programming technique used to ensure that complex and time-consuming tasks are not executed too often.
+
+The Debounce function is a higher-order function that limits the execution rate of the callback function.
+
+An application might contain some time-consuming operations, which if are invoked frequently, have a negative impact on the performance.
+
+Consider the following example: a list of entries has to be filtered based on the user's input. An API request containing the query has to be sent to get the list of filtered entries.
+
+The common way of implementing it is to send a request each time user enters a letter.
+
+But that leads to decreasing performance, as there is no need to send any requests until the user stops typing.
+
+A debounce function can be used here to send one request only after the user has **stopped typing for a certain amount of time**:
+
+```jsx
+// ...
+import debounce from "lodash/debounce";
+
+const App = () => {
+  const [value, setValue] = useState("");
+
+  const handleChange = (e) => {
+    // ...
+    handleSearch(e.target.value);
+  };
+
+  const handleSearch = useCallback(
+    debounce((value) => {
+      // Send a request
+    }, 500),
+    []
+  );
+
+  return <input value={value} onChange={handleChange} />;
+};
+```
+
+To read more about debouncing, refer to [this article](/debounce-in-react/).
+
 ## Define Functions Outside of Components
 
 ## Do Not Mount Unnecessarily
