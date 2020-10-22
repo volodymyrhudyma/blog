@@ -395,3 +395,15 @@ If the root elements have different types, the old tree will be torn down a new 
 Keep it in mind and try not to modify parent elements if that is not required.
 
 ## Paginate Your Data
+
+Rendering a large amount of data at once puts too much stress on your application and makes it slow.
+
+If a lot of entries must be rendered on the screen, it is best to render it in portions.
+
+Then more data can be loaded as you scroll (infinite scroll) or as you click on the link to the page (standard pagination).
+
+Remember that you do not have to build a pagination by yourself, there are plenty of awesome libraries that can be installed configured within a few minutes, like [react-infinite-scroll-component](https://www.npmjs.com/package/react-infinite-scroll-component) or [react-paginate](https://www.npmjs.com/package/react-paginate).
+
+## Summary
+
+Summary
