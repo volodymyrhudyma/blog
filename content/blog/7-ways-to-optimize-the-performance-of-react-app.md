@@ -249,17 +249,15 @@ To begin with, let's understand what a bundle is and why is it needed?
 
 When building the application, you create a lot of separate files (modules) responsible for different things, like fetching the data from the API, transforming it, etc.
 
-Then the module bundler tool, like **Webpack** packages all the modules into one file (or more) and serves it to the browser. That file is called bundle.
+Then the module bundler tool, like **Webpack** packages all the modules into one file (or more) and serves it to the browser. That file is called **bundle**.
 
 If your application is big in size, loading a big bundle is not that great, especially for users with a slow internet connection.
 
-Always keep eye on your bundle to make sure you do not accidentally make it large.
-
 To avoid having one large bundle, you can start splitting it into small ones that can be loaded on-demand.
 
-This process is called Code Splitting and handled by module bundlers, like Webpack.
+This process is called Code Splitting and handled by module bundlers, as well.
 
-In React, you can achieve this by Lazy Loading the components.
+In React, this can be achieved by Lazy Loading the components.
 
 **Lazy loading** is a design pattern used to defer initialization of an object until it is needed. It can contribute to the performance of your application.
 
