@@ -406,4 +406,4 @@ Remember that you do not have to build a pagination by yourself, there are plent
 
 ## Summary
 
-Summary
+In this article, we have reviewed some of the easiest and most effective ways of optimizing the performance of React application.
