@@ -115,7 +115,7 @@ But... can you guess how it could be optimized?
 
 Open Chrome DevTools, select the **Components** tab, click the **settings icon** on the right side and turn "**Highlight updates when components render**" mode on:
 
-![Highlight updates when components render mode on](/img/oct-21-2020-22-07-32.gif "Highlight updates when components render mode on")
+![Highlight updates when highlight mode is on](/img/oct-21-2020-22-07-32.gif "Highlight updates when highlight mode is on")
 
 Leave the DevTools open, go back to the application and try to enter something into the input to filter users:
 
