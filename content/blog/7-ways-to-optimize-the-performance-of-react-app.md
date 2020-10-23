@@ -206,7 +206,7 @@ After this update, filtering users is being done in a separate component, having
 
 Keep this in mind, when designing your components, as it can bring a huge advantage to the performance of your application.
 
-## Use Memoization
+## Memoize
 
 **Memoization** is an optimization technique used to speed up computer programs by storing the results of expensive function calls and returning the cached result when the same inputs occur again.
 
@@ -241,7 +241,7 @@ const User = ({ name, surname }) => (
 export default React.memo(User)
 ```
 
-## Use Code Splitting
+## Split Large Bundles
 
 **Code splitting** is the splitting of code into various bundles which can then be loaded on-demand or in parallel.
 
@@ -303,7 +303,7 @@ const App = () => (
 );
 ```
 
-## Use Debouncing
+## Debounce
 
 **Debouncing** is a programming technique used to ensure that complex and time-consuming tasks are not executed too often.
 
@@ -394,7 +394,7 @@ If the root elements have different types, the old tree will be torn down a new 
 
 Keep it in mind and try not to modify parent elements if that is not required.
 
-## Paginate Your Data
+## Paginate
 
 Rendering a large amount of data at once puts too much stress on your application and makes it slow.
 
@@ -407,3 +407,15 @@ Remember that you do not have to build a pagination by yourself, there are plent
 ## Summary
 
 In this article, we have reviewed some of the easiest and most effective ways of optimizing the performance of React application.
+
+In order to make the app as fast as possible, focus should be put on the performance since the very beginning of the project, choose appropriate architecture and tools.
+
+Quick recap:
+
+* Do not create large components, split them into smaller ones
+* Use memoization (**useMemo** hook, **React.memo**)
+* Split large bundle into smaller chunks to load them faster and on-demand
+* Debounce as much as possible
+* Get use of tree shaking
+* Learn the Reconciliation process in order to avoid remounting of the components accidentally
+* Paginate large data sets
