@@ -2,19 +2,24 @@
 title: 7 Ways to Optimize the Performance of React App
 tag:
   - React
-metaDescription: // META
-teaser: // TEASERR
-date: 2020-10-23T16:34:44.913Z
+metaDescription: "Learn Top 7 Ways to Optimize the Performance of React
+  applications: Avoid Large Components, Memoize, Do Code Splitting, Debounce,
+  Tree Shake, Avoid Unnecessary Remounting, Paginate."
+teaser: The way web applications are created has changed since the creation of
+  React. By operating on a virtual DOM instead of the real one, it makes
+  updating UI extremely fast and manageable. It seems that all tools are set up
+  from the beginning...
+date: 2020-10-24T16:34:44.913Z
 ---
-The way of building web applications was changed since the React has been created. 
+The way web applications are created has changed since the creation of React. 
 
-By operating on a virtual DOM instead of the real one, it makes UI updates extremely fast and manageable.
+By operating on a virtual DOM instead of the real one, it makes updating UI extremely fast and manageable. 
 
-It seems like all the tools are set up from the very beginning, so how can React apps still have poor performance and lags?
+It seems that all tools are set up from the beginning, so how is it possible that React apps still have poor performance and delays? 
 
-Actually, the way people use the library is no less important.
+Actually, the way people use the library is no less important. 
 
-In this article we will learn 7 approaches to make the React application faster.
+In this article we will learn about 7 approaches to make the React application faster.
 
 ## Avoid Large Components
 
