@@ -6,6 +6,16 @@ metaDescription: // META
 teaser: // TEASERR
 date: 2020-10-23T16:34:44.913Z
 ---
+The way of building web applications was changed since the React has been created. 
+
+By operating on a virtual DOM instead of the real one, it makes UI updates extremely fast and manageable.
+
+It seems like all the tools are set up from the very beginning, so how can React apps still have poor performance and lags?
+
+Actually, the way people use the library is no less important.
+
+In this article we will learn 7 approaches to make the React application faster.
+
 ## Avoid Large Components
 
 The first and one of the most important rules is "Keep your components as small as possible".
@@ -413,7 +423,7 @@ In order to make the app as fast as possible, focus should be put on the perform
 Quick recap:
 
 * Do not create large components, split them into smaller ones
-* Use memoization (**useMemo** hook, **React.memo**)
+* Use memoization (**useMemo** hook, **React.memo** HOC)
 * Split large bundle into smaller chunks to load them faster and on-demand
 * Debounce as much as possible
 * Get use of tree shaking
