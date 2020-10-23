@@ -1,5 +1,5 @@
 ---
-title: 7 Ways to Optimize the Performance of React App
+title: Top 7 Ways to Optimize the Performance of React Applications
 tag:
   - React
 metaDescription: "Learn Top 7 Ways to Optimize the Performance of React
