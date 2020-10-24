@@ -388,13 +388,13 @@ Further information can be found in [this article](https://developers.google.com
 Consider the following example:
 
 ```jsx
-// Rendering components in "<div>"
+// Render components in "<div>"
 <div>
   <View1 />
   <View2 />
 </div>
 
-// Changing parent element to "<span>"
+// Change parent element to "<span>"
 <div>
   <View1 />
   <View2 />
