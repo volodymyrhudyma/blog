@@ -140,7 +140,7 @@ The better approach is to split a large **App** component into two: **Users** an
 ```jsx
 // This component is responsible only for filtering users
 const Users = () => {
-  const [userQuery, setUserQuery] = useState('');
+  const [userQuery, setUserQuery] = useState("");
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -160,7 +160,7 @@ const Users = () => {
   };
 
   return (
-    <div style={{ marginRight: '30px' }}>
+    <div style={{ marginRight: "30px" }}>
       Find users:
       <input value={userQuery} onChange={handleUserChange} />
       {users.map((user) => (
@@ -174,7 +174,7 @@ const Users = () => {
 ```jsx
 // This component is responsible only for filtering projects
 const Projects = () => {
-  const [projectQuery, setProjectQuery] = useState('');
+  const [projectQuery, setProjectQuery] = useState("");
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
@@ -208,7 +208,7 @@ const Projects = () => {
 ```jsx
 // Render both components inside of the App
 const App = () => (
-  <div style={{ display: 'flex' }}>
+  <div style={{ display: "flex" }}>
     <Users />
     <Projects />
   </div>
@@ -280,10 +280,10 @@ To lazy load React components, **React.lazy** is used. It allows you to render a
 
 ```javascript
 // Before
-import Example from './Example';
+import Example from "./Example";
 
 // After
-const Example = React.lazy(() => import('./Example'));
+const Example = React.lazy(() => import("./Example"));
 ```
 
 This loads the bundle containing the **App** component when it first renders.
@@ -291,7 +291,7 @@ This loads the bundle containing the **App** component when it first renders.
 The component that loads lazily should be rendered inside the **Suspense** component, which allows us to display fallback content, such as loading indicator or text when we wait for the lazy loading to finish:
 
 ```jsx
-const Example = React.lazy(() => import('./Example'));
+const Example = React.lazy(() => import("./Example"));
 
 const App = () => (
   <Suspense fallback={<Loader />}>
@@ -303,8 +303,8 @@ const App = () => (
 A good starting point are the routes:
 
 ```jsx
-const Home = React.lazy(() => import('./routes/Home'));
-const Blog = React.lazy(() => import('./routes/Blog'));
+const Home = React.lazy(() => import("./routes/Home"));
+const Blog = React.lazy(() => import("./routes/Blog"));
 
 const App = () => (
   <Router>
