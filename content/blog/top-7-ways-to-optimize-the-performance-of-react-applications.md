@@ -395,10 +395,10 @@ Consider the following example:
 </div>
 
 // Change parent element to "<span>"
-<div>
+<span>
   <View1 />
   <View2 />
-</div>
+</span>
 ```
 
 What happens when the parent element changes from the **div** to **span**?
