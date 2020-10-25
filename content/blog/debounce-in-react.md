@@ -37,7 +37,7 @@ You implement a search input that waits for the user to enter some text and send
 
 Every time the users enters a character, a request is sent.
 
-Don not you feel there is no need to send a bunch of requests while the user is still typing a word?
+Do not you feel there is no need to send a bunch of requests while the user is still typing a word?
 
 A debounce function can be used here to send one request only after the user has **stopped typing for a certain amount of time**.
 
