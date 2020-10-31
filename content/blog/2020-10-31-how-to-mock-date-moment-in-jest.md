@@ -31,7 +31,7 @@ export default App;
 
 The result of rendering:
 
-![Current date rendered](/img/screenshot-2020-10-31-at-10.23.25.png "Current date rendered")
+![Current date rendered](/img/screenshot-2020-10-31-at-10.27.57.png "Current date rendered")
 
 So far looks good. To be sure that the component does exactly what is expected, a neat test must be written:
 
@@ -52,12 +52,11 @@ test('renders current date', () => {
   // then
   expect(app.text()).toContain(text);
 });
-
 ```
 
 Run the test and... notice that it fails with the following error message:
 
-![Failing test](/img/screenshot-2020-10-31-at-10.25.45.png "Failing test")
+![Failing test](/img/screenshot-2020-10-31-at-10.28.12.png "Failing test")
 
 ## Mock Date
 
