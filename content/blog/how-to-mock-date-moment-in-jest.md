@@ -84,7 +84,7 @@ import App from "./App";
 // Before all tests
 // Mock the current date
 beforeAll(() => {
-  MockDate.set("2020-10-3");
+  MockDate.set("2020-10-03");
 });
 
 it("renders current date", () => {
