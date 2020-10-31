@@ -112,6 +112,7 @@ describe('with mocked date', () => {
     MockDate.set('2020-10-31');
   });
 
+  // Reset the mock
   afterAll(() => {
     MockDate.reset();
   });
@@ -130,3 +131,5 @@ describe('with mocked date', () => {
 ```
 
 ## Summary
+
+Using the [mockdate](https://www.npmjs.com/package/mockdate) library is definitely one of the easiest ones and the most preferable ways to mock the current date in tests.
