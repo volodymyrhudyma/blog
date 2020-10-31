@@ -1,5 +1,5 @@
 ---
-title: How To Mock Date/moment in Jest?
+title: How To Mock Date/Moment in Jest?
 tag:
   - React
 metaDescription: // META
