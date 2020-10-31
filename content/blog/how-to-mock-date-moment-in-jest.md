@@ -3,10 +3,11 @@ title: How To Mock Date/Moment in Jest?
 tag:
   - React
 metaDescription: "Learn how to mock the current date in Jest. Mock moment/Date
-  objects in Tests to make your tests reliable. See the practical examples of
+  objects in tests to make your tests reliable. See practical examples of
   mocking the current date in Jest. "
 teaser: Proper dates handling is one of the most complex parts of JavaScript.
-  There are multiple things developers should remember when dealing with them...
+  There are several things developers should remember about when dealing with
+  them...
 date: 2020-10-31T08:53:44.007Z
 ---
 In most cases, you have to deal with date and time during project development. 
