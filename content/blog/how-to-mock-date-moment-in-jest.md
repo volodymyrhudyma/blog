@@ -18,7 +18,7 @@ Testing each of these cases with Jest can be a challenge, especially if you have
 
 Today we will discuss this topic by means of some code examples.
 
-## Example #1
+## Example
 
 Let's create a component that displays the current date in Unix millisecond timestamp using the [moment](https://momentjs.com/) library:
 
