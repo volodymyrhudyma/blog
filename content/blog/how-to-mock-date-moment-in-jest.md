@@ -23,11 +23,11 @@ Today we will discuss this topic by means of some code examples.
 Let's create a component that displays the current date in Unix millisecond timestamp using the [moment](https://momentjs.com/) library:
 
 ```jsx
-import React from 'react';
-import moment from 'moment';
+import React from "react";
+import moment from "moment";
 
 const App = () => (
-  <div>Current unix milisecond timestamp: {moment().format('x')}</div>
+  <div>Current unix milisecond timestamp: {moment().format("x")}</div>
 );
 
 export default App;
@@ -40,16 +40,16 @@ The result of the rendering:
 So far it looks good. To be sure that the component does exactly what is expected, a proper test must be written:
 
 ```javascript
-import React from 'react';
-import { mount } from 'enzyme';
-import moment from 'moment';
+import React from "react";
+import { mount } from "enzyme";
+import moment from "moment";
 
-import App from './App';
+import App from "./App";
 
-test('renders current date', () => {
+it("renders current date", () => {
   const app = mount(<App />);
 
-  const text = `Current unix milisecond timestamp: ${moment().format('x')}`;
+  const text = `Current unix milisecond timestamp: ${moment().format("x")}`;
 
   expect(app.text()).toContain(text);
 });
@@ -59,7 +59,7 @@ Run the test and... notice that it fails with the following error message:
 
 ![Failing test](/img/screenshot-2020-10-31-at-10.28.12.png "Failing test")
 
-It fails because it takes some time to execute the code after mounting the component and get the current timestamp with `moment().format('x')` function.
+It fails because it takes some time to execute the code after mounting the component and get the current timestamp with `moment().format("x")` function.
 
 It is obvious that writing tests that do not mock the current date to a static value is not reliable.
 
@@ -74,28 +74,28 @@ Install the library:
 Refactor the test:
 
 ```javascript
-import React from 'react';
-import { mount } from 'enzyme';
-import moment from 'moment';
-import MockDate from 'mockdate';
+import React from "react";
+import { mount } from "enzyme";
+import moment from "moment";
+import MockDate from "mockdate";
 
-import App from './App';
+import App from "./App";
 
 // Before all tests
 // Mock the current date
 beforeAll(() => {
-  MockDate.set('2020-10-31');
+  MockDate.set("2020-10-3");
 });
 
-test('renders current date', () => {
+it("renders current date", () => {
   const app = mount(<App />);
 
-  const text = `Current unix milisecond timestamp: ${moment().format('x')}`;
+  const text = `Current unix milisecond timestamp: ${moment().format("x")}`;
 
   // Just for the testing purposes
   // Let's print rendered strings
-  console.log('Component: ', app.text());
-  console.log('Test: ', text);
+  console.log("Component: ", app.text());
+  console.log("Test: ", text);
 
   expect(app.text()).toContain(text);
 });
@@ -108,11 +108,11 @@ And run it:
 **Important note:** Sometimes you have to mock the current date only for certain tests. This can be done by using the `describe` blocks and seting `beforeAll` and `afterAll` inside of them:
 
 ```javascript
-describe('with mocked date', () => {
+describe("with mocked date", () => {
   // Mock the current date 
   // Only inside of this block
   beforeAll(() => {
-    MockDate.set('2020-10-31');
+    MockDate.set("2020-10-31");
   });
 
   // Reset the mock
@@ -120,10 +120,10 @@ describe('with mocked date', () => {
     MockDate.reset();
   });
 
-  test('renders current date', () => {
+  it("renders current date", () => {
     const app = mount(<App />);
 
-    const text = `Current unix milisecond timestamp: ${moment().format('x')}`;
+    const text = `Current unix milisecond timestamp: ${moment().format("x")}`;
 
     expect(app.text()).toContain(text);
   });
