@@ -9,13 +9,13 @@ teaser: Proper dates handling is one of the most complex parts of JavaScript.
   There are multiple things developers should remember when dealing with them...
 date: 2020-10-31T08:53:44.007Z
 ---
-In most cases, during project development, one has to deal with date and time.
+In most cases, you have to deal with date and time during project development. 
 
-It can be components, that display the current date, utility functions calculating something based on the current date, etc.
+They can be components that display the current date, helper functions that calculate something based on the current date, and so on. 
 
-Testing any of these cases with Jest can be a challenge, especially when you have not yet learned how to deal with it in tests.
+Testing each of these cases with Jest can be a challenge, especially if you have not yet learned how to use it in tests. 
 
-Today we will cover this topic by using some code examples.
+Today we will discuss this topic by means of some code examples.
 
 ## Example #1
 
@@ -32,11 +32,11 @@ const App = () => (
 export default App;
 ```
 
-The result of rendering:
+The result of the rendering:
 
 ![Current date rendered](/img/screenshot-2020-10-31-at-10.27.57.png "Current date rendered")
 
-So far looks good. To be sure that the component does exactly what is expected, a neat test must be written:
+So far it looks good. To be sure that the component does exactly what is expected, a proper test must be written:
 
 ```javascript
 import React from 'react';
@@ -58,13 +58,13 @@ Run the test and... notice that it fails with the following error message:
 
 ![Failing test](/img/screenshot-2020-10-31-at-10.28.12.png "Failing test")
 
-It fails because it takes some time to execute the code after the component has been mounted, and get the current timestamp with `moment().format('x')` function.
+It fails because it takes some time to execute the code after mounting the component and get the current timestamp with `moment().format('x')` function.
 
-Obviously, writing the tests that do not mock the current date to a static value is not reliable.
+It is obvious that writing tests that do not mock the current date to a static value is not reliable.
 
 ## Mock Date to Rescue
 
-Fortunately, there is an awesome library named [mockdate](https://www.npmjs.com/package/mockdate) that is designed exactly for the purpose of mocking the current date in tests.
+Fortunately, there is a great library called [mockdate](https://www.npmjs.com/package/mockdate), which serves exactly the purpose of mocking the current date in tests.
 
 Install the library:
 
@@ -98,14 +98,13 @@ test('renders current date', () => {
 
   expect(app.text()).toContain(text);
 });
-
 ```
 
 And run it:
 
 ![Passing test](/img/screenshot-2020-10-31-at-10.40.49.png "Passing test")
 
-**Important note:** sometimes you need to mock the current date only for specific tests. It can be done by the `describe` blocks and putting `beforeAll` and `afterAll` inside of them:
+**Important note:** Sometimes you have to mock the current date only for certain tests. This can be done by using the `describe` blocks and seting `beforeAll` and `afterAll` inside of them:
 
 ```javascript
 describe('with mocked date', () => {
@@ -130,13 +129,12 @@ describe('with mocked date', () => {
 });
 
 // Outside of the block the current date is not mocked
-
 ```
 
 ## Summary
 
-Proper dates handling is one of the most complex parts of JavaScript. There are multiple things developers should remember when dealing with them.
+Proper dates handling is one of the most complex parts of JavaScript. There are several things developers should remember about when dealing with them.
 
-But one of the most important, apart from not forgetting to add tests for the produced code, is not to use current, but mocked date inside of them.
+But one of the most important, apart from not forgetting to add tests for the produced code, is to use mocked date inside of them.
 
-[Mockdate](https://www.npmjs.com/package/mockdate) library provides an easy and reliable way to mock the current date in JavaScript.
+[Mockdate](https://www.npmjs.com/package/mockdate) library offers a simple and reliable way to mock the current date in JavaScript.
