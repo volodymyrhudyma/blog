@@ -132,4 +132,8 @@ describe('with mocked date', () => {
 
 ## Summary
 
-Using the [mockdate](https://www.npmjs.com/package/mockdate) library is definitely one of the easiest ones and the most preferable ways to mock the current date in tests.
+Proper dates handling is one of the most complex parts of JavaScript. There are multiple things developers should remember when dealing with them.
+
+But one of the most important, apart from not forgetting to add tests for the produced code, is not to use current, but mocked date inside of them.
+
+[Mockdate](https://www.npmjs.com/package/mockdate) library provides an easy and reliable way to mock the current date in JavaScript.
