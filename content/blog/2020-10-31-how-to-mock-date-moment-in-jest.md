@@ -43,13 +43,10 @@ import moment from 'moment';
 import App from './App';
 
 test('renders current date', () => {
-  // given
   const app = mount(<App />);
 
-  // when
   const text = `Current unix milisecond timestamp: ${moment().format('x')}`;
 
-  // then
   expect(app.text()).toContain(text);
 });
 ```
@@ -58,6 +55,78 @@ Run the test and... notice that it fails with the following error message:
 
 ![Failing test](/img/screenshot-2020-10-31-at-10.28.12.png "Failing test")
 
-## Mock Date
+It fails because it takes some time to execute the code after the component has been mounted, and get the current timestamp with `moment().format('x')` function.
+
+Obviously, writing the tests that do not mock the current date to a static value is not reliable.
+
+## Mock Date to Rescue
+
+Fortunately, there is an awesome library named [mockdate](https://www.npmjs.com/package/mockdate) that is designed exactly for the purpose of mocking the current date in tests.
+
+Install the library:
+
+`yarn add mockdate`
+
+Refactor the test:
+
+```javascript
+import React from 'react';
+import { mount } from 'enzyme';
+import moment from 'moment';
+import MockDate from 'mockdate';
+
+import App from './App';
+
+// Before all tests
+// Mock the current date
+beforeAll(() => {
+  MockDate.set('2020-10-31');
+});
+
+test('renders current date', () => {
+  const app = mount(<App />);
+
+  const text = `Current unix milisecond timestamp: ${moment().format('x')}`;
+
+  // Just for the testing purposes
+  // Let's print rendered strings
+  console.log('Component: ', app.text());
+  console.log('Test: ', text);
+
+  expect(app.text()).toContain(text);
+});
+
+```
+
+And run it:
+
+![Passing test](/img/screenshot-2020-10-31-at-10.40.49.png "Passing test")
+
+**Important note:** sometimes you need to mock the current date only for specific tests. It can be done by the `describe` blocks and putting `beforeAll` and `afterAll` inside of them:
+
+```javascript
+describe('with mocked date', () => {
+  // Mock the current date 
+  // Only inside of this block
+  beforeAll(() => {
+    MockDate.set('2020-10-31');
+  });
+
+  afterAll(() => {
+    MockDate.reset();
+  });
+
+  test('renders current date', () => {
+    const app = mount(<App />);
+
+    const text = `Current unix milisecond timestamp: ${moment().format('x')}`;
+
+    expect(app.text()).toContain(text);
+  });
+});
+
+// Outside of the block the current date is not mocked
+
+```
 
 ## Summary
