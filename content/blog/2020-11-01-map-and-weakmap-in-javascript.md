@@ -209,9 +209,8 @@ let john = { id: 1, name: "John" };
 
 users.set(john, { address: "John's Address"}); // OK
 
+// "John" is removed both, from the memory and the WeakMap
 john = null;
-
-console.log(users.get(john)); // undefined
 ```
 
 Compare it to the Map:
@@ -223,6 +222,7 @@ let john = { id: 1, name: "John" };
 
 users.set(john, { address: "John's Address"}); // OK
 
+// John is removed from the memory, but not from the Map
 john = null;
 
 // Map {{ id: 1, name: "John" } => { address: "John's Address" } }
@@ -247,5 +247,51 @@ When an object lost all its references, it has to be garbage-collected automatic
 It is decided by the JavaScript engine. The cleanup can happen immediately or after some time.
 
 Since an object is deleted from the WeakMap as well, we do exactly know what elements does it contain, so we can not calculate the size or iterate over its elements. 
+
+## When to use WeakMaps?
+
+WeakMaps can be extremely useful to store information about the keys, which is only valuable if the key has not been garbage-collected.
+
+They provide a way to extend objects from the outside without interfering with garbage collection.
+
+Whenever you need to extend an object but can't because it is sealed, or taken from an external source - a WeakMap can be applied.
+
+Consider the following example:
+
+```javascript
+const cache = new WeakMap();
+
+function get(key) {
+  if (cache.has(key)) {
+    console.log("Return from cache")
+    return cache.get(key);
+  } else {
+    console.log("Calculate, cahce and return")
+    // Calculate the value
+    const result = 0;
+    cache.set(key, result);
+    return result;
+  }
+}
+
+let user = { name: "John" };
+
+// "Calculate, cahce and return"
+get(user);
+
+// "Return from cache"
+get(user);
+
+// "Return from cache"
+get(user);
+
+// When the object is not needed anymore
+// It will be removed from cache as well
+user = null;
+```
+
+In the example above, we implemented a simple cache, which holds the objects till they are garbage-collected.
+
+If we used Map instead of the WeakMap, we could end up with a memory leak, because even if the object will be garbage-collected, it still will be stored in cache.
 
 ## Summary
