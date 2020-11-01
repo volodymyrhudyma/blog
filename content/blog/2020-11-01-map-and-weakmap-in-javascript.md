@@ -238,6 +238,14 @@ console.log(users);
 * `has(key)`
 * `delete(key)`
 
-Which means that it is impossible to iterate or loop over the keys, values, entries or compute the size.
+This means that it is impossible to iterate or loop over the keys, values, entries, compute the size, or clear all values of a WeakMap.
+
+To understand such limitations are necessary, we need to know how garbage-collection works in JavaScript.
+
+When an object lost all its references, it has to be garbage-collected automatically, but we do not know when exactly that will happen.
+
+It is decided by the JavaScript engine. The cleanup can happen immediately or after some time.
+
+Since an object is deleted from the WeakMap as well, we do exactly know what elements does it contain, so we can not calculate the size or iterate over its elements. 
 
 ## Summary
