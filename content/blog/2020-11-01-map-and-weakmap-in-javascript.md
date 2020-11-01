@@ -1,8 +1,8 @@
 ---
-title: Everything You Need to Know about Map and WeakMap in JavaScript
+title: Map and WeakMap in JavaScript
 tag:
   - JavaScript
-metaDescription: // META
+metaDescription: // METAA
 teaser: // TEASER
 date: 2020-11-03T09:13:19.550Z
 ---
