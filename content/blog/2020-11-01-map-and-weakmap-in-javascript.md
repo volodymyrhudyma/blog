@@ -166,7 +166,7 @@ projects.entries();
 
 To iterate over all key-value pairs, a `forEach(callbackFn[, thisArg])` method is used:
 
-*Calls `callbackFn` for each key-value pair in insertion order. If a `thisArg` is provided, it will be used as `this` value for each callback:*
+*Calls callbackFn for each key-value pair in insertion order. If a thisArg is provided, it will be used as this value for each callback:*
 
 ```javascript
 // "project1" { deadline: "2020-12-31" }
