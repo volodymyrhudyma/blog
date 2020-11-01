@@ -160,7 +160,7 @@ To iterate over all key-value pairs, a `forEach(callbackFn[, thisArg])` method i
 // "project1" { deadline: "2020-12-31" }
 // "project2" { deadline: "2020-12-31" }
 projects.forEach((value, key) => {
-  console.log(key, value)
+  console.log(key, value);
 });
 ```
 
