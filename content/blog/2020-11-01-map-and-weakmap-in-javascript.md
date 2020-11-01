@@ -14,7 +14,7 @@ It remembers the insertion order of keys and allows any value to be used as eith
 
 #### Create a Map
 
-A new **Map** object can be created by using the `Map` constructor:
+A new Map object can be created by using the `Map` constructor:
 
 ```javascript
 // Create a new Map
@@ -25,7 +25,7 @@ const users = new Map();
 
 An item can be added to the Map by using the `set(key, value)` function. 
 
-*Returns the **Map** object:*
+*Returns the Map object:*
 
 ```javascript
 // String as a key
@@ -47,7 +47,7 @@ users.set(NaN, { address: "NaN's Address"});
 
 An item can be retrieved from the Map by using `get(key)` function.
 
-*Returns the **value** associated with the key or **undefined**:*
+*Returns the value associated with the key or undefined:*
 
 ```javascript
 users.get("John"); // { address: "John's Address" }
@@ -65,7 +65,7 @@ users.get("Not existing item"); // undefined
 
 To check if a value has been associated with the key, a `has(key)` function can be used.
 
-*Returns **true** or **false**:*
+*Returns true or false:*
 
 ```javascript
 users.has("John"); // true
@@ -83,7 +83,7 @@ users.has("Not existing item"); // false
 
 An item can be removed from the Map by using a `delete` function.
 
-*Returns **true** if an element was removed, **false** if it does not exist:*
+*Returns true if an element was removed, false if it does not exist:*
 
 ```javascript
 users.delete("John"); // true
