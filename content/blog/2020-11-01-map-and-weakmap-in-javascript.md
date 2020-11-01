@@ -81,7 +81,7 @@ users.has("Not existing item"); // false
 
 #### Remove an item
 
-An item can be removed from the Map by using a `delete` function.
+An item can be removed from the Map by using a `delete(key)` function.
 
 *Returns true if an element was removed, false if it does not exist:*
 
