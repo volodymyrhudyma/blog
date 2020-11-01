@@ -107,6 +107,75 @@ users.clear();
 console.log(users); // Map {}
 ```
 
+## Instance Properties and Methods
+
+#### Get the size
+
+To get the size of the Map, a `size` instance property can be accessed.
+
+*Returns the number of key-value pairs:*
+
+```javascript
+const projects = new Map();
+
+projects.set("project1", { deadline: "2020-12-31" });
+projects.set("project2", { deadline: "2020-12-31" });
+
+projects.size; // 2
+```
+
+#### Get all keys
+
+To get all keys of the Map, a `keys()` method is used.
+
+*Returns an Iterator object that contains all keys in an insertion order:*
+
+```javascript
+projects.keys(); // [Map Iterator] { "project1", "project2" }
+```
+
+#### Get all values
+
+To get all values of the Map, a `values()` method is used.
+
+*Returns an Iterator object that contains all values in an insertion order:*
+
+```javascript
+// [Map Iterator] {
+//  { deadline: "2020-12-31" },
+//  { deadline: "2020-12-31" }
+// }
+projects.values();
+```
+
+#### Get all entries
+
+To get all entries of the Map, a `entries()` method is used.
+
+*Returns an Iterator object that contains an array of all \[key, value] pairs in an insertion order:*
+
+```javascript
+// [Map Entries] {
+//  [ "project1", { deadline: "2020-12-31" } ],
+//  [ "project2", { deadline: "2020-12-31" } ]
+// }
+projects.entries();
+```
+
+#### Iterate over all key-value pairs
+
+To iterate over all key-value pairs, a `forEach(callbackFn[, thisArg])` method is used:
+
+*Calls `callbackFn` for each key-value pair in insertion order. If a `thisArg` is provided, it will be used as `this` value for each callback:*
+
+```javascript
+// "project1" { deadline: "2020-12-31" }
+// "project2" { deadline: "2020-12-31" }
+projects.forEach((value, key) => {
+  console.log(key, value)
+});
+```
+
 ## Map vs. Object
 
 An **Object** is a collection of properties, defined as key-value pairs.
