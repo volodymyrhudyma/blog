@@ -51,13 +51,9 @@ An item can be retrieved from the Map by using `get(key)` function.
 
 ```javascript
 users.get("John"); // { address: "John's Address" }
-
 users.get(obj); // { address: "Michael's Address" }
-
 users.get(func); // { address: "Andrew's Address" }
-
 users.get(NaN); // { address: "NaN's Address" }
-
 users.get("Not existing item"); // undefined
 ```
 
@@ -69,13 +65,9 @@ To check if a value has been associated with the key, a `has(key)` function can 
 
 ```javascript
 users.has("John"); // true
-
 users.has(obj); // true
-
 users.has(func); // true
-
 users.has(NaN); // true
-
 users.has("Not existing item"); // false
 ```
 
@@ -87,13 +79,9 @@ An item can be removed from the Map by using a `delete(key)` function.
 
 ```javascript
 users.delete("John"); // true
-
 users.delete(obj); // true
-
 users.delete(func); // true
-
 users.delete(NaN); // true 
-
 users.delete("Not existing item"); // false
 ```
 
