@@ -261,15 +261,20 @@ Consider the following example:
 ```javascript
 const cache = new WeakMap();
 
-function get(key) {
+function getData(key) {
   if (cache.has(key)) {
-    console.log("Return from cache")
+    console.log("Return from cache");
     return cache.get(key);
   } else {
-    console.log("Calculate, cahce and return")
+    console.log("Calculate, cahce and return");
+    
     // Calculate the value
     const result = 0;
+    
+    // Cache the result
     cache.set(key, result);
+    
+    // Return it
     return result;
   }
 }
@@ -277,21 +282,21 @@ function get(key) {
 let user = { name: "John" };
 
 // "Calculate, cahce and return"
-get(user);
+getData(user);
 
 // "Return from cache"
-get(user);
+getData(user);
 
 // "Return from cache"
-get(user);
+getData(user);
 
 // When the object is not needed anymore
-// It will be removed from cache as well
+// It will be removed from the cache as well
 user = null;
 ```
 
 In the example above, we implemented a simple cache, which holds the objects till they are garbage-collected.
 
-If we used Map instead of the WeakMap, we could end up with a memory leak, because even if the object will be garbage-collected, it still will be stored in cache.
+If we used Map instead of the WeakMap, we could end up with a memory leak, because even if the object will be garbage-collected, it still will be stored in the cache.
 
 ## Summary
