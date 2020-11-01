@@ -95,7 +95,7 @@ users.clear();
 console.log(users); // Map {}
 ```
 
-## Instance Properties and Methods
+## Instance Properties and Methods of Map
 
 #### Get the size
 
@@ -178,5 +178,66 @@ Objects are similar to Maps, both allow you to store, retrieve, and delete value
 * A **Map** is optimized to have better performance than an **Object** when frequently adding or removing entries
 
 ## WeakMap
+
+**WeakMap** is similar to the **Map** with a few important differences:
+
+* A value can be accessed only by having the key and the WeakMap itself
+* The keys of a WeakMap must be Objects
+* The keys are "weakly held", which means that they can be garbage-collected
+
+An example of a WeakMap:
+
+```javascript
+const users = new WeakMap();
+
+const john = { id: 1, name: "John" };
+const andrew = { id: 2, name: "Andrew" };
+
+users.set(john, { address: "John's Address"}); // OK
+users.set(andrew, { address: "Andrew's Address"}); // OK
+
+// TypeError: Invalid value used as weak map key
+users.set("text", "Hello, World!"); 
+```
+
+If an object is used as a key of the WeakMap, and there are no other references to that object, it will be automatically garbage-collected (removed from the WeakMap and memory):
+
+```javascript
+const users = new WeakMap();
+
+let john = { id: 1, name: "John" };
+
+users.set(john, { address: "John's Address"}); // OK
+
+john = null;
+
+console.log(users.get(john)); // undefined
+```
+
+Compare it to the Map:
+
+```javascript
+const users = new Map();
+
+let john = { id: 1, name: "John" };
+
+users.set(john, { address: "John's Address"}); // OK
+
+john = null;
+
+// Map {{ id: 1, name: "John" } => { address: "John's Address" } }
+console.log(users);
+```
+
+## Instance Methods of WeakMap
+
+**WeakMap** supports only the following methods:
+
+* `get(key)`
+* `set(key)`
+* `has(key)`
+* `delete(key)`
+
+Which means that it is impossible to iterate or loop over the keys, values, entries or compute the size.
 
 ## Summary
