@@ -15,7 +15,7 @@ Map and WeakMap objects were introduced with the ES6 release.
 
 They were developed to be used as an alternative to Objects as key-value storage.
 
-Unlike Objects, that are limited to having a String or a Symbol as a key, Maps and WeakMaps allow you to use **any value as a key**.
+Unlike Objects, that are limited to having a String or a Symbol as a key, Maps allow you to use **any value as a key**, WeakMaps - only objects.
 
 ## What is a Map?
 
