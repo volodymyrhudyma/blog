@@ -9,7 +9,7 @@ metaDescription: Learn everything you should know about Map and WeakMap objects
 teaser: Map and WeakMap objects were introduced with the ES6 release. They were
   developed to be used as an alternative to Objects as key-value storage. Unlike
   Objects, that are limited to having a...
-date: 2020-11-03T09:13:19.550Z
+date: 2020-11-02T09:13:19.550Z
 ---
 Map and WeakMap objects were introduced with the ES6 release.
 
