@@ -1,5 +1,5 @@
 ---
-title: Everything about Map and WeakMap in JavaScript
+title: Everything About Map and WeakMap in JavaScript
 tag:
   - JavaScript
 metaDescription: Learn everything you should know about Map and WeakMap objects
