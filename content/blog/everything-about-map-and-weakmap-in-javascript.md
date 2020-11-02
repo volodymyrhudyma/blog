@@ -1,5 +1,5 @@
 ---
-title: Map and WeakMap in JavaScript
+title: Everything about Map and WeakMap in JavaScript
 tag:
   - JavaScript
 metaDescription: // METAA
@@ -177,7 +177,7 @@ Objects are similar to Maps, both allow you to store, retrieve, and delete value
 * A **Map** can be directly iterated due to being iterable, an **Object** requires obtaining its keys and iterating over them
 * A **Map** is optimized to have better performance than an **Object** when frequently adding or removing entries
 
-## WeakMap
+## What is a WeakMap?
 
 **WeakMap** is similar to the **Map** with a few important differences:
 
@@ -300,3 +300,9 @@ In the example above, we implemented a simple cache, which holds the objects til
 If we used Map instead of the WeakMap, we could end up with a memory leak, because even if the object will be garbage-collected, it still will be stored in the cache.
 
 ## Summary
+
+Today we learned what is and how to work with Map and WeakMap in JavaScript.
+
+When it comes to storing data, they both can be considered as an alternative to Objects, because they are optimized to have a better performance when frequently adding/removing entries.
+
+They are definitely worth to be given a try and see how you can benefit from using them.
