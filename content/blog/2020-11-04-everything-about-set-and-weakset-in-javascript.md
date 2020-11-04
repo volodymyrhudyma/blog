@@ -93,6 +93,65 @@ console.log(users); // Set {}
 
 ## Instance Properties and Methods of Set
 
+#### Get the size
+
+To determine the size of the Set, an instance property `size` can be accessed.
+
+*Returns the number of elements:*
+
+```javascript
+const projects = new Set();
+
+projects.add("project1");
+projects.add("project2");
+
+projects.size; // 2
+```
+
+#### Get all keys/values
+
+To get all keys or values of the Set, a `keys()` or `values()` method is used accordingly.
+
+For Sets, both methods behave exactly the same way, returning stored elements.
+
+*Returns an Iterator object that contains all keys or values in an insertion order:*
+
+```javascript
+projects.keys(); // [Set Iterator] { "project1", "project2" }
+
+projects.values(); // [Set Iterator] { "project1", "project2" }
+```
+
+#### Get all entries
+
+To get all entries of the Set, the `entries()` function is used.
+
+Remember that keys and values are equal in Sets. 
+
+*Returns an Iterator object that containing an array of all \[key, value] pairs in an insertion order:*
+
+```javascript
+// [Set Entries] {
+//  [ "project1", "project1" ],
+//  [ "project2", "project2" ]
+// }
+projects.entries();
+```
+
+#### Iterate over all elements
+
+To iterate over all elements, a `forEach(callbackFn[, thisArg])` method is used:
+
+*Calls callbackFn for each value in insertion order. If a thisArg is specified, it is used as this value for each callback:*
+
+```javascript
+// "project1" "project1"
+// "project2" "project2"
+projects.forEach((value, key) => {
+  console.log(key, value);
+});
+```
+
 ## Set vs. Array
 
 ## What is a WeakSet?
