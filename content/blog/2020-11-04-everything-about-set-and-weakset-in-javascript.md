@@ -165,6 +165,7 @@ The Main differences between both:
 
 A **WeakSet** is similar to the **Set** with some important differences:
 
+* A value can only be accessed by having the key and the WeakSet itself
 * The keys of a WeakSet must be Objects
 * The keys are "weakly held", which means that they can be garbage-collected
 
@@ -231,5 +232,32 @@ It is decided by the JavaScript engine. The cleanup can be done immediately or a
 Since an object is also deleted from the WeakSet, we do not exactly know what elements it contains, so we cannot calculate the size or iterate over its elements.
 
 ## When to use WeakSets?
+
+WeakSets can be used to tag objects without mutating them:
+
+```javascript
+let isMarked = new WeakSet();
+
+class Node {
+  constructor(id) {
+    this.id = id;
+  }
+  
+  mark() {
+    isMarked.add(this);
+  }
+};
+
+let node1 = new Node("node1");
+node1.mark();
+
+isMarked.has(node1) // true
+
+node1 = null;
+
+isMarked.has(node1) // false
+```
+
+Some more examples are to be found in [this discussion](https://esdiscuss.org/topic/actual-weakset-use-cases).
 
 ## Summary
