@@ -214,6 +214,22 @@ console.log(users);
 
 ## Instance Methods of WeakSet
 
+**WeakSet** only supports the following methods:
+
+* `add(key)`
+* `has(key)`
+* `delete(key)`
+
+This means that it is impossible to iterate or loop the keys, values and entries, calculate the size or delete all values of a WeakSet.
+
+To understand that restrictions are necessary, we need to know how the garbage-collection works in JavaScript.
+
+When an object has lost all its references, it has to be garbage-collected automatically, but we do not know when exactly when it will happen.
+
+It is decided by the JavaScript engine. The cleanup can be done immediately or after some time.
+
+Since an object is also deleted from the WeakSet, we do not exactly know what elements it contains, so we cannot calculate the size or iterate over its elements.
+
 ## When to use WeakSets?
 
 ## Summary
