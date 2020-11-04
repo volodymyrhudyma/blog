@@ -251,11 +251,11 @@ class Node {
 let node1 = new Node("node1");
 node1.mark();
 
-isMarked.has(node1) // true
+isMarked.has(node1); // true
 
 node1 = null;
 
-isMarked.has(node1) // false
+isMarked.has(node1); // false
 ```
 
 Some more examples are to be found in [this discussion](https://esdiscuss.org/topic/actual-weakset-use-cases).
