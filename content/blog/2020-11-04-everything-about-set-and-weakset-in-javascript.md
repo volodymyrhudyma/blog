@@ -2,13 +2,24 @@
 title: Everything About Set and WeakSet in JavaScript
 tag:
   - JavaScript
-metaDescription: // META
-teaser: // TEASER
+metaDescription: Learn Sets and WeakSets - objects that contain a collection of
+  unique values. Sets can contain values of any type, WeakSets can only contain
+  objects. Objects in WeakSets are "weakly held", which means that they can be
+  garbage-collected.
+teaser: The ES6 release introduced two new JavaScript objects - Set and WeakSet,
+  which are very similar to Arrays in that they allow elements to be stored.
+  Unlike Arrays, however, Sets and WeakSets cannot store...
 date: 2020-11-06T19:35:43.818Z
 ---
+The ES6 release introduced two new JavaScript objects - Set and WeakSet, which are very similar to Arrays in that they allow elements to be stored.
+
+Unlike Arrays, however, Sets and WeakSets cannot store duplicate values.
+
+Let's start learning how to work with both.
+
 ## What is a Set?
 
-A Set is an object that contains a collection of **unique values**. Each value can occur only once. 
+A Set is an object that contains a collection of **unique values**. Each value can only occur once. 
 
 It remembers the insertion order and allows you to store values of any type.
 
@@ -151,15 +162,27 @@ projects.forEach((value, key) => {
 
 ## Set vs. Array
 
-The Main differences between both:
+The main differences between the two:
 
 * **Sets** cannot contain duplicate elements, **Arrays** can
-* An element in an **Array** is accessed using its index, in a **Set** it is not possible to retrieve a specific element without traversing the whole collection in the insertion order
-* An Array is considered as an "indexed collection", a Set as a "keyed collection"
+* An element in an **Array** is accessed via its index, in a **Set** it is not possible to retrieve a specific element without traversing the entire collection in the insertion order
+* An Array is considered an "indexed collection", a Set is considered a "keyed collection"
 
-> **Indexed collection** is a collection of data which is ordered by an index value.
+> **Indexed collection** is a collection of data ordered by an index value.
 >
-> **Keyed collection** is a collection of data which is indexed by a key.
+> **Keyed collection** is a collection of data indexed by a key.
+
+## Remove Duplicates From Array Using Set
+
+There are several ways to remove duplicates from an Array, but one of the simplest and cleanest is to use Set object:
+
+```javascript
+const users = ["John", "Andrew", "Mike", "John", "John"];
+
+const uniqueUsers = [...new Set(users)];
+
+console.log(uniqueUsers); // [ "John", "Andrew", "Mike" ]
+```
 
 ## What is a WeakSet?
 
@@ -261,3 +284,9 @@ isMarked.has(node1); // false
 Some more examples are to be found in [this discussion](https://esdiscuss.org/topic/actual-weakset-use-cases).
 
 ## Summary
+
+In this article we got to know Set and WeakSet in JavaScript, talked about the differences between Array and Set and found out a good way to remove duplicates from an Array.
+
+Both objects can be considered as alternatives to Arrays.
+
+Try them out and see what benefits they can bring to your project.
