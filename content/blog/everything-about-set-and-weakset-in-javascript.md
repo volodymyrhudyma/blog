@@ -166,7 +166,7 @@ The main differences between the two:
 
 * **Sets** cannot contain duplicate elements, **Arrays** can
 * An element in an **Array** is accessed via its index, in a **Set** it is not possible to retrieve a specific element without traversing the entire collection in the insertion order
-* An Array is considered an "indexed collection", a Set is considered a "keyed collection"
+* An **Array** is considered an "indexed collection", a **Set** is considered a "keyed collection"
 
 > **Indexed collection** is a collection of data ordered by an index value.
 >
