@@ -9,7 +9,7 @@ metaDescription: Learn Sets and WeakSets - objects that contain a collection of
 teaser: The ES6 release introduced two new JavaScript objects - Set and WeakSet,
   which are very similar to Arrays in that they allow elements to be stored.
   Unlike Arrays, however, Sets and WeakSets cannot store...
-date: 2020-11-06T19:35:43.818Z
+date: 2020-11-05T19:35:43.818Z
 ---
 The ES6 release introduced two new JavaScript objects - Set and WeakSet, which are very similar to Arrays in that they allow elements to be stored.
 
