@@ -31,7 +31,7 @@ const App = () => {
   return (
     <>
       <Header user={user} />
-      {/* Content, Footer */}
+      { /* Content, Footer */ }
     </>
   );
 };
@@ -40,7 +40,7 @@ const App = () => {
 // Moreover, it re-renders when the user changes
 const Header = ({ user }) => (
   <>
-    {/* Logo */}
+    { /* Logo */ }
     <AuthButtons user={user} />
   </>
 );
@@ -104,7 +104,7 @@ This is done by using the `ExampleContext.Consumer` component that requires func
 
 ```jsx
 <ExampleContext.Consumer>
-  {value => /* Use the "value" to render a React Node */}
+  {value => ( /* Use the "value" to render a React Node */ )}
 </ExampleContext.Consumer>
 ```
 
@@ -120,13 +120,13 @@ const App = () => {
 
   useEffect(() => {
     // Fetch user
-    setUser({ name: 'John' });
+    setUser({ name: "John" });
   }, []);
 
   return (
     <UserContext.Provider value={user}>
       <Header />
-      {/* Content, Footer */}
+      { /* Content, Footer */ }
     </UserContext.Provider>
   );
 };
@@ -168,7 +168,7 @@ const App = () => {
   return (
     <>
       <Header />
-      {/* Content, Footer */}
+      { /* Content, Footer */ }
     </>
   );
 };
@@ -217,7 +217,7 @@ const App = () => {
     <ThemeContext.Provider value={theme}>
       <UserContext.Provider value={user}>
         <Header />
-        {/* Content, Footer */}
+        { /* Content, Footer */ }
       </UserContext.Provider>
     </ThemeContext.Provider>
   );
@@ -247,7 +247,6 @@ const AuthButtons = () => (
     )}
   </ThemeContext.Consumer>
 );
-
 ```
 
 In the example above we have two contexts, the first one sets the background color based on the currently selected theme, the second one displays greeting or links to "Login" and "Register" if the user has not been found.
