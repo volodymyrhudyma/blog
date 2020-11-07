@@ -2,8 +2,13 @@
 title: Context API in React
 tag:
   - React
-metaDescription: // META
-teaser: // TEASER
+metaDescription: Learn Context API in React - an easy way to create and share
+  global state across the application, which is very useful to get rid of props
+  drilling. React Context API require Context, Provider and Consumer being
+  created.
+teaser: React Context API was created to solve one big problem that almost any
+  application was facing - prop drilling. Well-written React applications
+  contain many small components communicating with each other and...
 date: 2020-11-08T09:19:00.000Z
 ---
 React Context API was created to solve one big problem that almost any application was facing - **prop drilling**.
@@ -75,7 +80,7 @@ A Context can be created using `React.creactContext(defaultValue)` function:
 const ExampleContext = React.createContext(defaultValue);
 ```
 
-Then React component can subscribe to this context and read the current context value from the closest **Provider** above in the tree. If the Provider was not found, a **defaultValue** is used.
+Then React component can subscribe to this context and read the current context value from the closest Provider above in the tree. If the Provider was not found, a **defaultValue** is used.
 
 #### Create a Provider
 
@@ -159,7 +164,7 @@ const UserContext = React.createContext({ name: "John" )};
 const App = () => {
   // ...
 
-  // Provider is missing 
+  // Missing Provider
   return (
     <>
       <Header />
@@ -245,7 +250,7 @@ const AuthButtons = () => (
 
 ```
 
-In the example above we have two contexts, the first one sets the background based on the currently selected theme, the second one displays greeting or links to "Login" and "Register" is the user has not been found.
+In the example above we have two contexts, the first one sets the background color based on the currently selected theme, the second one displays greeting or links to "Login" and "Register" if the user has not been found.
 
 ## React Hooks: useContext
 
