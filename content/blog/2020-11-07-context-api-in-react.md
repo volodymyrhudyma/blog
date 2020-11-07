@@ -146,6 +146,50 @@ const AuthButtons = () => (
 
 #### If Provider was not found
 
-#### Multiple consumers
+If for some reason we missed the **Provider**, then the **value** will fallback to the **defaultValue** passed as an argument of the **createContext** function:
+
+```jsx
+const UserContext = React.createContext({ name: "John" )};
+
+const App = () => {
+  // ...
+
+  // Provider is missing 
+  return (
+    <>
+      <Header />
+      {/* Content, Footer */}
+    </>
+  );
+};
+
+const Header = () => (
+  // ..
+);
+
+const AuthButtons = () => (
+  <UserContext.Consumer>
+    { /* value equals to { name: "John" ) */ }
+    {(value) =>
+      value ? (
+        <div>Hello, {value.name}</div>
+      ) : (
+        <>
+          <div>Log in</div>
+          <div>Register</div>
+        </>
+      )
+    }
+  </UserContext.Consumer>
+);
+```
+
+#### Multiple Contexts
+
+Of course, we are not limited to have only one Context:
+
+```jsx
+// CODE
+```
 
 ## Summary
