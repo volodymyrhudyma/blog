@@ -8,7 +8,7 @@ date: 2020-11-08T09:19:00.000Z
 ---
 React Context API was created to solve one big problem that almost any application was facing - **prop drilling**.
 
-Well-written React applications tend to contain many small components (having as small responsibilities as possible) that need to communicate with each other and share some data via props.
+Well-written React applications contain many small components (having as small responsibilities as possible) communicating with each other and sharing some data via props.
 
 Sometimes it is necessary to pass the props from the parent component to the child located deeply in the React tree.
 
