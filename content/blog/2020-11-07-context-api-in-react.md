@@ -247,4 +247,42 @@ const AuthButtons = () => (
 
 In the example above we have two contexts, the first one sets the background based on the currently selected theme, the second one displays greeting or links to "Login" and "Register" is the user has not been found.
 
+## React Hooks: useContext
+
+In the functional components `useContext(Context)` hook can be used to subscribe to the Context.
+
+Using this hook is equal to writing `<Context.Consumer>{value => ()}</Context.Consumer>`. 
+
+A component using it will always re-render when the Context value changes:
+
+```jsx
+const AuthButtons = () => {
+  const theme = useContext(ThemeContext);
+  const user = useContext(UserContext);
+
+  return (
+    <div style={{ backgroundColor: theme?.background }}>
+      {user ? (
+        <div>Hello, {user.name}</div>
+      ) : (
+        <>
+          <div>Log in</div>
+          <div>Register</div>
+        </>
+      )}
+    </div>
+  );
+};
+```
+
 ## Summary
+
+Context API in React is a way to create and share global state across the application, which is very useful to get rid of props drilling.
+
+There are alternatives, like Redux, which is a library for managing the application's state, but, opposite to the Context API, it requires a lot of configurations to get started.
+
+Quick recap:
+
+* Create a Context: `const Context = React.createContext(defaultValue)`
+* Provide a Context to the children: `<Context.Provider value={ /* Value here */ }>{ /* Child tree */ }</Context.Provider>`
+* Subscribe to the Context: `<Context.Consumer>{value => ()}<Context.Consumer>` or get use of `useContext(Context)` hook
