@@ -103,7 +103,49 @@ All consumers that are descendants of a Provider will re-render when the value o
 To get a better understanding of the whole concept, let's refactor our example with drilling the **user** prop to use React Context API:
 
 ```jsx
-// CODE
+const UserContext = React.createContext(null);
+
+const App = () => {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    // Fetch user
+    setUser({ name: 'John' });
+  }, []);
+
+  return (
+    <UserContext.Provider value={user}>
+      <Header />
+      {/* Content, Footer */}
+    </UserContext.Provider>
+  );
+};
+
+const Header = () => (
+  <>
+    {/* Logo */}
+    <AuthButtons />
+  </>
+);
+
+const AuthButtons = () => (
+  <UserContext.Consumer>
+    {(value) =>
+      value ? (
+        <div>Hello, {value.name}</div>
+      ) : (
+        <>
+          <div>Log in</div>
+          <div>Register</div>
+        </>
+      )
+    }
+  </UserContext.Consumer>
+);
 ```
+
+#### If Provider was not found
+
+#### Multiple consumers
 
 ## Summary
