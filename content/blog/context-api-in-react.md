@@ -9,7 +9,7 @@ metaDescription: Learn Context API in React - an easy way to create and share
 teaser: React Context API was created to solve one big problem that almost any
   application was facing - prop drilling. Well-written React applications
   contain many small components communicating with each other and...
-date: 2020-11-08T09:19:00.000Z
+date: 2020-11-08T09:20:00.000Z
 ---
 React Context API was created to solve one big problem that almost any application was facing - **prop drilling**.
 
