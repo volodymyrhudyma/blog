@@ -32,6 +32,7 @@ const App = () => {
 };
 
 // Header component does not need to know about user
+// Moreover, it re-renders when the user changes
 const Header = ({ user }) => (
   <>
     {/* Logo */}
@@ -58,8 +59,51 @@ But what if the number of levels increases to 10, or even 20?
 
 ## What is a Context?
 
-## When to Use It?
+According to the [official React documentation](https://reactjs.org/docs/context.html), **Context** provides a way to pass data through the component tree without having to pass props down manually at every level.
+
+#### Create a Context
+
+A Context can be created using `React.creactContext(defaultValue)` function:
+
+```javascript
+const ExampleContext = React.createContext(defaultValue);
+```
+
+Then React component can subscribe to this context and read the current context value from the closest **Provider** above in the tree. If the Provider was not found, a **defaultValue** is used.
+
+#### Subscribe to a Context
+
+As it was mentioned, to read the data from the Context, a component must subscribe to it.
+
+This is done by using the `ExampleContext.Consumer` component that requires function as a child, which receives the **value** of the current context and returns a **React Node**:
+
+```jsx
+<ExampleContext.Consumer>
+  {value => /* Use the "value" to render a React Node */}
+</ExampleContext.Consumer>
+```
+
+#### Provide a Context
+
+Before subscribing to the Context, we must provide it to all components in the tree.
+
+This is done by using `ExampleContext.Provider` component that accepts a **value** prop to be passed to all consumers:
+
+```jsx
+<MyContext.Provider value={ /* Provide a value here */ }>
+  { /* Render children that are allowed to be consumers */ }
+</MyContext.Provider>
+
+```
+
+All consumers that are descendants of a Provider will re-render when the value of the Provider changes.
 
 ## Example Usage
+
+To get a better understanding of the whole concept, let's refactor our example with drilling the **user** prop to use React Context API:
+
+```jsx
+// CODE
+```
 
 ## Summary
