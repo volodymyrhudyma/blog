@@ -4,7 +4,7 @@ tag:
   - React
 metaDescription: // META
 teaser: // TEASER
-date: 2020-11-08T09:18:30.617Z
+date: 2020-11-08T09:19:00.000Z
 ---
 React Context API was created to solve one big problem that almost any application was facing - **prop drilling**.
 
