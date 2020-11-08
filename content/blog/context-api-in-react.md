@@ -2,7 +2,7 @@
 title: Context API in React
 tag:
   - React
-metaDescription: Learn Context API in React - an easy way to create and share
+metaDescription: Learn Context API in React - an easy way to create and share a
   global state throughout the application, which is very useful for eliminating
   the need for props drilling. React Context API requires Context, Provider and
   Consumer to be created.
