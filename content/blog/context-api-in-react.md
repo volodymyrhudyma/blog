@@ -133,7 +133,7 @@ const App = () => {
 
 const Header = () => (
   <>
-    {/* Logo */}
+    { /* Logo */ }
     <AuthButtons />
   </>
 );
