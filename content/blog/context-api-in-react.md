@@ -287,6 +287,6 @@ There are alternatives, such as Redux, a library for managing the state of the a
 
 Quick recap:
 
-* Create a Context: `const Context = React.createContext(defaultValue)`
-* Provide a Context to the children: `<Context.Provider value={ /* Value here */ }>{ /* Child tree */ }</Context.Provider>`
-* Subscribe to the Context: `<Context.Consumer>{value => ()}<Context.Consumer>` or use the `useContext(Context)` hook
+* Create a Context: **const Context = React.createContext(defaultValue)**
+* Provide a Context to the children: **<Context.Provider value={ /\* Value here \*/ }>{ /\* Child tree \*/ }</Context.Provider>**
+* Subscribe to the Context: **<Context.Consumer>{value => ()}</Context.Consumer>** or use the **useContext(Context)** hook
