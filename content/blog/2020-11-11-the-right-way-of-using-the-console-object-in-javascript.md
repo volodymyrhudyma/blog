@@ -70,4 +70,32 @@ console.error("End of debugging...")
 
 Output:
 
-![Console.error output](/img/screenshot-2020-11-11-at-11.40.49.png "Console.error output")
+![Console.error output](/img/screenshot-2020-11-11-at-11.40.49.png "t")
+
+## console.count(\[label])
+
+Outputs the number of times this call to count was performed:
+
+```javascript
+console.log('Debugging...');
+
+const user = {
+  name: 'John',
+  surname: 'Doe',
+};
+
+const getFullName = (user) => {
+  console.count();
+  return `${user.name} ${user.surname}`;
+};
+
+getFullName(user);
+getFullName(user);
+getFullName(user);
+
+console.log('End of debugging...');
+```
+
+ Output:
+
+![Console.count output](/img/screenshot-2020-11-11-at-11.47.28.png "Console.count output")
