@@ -196,3 +196,119 @@ Collapsed output:
 Expand the first level by clicking on a disclosure button:
 
 ![Console.groupCollapsed output](/img/screenshot-2020-11-11-at-14.49.50.png "Console.groupCollapsed output")
+
+## console.trace(\[message, ...args ])
+
+Outputs a **Stack Trace** to the console. It shows the call path taken to reach the point at which you call this method.
+
+The following arguments can be passed to the **console.trace** method:
+
+* **message** that is printed on the top of the stack trace
+* any amount of data to be added as substitution values in the message
+
+```javascript
+console.log("Debugging...");
+
+const main = () => {
+  const foo = () => {
+    const bar = () => {
+      // Pass a message
+      // And random arguments
+      console.trace("Trace", 0, 1, 2);
+    };
+    bar();
+  };
+  foo();
+};
+
+main();
+
+console.log("End of debugging...");
+```
+
+Output:
+
+![Console.trace output](/img/screenshot-2020-11-11-at-15.00.01.png "Console.trace output")
+
+## console.table(data \[, columns])
+
+Outputs a table to the console. The first argument is **required** and should be either Object or Array, the second one is optional and should be an Array of column names that should be included to the log.
+
+Each column can be sorted by clicking on its label.
+
+#### Array of Primitive values
+
+```javascript
+console.log("Debugging...");
+
+const data = ["John", "Andrew"];
+
+console.table(data);
+
+console.log("End of debugging...");
+```
+
+Output:
+
+![Console.table output](/img/screenshot-2020-11-11-at-15.10.01.png "Console.table output")
+
+#### Array of compound types
+
+```javascript
+console.log("Debugging...");
+
+const data = [["John", "Andrew"], ["Volvo", "Audi"]];
+
+console.table(data);
+
+console.log("End of debugging...");
+```
+
+Output:
+
+![Console.table output](/img/screenshot-2020-11-11-at-15.11.43.png "Console.table output")
+
+#### Object
+
+```javascript
+console.log("Debugging...");
+
+const data = {
+  name: "John",
+  surname: "Doe",
+};
+
+console.table(data);
+
+console.log("End of debugging...");
+
+```
+
+Output:
+
+![Console.table output](/img/screenshot-2020-11-11-at-15.13.13.png "Console.table output")
+
+#### Restricting object properties
+
+```javascript
+console.log("Debugging...");
+
+const data = [
+  {
+    name: "John",
+    surname: "Doe",
+  }, 
+  { 
+    name: "Andrew", 
+    surname: "Hopkins"
+  }, 
+];
+
+console.table(data, ["surname"]);
+
+console.log("End of debugging...");
+```
+
+Output:
+
+![Console.table output](/img/screenshot-2020-11-11-at-15.15.17.png "Console.table output")
