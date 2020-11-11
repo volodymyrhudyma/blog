@@ -129,6 +129,70 @@ greet("Andrew");
 greet("John");
 ```
 
-Outputs:
+Output:
 
 ![Console.assert output](/img/screenshot-2020-11-11-at-14.36.59.png "Console.assert output")
+
+## console.group(\[label])
+
+Creates a new inline group and indents it by an additional level until the `console.groupEnd()` is called.
+
+The method accepts an argument which is optional and if passed, it is used as the group name, otherwise the group name defaults to **console.group**.
+
+Nested groups can be used for better visualization of all logs printed to the console.
+
+By default, all logs which belong to the specific group are expanded:
+
+```javascript
+console.log("Debugging...");
+
+console.log("Level 1");
+
+console.group();
+console.log("Level 2");
+console.log("Level 2");
+
+console.group("GROUP");
+console.log("Level 3");
+
+console.groupEnd();
+
+console.groupEnd();
+
+console.log("End of debugging...");
+```
+
+Output:
+
+![Console.group output](/img/screenshot-2020-11-11-at-14.44.10.png "Console.group output")
+
+## console.groupCollapsed(\[label])
+
+This method is identical to the `console.group([label])` with the only difference - all logs that belong to the group are collapsed by default:
+
+```javascript
+console.log("Debugging...");
+
+console.log("Level 1");
+
+console.groupCollapsed();
+console.log("Level 2");
+console.log("Level 2");
+
+console.groupCollapsed("GROUP");
+console.log("Level 3");
+
+console.groupEnd();
+
+console.groupEnd();
+
+console.log("End of debugging...");
+```
+
+Collapsed output:
+
+![Console.groupCollapsed output](/img/screenshot-2020-11-11-at-14.48.41.png "Console.groupCollapsed output")
+
+Expand the first level by clicking on a disclosure button:
+
+![Console.groupCollapsed output](/img/screenshot-2020-11-11-at-14.49.50.png "Console.groupCollapsed output")
