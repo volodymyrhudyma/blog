@@ -1,9 +1,14 @@
 ---
-title: The Right Way of Using the Console Object in JavaScript
+title: The Right Way of Logging with Console API in JavaScript
 tag:
   - JavaScript
-metaDescription: // META
-teaser: // TEASER
+metaDescription: Learn Console API in JavaScript, which gives access to the
+  debugging console in the browser. One of the most popular methods is
+  console.log - it prints the given argument to the console, but it is not the
+  best option for all cases.
+teaser: In JavaScript, Console API gives access to the debugging console in the
+  browser. It provides us with a bunch of methods we can use, but most
+  developers are not aware of even half of them...
 date: 2020-11-13T08:54:06.414Z
 ---
 In JavaScript, Console API gives access to the debugging console in the browser, which is used during software development to debug the produced code.
@@ -16,7 +21,9 @@ Today we will learn the rest available methods and see how they can provide bett
 
 ## console.log(arg \[, arg2, ..., argN])
 
-Outputs a message to the console. The message can be a simple string containing some information intended to help in debugging or any JavaScript Primitive value(s)/Object(s):
+Outputs a message to the console. 
+
+The message can be a simple string containing some information intended to help in debugging or any JavaScript Primitive value(s)/Object(s):
 
 ```javascript
 console.log("Debugging...");
@@ -42,7 +49,7 @@ Output:
 
 ## Styling logs
 
-Sometimes you may want to display more fancy logs than the casual ones, to be able to quickly find them among tons of others stuff.
+Sometimes you may want to display more fancy logs than the default ones, to be able to quickly find them among tons of other stuff.
 
 It is possible by using a special delimiter `%c`.
 
@@ -183,7 +190,7 @@ Output:
 
 ## console.assert(assertion, arg \[, arg2, ..., argN])
 
-Outputs an error message to the console only if an assertion is **false**. Nothing happens in case of **true**:
+Outputs an error message to the console only if an assertion is **false**. If assertion is **true**, nothing happens:
 
 ```javascript
 const greet = (name) => {
@@ -206,7 +213,7 @@ Output:
 
 Creates a new inline group and indents it by an additional level until the `console.groupEnd()` is called.
 
-The method accepts an argument which is optional and if passed, it is used as the group name, otherwise the group name defaults to **console.group**.
+The method accepts an argument which is optional and if passed, it is used as the group name, otherwise the group name defaults to the **console.group**.
 
 Nested groups can be used for better visualization of all logs printed to the console.
 
@@ -273,7 +280,7 @@ Outputs a **Stack Trace** to the console. It shows the call path taken to reach 
 The following arguments can be passed to the **console.trace** method:
 
 * **message** that is printed on the top of the stack trace
-* any amount of data to be added as substitution values in the message
+* **any amount of data** to be added as substitution values in the message
 
 ```javascript
 console.log("Debugging...");
@@ -301,7 +308,9 @@ Output:
 
 ## console.table(data \[, columns])
 
-Outputs a table to the console. The first argument is **required** and should be either Object or Array, the second one is optional and should be an Array of column names that should be included to the log.
+Outputs a table to the console. 
+
+The first argument is **required** and should be either Object or Array, the second one is optional and should be an Array of column names that should be included to the log.
 
 Each column can be sorted by clicking on its label.
 
