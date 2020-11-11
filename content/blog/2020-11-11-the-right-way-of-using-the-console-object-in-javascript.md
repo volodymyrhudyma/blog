@@ -34,9 +34,8 @@ console.log("User: ", user);
 console.log("Full name: ", getFullName(user));
 
 console.log("End of debugging...");
-
 ```
 
 Outputs:
 
-![Console.log output](/img/screenshot-2020-11-11-at-11.29.55.png "Console.log output")
+![Console.log output](/img/screenshot-2020-11-11-at-11.29.png "Console.log output")
