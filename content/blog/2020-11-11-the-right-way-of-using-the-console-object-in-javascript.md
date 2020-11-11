@@ -354,3 +354,31 @@ console.log("End of debugging...");
 Output:
 
 ![Console.table output](/img/screenshot-2020-11-11-at-15.15.17.png "Console.table output")
+
+## console.time(\[label])
+
+Starts a timer to measure the duration of a given operation. It receives an optional argument which sets the name of the timer, if specified, if not then **default** is used.
+
+To stop the timer and print the elapsed time in milliseconds, call `console.timeEnd([label])`.
+
+To get the amount of time passed at any given moment, call `console.timeLog([label])`.
+
+You are allowed to run up to 10,000 timers simultaneously on a given page:
+
+```javascript
+console.log("Debugging...");
+
+console.time();
+
+for(let i = 0; i < 1000000; i++) {}
+
+console.timeEnd();
+
+console.log("End of debugging...");
+```
+
+Output:
+
+![Console.time output](/img/screenshot-2020-11-11-at-16.05.18.png "Console.time output")
+
+## Summary
