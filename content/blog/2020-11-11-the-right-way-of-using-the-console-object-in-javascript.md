@@ -56,7 +56,7 @@ console.log("Debugging...");
 console.log(
   "This %cis %ca %cmessage", 
   "color: red; font-size: 1rem", 
-  "color: blue font-size: 1.5rem", 
+  "color: blue; font-size: 1.5rem", 
   "color: green; font-size: 2rem"
 );
 
@@ -65,7 +65,7 @@ console.log("End of debugging...");
 
 Output:
 
-![Console.log styling](/img/screenshot-2020-11-11-at-16.12.38.png "Console.log styling")
+![Console.log styling](/img/screenshot-2020-11-11-at-16.18.45.png "Console.log styling")
 
 ## console.warn(arg \[, arg2, ..., argN])
 
@@ -350,7 +350,6 @@ const data = {
 console.table(data);
 
 console.log("End of debugging...");
-
 ```
 
 Output:
