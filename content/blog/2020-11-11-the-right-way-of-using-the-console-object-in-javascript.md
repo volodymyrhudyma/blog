@@ -74,7 +74,9 @@ Output:
 
 ## console.count(\[label])
 
-Outputs the number of times this call to count was performed:
+Outputs the number of times this call to count was performed.
+
+It accepts an argument which is optional and if passed, it is prepended to the count, if not passed, it defaults to the **default**:
 
 ```javascript
 console.log('Debugging...');
@@ -85,17 +87,48 @@ const user = {
 };
 
 const getFullName = (user) => {
+  // No label provided
   console.count();
   return `${user.name} ${user.surname}`;
+};
+
+const greet = (user) => {
+  // With label
+  console.count("Greeting");
+  return `Hello, ${user.name}`;
 };
 
 getFullName(user);
 getFullName(user);
 getFullName(user);
 
+greet(user);
+greet(user);
+
 console.log('End of debugging...');
 ```
 
- Output:
+Output:
 
-![Console.count output](/img/screenshot-2020-11-11-at-11.47.28.png "Console.count output")
+![Console.count output](/img/screenshot-2020-11-11-at-14.26.31.png "Console.count output")
+
+## console.assert(assertion, arg \[, arg2, ..., argN])
+
+Outputs an error message to the console only if an assertion is **false**. Nothing happens in case of **true**:
+
+```javascript
+const greet = (name) => {
+  console.assert(name === "John", "Only John was expected to come!");
+  return `Hello, ${name}`;
+}
+
+// Error message will be shown
+greet("Andrew");
+
+// No error
+greet("John");
+```
+
+Outputs:
+
+![Console.assert output](/img/screenshot-2020-11-11-at-14.36.59.png "Console.assert output")
