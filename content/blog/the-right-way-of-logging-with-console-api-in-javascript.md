@@ -4,7 +4,7 @@ tag:
   - JavaScript
 metaDescription: Learn Console API in JavaScript, which gives access to the
   debugging console in the browser. One of the most popular methods is
-  console.log - it prints the given argument to the console, but it is not the
+  console.log - it prints the given arguments to the console, but it is not the
   best option for all cases.
 teaser: In JavaScript, Console API gives access to the debugging console in the
   browser. It provides us with a bunch of methods we can use, but most
