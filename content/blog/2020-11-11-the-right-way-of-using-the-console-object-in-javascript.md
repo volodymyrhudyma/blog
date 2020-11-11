@@ -40,6 +40,33 @@ Output:
 
 ![Console.log output](/img/screenshot-2020-11-11-at-11.29.png "Console.log output")
 
+## Styling logs
+
+Sometimes you may want to display more fancy logs than the casual ones, to be able to quickly find them among tons of others stuff.
+
+It is possible by using a special delimiter `%c`.
+
+You are not limited to using it only once in your logs, just remember how the styles are applied.
+
+Text after the first delimiter is styled by the second argument, after the second - by the third and so on.
+
+```javascript
+console.log("Debugging...");
+
+console.log(
+  "This %cis %ca %cmessage", 
+  "color: red; font-size: 1rem", 
+  "color: blue font-size: 1.5rem", 
+  "color: green; font-size: 2rem"
+);
+
+console.log("End of debugging...");
+```
+
+Output:
+
+![Console.log styling](/img/screenshot-2020-11-11-at-16.12.38.png "Console.log styling")
+
 ## console.warn(arg \[, arg2, ..., argN])
 
 Outputs a warning message to the console:
@@ -382,3 +409,9 @@ Output:
 ![Console.time output](/img/screenshot-2020-11-11-at-16.05.18.png "Console.time output")
 
 ## Summary
+
+The value of the JavaScript Console API can not be overestimated, it is extremely helpful to test if the code works as intended or to find and fix annoying bugs.
+
+Many developers know only about `console.log` and use it everywhere, which is ok of course, but it becomes hard to find some specific logs if you have tons of them.
+
+I hope you will use at least some of the methods in your daily work.
