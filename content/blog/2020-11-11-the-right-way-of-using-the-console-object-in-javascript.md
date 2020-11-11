@@ -36,6 +36,22 @@ console.log("Full name: ", getFullName(user));
 console.log("End of debugging...");
 ```
 
-Outputs:
+Output:
 
 ![Console.log output](/img/screenshot-2020-11-11-at-11.29.png "Console.log output")
+
+## console.warn(arg \[, arg2, ..., argN])
+
+Outputs a warning message to the console, which has . The message can be a simple string containing some information intended to help in debugging or any JavaScript Primitive value(s)/Object(s):
+
+```javascript
+console.warn("Debugging...");
+
+// ...
+
+console.warn("End of debugging...");
+```
+
+Output:
+
+![Console.warn output](/img/screenshot-2020-11-11-at-11.37.45.png "Console.warn output")
