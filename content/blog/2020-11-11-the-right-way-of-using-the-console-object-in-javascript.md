@@ -112,6 +112,48 @@ Output:
 
 ![Console.count output](/img/screenshot-2020-11-11-at-14.26.31.png "Console.count output")
 
+## console.countReset(\[label])
+
+Resets the counter created with `console.count([label])` method:
+
+```javascript
+console.log('Debugging...');
+
+const user = {
+  name: 'John',
+  surname: 'Doe',
+};
+
+const getFullName = (user) => {
+  console.count();
+  return `${user.name} ${user.surname}`;
+};
+
+const greet = (user) => {
+  console.count("Greeting");
+  return `Hello, ${user.name}`;
+};
+
+getFullName(user);
+getFullName(user);
+
+console.countReset();
+
+getFullName(user);
+
+greet(user);
+
+console.countReset("Greeting");
+
+greet(user);
+
+console.log('End of debugging...');
+```
+
+Output:
+
+![Console.countReset output](/img/screenshot-2020-11-11-at-15.20.01.png "Console.countReset output")
+
 ## console.assert(assertion, arg \[, arg2, ..., argN])
 
 Outputs an error message to the console only if an assertion is **false**. Nothing happens in case of **true**:
