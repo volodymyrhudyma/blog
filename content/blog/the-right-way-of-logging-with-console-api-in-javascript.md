@@ -121,11 +121,11 @@ Output: Number of times the call to `count` was performed.
 It accepts an argument that is optional, and if passed, it precedes the count, if not passed, **default** is used:
 
 ```javascript
-console.log('Debugging...');
+console.log("Debugging...");
 
 const user = {
-  name: 'John',
-  surname: 'Doe',
+  name: "John",
+  surname: "Doe",
 };
 
 const getFullName = (user) => {
@@ -147,7 +147,7 @@ getFullName(user);
 greet(user);
 greet(user);
 
-console.log('End of debugging...');
+console.log("End of debugging...");
 ```
 
 Output:
@@ -161,11 +161,11 @@ Syntax: `console.countReset([label])`
 Resets the counter created with `console.count([label])` method:
 
 ```javascript
-console.log('Debugging...');
+console.log("Debugging...");
 
 const user = {
-  name: 'John',
-  surname: 'Doe',
+  name: "John",
+  surname: "Doe",
 };
 
 const getFullName = (user) => {
@@ -191,7 +191,7 @@ console.countReset("Greeting");
 
 greet(user);
 
-console.log('End of debugging...');
+console.log("End of debugging...");
 ```
 
 Output:
