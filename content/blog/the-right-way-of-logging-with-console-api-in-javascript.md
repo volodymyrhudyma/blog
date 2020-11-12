@@ -2,28 +2,30 @@
 title: The Right Way of Logging with Console API in JavaScript
 tag:
   - JavaScript
-metaDescription: Learn Console API in JavaScript, which gives access to the
+metaDescription: Learn Console API in JavaScript that provides access to the
   debugging console in the browser. One of the most popular methods is
-  console.log - it prints the given arguments to the console, but it is not the
-  best option for all cases.
-teaser: In JavaScript, Console API gives access to the debugging console in the
-  browser. It provides us with a bunch of methods we can use, but most
-  developers are not aware of even half of them...
+  console.log - it outputs the specified arguments to the console, but it is not
+  the best option in all cases.
+teaser: In JavaScript, the Console API provides access to the debugging console
+  in the browser. It provides us with a number of methods that we can use, but
+  most developers are not even aware of half of them...
 date: 2020-11-13T08:54:06.414Z
 ---
-In JavaScript, Console API gives access to the debugging console in the browser, which is used during software development to debug the produced code.
+In JavaScript, the **Console API** provides access to the debugging console in the browser, which is used during software development to debug the produced code.
 
-The API provides us with a bunch of methods we can use, but most developers are not aware of even half of them.
+The API provides us with a number of methods that we can use, but most developers are not even aware of half of them.
 
-The most common one is, of course, `console.log(arg [, arg2, ..., agrN])` which is intended to print the message to the console.
+The most common is, of course, `console.log(arg [, arg2, ..., agrN])` which is intended to print the message to the console.
 
-Today we will learn the rest available methods and see how they can provide better debugging for the daily work.
+Today we will learn about the other available methods and see how they can be used for better debugging in the daily work.
 
-## console.log(arg \[, arg2, ..., argN])
+## Log
 
-Outputs a message to the console. 
+Syntax: `console.log(arg [, arg2, ..., argN])`
 
-The message can be a simple string containing some information intended to help in debugging or any JavaScript Primitive value(s)/Object(s):
+Output: Message. 
+
+The message can be a simple string containing some information to help with debugging, or any JavaScript Primitive value(s)/Object(s):
 
 ```javascript
 console.log("Debugging...");
@@ -49,9 +51,9 @@ Output:
 
 ## Styling logs
 
-Sometimes you may want to display more fancy logs than the default ones, to be able to quickly find them among tons of other stuff.
+Sometimes you may want to display more fancy logs than the default ones, so that you can be able to quickly find them among tons of other stuff.
 
-It is possible by using a special delimiter `%c`.
+This is possible by using a special delimiter `%c`.
 
 You are not limited to using it only once in your logs, just remember how the styles are applied.
 
@@ -74,9 +76,11 @@ Output:
 
 ![Console.log styling](/img/screenshot-2020-11-11-at-16.18.45.png "Console.log styling")
 
-## console.warn(arg \[, arg2, ..., argN])
+## Warning
 
-Outputs a warning message to the console:
+Syntax: `console.warn(arg \[, arg2, ..., argN])`
+
+Output: Warning message:
 
 ```javascript
 console.warn("Debugging...");
@@ -90,9 +94,11 @@ Output:
 
 ![Console.warn output](/img/screenshot-2020-11-11-at-11.37.45.png "Console.warn output")
 
-## console.error(arg \[, arg2, ..., argN])
+## Error
 
-Outputs an error message to the console:
+Syntax: `console.error(arg, [, arg2, ..., argN])`
+
+Output: Error message:
 
 ```javascript
 console.error("Debugging...");
@@ -106,11 +112,13 @@ Output:
 
 ![Console.error output](/img/screenshot-2020-11-11-at-11.40.49.png "t")
 
-## console.count(\[label])
+## Count executions
 
-Outputs the number of times this call to count was performed.
+Syntax: `console.count([label])`
 
-It accepts an argument which is optional and if passed, it is prepended to the count, if not passed, it defaults to the **default**:
+Output: Number of times the call to `count` was performed.
+
+It accepts an argument that is optional, and if passed, it precedes the count, if not passed, **default** is used:
 
 ```javascript
 console.log('Debugging...');
@@ -146,9 +154,11 @@ Output:
 
 ![Console.count output](/img/screenshot-2020-11-11-at-14.26.31.png "Console.count output")
 
-## console.countReset(\[label])
+## Reset counter
 
-Resets the counter created with `console.count([label])` method:
+Syntax: `console.countReset([label])`
+
+Output: Reset the counter created with `console.count([label])` method:
 
 ```javascript
 console.log('Debugging...');
@@ -188,9 +198,11 @@ Output:
 
 ![Console.countReset output](/img/screenshot-2020-11-11-at-15.20.01.png "Console.countReset output")
 
-## console.assert(assertion, arg \[, arg2, ..., argN])
+## Assert and Log
 
-Outputs an error message to the console only if an assertion is **false**. If assertion is **true**, nothing happens:
+Syntax: `console.assert(assertion, arg [, arg2, ..., argN])`
+
+Output: Error message to the console only if an assertion is **false**. If assertion is **true**, nothing happens:
 
 ```javascript
 const greet = (name) => {
@@ -209,15 +221,17 @@ Output:
 
 ![Console.assert output](/img/screenshot-2020-11-11-at-14.36.59.png "Console.assert output")
 
-## console.group(\[label])
+## Group Logs (Expanded)
 
-Creates a new inline group and indents it by an additional level until the `console.groupEnd()` is called.
+Syntax: `console.group([label])`
 
-The method accepts an argument which is optional and if passed, it is used as the group name, otherwise the group name defaults to the **console.group**.
+Output: New inline group indented by an additional level until the `console.groupEnd()` is called.
 
-Nested groups can be used for better visualization of all logs printed to the console.
+The method accepts an argument that is optional, and if passed, it is used as the group name, otherwise the group name defaults to **console.group**.
 
-By default, all logs which belong to the specific group are expanded:
+Nested groups can be used to better visualize all logs printed to the console.
+
+By default, all logs that belong to a specific group are **expanded** by default:
 
 ```javascript
 console.log("Debugging...");
@@ -242,9 +256,11 @@ Output:
 
 ![Console.group output](/img/screenshot-2020-11-11-at-14.44.10.png "Console.group output")
 
-## console.groupCollapsed(\[label])
+## Group Logs (Collapsed)
 
-This method is identical to the `console.group([label])` with the only difference - all logs that belong to the group are collapsed by default:
+Syntax: `console.groupCollapsed([label])`
+
+Output: Identical to the `console.group([label])` with the only difference - all logs that belong to the group are **collapsed** by default:
 
 ```javascript
 console.log("Debugging...");
@@ -273,14 +289,18 @@ Expand the first level by clicking on a disclosure button:
 
 ![Console.groupCollapsed output](/img/screenshot-2020-11-11-at-14.49.50.png "Console.groupCollapsed output")
 
-## console.trace(\[message, ...args ])
+## Log a Stack Trace
 
-Outputs a **Stack Trace** to the console. It shows the call path taken to reach the point at which you call this method.
+Syntax: `console.trace([message, ...args ])`
+
+Output: Stack Trace to the console.
+
+It shows the call path that is taken to reach the point where this method is called.
 
 The following arguments can be passed to the **console.trace** method:
 
-* **message** that is printed on the top of the stack trace
-* **any amount of data** to be added as substitution values in the message
+* **message** that is printed on top of the stack trace
+* **any amount of data** added as substitution values in the message
 
 ```javascript
 console.log("Debugging...");
@@ -306,13 +326,15 @@ Output:
 
 ![Console.trace output](/img/screenshot-2020-11-11-at-15.00.01.png "Console.trace output")
 
-## console.table(data \[, columns])
+## Log a Table
 
-Outputs a table to the console. 
+Syntax: `console.table(data [, columns])`
 
-The first argument is **required** and should be either Object or Array, the second one is optional and should be an Array of column names that should be included to the log.
+Output: Table to the console. 
 
-Each column can be sorted by clicking on its label.
+The first argument is **required** and should be either Object or Array, the second argument is optional and should be an Array of column names to be included in the log.
+
+Each column can be sorted by clicking on its name.
 
 #### Array of Primitive values
 
@@ -390,15 +412,19 @@ Output:
 
 ![Console.table output](/img/screenshot-2020-11-11-at-15.15.17.png "Console.table output")
 
-## console.time(\[label])
+## Log Execution Time
 
-Starts a timer to measure the duration of a given operation. It receives an optional argument which sets the name of the timer, if specified, if not then **default** is used.
+Syntax: `console.time([label])`
+
+Start timer for measuring the duration of a specific process.
+
+It gets an optional argument that specifies the name of the timer. If it is not provided, **default** is used.
 
 To stop the timer and print the elapsed time in milliseconds, call `console.timeEnd([label])`.
 
-To get the amount of time passed at any given moment, call `console.timeLog([label])`.
+To get the elapsed time passed at any given moment, call `console.timeLog([label])`.
 
-You are allowed to run up to 10,000 timers simultaneously on a given page:
+It is allowed to run up to **10,000** timers simultaneously on a given page:
 
 ```javascript
 console.log("Debugging...");
@@ -418,8 +444,10 @@ Output:
 
 ## Summary
 
-The value of the JavaScript Console API can not be overestimated, it is extremely helpful to test if the code works as intended or to find and fix annoying bugs.
+The value of the JavaScript Console API cannot be overestimated.
 
-Many developers know only about `console.log` and use it everywhere, which is ok of course, but it becomes hard to find some specific logs if you have tons of them.
+It is extremely useful for testing whether the code works as intended, or for finding and fixing annoying bugs.
 
-I hope you will use at least some of the methods in your daily work.
+Many developers only know `console.log` and use it everywhere, which is fine, but it becomes difficult to find some specific logs when you have tons of them.
+
+I hope that you will use at least some of the methods in your daily work.
