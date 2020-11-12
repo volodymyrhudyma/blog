@@ -19,7 +19,7 @@ The most common is, of course, `console.log(arg [, arg2, ..., agrN])` which is i
 
 Today we will learn about the other available methods and see how they can be used for better debugging in the daily work.
 
-## Log
+## Standard Log
 
 Syntax: `console.log(arg [, arg2, ..., argN])`
 
@@ -49,7 +49,7 @@ Output:
 
 ![Console.log output](/img/screenshot-2020-11-11-at-11.29.png "Console.log output")
 
-## Styling logs
+## Styling Logs
 
 Sometimes you may want to display more fancy logs than the default ones, so that you can be able to quickly find them among tons of other stuff.
 
@@ -76,7 +76,7 @@ Output:
 
 ![Console.log styling](/img/screenshot-2020-11-11-at-16.18.45.png "Console.log styling")
 
-## Warning
+## Warning Log
 
 Syntax: `console.warn(arg \[, arg2, ..., argN])`
 
@@ -94,7 +94,7 @@ Output:
 
 ![Console.warn output](/img/screenshot-2020-11-11-at-11.37.45.png "Console.warn output")
 
-## Error
+## Error Log
 
 Syntax: `console.error(arg, [, arg2, ..., argN])`
 
@@ -112,7 +112,7 @@ Output:
 
 ![Console.error output](/img/screenshot-2020-11-11-at-11.40.49.png "t")
 
-## Count executions
+## Count Executions
 
 Syntax: `console.count([label])`
 
@@ -154,11 +154,11 @@ Output:
 
 ![Console.count output](/img/screenshot-2020-11-11-at-14.26.31.png "Console.count output")
 
-## Reset counter
+## Reset Counter
 
 Syntax: `console.countReset([label])`
 
-Output: Reset the counter created with `console.count([label])` method:
+Resets the counter created with `console.count([label])` method:
 
 ```javascript
 console.log('Debugging...');
@@ -416,7 +416,7 @@ Output:
 
 Syntax: `console.time([label])`
 
-Start timer for measuring the duration of a specific process.
+Starts the timer for measuring the duration of a specific process.
 
 It gets an optional argument that specifies the name of the timer. If it is not provided, **default** is used.
 
