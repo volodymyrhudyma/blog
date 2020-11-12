@@ -15,7 +15,7 @@ In JavaScript, the **Console API** provides access to the debugging console in t
 
 The API provides us with a number of methods that we can use, but most developers are not even aware of half of them.
 
-The most common is, of course, `console.log(arg [, arg2, ..., agrN])` which is intended to print the message to the console.
+The most common is **console.log** which is intended to print the message to the console.
 
 Today we will learn about the other available methods and see how they can be used for better debugging in the daily work.
 
