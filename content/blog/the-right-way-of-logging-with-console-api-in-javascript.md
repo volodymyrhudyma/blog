@@ -9,7 +9,7 @@ metaDescription: Learn Console API in JavaScript that provides access to the
 teaser: In JavaScript, the Console API provides access to the debugging console
   in the browser. It provides us with a number of methods that we can use, but
   most developers are not even aware of half of them...
-date: 2020-11-13T08:54:06.414Z
+date: 2020-11-12T08:54:06.414Z
 ---
 In JavaScript, the **Console API** provides access to the debugging console in the browser, which is used during software development to debug the produced code.
 
