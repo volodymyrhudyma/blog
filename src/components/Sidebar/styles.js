@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   flex-shrink: 0;
   width: 17.5rem;
   margin-left: 2rem;
-  border: 1px solid #000;
+  border: 1px solid #d6d6d6;
   height: 100%;
   padding: 1.5rem 1.5rem 0;
 `

@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 
 import social from "@utils/social.json"
 
@@ -35,7 +36,9 @@ const Header = () => {
       <Container>
         <WrapperInner>
           <Block>
-            <Avatar src="https://i.ibb.co/V29JgcX/DSC-0024.jpg" />
+            <Link to="/">
+              <Avatar src="https://i.ibb.co/V29JgcX/DSC-0024.jpg" />
+            </Link>
             <SidebarDescription>
               I am <BoldText>Volodymyr Hudyma</BoldText>, Front-End Developer
             </SidebarDescription>

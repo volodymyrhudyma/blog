@@ -1,7 +1,14 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import { Wrapper, BlogTitle, BlogDetail, BlogDate, BlogTag } from "./styles"
+import {
+  Wrapper,
+  BlogTitle,
+  BlogDetail,
+  BlogDate,
+  BlogTag,
+  ReadMoreButton,
+} from "./styles"
 
 const BlogPostItem = ({ post }) => (
   <Wrapper>
