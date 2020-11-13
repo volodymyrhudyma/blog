@@ -5,43 +5,17 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React, { useState, useEffect } from "react"
+import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import { createGlobalStyle } from "styled-components"
-import { useCookies } from "react-cookie"
-import debounce from "lodash/debounce"
 
-import social from "@utils/social.json"
-
-import {
-  Wrapper,
-  MainWrapper,
-  SidebarWrapper,
-  ContentWrapper,
-  ContentChildren,
-  Footer,
-  Avatar,
-  SidebarTitle,
-  SidebarDescription,
-  SidebarImage,
-  SidebarButton,
-  SidebarSocial,
-  SocialLink,
-  SocialImage,
-  BoldText,
-  SidebarLink,
-  SidebarClose,
-  SidebarShowFull,
-} from "./styles"
-
-import Newsletter from "@components/Newsletter"
-
-import Header from "../header"
+import Header from "@components/Header"
+import Container from "@components/Container"
+import Footer from "@components/Footer"
 
 const GlobalStyle = createGlobalStyle`
   html {
-    height: 100%;
 
     @media (max-width: 768px) {
       font-size: 106.25%;
@@ -49,22 +23,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    display: flex;
-    height: 100%;
     overflow-x: hidden;
-  }
-
-  #___gatsby {
-    width: 100%;
-  }
-
-  #gatsby-focus-wrapper {
-    display: flex;
-    height: 100%;
-  }
-
-  main {
-    flex: auto;
   }
 
   pre[class*="language-"] {
@@ -88,26 +47,6 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const Layout = ({ children }) => {
-  const [sidebarMini, setSidebarMini] = useState(false)
-  const [cookies] = useCookies(["hideSidebar"])
-
-  const handleResize = debounce(() => {
-    const windowWidth = window.innerWidth
-    if (windowWidth <= 1200) {
-      setSidebarMini(true)
-    } else {
-      setSidebarMini(false)
-    }
-  }, 50)
-
-  useEffect(() => {
-    window.addEventListener("resize", handleResize)
-    handleResize()
-    return () => {
-      window.removeEventListener("resize", handleResize)
-    }
-  }, [])
-
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -118,108 +57,12 @@ const Layout = ({ children }) => {
     }
   `)
 
-  const renderSocialLinks = (color = "default") =>
-    social.map(({ name, link, icon, iconWhite }) => (
-      <SocialLink
-        key={name}
-        href={link}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={`follow me on ${name}`}
-      >
-        <SocialImage src={color === "white" ? iconWhite : icon} alt={name} />
-      </SocialLink>
-    ))
-
-  const toggleMini = () => {
-    setSidebarMini(!sidebarMini)
-  }
-
   return (
     <>
       <GlobalStyle />
       <Header siteTitle={data.site.siteMetadata.title} />
-      <Wrapper>
-        <MainWrapper>
-          {!cookies.hideSidebar && (
-            <SidebarWrapper mini={sidebarMini}>
-              {sidebarMini ? (
-                <SidebarShowFull onClick={toggleMini}>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </SidebarShowFull>
-              ) : (
-                <>
-                  <SidebarClose onClick={toggleMini}>
-                    <span></span>
-                    <span></span>
-                  </SidebarClose>
-                  <SidebarTitle>Hello,</SidebarTitle>
-                  <SidebarImage>
-                    <Avatar src="https://i.ibb.co/V29JgcX/DSC-0024.jpg" />
-                  </SidebarImage>
-                  <SidebarDescription>
-                    I am Volodymyr Hudyma <BoldText>React developer</BoldText>{" "}
-                    with more than <BoldText>5 years of experience</BoldText> in
-                    software development <br />
-                  </SidebarDescription>
-                  <SidebarLink to="/2020-05-01-a-few-words-about-author/">
-                    About me
-                  </SidebarLink>
-                  <SidebarSocial>{renderSocialLinks("white")}</SidebarSocial>
-                  <SidebarButton href="https://www.vhudyma-portfolio.eu/">
-                    Get in touch
-                  </SidebarButton>
-                </>
-              )}
-            </SidebarWrapper>
-          )}
-          <ContentWrapper
-            miniMargin={sidebarMini}
-            noMargin={cookies.hideSidebar}
-          >
-            <ContentChildren>
-              {children}
-              <Newsletter />
-            </ContentChildren>
-            {/* <BannerWrapper>
-              <BannerHeading>
-                Looking for a professional React developer?
-              </BannerHeading>
-              <SidebarButton href="https://www.vhudyma-portfolio.eu/">
-                Hire me
-              </SidebarButton>
-            </BannerWrapper> */}
-            <Footer>
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  marginBottom: "0.5rem",
-                }}
-              >
-                <div>© {new Date().getFullYear()}</div>
-                <div>
-                  by
-                  {` `}
-                  <a href="https://www.vhudyma-portfolio.eu/">
-                    Volodymyr Hudyma
-                  </a>
-                </div>
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "flex-end",
-                }}
-              >
-                {renderSocialLinks()}
-              </div>
-            </Footer>
-          </ContentWrapper>
-        </MainWrapper>
-      </Wrapper>
+      <Container>{children}</Container>
+      <Footer>Footer</Footer>
     </>
   )
 }

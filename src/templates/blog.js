@@ -49,7 +49,6 @@ export default function Template({ data, path }) {
         style={{
           padding: "0 2rem 0.725rem 2rem",
           margin: "0 -2rem 2rem -2rem",
-          backgroundColor: "#fafafa",
         }}
       >
         <h1 style={{ marginBottom: "0.5rem" }}>{frontmatter.title}</h1>
@@ -62,16 +61,6 @@ export default function Template({ data, path }) {
         >
           {frontmatter.date}
         </span>
-        <div style={{ marginBottom: "1.45rem" }}>
-          You are here:{" "}
-          <Link style={{ marginRight: "0.25rem" }} to="/">
-            Home
-          </Link>
-          <span style={{ marginRight: "0.25rem", display: "inline-block" }}>
-            /
-          </span>
-          <span>{frontmatter.title}</span>
-        </div>
       </div>
       <h2
         style={{

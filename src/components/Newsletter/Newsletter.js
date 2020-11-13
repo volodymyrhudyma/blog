@@ -38,12 +38,14 @@ const Newsletter = () => {
           name="email"
           value={email}
           onChange={handleEmailChange}
-          placeholder="Type your e-mail address here..."
+          placeholder="Type your e-mail address..."
         />
         <Button>Submit</Button>
       </Form>
       {mailChimpResponse && (
-        <SubscribeResponse>{mailChimpResponse.msg}</SubscribeResponse>
+        <SubscribeResponse
+          dangerouslySetInnerHTML={{ __html: mailChimpResponse.msg }}
+        />
       )}
     </Wrapper>
   )

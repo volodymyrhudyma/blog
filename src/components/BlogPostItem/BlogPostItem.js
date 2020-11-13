@@ -1,22 +1,10 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import {
-  Wrapper,
-  BlogTitle,
-  BlogDetail,
-  BlogDate,
-  BlogTag,
-  Image,
-  JST,
-} from "./styles"
+import { Wrapper, BlogTitle, BlogDetail, BlogDate, BlogTag } from "./styles"
 
 const BlogPostItem = ({ post }) => (
   <Wrapper>
-    <Image>
-      {post.frontmatter.title}
-      <JST src="./favicon/favicon.png" />
-    </Image>
     <div>
       <BlogTitle>
         <Link to={post.fields.slug}>{post.frontmatter.title}</Link>

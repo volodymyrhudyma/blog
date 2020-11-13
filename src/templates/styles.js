@@ -3,7 +3,7 @@ import styled from "styled-components"
 export const PaginationWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-bottom: 2rem;
+  margin: 4rem 0;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -19,9 +19,10 @@ export const PageInfo = styled.div`
 
 export const SubTitle = styled.div`
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
-
+  margin-top: 2rem;
+  margin-bottom: 2.5rem;
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: flex-start;

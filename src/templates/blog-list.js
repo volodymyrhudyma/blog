@@ -6,6 +6,7 @@ import BlogPostItem from "@components/BlogPostItem"
 import Layout from "@components/Layout"
 import SEO from "@components/seo"
 import Search from "@components/Search"
+import Sidebar from "@components/Sidebar"
 
 import {
   PaginationWrapper,
@@ -62,101 +63,95 @@ export default class BlogList extends React.Component {
     return (
       <Layout>
         <SEO title="JavaScript And ReactJS Tutorials With Best Practices" />
-        <div
-          style={{
-            padding: "0 2rem 2rem 2rem",
-            margin: "0 -2rem",
-            backgroundColor: "#fafafa",
-          }}
-        >
-          <h1>Complicated stuff in simple words</h1>
-          <SubTitle>
-            <TOCWrapper
-              role="button"
-              tabIndex="0"
-              onClick={this.toggleTOC}
-              onKeyPress={this.toggleTOC}
-            >
-              Table of contents
-              <span
-                style={{
-                  fontWeight: "400",
-                  display: "inline-block",
-                  marginLeft: "0.25rem",
-                }}
-              >
-                (Total articles: {this.props.data.allPosts.edges.length})
-              </span>
-              <span
-                style={{
-                  transform: showTOC ? "rotate(90deg)" : "rotate(-90deg)",
-                  marginLeft: "0.5rem",
-                  display: "inline-block",
-                }}
-              >
-                &#60;
-              </span>
-            </TOCWrapper>
-            <SearchWrapper>
-              <Search collapse indices={searchIndices} />
-            </SearchWrapper>
-          </SubTitle>
-          {showTOC && (
-            <div style={{ display: "flex", marginTop: "2.725rem" }}>
-              <section style={{ flex: "auto" }}>
-                <TOCSectionList>
-                  {Object.keys(groupedTOC).map(tag => {
-                    return (
-                      <TOCSectionListItem key={tag}>
-                        <TOCTag>{tag}</TOCTag>
-                        {groupedTOC[tag].map(({ node }) => (
-                          <TOCLink key={node.fields.slug}>
-                            <Link to={node.fields.slug}>
-                              {node.frontmatter.title}
-                            </Link>
-                          </TOCLink>
-                        ))}
-                      </TOCSectionListItem>
-                    )
-                  })}
-                </TOCSectionList>
-              </section>
-            </div>
-          )}
-        </div>
-        <div style={{ marginTop: "2rem" }}>
-          {posts.map(({ node }) => (
-            <BlogPostItem key={node.fields.slug} post={node} />
-          ))}
-        </div>
-        {numPages > 1 && (
-          <PaginationWrapper>
-            <div
+        <SubTitle>
+          <TOCWrapper
+            role="button"
+            tabIndex="0"
+            onClick={this.toggleTOC}
+            onKeyPress={this.toggleTOC}
+          >
+            Table of contents
+            <span
               style={{
-                visibility: !isFirstPage ? "visible" : "hidden",
+                fontWeight: "400",
+                display: "inline-block",
+                marginLeft: "0.25rem",
               }}
             >
-              <Link to={prevPage} rel="prev">
-                ← Previous Page
-              </Link>
-            </div>
-            <PageInfo>
-              Page {currentPage} of{" "}
-              <Link to={`/${numPages.toString()}`} rel="prev">
-                {numPages}
-              </Link>
-            </PageInfo>
-            <div
+              (Total articles: {this.props.data.allPosts.edges.length})
+            </span>
+            <span
               style={{
-                visibility: !isLastPage ? "visible" : "hidden",
+                transform: showTOC ? "rotate(90deg)" : "rotate(-90deg)",
+                marginLeft: "0.5rem",
+                display: "inline-block",
               }}
             >
-              <Link to={nextPage} rel="next">
-                Next Page →
-              </Link>
-            </div>
-          </PaginationWrapper>
+              &#60;
+            </span>
+          </TOCWrapper>
+          <SearchWrapper>
+            <Search collapse indices={searchIndices} />
+          </SearchWrapper>
+        </SubTitle>
+        {showTOC && (
+          <div style={{ display: "flex" }}>
+            <section style={{ flex: "auto" }}>
+              <TOCSectionList>
+                {Object.keys(groupedTOC).map(tag => {
+                  return (
+                    <TOCSectionListItem key={tag}>
+                      <TOCTag>{tag}</TOCTag>
+                      {groupedTOC[tag].map(({ node }) => (
+                        <TOCLink key={node.fields.slug}>
+                          <Link to={node.fields.slug}>
+                            {node.frontmatter.title}
+                          </Link>
+                        </TOCLink>
+                      ))}
+                    </TOCSectionListItem>
+                  )
+                })}
+              </TOCSectionList>
+            </section>
+          </div>
         )}
+        <div style={{ display: "flex", marginTop: "2.5rem" }}>
+          <div>
+            {posts.map(({ node }) => (
+              <BlogPostItem key={node.fields.slug} post={node} />
+            ))}
+            {numPages > 1 && (
+              <PaginationWrapper>
+                <div
+                  style={{
+                    visibility: !isFirstPage ? "visible" : "hidden",
+                  }}
+                >
+                  <Link to={prevPage} rel="prev">
+                    ← Previous Page
+                  </Link>
+                </div>
+                <PageInfo>
+                  Page {currentPage} of{" "}
+                  <Link to={`/${numPages.toString()}`} rel="prev">
+                    {numPages}
+                  </Link>
+                </PageInfo>
+                <div
+                  style={{
+                    visibility: !isLastPage ? "visible" : "hidden",
+                  }}
+                >
+                  <Link to={nextPage} rel="next">
+                    Next Page →
+                  </Link>
+                </div>
+              </PaginationWrapper>
+            )}
+          </div>
+          <Sidebar />
+        </div>
       </Layout>
     )
   }
