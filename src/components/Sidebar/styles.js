@@ -43,7 +43,7 @@ export const Item = styled(Link)`
   margin-bottom: 0.5rem;
   display: block;
   color: #000;
-  transition: color 0.5s;
+  transition: color 0.25s;
 
   &:not(:last-child) {
     padding-bottom: 0.5rem;

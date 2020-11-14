@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { Link } from "gatsby"
 
 export const Wrapper = styled.div`
   display: flex;
@@ -30,5 +31,14 @@ export const BlogTag = styled.div`
   color: #1f7504;
   &:not(:last-child) {
     margin-right: 0.5rem;
+  }
+`
+
+export const StyledLink = styled(Link)`
+  color: #000;
+  transition: color 0.25s;
+
+  &:hover {
+    color: #1f7504;
   }
 `

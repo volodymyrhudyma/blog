@@ -7,14 +7,14 @@ import {
   BlogDetail,
   BlogDate,
   BlogTag,
-  ReadMoreButton,
+  StyledLink,
 } from "./styles"
 
 const BlogPostItem = ({ post }) => (
   <Wrapper>
     <div>
       <BlogTitle>
-        <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
+        <StyledLink to={post.fields.slug}>{post.frontmatter.title}</StyledLink>
       </BlogTitle>
       <BlogDetail>
         <BlogDate>{post.frontmatter.date}</BlogDate>
