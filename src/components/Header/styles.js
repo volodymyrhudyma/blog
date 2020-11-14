@@ -92,6 +92,12 @@ export const Avatar = styled.img`
   object-fit: cover;
 
   @media (max-width: 992px) {
+    margin-right: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    width: 125px;
+    height: 125px;
     margin-right: 1rem;
   }
 
