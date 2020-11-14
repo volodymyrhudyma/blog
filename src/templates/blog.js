@@ -55,22 +55,23 @@ export default function Template({ data, path }) {
         title={frontmatter.title}
         description={frontmatter.metaDescription}
       />
-      <div style={{ marginTop: "1.5rem" }}>
-        You are here:{" "}
-        <Link style={{ marginRight: "0.25rem" }} to="/">
-          Home
-        </Link>
-        <span style={{ marginRight: "0.25rem", display: "inline-block" }}>
-          /
-        </span>
-        <span>{frontmatter.title}</span>
-      </div>
-      <TitleWrapper>
-        <Title>{frontmatter.title}</Title>
-        <Date>{frontmatter.date}</Date>
-      </TitleWrapper>
+
       <div style={{ display: "flex" }}>
         <div>
+          <div style={{ marginTop: "2rem" }}>
+            You are here:{" "}
+            <Link style={{ marginRight: "0.25rem" }} to="/">
+              Home
+            </Link>
+            <span style={{ marginRight: "0.25rem", display: "inline-block" }}>
+              /
+            </span>
+            <span>{frontmatter.title}</span>
+          </div>
+          <TitleWrapper>
+            <Title>{frontmatter.title}</Title>
+            <Date>{frontmatter.date}</Date>
+          </TitleWrapper>
           <h2
             style={{
               marginTop: 0,
@@ -116,7 +117,7 @@ export default function Template({ data, path }) {
           <AddComment slug={path} />
           <CommentList comments={comments} />
         </div>
-        <SidebarWrapper>
+        <SidebarWrapper marginTop>
           <Sidebar allPosts={data.allPosts.edges} />
         </SidebarWrapper>
       </div>

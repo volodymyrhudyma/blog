@@ -1,5 +1,5 @@
 import { AngleDown } from "styled-icons/fa-solid"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 
 export const PaginationWrapper = styled.div`
   display: flex;
@@ -105,6 +105,12 @@ export const BlogListContent = styled.div`
 
 export const SidebarWrapper = styled.div`
   height: 100%;
+
+  ${({ marginTop }) =>
+    marginTop &&
+    css`
+      margin-top: 2rem;
+    `}
 
   @media (max-width: 992px) {
     display: none;
