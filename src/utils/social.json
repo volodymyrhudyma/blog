@@ -1,5 +1,10 @@
 [
   {
+    "name": "Linked In",
+    "link": "https://www.linkedin.com/in/volodymyr-hudyma-98bb78131",
+    "icon": "/icons/linkedin-white.svg"
+  },
+  {
     "name": "Github",
     "link": "https://github.com/volodymyrhudyma",
     "icon": "/icons/github.svg"
@@ -8,11 +13,6 @@
     "name": "Twitter",
     "link": "https://twitter.com/volodymyrhudyma",
     "icon": "/icons/twitter.svg"
-  },
-  {
-    "name": "Linked In",
-    "link": "https://www.linkedin.com/in/volodymyr-hudyma-98bb78131",
-    "icon": "/icons/linkedin-white.svg"
   },
   {
     "name": "Instagram",

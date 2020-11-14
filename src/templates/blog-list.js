@@ -150,7 +150,7 @@ export default class BlogList extends React.Component {
               </PaginationWrapper>
             )}
           </div>
-          <Sidebar />
+          <Sidebar allPosts={allPosts} />
         </div>
       </Layout>
     )
@@ -189,6 +189,7 @@ export const blogListQuery = graphql`
           frontmatter {
             title
             tag
+            promote
           }
         }
       }
