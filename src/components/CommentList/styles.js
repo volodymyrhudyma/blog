@@ -3,7 +3,7 @@ import styled from "styled-components"
 export const Wrapper = styled.div``
 
 export const CommentNode = styled.div`
-  border-top: 1px solid lightgray;
+  border-top: 1px solid #d6d6d6;
   padding: 1rem 0;
 `
 

@@ -25,15 +25,23 @@ export const FlashMessage = styled.div`
 `
 
 export const Button = styled.button`
-  background-color: #1f7504;
+  display: inline-block;
+  background-color: #000;
+  border: 1px solid #000;
   color: #fff;
-  border: none;
-  padding: 0.5rem 2rem;
   cursor: pointer;
+  padding: 0.5rem 2rem;
+  transition: background-color 0.5s;
+  outline: none;
+
+  &:hover {
+    background-color: transparent;
+    color: #000;
+  }
 `
 
 export const Wrapper = styled.div`
-  border-top: 1px solid lightgray;
+  border-top: 1px solid #d6d6d6;
 `
 
 export const Title = styled.div`
