@@ -2,7 +2,15 @@ import React from "react"
 
 import Newsletter from "@components/Newsletter"
 
-import { Wrapper, Block, Title, Item } from "./styles"
+import {
+  Wrapper,
+  Block,
+  Title,
+  Item,
+  RedHot,
+  ReactIcon,
+  JavascriptIcon,
+} from "./styles"
 
 const Sidebar = ({ allPosts }) => {
   const promote = []
@@ -24,7 +32,10 @@ const Sidebar = ({ allPosts }) => {
   return (
     <Wrapper>
       <Block>
-        <Title>Most Popular</Title>
+        <Title>
+          <RedHot />
+          Most Popular
+        </Title>
         {promote.slice(0, 3).map((post, i) => (
           <Item key={i} to={post.fields.slug}>
             {post.frontmatter.title}
@@ -35,7 +46,10 @@ const Sidebar = ({ allPosts }) => {
         <Newsletter />
       </Block>
       <Block>
-        <Title>React</Title>
+        <Title>
+          <ReactIcon />
+          React
+        </Title>
         {reactPosts.slice(0, 3).map((post, i) => (
           <Item key={i} to={post.fields.slug}>
             {post.frontmatter.title}
@@ -43,7 +57,10 @@ const Sidebar = ({ allPosts }) => {
         ))}
       </Block>
       <Block>
-        <Title>JavaScript</Title>
+        <Title>
+          <JavascriptIcon />
+          JavaScript
+        </Title>
         {jsPosts.slice(0, 3).map((post, i) => (
           <Item key={i} to={post.fields.slug}>
             {post.frontmatter.title}

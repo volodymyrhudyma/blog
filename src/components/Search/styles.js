@@ -27,12 +27,16 @@ export const Form = styled.form`
   margin: 0;
   min-width: 17.5rem;
 
+  @media (max-width: 1192px) {
+    min-width: 15rem;
+  }
+
   @media (max-width: 992px) {
     min-width: 12.5rem;
   }
 
   @media (max-width: 768px) {
-    margin-top: 0.5rem;
+    margin-top: 1rem;
   }
 
   @media (max-width: 480px) {

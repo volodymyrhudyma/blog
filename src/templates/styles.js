@@ -97,3 +97,16 @@ export const BlackAngleDown = styled(AngleDown)`
   color: #000;
   width: 14px;
 `
+
+export const BlogListContent = styled.div`
+  display: flex;
+  margin-top: 2.5rem;
+`
+
+export const SidebarWrapper = styled.div`
+  height: 100%;
+
+  @media (max-width: 992px) {
+    display: none;
+  }
+`

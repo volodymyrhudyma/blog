@@ -19,6 +19,8 @@ import {
   TOCSectionList,
   TOCSectionListItem,
   BlackAngleDown,
+  BlogListContent,
+  SidebarWrapper,
 } from "./styles"
 
 const searchIndices = [
@@ -117,7 +119,7 @@ export default class BlogList extends React.Component {
             </section>
           </div>
         )}
-        <div style={{ display: "flex", marginTop: "2.5rem" }}>
+        <BlogListContent>
           <div>
             {posts.map(({ node }) => (
               <BlogPostItem key={node.fields.slug} post={node} />
@@ -151,8 +153,10 @@ export default class BlogList extends React.Component {
               </PaginationWrapper>
             )}
           </div>
-          <Sidebar allPosts={allPosts} />
-        </div>
+          <SidebarWrapper>
+            <Sidebar allPosts={allPosts} />
+          </SidebarWrapper>
+        </BlogListContent>
       </Layout>
     )
   }

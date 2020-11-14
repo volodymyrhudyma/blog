@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import { Link } from "gatsby"
 import slugify from "slugify"
 
 import BackButton from "@components/BackButton"
@@ -7,8 +8,15 @@ import AddComment from "@components/AddComment/AddComment"
 import CommentList from "@components/CommentList/CommentList"
 import SEO from "@components/seo"
 import Sidebar from "@components/Sidebar"
+import Newsletter from "@components/Newsletter"
 
-import { TitleWrapper, Title, Date, BlackAngleDown } from "./styles"
+import {
+  TitleWrapper,
+  Title,
+  Date,
+  BlackAngleDown,
+  SidebarWrapper,
+} from "./styles"
 
 export default function Template({ data, path }) {
   const { article, comments } = data
@@ -47,6 +55,16 @@ export default function Template({ data, path }) {
         title={frontmatter.title}
         description={frontmatter.metaDescription}
       />
+      <div style={{ marginTop: "1.5rem" }}>
+        You are here:{" "}
+        <Link style={{ marginRight: "0.25rem" }} to="/">
+          Home
+        </Link>
+        <span style={{ marginRight: "0.25rem", display: "inline-block" }}>
+          /
+        </span>
+        <span>{frontmatter.title}</span>
+      </div>
       <TitleWrapper>
         <Title>{frontmatter.title}</Title>
         <Date>{frontmatter.date}</Date>
@@ -93,11 +111,14 @@ export default function Template({ data, path }) {
             </ul>
           )}
           <div dangerouslySetInnerHTML={{ __html: html }} />
+          <Newsletter wide />
           <BackButton text="All articles" />
           <AddComment slug={path} />
           <CommentList comments={comments} />
         </div>
-        <Sidebar allPosts={data.allPosts.edges} />
+        <SidebarWrapper>
+          <Sidebar allPosts={data.allPosts.edges} />
+        </SidebarWrapper>
       </div>
     </Layout>
   )

@@ -11,7 +11,7 @@ import {
   SubscribeResponse,
 } from "./styles"
 
-const Newsletter = () => {
+const Newsletter = ({ wide }) => {
   const [email, setEmail] = useState("")
   const [mailChimpResponse, setMailChimpResponse] = useState("")
 
@@ -29,10 +29,10 @@ const Newsletter = () => {
   }
 
   return (
-    <Wrapper>
+    <Wrapper wide={wide}>
       <Title>Subscribe to the newsletter</Title>
       <SubTitle>Receive all new posts directly to your e-mail</SubTitle>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} wide={wide}>
         <Input
           type="text"
           name="email"

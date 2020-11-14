@@ -1,5 +1,7 @@
 import { Link } from "gatsby"
 import styled, { css } from "styled-components"
+import { Hot } from "@styled-icons/boxicons-solid"
+import { ReactLogo, Javascript } from "@styled-icons/boxicons-logos"
 
 export const Wrapper = styled.div`
   flex-shrink: 0;
@@ -7,7 +9,6 @@ export const Wrapper = styled.div`
   margin-left: 2rem;
   margin-bottom: 2rem;
   border-left: 1px solid #d6d6d6;
-  height: 100%;
   padding: 0 1.5rem;
 
   @media (max-width: 1192px) {
@@ -33,9 +34,29 @@ export const Title = styled.div`
   font-weight: bold;
   font-size: 1.5rem;
   margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
 `
 
 export const Item = styled(Link)`
   margin-bottom: 0.5rem;
   display: inline-block;
+`
+
+export const RedHot = styled(Hot)`
+  color: orange;
+  width: 30px;
+  margin-right: 0.5rem;
+`
+
+export const ReactIcon = styled(ReactLogo)`
+  color: #61dbfb;
+  width: 30px;
+  margin-right: 0.5rem;
+`
+
+export const JavascriptIcon = styled(Javascript)`
+  color: #f0db4f;
+  width: 30px;
+  margin-right: 0.5rem;
 `

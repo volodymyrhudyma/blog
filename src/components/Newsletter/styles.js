@@ -1,10 +1,18 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  ${({ wide }) =>
+    wide &&
+    css`
+      background-color: #fafafa;
+      margin: 1.5rem 0;
+      padding: 1.5rem 0;
+    `}
 `
 
 export const Form = styled.form`
@@ -12,6 +20,12 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   width: 100%;
+
+  ${({ wide }) =>
+    wide &&
+    css`
+      width: 15rem;
+    `}
 `
 
 export const Input = styled.input`
