@@ -62,7 +62,7 @@ const Layout = ({ children }) => {
       <GlobalStyle />
       <Header siteTitle={data.site.siteMetadata.title} />
       <Container>{children}</Container>
-      <Footer>Footer</Footer>
+      <Footer />
     </>
   )
 }
