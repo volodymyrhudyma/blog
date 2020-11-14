@@ -16,7 +16,7 @@ export const WrapperInner = styled.div`
 `
 
 export const SidebarDescription = styled.div`
-  @media (max-width: 992px) {
+  @media (max-width: 468px) {
     text-align: center;
   }
 `

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react"
-import { Link } from "gatsby"
 import slugify from "slugify"
 
 import BackButton from "@components/BackButton"
@@ -7,8 +6,9 @@ import Layout from "@components/Layout"
 import AddComment from "@components/AddComment/AddComment"
 import CommentList from "@components/CommentList/CommentList"
 import SEO from "@components/seo"
+import Sidebar from "@components/Sidebar"
 
-import { TitleWrapper, Title, Date } from "./styles"
+import { TitleWrapper, Title, Date, BlackAngleDown } from "./styles"
 
 export default function Template({ data, path }) {
   const { article, comments } = data
@@ -16,7 +16,7 @@ export default function Template({ data, path }) {
 
   const [html, setHtml] = useState(article.html)
   const [headings, setHeadings] = useState([])
-  const [showTOC, setShowTOC] = useState(true)
+  const [showTOC, setShowTOC] = useState(false)
 
   useEffect(() => {
     const div = document.createElement("div")
@@ -51,49 +51,54 @@ export default function Template({ data, path }) {
         <Title>{frontmatter.title}</Title>
         <Date>{frontmatter.date}</Date>
       </TitleWrapper>
-      <h2
-        style={{
-          marginTop: 0,
-          display: "flex",
-          justifyContent: "space-between",
-          borderBottom: "1px solid rgb(205, 205, 205)",
-          paddingBottom: "1.5rem",
-          cursor: "pointer",
-          outline: "none",
-        }}
-        onClick={toggleTOC}
-        onKeyPress={toggleTOC}
-      >
-        Table of contents
-        <span
-          style={{
-            transform: showTOC ? "rotate(90deg)" : "rotate(-90deg)",
-            outline: "none",
-          }}
-        >
-          &#60;
-        </span>
-      </h2>
-      {showTOC && (
-        <ul
-          style={{
-            borderBottom: "1px solid rgb(204, 204, 204)",
-            margin: "0 0 1.5rem 0",
-            paddingLeft: "1.5rem",
-            paddingBottom: "0.725rem",
-          }}
-        >
-          {headings.map((item, index) => (
-            <li key={index}>
-              <a href={`#${slugify(item.innerHTML)}`}>{item.innerHTML}</a>
-            </li>
-          ))}
-        </ul>
-      )}
-      <div dangerouslySetInnerHTML={{ __html: html }} />
-      <BackButton text="All articles" />
-      <AddComment slug={path} />
-      <CommentList comments={comments} />
+      <div style={{ display: "flex" }}>
+        <div>
+          <h2
+            style={{
+              marginTop: 0,
+              display: "flex",
+              justifyContent: "space-between",
+              borderBottom: "1px solid rgb(205, 205, 205)",
+              paddingBottom: "1.5rem",
+              cursor: "pointer",
+              outline: "none",
+            }}
+            onClick={toggleTOC}
+            onKeyPress={toggleTOC}
+          >
+            Table of contents
+            <span
+              style={{
+                transform: showTOC ? "rotate(180deg)" : "rotate(0)",
+                outline: "none",
+              }}
+            >
+              <BlackAngleDown />
+            </span>
+          </h2>
+          {showTOC && (
+            <ul
+              style={{
+                borderBottom: "1px solid rgb(204, 204, 204)",
+                margin: "0 0 1.5rem 0",
+                paddingLeft: "1.5rem",
+                paddingBottom: "0.725rem",
+              }}
+            >
+              {headings.map((item, index) => (
+                <li key={index}>
+                  <a href={`#${slugify(item.innerHTML)}`}>{item.innerHTML}</a>
+                </li>
+              ))}
+            </ul>
+          )}
+          <div dangerouslySetInnerHTML={{ __html: html }} />
+          <BackButton text="All articles" />
+          <AddComment slug={path} />
+          <CommentList comments={comments} />
+        </div>
+        <Sidebar allPosts={data.allPosts.edges} />
+      </div>
     </Layout>
   )
 }
@@ -119,6 +124,22 @@ export const pageQuery = graphql`
           name
           message
           date(formatString: "MMMM DD, YYYY")
+        }
+      }
+    }
+    allPosts: allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      edges {
+        node {
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            tag
+            promote
+          }
         }
       }
     }

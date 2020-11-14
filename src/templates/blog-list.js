@@ -18,6 +18,7 @@ import {
   TOCLink,
   TOCSectionList,
   TOCSectionListItem,
+  BlackAngleDown,
 } from "./styles"
 
 const searchIndices = [
@@ -82,12 +83,12 @@ export default class BlogList extends React.Component {
             </span>
             <span
               style={{
-                transform: showTOC ? "rotate(90deg)" : "rotate(-90deg)",
+                transform: showTOC ? "rotate(180deg)" : "rotate(0)",
                 marginLeft: "0.5rem",
                 display: "inline-block",
               }}
             >
-              &#60;
+              <BlackAngleDown />
             </span>
           </TOCWrapper>
           <SearchWrapper>

@@ -1,3 +1,4 @@
+import { AngleDown } from "styled-icons/fa-solid"
 import styled from "styled-components"
 
 export const PaginationWrapper = styled.div`
@@ -90,4 +91,9 @@ export const TOCSectionListItem = styled.li`
       margin-right: 0;
     }
   }
+`
+
+export const BlackAngleDown = styled(AngleDown)`
+  color: #000;
+  width: 14px;
 `
