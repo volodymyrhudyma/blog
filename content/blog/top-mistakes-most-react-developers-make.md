@@ -3,6 +3,7 @@ title: Top 7 Mistakes Most React Developers Make
 tag:
   - React
 popular: true
+promote: true
 metaDescription: Learn top 7 most common React mistakes that should be avoided.
   To become a good programmer, you should not only learn best practices, but
   also be aware of anti-patterns.
