@@ -8,6 +8,7 @@ fairyGatesTheme.overrideThemeStyles = ({ rhythm }, options) => ({
   a: {
     backgroundImage: "none",
     textShadow: "none",
+    color: "#1f7504",
   },
   blockquote: {
     fontStyle: "normal",

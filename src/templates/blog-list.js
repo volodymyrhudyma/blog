@@ -81,7 +81,7 @@ export default class BlogList extends React.Component {
                 marginLeft: "0.25rem",
               }}
             >
-              (Total articles: {this.props.data.allPosts.edges.length})
+              (Articles: {this.props.data.allPosts.edges.length})
             </span>
             <span
               style={{

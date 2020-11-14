@@ -1,6 +1,7 @@
 import { Link } from "gatsby"
 import styled, { css } from "styled-components"
 import { Hot } from "@styled-icons/boxicons-solid"
+import { Link as LinkIcon } from "@styled-icons/boxicons-regular"
 import { ReactLogo, Javascript } from "@styled-icons/boxicons-logos"
 
 export const Wrapper = styled.div`
@@ -40,7 +41,18 @@ export const Title = styled.div`
 
 export const Item = styled(Link)`
   margin-bottom: 0.5rem;
-  display: inline-block;
+  display: block;
+  color: #000;
+  transition: color 0.5s;
+
+  &:not(:last-child) {
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #d6d6d6;
+  }
+
+  &:hover {
+    color: #1f7504;
+  }
 `
 
 export const RedHot = styled(Hot)`
@@ -52,6 +64,12 @@ export const RedHot = styled(Hot)`
 export const ReactIcon = styled(ReactLogo)`
   color: #61dbfb;
   width: 30px;
+  margin-right: 0.5rem;
+`
+
+export const LinkIconStyled = styled(LinkIcon)`
+  color: #1f7504;
+  width: 20px;
   margin-right: 0.5rem;
 `
 

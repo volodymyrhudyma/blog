@@ -16,6 +16,8 @@ export const WrapperInner = styled.div`
 `
 
 export const SidebarDescription = styled.div`
+  font-size: 1.125rem;
+
   @media (max-width: 468px) {
     text-align: center;
   }
@@ -55,7 +57,7 @@ export const SidebarSocial = styled.div`
 
 export const BoldText = styled.div`
   font-weight: bold;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
 `
 
 export const Block = styled.div`
@@ -81,12 +83,13 @@ export const Block = styled.div`
 `
 
 export const Avatar = styled.img`
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   margin-right: 2rem;
   margin-bottom: 0;
   flex-shrink: 0;
+  object-fit: cover;
 
   @media (max-width: 992px) {
     margin-right: 1rem;

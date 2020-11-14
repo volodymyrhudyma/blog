@@ -10,6 +10,7 @@ import {
   RedHot,
   ReactIcon,
   JavascriptIcon,
+  LinkIconStyled,
 } from "./styles"
 
 const Sidebar = ({ allPosts }) => {
@@ -38,6 +39,7 @@ const Sidebar = ({ allPosts }) => {
         </Title>
         {promote.slice(0, 3).map((post, i) => (
           <Item key={i} to={post.fields.slug}>
+            <LinkIconStyled />
             {post.frontmatter.title}
           </Item>
         ))}
@@ -52,6 +54,7 @@ const Sidebar = ({ allPosts }) => {
         </Title>
         {reactPosts.slice(0, 3).map((post, i) => (
           <Item key={i} to={post.fields.slug}>
+            <LinkIconStyled />
             {post.frontmatter.title}
           </Item>
         ))}
@@ -63,6 +66,7 @@ const Sidebar = ({ allPosts }) => {
         </Title>
         {jsPosts.slice(0, 3).map((post, i) => (
           <Item key={i} to={post.fields.slug}>
+            <LinkIconStyled />
             {post.frontmatter.title}
           </Item>
         ))}

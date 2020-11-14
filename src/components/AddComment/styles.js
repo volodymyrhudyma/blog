@@ -18,14 +18,14 @@ export const Textarea = styled.textarea`
 `
 
 export const FlashMessage = styled.div`
-  color: ${({ type }) => (type === "success" ? "#1ca086" : "red")};
+  color: ${({ type }) => (type === "success" ? "#1f7504" : "red")};
   border: 1px solid;
   padding: 1rem;
   margin-bottom: 1rem;
 `
 
 export const Button = styled.button`
-  background-color: #1ca086;
+  background-color: #1f7504;
   color: #fff;
   border: none;
   padding: 0.5rem 2rem;

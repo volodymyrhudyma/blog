@@ -108,8 +108,8 @@ module.exports = {
         name: `JavaScript And ReactJS Tutorials With Best Practices`,
         short_name: `starter`,
         start_url: `/`,
-        background_color: `#1ca086`,
-        theme_color: `#1ca086`,
+        background_color: `#1f7504`,
+        theme_color: `#1f7504`,
         display: `minimal-ui`,
         icon: "./static/favicon/favicon.png",
       },
@@ -118,7 +118,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-nprogress",
       options: {
-        color: `#1ca086`,
+        color: `#1f7504`,
         showSpinner: false,
       },
     },
