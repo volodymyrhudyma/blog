@@ -4,6 +4,7 @@ title: Unit Testing React Components | Redux-Thunk | Redux-Saga (Full Guide,
 tag:
   - React
 popular: true
+promote: false
 metaDescription: Learn what is Unit Testing and how to Test Stateful and
   Stateless React Components | Redux-Thunk actions, reducers, selectors |
   Redux-Saga sagas with Jest and Enzyme.
