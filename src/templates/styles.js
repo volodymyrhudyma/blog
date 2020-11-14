@@ -17,6 +17,19 @@ export const PageInfo = styled.div`
   }
 `
 
+export const TitleWrapper = styled.div`
+  margin: 3rem 0;
+`
+
+export const Title = styled.h1`
+  margin: 0 0 0.5rem 0;
+`
+
+export const Date = styled.div`
+  fontsize: 0.85rem;
+  display: inline-block;
+`
+
 export const SubTitle = styled.div`
   display: flex;
   align-items: center;

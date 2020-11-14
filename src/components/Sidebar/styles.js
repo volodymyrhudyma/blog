@@ -9,6 +9,10 @@ export const Wrapper = styled.div`
   border-left: 1px solid #d6d6d6;
   height: 100%;
   padding: 0 1.5rem;
+
+  @media (max-width: 1192px) {
+    width: 15rem;
+  }
 `
 export const Block = styled.div`
   &:not(:last-child) {

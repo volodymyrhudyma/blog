@@ -1,6 +1,8 @@
 import React from "react"
 import { Link } from "gatsby"
 
+import Container from "@components/Container"
+
 import social from "@utils/social.json"
 
 import {
@@ -15,7 +17,6 @@ import {
   SocialLink,
   SocialImage,
 } from "./styles"
-import Container from "@components/Container"
 
 const Header = () => {
   const renderSocialLinks = () =>
@@ -40,7 +41,9 @@ const Header = () => {
               <Avatar src="https://i.ibb.co/V29JgcX/DSC-0024.jpg" />
             </Link>
             <SidebarDescription>
-              I am <BoldText>Volodymyr Hudyma</BoldText>, Front-End Developer
+              I am
+              <br /> Volodymyr Hudyma
+              <BoldText>{"<FrontEndDeveloper />"}</BoldText>
             </SidebarDescription>
           </Block>
           <Block>
