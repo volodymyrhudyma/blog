@@ -108,7 +108,6 @@ export const Avatar = styled.img`
 `
 
 export const SocialLink = styled.a`
-  display: flex;
   margin: 0 0.75rem;
 
   &:last-child {
@@ -124,4 +123,5 @@ export const SocialImage = styled.img`
   width: 24px;
   min-width: 24px;
   margin-bottom: 0;
+  display: flex;
 `
