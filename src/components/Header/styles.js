@@ -82,14 +82,17 @@ export const Block = styled.div`
   }
 `
 
-export const Avatar = styled.img`
+export const Avatar = styled.div`
+  background-image: url("/avatar.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50%;
   width: 150px;
   height: 150px;
   border-radius: 50%;
   margin-right: 2rem;
   margin-bottom: 0;
   flex-shrink: 0;
-  object-fit: cover;
 
   @media (max-width: 992px) {
     margin-right: 1.5rem;

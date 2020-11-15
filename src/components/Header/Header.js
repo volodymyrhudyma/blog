@@ -38,7 +38,7 @@ const Header = () => {
         <WrapperInner>
           <Block>
             <Link to="/">
-              <Avatar src="/avatar.jpg" />
+              <Avatar />
             </Link>
             <SidebarDescription>
               I am
