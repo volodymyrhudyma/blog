@@ -118,7 +118,7 @@ export default function Template({ data, path }) {
           <CommentList comments={comments} />
         </div>
         <SidebarWrapper marginTop>
-          <Sidebar allPosts={data.allPosts.edges} />
+          <Sidebar allPosts={data.allPosts.edges} extended />
         </SidebarWrapper>
       </div>
     </Layout>

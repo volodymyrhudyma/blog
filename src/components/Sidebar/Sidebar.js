@@ -6,6 +6,7 @@ import {
   Wrapper,
   Block,
   Title,
+  Text,
   Item,
   RedHot,
   ReactIcon,
@@ -13,7 +14,7 @@ import {
   LinkIconStyled,
 } from "./styles"
 
-const Sidebar = ({ allPosts }) => {
+const Sidebar = ({ allPosts, extended }) => {
   const promote = []
   const reactPosts = []
   const jsPosts = []
@@ -59,6 +60,12 @@ const Sidebar = ({ allPosts }) => {
           </Item>
         ))}
       </Block>
+      {extended && (
+        <Block newsletter>
+          <Title>Like this article?</Title>
+          <Text>Support me by sharing it on social media</Text>
+        </Block>
+      )}
       <Block>
         <Title>
           <JavascriptIcon />

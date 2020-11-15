@@ -83,3 +83,5 @@ export const JavascriptIcon = styled(Javascript)`
   width: 30px;
   margin-right: 0.5rem;
 `
+
+export const Text = styled.div``
