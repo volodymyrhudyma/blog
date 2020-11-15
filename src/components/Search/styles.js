@@ -49,13 +49,22 @@ export const HitsWrapper = styled.div`
   background-color: #fff;
   z-index: 1;
   padding: 1rem;
-  max-height: 20rem;
+  max-height: 16rem;
   overflow-y: auto;
   box-sizing: content-box;
-  border-left: 5px solid rgb(250, 250, 250);
-  border-right: 5px solid rgb(250, 250, 250);
-  border-bottom: 5px solid rgb(250, 250, 250);
-  margin: 0 -5px -5px -5px;
+  border-left: 1px solid #d6d6d6;
+  border-right: 1px solid #d6d6d6;
+  border-bottom: 1px solid #d6d6d6;
+  margin: 0 -1px -1px -1px;
+
+  a {
+    color: #404040;
+    transition: color 0.25s;
+
+    &:hover {
+      color: #1f7504;
+    }
+  }
 
   ul {
     margin: 0;
