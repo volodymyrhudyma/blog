@@ -16,6 +16,7 @@ import Footer from "@components/Footer"
 
 const GlobalStyle = createGlobalStyle`
   html {
+    height: 100%;
 
     @media (max-width: 768px) {
       font-size: 106.25%;
@@ -24,6 +25,17 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     overflow-x: hidden;
+    height: 100%;
+  }
+
+  #___gatsby {
+    height: 100%;
+  }
+
+  #gatsby-focus-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
   }
 
   pre[class*="language-"] {
