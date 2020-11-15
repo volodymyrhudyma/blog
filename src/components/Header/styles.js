@@ -99,9 +99,9 @@ export const Avatar = styled.div`
   }
 
   @media (max-width: 768px) {
-    width: 125px;
-    height: 125px;
     margin-right: 1rem;
+    background-size: contain;
+    border-radius: 0;
   }
 
   @media (max-width: 468px) {
