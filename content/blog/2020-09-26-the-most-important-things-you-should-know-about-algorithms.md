@@ -2,6 +2,7 @@
 title: The Most Important Things You Should Know About Algorithms
 tag:
   - JavaScript
+promote: false
 metaDescription: Learn Big O Notation - concept used to describe required
   execution time or space used by an algorithm. Take a look at in-place,
   not-in-place, stable, unstable, divide-and-conquer, comparison-based
@@ -239,7 +240,6 @@ const mergeSort = arr => {
 * **O(2^N)** - number of calculations doubles each time a new element is added to an input (a good example - recursive calculation of Fibonacci numbers):
 
 ```javascript
-// program to display fibonacci sequence using recursion
 const fibonacci = num => {
   if(num <= 1) {
     return num;
