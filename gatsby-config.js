@@ -114,6 +114,7 @@ module.exports = {
         icon: "./static/favicon/favicon.png",
       },
     },
+    `gatsby-plugin-offline`,
     {
       resolve: "gatsby-plugin-nprogress",
       options: {
