@@ -2,8 +2,12 @@ import Typography from "typography"
 import fairyGatesTheme from "typography-theme-fairy-gates"
 
 fairyGatesTheme.overrideThemeStyles = ({ rhythm }, options) => ({
+  body: {
+    color: "#404040",
+  },
   "h1,h2,h3,h4,h5,h6": {
     marginBottom: "1.45rem",
+    color: "#404040",
   },
   a: {
     backgroundImage: "none",

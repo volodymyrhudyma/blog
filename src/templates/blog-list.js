@@ -21,6 +21,8 @@ import {
   BlackAngleDown,
   BlogListContent,
   SidebarWrapper,
+  StyledLink,
+  LinkIconStyled,
 } from "./styles"
 
 const searchIndices = [
@@ -107,9 +109,10 @@ export default class BlogList extends React.Component {
                       <TOCTag>{tag}</TOCTag>
                       {groupedTOC[tag].map(({ node }) => (
                         <TOCLink key={node.fields.slug}>
-                          <Link to={node.fields.slug}>
+                          <StyledLink to={node.fields.slug}>
+                            <LinkIconStyled />
                             {node.frontmatter.title}
-                          </Link>
+                          </StyledLink>
                         </TOCLink>
                       ))}
                     </TOCSectionListItem>

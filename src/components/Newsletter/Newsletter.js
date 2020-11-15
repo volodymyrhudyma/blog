@@ -5,6 +5,7 @@ import {
   Wrapper,
   Form,
   Input,
+  Hint,
   Button,
   Title,
   SubTitle,
@@ -30,7 +31,7 @@ const Newsletter = ({ wide }) => {
 
   return (
     <Wrapper wide={wide}>
-      <Title>Subscribe to the newsletter</Title>
+      <Title>Newsletter</Title>
       <SubTitle>Receive all new posts directly to your e-mail</SubTitle>
       <Form onSubmit={handleSubmit} wide={wide}>
         <Input
@@ -40,7 +41,8 @@ const Newsletter = ({ wide }) => {
           onChange={handleEmailChange}
           placeholder="Type your e-mail address..."
         />
-        <Button>Submit</Button>
+        <Hint>No spam, I promise</Hint>
+        <Button>Subscribe</Button>
       </Form>
       {mailChimpResponse && (
         <SubscribeResponse

@@ -35,7 +35,7 @@ export const BlogTag = styled.div`
 `
 
 export const StyledLink = styled(Link)`
-  color: #000;
+  color: #404040;
   transition: color 0.25s;
 
   &:hover {

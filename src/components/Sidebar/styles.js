@@ -42,7 +42,7 @@ export const Title = styled.div`
 export const Item = styled(Link)`
   margin-bottom: 0.5rem;
   display: block;
-  color: #000;
+  color: #404040;
   transition: color 0.25s;
 
   &:not(:last-child) {
@@ -52,6 +52,10 @@ export const Item = styled(Link)`
 
   &:hover {
     color: #1f7504;
+
+    svg {
+      color: #1f7504;
+    }
   }
 `
 
@@ -68,9 +72,10 @@ export const ReactIcon = styled(ReactLogo)`
 `
 
 export const LinkIconStyled = styled(LinkIcon)`
-  color: #1f7504;
+  color: #404040;
   width: 20px;
   margin-right: 0.5rem;
+  transition: color 0.25s;
 `
 
 export const JavascriptIcon = styled(Javascript)`

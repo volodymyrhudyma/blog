@@ -33,14 +33,15 @@ export const Input = styled.input`
   border-bottom: 1px solid #d6d6d6;
   outline: none;
   padding: 0.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.25rem;
+
   background-color: transparent;
 `
 
 export const Button = styled.button`
   display: inline-block;
-  background-color: #000;
-  border: 1px solid #000;
+  background-color: #404040;
+  border: 1px solid #404040;
   color: #fff;
   cursor: pointer;
   padding: 0.5rem 2rem;
@@ -49,7 +50,7 @@ export const Button = styled.button`
 
   &:hover {
     background-color: transparent;
-    color: #000;
+    color: #404040;
   }
 `
 
@@ -69,4 +70,9 @@ export const SubscribeResponse = styled.div`
   margin-top: 1rem;
   font-size: 0.75rem;
   text-align: center;
+`
+
+export const Hint = styled.div`
+  font-size: 0.75rem;
+  margin-bottom: 1rem;
 `

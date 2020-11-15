@@ -26,8 +26,8 @@ export const SidebarDescription = styled.div`
 export const SidebarButton = styled.a`
   flex-shrink: 0;
   display: inline-block;
-  background-color: #000;
-  border: 1px solid #000;
+  background-color: #404040;
+  border: 1px solid #404040;
   color: #fff;
   cursor: pointer;
   padding: 0.5rem 2rem;
@@ -36,7 +36,7 @@ export const SidebarButton = styled.a`
 
   &:hover {
     background-color: transparent;
-    color: #000;
+    color: #404040;
   }
 `
 
