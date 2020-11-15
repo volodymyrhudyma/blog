@@ -2,6 +2,7 @@
 title: The Right Way of Logging with Console API in JavaScript
 tag:
   - JavaScript
+promote: false
 metaDescription: Learn Console API in JavaScript that provides access to the
   debugging console in the browser. One of the most popular methods is
   console.log - it outputs the specified arguments to the console, but it is not
@@ -78,7 +79,7 @@ Output:
 
 ## Warning Log
 
-Syntax: `console.warn(arg \[, arg2, ..., argN])`
+Syntax: `console.warn(arg [, arg2, ..., argN])`
 
 Output: Warning message:
 
