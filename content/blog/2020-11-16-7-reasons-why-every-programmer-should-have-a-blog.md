@@ -61,7 +61,7 @@ Whether you are an employee or a business owner, building a personal brand and p
 
 By providing a value, you build trust between people and yourself, which leads to becoming more competitive, getting higher paid jobs, winning better projects, working with better customers, etc. 
 
-Eventually, you will reach a point when the customers will search for you, not the other way as it usually happens.
+Eventually, you will reach a point when the customers will be looking for you and not the other way around, as it usually happens.
 
 ## Build Connection Network
 
