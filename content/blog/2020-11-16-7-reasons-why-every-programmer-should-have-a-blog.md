@@ -57,10 +57,29 @@ My personal feeling after more than half a year of blogging - even if the topic 
 
 ## Build a Personal Brand
 
-It does not matter if you are an employee or a business owner, building a personal brand is no less important if you want to be considered as a skilled professional in your area of expertise. 
+Whether you are an employee or a business owner, building a personal brand and promoting yourself is no less important if you want to be considered a professional in your field.
+
+By providing a value, you build trust between people and yourself, which leads to becoming more competitive, getting higher paid jobs, winning better projects, working with better customers, etc. 
 
 ## Build Connection Network
 
 ## Increase an Income
+
+Everyone wants a higher income in order to earn a better living and provide for the family.
+
+How can a blog help to achieve this goal?
+
+As it was mentioned earlier, being visible on the Internet and considered an expert in a particular field allows you to be more competitive and have a better chance of getting a better job or business deal.
+
+Apart from that, a blog is your own project, which can also be a source of income. 
+
+There are many ways to make money from blogging, like:
+
+* Showing ads
+* Selling affiliate links
+* Producing and selling online courses, digital products
+* Doing collaborations with other bloggers
+
+But it is a long way from the beginnings to the point where you can actually make a living from it.
 
 ## Practice Consistency
