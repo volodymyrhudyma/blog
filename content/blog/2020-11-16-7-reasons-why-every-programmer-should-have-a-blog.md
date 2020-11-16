@@ -57,6 +57,8 @@ My personal feeling after more than half a year of blogging - even if the topic 
 
 ## Build a Personal Brand
 
+It does not matter if you are an employee or a business owner, building a personal brand is no less important if you want to be considered as a skilled professional in your area of expertise. 
+
 ## Build Connection Network
 
 ## Increase an Income
