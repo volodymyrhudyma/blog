@@ -69,7 +69,7 @@ Everyone wants a higher income in order to earn a better living and provide for 
 
 How can a blog help to achieve this goal?
 
-As it was mentioned earlier, being visible on the Internet and considered an expert in a particular field allows you to be more competitive and have a better chance of getting a better job or business deal.
+As it was mentioned earlier, being visible on the Internet and considered an expert in a particular field allows you to be more competitive and have a better chance of being noticed.
 
 Apart from that, a blog is your own project, which can also be a source of income. 
 
@@ -80,6 +80,12 @@ There are many ways to make money from blogging, like:
 * Producing and selling online courses, digital products
 * Doing collaborations with other bloggers
 
-But it is a long way from the beginnings to the point where you can actually make a living from it.
+Remember that it is a long way from the beginnings to the point where you can actually make a living from it.
 
 ## Practice Consistency
+
+Writing blog posts requires some effort, especially if it is not the only thing you do in life. You also have to sacrifice many other things. 
+
+You need to find the time to blog, choose the topic, and do some initial research on it before you even prepare a plan for your next article. 
+
+By writing articles from time to time, you learn to be consistent, which is the number one skill one has to master in order to become successful in anything.
