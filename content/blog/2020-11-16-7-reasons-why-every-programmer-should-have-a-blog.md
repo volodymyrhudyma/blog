@@ -61,6 +61,8 @@ Whether you are an employee or a business owner, building a personal brand and p
 
 By providing a value, you build trust between people and yourself, which leads to becoming more competitive, getting higher paid jobs, winning better projects, working with better customers, etc. 
 
+Eventually, you will reach a point when the customers will search for you, not the other way as it usually happens.
+
 ## Build Connection Network
 
 ## Increase an Income
@@ -84,8 +86,16 @@ Remember that it is a long way from the beginnings to the point where you can ac
 
 ## Practice Consistency
 
-Writing blog posts requires some effort, especially if it is not the only thing you do in life. You also have to sacrifice many other things. 
+Consistency is the number one skill one has to master in order to become successful in anything.
 
-You need to find the time to blog, choose the topic, and do some initial research on it before you even prepare a plan for your next article. 
+How can it be developed through blogging?
 
-By writing articles from time to time, you learn to be consistent, which is the number one skill one has to master in order to become successful in anything.
+Blogging requires some effort, especially if it is not the only thing you do in life.
+
+You need to dedicate the time, choose the topic and do some initial research before you even make a plan for your next article. 
+
+By writing articles from time to time, you learn to be consistent and prepare a new article whether you feel like or not.
+
+Set up a schedule - a new article once or twice a week and stick to it no matter what.
+
+## Summary
