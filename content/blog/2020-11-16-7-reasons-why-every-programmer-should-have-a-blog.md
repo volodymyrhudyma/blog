@@ -43,6 +43,18 @@ I like to think in the following way - if I were to learn from 100 people, I wou
 
 ## Extend Knowledge
 
+It may seem controversial, but in reality we learn much more when we explain something rather than when we read an article or watch a video. 
+
+As the saying goes: "**The best way to learn is to teach**".
+
+When you learn a particular subject, you typically gain a surface-level understanding of it, which is of course fine, but it is always nice to dig deeper into the topic and learn how things work "under the hood".
+
+In this way you gain more expertise on the subject and are more confident whether or not the given solution should be applied under the given circumstances.
+
+You can explain your vision to the team members with more confidence and convince them to go into in right direction if needed.
+
+My personal feeling after more than half a year of blogging - even if the topic is simple and familiar, many new things are discovered when writing an article about it.
+
 ## Build a Personal Brand
 
 ## Build Connection Network
