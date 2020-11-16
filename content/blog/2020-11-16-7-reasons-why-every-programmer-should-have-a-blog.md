@@ -65,6 +65,10 @@ Eventually, you will reach a point when the customers will search for you, not t
 
 ## Build Connection Network
 
+Publishing a good article can trigger a discussion through which you can get in touch with a large number of people with whom you can build good relationships or partnership.
+
+If people find your blog helpful and valuable, you may even get a "thank you" message, which is an indicator that you are going in the right direction.
+
 ## Increase an Income
 
 Everyone wants a higher income in order to earn a better living and provide for the family.
