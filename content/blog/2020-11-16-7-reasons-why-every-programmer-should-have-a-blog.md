@@ -69,6 +69,8 @@ Publishing a good article can trigger a discussion through which you can get in 
 
 If people find your blog helpful and valuable, you may even get a "thank you" message, which is an indicator that you are going in the right direction.
 
+Since I started this blog, I have received more than 300 connection requests in LinkedIn and 37 newsletter subscribers, which does not seem like a large numbers, but I am more than happy with it for now.
+
 ## Increase an Income
 
 Everyone wants a higher income in order to earn a better living and provide for the family.
