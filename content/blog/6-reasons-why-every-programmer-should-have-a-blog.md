@@ -6,6 +6,7 @@ promote: false
 metaDescription: There are many reasons to have a blog. In this article we will
   talk about the 6 most important ones and find out why every programmer should
   have his own blog.
+shareImage: /img/addtext_com_mtezndiyotm2oq.jpg
 teaser: Each programmer is used to write a code that acts like an instruction to
   the machine, telling it exactly what to do to output the desired result.
   Sometimes the code does not work as expected or the developer does not know
