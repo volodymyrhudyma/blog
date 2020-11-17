@@ -73,7 +73,7 @@ Eventually, you will reach a point when the customers will be looking for you an
 
 To sum up, it helps you to **stand out from the crowd**.
 
-## Build Connection Network
+## Build a Connection Network
 
 Publishing a good article can trigger a discussion through which you can get in touch with a large number of people with whom you can build good relationships or partnership.
 
