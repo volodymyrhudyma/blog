@@ -54,6 +54,7 @@ export default function Template({ data, path }) {
       <SEO
         title={frontmatter.title}
         description={frontmatter.metaDescription}
+        shareImage={frontmatter.shareImage}
       />
 
       <div style={{ display: "flex" }}>
@@ -134,6 +135,7 @@ export const pageQuery = graphql`
         teaser
         date(formatString: "MMMM DD, YYYY")
         metaDescription
+        shareImage
       }
       fields {
         slug

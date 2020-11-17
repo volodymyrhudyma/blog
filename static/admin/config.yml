@@ -26,6 +26,7 @@ collections:
         }
       - { label: "Promote", name: "promote", widget: "boolean", default: false }
       - { label: "Meta description", name: "metaDescription", widget: "string" }
+      - { label: "Share image", name: "shareImage", widget: "image" }
       - { label: "Teaser", name: "teaser", widget: "markdown" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Body", name: "body", widget: "markdown" }
