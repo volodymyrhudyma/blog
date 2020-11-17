@@ -45,7 +45,7 @@ function SEO({ origin, shareImage, description, lang, meta, title }) {
         },
         {
           property: `og:image`,
-          content: `https://ibb.co/q7Jhgjs`,
+          content: `https://img.techpowerup.org/201117/share.jpg`,
         },
         {
           property: `og:description`,
@@ -73,7 +73,7 @@ function SEO({ origin, shareImage, description, lang, meta, title }) {
         },
         {
           name: `twitter:image`,
-          content: `https://ibb.co/q7Jhgjs`,
+          content: `https://img.techpowerup.org/201117/share.jpg`,
         },
       ].concat(meta)}
     />
