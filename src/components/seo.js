@@ -45,7 +45,7 @@ function SEO({ origin, shareImage, description, lang, meta, title }) {
         },
         {
           property: `og:image`,
-          content: `${origin}${shareImage}` || `${origin}/share.jpg`,
+          content: `/${shareImage}` || `//share.jpg`,
         },
         {
           property: `og:description`,
@@ -73,7 +73,7 @@ function SEO({ origin, shareImage, description, lang, meta, title }) {
         },
         {
           name: `twitter:image`,
-          content: `${origin}${shareImage}` || `${origin}/share.jpg`,
+          content: `/${shareImage}` || `//share.jpg`,
         },
       ].concat(meta)}
     />
