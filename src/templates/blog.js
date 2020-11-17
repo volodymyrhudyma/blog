@@ -18,7 +18,7 @@ import {
   SidebarWrapper,
 } from "./styles"
 
-export default function Template({ data, path }) {
+export default function Template({ data, path, location }) {
   const { article, comments } = data
   const { frontmatter } = article
 
@@ -55,6 +55,7 @@ export default function Template({ data, path }) {
         title={frontmatter.title}
         description={frontmatter.metaDescription}
         shareImage={frontmatter.shareImage}
+        origin={location.origin}
       />
 
       <div style={{ display: "flex" }}>
