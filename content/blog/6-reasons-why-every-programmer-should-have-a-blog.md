@@ -12,6 +12,8 @@ teaser: Each programmer is used to write a code that acts like an instruction to
   how to solve something, so...
 date: 2020-11-17T16:09:44.223Z
 ---
+![6 reasons to have a blog image](/img/addtext_com_mtezndiyotm2oq.jpg "6 reasons to have a blog image")
+
 Each programmer is used to write a code that acts like an instruction to the machine, telling it exactly what to do to output the desired result.
 
 Sometimes the code does not work as expected or the developer does not know how to solve something, so he starts looking for help by googling.
