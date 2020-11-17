@@ -3,11 +3,16 @@ title: 6 Reasons Why Every Programmer Should Have a Blog
 tag:
   - Other
 promote: false
-metaDescription: // META
-teaser: // TEASER
+metaDescription: There are many reasons to have a blog. In this article we will
+  talk about the 6 most important ones and find out why every programmer should
+  have his own blog.
+teaser: Each programmer is used to write a code that acts like an instruction to
+  the machine, telling it exactly what to do to output the desired result.
+  Sometimes the code does not work as expected or the developer does not know
+  how to solve something, so...
 date: 2020-11-17T16:09:44.223Z
 ---
-Each programmer is used to write a code that acts like an instruction to the machine, telling it exactly what it should do to output the desired result.
+Each programmer is used to write a code that acts like an instruction to the machine, telling it exactly what to do to output the desired result.
 
 Sometimes the code does not work as expected or the developer does not know how to solve something, so he starts looking for help by googling.
 
@@ -17,13 +22,13 @@ In this example we are on one side of the coin, on the other side - there are de
 
 Most of us have never thought of standing on the other side and looking at a problem from a different angle - from the perspective of an answerer, not an asker.
 
-The question is - why? Surely we have enough experience to describe at least one problem we have faced recently, and the solution has been found to solve it.
+The question is - why? Surely we have enough experience to describe at least one problem we have faced recently, and a solution has been found to solve it.
 
-In this article I will try to convince you why blogging is cool and what benefits it brings (in my opinion) and why you should start blogging right away.
+In this article I will try to convince you why blogging is cool and what benefits it brings (**in my opinion**) and why you should start blogging right away.
 
 ## Pay the Debt
 
-The first and most important reason is to "Pay the Debt". We all have a big debt to pay to less experienced developers, like those we learned from had.
+The first and most important reason is to "**Pay the Debt**". We all have a big debt to pay to less experienced developers, like those we learned from had.
 
 Sounds weird? Let me explain. 
 
@@ -63,13 +68,15 @@ By providing a value, you build trust between people and yourself, which leads t
 
 Eventually, you will reach a point when the customers will be looking for you and not the other way around, as it usually happens.
 
+To sum up, it helps you to **stand out from the crowd**.
+
 ## Build Connection Network
 
 Publishing a good article can trigger a discussion through which you can get in touch with a large number of people with whom you can build good relationships or partnership.
 
-If people find your blog helpful and valuable, you may even get a "thank you" message, which is an indicator that you are going in the right direction.
+If people find your blog helpful and valuable, you may get a lot of "thank you" messages that act as an indicator that you are going in the right direction.
 
-Since I started this blog, I have received more than 300 connection requests in LinkedIn and 37 newsletter subscribers, which does not seem like a large numbers, but I am more than happy with it for now.
+Since I started this blog, I have received **400+** connection requests in LinkedIn and **35+** newsletter subscribers, which does not seem like a large numbers, but I am more than happy with it for now.
 
 ## Increase an Income
 
@@ -81,7 +88,7 @@ As it was mentioned earlier, being visible on the Internet and considered an exp
 
 Apart from that, a blog is your own project, which can also be a source of income. 
 
-There are many ways to make money from blogging, like:
+There are many ways to **make money from blogging**, like:
 
 * Showing ads
 * Selling affiliate links
@@ -92,7 +99,7 @@ Remember that it is a long way from the beginnings to the point where you can ac
 
 ## Practice Consistency
 
-Consistency is the number one skill one has to master in order to become successful in anything.
+Consistency is the **number one skill** one has to master in order to become successful in anything.
 
 How can it be developed through blogging?
 
@@ -100,8 +107,14 @@ Blogging requires some effort, especially if it is not the only thing you do in 
 
 You need to dedicate the time, choose the topic and do some initial research before you even make a plan for your next article. 
 
-By writing articles from time to time, you learn to be consistent and prepare a new article whether you feel like or not.
+By writing articles from time to time, you learn to be consistent and do what is planned whether you feel like or not.
 
 Set up a schedule - a new article once or twice a week and stick to it no matter what.
 
 ## Summary
+
+In summary, blogging has many more advantages than no blogging at all, especially if you are an expert in your field and have many topics to share with others.
+
+Blogging requires a lot of effort and time, but it would definitely pay off in the future.
+
+If you are still hesitating, **try it out** and see how it goes. Good luck!
