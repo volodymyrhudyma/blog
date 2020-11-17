@@ -54,7 +54,7 @@ export default function Template({ data, path, location }) {
       <SEO
         title={frontmatter.title}
         description={frontmatter.metaDescription}
-        shareImage={frontmatter.shareImage}
+        shareImage={frontmatter.shareImage.replace("/img", "/static")}
         origin={location.origin}
       />
 
