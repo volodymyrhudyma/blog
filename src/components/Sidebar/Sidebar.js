@@ -12,12 +12,14 @@ import {
   ReactIcon,
   JavascriptIcon,
   LinkIconStyled,
+  OtherIcon,
 } from "./styles"
 
 const Sidebar = ({ allPosts, extended }) => {
   const promote = []
   const reactPosts = []
   const jsPosts = []
+  const otherPosts = []
 
   allPosts.forEach(({ node }) => {
     if (node.frontmatter.tag.includes("React")) {
@@ -25,6 +27,9 @@ const Sidebar = ({ allPosts, extended }) => {
     }
     if (node.frontmatter.tag.includes("JavaScript")) {
       jsPosts.push(node)
+    }
+    if (node.frontmatter.tag.includes("Other")) {
+      otherPosts.push(node)
     }
     if (node.frontmatter.promote) {
       promote.push(node)
@@ -72,6 +77,18 @@ const Sidebar = ({ allPosts, extended }) => {
           JavaScript
         </Title>
         {jsPosts.slice(0, 3).map((post, i) => (
+          <Item key={i} to={post.fields.slug}>
+            <LinkIconStyled />
+            {post.frontmatter.title}
+          </Item>
+        ))}
+      </Block>
+      <Block>
+        <Title>
+          <OtherIcon />
+          Other
+        </Title>
+        {otherPosts.slice(0, 3).map((post, i) => (
           <Item key={i} to={post.fields.slug}>
             <LinkIconStyled />
             {post.frontmatter.title}

@@ -3,6 +3,7 @@ import styled, { css } from "styled-components"
 import { Hot } from "@styled-icons/boxicons-solid"
 import { Link as LinkIcon } from "@styled-icons/boxicons-regular"
 import { ReactLogo, Javascript } from "@styled-icons/boxicons-logos"
+import { Lightbulb } from "@styled-icons/foundation"
 
 export const Wrapper = styled.div`
   flex-shrink: 0;
@@ -82,6 +83,13 @@ export const JavascriptIcon = styled(Javascript)`
   color: #f0db4f;
   width: 30px;
   margin-right: 0.5rem;
+`
+
+export const OtherIcon = styled(Lightbulb)`
+  width: 30px;
+  margin-right: 0.5rem;
+  position: relative;
+  top: -4px;
 `
 
 export const Text = styled.div``
