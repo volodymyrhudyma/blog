@@ -18,7 +18,7 @@ So let's start with the basics.
 
 A **Tree** is a widely-used data structure that consists of nodes connected by edges:
 
-![Tree Data Structure](/img/tree.png "Tree Data Structure")
+![Tree Data Structure](/img/perfect.jpg "Tree Data Structure")
 
 It is just a collection of nodes, where each node is a data structure containing a value and references to its child nodes with the constraints of no duplicated references and no pointing to the root. 
 
@@ -92,15 +92,15 @@ Depending on the arrangement of the nodes, there are several types of Binary Tre
 
 * **Full** - each node has either 0 or 2 children (1 is not allowed)
 
-![Full Binary Tree](/img/fullbt.png "Full Binary Tree")
+![Full Binary Tree](/img/full.png "Full Binary Tree")
 
 * **Complete** - every level, except possibly the last, is full of nodes and all nodes in the last level are as left as possible
 
-![Complete Binary Tree](/img/completebt.png "Complete Binary Tree")
+![Complete Binary Tree](/img/complete.png "Complete Binary Tree")
 
 * **Perfect** - every level is full of nodes and all leaves have the same depth
 
-![Perfect Binary Tree](/img/perfectbt.jpg "Perfect Binary Tree")
+![Perfect Binary Tree](/img/perfect.jpg "Perfect Binary Tree")
 
 ## What is a Binary Search Tree?
 
