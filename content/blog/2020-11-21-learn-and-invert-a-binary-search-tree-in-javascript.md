@@ -182,4 +182,18 @@ binarySearchTree.insert(13);
 
 ## Invert a Binary Search Tree
 
+Now, having the initial knowledge on the given topic, it is finally possible to proceed with inverting a Binary Search Tree.
+
+But first, what does it mean to invert a Binary Search Tree? 
+
+Basically, it means to swap left and right children:
+
+```javascript
+
+```
+
+Inverted tree created in the example above:
+
+![Inverted Binary Search Tree](/img/bst-1-1-1-1-1-.jpg "Inverted Binary Search Tree")
+
 ## Summary
