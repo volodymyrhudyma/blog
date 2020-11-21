@@ -189,7 +189,19 @@ But first, what does it mean to invert a Binary Search Tree?
 Basically, it means to swap left and right children:
 
 ```javascript
-
+const invertTree = (tree) => {
+  if(!tree) {
+    return;
+  }
+  
+  const left = invertTree(tree.left);
+  const right = invertTree(tree.right);
+  
+  tree.left = right;
+  tree.right = left;
+  
+  return tree;
+}
 ```
 
 Inverted tree created in the example above:
