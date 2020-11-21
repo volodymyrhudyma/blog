@@ -3,9 +3,13 @@ title: Learn and Invert a Binary Search Tree in JavaScript
 tag:
   - JavaScript
 promote: false
-metaDescription: // META
+metaDescription: Learn how to invert a Binary Search Tree. Binary Search Tree is
+  a special type of Tree, where each node has at most two children and left
+  child is always smaller than the parent, right child is greater.
 shareImage: /img/tree.png
-teaser: // TEASER
+teaser: 'Among the most popular questions, software developers are asked in an
+  interview is: "How to invert a Binary Search Tree?". The truth is that many of
+  us do not even know what a Binary Search Tree, let alone...'
 date: 2020-11-22T07:38:01.934Z
 ---
 Among the most popular questions, software developers are asked in an interview is: "How to invert a Binary Search Tree?".
@@ -212,10 +216,10 @@ Inverted tree created in the example above:
 
 Inverting a Binary Search Tree is not the number one skill you need nowadays, but it will definitely improve your general knowledge.
 
-It is also asked on an interviews pretty often, so make sure to understand the topic and implement inverting algorithm by memory at least once.
+It is also asked in interviews pretty often, so make sure to understand the topic and implement the inverting algorithm by memory at least once.
 
 Quick recap:
 
-* Tree is a collection of nodes connected by edges.
-* Binary Tree is a tree, where each node has at most two children, which are called left and right child
-* Binary Search Tree is a Binary Tree, where the values are placed in such a way that the left children must be smaller than the parent, the right children - bigger
+* A Tree is a collection of nodes connected by edges.
+* A Binary Tree is a tree, where each node has at most two children, which are called left and right child
+* A Binary Search Tree is a Binary Tree, where the values are placed in such a way that the left children must be smaller than the parent, the right children - bigger
