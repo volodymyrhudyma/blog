@@ -44,7 +44,7 @@ In order to better understand trees, it is necessary to know at least basic term
 
 To learn more, read [Wikipedia](https://en.wikipedia.org/wiki/Tree_(data_structure)).
 
-## Implementation in JavaScript
+## Tree Implementation in JavaScript
 
 The implementation of a simple tree in JavaScript is straightforward:
 
@@ -102,23 +102,83 @@ Depending on the arrangement of the nodes, there are several types of Binary Tre
 
 ![Perfect Binary Tree](/img/perfect.jpg "Perfect Binary Tree")
 
-## Implementation in JavaScript
-
-To implement a Binary Tree in JavaScript:
-
-```javascript
-
-```
-
 ## What is a Binary Search Tree?
 
 A **Binary Search Tree** is a special type of Binary Tree, which contains at most 2 nodes (like all Binary Trees) with a major difference - the values are placed in such a way that the **left children must be smaller** than the parent, the **right children - bigger**:
 
 ![Binary Search Tree](/img/bst.jpg "Binary Search Tree")
 
-## Implementation in JavaSscript
+## Binary Search Tree Implementation in JavaScript
 
-To implement a Binary Search Tree in JavaScript:
+The basic implementation of Binary Search Tree in JavaScript (allows to create a tree and insert nodes): 
+
+```javascript
+class Node { 
+  constructor(data) {
+    this.data = data; 
+    this.left = null; 
+    this.right = null; 
+  } 
+}
+
+class BinarySearchTree { 
+  constructor() { 
+    this.root = null; 
+  }
+  
+  insert(data) {
+    const node = new Node(data);
+    
+    if(this.root === null) {
+      this.root = node;
+    } else {
+      // Find the correct position
+      // And insert the node
+      this.insertNode(this.root, node);
+    }
+  }
+  
+  insertNode(rootNode, newNode) {
+    // If the data is smaller than the root
+    // Move to the left
+    if(newNode.data < rootNode.data) {
+      // If left is null
+      // Insert here
+      if(rootNode.left === null) {
+        rootNode.left = newNode;
+      // If left is not null
+      // Recur untill null if found
+      } else {
+        this.insertNode(rootNode.left, newNode);
+      }
+    // If the data is greater than the root
+    // Move to the right
+    } else {
+      if(rootNode.right === null) {
+        rootNode.right = newNode;
+      } else {
+        this.insertNode(rootNode.right, newNode);
+      }
+    }
+  }
+}
+```
+
+Create the same tree as in the above example:
+
+```javascript
+const binarySearchTree = new BinarySearchTree();
+
+binarySearchTree.insert(8);
+binarySearchTree.insert(3);
+binarySearchTree.insert(10);
+binarySearchTree.insert(14);
+binarySearchTree.insert(6);
+binarySearchTree.insert(1);
+binarySearchTree.insert(4);
+binarySearchTree.insert(7);
+binarySearchTree.insert(13);
+```
 
 ## Invert a Binary Search Tree
 
