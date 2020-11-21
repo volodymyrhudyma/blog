@@ -102,7 +102,23 @@ Depending on the arrangement of the nodes, there are several types of Binary Tre
 
 ![Perfect Binary Tree](/img/perfect.jpg "Perfect Binary Tree")
 
+## Implementation in JavaScript
+
+To implement a Binary Tree in JavaScript:
+
+```javascript
+
+```
+
 ## What is a Binary Search Tree?
+
+A **Binary Search Tree** is a special type of Binary Tree, which contains at most 2 nodes (like all Binary Trees) with a major difference - the values are placed in such a way that the **left children must be smaller** than the parent, the **right children - bigger**:
+
+![Binary Search Tree](/img/bst.jpg "Binary Search Tree")
+
+## Implementation in JavaSscript
+
+To implement a Binary Search Tree in JavaScript:
 
 ## Invert a Binary Search Tree
 
