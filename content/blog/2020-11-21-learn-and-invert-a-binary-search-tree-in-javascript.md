@@ -1,0 +1,95 @@
+---
+title: Learn and Invert a Binary Search Tree in JavaScript
+tag:
+  - JavaScript
+promote: false
+metaDescription: // META
+shareImage: /img/tree.png
+teaser: // TEASER
+date: 2020-11-22T07:38:01.934Z
+---
+Among the most popular questions, software developers are asked in an interview is: "How to invert a Binary Search Tree?".
+
+The truth is that many of us do not even know what a Binary Search Tree, let alone inverting it.
+
+So let's start with the basics.
+
+## What is a Tree?
+
+A **Tree** is a widely-used data structure that consists of nodes connected by edges:
+
+![Tree Data Structure](/img/tree.png "Tree Data Structure")
+
+It is just a collection of nodes, where each node is a data structure containing a value and references to its child nodes with the constraints of no duplicated references and no pointing to the root. 
+
+## Terminology
+
+In order to better understand trees, it is necessary to know at least basic terminology.
+
+**Node** - a structure that contains a value and pointers to the child nodes.
+
+**Root Node** - topmost node of the tree.
+
+**Internal Node** - any node of the tree that contains at least one child node.
+
+**External/Leaf Node** - any node of the tree that does not contain a child node.
+
+**Height of a Node** - a length of the longest downward path from that node to a leaf node.
+
+**Depth of a Node** - a length of the path to its root node.
+
+**Height of a Tree** - a length from the root node to the deepest node down the tree. 
+
+**Size of a Tree** - a number of all nodes.
+
+To learn more, read [Wikipedia](https://en.wikipedia.org/wiki/Tree_(data_structure)).
+
+## Implementation in JavaScript
+
+The implementation of a simple tree in JavaScript is straightforward:
+
+```javascript
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.children = [];
+  }
+  
+  addChild(node) {
+    this.children.push(node);
+  }
+}
+
+const root = new Node("root");
+const child1 = new Node("child1");
+const child2 = new Node("child2");
+const child3 = new Node("child2");
+
+root.addChild(child1);
+root.addChild(child2);
+child1.addChild(child3);
+
+// Node {
+//  value: "root",
+//  children: [
+//    Node {
+//      value: "child1",
+//      children: [ Node { value: "child2", children: [] } ]
+//   },
+//    Node { value: "child2", children: [] }
+//  ]
+// }
+console.log(root);
+```
+
+## What is a Binary Tree?
+
+Knowing the basics of a tree, let's take a look at a Binary Tree.
+
+**Binary Tree** is a 
+
+## What is a Binary Search Tree?
+
+## Invert a Binary Search Tree
+
+## Summary
