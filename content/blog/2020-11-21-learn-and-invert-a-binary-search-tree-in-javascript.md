@@ -84,9 +84,23 @@ console.log(root);
 
 ## What is a Binary Tree?
 
-Knowing the basics of a tree, let's take a look at a Binary Tree.
+Knowing the basics of a tree, let's take a look at a Binary Tree, which is a specialized version of a tree.
 
-**Binary Tree** is a 
+In a **Binary Tree,** each node has **at most two children**, which are called **left** and **right** child.
+
+Depending on the arrangement of the nodes, there are several types of Binary Trees:
+
+* **Full** - each node has either 0 or 2 children (1 is not allowed)
+
+![Full Binary Tree](/img/fullbt.png "Full Binary Tree")
+
+* **Complete** - every level, except possibly the last, is full of nodes and all nodes in the last level are as left as possible
+
+![Complete Binary Tree](/img/completebt.png "Complete Binary Tree")
+
+* **Perfect** - every level is full of nodes and all leaves have the same depth
+
+![Perfect Binary Tree](/img/perfectbt.jpg "Perfect Binary Tree")
 
 ## What is a Binary Search Tree?
 
