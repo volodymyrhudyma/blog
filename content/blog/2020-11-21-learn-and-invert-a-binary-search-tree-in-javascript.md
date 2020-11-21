@@ -164,7 +164,7 @@ class BinarySearchTree {
 }
 ```
 
-Create the same tree as in the above example:
+Create the same tree as in the example above:
 
 ```javascript
 const binarySearchTree = new BinarySearchTree();
@@ -197,3 +197,13 @@ Inverted tree created in the example above:
 ![Inverted Binary Search Tree](/img/bst-1-1-1-1-1-.jpg "Inverted Binary Search Tree")
 
 ## Summary
+
+Inverting a Binary Search Tree is not the number one skill you need nowadays, but it will definitely improve your general knowledge.
+
+It is also asked on an interviews pretty often, so make sure to understand the topic and implement inverting algorithm by memory at least once.
+
+Quick recap:
+
+* Tree is a collection of nodes connected by edges.
+* Binary Tree is a tree, where each node has at most two children, which are called left and right child
+* Binary Search Tree is a Binary Tree, where the values are placed in such a way that the left children must be smaller than the parent, the right children - bigger
