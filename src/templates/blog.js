@@ -16,11 +16,12 @@ import {
   Date,
   BlackAngleDown,
   SidebarWrapper,
+  Content,
 } from "./styles"
 
 export default function Template({ data, path, location }) {
   const { article, comments } = data
-  const { frontmatter } = article
+  const { frontmatter, fields } = article
 
   const [html, setHtml] = useState(article.html)
   const [headings, setHeadings] = useState([])
@@ -113,7 +114,13 @@ export default function Template({ data, path, location }) {
               ))}
             </ul>
           )}
-          <div dangerouslySetInnerHTML={{ __html: html }} />
+          <Content
+            halfImageWidth={
+              fields.slug ===
+              "/learn-and-invert-a-binary-search-tree-in-javascript/"
+            }
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
           <Newsletter wide />
           <BackButton text="All articles" />
           <AddComment slug={path} />

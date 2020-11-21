@@ -140,3 +140,17 @@ export const LinkIconStyled = styled(LinkIcon)`
   margin-right: 0.5rem;
   transition: color 0.25s;
 `
+
+export const Content = styled.div`
+  ${({ halfImageWidth }) =>
+    halfImageWidth &&
+    css`
+      img {
+        max-width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+      }
+    `}
+`
