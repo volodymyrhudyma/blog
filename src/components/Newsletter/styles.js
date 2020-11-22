@@ -9,9 +9,9 @@ export const Wrapper = styled.div`
   ${({ wide }) =>
     wide &&
     css`
-      background-color: #fafafa;
+      background-color: #1f75041c;
       margin: 1.5rem 0;
-      padding: 1.5rem 0;
+      padding: 1.5rem;
     `}
 `
 
@@ -25,6 +25,10 @@ export const Form = styled.form`
     wide &&
     css`
       width: 15rem;
+
+      @media (max-width: 468px) {
+        width: 100%;
+      }
     `}
 `
 

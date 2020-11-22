@@ -25,7 +25,7 @@ export const Block = styled.div`
   ${({ newsletter }) =>
     newsletter &&
     css`
-      background: #fafafa;
+      background: #1f75041c;
       margin: 0 -1.5rem;
       padding: 1.5rem;
       margin-bottom: 1.5rem;

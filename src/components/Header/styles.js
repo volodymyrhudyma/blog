@@ -19,7 +19,7 @@ export const SidebarDescription = styled.div`
   font-size: 1.125rem;
   flex-shrink: 0;
 
-  @media (max-width: 468px) {
+  @media (max-width: 768px) {
     text-align: center;
   }
 `
@@ -59,17 +59,13 @@ export const SidebarSocial = styled.div`
 export const BoldText = styled.div`
   font-weight: bold;
   font-size: 1.5rem;
-
-  @media (max-width: 768px) {
-    font-size: 1.25rem;
-  }
 `
 
 export const Block = styled.div`
   display: flex;
   align-items: center;
 
-  @media (max-width: 468px) {
+  @media (max-width: 768px) {
     flex-direction: column;
   }
 
@@ -104,14 +100,12 @@ export const Avatar = styled.div`
   }
 
   @media (max-width: 768px) {
-    margin-right: 1rem;
-    background-size: contain;
-    border-radius: 0;
-  }
-
-  @media (max-width: 468px) {
+    width: 250px;
+    height: 175px;
     margin-right: 0;
     margin-bottom: 0.5rem;
+    background-size: contain;
+    border-radius: 0;
   }
 `
 
