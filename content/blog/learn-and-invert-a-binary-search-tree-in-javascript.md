@@ -8,11 +8,11 @@ metaDescription: Learn how to invert a Binary Search Tree. Binary Search Tree is
   child is always smaller than the parent, the right child is bigger.
 shareImage: /img/tree.png
 teaser: One of the most popular questions asked to software developers in an
-  interview is "How do you invert a Binary Search Tree? The truth is that many
+  interview is "How do you invert a Binary Search Tree?" The truth is that many
   of us do not even know what a Binary Search Tree is, let alone...
 date: 2020-11-22T07:38:01.934Z
 ---
-One of the most popular questions asked to software developers in an interview is "How do you invert a Binary Search Tree? 
+One of the most popular questions asked to software developers in an interview is "How do you invert a Binary Search Tree?".
 
 The truth is that many of us do not even know what a Binary Search Tree is, let alone inverting it.
 
