@@ -4,35 +4,35 @@ tag:
   - JavaScript
 promote: false
 metaDescription: Learn how to invert a Binary Search Tree. Binary Search Tree is
-  a special type of Tree, where each node has at most two children and left
-  child is always smaller than the parent, right child is greater.
+  a special type of Tree, where each node has at most two children and the left
+  child is always smaller than the parent, the right child is bigger.
 shareImage: /img/tree.png
-teaser: 'Among the most popular questions, software developers are asked in an
-  interview is: "How to invert a Binary Search Tree?". The truth is that many of
-  us do not even know what a Binary Search Tree, let alone...'
+teaser: One of the most popular questions asked to software developers in an
+  interview is "How do you invert a Binary Search Tree? The truth is that many
+  of us do not even know what a Binary Search Tree is, let alone...
 date: 2020-11-22T07:38:01.934Z
 ---
-Among the most popular questions, software developers are asked in an interview is: "How to invert a Binary Search Tree?".
+One of the most popular questions asked to software developers in an interview is "How do you invert a Binary Search Tree? 
 
-The truth is that many of us do not even know what a Binary Search Tree, let alone inverting it.
+The truth is that many of us do not even know what a Binary Search Tree is, let alone inverting it.
 
 So let's start with the basics.
 
 ## What is a Tree?
 
-A **Tree** is a widely-used data structure that consists of nodes connected by edges:
+A **Tree** is a widely-used data structure consisting of nodes connected by edges:
 
 ![Tree Data Structure](/img/perfect.jpg "Tree Data Structure")
 
-It is just a collection of nodes, where each node is a data structure containing a value and references to its child nodes with the constraints of no duplicated references and no pointing to the root. 
+It is merely a collection of nodes, where each node is a data structure containing a value and references to its child nodes, with the restriction that there are no duplicate references and no reference to the root.
 
 ## Terminology
 
-In order to better understand trees, it is necessary to know at least basic terminology.
+To understand trees better, it is necessary to know at least the basic concepts.
 
-**Node** - a structure that contains a value and pointers to the child nodes.
+**Node** - a structure containing a value and pointers to the child nodes.
 
-**Root Node** - topmost node of the tree.
+**Root Node** - top node of the tree.
 
 **Internal Node** - any node of the tree that contains at least one child node.
 
@@ -42,7 +42,7 @@ In order to better understand trees, it is necessary to know at least basic term
 
 **Depth of a Node** - a length of the path to its root node.
 
-**Height of a Tree** - a length from the root node to the deepest node down the tree. 
+**Height of a Tree** - a length from the root node to the deepest node in the tree. 
 
 **Size of a Tree** - a number of all nodes.
 
@@ -88,17 +88,17 @@ console.log(root);
 
 ## What is a Binary Tree?
 
-Knowing the basics of a tree, let's take a look at a Binary Tree, which is a specialized version of a tree.
+Since we know the basics of a tree, let's take a look at a Binary Tree which is a specialized version of a tree.
 
 In a **Binary Tree,** each node has **at most two children**, which are called **left** and **right** child.
 
-Depending on the arrangement of the nodes, there are several types of Binary Trees:
+Depending on the arrangement of the nodes, there are different types of Binary Trees:
 
 * **Full** - each node has either 0 or 2 children (1 is not allowed)
 
 ![Full Binary Tree](/img/full.png "Full Binary Tree")
 
-* **Complete** - every level, except possibly the last, is full of nodes and all nodes in the last level are as left as possible
+* **Complete** - every level, except possibly the last one, is full of nodes, and all nodes in the last level are left as far as possible
 
 ![Complete Binary Tree](/img/complete.png "Complete Binary Tree")
 
@@ -108,13 +108,13 @@ Depending on the arrangement of the nodes, there are several types of Binary Tre
 
 ## What is a Binary Search Tree?
 
-A **Binary Search Tree** is a special type of Binary Tree, which contains at most 2 nodes (like all Binary Trees) with a major difference - the values are placed in such a way that the **left children must be smaller** than the parent, the **right children - bigger**:
+A **Binary Search Tree** is a special type of Binary Tree that contains a maximum of 2 nodes (like all Binary Trees) with one big difference - the values are set so that the **left children must be smaller** than the parent, the **right children - larger**:
 
 ![Binary Search Tree](/img/bst.jpg "Binary Search Tree")
 
 ## Binary Search Tree Implementation in JavaScript
 
-The basic implementation of Binary Search Tree in JavaScript (allows to create a tree and insert nodes): 
+The basic implementation of Binary Search Tree in JavaScript (allows you to create a tree and insert nodes): 
 
 ```javascript
 class Node { 
@@ -186,11 +186,11 @@ binarySearchTree.insert(13);
 
 ## Invert a Binary Search Tree
 
-Now, having the initial knowledge on the given topic, it is finally possible to proceed with inverting a Binary Search Tree.
+Now that one has the first knowledge of the given topic, it is finally possible to continue with the inversion of a Binary Search Tree. 
 
-But first, what does it mean to invert a Binary Search Tree? 
+But first of all: What does it mean to reverse a Binary Search Tree? 
 
-Basically, it means to swap left and right children:
+Basically, it means swapping left and right children:
 
 ```javascript
 const invertTree = (tree) => {
@@ -214,12 +214,12 @@ Inverted tree created in the example above:
 
 ## Summary
 
-Inverting a Binary Search Tree is not the number one skill you need nowadays, but it will definitely improve your general knowledge.
+Inverting a Binary Search Tree is not the number one skill you need these days, but it will definitely improve your general knowledge.
 
-It is also asked in interviews pretty often, so make sure to understand the topic and implement the inverting algorithm by memory at least once.
+It is also asked quite often in interviews, so make sure you understand the topic and implement the inverting algorithm at least once from memory.
 
 Quick recap:
 
-* A Tree is a collection of nodes connected by edges.
-* A Binary Tree is a tree, where each node has at most two children, which are called left and right child
-* A Binary Search Tree is a Binary Tree, where the values are placed in such a way that the left children must be smaller than the parent, the right children - bigger
+* A Tree is a collection of nodes connected by edges
+* A Binary Tree is a tree, where each node has at most two children, called left and right child
+* A Binary Search Tree is a Binary Tree where the values are set so that the left children must be smaller than the parent, the right children - larger
