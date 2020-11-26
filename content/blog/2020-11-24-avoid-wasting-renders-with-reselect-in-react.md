@@ -3,8 +3,13 @@ title: Avoid Wasting Function Calls with Reselect in React
 tag:
   - React
 promote: false
-metaDescription: // META
-teaser: // TEASER
+metaDescription: Learn how to use Reselect library with React and Redux that
+  provides createSelector function used for creating memoized selectors.
+  Memoized selectors are recomputed only if its arguments change.
+teaser: React and Redux are great tools that can be used together to build web
+  or mobile applications of different size and complexity. Even though React is
+  extremely fast out-of-the-box, when the application is growing, it is hard to
+  keep it...
 date: 2020-11-26T19:16:13.893Z
 ---
 React and Redux are great tools that can be used together to build web or mobile applications of different size and complexity.
@@ -13,7 +18,7 @@ Even though React is extremely fast out-of-the-box, when the application is grow
 
 Larger applications, typically, are not well optimized to minimize the impact of rendering cycles on the performance, so in some places they tend to be slower than expected.
 
-Rendering cycles always come with a cost, so it is best to have as small number of re-renders as it is possible (without giving up on readability and maintainability, of course).
+Rendering cycles always come with a cost, so it is best to have the smallest possible number of re-renders and to execute as small number of functions as possible on each re-render (without giving up on readability and maintainability, of course).
 
 In this article you will see how we can optimize the React application almost with no effort.
 
