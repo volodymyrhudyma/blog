@@ -128,7 +128,7 @@ That's exactly the moment when `reselect` comes into play.
 
 ## What is a Reselect?
 
-**``[`Reselect`](https://github.com/reduxjs/reselect)** is a selector library for Redux which provides a `createSelector` function used for creating memoized selectors.
+**Reselect** is a [selector library](https://github.com/reduxjs/reselect) for Redux which provides a `createSelector` function used for creating memoized selectors.
 
 A memoized selector is not recomputed until its arguments change.
 
@@ -160,7 +160,7 @@ export const getQuery = createSelector(querySelector, (query) => {
 
 The `createSelector(...inputSelectors | [inputSelectors], resultFunc)` function takes one or more selectors as the first argument, computes their values and passes them as arguments to `resultFunc`.
 
-It determines if the value returned has changed between calls by using reference equality check (**\===**).
+It determines if the value returned has changed between calls by using reference equality check (`===`).
 
 ## Observe Saved Function Calls
 
