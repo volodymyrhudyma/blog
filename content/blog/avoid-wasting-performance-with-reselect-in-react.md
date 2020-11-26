@@ -10,7 +10,7 @@ teaser: React and Redux are great tools that can be used together to build web
   or mobile applications of different size and complexity. Even though React is
   extremely fast out-of-the-box, when the application is growing, it is hard to
   keep it...
-date: 2020-11-26T19:16:13.893Z
+date: 2020-11-27T19:16:13.893Z
 ---
 React and Redux are great tools that can be used together to build web or mobile applications of different size and complexity.
 
