@@ -72,8 +72,9 @@ const mapStateToProps = (state: AppState): StateProps => {
 };
 
 export default connect(mapStateToProps)(User);
-
 ```
+
+Note, that this component contains **user** prop which is not actually used, but is needed for explanation purposes.
 
 **selectors.ts** - contains selectors that pull data from the Redux store. Each selector prints a log to the console when invoked:
 
@@ -109,7 +110,23 @@ An application is up and running, so far so good. Let's try to enter something i
 
 ![No Reselect Logs](/img/ezgif.com-gif-maker-1-.gif "No Reselect Logs")
 
-## Add Reselect
+You might have noticed that when we open the application, two following logs appear - **"getQuery selector"** and **"getUser selector"**. 
+
+Seeing them means that the code reached the selectors, pulled **user** and **query** variables out of the store and put them into the component.
+
+Nothing special is happening here, until we start entering something into the input field.
+
+After entering a character, we dispatch an action which changes **query** value in the store and the component is updated by **mapStateToProps** function, which is executed every time the Redux store state changes.
+
+This function triggers selectors, which are executed with entering every character.
+
+But we are changing only **query**, right? So, why does **getUser** selector is being executed? Can't the code be optimized to execute it only if needed?
+
+Imagine this selector containing a piece of heavy logic. It would slow down the application for no reason at all!
+
+That's exactly the moment when `reselect` comes into play.
+
+## What is a Reselect?
 
 ## Observe Saved Renders
 
