@@ -19,7 +19,9 @@ In this article you will see how we can optimize the React application almost wi
 
 ## Build and Configure an App
 
-For better understanding of the whole concept, let's build a simple React app and connect in to Redux.
+I have read a lot of articles explaining this simple concept by using complicated examples, which may seem overwhelming for the beginners, so for the simplicity sake I have created not a typical real-world application.
+
+It would display an input and allow user to enter a text. Let's build it with React and Redux.
 
 **App.tsx** - contains heading and renders **User** component:
 
@@ -74,7 +76,7 @@ const mapStateToProps = (state: AppState): StateProps => {
 export default connect(mapStateToProps)(User);
 ```
 
-Note, that this component contains **user** prop which is not actually used, but is needed for explanation purposes.
+Note, that this component contains **user** prop which is not actually used, but is needed for explanation purpose.
 
 **selectors.ts** - contains selectors that pull data from the Redux store. Each selector prints a log to the console when invoked:
 
@@ -100,13 +102,15 @@ export const getQuery = (state: AppState) => {
 
 **Important note:** We would not include all the remaining files, as it would make an article way less readable. If you do not know how to set up React + Redux application with TypeScript, refer to [this article](/2020-06-11-add-redux-with-typescript-to-your-react-applicaton-june-2020/).
 
-In the end, you should see the following:
+In the end, you should see the following result:
 
 ![React Application](/img/screenshot-2020-11-26-at-22.37.46.png "React Application")
 
 ## Observe Wasted Function Calls
 
-An application is up and running, so far so good. Let's try to enter something into the input and check the console:
+An application is up and running, so far so good. 
+
+Let's try to enter something into the input and check the console:
 
 ![No Reselect Logs](/img/ezgif.com-gif-maker-1-.gif "No Reselect Logs")
 
