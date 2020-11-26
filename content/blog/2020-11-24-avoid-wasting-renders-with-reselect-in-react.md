@@ -1,5 +1,5 @@
 ---
-title: Avoid Wasting Renders with Reselect in React
+title: Avoid Wasting Function Calls with Reselect in React
 tag:
   - React
 promote: false
@@ -164,8 +164,14 @@ It determines if the value returned has changed between calls by using reference
 
 ## Observe Saved Function Calls
 
-Having the change done, open an app, enter the same text as before and notice how we only see **"getQuery selector"** printed to the console. We are not executing **getUser** selector anymore, because it is not needed:
+Having the change done, open an app, enter the same text as before and notice how we only see **"getQuery selector"** printed to the console. 
+
+We are not executing **getUser** selector anymore, because it is not needed (the **user** object in Redux store state did not change):
 
 ![With Reselect Logs](/img/added-reselect.gif "With Reselect Logs")
 
 ## Summary
+
+The performance of an application should be improved on as early stage, as it is possible to avoid issues in the future.
+
+Using a **Reselect** library offers a great help by memoizing the selectors and recomputing them only if their arguments change.
