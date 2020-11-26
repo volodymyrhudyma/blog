@@ -1,5 +1,5 @@
 ---
-title: Avoid Wasting Function Calls with Reselect in React
+title: Avoid Wasting Performance with Reselect in React
 tag:
   - React
 promote: false
