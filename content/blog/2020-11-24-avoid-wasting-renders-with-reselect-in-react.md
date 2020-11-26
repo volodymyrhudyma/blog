@@ -104,7 +104,7 @@ In the end, you should see the following:
 
 ![React Application](/img/screenshot-2020-11-26-at-22.37.46.png "React Application")
 
-## Observe Wasted Renders
+## Observe Wasted Function Calls
 
 An application is up and running, so far so good. Let's try to enter something into the input and check the console:
 
@@ -128,6 +128,44 @@ That's exactly the moment when `reselect` comes into play.
 
 ## What is a Reselect?
 
-## Observe Saved Renders
+**``[`Reselect`](https://github.com/reduxjs/reselect)** is a selector library for Redux which provides a `createSelector` function used for creating memoized selectors.
+
+A memoized selector is not recomputed until its arguments change.
+
+Open **selectors.ts** file and update the selectors:
+
+```typescript
+import { createSelector } from "reselect";
+
+import { AppState } from "../rootReducer";
+
+const userSelector = (state: AppState) => state.app.data.user;
+const querySelector = (state: AppState) => state.app.data.query;
+
+export const getUser = createSelector(userSelector, (user) => {
+  console.log("getUser selector");
+  return (
+    user && {
+      ...user,
+      note: `${user?.name};${user?.age}`,
+    }
+  );
+});
+
+export const getQuery = createSelector(querySelector, (query) => {
+  console.log("getQuery selector");
+  return query;
+});
+```
+
+The `createSelector(...inputSelectors | [inputSelectors], resultFunc)` function takes one or more selectors as the first argument, computes their values and passes them as arguments to `resultFunc`.
+
+It determines if the value returned has changed between calls by using reference equality check (**\===**).
+
+## Observe Saved Function Calls
+
+Having the change done, open an app, enter the same text as before and notice how we only see **"getQuery selector"** printed to the console. We are not executing **getUser** selector anymore, because it is not needed:
+
+![With Reselect Logs](/img/added-reselect.gif "With Reselect Logs")
 
 ## Summary
