@@ -75,7 +75,7 @@ export default connect(mapStateToProps)(User);
 
 ```
 
-**selectors.ts** - contains selectors that pull data from the Redux store:
+**selectors.ts** - contains selectors that pull data from the Redux store. Each selector prints a log to the console when invoked:
 
 ```typescript
 import { AppState } from "../rootReducer";
@@ -97,9 +97,17 @@ export const getQuery = (state: AppState) => {
 };
 ```
 
-**Important note:** We would not include all the remaining files, as it would make an article way less readable. If you do not know how to set up React + Redux application with TypeScript, refer to [this article](/2020-06-11-add-redux-with-typescript-to-your-react-applicaton-june-2020/). 
+**Important note:** We would not include all the remaining files, as it would make an article way less readable. If you do not know how to set up React + Redux application with TypeScript, refer to [this article](/2020-06-11-add-redux-with-typescript-to-your-react-applicaton-june-2020/).
+
+In the end, you should see the following:
+
+![React Application](/img/screenshot-2020-11-26-at-22.37.46.png "React Application")
 
 ## Observe Wasted Renders
+
+An application is up and running, so far so good. Let's try to enter something into the input and check the console:
+
+![No Reselect Logs](/img/ezgif.com-gif-maker-1-.gif "No Reselect Logs")
 
 ## Add Reselect
 
