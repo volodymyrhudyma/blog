@@ -2,6 +2,7 @@
 title: Top 7 Ways to Optimize the Performance of React Applications
 tag:
   - React
+promote: false
 metaDescription: "Learn Top 7 Ways to Optimize the Performance of React
   applications: Avoid Large Components, Memoize, Do Code Splitting, Debounce,
   Tree Shake, Avoid Unnecessary Remounting, Paginate."
@@ -119,7 +120,7 @@ Open Chrome DevTools, select the **Components** tab, click the **settings icon**
 
 Leave the DevTools open, go back to the application and try to enter something into the input to filter users:
 
-![React component updates highlighted](/img/ezgif.com-gif-maker-1-.gif "React component updates highlighted")
+![React component updates highlighted](/img/open-dev-tools.gif "React component updates highlighted")
 
 Do you see that the yellow border began to appear?
 
