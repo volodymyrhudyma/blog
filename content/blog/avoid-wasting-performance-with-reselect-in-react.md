@@ -3,32 +3,32 @@ title: Avoid Wasting Performance with Reselect in React
 tag:
   - React
 promote: false
-metaDescription: Learn how to use Reselect library with React and Redux that
-  provides createSelector function used for creating memoized selectors.
-  Memoized selectors are recomputed only if its arguments change.
+metaDescription: Learn how to use the Reselect library with React and Redux,
+  which provides the "createSelector" function for creating memoized selectors.
+  Memoized selectors are only recalculated if their arguments change.
 teaser: React and Redux are great tools that can be used together to build web
-  or mobile applications of different size and complexity. Even though React is
-  extremely fast out-of-the-box, when the application is growing, it is hard to
+  or mobile applications of varying size and complexity. Even though React is
+  extremely fast "out-of-the-box", as the application grows, it is difficult to
   keep it...
 date: 2020-11-27T19:16:13.893Z
 ---
-React and Redux are great tools that can be used together to build web or mobile applications of different size and complexity.
+React and Redux are great tools that can be used together to build web or mobile applications of varying size and complexity.
 
-Even though React is extremely fast out-of-the-box, when the application is growing, it is hard to keep it as performant as the small one.
+Even though React is extremely fast "out-of-the-box", as the application grows, it is difficult to keep it as performant as the small one.
 
-Larger applications, typically, are not well optimized to minimize the impact of rendering cycles on the performance, so in some places they tend to be slower than expected.
+Larger applications are usually not well optimized to minimize the impact of rendering cycles on performance, so they tend to be slower than expected in some places.
 
-Rendering cycles always come with a cost, so it is best to have the smallest possible number of re-renders and to execute as small number of functions as possible on each re-render (without giving up on readability and maintainability, of course).
+Rendering cycles are  always costly, so it is best to have the smallest possible number of re-renders and to execute as few functions as possible on each re-render (without sacrificing readability and maintainability, of course).
 
-In this article you will see how we can optimize the React application almost with no effort.
+In this article you will see how we can optimize the React application with almost no effort.
 
 ## Build and Configure an App
 
-I have read a lot of articles explaining this simple concept by using complicated examples, which may seem overwhelming for the beginners, so for the simplicity sake I have created not a typical real-world application.
+I have read many articles explaining this simple concept with complicated examples, which may seem overwhelming for beginners, so for the sake of simplicity I have created not a typical real-world application.
 
-It would display an input and allow user to enter a text. Let's build it with React and Redux.
+It would display an input and allow the user to enter a text. Let's build it with React and Redux.
 
-**App.tsx** - contains heading and renders **User** component:
+**App.tsx** - contains the heading and renders the **User** component:
 
 ```tsx
 import React from "react";
@@ -45,7 +45,7 @@ const App = () => (
 export default App;
 ```
 
-**User.tsx** - contains the main logic of an application: renders **input** with value stored in Redux store and updated by dispatching an action:
+**User.tsx** - contains the main logic of an application: renders **input** with a value stored in Redux store and updated by dispatching an action:
 
 ```tsx
 import React, { ChangeEvent, FC } from "react";
@@ -81,9 +81,9 @@ const mapStateToProps = (state: AppState): StateProps => {
 export default connect(mapStateToProps)(User);
 ```
 
-Note, that this component contains **user** prop which is not actually used, but is needed for explanation purpose.
+Note that this component contains **user** prop which is not actually used, but is needed for explanatory purposes.
 
-**selectors.ts** - contains selectors that pull data from the Redux store. Each selector prints a log to the console when invoked:
+**selectors.ts** - contains selectors that retrieve data from the Redux store. Each selector outputs a log to the console when called:
 
 ```typescript
 import { AppState } from "../rootReducer";
@@ -105,9 +105,9 @@ export const getQuery = (state: AppState) => {
 };
 ```
 
-**Important note:** We would not include all the remaining files, as it would make an article way less readable. If you do not know how to set up React + Redux application with TypeScript, refer to [this article](/2020-06-11-add-redux-with-typescript-to-your-react-applicaton-june-2020/).
+**Important note:** We would not include all remaining files here, as this would make an article much less readable. If you do not know how to set up a React + Redux application with TypeScript, please read [this article](/2020-06-11-add-redux-with-typescript-to-your-react-applicaton-june-2020/).
 
-In the end, you should see the following result:
+In the end you should see the following result:
 
 ![React Application](/img/screenshot-2020-11-26-at-22.37.46.png "React Application")
 
@@ -115,31 +115,31 @@ In the end, you should see the following result:
 
 An application is up and running, so far so good. 
 
-Let's try to enter something into the input and check the console:
+Let's try to type something into the input and check the console:
 
 ![No Reselect Logs](/img/ezgif.com-gif-maker-1-.gif "No Reselect Logs")
 
-You might have noticed that when we open the application, two following logs appear - **"getQuery selector"** and **"getUser selector"**. 
+You may have noticed that when you open the application, two following logs appear - **"getQuery selector"** and **"getUser selector"**. 
 
-Seeing them means that the code reached the selectors, pulled **user** and **query** variables out of the store and put them into the component.
+Seeing them means that the code has reached the selectors, pulled the **user** and **query** variables from the store and inserted them into the component.
 
-Nothing special is happening here, until we start entering something into the input field.
+Nothing special happens here, until we start typing something into the input field.
 
-After entering a character, we dispatch an action which changes **query** value in the store and the component is updated by **mapStateToProps** function, which is executed every time the Redux store state changes.
+After entering a character, we dispatch an action that changes the **query** value in the store and the component is updated by the **mapStateToProps** function, which is executed each time the Redux store state changes.
 
-This function triggers selectors, which are executed with entering every character.
+This function triggers selectors that are executed when each character is entered.
 
-But we are changing only **query**, right? So, why does **getUser** selector is being executed? Can't the code be optimized to execute it only if needed?
+But we are just changing **query**, right? So why is the **getUser** selector executed? Cannot the code be optimized so that it is only executed when needed?
 
-Imagine this selector containing a piece of heavy logic. It would slow down the application for no reason at all!
+Imagine that this selector contains a piece of heavy logic. It would slow down the application for no reason!
 
-That's exactly the moment when `reselect` comes into play.
+This is exactly the moment when `reselect` comes into play.
 
 ## What is a Reselect?
 
-**Reselect** is a [selector library](https://github.com/reduxjs/reselect) for Redux which provides a `createSelector` function used for creating memoized selectors.
+**Reselect** is a [selector library](https://github.com/reduxjs/reselect) for Redux which provides a `createSelector` function used to create memoized selectors.
 
-A memoized selector is not recomputed until its arguments change.
+A memoized selector is only recalculated if its arguments change.
 
 Open **selectors.ts** file and update the selectors:
 
@@ -167,15 +167,15 @@ export const getQuery = createSelector(querySelector, (query) => {
 });
 ```
 
-The `createSelector(...inputSelectors | [inputSelectors], resultFunc)` function takes one or more selectors as the first argument, computes their values and passes them as arguments to `resultFunc`.
+The `createSelector(...inputSelectors | [inputSelectors], resultFunc)` function takes one or more selectors as first argument, calculates their values and passes them as arguments to `resultFunc`.
 
-It determines if the value returned has changed between calls by using reference equality check (`===`).
+It determines whether the returned value has changed between calls using the reference equality check (`===`).
 
 ## Observe Saved Function Calls
 
-Having the change done, open an app, enter the same text as before and notice how we only see **"getQuery selector"** printed to the console. 
+After making the change, open an app, enter the same text as before and notice that we only see **"getQuery selector"** printed on the console. 
 
-We are not executing **getUser** selector anymore, because it is not needed (the **user** object in Redux store state did not change):
+We no longer execute the **getUser** selector anymore, because it is not needed (the **user** object in Redux store state has not changed):
 
 ![With Reselect Logs](/img/added-reselect.gif "With Reselect Logs")
 
@@ -183,4 +183,4 @@ We are not executing **getUser** selector anymore, because it is not needed (the
 
 The performance of an application should be improved on as early stage, as it is possible to avoid issues in the future.
 
-Using a **Reselect** library offers a great help by memoizing the selectors and recomputing them only if their arguments change.
+Using a **Reselect** library is a good way to do this by memoizing the selectors and recalculating them only if their arguments change.
