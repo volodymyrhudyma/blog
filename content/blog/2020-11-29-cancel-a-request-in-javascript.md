@@ -4,7 +4,7 @@ tag:
   - JavaScript
 promote: false
 metaDescription: // META
-shareImage: /img/screenshot-2020-11-29-at-11.00.42.png
+shareImage: ""
 teaser: // TEASER
 date: 2020-11-30T09:27:05.801Z
 ---
@@ -78,6 +78,74 @@ fetch("http://localhost:8000", { signal }).then(() => {
 
 When an async operation is aborted, the promise rejects with a `DOMException` named `AbortError`.
 
+Handling this is important because there is no reason for showing an error message if the request was canceled intentionally. 
+
+Passing the same **signal** to multiple requests aborts all of them:
+
+```javascript
+const controller = new AbortController();
+const { signal } = controller;
+
+// Abort 2 requests after 1s
+setTimeout(() => controller.abort(), 1000);
+
+fetch("http://localhost:8000/users", { signal }).then(() => {
+  console.log("Response received");
+}).catch(error => {
+  console.log("An error occurred");
+});
+
+fetch("http://localhost:8000/projects", { signal }).then(() => {
+  console.log("Response received");
+}).catch(error => {
+  console.log("An error occurred");
+});
+```
+
 ## Axios
+
+An **Axios** has its own implementation for canceling requests. We need to generate a cancel token to be able to do that:
+
+```javascript
+import axios from "axios";
+
+const cancelToken = axios.CancelToken;
+const source = cancelToken.source();
+```
+
+Then the generated **source** is passed to the axios request:
+
+```javascript
+const response = await axios.get("http://localhost:8000", {
+  cancelToken: source.token,
+});
+```
+
+The **source** contains a **cancel** method which can be invoked to abort a request (the message parameter is optional):
+
+```javascript
+source.cancel("Axios request has been cancelled");
+```
+
+To check if the request was canceled, an Axios provides **isCancel** method. The complete example:
+
+```javascript
+const CancelToken = axios.CancelToken;
+const source = CancelToken.source();
+
+axios.get("http://localhost:8000", {
+  cancelToken: source.token
+}).catch((error) => {
+  if (axios.isCancel(error)) {
+    console.log("Request cancelled: ", error.message);
+  } else {
+    console.log("An error occurred");
+  }
+});
+
+source.cancel("Axios request has been cancelled");
+```
+
+It is possible to cancel multiple requests as well, just pass the same **cancelToken** to all of them.
 
 ## Summary
