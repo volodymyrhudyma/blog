@@ -3,14 +3,19 @@ title: Cancel a Request in JavaScript
 tag:
   - JavaScript
 promote: false
-metaDescription: // META
+metaDescription: Learn how to cancel fetch request in JavaScript by using
+  AbortController and AbortSignal. To cancel a fetch request, pass AbortSignal
+  to the options and use abort() method of the AbortController.
 shareImage: ""
-teaser: // TEASER
+teaser: Canceling requests built on top of Promises was never an easy thing (if
+  possible at all) until AbortController and AbortSignal have been added to the
+  JavaScript specification. They allow the developers to use a signal to abort
+  one or...
 date: 2020-11-30T09:27:05.801Z
 ---
-Canceling requests built on top of Promises was not possible until **AbortController** has been added to the JavaScript specification.
+Canceling requests built on top of Promises was never an easy thing (if possible at all) until **AbortController** and **AbortSignal** have been added to the JavaScript specification.
 
-It allows the developers to use a signal to abort one or multiple requests.
+They allow the developers to use a signal to abort one or multiple requests.
 
 ## The AbortController
 
@@ -113,7 +118,7 @@ const cancelToken = axios.CancelToken;
 const source = cancelToken.source();
 ```
 
-Then the generated **source** is passed to the axios request:
+Then the generated **source** is passed to the Axios request:
 
 ```javascript
 const response = await axios.get("http://localhost:8000", {
