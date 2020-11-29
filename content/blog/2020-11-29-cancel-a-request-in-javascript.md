@@ -49,7 +49,7 @@ According to [caniuse](https://caniuse.com/?search=abortcontroller), **AbortCont
 
 ## Fetch API
 
-Since we already know the API specification, let's take a look at the real example of using it with the `fetch` API:
+Since we already know the API specification, let's take a look at the real example of using it with the Fetch API:
 
 ```javascript
 const controller = new AbortController();
@@ -81,7 +81,7 @@ fetch("http://localhost:8000", { signal }).then(() => {
 });
 ```
 
-If an asynchronous operation is aborted, the promise is rejected with a `DOMException` called `AbortError`.
+If an asynchronous operation is aborted, the promise is rejected with a **DOMException** called **AbortError**.
 
 Handling this is important, because there is no reason to display an error message if the request was aborted intentionally. 
 
