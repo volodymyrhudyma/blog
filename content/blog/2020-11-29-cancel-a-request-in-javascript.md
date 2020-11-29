@@ -148,4 +148,14 @@ source.cancel("Axios request has been cancelled");
 
 It is possible to cancel multiple requests as well, just pass the same **cancelToken** to all of them.
 
+There is also a second way to create a Cancel Token, refer to the [Axios documentation](https://github.com/axios/axios#cancellation) to read more.
+
 ## Summary
+
+Now we know how to cancel a request when using either `fetch` API or `axios` HTTP client.
+
+For better understanding purposes, you may ask: "Why do we need to cancel requests at all?". The answer might not be obvious, but there are some specific cases where it will improve the performance and User Experience of your website.
+
+Let's assume that the user browses your website and leaving page **A** for page **B.** If there are any fetch calls related to page **A** in progress, they do not really have to be completed, as the data is no longer needed, so they can be canceled.
+
+Canceling requests has never been so simple, make sure to use it in your next project if needed!
