@@ -3,8 +3,13 @@ title: "Warning: Can't perform a React state update on an unmounted component"
 tag:
   - React
 promote: false
-metaDescription: // META
-teaser: // TEASER
+metaDescription: Learn how to fix "Can't perform a React state update on an
+  unmounted component" warning which notifies that you tried to set the state of
+  the component that has already been unmounted.
+teaser: This warning is one of the most popular warnings I React developers
+  face. I am one hundred percent sure that each developer encountered this at
+  least once and did not know why that appeared and how to get rid of it. To
+  begin with...
 date: 2020-12-02T15:50:00.000Z
 ---
 "**Can't perform a React state update on an unmounted component**" - is one of the most popular warnings I React developers face.
@@ -38,7 +43,6 @@ const User = () => {
 
   return <div>{user?.name || "No user found"}</div>;
 };
-
 ```
 
 If only one component missed handling the case of not setting the state after being unmounted, it has almost no impact on the performance.
@@ -98,7 +102,6 @@ const User = () => {
 
 ```tsx
 const Project = () => <div>Project component</div>;
-
 ```
 
 The working app looks the following way:
@@ -157,3 +160,7 @@ The fix is pretty simple - we need to declare a varible `let mounted = true;` in
 ```
 
 ## Summary
+
+"Can't perform a React state update on an unmounted component" warning appears when the developer forgets to check if the component is still mounted before updating its state.
+
+Even though this warning is not a critical error in most cases, it is best to prepare a fix as soon as it appears to make sure that your application is working fine.
