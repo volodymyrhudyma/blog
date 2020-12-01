@@ -101,6 +101,16 @@ const Project = () => <div>Project component</div>;
 
 ```
 
+The working app looks the following way:
+
+![Working React Application](/img/screenshot-2020-12-01-at-20.01.04.png "Working React Application")
+
+Those buttons at the top act like the tabs, clicking on the first one shown the **Project** component, on the second one - the **User**.
+
+Now open the developers console and click on the "**Show user**" button and then quickly back on the "**Show project**":
+
+![React Application With Warning](/img/ezgif.com-gif-maker-3-.gif "React Application With Warning")
+
 ## Fixing an Example
 
 ## Summary
