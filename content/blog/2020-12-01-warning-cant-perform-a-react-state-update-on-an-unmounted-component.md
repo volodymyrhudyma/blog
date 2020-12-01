@@ -134,4 +134,26 @@ Knowing exactly the place where the issue lies, let's fix it.
 
 ## Fixing an Example
 
+The fix is pretty simple - we need to declare a varible `let mounted = true;` inside the **useEffect** hook which will be set to `false` in the cleanup function and check this variable before updating the state:
+
+```tsx
+ useEffect(() => {
+    // Set to "true" when component is mounted
+    let mounted = true;
+    setTimeout(() => {
+      // Check if the component is still mounted
+      if (mounted) {
+        setUser({
+          id: 1,
+          name: 'John',
+        });
+      }
+    }, 3000);
+    // Set to "false" when the component is unmounted
+    return () => {
+      mounted = false;
+    };
+  }, []);
+```
+
 ## Summary
