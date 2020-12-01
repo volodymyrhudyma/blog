@@ -47,21 +47,11 @@ But if there are a lot of such components (for example, a list) and all of them 
 
 ## Simple Example
 
-A simple example is worth a thousand words, so let's create a simple React application that throws the warning.
+A simple example is worth a thousand words, so let's create a simple React application that throws the warning (I will skip all the styles, imports and exports for better readability).
 
 **App.tsx:**
 
 ```tsx
-import React, { useState } from 'react';
-import styled from 'styled-components';
-
-import User from './User';
-import Project from './Project';
-
-// Skipping the styles
-const Wrapper = styled.div``;
-const Button = styled.button``;
-
 const App = () => {
   const [activeView, setActiveView] = useState('project');
 
@@ -81,20 +71,11 @@ const App = () => {
     </Wrapper>
   );
 };
-
-export default App;
 ```
 
 **User.tsx:**
 
 ```tsx
-import React, { useEffect, useState } from 'react';
-
-interface User {
-  id: number;
-  name: string;
-}
-
 const User = () => {
   const [user, setUser] = useState<User | null>(null);
 
@@ -111,18 +92,13 @@ const User = () => {
 
   return <div>{user?.name || "No user found"}</div>;
 };
-
-export default User;
 ```
 
 **Project.tsx:**
 
 ```tsx
-import React from 'react';
-
 const Project = () => <div>Project component</div>;
 
-export default Project;
 ```
 
 ## Fixing an Example
