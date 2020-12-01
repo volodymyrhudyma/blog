@@ -5,6 +5,6 @@ tag:
 promote: false
 metaDescription: // META
 teaser: // TEASER
-date: 2020-12-02T15:49:55.929Z
+date: 2020-12-02T15:50:00.000Z
 ---
 // BODY
