@@ -6,13 +6,13 @@ promote: false
 metaDescription: Learn how to fix "Can't perform a React state update on an
   unmounted component" warning which notifies that you tried to set the state of
   the component that has already been unmounted.
-teaser: This warning is one of the most popular warnings I React developers
-  face. I am one hundred percent sure that each developer encountered this at
-  least once and did not know why that appeared and how to get rid of it. To
-  begin with...
+teaser: This warning is one of the most popular warnings React developers face.
+  I am one hundred percent sure that each developer encountered this at least
+  once and did not know why that appeared and how to get rid of it. To begin
+  with...
 date: 2020-12-02T15:50:00.000Z
 ---
-"**Can't perform a React state update on an unmounted component**" - is one of the most popular warnings I React developers face.
+"**Can't perform a React state update on an unmounted component**" - is one of the most popular warnings React developers face.
 
 I am one hundred percent sure that each developer encountered this at least once and did not know why that appeared and how to get rid of it.
 
