@@ -203,9 +203,19 @@ And the server:
 
 `node server.js`
 
-You should see the app:
+You should see the app running:
 
-![Client-side App](/img/screenshot-2020-12-05-at-11.12.21.png "Client-side App")
+![Client-Side App](/img/screenshot-2020-12-05-at-11.12.21.png "Client-Side App")
+
+And the server:
+
+![Server-Side App](/img/screenshot-2020-12-05-at-11.13.50.png "Server-Side App")
+
+Notice the log **Client connected: 1607163222261** which means that the connection has been established and we can use the channel to send events.
+
+Click on the button **Send** on the UI (which **POST**s 5 random characters to the **/message** endpoint) and notice how they appear in the list:
+
+![Working App](/img/ezgif.com-gif-maker-4-.gif "Working App")
 
 ## Server-Sent Events vs WebSockets
 
