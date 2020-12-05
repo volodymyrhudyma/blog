@@ -4,7 +4,7 @@ tag:
   - JavaScript
 promote: false
 metaDescription: // META
-teaser: // TEASER
+teaser: // TEASERh
 date: 2020-12-06T07:35:00.000Z
 ---
 When there is a need to build a real-time application, the first thing that comes to mind is WebSockets, which is fine, but we have some other options to consider.
