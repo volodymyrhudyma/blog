@@ -143,6 +143,8 @@ app.listen(PORT, () => {
 
 The main goal of this code is to keep track of all connected clients and notify them of the data that was **POST**ed to the **/message** endpoint.
 
+**Important note:** `\n` does a line break. `\n\n` means the end of the message, you should not forget to add that.
+
 ## Client-Side
 
 On the client-side let's create a simple React component using EventSource API to connect to the event stream and display the real-time data:
@@ -268,6 +270,8 @@ When the browser receives a message with an **id** set, it sets the property `ev
 
 ![Last-Event-Id header](/img/screenshot-2020-12-05-at-11.47.03.png "Last-Event-Id header")
 
+**Important note:** the **id** should be appended after the **data** by the server, to ensure that the **lastEventId** is updated after receiving the message.
+
 ## Sever-Sent Events vs WebSockets
 
 The WebSocket protocol allows exchanging events between the server and the client. The data can be sent in both directions.
@@ -285,3 +289,5 @@ Seeing all those disadvantages of using Server-Sent Events, are they really a co
 They are much simpler and faster to implement, so if you need a quick way to set up the uni-directional real-time communication between the server and the client, and aware of all potential risks, this is the best way to go.
 
 But be aware that there is a high chance that the solution will be eventually refactored to the WebSockets.
+
+## Summary
