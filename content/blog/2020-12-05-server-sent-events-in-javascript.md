@@ -21,7 +21,7 @@ They are very simple to implement, but there are some important things to know b
 * Allows only uni-directional data flow (as it has already been mentioned)
 * It is limited to text-only data, no binaries allowed
 
-## Client-Side
+## The API
 
 The Server-Sent Event API is contained in the `EventSource` interface.
 
@@ -63,6 +63,149 @@ eventSource.addEventListener("error", (error) => {
 ## Server-Side
 
 To establish a connection with the client, we need to send **200** status code along with the **Content-Type: text/event-stream** and **Connection: keep-alive** headers.
+
+Let's take a look at the complete example using Node.js and explain each line of code in the comment:
+
+```javascript
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+
+const app = express();
+
+const PORT = 3000;
+
+// Store all connected clients
+let clients = [];
+
+const addSubscriber = (req, res) => {
+  // Set necessary headers to establish a stream of events
+  const headers = {
+    'Content-Type': 'text/event-stream',
+    Connection: 'keep-alive',
+  };
+  res.writeHead(200, headers);
+
+  // Add a new client that just connected
+  // Store the id and the whole response object
+  const id = Date.now();
+  const client = {
+    id,
+    res,
+  };
+  clients.push(client);
+
+  console.log(`Client connected: ${id}`);
+
+  // When the connection is closed, remove the client from the subscribers
+  req.on('close', () => {
+    console.log(`Client disconnected: ${id}`);
+    clients = clients.filter((client) => client.id !== id);
+  });
+};
+
+const notifySubscribers = (message) => {
+  // Send a message to each subscriber
+  clients.forEach((client) =>
+    client.res.write(`data: ${JSON.stringify(message)}\n\n`)
+  );
+};
+
+// Add a new message and send it to all subscribed clients
+const addMessage = (req, res) => {
+  const message = req.body;
+
+  // Return the message as a response for the "/message" call
+  res.json(message);
+
+  return notifySubscribers(message);
+};
+
+// Get a number of the clients subscribed
+const getSubscribers = (_req, res) => {
+  return res.json(clients.length);
+};
+
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// Define endpoints
+app.get('/subscribe', addSubscriber);
+app.post('/message', addMessage);
+app.get('/status', getSubscribers);
+
+// Start the app
+app.listen(PORT, () => {
+  console.log(`App listening on port ${PORT}`);
+});
+```
+
+The main goal of this code is to keep track of all connected clients and notify them of the data that was **POST**ed to the **/message** endpoint.
+
+## Client-Side
+
+On the client-side let's create a simple React component using EventSource API to connect to the event stream and display the real-time data:
+
+```jsx
+const App = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    // Subscribe to the event stream
+    const eventSource = new EventSource('http://localhost:3000/subscribe');
+    eventSource.addEventListener('message', handleReceiveMessage);
+    return () => {
+      // Remove event listener and close the connection on unmount
+      eventSource.removeEventListener('message', handleReceiveMessage);
+      eventSource.close();
+    };
+  }, []);
+
+  // Get the message and store it in the state
+  const handleReceiveMessage = (event: any) => {
+    const eventData = JSON.parse(event.data);
+    setData((data) => data.concat(eventData));
+  };
+
+  // Send 5 random chars to the server
+  const handleSendMessage = () => {
+    axios.post('http://localhost:3000/message', {
+      message: generateRandomChars(5),
+    });
+  };
+
+  return (
+    <div style={{ padding: '0 20px' }}>
+      <div>
+        <h4>Click to send a message</h4>
+        <button onClick={handleSendMessage}>Send</button>
+      </div>
+      <div>
+        <h4>Message List</h4>
+        <p>Number of messages: {data.length}</p>
+        {data.map((item, index) => (
+          <div key={index}>{item.message}</div>
+        ))}
+      </div>
+    </div>
+  );
+};
+```
+
+## Putting it Together
+
+To see our example in action, start the client (your start script may be different):
+
+`yarn start`
+
+And the server:
+
+`node server.js`
+
+You should see the app:
+
+![Client-side App](/img/screenshot-2020-12-05-at-11.12.21.png "Client-side App")
 
 ## Server-Sent Events vs WebSockets
 
