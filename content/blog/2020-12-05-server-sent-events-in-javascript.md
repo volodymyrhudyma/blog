@@ -205,7 +205,7 @@ And the server:
 
 You should see the app running:
 
-![Client-Side App](/img/screenshot-2020-12-05-at-11.12.21.png "Client-Side App")
+![Client-Side App](/img/screenshot-2020-12-05-at-11.18.44.png "Client-Side App")
 
 And the server:
 
@@ -217,7 +217,58 @@ Click on the button **Send** on the UI (which **POST**s 5 random characters to t
 
 ![Working App](/img/ezgif.com-gif-maker-4-.gif "Working App")
 
-## Server-Sent Events vs WebSockets
+## Custom Event Types
+
+The default event type used by Server-Sent Events is a **message**.
+
+A custom event can be sent by specifying the **event** at the event start:
+
+```javascript
+client.res.write(`event: join\ndata: ${JSON.stringify(message)}\n\n`);
+
+```
+
+And then the client can listen for that event:
+
+```javascript
+eventSource.addEventListener('join', handleReceiveMessage);
+
+```
+
+## Auto Reconnect
+
+If the server crashes or the connection is lost, the **EventSource** is trying to reconnect, we do not have to care about it. 
+
+Usually, there is a few seconds delay between the reconnections:
+
+![Auto Reconnect](/img/ezgif.com-gif-maker-5-.gif "Auto Reconnect")
+
+The server can provide a recommended delay by specifying the **retry** at the event start:
+
+```javascript
+// Retry each 5 seconds
+client.res.write(`retry:5000\ndata: ${JSON.stringify(message)}\n\n`);
+```
+
+If the browser knows that there is no internet connection at the current moment, it will retry to reconnect once the internet connection is established.
+
+## Last-Event-Id
+
+It is essential that the connection is resumed at the same point where it got interrupted, so no messages are lost.
+
+This can be achieved with Server-Sent Events with the **Last-Event-Id** header and no coding at all.
+
+Each message from the server should include a unique **id** field:
+
+```javascript
+client.res.write(`data: ${JSON.stringify(message)}\nid:500\n\n`);
+```
+
+When the browser receives a message with an **id** set, it sets the property `eventSource.lastEventId` to its value and upon reconnection sends this value in the **Last-Event-Id** header:
+
+![Last-Event-Id header](/img/screenshot-2020-12-05-at-11.47.03.png "Last-Event-Id header")
+
+## Sever-Sent Events vs WebSockets
 
 The WebSocket protocol allows exchanging events between the server and the client. The data can be sent in both directions.
 
