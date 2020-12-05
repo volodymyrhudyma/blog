@@ -3,8 +3,13 @@ title: A Complete Guide To Server-Sent Events in JavaScript
 tag:
   - JavaScript
 promote: false
-metaDescription: // META
-teaser: // TEASERh
+metaDescription: Learn Server-Sent Events that provide uni-directional
+  communication flow between server and client via HTTP connection. WebSockets
+  vs Server-Sent Events, the differences.
+teaser: When there is a need to build an application that allows real-time
+  operations, the first thing that comes to mind is WebSockets, which is fine,
+  but there are other options to consider as well. One of them is Server-Sent
+  Events that provide...
 date: 2020-12-06T07:35:00.000Z
 ---
 When there is a need to build an application that allows real-time operations, the first thing that comes to mind is WebSockets, which is fine, but there are other options to consider as well.
