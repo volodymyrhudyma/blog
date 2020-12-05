@@ -92,9 +92,9 @@ To establish a connection with the client, we need to send **200** status code a
 Let's take a look at the complete example using Node.js and explain each line of code in the comment:
 
 ```javascript
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
+const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require("cors");
 
 const app = express();
 
@@ -106,8 +106,8 @@ let clients = [];
 const addSubscriber = (req, res) => {
   // Set necessary headers to establish a stream of events
   const headers = {
-    'Content-Type': 'text/event-stream',
-    Connection: 'keep-alive',
+    "Content-Type": "text/event-stream",
+    Connection: "keep-alive",
   };
   res.writeHead(200, headers);
 
@@ -123,7 +123,7 @@ const addSubscriber = (req, res) => {
   console.log(`Client connected: ${id}`);
 
   // When the connection is closed, remove the client from the subscribers
-  req.on('close', () => {
+  req.on("close", () => {
     console.log(`Client disconnected: ${id}`);
     clients = clients.filter((client) => client.id !== id);
   });
@@ -156,9 +156,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Define endpoints
-app.get('/subscribe', addSubscriber);
-app.post('/message', addMessage);
-app.get('/status', getSubscribers);
+app.get("/subscribe", addSubscriber);
+app.post("/message", addMessage);
+app.get("/status", getSubscribers);
 
 // Start the app
 app.listen(PORT, () => {
@@ -180,11 +180,11 @@ const App = () => {
 
   useEffect(() => {
     // Subscribe to the event stream
-    const eventSource = new EventSource('http://localhost:3000/subscribe');
-    eventSource.addEventListener('message', handleReceiveMessage);
+    const eventSource = new EventSource("http://localhost:3000/subscribe");
+    eventSource.addEventListener("message", handleReceiveMessage);
     return () => {
       // Remove event listener and close the connection on unmount
-      eventSource.removeEventListener('message', handleReceiveMessage);
+      eventSource.removeEventListener("message", handleReceiveMessage);
       eventSource.close();
     };
   }, []);
@@ -197,13 +197,13 @@ const App = () => {
 
   // Send 5 random chars to the server
   const handleSendMessage = () => {
-    axios.post('http://localhost:3000/message', {
+    axios.post("http://localhost:3000/message", {
       message: generateRandomChars(5),
     });
   };
 
   return (
-    <div style={{ padding: '0 20px' }}>
+    <div style={{ padding: "0 20px" }}>
       <div>
         <h4>Click to send a message</h4>
         <button onClick={handleSendMessage}>Send</button>
@@ -257,7 +257,7 @@ client.res.write(`event: join\ndata: ${JSON.stringify(message)}\n\n`);
 And then the client can listen for that event:
 
 ```javascript
-eventSource.addEventListener('join', handleReceiveMessage);
+eventSource.addEventListener("join", handleReceiveMessage);
 ```
 
 ## Auto Reconnect
@@ -318,7 +318,7 @@ What are the main differences between both technologies?
 * Server-Sent Events are based on HTTP, WebSockets on the WebSocket protocol
 * Server-Sent Events do not allow bi-directional data flow, WebSockets do
 * Server-Sent Events do not allow sending binary data, WebSockets do
-* Server-Sent Events provide an automatic reconnection if the connection is lost, WebSockets don't (you need to implement it manually)
+* Server-Sent Events provide an automatic reconnection if the connection is lost, WebSockets do not (you need to implement it manually)
 * Server-Sent Events have a limited maximum number of opened connections (6), which can be painful if you need to open more tabs, WebSockets do not have any limits
 
 Seeing all those disadvantages of using Server-Sent Events, are they really a competitor of WebSockets?
