@@ -242,7 +242,7 @@ Notice the log **Client connected: 1607163222261** which means that the connecti
 
 Click on the button **Send** on the UI (which **POST**s 5 random characters to the **/message** endpoint) and notice how they appear in the list:
 
-![Working App](/img/ezgif.com-gif-maker-4-.gif "Working App")
+![Working App](/img/ezgif.com-gif-maker-6-.gif "Working App")
 
 ## Custom Event Types
 
