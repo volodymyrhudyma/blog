@@ -90,7 +90,7 @@ The state of the connection is stored in the **readyState** property of the Even
 const connectionState = eventSource.readyState;
 ```
 
-## Server-Side
+## Server-Side Implementation
 
 To establish a connection with the client, we need to send **200** status code along with the **Content-Type: text/event-stream** and **Connection: keep-alive** headers.
 
@@ -175,7 +175,7 @@ The main goal of this code is to keep track of all connected clients and notify 
 
 **Important note:** `\n` does a line break. `\n\n` means the end of the message, you should not forget to add that.
 
-## Client-Side
+## Client-Side Implementation
 
 On the client-side let's create a simple React component using EventSource API to connect to the event stream and display the real-time data:
 
