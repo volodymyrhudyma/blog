@@ -1,5 +1,5 @@
 ---
-title: Server-Sent Events in JavaScript
+title: A Complete Guide To Server-Sent Events in JavaScript
 tag:
   - JavaScript
 promote: false
@@ -7,13 +7,13 @@ metaDescription: // META
 teaser: // TEASERh
 date: 2020-12-06T07:35:00.000Z
 ---
-When there is a need to build a real-time application, the first thing that comes to mind is WebSockets, which is fine, but we have some other options to consider.
+When there is a need to build an application that allows real-time operations, the first thing that comes to mind is WebSockets, which is fine, but there are other options to consider as well.
 
 One of them is **Server-Sent Events** that provide uni-directional communication flow between server and client.
 
 ## Server-Sent Events
 
-**Server-Sent Events** allow only the server to notify the client about specific events, not the other way.
+**Server-Sent Events** is a server push technology enabling a client to receive automatic updates from the server via HTTP connection.
 
 They are very simple to implement, but there are some important things to know before choosing them to be used in your application:
 
@@ -23,12 +23,18 @@ They are very simple to implement, but there are some important things to know b
 
 ## The API
 
-The Server-Sent Event API is contained in the `EventSource` interface.
+The Server-Sent Event API is contained in the **EventSource** interface.
 
-To open the connection to a server, create a new **EventSource** object with the URL of the script that generates the events:
+To open the connection to a server, create a new EventSource object with the URL of the script that generates the events:
 
 ```javascript
-const eventSource = new EventSource("http://localhost:8000/api/events");
+const eventSource = new EventSource("/api/events");
+```
+
+When the URL that is passed to the EventSource is on the other domain, a second parameter can be specified and a **withCredentials** property can be set to **true**, which means that the Cookie is sent together:
+
+```javascript
+const eventSource = new EventSource("http://localhost:8000/api/events", { withCredentials: true });
 ```
 
 Once the connection has been instantiated, we need to listen to the events coming from the server:
@@ -58,6 +64,25 @@ eventSource.addEventListener("error", (error) => {
   // Prints the information about an error
   console.log(error);
 });
+```
+
+When the connection is opened, an **open** event is generated and we can listen for it:
+
+```javascript
+eventSource.addEventListener("open", (event) => {
+  // Prints the information about an event
+  console.log(event);
+});
+```
+
+The state of the connection is stored in the **readyState** property of the EventSource:
+
+* 0 - EventSource.CONNECTING
+* 1 - EventSource.OPEN
+* 2 - EventSource.CLOSED 
+
+```javascript
+const connectionState = eventSource.readyState;
 ```
 
 ## Server-Side
@@ -227,14 +252,12 @@ A custom event can be sent by specifying the **event** at the event start:
 
 ```javascript
 client.res.write(`event: join\ndata: ${JSON.stringify(message)}\n\n`);
-
 ```
 
 And then the client can listen for that event:
 
 ```javascript
 eventSource.addEventListener('join', handleReceiveMessage);
-
 ```
 
 ## Auto Reconnect
@@ -254,11 +277,11 @@ client.res.write(`retry:5000\ndata: ${JSON.stringify(message)}\n\n`);
 
 If the browser knows that there is no internet connection at the current moment, it will retry to reconnect once the internet connection is established.
 
-## Last-Event-Id
+## Last-Event-Id Header
 
 It is essential that the connection is resumed at the same point where it got interrupted, so no messages are lost.
 
-This can be achieved with Server-Sent Events with the **Last-Event-Id** header and no coding at all.
+This can be achieved with the **Last-Event-Id** header that is added automatically if a certain condition is met.
 
 Each message from the server should include a unique **id** field:
 
@@ -270,7 +293,21 @@ When the browser receives a message with an **id** set, it sets the property `ev
 
 ![Last-Event-Id header](/img/screenshot-2020-12-05-at-11.47.03.png "Last-Event-Id header")
 
-**Important note:** the **id** should be appended after the **data** by the server, to ensure that the **lastEventId** is updated after receiving the message.
+**Important note:** the **id** should be appended after the **data** by the server, to ensure that the **eventSource.lastEventId** is updated after receiving the message.
+
+## Browser Support
+
+According to [caniuse](https://caniuse.com/?search=eventsource), Server-Sent Events are available for more than 96% of the users as of 06.12.2020:
+
+![Browser Support Image](/img/screenshot-2020-12-05-at-14.54.45.png "Browser Support Image")
+
+The following code can be used to check whether the browser supports the feature:
+
+```javascript
+if ("EventSource" in window) {
+  // Implement it
+}
+```
 
 ## Sever-Sent Events vs WebSockets
 
@@ -291,3 +328,7 @@ They are much simpler and faster to implement, so if you need a quick way to set
 But be aware that there is a high chance that the solution will be eventually refactored to the WebSockets.
 
 ## Summary
+
+Server-Sent Events provide an easy way to establish uni-directional data flow between the server and the client via HTTP connection.
+
+As any other feature, they have their own advantages and disadvantages, so choosing this technology requires some time spent checking if any of its limitations are not conflicting with the project requirements.
