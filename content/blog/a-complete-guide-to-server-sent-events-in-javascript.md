@@ -3,28 +3,28 @@ title: A Complete Guide To Server-Sent Events in JavaScript
 tag:
   - JavaScript
 promote: false
-metaDescription: Learn Server-Sent Events that provide uni-directional
+metaDescription: Learn Server-Sent Events, which enable unidirectional
   communication flow between server and client via HTTP connection. WebSockets
-  vs Server-Sent Events, the differences.
-teaser: When there is a need to build an application that allows real-time
+  vs. Server-Sent Events, the differences.
+teaser: When it comes to developing an application that enables real-time
   operations, the first thing that comes to mind is WebSockets, which is fine,
-  but there are other options to consider as well. One of them is Server-Sent
-  Events that provide...
+  but there are other options that need to be considered. One of them is
+  Server-Sent Events...
 date: 2020-12-06T07:35:00.000Z
 ---
-When there is a need to build an application that allows real-time operations, the first thing that comes to mind is WebSockets, which is fine, but there are other options to consider as well.
+When it comes to developing an application that enables real-time operations, the first thing that comes to mind is WebSockets, which is fine, but there are other options that need to be considered.
 
-One of them is **Server-Sent Events** that provide uni-directional communication flow between server and client.
+One of them is **Server-Sent Events**, which enable a unidirectional communication flow between server and client.
 
 ## Server-Sent Events
 
-**Server-Sent Events** is a server push technology enabling a client to receive automatic updates from the server via HTTP connection.
+**Server-Sent Events** is a server push technology that allows a client to receive automatic updates from the server via an HTTP connection.
 
-They are very simple to implement, but there are some important things to know before choosing them to be used in your application:
+They are very easy to implement, but there are some important things you should know before choosing them for your application:
 
 * The technology is based on the plain HTTP
-* Allows only uni-directional data flow (as it has already been mentioned)
-* It is limited to text-only data, no binaries allowed
+* Allows only unidirectional data flow (as already mentioned)
+* It is limited to pure text data, no binaries allowed
 
 ## The API
 
@@ -36,13 +36,13 @@ To open the connection to a server, create a new EventSource object with the URL
 const eventSource = new EventSource("/api/events");
 ```
 
-When the URL that is passed to the EventSource is on the other domain, a second parameter can be specified and a **withCredentials** property can be set to **true**, which means that the Cookie is sent together:
+If the URL passed to the EventSource is on the other domain, a second parameter can be specified and a **withCredentials** property can be set to **true**, which means that the Cookie will be sent together:
 
 ```javascript
 const eventSource = new EventSource("http://localhost:8000/api/events", { withCredentials: true });
 ```
 
-Once the connection has been instantiated, we need to listen to the events coming from the server:
+Once the connection is instantiated, we need to listen to the events coming from the server:
 
 ```javascript
 eventSource.addEventListener("message", (event) => {
@@ -54,15 +54,17 @@ eventSource.addEventListener("message", (event) => {
 });
 ```
 
-**Important note:** Since the server sends text-only, we need to **stringify** it on the server-side and **parse** it on the client.
+**Important note:** As the server only sends text data, we have to **stringify** it on the server-side and **parse** it on the client.
 
-By default, if the connection between the server and the client closes, it is restarted. But it can be terminated using the **close** method:
+When the connection between the server and the client interrupts, it is automatically restarted. 
+
+However, it can be terminated with the **close** method:
 
 ```javascript
 eventSource.close();
 ```
 
-When an error happens (network timeout or something), an **error** event is generated and we can listen for it:
+If an error occurs (network timeout or something), an **error** event is generated and we can listen for it:
 
 ```javascript
 eventSource.addEventListener("error", (error) => {
@@ -71,7 +73,7 @@ eventSource.addEventListener("error", (error) => {
 });
 ```
 
-When the connection is opened, an **open** event is generated and we can listen for it:
+When the connection is opened, an **open** event is generated and we can listen for it as well:
 
 ```javascript
 eventSource.addEventListener("open", (event) => {
@@ -92,9 +94,9 @@ const connectionState = eventSource.readyState;
 
 ## Server-Side Implementation
 
-To establish a connection with the client, we need to send **200** status code along with the **Content-Type: text/event-stream** and **Connection: keep-alive** headers.
+To establish a connection with the client, we have to send **200** status code together with the **Content-Type: text/event-stream** and **Connection: keep-alive** headers.
 
-Let's take a look at the complete example using Node.js and explain each line of code in the comment:
+Let's take a look at the complete example with Node.js and explain each line of code in the comment above:
 
 ```javascript
 const express = require("express");
@@ -171,13 +173,13 @@ app.listen(PORT, () => {
 });
 ```
 
-The main goal of this code is to keep track of all connected clients and notify them of the data that was **POST**ed to the **/message** endpoint.
+The main purpose of this code is to track all connected clients and inform them about the data sent to the **/message** endpoint.
 
-**Important note:** `\n` does a line break. `\n\n` means the end of the message, you should not forget to add that.
+**Important note:** `\n` does a line break. `\n\n` means the end of the message, do not forget to add that.
 
 ## Client-Side Implementation
 
-On the client-side let's create a simple React component using EventSource API to connect to the event stream and display the real-time data:
+On the client-side, we create a simple React component using the EventSource API to connect to the event stream and display the real-time data:
 
 ```jsx
 const App = () => {
@@ -227,7 +229,7 @@ const App = () => {
 
 ## Putting it Together
 
-To see our example in action, start the client (your start script may be different):
+To see our example in action, start the client (your start script may look different):
 
 `yarn start`
 
@@ -245,7 +247,7 @@ And the server:
 
 Notice the log **Client connected: 1607163222261** which means that the connection has been established and we can use the channel to send events.
 
-Click on the button **Send** on the UI (which **POST**s 5 random characters to the **/message** endpoint) and notice how they appear in the list:
+Click on the **Send** button on the UI (which **POST**s 5 random characters to the **/message** endpoint) and notice how they appear in the list:
 
 ![Working App](/img/ezgif.com-gif-maker-6-.gif "Working App")
 
@@ -253,13 +255,13 @@ Click on the button **Send** on the UI (which **POST**s 5 random characters to t
 
 The default event type used by Server-Sent Events is a **message**.
 
-A custom event can be sent by specifying the **event** at the event start:
+A custom event can be sent by specifying the **event** at the start:
 
 ```javascript
 client.res.write(`event: join\ndata: ${JSON.stringify(message)}\n\n`);
 ```
 
-And then the client can listen for that event:
+And then the client can listen for this event:
 
 ```javascript
 eventSource.addEventListener("join", handleReceiveMessage);
@@ -267,38 +269,38 @@ eventSource.addEventListener("join", handleReceiveMessage);
 
 ## Auto Reconnect
 
-If the server crashes or the connection is lost, the **EventSource** is trying to reconnect, we do not have to care about it. 
+If the server crashes or the connection is lost, the **EventSource** tries to reconnect, we do not need to worry about it. 
 
-Usually, there is a few seconds delay between the reconnections:
+There is usually a delay of a few seconds between reconnections:
 
 ![Auto Reconnect](/img/ezgif.com-gif-maker-5-.gif "Auto Reconnect")
 
-The server can provide a recommended delay by specifying the **retry** at the event start:
+The server can specify a recommended delay by specifying the **retry** at the beginning of an event:
 
 ```javascript
 // Retry each 5 seconds
 client.res.write(`retry:5000\ndata: ${JSON.stringify(message)}\n\n`);
 ```
 
-If the browser knows that there is no internet connection at the current moment, it will retry to reconnect once the internet connection is established.
+If the browser knows that there is no Internet connection at the moment, it will try again to reconnect once the Internet connection is established.
 
 ## Last-Event-Id Header
 
-It is essential that the connection is resumed at the same point where it got interrupted, so no messages are lost.
+It is essential that the connection is resumed at the same point where it was interrupted so that no messages are lost.
 
-This can be achieved with the **Last-Event-Id** header that is added automatically if a certain condition is met.
+This can be achieved with the **Last-Event-Id** header, which is automatically added when a certain condition is met.
 
-Each message from the server should include a unique **id** field:
+Each message from the server should contain a unique **id** field:
 
 ```javascript
 client.res.write(`data: ${JSON.stringify(message)}\nid:500\n\n`);
 ```
 
-When the browser receives a message with an **id** set, it sets the property `eventSource.lastEventId` to its value and upon reconnection sends this value in the **Last-Event-Id** header:
+When the browser receives a message with a set **id**, it sets the `eventSource.lastEventId` property to its value and sends this value in the **Last-Event-Id** header when reconnected:
 
 ![Last-Event-Id header](/img/screenshot-2020-12-05-at-11.47.03.png "Last-Event-Id header")
 
-**Important note:** the **id** should be appended after the **data** by the server, to ensure that the **eventSource.lastEventId** is updated after receiving the message.
+**Important note:** the **id** should be appended by the server after the **data** to ensure that the **eventSource.lastEventId** is updated after the message is received.
 
 ## Browser Support
 
@@ -306,7 +308,7 @@ According to [caniuse](https://caniuse.com/?search=eventsource), Server-Sent Eve
 
 ![Browser Support Image](/img/screenshot-2020-12-05-at-14.54.45.png "Browser Support Image")
 
-The following code can be used to check whether the browser supports the feature:
+The following code can be used to check if the browser supports the feature:
 
 ```javascript
 if ("EventSource" in window) {
@@ -314,26 +316,26 @@ if ("EventSource" in window) {
 }
 ```
 
-## Sever-Sent Events vs WebSockets
+## Sever-Sent Events vs. WebSockets
 
-The WebSocket protocol allows exchanging events between the server and the client. The data can be sent in both directions.
+The WebSocket protocol enables the exchange of events between the server and the client. The data can be sent in both directions.
 
-What are the main differences between both technologies?
+What are the main differences between the two technologies?
 
 * Server-Sent Events are based on HTTP, WebSockets on the WebSocket protocol
-* Server-Sent Events do not allow bi-directional data flow, WebSockets do
+* Server-Sent Events do not allow bidirectional data flow, WebSockets do
 * Server-Sent Events do not allow sending binary data, WebSockets do
-* Server-Sent Events provide an automatic reconnection if the connection is lost, WebSockets do not (you need to implement it manually)
-* Server-Sent Events have a limited maximum number of opened connections (6), which can be painful if you need to open more tabs, WebSockets do not have any limits
+* Server-Sent Events provide an automatic reconnection if the connection is lost, WebSockets do not (you have to implement it manually)
+* Server-Sent Events have a limited maximum number of open connections (6), which can be painful if you need to open more tabs, WebSockets have no limitations
 
-Seeing all those disadvantages of using Server-Sent Events, are they really a competitor of WebSockets?
+When you see all these disadvantages of using Server-Sent Events, are they really a competitor to WebSockets?
 
-They are much simpler and faster to implement, so if you need a quick way to set up the uni-directional real-time communication between the server and the client, and aware of all potential risks, this is the best way to go.
+They are much easier and faster to implement. So if you need a quick way to set up the real-time unidirectional communication between server and client and are aware of all the potential risks, this is the best way to go.
 
-But be aware that there is a high chance that the solution will be eventually refactored to the WebSockets.
+However, be aware that there is a high probability that the solution will eventually be refactored to the WebSockets.
 
 ## Summary
 
-Server-Sent Events provide an easy way to establish uni-directional data flow between the server and the client via HTTP connection.
+Server-Sent Events offer a simple way to establish a unidirectional data flow between the server and the client via HTTP connection.
 
-As any other feature, they have their own advantages and disadvantages, so choosing this technology requires some time spent checking if any of its limitations are not conflicting with the project requirements.
+Like any other feature, they have their own advantages and disadvantages, so the choice of this technology takes some time to verify that one of its limitations does not conflict with the project requirements.
