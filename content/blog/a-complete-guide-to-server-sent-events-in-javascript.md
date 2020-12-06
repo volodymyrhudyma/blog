@@ -30,17 +30,23 @@ They are very easy to implement, but there are some important things you should 
 
 The Server-Sent Event API is contained in the **EventSource** interface.
 
+#### Open a connection (same domain)
+
 To open the connection to a server, create a new EventSource object with the URL of the script that generates the events:
 
 ```javascript
 const eventSource = new EventSource("/api/events");
 ```
 
+#### Open a connection (other domain)
+
 If the URL passed to the EventSource is on the other domain, a second parameter can be specified and a **withCredentials** property can be set to **true**, which means that the Cookie will be sent together:
 
 ```javascript
 const eventSource = new EventSource("http://localhost:8000/api/events", { withCredentials: true });
 ```
+
+#### Listen for messages
 
 Once the connection is instantiated, we need to listen to the events coming from the server:
 
@@ -56,13 +62,7 @@ eventSource.addEventListener("message", (event) => {
 
 **Important note:** As the server only sends text data, we have to **stringify** it on the server-side and **parse** it on the client.
 
-When the connection between the server and the client interrupts, it is automatically restarted. 
-
-However, it can be terminated with the **close** method:
-
-```javascript
-eventSource.close();
-```
+#### Listen for errors
 
 If an error occurs (network timeout or something), an **error** event is generated and we can listen for it:
 
@@ -73,6 +73,8 @@ eventSource.addEventListener("error", (error) => {
 });
 ```
 
+#### Listen for an open connection
+
 When the connection is opened, an **open** event is generated and we can listen for it as well:
 
 ```javascript
@@ -82,6 +84,8 @@ eventSource.addEventListener("open", (event) => {
 });
 ```
 
+#### Check the state of the connection
+
 The state of the connection is stored in the **readyState** property of the EventSource:
 
 * 0 - EventSource.CONNECTING
@@ -90,6 +94,16 @@ The state of the connection is stored in the **readyState** property of the Even
 
 ```javascript
 const connectionState = eventSource.readyState;
+```
+
+#### Close the connection
+
+When the connection between the server and the client interrupts, it is automatically restarted. 
+
+However, it can be terminated with the **close** method:
+
+```javascript
+eventSource.close();
 ```
 
 ## Server-Side Implementation
