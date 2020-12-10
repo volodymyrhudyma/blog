@@ -3,8 +3,12 @@ title: The Limitations and Safety of LocalStorage in JavaScript
 tag:
   - JavaScript
 promote: false
-metaDescription: // META
-teaser: // TEASER
+metaDescription: Learn LocalStorage in JavaScript - a widely used Web Storage,
+  which is used for keeping the data locally within the user's browser and all
+  its limitations and safety concerns.
+teaser: "**LocalStorage** is a widely used Web Storage, which is used for
+  keeping the data locally within the user's browser. The data stored there has
+  no expiration time, which means that that it persists until..."
 date: 2020-12-11T16:38:10.184Z
 ---
 **LocalStorage** is a widely used Web Storage, which is used for keeping the data locally within the user's browser.
@@ -47,6 +51,7 @@ localStorage.removeItem(key);
 
 * **key** is a string containing the name of the key you want to get rid of
 * If the **key** does not exist, the method will do nothing
+* Returns `undefined`
 
 #### Remove all values
 
@@ -55,6 +60,7 @@ localstorage.clear();
 ```
 
 * Clears all the key-value pairs stored in the Storage for the domain
+* Returns `undefined`
 
 ## Limitations
 
