@@ -6,9 +6,10 @@ promote: false
 metaDescription: Learn LocalStorage in JavaScript - a widely used Web Storage,
   which is used for keeping the data locally within the user's browser and all
   its limitations and safety concerns.
-teaser: "**LocalStorage** is a widely used Web Storage, which is used for
-  keeping the data locally within the user's browser. The data stored there has
-  no expiration time, which means that that it persists until..."
+teaser: LocalStorage is a widely used Web Storage, which is used for keeping the
+  data locally within the user's browser. The data stored there has no
+  expiration time, which means that it persists until it is cleared with the
+  code or manually by...
 date: 2020-12-11T16:38:10.184Z
 ---
 **LocalStorage** is a widely used Web Storage, which is used for keeping the data locally within the user's browser.
