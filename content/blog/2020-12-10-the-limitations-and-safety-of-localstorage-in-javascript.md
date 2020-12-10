@@ -65,9 +65,9 @@ localstorage.clear();
 
 ## Limitations
 
-The API is pretty simple and straightforward, so it may seem like you can store anything there without any limits and it's safe. 
+The API is pretty simple and straightforward, so it may seem like you can store anything there without any limits and it is safe. 
 
-But that's not entirely true:
+But that is not entirely true:
 
 * LocalStorage is synchronous
 
@@ -105,7 +105,7 @@ The answer is simple - any publicly available, not sensitive data that needs to 
 
 One of the most common use cases is to store the JSON Web Tokens (JWTs).
 
-That's not secure, because if someone gets your token, he will be able to make requests on your behalf.
+That is not secure, because if someone gets your token, he will be able to make requests on your behalf.
 
 Treat the token as a password and secure it as much as you can.
 
