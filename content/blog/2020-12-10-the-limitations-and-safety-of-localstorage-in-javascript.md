@@ -56,6 +56,42 @@ localstorage.clear();
 
 * Clears all the key-value pairs stored in the Storage for the domain
 
-## An Example
+## Limitations
 
-Here is a quick real-world example of a React component that interacts with the LocalStorage:
+The API is pretty simple and straightforward, so it may seem like you can store anything there without any limits and it's safe. 
+
+But that's not entirely true:
+
+* LocalStorage is synchronous
+
+  It blocks the main thread from being executed until the operation is complete, which has a negative impact on the performance of an application, especially if there are a lot of operations.
+* LocalStorage can contain strings only
+
+  However, the data can be serialized with `JSON.stringify`:
+
+```javascript
+localStorage.setItem(key, JSON.stringify(object));
+```
+
+* LocalStorage is limited to 5MB only (across all major browsers)
+
+  This may seem like a huge limit for storing strings, but there are certain types of applications that have to store a bunch of data to support an offline mode, etc.
+* LocalStorage is not accessible from the Web or Service Workers
+
+  If the application takes advantage of different Workers, the data stored in LocalStorage cannot be accessed within the Worker.
+
+## Security
+
+Any JavaScript code within your page has access to the LocalStorage, which means that it is open for different kinds of attacks (for example Cross-Site Scripting).
+
+> **Cross-site scripting (XSS)** is a type of security vulnerability typically found in web applications. 
+>
+> XSS attacks enable attackers to inject client-side scripts into web pages viewed by other users.
+
+If someone injects his own JavaScript code into your website, he can retrieve all the data stored in the LocalStorage and send it anywhere.
+
+Any sensitive data that is stored in the LocalStorage can be stolen.
+
+## What am I Allowed To Store?
+
+## Summary
