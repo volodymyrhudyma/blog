@@ -94,4 +94,16 @@ Any sensitive data that is stored in the LocalStorage can be stolen.
 
 ## What am I Allowed To Store?
 
+The answer is simple - any publicly available, not sensitive data that needs to be shared across different tabs or windows on the same domain.
+
+One of the most common use cases is to store the JSON Web Tokens (JWTs).
+
+That's not secure, because if someone gets your token, he will be able to make requests on your behalf.
+
+Treat the token as a password and secure it as much as you can.
+
 ## Summary
+
+In summary, if you need to store publicly available, non-sensitive data, which can be converted to a string, is less than 5MB, should not be accessible from the Workers, and is not fetched often, then the LocalStorage is a good and safe way to go.
+
+Otherwise, other options should be considered.
