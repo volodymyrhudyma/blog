@@ -71,7 +71,7 @@ But that is not entirely true:
 * LocalStorage is synchronous
 
   LocalStorage is synchronous It blocks the execution of the main thread until the operation is complete, which has a negative effect on the performance of an application, especially when there are many operations.
-* LocalStorage can only contain only
+* LocalStorage can only contain strings
 
   However, the data can be serialized with `JSON.stringify`:
 
