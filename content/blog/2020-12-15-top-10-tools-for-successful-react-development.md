@@ -82,7 +82,28 @@ I personally love the possibility to "Highlight updates when components render."
 
 It shows how many times your components is rendered and based on this information you can see if any further optimizations are needed.
 
-## Redux (Thunk/Saga)
+## Redux (Redux Thunk/Redux Saga)
+
+![React and Redux Images](/img/1_vem-5lsatrrj4jxh96h5kg.png "React and Redux Images")
+
+**Redux** is a library that allows us to manage an application's state easily and predictably.
+
+With Redux, the state of your application is kept in one place, called Store and components can connect to the store and pull the needed data.
+
+The main benefits of using it are the following:
+
+* The state becomes predictable
+
+  If the same state and actions are passed to the reducers, they produce the same result, since they are pure functions.
+* The state becomes immutable
+
+  Reducers always produce new state, never mutating the original.
+* Easy debugging
+
+  Since the state is immutable, we can time-travel through the happened updates and view the state at any given moment.
+* Easy testing
+
+To add Redux to your React project, refer to [this article](/2020-06-11-add-redux-with-typescript-to-your-react-applicaton-june-2020/).
 
 ## Redux Logger
 
