@@ -158,7 +158,17 @@ What is a test runner? It is a tool that picks up unit tests and a bunch of sett
 
 The Enzyme is built explicitly for React, while Jest is designed for JavaScript in general.
 
+The combination of both gives us a powerful set of tools that should be used in as many projects as possible.
+
 ## Prettier
+
+Prettier is used to autoformat the code and to enforce an opinionated code formatting. It helps to make sure that everyone in a team follows the same coding style.
+
+Besides that, it also speeds up the development process, because you can skip formatting while writing code and focus on the issue itself.
+
+Here's a quick example:
+
+![Prettier Example](/img/ezgif.com-gif-maker-7-.gif "Prettier Example")
 
 ## Linter
 
