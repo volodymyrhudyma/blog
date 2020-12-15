@@ -162,7 +162,9 @@ The combination of both gives us a powerful set of tools that should be used in 
 
 ## Prettier
 
-Prettier is used to autoformat the code and to enforce an opinionated code formatting. It helps to make sure that everyone in a team follows the same coding style.
+![Prettier Logo](/img/prettier.png "Prettier Logo")
+
+[Prettier](https://prettier.io/docs/en/) is used to autoformat the code and to enforce an opinionated code formatting. It helps to make sure that everyone in a team follows the same coding style.
 
 Besides that, it also speeds up the development process, because you can skip formatting while writing code and focus on the issue itself.
 
@@ -170,7 +172,19 @@ Here's a quick example:
 
 ![Prettier Example](/img/ezgif.com-gif-maker-7-.gif "Prettier Example")
 
-## Linter
+To learn how to add Prettier to your React project read [this section](/2020-06-09-the-best-tools-for-react-development/#Prettier).
+
+## ESLint
+
+![ESLint Logo](/img/eslint.png "ESLint Logo")
+
+[ESLint](https://eslint.org/) is a tool for identifying and reporting on patterns found in ​JavaScript code, intending to make code more consistent and avoiding bugs.
+
+Many issues found by it can be automatically fixed, but more complex ones require manual work.
+
+Always make sure that Linter passes before even committing my code to the remote repository on Github.
+
+To learn how to add ESLint to your React project read [this section](/2020-06-09-the-best-tools-for-react-development/#ESlint).
 
 ## CI/CD Tools
 
