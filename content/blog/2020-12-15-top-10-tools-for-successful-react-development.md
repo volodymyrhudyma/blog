@@ -68,7 +68,23 @@ Here is [a great article](https://product.hubspot.com/blog/git-and-github-tutori
 
 ## React Developer Tools
 
+This article is written from the point of view of a React Developer, so the first thing I suggest to install after creating a project in React is [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi).
+
+**React Developer Tools** is a Chrome DevTools extension for the React library. It allows you to inspect the React component hierarchies in the Chrome Developer Tools.
+
+After the installation, you will see two additional tabs in Chrome DevTools: Components and Profiler:
+
+![Components and Profiler Tabs](/img/screenshot-2020-12-15-at-16.53.57.png "Components and Profiler Tabs")
+
+Read more about the new tabs [here](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi).
+
+I personally love the possibility to "Highlight updates when components render.", which is included in the React Developer Tools.
+
+It shows how many times your components is rendered and based on this information you can see if any further optimizations are needed.
+
 ## Redux (Thunk/Saga)
+
+## Redux Logger
 
 ## Jest / Enzyme
 
