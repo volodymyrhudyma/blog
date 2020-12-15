@@ -1,5 +1,5 @@
 ---
-title: Top 10 Tools For Successful React Development
+title: Top 10 Tools I Use Daily As A React Developer
 tag:
   - React
 promote: false
@@ -28,7 +28,7 @@ Here are some of the extensions I installed and find useful:
   My favorite use case is to glimpse into whom, why, and when a line or code block was changed, jump back through history to see how and why the code changed. Extremely useful when you jump into the existing project.
 * [vscode-jest-runner](https://marketplace.visualstudio.com/items?itemName=firsttris.vscode-jest-runner) - allows to run or debug a specific test or test-suite
 
-  When only specific tests were changed and need to be run to make sure they pass, you do not have to execute `jest -t 'it should do something'` but just click on the button instead.
+  When only specific tests were changed and need to be run to make sure they pass, you do not have to execute `jest -t "it should do something"` but just click on the button instead.
 * [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced) - allows previewing the Markdown in the realtime
 * [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) - allows enforcing a consistent style by parsing your code and re-printing it with its own rules
 
@@ -166,7 +166,7 @@ The combination of both gives us a powerful set of tools that should be used in 
 
 Besides that, it also speeds up the development process, because you can skip formatting while writing code and focus on the issue itself.
 
-Here's a quick example:
+Here is a quick example:
 
 ![Prettier Example](/img/ezgif.com-gif-maker-7-.gif "Prettier Example")
 
@@ -229,7 +229,5 @@ There are a lot of alternatives to the Heroku and one of them is [](https://docs
 Nowadays it is one of the fastest and easiest deployment solutions. As with the Heroku, you can deploy by either using a command line or Netlify UI (only if you are using Github).
 
 Here is a [full guide](https://www.vhudyma-blog.eu/2020-07-06-deploy-your-react-app-to-netlify-july-2020/) on how to deploy your React application to Netlify.
-
-## Bonus Tools
 
 ## Summary
