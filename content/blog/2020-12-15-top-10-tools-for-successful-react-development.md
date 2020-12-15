@@ -105,9 +105,52 @@ The main benefits of using it are the following:
 
 To add Redux to your React project, refer to [this article](/2020-06-11-add-redux-with-typescript-to-your-react-applicaton-june-2020/).
 
-## Redux Logger
+When working with Redux, most likely you will need to add a middleware for handling side effects and being able to integrate with the store more efficiently.
+
+This purpose serve Redux Thunk and Redux Saga libraries.
+
+#### Redux Thunk
+
+**Redux Thunk** is a Thunk middleware for Redux. It allows you to write asynchronous logic that interacts with the store.
+
+It allows you to write action creators that **return a function instead of an action**.
+
+The Thunk can be used to delay an action execution or execute specific actions only when a certain condition is met.
+
+To read more about Redux Thunk refer to [this article](/2020-07-25-redux-thunk-vs-redux-saga-the-differences/).
+
+#### Redux Saga
+
+**Redux Saga** is a library that aims to make application side effects (i.e. asynchronous things like data fetching and impure things like accessing the browser cache) easier to manage, more efficient to execute, easy to test, and better at handling failures.
+
+Saga represents a single thread in your application that is responsible only for handling side-effects.
+
+To read more about Redux Saga refer to [this article](/2020-07-25-redux-thunk-vs-redux-saga-the-differences/).
+
+## Redux Dev Tools
+
+[Redux Dev Tools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)is a Chrome DevTools extension that helps in debugging the application's state.
+
+![Redux DevTools](/img/screenshot-2020-12-15-at-18.02.22.png "Redux DevTools")
+
+It allows to:
+
+* Trace all dispatched actions and all their payload
+* Time travel through all states of an application, so we can see what was going before the state reached the given point
+* Dispatch a custom action without implementing it in the code
+* Monitor only desired actions
+* Persist store on page reload
+* And much more
+
+Make sure to install this extension and configure it to be used with the current project. Find out how to do it [here](https://github.com/zalmoxisus/redux-devtools-extension#1-with-redux).
 
 ## Jest / Enzyme
+
+Covering your components and business logic with unit tests is never a bad idea. This will make sure that all of the existing features work as expected and adding some new ones would not break them.
+
+[Jest](https://jestjs.io/docs/en/getting-started) is a JavaScript test runner, library for creating, running, and structuring tests.
+
+[Enzyme](https://enzymejs.github.io/enzyme/) is a JavaScript Testing utility for React that makes it easier to test your React Components' output. You can also manipulate, traverse, and in some ways simulate runtime given the output.
 
 ## Prettier
 
