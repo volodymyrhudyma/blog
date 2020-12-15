@@ -103,7 +103,7 @@ The main benefits of using it are the following:
   Since the state is immutable, we can time-travel through the happened updates and view the state at any given moment.
 * Easy testing
 
-To add Redux to your React project, refer to [this article](/2020-06-11-add-redux-with-typescript-to-your-react-applicaton-june-2020/).
+To add Redux to your React project, refer to [this article](2020-06-11-add-redux-with-typescript-to-your-react-applicaton-june-2020/).
 
 ## Redux Logger
 
