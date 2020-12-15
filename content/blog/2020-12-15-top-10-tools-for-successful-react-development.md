@@ -184,9 +184,25 @@ Always make sure that Linter passes before even committing code to the remote re
 
 To learn how to add ESLint to your React project read [this section](/2020-06-09-the-best-tools-for-react-development/#ESlint).
 
-## CI/CD Tools
+## Github Actions
 
-## Hosting Provider
+![Github Actions Image](/img/ga.webp "Github Actions Image")
+
+[GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions) help you to automate tasks within your software development life cycle.
+
+They are event-driven, which means that you can execute an Action after a specific event occurred.
+
+One of the most common scenarios is executing ESLint and tests just after someone created a Pull Request in your repository.
+
+**Important note:** Github Actions are free only for public repositories and self-hosted runners. If you want to introduce them to the private repo, you will receive a certain amount of free minutes and storage. Minutes are reset every month, storage is not. Any additional usage is billed.
+
+Most developers have a Github Free pricing plan, which gives us 2000 minutes per month and 500MB of storage.
+
+But we should remember that running jobs on Windows and macOS runners cost 2x and 10x more minutes accordingly than on Linux.
+
+Further info about limits and billing can be found [here](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions).
+
+## Heroku
 
 ## Bonus Tools
 
