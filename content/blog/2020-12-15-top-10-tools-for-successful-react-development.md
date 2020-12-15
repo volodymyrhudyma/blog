@@ -38,6 +38,34 @@ There are way more amazing extensions, I recommend you to check [this article](h
 
 ## Git / Github
 
+![Git and Github Image](/img/1_mtsk3fq_bremfidhkel3da.png "Git and Github Image")
+
+**Github** is a web-based platform used for version control. It allows to store the code, share it and collaborate with different people.
+
+One of the main advantages of the Github is that it allows for multiple persons to work with the same code simultaneously and in organized manner.
+
+**Git** is an open-source tool for version-control. It allows to track changes in any files, save those changes and send them to the Github.
+
+You can use Git in a CLI (Command LIne Interface) or a GUI (Graphical User Interface).
+
+#### CLI
+
+You open the terminal, type the commands which act like instructions for Git, so it knows what to do.
+
+#### GUI
+
+You open a program that visualizes the state of your repository, commit history and all branches. Instead of manually typing the commands, you click on the buttons.
+
+There are standalone programs like [Github Desktop](https://desktop.github.com/) or they can be integrated into your code editor (VS Code has it available by default).
+
+Which is the best way of working with Git? I do not have an answer for that, but even if you want to use only GUI, make sure to try CLI first and learn all basic commands. and concepts.
+
+**Important note:** you are not limited to Github only, there are many alternatives, like Gitlab, Bitbucket, etc.
+
+The first thing I do in the morning is checking if there were any changes in the Github repository made by other team members and pull them to my local machine by using Git.
+
+Here is [a great article](https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners) explaining how to work with both, Git and Github in details.
+
 ## React Developer Tools
 
 ## Redux (Thunk/Saga)
