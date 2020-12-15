@@ -204,6 +204,32 @@ Further info about limits and billing can be found [here](https://docs.github.co
 
 ## Heroku
 
+![Heroku Logo](/img/heroku.png "Heroku Logo")
+
+[Heroku](https://devcenter.heroku.com/categories/reference) is a cloud platform as a service (PaaS) supporting several programming languages.
+
+> **Platform as a service** (PaaS) or **application platform as a service** (aPaaS) or **platform-based service** is a category of cloud computing services that provides a platform allowing customers to develop, run, and manage applications without the complexity of building and maintaining the infrastructure typically associated with developing and launching an app.
+
+One of the biggest benefits of using Heroku for hosting React applications is configuration time.
+
+You can deploy an app with almost no time in two ways: either by using a command line or Heroku UI (only if you are using Github).
+
+**Important note:** Heroku is free only for non-commercial apps, if you want to deploy a business-focused app, you should purchase at least a "Production" plan. Further information about pricing is available [here](https://www.heroku.com/pricing).
+
+There are a lot of alternatives to the Heroku and one of them is [](https://docs.netlify.com/)Netlify.
+
+#### Netlify
+
+![Netlify Logo](/img/netlify.png "Netlify Logo")
+
+[Netlify](https://docs.netlify.com/) is a service that automates builds, deployments, and manages your websites.
+
+**Important note:** Netlify includes a Free pricing plan that allows you to play around with the tool and decide if it fulfills all your requirements. Further information about pricing is available [here](https://www.netlify.com/pricing/).
+
+Nowadays it is one of the fastest and easiest deployment solutions. As with the Heroku, you can deploy by either using a command line or Netlify UI (only if you are using Github).
+
+Here is a [full guide](https://www.vhudyma-blog.eu/2020-07-06-deploy-your-react-app-to-netlify-july-2020/) on how to deploy your React application to Netlify.
+
 ## Bonus Tools
 
 ## Summary
