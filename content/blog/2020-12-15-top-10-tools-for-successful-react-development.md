@@ -148,9 +148,15 @@ Make sure to install this extension and configure it to be used with the current
 
 Covering your components and business logic with unit tests is never a bad idea. This will make sure that all of the existing features work as expected and adding some new ones would not break them.
 
+![Jest and Enzyme Logos](/img/jest-enzyme.png "Jest and Enzyme Logos")
+
 [Jest](https://jestjs.io/docs/en/getting-started) is a JavaScript test runner, library for creating, running, and structuring tests.
 
-[Enzyme](https://enzymejs.github.io/enzyme/) is a JavaScript Testing utility for React that makes it easier to test your React Components' output. You can also manipulate, traverse, and in some ways simulate runtime given the output.
+What is a test runner? It is a tool that picks up unit tests and a bunch of settings, executes all of them, and outputs test results to the console or files.
+
+[Enzyme](https://enzymejs.github.io/enzyme/) is a JavaScript Testing utility for React that makes it easier to test your React Components' output. You can also manipulate, traverse, and in some ways simulate runtime given the output. 
+
+The Enzyme is built explicitly for React, while Jest is designed for JavaScript in general.
 
 ## Prettier
 
