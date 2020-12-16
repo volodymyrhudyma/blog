@@ -1,86 +1,92 @@
 ---
-title: Top 10 Tools I Use Daily As A React Developer
+title: Top 10 Tools I Use Daily As React Developer
 tag:
   - React
 promote: false
-metaDescription: // META
-teaser: // Teaser
+metaDescription: "Before you start playing around with a new
+  library/framework/language, I suggest you first look at the tools available to
+  help you in development. Read about the top 10 tools I find most helpful when
+  developing various React projects.  "
+teaser: Developers usually have a set of tools that they use on a daily basis
+  when developing various projects. They help to set up the project, speed up
+  the development process, test the final result, and make it accessible to the
+  end-users...
 date: 2020-12-16T14:50:00.000Z
 ---
-The developers usually have a set of tools that they use on a daily basis during the development of different projects.
+Developers usually have a set of tools that they use on a daily basis when developing various projects.
 
-They help to set up the project, speed up the development process, test the final result, and make it accessible for the end-users.
+They help to set up the project, speed up the development process, test the final result, and make it accessible to the end-users.
 
-Today I am going to share with you the tools I personally use daily and find most helpful for the React developers.
+Today, I am going to share with you the tools that I personally use on daily basis and that I find most helpful for React developers.
 
 ## Visual Studio Code (VS Code)
 
-To begin with, we need a good code editor that runs on the desktop and ships all necessary functionality that allows starting coding immediately after downloading.
+For starters, we need a good code editor that runs on the desktop and comes with all the necessary features to start coding as soon as we download it.
 
-**VS Code** fulfills these requirements, as it comes with built-in support of JavaScript, TypeScript, and Node.js and has a lot of available extensions that could be installed on demand.
+**VS Code** meets these requirements as it comes with built-in support for JavaScript, TypeScript and Node.js and has a lot of available extensions that can be installed if needed.
 
 ![VS Code Screenshot](/img/screenshot-2020-12-15-at-16.26.50.png "VS Code Screenshot")
 
-Here are some of the extensions I installed and find useful:
+Here are some of the extensions I have installed and find useful:
 
-* [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) - allows supercharging the Git capabilities built into Visual Studio Code
+* [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) - allows you to extend the Git capabilities built into Visual Studio Code
 
-  My favorite use case is to glimpse into whom, why, and when a line or code block was changed, jump back through history to see how and why the code changed. Extremely useful when you jump into the existing project.
-* [vscode-jest-runner](https://marketplace.visualstudio.com/items?itemName=firsttris.vscode-jest-runner) - allows to run or debug a specific test or test-suite
+  My favorite use case is to take a look at who, why, and when changed a particular line of code. It is extremely useful when jumping into an existing project.
+* [vscode-jest-runner](https://marketplace.visualstudio.com/items?itemName=firsttris.vscode-jest-runner) - allows you to run or debug a specific test or test-suite
 
-  When only specific tests were changed and need to be run to make sure they pass, you do not have to execute `jest -t "it should do something"` but just click on the button instead.
-* [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced) - allows previewing the Markdown in the realtime
-* [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) - allows enforcing a consistent style by parsing your code and re-printing it with its own rules
+  If only certain tests have been modified and need to be run to make sure they pass, you do not need to type `jest -t "it should do something"` into the terminal, but instead just click the button.
+* [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced) - allows real-time preview of Markdown
+* [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) - allows you to enforce a consistent style by parsing your code and re-printing it with its own rules
 
-  Extremely useful when working within a team to make sure everyone produces the code that follows the same guidelines.
+  Extremely useful when working in a team to ensure everyone produces the code that follows the same guidelines.
 
-There are way more amazing extensions, I recommend you to check [this article](https://x-team.com/blog/best-vscode-extensions/) for a bigger list.
+There are many more great extensions, I recommend you to read [this article](https://x-team.com/blog/best-vscode-extensions/) for a larger list.
 
 ## Git / Github
 
 ![Git and Github Image](/img/1_mtsk3fq_bremfidhkel3da.png "Git and Github Image")
 
-**Github** is a web-based platform used for version control. It allows to store the code, share it and collaborate with different people.
+**Github** is a web-based platform used for version control. It allows you to store code, share it, and collaborate with different people.
 
-One of the main advantages of Github is that it allows for multiple persons to work with the same code simultaneously and in an organized manner.
+One of the main advantages of Github is that it allows multiple people to work with the same code simultaneously and in an organized manner.
 
-**Git** is an open-source tool for version-control. It allows to track changes in any files, save those changes and send them to Github.
+**Git** is an open-source version-control tool. It allows you to track changes in any file, save those changes, and send them to Github.
 
 You can use Git in a CLI (Command Line Interface) or a GUI (Graphical User Interface).
 
 #### CLI
 
-You open the terminal, type the commands which act as instructions for Git, so it knows what to do.
+You open the terminal, type in the commands that act as instructions for Git to know what to do.
 
 #### GUI
 
-You open a program that visualizes the state of your repository, commit history, and all branches. Instead of manually typing the commands, you click on the buttons.
+You open a program that visualizes the state of your repository, commit history, and all branches. Instead of typing the commands manually, you click the buttons.
 
-There are standalone programs like [Github Desktop](https://desktop.github.com/) or they can be integrated into your code editor (VS Code has it available by default).
+There are standalone programs like [Github Desktop](https://desktop.github.com/) or ones that can be integrated into your code editor (VS Code has it available by default).
 
-Which is the best way of working with Git? I do not have an answer for that, but even if you want to use only GUI, make sure to try CLI first and learn all basic commands. and concepts.
+Which is the best way of working with Git? I do not have an answer for that, but even if you only want to use the GUI, you should try CLI first and learn all the basic commands and concepts.
 
-**Important note:** you are not limited to Github only, there are many alternatives, like Gitlab, Bitbucket, etc.
+**Important note: Y**ou are not limited to just Github, there are many alternatives, like Gitlab, Bitbucket, etc.
 
-The first thing I do in the morning is checking if there were any changes in the Github repository made by other team members and pull them to my local machine by using Git.
+The first thing I do in the morning is check if there were any changes made in the Github repository by other team members, and pull them to my local machine using Git.
 
-Here is [a great article](https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners) explaining how to work with both, Git and Github in detail.
+Here is [a great article](https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners) that explains working with Git and Github in detail.
 
 ## React Developer Tools
 
-This article is written from the point of view of a React Developer, so the first thing I suggest to install after creating a project in React is [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi).
+This article is written from the perspective of a React Developer, so the first thing I suggest to install after creating a project in React is [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi).
 
-**React Developer Tools** is a Chrome DevTools extension for the React library. It allows you to inspect the React component hierarchies in the Chrome Developer Tools.
+**React Developer Tools** is a Chrome DevTools extension for the React library. It allows you to inspect the React component hierarchies in Chrome Developer Tools.
 
-After the installation, you will see two additional tabs in Chrome DevTools: Components and Profiler:
+After installation, you will see two additional tabs in Chrome DevTools: Components and Profiler:
 
 ![Components and Profiler Tabs](/img/screenshot-2020-12-15-at-16.53.57.png "Components and Profiler Tabs")
 
 Read more about the new tabs [here](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi).
 
-I personally love the possibility to "Highlight updates when components render.", which is included in the React Developer Tools.
+Personally, I like the possibility to "*Highlight updates when components render*", which is included in the React Developer Tools.
 
-It shows how many times your components are rendered and based on this information you can see if any further optimizations are needed.
+It shows how often your components are rendered, and from that you can see if further optimizations are needed.
 
 ## Redux (Redux Thunk/Redux Saga)
 
@@ -202,7 +208,7 @@ But we should remember that running jobs on Windows and macOS runners cost 2x an
 
 Further info about limits and billing can be found [here](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions).
 
-## Heroku
+## Heroku / Netlify
 
 ![Heroku Logo](/img/heroku.png "Heroku Logo")
 
@@ -231,3 +237,9 @@ Nowadays it is one of the fastest and easiest deployment solutions. As with the 
 Here is a [full guide](https://www.vhudyma-blog.eu/2020-07-06-deploy-your-react-app-to-netlify-july-2020/) on how to deploy your React application to Netlify.
 
 ## Summary
+
+To sum up, before starting playing around with a new library/framework/language, I suggest first to check out available tools that will help you in development.
+
+There is no room for a doubt that the number of available options will impress you.
+
+I hope you liked it, make sure to try the tools I listed here and do not forget to comment your favorite ones!
