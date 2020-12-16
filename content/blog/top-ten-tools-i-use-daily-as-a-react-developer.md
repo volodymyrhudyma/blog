@@ -5,8 +5,8 @@ tag:
 promote: false
 metaDescription: "Before you start playing around with a new
   library/framework/language, I suggest you first look at the tools available to
-  help you in development. Read about the top 10 tools I find most helpful when
-  developing various React projects.  "
+  help you with development. Read about the top 10 tools I find most helpful
+  when developing various React projects.  "
 teaser: Developers usually have a set of tools that they use on a daily basis
   when developing various projects. They help to set up the project, speed up
   the development process, test the final result, and make it accessible to the
@@ -152,79 +152,81 @@ You can learn how to do that [here](https://github.com/zalmoxisus/redux-devtools
 
 ## Jest / Enzyme
 
-Covering your components and business logic with unit tests is never a bad idea. This will make sure that all of the existing features work as expected and adding some new ones would not break them.
+It's never a bad idea to cover your components and business logic with unit tests. 
+
+This will ensure that all existing functionality works as expected and adding new functionality does not break it
 
 ![Jest and Enzyme Logos](/img/jest-enzyme.png "Jest and Enzyme Logos")
 
-[Jest](https://jestjs.io/docs/en/getting-started) is a JavaScript test runner, library for creating, running, and structuring tests.
+[Jest](https://jestjs.io/docs/en/getting-started) is a JavaScript test runner, a library for creating, running, and structuring tests.
 
-What is a test runner? It is a tool that picks up unit tests and a bunch of settings, executes all of them, and outputs test results to the console or files.
+What is a test runner? It is a tool that picks up unit tests and a set of settings, runs them all, and outputs the test results to the console or to files.
 
-[Enzyme](https://enzymejs.github.io/enzyme/) is a JavaScript Testing utility for React that makes it easier to test your React Components' output. You can also manipulate, traverse, and in some ways simulate runtime given the output. 
+[Enzyme](https://enzymejs.github.io/enzyme/) is a JavaScript test utility for React that makes it easier to test your React Components' output. You can also manipulate the output, traverse it, and simulate the runtime in some ways.
 
-The Enzyme is built explicitly for React, while Jest is designed for JavaScript in general.
+Enzyme is explicitly designed for React, while Jest is for JavaScript in general.
 
-The combination of both gives us a powerful set of tools that should be used in as many projects as possible.
+The combination of the two gives us a powerful set of tools that should be used in as many projects as possible.
 
 ## Prettier
 
 ![Prettier Logo](/img/prettier.png "Prettier Logo")
 
-[Prettier](https://prettier.io/docs/en/) is used to autoformat the code and to enforce an opinionated code formatting. It helps to make sure that everyone in a team follows the same coding style.
+[Prettier](https://prettier.io/docs/en/) is used to automatically format code and enforce opinionated code formatting. It helps ensure that everyone on a team follows the same coding style.
 
-Besides that, it also speeds up the development process, because you can skip formatting while writing code and focus on the issue itself.
+It also speeds up the development process because you can skip formatting while writing code and focus on the task at hand.
 
 Here is a quick example:
 
 ![Prettier Example](/img/ezgif.com-gif-maker-7-.gif "Prettier Example")
 
-To learn how to add Prettier to your React project read [this section](/2020-06-09-the-best-tools-for-react-development/#Prettier).
+To learn how to add Prettier to your React project, read [this section](/2020-06-09-the-best-tools-for-react-development/#Prettier).
 
 ## ESLint
 
 ![ESLint Logo](/img/eslint.png "ESLint Logo")
 
-[ESLint](https://eslint.org/) is a tool for identifying and reporting on patterns found in ​JavaScript code, intending to make code more consistent and avoiding bugs.
+[ESLint](https://eslint.org/) is a tool for detecting and reporting patterns found in ​JavaScript code, with the goal of making the code more consistent and avoiding errors.
 
-Many issues found by it can be automatically fixed, but more complex ones require manual work.
+Many of the problems found can be fixed automatically, but more complex ones require manual work.
 
-Always make sure that Linter passes before even committing code to the remote repository on Github.
+Always make sure that Linter successfully passes before even committing code to the remote repository on Github.
 
-To learn how to add ESLint to your React project read [this section](/2020-06-09-the-best-tools-for-react-development/#ESlint).
+To learn how to add ESLint to your React project, read [this section](/2020-06-09-the-best-tools-for-react-development/#ESlint).
 
 ## Github Actions
 
 ![Github Actions Image](/img/ga.webp "Github Actions Image")
 
-[GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions) help you to automate tasks within your software development life cycle.
+[GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions) help you to automate tasks within your software development lifecycle.
 
-They are event-driven, which means that you can execute an Action after a specific event occurred.
+They are event-driven, meaning you can perform an action after a specific event occurs. 
 
-One of the most common scenarios is executing ESLint and tests just after someone created a Pull Request in your repository.
+One of the most common scenarios is running ESLint and tests shortly after someone creates a Pull Request in your repository.
 
-**Important note:** Github Actions are free only for public repositories and self-hosted runners. If you want to introduce them to the private repo, you will receive a certain amount of free minutes and storage. Minutes are reset every month, storage is not. Any additional usage is billed.
+**Important note:** Github Actions are only free for public repositories and self-hosted runners. If you want to add them to the private repo, you will get a certain number of free minutes and storage. The minutes reset every month, the storage does not. Any additional usage will be charged.
 
-Most developers have a Github Free pricing plan, which gives us 2000 minutes per month and 500MB of storage.
+Most developers have a Github Free pricing plan that gives us 2000 minutes per month and 500 MB of storage.
 
-But we should remember that running jobs on Windows and macOS runners cost 2x and 10x more minutes accordingly than on Linux.
+But we should keep in mind that running jobs on Windows and macOS runners costs 2x and 10x more minutes than on Linux, respectively.
 
-Further info about limits and billing can be found [here](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions).
+More information on limits and billing can be found [here](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions).
 
 ## Heroku / Netlify
 
 ![Heroku Logo](/img/heroku.png "Heroku Logo")
 
-[Heroku](https://devcenter.heroku.com/categories/reference) is a cloud platform as a service (PaaS) supporting several programming languages.
+[Heroku](https://devcenter.heroku.com/categories/reference) is a cloud platform as a service (PaaS) that supports multiple programming languages.
 
 > **Platform as a service** (PaaS) or **application platform as a service** (aPaaS) or **platform-based service** is a category of cloud computing services that provides a platform allowing customers to develop, run, and manage applications without the complexity of building and maintaining the infrastructure typically associated with developing and launching an app.
 
-One of the biggest benefits of using Heroku for hosting React applications is configuration time.
+One of the biggest advantages of using Heroku for hosting React applications is configuration time.
 
-You can deploy an app with almost no time in two ways: either by using a command line or Heroku UI (only if you are using Github).
+You can deploy an app in almost no time in two ways: either via the command line or via Heroku UI (only if you use Github).
 
-**Important note:** Heroku is free only for non-commercial apps, if you want to deploy a business-focused app, you should purchase at least a "Production" plan. Further information about pricing is available [here](https://www.heroku.com/pricing).
+**Important note:** Heroku is free for non-commercial apps only, if you want to deploy a business-oriented app, you should purchase at least a "Production" plan. More information on pricing can be found [here](https://www.heroku.com/pricing).
 
-There are a lot of alternatives to the Heroku and one of them is [](https://docs.netlify.com/)Netlify.
+There are a lot of alternatives to Heroku, one of which is [](https://docs.netlify.com/)Netlify.
 
 #### Netlify
 
@@ -232,16 +234,14 @@ There are a lot of alternatives to the Heroku and one of them is [](https://docs
 
 [Netlify](https://docs.netlify.com/) is a service that automates builds, deployments, and manages your websites.
 
-**Important note:** Netlify includes a Free pricing plan that allows you to play around with the tool and decide if it fulfills all your requirements. Further information about pricing is available [here](https://www.netlify.com/pricing/).
+**Important note:** Netlify includes a Free pricing plan that allows you to play around with the tool and decide if it meets all your needs. More information on pricing can be found [here](https://www.netlify.com/pricing/).
 
-Nowadays it is one of the fastest and easiest deployment solutions. As with the Heroku, you can deploy by either using a command line or Netlify UI (only if you are using Github).
+Nowadays, it is one of the fastest and easiest deployment solutions. As with Heroku, you can deploy either from the command line or via Netlify UI (only if you use Github).
 
 Here is a [full guide](https://www.vhudyma-blog.eu/2020-07-06-deploy-your-react-app-to-netlify-july-2020/) on how to deploy your React application to Netlify.
 
 ## Summary
 
-To sum up, before starting playing around with a new library/framework/language, I suggest first to check out available tools that will help you in development.
+In summary, before playing around with a new library/framework/language, first try the tools available to help with development. The number of options available will no doubt impress you. 
 
-There is no room for a doubt that the number of available options will impress you.
-
-I hope you liked it, make sure to try the tools I listed here and do not forget to comment your favorite ones!
+I hope you enjoyed it, try out the tools listed here and do not forget to comment on your favorites!
