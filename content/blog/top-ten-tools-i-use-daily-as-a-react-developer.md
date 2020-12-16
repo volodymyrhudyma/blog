@@ -92,28 +92,28 @@ It shows how often your components are rendered, and from that you can see if fu
 
 ![React and Redux Images](/img/1_vem-5lsatrrj4jxh96h5kg.png "React and Redux Images")
 
-[Redux](https://redux.js.org/) is a library that allows us to manage an application's state easily and predictably.
+[Redux](https://redux.js.org/) is a library that allows us to easily and predictably manage the state of an application.
 
-With Redux, the state of your application is kept in one place, called Store and components can connect to the store and pull the needed data.
+With Redux, the state of your application is kept in a place called a Store, and components can connect to the store and retrieve the data they need.
 
-The main benefits of using it are the following:
+Key benefits of using Redux:
 
-* The state becomes predictable
+* **The state becomes predictable**
 
-  If the same state and actions are passed to the reducers, they produce the same result, since they are pure functions.
-* The state becomes immutable
+  When the same state and actions are passed to the reducers, they produce the same result because they are pure functions.
+* **The state becomes immutable**
 
   Reducers always produce a new state, never mutating the original.
-* Easy debugging
+* **Easy debugging**
 
-  Since the state is immutable, we can time-travel through the happened updates and view the state at any given moment.
-* Easy testing
+  Since the state is immutable, we can time-travel through the occurred updates and view the state at any point in time.
+* **Easy testing**
 
 To add Redux to your React project, refer to [this article](/2020-06-11-add-redux-with-typescript-to-your-react-applicaton-june-2020/).
 
-When working with Redux, most likely you will need to add a middleware for handling side effects and being able to integrate with the store more efficiently.
+If you are working with Redux, you will most likely need to add middleware to handle side effects and integrate with the store more efficiently.
 
-Both, **Redux Thunk** and **Redux Saga** libraries serve this purpose.
+Both **Redux Thunk** and **Redux Saga** libraries serve this purpose.
 
 #### Redux Thunk
 
@@ -121,32 +121,34 @@ Both, **Redux Thunk** and **Redux Saga** libraries serve this purpose.
 
 It allows you to write action creators that **return a function instead of an action**.
 
-The Thunk can be used to delay an action execution or execute specific actions only when a certain condition is met.
+The Thunk can be used to delay an action execution or to execute certain actions only when a certain condition is met.
 
 #### Redux Saga
 
-[Redux Saga](https://redux-saga.js.org/) is a library that aims to make application side effects (i.e. asynchronous things like data fetching and impure things like accessing the browser cache) easier to manage, more efficient to execute, easy to test, and better at handling failures.
+[Redux Saga](https://redux-saga.js.org/) is a library that aims to make application side-effects (i.e., asynchronous things like data fetches and impure things like accessing the browser cache) easier to manage, more efficient to run, easy to test, and better at handling failures.
 
-Saga represents a single thread in your application that is responsible only for handling side-effects.
+Saga represents a single thread in your application, responsible only for handling side-effects.
 
-To read more about Redux Thunk and Redux Saga refer to [this article](/2020-07-25-redux-thunk-vs-redux-saga-the-differences/).
+For more information about Redux Thunk and Redux Saga, see [this article](/2020-07-25-redux-thunk-vs-redux-saga-the-differences/).
 
 ## Redux Dev Tools
 
-[Redux Dev Tools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd) is a Chrome DevTools extension that helps in debugging the application's state.
+[Redux Dev Tools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd) is a Chrome DevTools extension that helps to debug the application's state.
 
 ![Redux DevTools](/img/screenshot-2020-12-15-at-18.02.22.png "Redux DevTools")
 
 It allows to:
 
-* Trace all dispatched actions and all their payload
-* Time travel through all states of an application, so we can see what was going before the state reached the given point
-* Dispatch a custom action without implementing it in the code
+* Track all dispatched actions and their payload
+* Time travel through all states of an application, so we can see what was going on before the state was reached at the given point
+* Dispatch a custom action without implementing it in code
 * Monitor only desired actions
 * Persist store on page reload
 * And much more
 
-Make sure to install this extension and configure it to be used with the current project. Find out how to do it [here](https://github.com/zalmoxisus/redux-devtools-extension#1-with-redux).
+Make sure to install this extension and configure it for use with the current project. 
+
+You can learn how to do that [here](https://github.com/zalmoxisus/redux-devtools-extension#1-with-redux).
 
 ## Jest / Enzyme
 
