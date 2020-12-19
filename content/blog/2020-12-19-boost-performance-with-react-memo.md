@@ -169,3 +169,78 @@ React.memo(Component, customEqualityCheck);
 ```
 
 This function must return **true** if we do not want the component to render when certain criteria are met, **false** otherwise.
+
+## Avoid React.memo()
+
+Seeing all its benefits, we can assume that it is worth using for almost all components in our app and that's totally wrong assumption.
+
+Remember that everything comes with a cost, even **React.memo()**, which is associated with memory allocation.
+
+Do not use it when:
+
+* The component is usually rendered with different props
+* The component is not often rendered
+* It does not bring any measurable performance gains (use Profiler to check that)
+
+## Callback Functions
+
+Memoization can easily be broken by using the callback function in the wrong way.
+
+#### UserContainer component
+
+```jsx
+const UserContainer = () => {
+  const [_toggle, setToggle] = useState(false);
+
+  useEffect(() => {
+    const intervailId = setInterval(() => {
+      setToggle((toggle) => !toggle);
+    }, 1000);
+    return () => {
+      clearInterval(intervailId);
+    };
+  }, []);
+
+  const handleProjectClick = () => {
+    console.log('Do something');
+  };
+
+  return <Projects handleProjectClick={handleProjectClick} />;
+};
+
+export default UserContainer;
+```
+
+#### Projects component
+
+```jsx
+const Projects = ({ handleProjectClick }) => {
+  console.log('Projects render');
+  return (
+    <div>
+      <h4>Project List</h4>
+      <button onClick={handleProjectClick}>Click me</button>
+    </div>
+  );
+};
+
+export default React.memo(Projects);
+```
+
+In this example, a parent component passes **handleProjectClick** callback to the child.
+
+There is one tricky thing - every time the functional component defines a callback, a new callback instance is being created, which means that we pass different instances of the callback function to the child component.
+
+See, that even if we do not provide any other props except the callback function, the component is still not properly memoized.
+
+The fix is straightforward - we need to use a **useCallback** hook in order to preserve the instance of the callback for every render:
+
+```jsx
+ const handleProjectClick = useCallback(() => {
+    console.log('Do something');
+  }, []);
+```
+
+We create an instance of the **handleProjectClick** on the initial render and preserve it.
+
+## Summary
