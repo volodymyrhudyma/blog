@@ -23,7 +23,7 @@ When a component is wrapped in the **React.memo()**, after being rendered, its r
 
 Before the next render, if the props have not changed, React will re-use the result of the previous render, skipping the whole costly rendering process.
 
-## Example
+## Primitive Example
 
 To understand the concept better, let's see it in action:
 
@@ -94,5 +94,57 @@ export default React.memo(Projects);
 After doing this small change, open the console and check how many times does the **Projects** component render.
 
 **Just once.**
+
+## Complex Example
+
+We have seen a basic example with a Primitive value passed as a **date** prop. But what if we are about to pass an object?
+
+#### UserContainer component
+
+```jsx
+const UserContainer = () => {
+  const [_toggle, setToggle] = useState(false);
+
+  useEffect(() => {
+    // Update the component every second
+    const intervailId = setInterval(() => {
+      setToggle((toggle) => !toggle);
+    }, 1000);
+    return () => {
+      clearInterval(intervailId);
+    };
+  }, []);
+
+  return <Projects date={{ year: 2020, month: 1, day: 1 }} />;
+};
+
+export default UserContainer;
+```
+
+#### Projects component
+
+```jsx
+const Projects = ({ date }) => {
+  console.log('Projects render');
+  return (
+    <div>
+      <h4>Project List</h4>
+      <div>
+        From: {date.year}-{date.month}-{date.day}
+      </div>
+    </div>
+  );
+};
+
+export default React.memo(Projects);
+```
+
+Open the console and see how the **Projects** component frequently renders despite the fact it is wrapper in the **React.memo()**.
+
+If we look at the example closely, we would notice that a **date** object is created every time the **UserContainer** renders, and a new object is passed down the tree.
+
+**React.memo()** does only a shallow comparison of passed props, which means that if we pass different objects, even with the same props, the component will still be re-rendered.
+
+Can we change that behavior? The second argument to rescue.
 
 ## Equality Check
