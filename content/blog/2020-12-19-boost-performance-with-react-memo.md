@@ -1,5 +1,5 @@
 ---
-title: Boost Performance With React.memo
+title: Boost Performance With React.memo()
 tag:
   - React
 promote: false
