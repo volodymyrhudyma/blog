@@ -170,6 +170,8 @@ React.memo(Component, customEqualityCheck);
 
 This function must return **true** if we do not want the component to render when certain criteria are met, **false** otherwise.
 
+**Important note:** According to the [React docs](https://reactjs.org/docs/react-api.html#reactmemo), this method only exists as a performance optimization**.** Do not rely on it to “prevent” a render, as this can lead to bugs.
+
 ## Avoid React.memo()
 
 Seeing all its benefits, we can assume that it is worth using for almost all components in our app and that's totally wrong assumption.
@@ -244,3 +246,7 @@ The fix is straightforward - we need to use a **useCallback** hook in order to p
 We create an instance of the **handleProjectClick** on the initial render and preserve it.
 
 ## Summary
+
+In this article, we have learned an amazing way to boost the performance of the React application with the **React.memo()** HOC.
+
+Before using this HOC, make sure to measure the component's performance to make sure it does really help you.
