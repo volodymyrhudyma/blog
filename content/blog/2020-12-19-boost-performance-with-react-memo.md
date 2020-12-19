@@ -147,4 +147,25 @@ If we look at the example closely, we would notice that a **date** object is cre
 
 Can we change that behavior? The second argument to rescue.
 
-## Equality Check
+## Custom Equality Check
+
+React gives us a possibility to pass the second argument to the **React.memo()** HOC and define a custom equality check function:
+
+```javascript
+const customEqualityCheck = (prevProps, nextProps) => {
+  // If year, month and day are not changed, do not re-render the component
+  if (
+    prevProps.year === nextProps.year &&
+    prevProps.month === nextProps.month &&
+    prevProps.day === nextProps.day
+  ) {
+    return true;
+  }
+  // Otherwise do re-render with a new props
+  return false;
+};
+
+React.memo(Component, customEqualityCheck);
+```
+
+This function must return **true** if we do not want the component to render when certain criteria are met, **false** otherwise.
