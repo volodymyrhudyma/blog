@@ -1,6 +1,7 @@
 ---
 title: Boost Performance With React.memo
-tag: JavaScript
+tag:
+  - React
 promote: false
 metaDescription: // META
 teaser: // TEASER
