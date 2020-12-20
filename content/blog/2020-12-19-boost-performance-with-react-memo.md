@@ -3,29 +3,36 @@ title: Boost Performance With React.memo()
 tag:
   - React
 promote: false
-metaDescription: // META
-teaser: // TEASER
+metaDescription: React provides the React.memo() Higher-Order Component which
+  can be used to improve the performance of a React application. React.memo()
+  memoizes the result of rendering the component.
+teaser: In React, changing the state of the parent component triggers a
+  re-render of the entire component tree. This often leads to the unnecessary
+  rendering of child components, whose props have not actually changed.
+  Undoubtedly, this slows down the application, especially if...
 date: 2020-12-20T07:56:29.709Z
 ---
-In React, changing the state of the parent component triggers a re-render of the whole component tree.
+In React, changing the state of the parent component triggers a re-render of the entire component tree.
 
-It often leads to the unnecessary rendering of the child components, which props have not actually changed.
+This often leads to the unnecessary rendering of child components, whose props have not actually changed.
 
-Undoubtedly, it slows the application down, especially if child components contain a lot of expensive calculations.
+Undoubtedly, this slows down the application, especially if child components contain many expensive calculations.
 
-To improve the performance, React offers **React.memo()** higher-order component.
+To improve performance, React provides the **React.memo()** higher-order component.
+
+> [Higher-order component](https://reactjs.org/docs/higher-order-components.html) is a function that takes a component and returns a new component.
 
 ## React.memo()
 
-When a component is wrapped in the **React.memo()**, after being rendered, its result is memoized by React.
+When a component is wrapped in the **React.memo()**, its result is memoized by React after rendering.
 
-> **Memoization** is an optimization technique used to speed up computer programs by storing the results of expensive function calls and returning the cached result when the same inputs occur again.
+> **Memoization** is an optimization technique used to speed up computer programs by storing the results of expensive function calls and returning the cached result when the same inputs are encountered again.
 
-Before the next render, if the props have not changed, React will re-use the result of the previous render, skipping the whole costly rendering process.
+Before the next render, if the props have not changed, React reuses the result of the previous render, skipping the whole expensive rendering process.
 
 ## Primitive Example
 
-To understand the concept better, let's see it in action:
+To better understand the concept, let's see it in action:
 
 #### UserContainer component
 
@@ -65,17 +72,19 @@ const Projects = ({ date }) => {
 export default Projects;
 ```
 
-In this example, we created **UserContainer** component that is being updated every second. It renders **Projects** component with one static prop - **date**.
+In this example, we created the **UserContainer** component, which is updated every second. It renders the **Projects** component with a static property - **date**.
 
 Open the console and see what happens:
 
 ![Frequent Renders](/img/ezgif.com-gif-maker-8-.gif "Frequent Renders")
 
-The **Projects** component re-renders every time its parent updates, even though its props remain the same. See a room for some optimizations here?
+The **Projects** component is re-rendered every time the parent is updated, even though its props remain the same. 
+
+Do you see room for some optimizations here?
 
 #### Wrapping Projects component in React.memo()
 
-This is a perfect example of how **React.memo()** can be used to gain a performance boost:
+This is a perfect example of how **React.memo()** can be used to provide a performance boost:
 
 ```jsx
 const Projects = ({ date }) => {
@@ -91,13 +100,15 @@ const Projects = ({ date }) => {
 export default React.memo(Projects);
 ```
 
-After doing this small change, open the console and check how many times does the **Projects** component render.
+After making this small change, open the console and check how often the **Projects** component is rendered.
 
 **Just once.**
 
 ## Complex Example
 
-We have seen a basic example with a Primitive value passed as a **date** prop. But what if we are about to pass an object?
+We have seen a simple example with a Primitive value passed in as a **date** prop. 
+
+But what if we want to pass an object?
 
 #### UserContainer component
 
@@ -139,17 +150,17 @@ const Projects = ({ date }) => {
 export default React.memo(Projects);
 ```
 
-Open the console and see how the **Projects** component frequently renders despite the fact it is wrapper in the **React.memo()**.
+Open the console and see how the **Projects** component is rendered frequently, even though it is wrapped in the **React.memo()**.
 
-If we look at the example closely, we would notice that a **date** object is created every time the **UserContainer** renders, and a new object is passed down the tree.
+If we look closely at the example, we would notice that every time the **UserContainer** is rendered, a **date** object is created and passed down the tree.
 
-**React.memo()** does only a shallow comparison of passed props, which means that if we pass different objects, even with the same props, the component will still be re-rendered.
+**React.memo()** only does a shallow comparison of the props passed in, so if we pass in different objects, even with the same props, the component will still be re-rendered.
 
-Can we change that behavior? The second argument to rescue.
+Can we change this behavior? The second argument for rescue.
 
 ## Custom Equality Check
 
-React gives us a possibility to pass the second argument to the **React.memo()** HOC and define a custom equality check function:
+React gives us the option to pass the second argument to the **React.memo()** HOC and define our own equality checking function:
 
 ```javascript
 const customEqualityCheck = (prevProps, nextProps) => {
@@ -168,25 +179,25 @@ const customEqualityCheck = (prevProps, nextProps) => {
 React.memo(Component, customEqualityCheck);
 ```
 
-This function must return **true** if we do not want the component to render when certain criteria are met, **false** otherwise.
+This function must return **true** if we do not want the component to be rendered when certain criteria are met, **false** otherwise.
 
-**Important note:** According to the [React docs](https://reactjs.org/docs/react-api.html#reactmemo), this method only exists as a performance optimization**.** Do not rely on it to “prevent” a render, as this can lead to bugs.
+**Important note:** According to the [React docs](https://reactjs.org/docs/react-api.html#reactmemo), this method exists only as a performance optimization**.** Do not rely on it to “prevent” rendering, as this can lead to bugs.
 
 ## Avoid React.memo()
 
-Seeing all its benefits, we can assume that it is worth using for almost all components in our app and that's totally wrong assumption.
+Seeing all its benefits, we can assume that it is worth using for almost all components in our app, and that is a completely wrong assumption.
 
-Remember that everything comes with a cost, even **React.memo()**, which is associated with memory allocation.
+Remember that everything has a cost associated with it, including **React.memo()**, which is associated with memory allocation.
 
-Do not use it when:
+Do not use it if:
 
 * The component is usually rendered with different props
-* The component is not often rendered
-* It does not bring any measurable performance gains (use Profiler to check that)
+* The component is not rendered often
+* It does not provide a measurable performance gain (use Profiler to check this)
 
 ## Callback Functions
 
-Memoization can easily be broken by using the callback function in the wrong way.
+Memoization can be easily broken by using callback functions incorrectly.
 
 #### UserContainer component
 
@@ -229,13 +240,13 @@ const Projects = ({ handleProjectClick }) => {
 export default React.memo(Projects);
 ```
 
-In this example, a parent component passes **handleProjectClick** callback to the child.
+In this example, a parent component passes the **handleProjectClick** callback to the child.
 
-There is one tricky thing - every time the functional component defines a callback, a new callback instance is being created, which means that we pass different instances of the callback function to the child component.
+There is one tricky thing - every time the functional component defines a callback, a new callback instance is created, which means that we are passing different instances of the callback function to the child component.
 
-See, that even if we do not provide any other props except the callback function, the component is still not properly memoized.
+See that even if we do not provide any props other than the callback function, the component is still not memoized properly.
 
-The fix is straightforward - we need to use a **useCallback** hook in order to preserve the instance of the callback for every render:
+The solution is simple - we need to use a **useCallback** hook to preserve the instance of the callback for each render:
 
 ```jsx
  const handleProjectClick = useCallback(() => {
@@ -243,10 +254,10 @@ The fix is straightforward - we need to use a **useCallback** hook in order to p
   }, []);
 ```
 
-We create an instance of the **handleProjectClick** on the initial render and preserve it.
+We create an instance of the **handleProjectClick** on the initial render and keep it.
 
 ## Summary
 
-In this article, we have learned an amazing way to boost the performance of the React application with the **React.memo()** HOC.
+In this article, we learned about an amazing way to boost React application performance using **React.memo()**.
 
-Before using this HOC, make sure to measure the component's performance to make sure it does really help you.
+Measure the performance of the component before and after using this HOC, to make sure it really helps you.
