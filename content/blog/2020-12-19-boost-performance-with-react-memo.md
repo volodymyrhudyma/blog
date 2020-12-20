@@ -26,7 +26,7 @@ To improve performance, React provides the **React.memo()** higher-order compone
 
 When a component is wrapped in the **React.memo()**, its result is memoized by React after rendering.
 
-> **Memoization** is an optimization technique used to speed up computer programs by storing the results of expensive function calls and returning the cached result when the same inputs are encountered again.
+> [Memoization](https://en.wikipedia.org/wiki/Memoization) is an optimization technique used to speed up computer programs by storing the results of expensive function calls and returning the cached result when the same inputs are encountered again.
 
 Before the next render, if the props have not changed, React reuses the result of the previous render, skipping the whole expensive rendering process.
 
