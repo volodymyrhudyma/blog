@@ -3,8 +3,13 @@ title: A Neat Tool To Quickly Run Your JavaScript Code
 tag:
   - JavaScript
 promote: false
-metaDescription: // META
-teaser: // TEASER
+metaDescription: RunJS is a neat tool that allows you to quickly run your
+  JavaScript/TypeScript code. It supports installing external dependencies,
+  which is one of the key features for me.
+teaser: Since today is the day before Christmas. I thought I would share with
+  you an awesome tool I've been actively using for the past year to quickly run
+  my JavaScript code. Ofter I find myself in situation, where I need to
+  experiment with a code found on the StackOverflow or...
 date: 2020-12-24T11:00:33.517Z
 ---
 Since today is the day before Christmas. I thought I would share with you an awesome tool I've been actively using for the past year to quickly run my JavaScript code.
