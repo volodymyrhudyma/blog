@@ -1,28 +1,28 @@
 ---
-title: A Neat Tool To Quickly Run Your JavaScript Code
+title: A Nice Tool To Run Your JavaScript Code Fast
 tag:
   - JavaScript
 promote: false
 metaDescription: RunJS is a neat tool that allows you to quickly run your
   JavaScript/TypeScript code. It supports installing external dependencies,
-  which is one of the key features for me.
-teaser: Since today is the day before Christmas. I thought I would share with
-  you an awesome tool I've been actively using for the past year to quickly run
-  my JavaScript code. Ofter I find myself in situation, where I need to
-  experiment with a code found on the StackOverflow or...
+  which is one of the most important features for me.
+teaser: Since today is the day before Christmas. I thought I'd share with you a
+  great tool I have been actively using for the past year to quickly run my
+  JavaScript code. I often find myself in situations, where I need to experiment
+  with some code I found on StackOverflow or somewhere...
 date: 2020-12-24T11:00:33.517Z
 ---
-Since today is the day before Christmas. I thought I would share with you an awesome tool I've been actively using for the past year to quickly run my JavaScript code.
+Since today is the day before Christmas. I thought I'd share with you a great tool I have been actively using for the past year to quickly run my JavaScript code.
 
-Ofter I find myself in situation, where I need to experiment with a code found on the StackOverflow or somewhere else.
+I often find myself in situations, where I need to experiment with some code I found on StackOverflow or somewhere else.
 
-Before using the tool I am talking about, I was searching for a website that allows to execute JavaScript code (*online JavaScript editor*) or, what is even worse, I was executing code in the browser's console.
+Before using the tool I am talking about, I was looking for a website that allows to run JavaScript code (*online JavaScript editor*), or worse, I was running the code in the browser's console.
 
-But what if I needed to install and use some external dependencies?
+But what if I had to install and use some external dependencies?
 
-I am not sure if all JavaScript code editors allow to do that (if any at all).
+I am not sure if all JavaScript code editors allow that (if at all).
 
-Now, after I installed RunJS, the things got much better.
+Well, after RunJS has been installed in my computer, things got much better.
 
 ## RunJS
 
@@ -32,30 +32,30 @@ The design of the tool is perfect, nothing distracts you from focusing on the co
 
 ![RunJS design](/img/screenshot-2020-12-24-at-12.12.44.png "RunJS design")
 
-One of the key features for me is an ability to install external dependencies in one click.
+One of the most important features for me is the ability to install external dependencies with one click.
 
-Let's say we need to quickly fetch the data from an api and see if our code is good enough to do that:
+Let's say we need to quickly retrieve the data from an API and see if our code is good enough for it:
 
 ![RunJS Install Dependency](/img/screenshot-2020-12-24-at-12.23.38.png "RunJS Install Dependency")
 
-As you can see, we do not yet have `apisauce` installed, so let's do that by clicking on an **Install** link and see what happens:
+As you can see, we have not installed the `apisauce` yet, so let's do that by clicking on an **Install** link and see what happens:
 
 ![RunJS Fetched Data](/img/screenshot-2020-12-24-at-12.24.13.png "RunJS Fetched Data")
 
-Awesome, we were able to install the library and now we see the fetch results at the right side. Our code works perfectly fine.
+Great, we were able to install the library and now we can see the fetch results on the right. Our code is working perfectly fine.
 
-It also ships with a lot of available configurations, like:
+It also comes with a lot of available configurations like:
 
 * Setting environment variables
-* Setting working directory
-* Auto code formatting
-* Listing and removing installed npm packages
-* Setting the theme (my fav by far is Dracula, the one you can see on the screenshots)
+* Setting the working directory
+* Automatic code formatting
+* Listing and removing installed **npm** packages
+* Setting the theme (my favourite by far is Dracula, the one you can see on the screenshots)
 
 ## Summary
 
-This is not a typical tutorial from me, but I hope you like it anyways.
+This is not a typical tutorial from me, but I hope you like it anyway.
 
-I wanted to share with you this awesome tool that I use on the daily basis.
+I wanted to share this great tool that I use every day.
 
-After reading this you may notice that the vast majority of the code that is written in the "code sections" in my blog is written in RunJS.
+After reading this, you may notice that the vast majority of the code in the "code sections" on my blog is written in RunJS.
