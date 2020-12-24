@@ -54,8 +54,6 @@ It also comes with a lot of available configurations like:
 
 ## Summary
 
-This is not a typical tutorial from me, but I hope you like it anyway.
-
-I wanted to share this great tool that I use every day.
+This is not a typical tutorial from me, but hopefully you like it.
 
 After reading this, you may notice that the vast majority of the code in the "code sections" on my blog is written in RunJS.
