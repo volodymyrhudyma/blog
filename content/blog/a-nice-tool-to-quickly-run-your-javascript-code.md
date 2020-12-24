@@ -6,13 +6,13 @@ promote: false
 metaDescription: RunJS is a neat tool that allows you to quickly run your
   JavaScript/TypeScript code. It supports installing external dependencies,
   which is one of the most important features for me.
-teaser: Since today is the day before Christmas. I thought I'd share with you a
+teaser: Since today is the day before Christmas, I thought I'd share with you a
   great tool I have been actively using for the past year to quickly run my
   JavaScript code. I often find myself in situations, where I need to experiment
   with some code I found on StackOverflow or somewhere...
 date: 2020-12-24T11:00:33.517Z
 ---
-Since today is the day before Christmas. I thought I'd share with you a great tool I have been actively using for the past year to quickly run my JavaScript code.
+Since today is the day before Christmas, I thought I'd share with you a great tool I have been actively using for the past year to quickly run my JavaScript code.
 
 I often find myself in situations, where I need to experiment with some code I found on StackOverflow or somewhere else.
 
