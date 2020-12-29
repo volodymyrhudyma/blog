@@ -4,19 +4,19 @@ tag:
   - React
 promote: false
 metaDescription: Learn React Fragment - a simple mechanism that allows you to
-  wrap multiple children element in a single parent without adding an extra DOM
-  element.
-teaser: In React, it is a common scenario to return multiple elements from a
-  single component. In order to work properly, all those elements should be
-  wrapped in one parent element (we are not taking in consideration returning
-  arrays from render...
+  wrap multiple child elements into a single parent without adding additional
+  DOM nodes.
+teaser: In React, returning multiple elements from a single component is a
+  common scenario. For this to work properly, all of these elements should be
+  wrapped in a parent element (we do not consider returning arrays from
+  render...
 date: 2020-12-29T12:00:00.000Z
 ---
-In React, it is a common scenario to return multiple elements from a single component.
+In React, returning multiple elements from a single component is a common scenario.
 
-In order to work properly, all those elements should be wrapped in one parent element (we are not taking in consideration returning arrays from render).
+For this to work properly, all of these elements should be wrapped in a parent element (we do not consider returning arrays from render).
 
-Typically, that parent element is a simple **div** or **span**, that does not really provide any value and even can cause a harm.
+Typically, this parent element is a simple **div** or **span**, which does not really provide any value and can even cause some problems.
 
 ## Problem
 
@@ -41,13 +41,13 @@ const Columns = () => (
 );
 ```
 
-You just created two components: **Table** and **Columns**. 
+You have just created two components: **Table** and **Columns**. 
 
-The first one is responsible for rendering table's markup, the second one - for rendering columns.
+The first is responsible for rendering the markup of a table, the second - for rendering the columns.
 
-Since it is possible to have more than one column, the **Columns** component can return multiple **td** elements, that have to be wrapper in a single parent element, **div** in our example.
+Since it is possible to have more than one column, the **Columns** component can return multiple **td** elements that need to be wrapped into a single parent element, in our example **div**.
 
-But adding that div results in having an invalid HTML structure:
+But adding this **div** results in an invalid HTML structure:
 
 ![Invalid HTML Structure Markup](/img/screenshot-2020-12-29-at-12.44.04.png "Invalid HTML Structure Markup")
 
@@ -59,7 +59,7 @@ So, the question is: "How to fix that?".
 
 ## Fragment
 
-The simple solution is just to use **Fragment.**
+The simple solution is to use **Fragment.**
 
 > [Fragment](https://reactjs.org/docs/fragments.html) lets you group a list of children without adding extra nodes to the DOM.
 
@@ -75,15 +75,15 @@ React provides us with two ways of using Fragments:
 </>
 ```
 
-The second one is a short syntax that looks like an empty tag. 
+The second way is a short syntax that looks like an empty tag. 
 
-**Important note:** Short syntax does not support **keys** or any other attributes (which may possibly be added in the future). 
+**Important note:** The short syntax does not support **keys** or other attributes (which may be added by the React team in the future). 
 
 ## Keys
 
-As we already know, when Fragment is declared using the short syntax, we are not allowed to add a **key** attribute.
+As we already know, when declaring fragments with the short syntax, it is not allowed to add a **key** attribute.
 
-But if we use **React.Fragment** syntax, we can add a key, which makes it possible to map a collection to an array of fragments:
+However, if we use the **React.Fragment** syntax, we can add a key, making it possible to map a collection to an array of fragments:
 
 ```jsx
 const users = [
@@ -113,9 +113,9 @@ const UserList = () => (
 
 ## Performance
 
-In some cases, it is possible to use both, DOM nodes or Fragments as a parent elements and nothing will be broken.
+In some cases it is possible to use both, DOM nodes or Fragments as parent elements and nothing will break.
 
-But you may wonder then, which way is faster?
+But then you might wonder which way is faster?
 
 According to the [Dan Abramov](https://stackoverflow.com/questions/47761894/why-are-fragments-in-react-16-better-than-container-divs):
 
@@ -125,6 +125,12 @@ According to the [Dan Abramov](https://stackoverflow.com/questions/47761894/why-
 
 ## Summary
 
-Using Fragments brings a lot of advantages, like cleaner HTML structure, slightly better performance, especially noticeable with the larger trees and avoiding styling problems which may occur because of having an extra DOM element within the specific HTML structure.
+There are many advantages to using fragments, such as:
 
-Fragments are definitely worth using and are a great replacement for DOM nodes as a parent elements.
+* Cleaner HTML structure
+* Slightly better performance (especially noticeable with larger trees)
+* Avoidance of styling problems (which can occur because of having an additional DOM element within the specific HTML structure)
+
+Fragments are definitely worth using and are a great replacement for DOM nodes as parent elements.
+
+Make sure you use them as often as necessary.
