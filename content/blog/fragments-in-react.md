@@ -119,7 +119,7 @@ But then you might wonder which way is faster?
 
 According to the [Dan Abramov](https://stackoverflow.com/questions/47761894/why-are-fragments-in-react-16-better-than-container-divs):
 
-> 1. It’s a tiny bit faster and has less memory usage (no need to create an extra DOM node). This only has a real benefit on very large and/or deep trees, but application performance often suffers from death by a thousand cuts. This is one cut less.
+> 1. Fragment is a tiny bit faster and has less memory usage (no need to create an extra DOM node). This only has a real benefit on very large and/or deep trees, but application performance often suffers from death by a thousand cuts. This is one cut less.
 > 2. Some CSS mechanisms like Flexbox and CSS Grid have a special parent-child relationship, and adding `div`s in the middle makes it hard to keep the desired layout while extracting logical components.
 > 3. The DOM inspector is less cluttered. :-)
 
