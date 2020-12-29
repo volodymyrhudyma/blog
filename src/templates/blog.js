@@ -25,7 +25,7 @@ export default function Template({ data, path, location }) {
 
   const [html, setHtml] = useState(article.html)
   const [headings, setHeadings] = useState([])
-  const [showTOC, setShowTOC] = useState(false)
+  const [showTOC, setShowTOC] = useState(true)
 
   useEffect(() => {
     const div = document.createElement("div")
