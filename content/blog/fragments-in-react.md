@@ -79,7 +79,7 @@ The second one is a short syntax that looks like an empty tag.
 
 **Important note:** Short syntax does not support **keys** or any other attributes (which may possibly be added in the future). 
 
-## Key
+## Keys
 
 As we already know, when Fragment is declared using the short syntax, we are not allowed to add a **key** attribute.
 
