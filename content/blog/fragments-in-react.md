@@ -3,9 +3,14 @@ title: Fragments in React
 tag:
   - React
 promote: false
-metaDescription: // META
-teaser: // TEASER
-date: 2020-12-29T11:23:01.932Z
+metaDescription: Learn React Fragment - a simple mechanism that allows you to
+  wrap multiple children element in a single parent without adding an extra DOM
+  element.
+teaser: In React, it is a common scenario to return multiple elements from a
+  single component. In order to work properly, all those elements should be
+  wrapped in one parent element (we are not taking in consideration returning
+  arrays from render...
+date: 2020-12-29T12:00:00.000Z
 ---
 In React, it is a common scenario to return multiple elements from a single component.
 
