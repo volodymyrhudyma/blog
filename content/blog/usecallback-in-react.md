@@ -3,8 +3,13 @@ title: useCallback in React
 tag:
   - React
 promote: false
-metaDescription: // META
-teaser: // TEASER
+metaDescription: Learn how to optimize the performance of a React application by
+  using the useCallback hook. useCallback hook memoizes functions and preserves
+  them between the renders.
+teaser: In my blog, I was already talking about a few ways of optimizing the
+  application's performance like useMemo hook or React.memo HOC. Today we will
+  learn useCallback hook that allows us to memoize functions and preserve them
+  between...
 date: 2021-01-02T08:43:09.091Z
 ---
 In my blog, I was already talking about a few ways of optimizing the application's performance like [useMemo](/usememo-in-react/) hook or [React.memo](/boost-performance-with-react-memo/) higher-order component (HOC). The hook allows us to memoize values, HOC - components.
@@ -97,7 +102,7 @@ Inline functions are cheap, so re-creating a small function is not a problem at 
 
 That's exactly the moment **useCallback** hook comes into play.
 
-## The useCallback hook
+## The useCallback Hook
 
 The syntax is the following: `useCallback(callbackFun, deps)`. 
 
