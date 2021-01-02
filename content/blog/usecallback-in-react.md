@@ -37,7 +37,7 @@ const App = () => {
   }, []);
 
   const handleClick = () => {
-    console.log('Clicked!')
+    console.log("Clicked!")
   }
   
   return <Button handleClick={handleClick} />;
@@ -91,7 +91,7 @@ const App = () => {
   // Whenever App component updates
   // A new function will be created
   const handleClick = () => {
-    console.log('Clicked!')
+    console.log("Clicked!")
   }
   
   // ...
@@ -128,7 +128,7 @@ const App = () => {
 
   // Preserve the function instance between the renders
   const handleClick = useCallback(() => {
-    console.log('Clicked!')
+    console.log("Clicked!")
   }, []);
   
   return <Button handleClick={handleClick} />;
