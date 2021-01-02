@@ -11,7 +11,7 @@ In my blog, I was already talking about a few ways of optimizing the application
 
 Today we will learn **useCallback** hook that allows us to memoize **functions** and preserve them between the renders.
 
-## Why do we need it?
+## Why Do We Need It?
 
 The best way to learn how something works is to see a simple example.
 
@@ -97,7 +97,7 @@ Inline functions are cheap, so re-creating a small function is not a problem at 
 
 That's exactly the moment **useCallback** hook comes into play.
 
-## useCallback hook
+## The useCallback hook
 
 The syntax is the following: `useCallback(callbackFun, deps)`. 
 
@@ -131,3 +131,25 @@ export default App;
 ```
 
 After doing this small change, check the console and note that the **Button** component rendered **only once**, because it receives the same **handleClick** callback and **React.memo** now can memoize the component properly.
+
+## Do Not Overuse The Hook
+
+The example above is simple enough to understand how the **useCallback** works, but it is a **bad example** and such optimizations of small functions should not be used in the production code.
+
+As we already mentioned, inline functions are cheap, but **useCallback** hook is not.
+
+Apart from decreasing the readability of the code to some point, it also has to compare the dependencies from the dependency array for every re-render to decide whether it should re-define the function. 
+
+Often the computation for this comparison can be more expensive than just re-defining the function.
+
+Refer to [this article](https://kentcdodds.com/blog/usememo-and-usecallback) to see why in some cases using the hook is worse than not using it.
+
+## Summary
+
+To sum everything up, the **useCallback** hook is used to memoize the functions and preserve their instances between the renders.
+
+It can bring a performance boost when used in combination with the **React.memo** HOC, however it can also decrease performance when not used properly.
+
+Always remember that everything comes with a cost, even hooks that are designed to optimize the performance.
+
+Sometimes, **not wrapping** a simple function in the **useCallback** hook is the best optimization.
