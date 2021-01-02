@@ -88,8 +88,8 @@ When a [Function Component](https://reactjs.org/docs/components-and-props.html) 
 
 ```javascript
 const App = () => {
-  // Whenever App component updates
-  // A new function will be created
+  // When the App component updates
+  // A new function is created
   const handleClick = () => {
     console.log("Clicked!")
   }
