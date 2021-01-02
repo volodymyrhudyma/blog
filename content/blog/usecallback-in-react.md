@@ -3,18 +3,18 @@ title: The useCallback Hook in React
 tag:
   - React
 promote: false
-metaDescription: Learn how to optimize the performance of a React application by
-  using the useCallback hook. useCallback hook memoizes functions and preserves
-  them between the renders.
-teaser: In my blog, I was already talking about a few ways of optimizing the
-  application's performance like useMemo hook or React.memo HOC. Today we will
-  learn useCallback hook that allows us to memoize functions and preserve them
-  between...
+metaDescription: Learn how to optimize the performance of a React application
+  with the useCallback hook. useCallback hook memoizes functions and preserves
+  them between renders.
+teaser: In my blog, I already talked about some ways to optimize the performance
+  of the application like the useMemo hook or the React.memo higher-order
+  component (HOC). Today we will learn about the useCallback, which allows us to
+  memoize functions and preserve them...
 date: 2021-01-02T08:43:09.091Z
 ---
-In my blog, I was already talking about a few ways of optimizing the application's performance like [useMemo](/usememo-in-react/) hook or [React.memo](/boost-performance-with-react-memo/) higher-order component (HOC). The hook allows us to memoize values, HOC - components.
+In my blog, I already talked about some ways to optimize the performance of the application like the [useMemo](/usememo-in-react/) hook or the [React.memo](/boost-performance-with-react-memo/) higher-order component (HOC). The hook allows us to memoize values, HOC - components.
 
-Today we will learn **useCallback** hook that allows us to memoize **functions** and preserve them between the renders.
+Today we will learn about the **useCallback**, which allows us to memoize **functions** and preserve them between renders.
 
 ## Why Do We Need It?
 
@@ -59,13 +59,15 @@ const Button = ({ handleClick }) => {
 export default Button;
 ```
 
-We have a simple **App** component that renders a **Button**, passes click handler as a prop, and is updated every second.
+We have a simple **App** component that renders a **Button**, passes the click handler as a prop, and is updated every second.
 
-Currently, if you run the code above, you will see "*Button render*" text printed to the console every second, which means that updating the **App** component also updates the **Button**:
+Currently, when you run the above code, the text "*Button render*" is printed to the console every second, which means that updating the **App** component also updates the **Button**:
 
 ![Button Component Re-Renders](/img/ezgif.com-gif-maker-9-.gif "Button Component Re-Renders")
 
-Fine, but we already know that the component can be wrapper in the **React.memo** in order not to re-render when the same props are passed, right? Let's try it:
+Alrighty, but we already know that the component can be wrapped in the **React.memo** in order not to be re-rendered when the same props are passed, right? 
+
+Let's try it out:
 
 ```jsx
 const Button = ({ handleClick }) => {
@@ -78,11 +80,11 @@ const Button = ({ handleClick }) => {
 export default React.memo(Button);
 ```
 
-Check the console now ... and see that **nothing has changed**.
+Now check the console ... and see that **nothing has changed**.
 
-At this point, you may not really understand what is happening, but let me explain it.
+At this point you may not really understand what is happening, but let me explain.
 
-When a [Function Component](https://reactjs.org/docs/components-and-props.html) is updated, all functions within its body are re-created on every render:
+When a [Function Component](https://reactjs.org/docs/components-and-props.html) is updated, all the functions within its body are recreated on every render:
 
 ```javascript
 const App = () => {
@@ -96,19 +98,19 @@ const App = () => {
 };
 ```
 
-This means that the **handleClick** function on the second render is not the same as on the first one.
+This means that the **handleClick** function on the second render is not the same as on the first.
 
-Inline functions are cheap, so re-creating a small function is not a problem at all, but in some cases, in order to increase performance, you may want to maintain one function between the renders.
+Inline functions are cheap, so recreating a small function is not a problem at all, but in some cases, to increase performance, you may want to keep one function between renders.
 
-That's exactly the moment **useCallback** hook comes into play.
+That is exactly when the **useCallback** hook comes into play.
 
 ## The useCallback Hook
 
 The syntax is the following: `useCallback(callbackFn, deps)`. 
 
-You should pass the function that has to be memoized as a first argument and the list of dependencies, changing which results in re-creating the function.
+You should pass the function to be memoized as the first argument, and the list of dependencies, whose modification will cause the function to be recreated.
 
-Let's use it for our **handleClick** function in the **App** component:
+Let's use this for our **handleClick** function in the **App** component:
 
 ```jsx
 const App = () => {
@@ -135,26 +137,26 @@ const App = () => {
 export default App;
 ```
 
-After doing this small change, check the console and note that the **Button** component rendered **only once**, because it receives the same **handleClick** callback and **React.memo** now can memoize the component properly.
+After making this small change, check the console and notice that the **Button** component has been rendered **only once**, because it gets the same **handleClick** callback and **React.memo** can now memoize the component properly.
 
 ## Do Not Overuse It
 
-The example above is simple enough to understand how the **useCallback** works, but it is a **bad example** and such optimizations of small functions should not be used in the production code.
+The above example is simple enough to understand how the **useCallback** works, but it is a **bad example** and such optimizations of small functions should not be used in production code.
 
-As we already mentioned, inline functions are cheap, but **useCallback** hook is not.
+As we mentioned earlier, inline functions are cheap, but the **useCallback** hook is not.
 
-Apart from decreasing the readability of the code to some point, it also has to compare the dependencies from the dependency array for every re-render to decide whether it should re-define the function. 
+Apart from reducing the readability of the code to some point, it also has to compare the dependencies from the dependency array every time it is re-rendered to decide whether to re-define the function. 
 
-Often the computation for this comparison can be more expensive than just re-defining the function.
+Often the computation for this comparison can be more expensive than simply re-defining the function.
 
-Refer to [this article](https://kentcdodds.com/blog/usememo-and-usecallback) to see why in some cases using the hook is worse than not using it.
+Read [this article](https://kentcdodds.com/blog/usememo-and-usecallback) to see why using the hook is worse than not using it in some cases.
 
 ## Summary
 
-To sum everything up, the **useCallback** hook is used to memoize the functions and preserve their instances between the renders.
+In summary, the **useCallback** hook is used to memoize the functions and preserve their instances between renders.
 
-It can bring a performance boost when used in combination with the **React.memo** HOC, however it can also decrease performance when not used properly.
+It can provide a performance boost when combined with the **React.memo** HOC, but can also decrease performance if not used properly.
 
-Always remember that everything comes with a cost, even hooks that are designed to optimize the performance.
+Always remember that everything comes with a cost, even hooks that are supposed to optimize performance.
 
-Sometimes, **not wrapping** a simple function in the **useCallback** hook is the best optimization.
+Sometimes **not wrapping** a simple function in the **useCallback** hook is the best optimization.
