@@ -73,4 +73,61 @@ const Button = ({ handleClick }) => {
 export default React.memo(Button);
 ```
 
- Check the console now ... and see that **nothing has changed**.
+Check the console now ... and see that **nothing has changed**.
+
+At this point, you may not really understand what is happening, but let me explain it.
+
+When a [Function Component](https://reactjs.org/docs/components-and-props.html) is updated, all functions within its body are re-created on every render:
+
+```javascript
+const App = () => {
+  // Whenever App component updates
+  // A new function will be created
+  const handleClick = () => {
+    console.log('Clicked!')
+  }
+  
+  // ...
+};
+```
+
+This means that the **handleClick** function on the second render is not the same as on the first one.
+
+Inline functions are cheap, so re-creating a small function is not a problem at all, but in some cases, in order to increase performance, you may want to maintain one function between the renders.
+
+That's exactly the moment **useCallback** hook comes into play.
+
+## useCallback hook
+
+The syntax is the following: `useCallback(callbackFun, deps)`. 
+
+You should pass the function that has to be memoized as a first argument and the list of dependencies, changing which results in re-creating the function.
+
+Let's use it for our **handleClick** function in the **App** component:
+
+```jsx
+const App = () => {
+  const [_toggle, setToggle] = useState(false);
+
+  useEffect(() => {
+    // Update the component every second
+    const intervailId = setInterval(() => {
+      setToggle((toggle) => !toggle);
+    }, 1000);
+    return () => {
+      clearInterval(intervailId);
+    };
+  }, []);
+
+  // Preserve the function instance between the renders
+  const handleClick = useCallback(() => {
+    console.log('Clicked!')
+  }, []);
+  
+  return <Button handleClick={handleClick} />;
+};
+
+export default App;
+```
+
+After doing this small change, check the console and note that the **Button** component rendered **only once**, because it receives the same **handleClick** callback and **React.memo** now can memoize the component properly.
