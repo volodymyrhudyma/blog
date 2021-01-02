@@ -104,7 +104,7 @@ That's exactly the moment **useCallback** hook comes into play.
 
 ## The useCallback Hook
 
-The syntax is the following: `useCallback(callbackFun, deps)`. 
+The syntax is the following: `useCallback(callbackFn, deps)`. 
 
 You should pass the function that has to be memoized as a first argument and the list of dependencies, changing which results in re-creating the function.
 
