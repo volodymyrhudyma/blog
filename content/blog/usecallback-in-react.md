@@ -137,7 +137,7 @@ export default App;
 
 After doing this small change, check the console and note that the **Button** component rendered **only once**, because it receives the same **handleClick** callback and **React.memo** now can memoize the component properly.
 
-## Do Not Overuse The Hook
+## Do Not Overuse It
 
 The example above is simple enough to understand how the **useCallback** works, but it is a **bad example** and such optimizations of small functions should not be used in the production code.
 
