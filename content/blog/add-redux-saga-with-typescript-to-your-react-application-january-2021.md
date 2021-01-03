@@ -13,6 +13,8 @@ date: 2021-01-03T08:08:30.929Z
 
 Today we will learn how to install and configure Redux Saga with TypeScript in an application created with Create React App in a few simple steps.
 
+The application will fetch todos from the following endpoint (https://jsonplaceholder.typicode.com/todos) and display them in a long list.
+
 ## Step 1: Create React App
 
 To begin with, let's create a simple React application using [create-react-app](https://github.com/facebook/create-react-app)**:**
@@ -26,6 +28,10 @@ After the installation is completed, start the project to verify if everything w
 You should see nice spinning React logo and some text:
 
 ![CRA Initial Screen](/img/screenshot-2021-01-03-at-09.00.58.png "CRA Initial Screen")
+
+Congratulations on creating the React application. 
+
+Remember that **a journey of a thousand miles begins with a single step**.
 
 ## Step 2: Install Redux / Redux Saga
 
