@@ -1,5 +1,5 @@
 ---
-title: Add Redux Saga With Typescript To Your React Application (January 2020)
+title: Add Redux Saga With TypeScript To Your React Application (January 2020)
 tag:
   - React
 promote: false
@@ -78,6 +78,8 @@ const store = createStore(
 
 // Run the saga
 sagaMiddleware.run(rootSaga);
+
+export default store;
 ```
 
 The store is the result of executing `createStore` function, which takes `rootReducer` as the first argument and middlewares as the second.
@@ -314,24 +316,18 @@ import { Provider } from 'react-redux';
 
 import './index.css';
 
-import * as serviceWorker from './serviceWorker';
-import configureStore from './store';
+import store from './store';
 
 import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={configureStore()}>
+    <Provider store={store}>
       <App />
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
 ```
 
 That's it! We're done with the configuration, it's time to test it out.
