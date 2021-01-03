@@ -190,15 +190,15 @@ In the case of **FETCH_TODO_FAILURE** action, we clear all todo items in the sto
 
 The next step is to define **action types**.
 
-As you should know, actions are plain JavaScript objects.
+As you know, actions are plain JavaScript objects.
 
-They must have a **type** property that indicates the type of action being performed.
+They must have a **type** property that specifies the type of action being performed.
 
-Types should typically be defined as string constants in larger projects to keep your codebase clean, but it's also good to use just string literals.
+Types should typically be defined as string constants in larger projects to keep your codebase clean, but it's also good to just use string literals.
 
-In our project, we'll extract them into a separate file named `src/store/todo/actionTypes.ts`.
+In our project, we will extract them to a separate file named `src/store/todo/actionTypes.ts`.
 
-Put the following content inside of this file:
+Paste the following content into this file:
 
 ```javascript
 export const FETCH_TODO_REQUEST = "FETCH_TODO_REQUEST";
@@ -206,9 +206,9 @@ export const FETCH_TODO_SUCCESS = "FETCH_TODO_SUCCESS";
 export const FETCH_TODO_FAILURE = "FETCH_TODO_FAILURE";
 ```
 
-We have 3 action types, which display the state of the current API call.
+We have 3 action types that indicate the state of the current API call.
 
-Since we're using **TypeScript**, it's necessary to create **types** for the initial state and each fired action.
+Since we are using **TypeScript**, it is necessary to create **types** for the initial state and each fired action.
 
 ## Step 7: Add Types
 
@@ -262,7 +262,7 @@ export type TodoActions =
   | FetchTodoFailure;
 ```
 
-And we're ready to build our first **action.**
+And we are ready to build our first **action.**
 
 ## Step 8: Create Actions
 
@@ -302,11 +302,11 @@ export const fetchTodoFailure = (
 });
 ```
 
-Note, how we return a plain object from an action.
+Notice, how we return a plain object from an action.
 
 ## Step 9: Create Sagas
 
-The next step is to create a **saga** that watches **FETCH_TODO_REQUEST** and performs the handling of side effects.
+The next step is to create a **saga** that watches **FETCH_TODO_REQUEST** and performs side effect handling.
 
 Create a new file `src/store/todo/sagas.ts` with the following content:
 
@@ -354,7 +354,7 @@ export default todoSaga;
 
 ## Step 10: Create Root Saga
 
-And the final step is to import all sagas into the **rootSaga.ts** file.
+And the last configuration step is to import all sagas into the **rootSaga.ts** file.
 
 Create a new file `src/store/rootSaga.ts` with the following content:
 
@@ -368,17 +368,17 @@ export function* rootSaga() {
 }
 ```
 
-Afterward, we have to find a way to pull the data out of the store.
+After that, we need to find a way to get the data out of the store.
 
 ## Step 11: Add Reselect
 
-We'll add [reselect](https://github.com/reduxjs/reselect) - simple “selector” library for Redux:
+We will install [reselect](https://github.com/reduxjs/reselect) for this purpose - a simple "selector" library for Redux:
 
 `yarn add reselect`
 
-There is one major benefit of using **reselect** - it creates memoized selectors, which will re-run only if their arguments change.
+There is one big advantage of using **reselect** - it creates memoized selectors that are only re-executed when their arguments change.
 
-Create the file `src/store/todo/selectors.ts` with the following contents:
+Create the file `src/store/todo/selectors.ts` with the following content:
 
 ```typescript
 import { createSelector } from "reselect";
@@ -401,11 +401,11 @@ export const getPendingSelector = createSelector(
 export const getErrorSelector = createSelector(getError, (error) => error);
 ```
 
-Lastly, we have to make our React app aware of the entire Redux's store.
+Finally, we need to make our React app aware of the entire Redux store.
 
 ## Step 12: Add Store Provider
 
-Add **Provider** with **store** to the `src/index.tsx` file:
+Add **Provider** with **store** in the `src/index.tsx` file:
 
 ```tsx
 import React from "react";
@@ -428,11 +428,11 @@ ReactDOM.render(
 );
 ```
 
-That's it! We're done with the configuration, it's time to test it out.
+That is it! We are done with the configuration, it's time to try it out.
 
-## Step 13: Test It Out
+## Step 13: Try It Out
 
-Modify the content of `src/App.tsx` component:
+Change the content of `src/App.tsx` component:
 
 ```tsx
 import React, { useEffect } from "react";
@@ -479,18 +479,18 @@ And run the application:
 
 `yarn start`
 
-You should see the list of fetched todos that contains 200 items:
+You should see the list of fetched todos, which contains 200 entries:
 
 ![Fetched TODO items](/img/screenshot-2021-01-03-at-11.37.41.png "Fetched TODO items")
 
 ## Summary
 
-In this article, we have covered the simplest Redux + Redux Saga + TypeScript configuration for the React application created with Create React App.
+In this article, we covered the simplest Redux + Redux Saga + TypeScript configuration for the React application built with Create React App.
 
-Make sure to read [Redux Saga](https://redux-saga.js.org/) docs before starting coding anything using this middleware, because it is way more complicated and provides us with more features than the [Redux Thunk](https://github.com/reduxjs/redux-thunk). 
+Be sure to read the documentation of [Redux Saga](https://redux-saga.js.org/) before you start coding anything with this middleware, as it is much more complicated and provides us with more features than the [Redux Thunk](https://github.com/reduxjs/redux-thunk). 
 
-I hope this guide was useful to you.
+I hope this guide was helpful for you.
 
 See you in the next articles.
 
-**P.S.** The code is available on the Github repository.
+**P.S.** The code is available in the Github repository.
