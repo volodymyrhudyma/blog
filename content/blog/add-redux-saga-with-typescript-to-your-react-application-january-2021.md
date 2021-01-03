@@ -70,21 +70,18 @@ After the installation let's proceed with creating a store:
 We'll create a store under the following path `src/store/index.ts` with the following content:
 
 ```javascript
-import { createStore, applyMiddleware } from 'redux';
-import createSagaMiddleware from 'redux-saga';
-import logger from 'redux-logger';
+import { createStore, applyMiddleware } from "redux";
+import createSagaMiddleware from "redux-saga";
+import logger from "redux-logger";
 
-import rootReducer from './rootReducer';
-import { rootSaga } from './rootSaga';
+import rootReducer from "./rootReducer";
+import { rootSaga } from "./rootSaga";
 
 // Create the saga middleware
 const sagaMiddleware = createSagaMiddleware();
 
 // Mount it on the Store
-const store = createStore(
-  rootReducer,
-  applyMiddleware(sagaMiddleware, logger)
-);
+const store = createStore(rootReducer, applyMiddleware(sagaMiddleware, logger));
 
 // Run the saga
 sagaMiddleware.run(rootSaga);
@@ -107,9 +104,9 @@ As you may have noticed, **rootReducer** and **rootSaga** do not exist yet, so l
 Create `src/store/rootReducer.ts` with the following content:
 
 ```javascript
-import { combineReducers } from 'redux';
+import { combineReducers } from "redux";
 
-import todoReducer from './todo/reducer';
+import todoReducer from "./todo/reducer";
 
 const rootReducer = combineReducers({
   todo: todoReducer,
@@ -132,15 +129,15 @@ Create `src/store/todo/reducer.ts` with the following content:
 import {
   FETCH_TODO_REQUEST,
   FETCH_TODO_SUCCESS,
-  FETCH_TODO_FAILURE
-} from './actionTypes';
+  FETCH_TODO_FAILURE,
+} from "./actionTypes";
 
-import { TodoActions, TodoState } from './types';
+import { TodoActions, TodoState } from "./types";
 
 const initialState: TodoState = {
   pending: false,
   todos: [],
-  error: null
+  error: null,
 };
 
 export default (state = initialState, action: TodoActions) => {
@@ -199,9 +196,10 @@ In our project, we'll extract them into a separate file named `src/store/todo/ac
 Put the following content inside of this file:
 
 ```javascript
-export const FETCH_TODO_REQUEST = 'FETCH_TODO_REQUEST';
-export const FETCH_TODO_SUCCESS = 'FETCH_TODO_SUCCESS';
-export const FETCH_TODO_FAILURE = 'FETCH_TODO_FAILURE';
+export const FETCH_TODO_REQUEST = "FETCH_TODO_REQUEST";
+export const FETCH_TODO_SUCCESS = "FETCH_TODO_SUCCESS";
+export const FETCH_TODO_FAILURE = "FETCH_TODO_FAILURE";
+
 ```
 
 We have 3 action types, which display the state of the current API call.
@@ -216,8 +214,8 @@ Create a file `src/store/todo/types.ts` with the following content:
 import {
   FETCH_TODO_REQUEST,
   FETCH_TODO_SUCCESS,
-  FETCH_TODO_FAILURE
-} from './actionTypes';
+  FETCH_TODO_FAILURE,
+} from "./actionTypes";
 
 export interface ITodo {
   userId: number;
@@ -230,30 +228,29 @@ export interface TodoState {
   pending: boolean;
   todos: ITodo[];
   error: string | null;
-};
+}
 
 export interface FetchTodoSuccessPayload {
   todos: ITodo[];
-} 
+}
 
 export interface FetchTodoFailurePayload {
   error: string;
-} 
+}
 
 export interface FetchTodoRequest {
   type: typeof FETCH_TODO_REQUEST;
-};
+}
 
 export type FetchTodoSuccess = {
-  type: typeof FETCH_TODO_SUCCESS,
+  type: typeof FETCH_TODO_SUCCESS;
   payload: FetchTodoSuccessPayload;
 };
 
 export type FetchTodoFailure = {
-  type: typeof FETCH_TODO_FAILURE,
+  type: typeof FETCH_TODO_FAILURE;
   payload: FetchTodoFailurePayload;
 };
-
 
 export type TodoActions =
   | FetchTodoRequest
@@ -272,28 +269,32 @@ import {
   FETCH_TODO_REQUEST,
   FETCH_TODO_FAILURE,
   FETCH_TODO_SUCCESS,
-} from './actionTypes';
+} from "./actionTypes";
 
 import {
   FetchTodoRequest,
   FetchTodoSuccess,
   FetchTodoSuccessPayload,
   FetchTodoFailure,
-  FetchTodoFailurePayload
-} from './types';
+  FetchTodoFailurePayload,
+} from "./types";
 
 export const fetchTodoRequest = (): FetchTodoRequest => ({
   type: FETCH_TODO_REQUEST,
 });
 
-export const fetchTodoSuccess = (payload: FetchTodoSuccessPayload): FetchTodoSuccess => ({
+export const fetchTodoSuccess = (
+  payload: FetchTodoSuccessPayload
+): FetchTodoSuccess => ({
   type: FETCH_TODO_SUCCESS,
-  payload
+  payload,
 });
 
-export const fetchTodoFailure = (payload: FetchTodoFailurePayload): FetchTodoFailure => ({
+export const fetchTodoFailure = (
+  payload: FetchTodoFailurePayload
+): FetchTodoFailure => ({
   type: FETCH_TODO_FAILURE,
-  payload
+  payload,
 });
 ```
 
@@ -306,27 +307,32 @@ The next step is to create a **saga** that watches **FETCH_TODO_REQUEST** and pe
 Create a new file `src/store/todo/sagas.ts` with the following content:
 
 ```typescript
-import axios from 'axios';
-import { all, call, put, takeLatest } from 'redux-saga/effects'
-import { fetchTodoFailure, fetchTodoSuccess } from './actions';
+import axios from "axios";
+import { all, call, put, takeLatest } from "redux-saga/effects";
+import { fetchTodoFailure, fetchTodoSuccess } from "./actions";
 
-import { FETCH_TODO_REQUEST } from './actionTypes';
-import { ITodo } from './types';
+import { FETCH_TODO_REQUEST } from "./actionTypes";
+import { ITodo } from "./types";
 
-const getTodos = () => axios.get<ITodo[]>("https://jsonplaceholder.typicode.com/todos");
+const getTodos = () =>
+  axios.get<ITodo[]>("https://jsonplaceholder.typicode.com/todos");
 
 // Worker Saga: Fired on FETCH_TODO_REQUEST action
 function* fetchTodoSaga() {
-   try {
-      const response = yield call(getTodos);
-      yield put(fetchTodoSuccess({
-         todos: response.data
-      }))
-   } catch (e) {
-      yield put(fetchTodoFailure({
-         error: e.message
-      }))
-   }
+  try {
+    const response = yield call(getTodos);
+    yield put(
+      fetchTodoSuccess({
+        todos: response.data,
+      })
+    );
+  } catch (e) {
+    yield put(
+      fetchTodoFailure({
+        error: e.message,
+      })
+    );
+  }
 }
 
 /*
@@ -334,9 +340,7 @@ function* fetchTodoSaga() {
   Allows concurrent increments.
 */
 function* todoSaga() {
-   yield all([
-      takeLatest(FETCH_TODO_REQUEST, fetchTodoSaga),
-   ])
+  yield all([takeLatest(FETCH_TODO_REQUEST, fetchTodoSaga)]);
 }
 
 export default todoSaga;
@@ -354,10 +358,8 @@ import { all, fork } from "redux-saga/effects";
 import todoSaga from "./todo/sagas";
 
 export function* rootSaga() {
-  yield all([
-    fork(todoSaga)
-  ])
-};
+  yield all([fork(todoSaga)]);
+}
 ```
 
 Afterward, we have to find a way to pull the data out of the store.
@@ -373,33 +375,24 @@ There is one major benefit of using `reselect` - it creates memoized selectors, 
 Create the file `src/store/todo/selectors.ts` with the following contents:
 
 ```typescript
-import { createSelector } from 'reselect';
+import { createSelector } from "reselect";
 
-import { AppState } from '../rootReducer';
+import { AppState } from "../rootReducer";
 
-const getPending = (state: AppState) =>
-  state.todo.pending;
+const getPending = (state: AppState) => state.todo.pending;
 
-const getTodos = (state: AppState) =>
-  state.todo.todos;
+const getTodos = (state: AppState) => state.todo.todos;
 
-const getError = (state: AppState) =>
-  state.todo.error;
+const getError = (state: AppState) => state.todo.error;
 
-export const getTodosSelector = createSelector(
-  getTodos,
-  todos => todos,
-);
+export const getTodosSelector = createSelector(getTodos, (todos) => todos);
 
 export const getPendingSelector = createSelector(
   getPending,
-  pending => pending,
+  (pending) => pending
 );
 
-export const getErrorSelector = createSelector(
-  getError,
-  error => error,
-);
+export const getErrorSelector = createSelector(getError, (error) => error);
 ```
 
 Lastly, we have to make our React app aware of the entire Redux's store.
@@ -409,15 +402,15 @@ Lastly, we have to make our React app aware of the entire Redux's store.
 Add `Provider` with `store` to the `src/index.tsx` file:
 
 ```tsx
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
 
-import './index.css';
+import "./index.css";
 
-import store from './store';
+import store from "./store";
 
-import App from './App';
+import App from "./App";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -425,7 +418,7 @@ ReactDOM.render(
       <App />
     </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 ```
 
@@ -436,15 +429,15 @@ That's it! We're done with the configuration, it's time to test it out.
 Modify the content of `src/App.tsx` component:
 
 ```tsx
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import {
   getPendingSelector,
   getTodosSelector,
   getErrorSelector,
-} from './store/todo/selectors';
-import { fetchTodoRequest } from './store/todo/actions';
+} from "./store/todo/selectors";
+import { fetchTodoRequest } from "./store/todo/actions";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -457,14 +450,14 @@ const App = () => {
   }, []);
 
   return (
-    <div style={{ padding: '15px' }}>
+    <div style={{ padding: "15px" }}>
       {pending ? (
         <div>Loading...</div>
       ) : error ? (
         <div>Error</div>
       ) : (
         todos.map((todo, index) => (
-          <div style={{ marginBottom: '10px' }} key={todo.id}>
+          <div style={{ marginBottom: "10px" }} key={todo.id}>
             {++index}. {todo.title}
           </div>
         ))
