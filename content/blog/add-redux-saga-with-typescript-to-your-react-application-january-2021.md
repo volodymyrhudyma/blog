@@ -4,12 +4,12 @@ tag:
   - React
 promote: false
 metaDescription: Add Redux Saga to React application created with Create React
-  App in a few simple steps. Redux Saga is a library that is used to handle side
-  effects in Redux.
-teaser: Redux Saga is a library that aims to make application side effects
-  easier to manage, more efficient to execute, easy to test, and better at
-  handling failures. Today we will learn how to install and configure Redux Saga
-  with TypeScript in an application created with Create React App in a few...
+  App in a few simple steps. Redux Saga is a library used to handle side effects
+  in Redux.
+teaser: Redux Saga is a library that aims to make an application's side effects
+  easier to manage, more efficient to run, easy to test, and better at handling
+  failures. Today we will learn how to install and configure Redux Saga with
+  TypeScript in an application built with Create React App in a few...
 date: 2021-01-04T08:08:30.929Z
 ---
 **Redux** is a library that allows us to easily and predictably manage the state of an application.
