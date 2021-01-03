@@ -39,10 +39,6 @@ After the React application has been successfully created, we can proceed with i
 
 `yarn add redux react-redux redux-saga @types/react-redux @types/redux-saga`
 
-It's useful to include logger middleware to log all dispatched actions in the developer console:
-
-`yarn add -D redux-logger @types/redux-logger`
-
 * **redux** - the core of Redux
 * **react-redux** - official React binding for Redux, it should be installed, as Redux can be used standalone
 * **redux-saga** - saga middleware for Redux
@@ -54,8 +50,16 @@ It's useful to include logger middleware to log all dispatched actions in the de
   Don't worry if you don't get why do we need this, we'll explain it in detail later.
 * **@types/react-redux** - type declarations for react-redux library
 * **@types/redux-saga** - type declarations for redux-saga library
-* **redux-logger** - middleware for logging dispatched actions
-* **@types/redux-logger** - type declarations for redux-logger library
+
+## Step 2.1: Install Redux Logger / Axios
+
+It's useful to include logger middleware to log all dispatched actions in the developer console:
+
+`yarn add -D redux-logger @types/redux-logger`
+
+And [axios](https://github.com/axios/axios) - Promise based HTTP client:
+
+`yarn add axios @types/axios`
 
 ## Step 3: Create Store
 
@@ -350,7 +354,7 @@ import { all, fork } from "redux-saga/effects";
 import todoSaga from "./todo/sagas";
 
 export function* rootSaga() {
-  return all([
+  yield all([
     fork(todoSaga)
   ])
 };
@@ -444,9 +448,9 @@ const App = () => {
   const todos = useSelector(getTodosSelector);
   const error = useSelector(getErrorSelector);
 
- useEffect(() => {
-   dispatch(fetchTodoRequest())
- })
+  useEffect(() => {
+    dispatch(fetchTodoRequest());
+  }, []);
 
   return (
     <div className='App'>
