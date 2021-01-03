@@ -100,7 +100,7 @@ The store is the result of executing the **createStore** function, which takes *
 
 **rootSaga** is a combination of all sagas present in your app.
 
-As your app gets more complex, it's a good idea to split your reducers and sagas into separate functions.
+As your app gets more complex, it is a good idea to split your reducers and sagas into separate functions.
 
 As you might have noticed, **rootReducer** and **rootSaga** do not exist yet, so let's add them.
 
@@ -194,7 +194,7 @@ As you know, actions are plain JavaScript objects.
 
 They must have a **type** property that specifies the type of action being performed.
 
-Types should typically be defined as string constants in larger projects to keep your codebase clean, but it's also good to just use string literals.
+Types should typically be defined as string constants in larger projects to keep your codebase clean, but it is also good to just use string literals.
 
 In our project, we will extract them to a separate file named `src/store/todo/actionTypes.ts`.
 
@@ -428,7 +428,7 @@ ReactDOM.render(
 );
 ```
 
-That is it! We are done with the configuration, it's time to try it out.
+That is it! We are done with the configuration, let's try it out.
 
 ## Step 13: Try It Out
 
