@@ -12,67 +12,67 @@ teaser: Redux Saga is a library that aims to make application side effects
   with TypeScript in an application created with Create React App in a few...
 date: 2021-01-04T08:08:30.929Z
 ---
-**Redux** is a library that allows us to manage an application's state easily and predictably.
+**Redux** is a library that allows us to easily and predictably manage the state of an application.
 
-**Redux Saga** is a library that aims to make application side effects (i.e. asynchronous things like data fetching and impure things like accessing the browser cache) easier to manage, more efficient to execute, easy to test, and better at handling failures.
+**Redux Saga** is a library that aims to make an application's side effects (i.e., asynchronous things like fetching data and impure things like accessing the browser cache) easier to manage, more efficient to run, easy to test, and better at handling failures.
 
-Today we will learn how to install and configure Redux Saga with TypeScript in an application created with Create React App in a few simple steps.
+Today we will learn how to install and configure Redux Saga with TypeScript in an application built with Create React App in a few simple steps.
 
-The application will fetch todos from the following endpoint (https://jsonplaceholder.typicode.com/todos) and display them in a long list.
+The application will retrieve todos from the following endpoint (https://jsonplaceholder.typicode.com/todos) and display them in a long list.
 
 ## Step 1: Create React App
 
-To begin with, let's create a simple React application using [create-react-app](https://github.com/facebook/create-react-app)**:**
+To begin, create a simple React application using [create-react-app](https://github.com/facebook/create-react-app)**:**
 
 `npx create-react-app redux-saga-guide --template typescript`
 
-After the installation is completed, start the project to verify if everything works as expected:
+After the installation is complete, run the project to verify that everything is working as expected:
 
 `yarn start`
 
-You should see nice spinning React logo and some text:
+A nice spinning React logo with some text should appear on the screen:
 
 ![CRA Initial Screen](/img/screenshot-2021-01-03-at-09.00.58.png "CRA Initial Screen")
 
-Congratulations on creating the React application. 
+Congratulations on the creation of the React application. 
 
 Remember that **a journey of a thousand miles begins with a single step**.
 
 ## Step 2: Install Redux / Redux Saga
 
-After the React application has been successfully created, we can proceed with installing Redux and Redux Saga:
+After the React application has been successfully created, we can proceed with the installation of Redux and Redux Saga:
 
 `yarn add redux react-redux redux-saga @types/react-redux @types/redux-saga`
 
 * **redux** - the core of Redux
-* **react-redux** - official React binding for Redux, it should be installed, as Redux can be used standalone
+* **react-redux** - official React binding for Redux, it should be installed because Redux can be used standalone as well
 * **redux-saga** - saga middleware for Redux
 
-  > **Middleware** is some code you can put between the framework receiving a request, and the framework generating a response.
+  > **Middleware** is some code you can put between the framework that receives a request and the framework that generates a response.
   >
   > Redux middleware **provides a third-party extension point between dispatching an action, and the moment it reaches the reducer.** It allows you to write action creators that return a function instead of an action.
 
-  Don't worry if you don't get why do we need this, we'll explain it in detail later.
+  Do not worry if something is unclear to you at the moment, we will explain it in detail later.
 * **@types/react-redux** - type declarations for react-redux library
 * **@types/redux-saga** - type declarations for redux-saga library
 
 ## Step 2.1: Install Redux Logger / Axios
 
-It's useful to include logger middleware to log all dispatched actions in the developer console:
+It makes sense to include logger middleware to log all triggered actions in the developer console:
 
 `yarn add -D redux-logger @types/redux-logger`
 
-And [axios](https://github.com/axios/axios) - Promise based HTTP client:
+And [axios](https://github.com/axios/axios) - Promise-based HTTP client:
 
 `yarn add axios @types/axios`
 
 ## Step 3: Create Store
 
-After the installation let's proceed with creating a store:
+After the installation we continue with the creation of a store:
 
-> Think of a **store** as of something that holds your application's state.
+> Think of a **store** as something that holds the state of your application.
 
-We'll create a store under the following path `src/store/index.ts` with the following content:
+Create a store under the following path `src/store/index.ts` with the following content:
 
 ```javascript
 import { createStore, applyMiddleware } from "redux";
@@ -94,15 +94,15 @@ sagaMiddleware.run(rootSaga);
 export default store;
 ```
 
-The store is the result of executing **createStore** function, which takes **rootReducer** as the first argument and middlewares as the second.
+The store is the result of executing the **createStore** function, which takes **rootReducer** as its first argument and middlewares as its second argument.
 
-**rootReducer** is a combination of all reducers that exist in your app.
+**rootReducer** is a combination of all reducers present in your app.
 
-**rootSaga** is a combination of all sagas that exist in your app.
+**rootSaga** is a combination of all sagas present in your app.
 
-As your app grows more complex, it's a good idea to split your reducers and sagas into separate functions.
+As your app gets more complex, it's a good idea to split your reducers and sagas into separate functions.
 
-As you may have noticed, **rootReducer** and **rootSaga** do not exist yet, so let's add them.
+As you might have noticed, **rootReducer** and **rootSaga** do not exist yet, so let's add them.
 
 ## Step 4: Create Root Reducer
 
@@ -122,7 +122,7 @@ export type AppState = ReturnType<typeof rootReducer>;
 export default rootReducer;
 ```
 
-This **rootReducer** imports all separate reducer functions and combines them into one, which can be passed to the store.
+This **rootReducer** imports all the separate reducer functions and combines them into one that can be passed to the store.
 
 ## Step 5: Create Todo Reducer
 
@@ -174,17 +174,17 @@ export default (state = initialState, action: TodoActions) => {
 };
 ```
 
-We define the initial state, which holds our list of todo items value equal to an empty array(\[]) by default, a flag that indicates if the API call is still in progress and an error text if it occurs.
+We define the initial state, which contains our list of todo elements whose value corresponds to an empty array(\[]) by default, a flag indicating whether the API call is still running, and an error text if it occurs.
 
-In the reducer's body we check the type of action which has been fired (**action.type**) and change the state accordingly.
+In the body of the reducer, we check the type of the action that was triggered (**action.type**) and change the state accordingly.
 
-In the case of **FETCH_TODO_REQUEST** action, we let the UI know that the API call is in progress.
+In the case of **FETCH_TODO_REQUEST** action, we tell the UI that the API call is in progress.
 
-In the case of **FETCH_TODO_SUCCESS** action, we populate todo items in the store, let the UI know that the API call has finished and clear an error if there was any previously.
+In the case of **FETCH_TODO_SUCCESS** action, we populate todo items in the store, tell the UI that the API call is finished, and clear an error if there was one before.
 
-In the case of **FETCH_TODO_FAILURE** action, we clear all todo items in the store, let UI know that the API call has finished and set an error to be displayed in the UI later.
+In the case of **FETCH_TODO_FAILURE** action, we clear all todo items in the store, tell the UI that the API call is finished, and set an error to be displayed later on.
 
-**Important note:** remember that the reducer function should return the new state, without even touching the existing one.
+**Important note:** Remember that the reducer function should return the new state without even touching the existing one.
 
 ## Step 6: Create Action Types
 
