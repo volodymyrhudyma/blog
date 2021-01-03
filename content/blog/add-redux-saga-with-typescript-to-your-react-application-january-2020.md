@@ -165,4 +165,66 @@ export const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
 export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
 ```
 
+We have only 2 action types, which indicate incrementing or decrementing `counter` value.
+
+Since we're using **TypeScript**, it's necessary to create **types** for the initial state and each fired action.
+
+Create a file `src/store/counter/types.ts` with the following content:
+
+```typescript
+import {
+  INCREMENT_COUNTER,
+  DECREMENT_COUNTER,
+} from './actionTypes';
+
+export type CounterState = {
+  counter: number;
+};
+
+export type IncrementCounter = {
+  type: typeof INCREMENT_COUNTER;
+};
+
+export type DecrementCounter = {
+  type: typeof DECREMENT_COUNTER;
+};
+
+export type CounterActions =
+  | IncrementCounter
+  | DecrementCounter;
+```
+
+And we're ready to build our first **action.**
+
+Create a new file `src/store/counter/actions.ts` with the following content:
+
+```typescript
+import { Dispatch } from 'redux';
+
+import {
+  INCREMENT_COUNTER,
+  DECREMENT_COUNTER,
+} from './actionTypes';
+
+import {
+  IncrementCounter,
+  DecrementCounter,
+} from './types';
+
+export const incrementCounter = (): IncrementCounter => ({
+  type: INCREMENT_COUNTER,
+});
+
+export const decrementCounter = (): DecrementCounter => ({
+  type: DECREMENT_COUNTER,
+});
+
+```
+
+Note, how we return a plain object from an action.
+
+The next step is to create a **saga** that watches **INCREMENT_COUNTER** and **DECREMENT_COUNTER** actions and performs handling of side effects:
+
+
+
 ## Summary
