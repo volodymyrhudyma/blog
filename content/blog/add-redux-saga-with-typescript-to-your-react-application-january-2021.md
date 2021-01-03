@@ -108,7 +108,7 @@ As you might have noticed, **rootReducer** and **rootSaga** do not exist yet, so
 
 Create `src/store/rootReducer.ts` with the following content:
 
-```javascript
+```typescript
 import { combineReducers } from "redux";
 
 import todoReducer from "./todo/reducer";
@@ -130,7 +130,7 @@ The next step is to add a **todo** reducer.
 
 Create `src/store/todo/reducer.ts` with the following content:
 
-```javascript
+```typescript
 import {
   FETCH_TODO_REQUEST,
   FETCH_TODO_SUCCESS,
@@ -200,7 +200,7 @@ In our project, we will extract them to a separate file named `src/store/todo/ac
 
 Paste the following content into this file:
 
-```javascript
+```typescript
 export const FETCH_TODO_REQUEST = "FETCH_TODO_REQUEST";
 export const FETCH_TODO_SUCCESS = "FETCH_TODO_SUCCESS";
 export const FETCH_TODO_FAILURE = "FETCH_TODO_FAILURE";
@@ -274,7 +274,6 @@ import {
   FETCH_TODO_FAILURE,
   FETCH_TODO_SUCCESS,
 } from "./actionTypes";
-
 import {
   FetchTodoRequest,
   FetchTodoSuccess,
@@ -313,8 +312,8 @@ Create a new file `src/store/todo/sagas.ts` with the following content:
 ```typescript
 import axios from "axios";
 import { all, call, put, takeLatest } from "redux-saga/effects";
-import { fetchTodoFailure, fetchTodoSuccess } from "./actions";
 
+import { fetchTodoFailure, fetchTodoSuccess } from "./actions";
 import { FETCH_TODO_REQUEST } from "./actionTypes";
 import { ITodo } from "./types";
 
@@ -413,9 +412,7 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 
 import "./index.css";
-
 import store from "./store";
-
 import App from "./App";
 
 ReactDOM.render(
