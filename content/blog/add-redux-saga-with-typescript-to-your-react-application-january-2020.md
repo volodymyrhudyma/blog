@@ -11,9 +11,9 @@ date: 2021-01-03T08:08:30.929Z
 
 **Redux Saga** is a library that aims to make application side effects (i.e. asynchronous things like data fetching and impure things like accessing the browser cache) easier to manage, more efficient to execute, easy to test, and better at handling failures.
 
-Today we will learn how to install and configure Redux Saga with TypeScript in an application created with Create React App. 
+Today we will learn how to install and configure Redux Saga with TypeScript in an application created with Create React App in a few simple steps.
 
-## Create React Application
+## Step 1: Create React App
 
 To begin with, let's create a simple React application using [create-react-app](https://github.com/facebook/create-react-app)**:**
 
@@ -27,7 +27,7 @@ You should see nice spinning React logo and some text:
 
 ![CRA Initial Screen](/img/screenshot-2021-01-03-at-09.00.58.png "CRA Initial Screen")
 
-## Install Redux Saga
+## Step 2: Install Redux / Redux Saga
 
 After the React application has been successfully created, we can proceed with installing Redux and Redux Saga:
 
@@ -51,7 +51,7 @@ It's useful to include logger middleware to log all dispatched actions in the de
 * **redux-logger** - middleware for logging dispatched actions
 * **@types/redux-logger** - type declarations for redux-logger library
 
-## Configure Redux Saga
+## Step 3: Create Store
 
 After the installation let's proceed with creating a store:
 
@@ -92,6 +92,8 @@ As your app grows more complex, it's a good idea to split your reducers and saga
 
 As you may have noticed, **rootReducer** and **rootSaga** do not exist yet, so let's add them.
 
+## Step 4: Create Root Reducer
+
 Create `src/store/rootReducer.ts` with the following content:
 
 ```javascript
@@ -110,7 +112,11 @@ export default rootReducer;
 
 This `rootReducer` imports all separate reducer functions and combines them into one, which can be passed to the store.
 
-The next step is to add a `counter` reducer. Create `src/store/counter/reducer.ts` with the following content:
+## Step 5: Create Counter Reducer
+
+The next step is to add a `counter` reducer. 
+
+Create `src/store/counter/reducer.ts` with the following content:
 
 ```javascript
 import {
@@ -152,6 +158,8 @@ If we fired `INCREMENT_COUNTER` action, we add `1`, if `DECREMENT_COUNTER` - we 
 
 **Important note:** remember that the reducer function should return the new state, without even touching the existing.
 
+## Step 6: Create Action Types
+
 The next step is to define **action types**.
 
 As you should know, actions are plain JavaScript objects.
@@ -172,6 +180,8 @@ export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
 We have only 2 action types, which indicate incrementing or decrementing `counter` value.
 
 Since we're using **TypeScript**, it's necessary to create **types** for the initial state and each fired action.
+
+## Step 7: Add Types
 
 Create a file `src/store/counter/types.ts` with the following content:
 
@@ -200,6 +210,8 @@ export type CounterActions =
 
 And we're ready to build our first **action.**
 
+## Step 8: Create Actions
+
 Create a new file `src/store/counter/actions.ts` with the following content:
 
 ```typescript
@@ -223,6 +235,8 @@ export const decrementCounter = (): DecrementCounter => ({
 ```
 
 Note, how we return a plain object from an action.
+
+## Step 9: Create Sagas
 
 The next step is to create a **saga** that watches **INCREMENT_COUNTER** and **DECREMENT_COUNTER** actions and performs the handling of side effects.
 
@@ -265,6 +279,8 @@ function* counterSaga() {
 export default counterSaga;
 ```
 
+## Step 10: Create Root Saga
+
 And the final step is to import all sagas into the **rootSaga.ts** file.
 
 Create a new file `src/store/rootSaga.ts` with the following content:
@@ -281,7 +297,9 @@ export function* rootSaga() {
 };
 ```
 
-Afterwards, we have to find a way to pull the data out of the store.
+Afterward, we have to find a way to pull the data out of the store.
+
+## Step 11: Add Reselect
 
 We'll add `reselect` - simple “selector” library for Redux:
 
@@ -307,6 +325,8 @@ export const getCounterSelector = createSelector(
 
 Lastly, we have to make our React app aware of the entire Redux's store.
 
+## Step 12: Add Store Provider
+
 Add `Provider` with `store` to the `src/index.tsx` file:
 
 ```tsx
@@ -331,6 +351,8 @@ ReactDOM.render(
 ```
 
 That's it! We're done with the configuration, it's time to test it out.
+
+## Step 13: Test It Out
 
 Modify the content of `src/App.tsx` component:
 
