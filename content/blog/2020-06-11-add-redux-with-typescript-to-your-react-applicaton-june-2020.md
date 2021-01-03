@@ -90,7 +90,7 @@ This `rootReducer` imports all separate reducer functions and combines them into
 
 The next step is to add a `counter` reducer. Create `src/store/counter/reducer.ts` with the following content:
 
-```javascript
+```typescript
 import {
   INCREMENT_COUNTER,
   DECREMENT_COUNTER,
@@ -153,7 +153,7 @@ Since we're using **typescript**, it's necessary to create **types** for the ini
 
 Create a file `src/store/counter/types.ts` with the following content:
 
-```javascript
+```typescript
 import {
   INCREMENT_COUNTER,
   DECREMENT_COUNTER,
@@ -180,7 +180,7 @@ And we're ready to build our first **action.**
 
 Create a new file `src/store/counter/actions.ts` with the following content:
 
-```javascript
+```typescript
 import { Dispatch } from 'redux';
 
 import {
@@ -216,7 +216,7 @@ This is possible thanks to the `redux-thunk` library, which allows us to write a
 
 We could hit the api inside of our action, wait for the response and fire action that indicates success or error depending on the response:
 
-```javascript
+```typescript
 export const fetchUser = () => {
   return async (dispatch: Dispatch) => {
     dispatch<FetchUser>({
@@ -250,7 +250,7 @@ There is one major benefit of using `reselect` - it creates memoized selectors, 
 
 Create the file `src/store/counter/selectors.ts` with the following contents:
 
-```javascript
+```typescript
 import { createSelector } from 'reselect';
 
 import { AppState } from '../rootReducer';
@@ -280,7 +280,7 @@ It's necessary to type the `state` argument to have a hint of what can be access
 
 Change the `src/store/rootReducer.ts` to export `AppState`:
 
-```javascript
+```typescript
 import { combineReducers } from 'redux';
 
 import counter from './counter/reducer';
@@ -298,7 +298,7 @@ Lastly, we have to make our React app aware of the entire Redux's store.
 
 Add `Provider` with `store` to the `src/index.tsx` file:
 
-```javascript
+```tsx
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -329,7 +329,7 @@ That's it! We're done with the configuration, it's time to test it out.
 
 Modify the content of `src/App.tsx` component:
 
-```javascript
+```tsx
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
