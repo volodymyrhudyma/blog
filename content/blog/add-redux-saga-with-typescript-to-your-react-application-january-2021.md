@@ -439,7 +439,11 @@ Modify the content of `src/App.tsx` component:
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { getPendingSelector, getTodosSelector, getErrorSelector } from './store/todo/selectors';
+import {
+  getPendingSelector,
+  getTodosSelector,
+  getErrorSelector,
+} from './store/todo/selectors';
 import { fetchTodoRequest } from './store/todo/actions';
 
 const App = () => {
@@ -449,23 +453,25 @@ const App = () => {
   const error = useSelector(getErrorSelector);
 
   useEffect(() => {
-      dispatch(fetchTodoRequest())
-  }, [])
+    dispatch(fetchTodoRequest());
+  }, []);
 
   return (
-    <div style={{ padding: "15px"}}>
+    <div style={{ padding: '15px' }}>
       {pending ? (
         <div>Loading...</div>
       ) : error ? (
         <div>Error</div>
-      )
-      : todos.map((todo, index) => (
-          <div style={{marginBottom: '10px'}} key={todo.id}>{++index}. {todo.title}</div>
+      ) : (
+        todos.map((todo, index) => (
+          <div style={{ marginBottom: '10px' }} key={todo.id}>
+            {++index}. {todo.title}
+          </div>
         ))
-      }
+      )}
     </div>
   );
-}
+};
 
 export default App;
 ```
@@ -473,6 +479,10 @@ export default App;
 And run the application:
 
 `yarn start`
+
+You should see the list of fetched todos that contains 200 items:
+
+![Fetched TODO items](/img/screenshot-2021-01-03-at-11.37.41.png "Fetched TODO items")
 
 ## Summary
 
