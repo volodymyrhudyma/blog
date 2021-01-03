@@ -1,7 +1,8 @@
 ---
-title: Add Redux with Typescript to your React applicaton (June 2020)
+title: Add Redux With Typescript To Your React Application (June 2020)
 tag:
   - React
+promote: false
 metaDescription: Configuring React application to use Redux can be confusing,
   especially at the beginning, so here's a practical step-by-step guide how to
   do it.
@@ -295,7 +296,7 @@ export default rootReducer;
 
 Lastly, we have to make our React app aware of the entire Redux's store. 
 
-Add `Provider` with `store` to the `src/index.jsx` file:
+Add `Provider` with `store` to the `src/index.tsx` file:
 
 ```javascript
 import React from 'react';
