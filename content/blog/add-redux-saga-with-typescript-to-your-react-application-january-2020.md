@@ -65,7 +65,7 @@ import createSagaMiddleware from 'redux-saga';
 import logger from 'redux-logger';
 
 import rootReducer from './rootReducer';
-import rootSaga from './rootSaga';
+import { rootSaga } from './rootSaga';
 
 // Create the saga middleware
 const sagaMiddleware = createSagaMiddleware();
@@ -78,7 +78,6 @@ const store = createStore(
 
 // Run the saga
 sagaMiddleware.run(rootSaga);
-
 ```
 
 The store is the result of executing `createStore` function, which takes `rootReducer` as the first argument and middlewares as the second.
@@ -141,7 +140,6 @@ export default (state = initialState, action: CounterActions) => {
       };
   }
 };
-
 ```
 
 We define the initial state, which holds our `counter` value equal to `0` by default, and which is passed as the first argument to the reducer.
@@ -203,8 +201,6 @@ And we're ready to build our first **action.**
 Create a new file `src/store/counter/actions.ts` with the following content:
 
 ```typescript
-import { Dispatch } from 'redux';
-
 import {
   INCREMENT_COUNTER,
   DECREMENT_COUNTER,
@@ -222,7 +218,6 @@ export const incrementCounter = (): IncrementCounter => ({
 export const decrementCounter = (): DecrementCounter => ({
   type: DECREMENT_COUNTER,
 });
-
 ```
 
 Note, how we return a plain object from an action.
@@ -312,7 +307,7 @@ Lastly, we have to make our React app aware of the entire Redux's store.
 
 Add `Provider` with `store` to the `src/index.tsx` file:
 
-```typescript
+```tsx
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -342,5 +337,44 @@ serviceWorker.unregister();
 That's it! We're done with the configuration, it's time to test it out.
 
 Modify the content of `src/App.tsx` component:
+
+```tsx
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { getCounterSelector } from './store/counter/selectors';
+import { incrementCounter, decrementCounter } from './store/counter/actions';
+
+const App = () => {
+  const dispatch = useDispatch();
+  const counter = useSelector(getCounterSelector);
+
+  const handleIncrement = () => {
+    dispatch(incrementCounter());
+  };
+
+  const handleDecrement = () => {
+    dispatch(decrementCounter());
+  };
+
+  return (
+    <div className='App'>
+      <div>
+        <button onClick={handleIncrement}>Increment</button>
+      </div>
+      <div>
+        <button onClick={handleDecrement}>Decrement</button>
+      </div>
+      <div>{counter}</div>
+    </div>
+  );
+}
+
+export default App;
+```
+
+And run the application:
+
+`yarn start`
 
 ## Summary
