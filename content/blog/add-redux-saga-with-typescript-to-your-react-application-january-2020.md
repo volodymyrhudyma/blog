@@ -98,9 +98,13 @@ import { combineReducers } from 'redux';
 
 import counter from './counter/reducer';
 
-export default combineReducers({
+const rootReducer = combineReducers({
   counter,
 });
+
+export type AppState = ReturnType<typeof rootReducer>;
+
+export default rootReducer;
 ```
 
 This `rootReducer` imports all separate reducer functions and combines them into one, which can be passed to the store.
@@ -279,5 +283,64 @@ export function* rootSaga() {
   ]);
 };
 ```
+
+Afterwards, we have to find a way to pull the data out of the store.
+
+We'll add `reselect` - simple “selector” library for Redux:
+
+`yarn add reselect`
+
+There is one major benefit of using `reselect` - it creates memoized selectors, which will re-run only if their arguments change.
+
+Create the file `src/store/counter/selectors.ts` with the following contents:
+
+```typescript
+import { createSelector } from 'reselect';
+
+import { AppState } from '../rootReducer';
+
+export const getCounter = (state: AppState) =>
+  state.counter.counter;
+
+export const getCounterSelector = createSelector(
+  getCounter,
+  counter => counter,
+);
+```
+
+Lastly, we have to make our React app aware of the entire Redux's store.
+
+Add `Provider` with `store` to the `src/index.tsx` file:
+
+```typescript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+
+import './index.css';
+
+import * as serviceWorker from './serviceWorker';
+import configureStore from './store';
+
+import App from './App';
+
+ReactDOM.render(
+  <React.StrictMode>
+    <Provider store={configureStore()}>
+      <App />
+    </Provider>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();
+```
+
+That's it! We're done with the configuration, it's time to test it out.
+
+Modify the content of `src/App.tsx` component:
 
 ## Summary
