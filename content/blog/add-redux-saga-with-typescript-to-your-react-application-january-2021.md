@@ -94,7 +94,7 @@ sagaMiddleware.run(rootSaga);
 export default store;
 ```
 
-The store is the result of executing `createStore` function, which takes `rootReducer` as the first argument and middlewares as the second.
+The store is the result of executing **createStore** function, which takes **rootReducer** as the first argument and middlewares as the second.
 
 `rootReducer` is a combination of all reducers that exist in your app.
 
@@ -122,7 +122,7 @@ export type AppState = ReturnType<typeof rootReducer>;
 export default rootReducer;
 ```
 
-This `rootReducer` imports all separate reducer functions and combines them into one, which can be passed to the store.
+This **rootReducer** imports all separate reducer functions and combines them into one, which can be passed to the store.
 
 ## Step 5: Create Todo Reducer
 
@@ -176,7 +176,7 @@ export default (state = initialState, action: TodoActions) => {
 
 We define the initial state, which holds our list of todo items value equal to an empty array(\[]) by default, a flag that indicates if the API call is still in progress and an error text if it occurs.
 
-In the reducer's body we check the type of action which has been fired (`action.type`) and change the state accordingly.
+In the reducer's body we check the type of action which has been fired (**action.type**) and change the state accordingly.
 
 In the case of **FETCH_TODO_REQUEST** action, we let the UI know that the API call is in progress.
 
@@ -192,7 +192,7 @@ The next step is to define **action types**.
 
 As you should know, actions are plain JavaScript objects.
 
-They must have a `type` property that indicates the type of action being performed.
+They must have a **type** property that indicates the type of action being performed.
 
 Types should typically be defined as string constants in larger projects to keep your codebase clean, but it's also good to use just string literals.
 
@@ -204,7 +204,6 @@ Put the following content inside of this file:
 export const FETCH_TODO_REQUEST = "FETCH_TODO_REQUEST";
 export const FETCH_TODO_SUCCESS = "FETCH_TODO_SUCCESS";
 export const FETCH_TODO_FAILURE = "FETCH_TODO_FAILURE";
-
 ```
 
 We have 3 action types, which display the state of the current API call.
@@ -373,11 +372,11 @@ Afterward, we have to find a way to pull the data out of the store.
 
 ## Step 11: Add Reselect
 
-We'll add `reselect` - simple “selector” library for Redux:
+We'll add [reselect](https://github.com/reduxjs/reselect) - simple “selector” library for Redux:
 
 `yarn add reselect`
 
-There is one major benefit of using `reselect` - it creates memoized selectors, which will re-run only if their arguments change.
+There is one major benefit of using **reselect** - it creates memoized selectors, which will re-run only if their arguments change.
 
 Create the file `src/store/todo/selectors.ts` with the following contents:
 
@@ -406,7 +405,7 @@ Lastly, we have to make our React app aware of the entire Redux's store.
 
 ## Step 12: Add Store Provider
 
-Add `Provider` with `store` to the `src/index.tsx` file:
+Add **Provider** with **store** to the `src/index.tsx` file:
 
 ```tsx
 import React from "react";
