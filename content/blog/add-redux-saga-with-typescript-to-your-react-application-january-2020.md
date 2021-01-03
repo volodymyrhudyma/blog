@@ -374,3 +374,13 @@ And run the application:
 `yarn start`
 
 ## Summary
+
+In this article, we have covered the simplest Redux + Redux Saga + TypeScript configuration for the React application created with Create React App.
+
+Make sure to read [Redux Saga](https://redux-saga.js.org/) docs before starting coding anything using this middleware, because it is way more complicated and provides us with more features than the [Redux Thunk](https://github.com/reduxjs/redux-thunk). 
+
+I hope this guide was useful to you.
+
+See you in the next articles.
+
+**P.S.** The code is available on the Github repository.
