@@ -449,14 +449,20 @@ const App = () => {
   const error = useSelector(getErrorSelector);
 
   useEffect(() => {
-    dispatch(fetchTodoRequest());
-  }, []);
+      dispatch(fetchTodoRequest())
+  }, [])
 
   return (
-    <div className='App'>
-      {todos.map(todo => (
-        <div key={todo.id}>{todo.title}</div>
-      ))}
+    <div style={{ padding: "15px"}}>
+      {pending ? (
+        <div>Loading...</div>
+      ) : error ? (
+        <div>Error</div>
+      )
+      : todos.map((todo, index) => (
+          <div style={{marginBottom: '10px'}} key={todo.id}>{++index}. {todo.title}</div>
+        ))
+      }
     </div>
   );
 }
