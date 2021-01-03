@@ -223,8 +223,61 @@ export const decrementCounter = (): DecrementCounter => ({
 
 Note, how we return a plain object from an action.
 
-The next step is to create a **saga** that watches **INCREMENT_COUNTER** and **DECREMENT_COUNTER** actions and performs handling of side effects:
+The next step is to create a **saga** that watches **INCREMENT_COUNTER** and **DECREMENT_COUNTER** actions and performs the handling of side effects.
 
+Create a new file `src/store/counter/sagas.ts` with the following content:
 
+```typescript
+import { all, put, takeEvery } from 'redux-saga/effects'
+
+import { DECREMENT_COUNTER, INCREMENT_COUNTER } from './actionTypes';
+
+// Worker Saga: Fired on INCREMENT_COUNTER action
+function* incrementCounter() {
+   try {
+      yield put({ type: INCREMENT_COUNTER });
+   } catch (e) {
+      console.log(e.message);
+   }
+}
+
+// Worker Saga: Fired on DECREMENT_COUNTER action
+function* decrementCounter() {
+   try {
+      yield put({ type: DECREMENT_COUNTER });
+   } catch (e) {
+      console.log(e.message);
+   }
+}
+
+/*
+  Starts incrementCounter/decrementCounter on each dispatched `INCREMENT_COUNTER`/`DECREMENT_COUNTER` action.
+  Allows concurrent increments.
+*/
+function* counterSaga() {
+   yield all([
+      takeEvery(INCREMENT_COUNTER, incrementCounter),
+      takeEvery(DECREMENT_COUNTER, decrementCounter),
+   ])
+}
+
+export default counterSaga;
+```
+
+And the final step is to import all sagas into the **rootSaga.ts** file.
+
+Create a new file `src/store/rootSaga.ts` with the following content:
+
+```typescript
+import { all, fork } from "redux-saga/effects";
+
+import counterSaga from "./counter/sagas";
+
+export function* rootSaga() {
+  return all([
+    fork(counterSaga)
+  ]);
+};
+```
 
 ## Summary
