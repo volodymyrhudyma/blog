@@ -105,10 +105,10 @@ Create `src/store/rootReducer.ts` with the following content:
 ```javascript
 import { combineReducers } from 'redux';
 
-import counter from './counter/reducer';
+import todoReducer from './todo/reducer';
 
 const rootReducer = combineReducers({
-  counter,
+  todo: todoReducer,
 });
 
 export type AppState = ReturnType<typeof rootReducer>;
@@ -118,35 +118,47 @@ export default rootReducer;
 
 This `rootReducer` imports all separate reducer functions and combines them into one, which can be passed to the store.
 
-## Step 5: Create Counter Reducer
+## Step 5: Create Todo Reducer
 
-The next step is to add a `counter` reducer. 
+The next step is to add a **todo** reducer. 
 
-Create `src/store/counter/reducer.ts` with the following content:
+Create `src/store/todo/reducer.ts` with the following content:
 
 ```javascript
 import {
-  INCREMENT_COUNTER,
-  DECREMENT_COUNTER,
+  FETCH_TODO_REQUEST,
+  FETCH_TODO_SUCCESS,
+  FETCH_TODO_FAILURE
 } from './actionTypes';
 
-import { CounterActions, CounterState } from './types';
+import { TodoActions, TodoState } from './types';
 
-const initialState: CounterState = {
-  counter: 0,
+const initialState: TodoState = {
+  pending: false,
+  todos: [],
+  error: null
 };
 
-export default (state = initialState, action: CounterActions) => {
+export default (state = initialState, action: TodoActions) => {
   switch (action.type) {
-    case INCREMENT_COUNTER:
+    case FETCH_TODO_REQUEST:
       return {
         ...state,
-        counter: state.counter + 1,
+        pending: true,
       };
-    case DECREMENT_COUNTER:
+    case FETCH_TODO_SUCCESS:
       return {
         ...state,
-        counter: state.counter - 1,
+        pending: false,
+        todos: action.payload.todos,
+        error: null,
+      };
+    case FETCH_TODO_FAILURE:
+      return {
+        ...state,
+        pending: false,
+        todos: [],
+        error: action.payload.error,
       };
     default:
       return {
@@ -156,13 +168,17 @@ export default (state = initialState, action: CounterActions) => {
 };
 ```
 
-We define the initial state, which holds our `counter` value equal to `0` by default, and which is passed as the first argument to the reducer.
+We define the initial state, which holds our list of todo items value equal to an empty array(\[]) by default, a flag that indicates if the API call is still in progress and an error text if it occurs.
 
-In the reducer's body we check the type of an action which has been fired (`action.type`) and change the state accordingly.
+In the reducer's body we check the type of action which has been fired (`action.type`) and change the state accordingly.
 
-If we fired `INCREMENT_COUNTER` action, we add `1`, if `DECREMENT_COUNTER` - we remove `1`.
+In the case of **FETCH_TODO_REQUEST** action, we let the UI know that the API call is in progress.
 
-**Important note:** remember that the reducer function should return the new state, without even touching the existing.
+In the case of **FETCH_TODO_SUCCESS** action, we populate todo items in the store, let the UI know that the API call has finished and clear an error if there was any previously.
+
+In the case of **FETCH_TODO_FAILURE** action, we clear all todo items in the store, let UI know that the API call has finished and set an error to be displayed in the UI later.
+
+**Important note:** remember that the reducer function should return the new state, without even touching the existing one.
 
 ## Step 6: Create Action Types
 
@@ -174,69 +190,106 @@ They must have a `type` property that indicates the type of action being perform
 
 Types should typically be defined as string constants in larger projects to keep your codebase clean, but it's also good to use just string literals.
 
-In our project, we'll extract them into a separate file named `src/store/counter/actionTypes.ts`.
+In our project, we'll extract them into a separate file named `src/store/todo/actionTypes.ts`.
 
 Put the following content inside of this file:
 
 ```javascript
-export const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
-export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
+export const FETCH_TODO_REQUEST = 'FETCH_TODO_REQUEST';
+export const FETCH_TODO_SUCCESS = 'FETCH_TODO_SUCCESS';
+export const FETCH_TODO_FAILURE = 'FETCH_TODO_FAILURE';
 ```
 
-We have only 2 action types, which indicate incrementing or decrementing `counter` value.
+We have 3 action types, which display the state of the current API call.
 
 Since we're using **TypeScript**, it's necessary to create **types** for the initial state and each fired action.
 
 ## Step 7: Add Types
 
-Create a file `src/store/counter/types.ts` with the following content:
+Create a file `src/store/todo/types.ts` with the following content:
 
 ```typescript
 import {
-  INCREMENT_COUNTER,
-  DECREMENT_COUNTER,
+  FETCH_TODO_REQUEST,
+  FETCH_TODO_SUCCESS,
+  FETCH_TODO_FAILURE
 } from './actionTypes';
 
-export type CounterState = {
-  counter: number;
+export interface ITodo {
+  userId: number;
+  id: number;
+  title: string;
+  completed: boolean;
+}
+
+export interface TodoState {
+  pending: boolean;
+  todos: ITodo[];
+  error: string | null;
 };
 
-export type IncrementCounter = {
-  type: typeof INCREMENT_COUNTER;
+export interface FetchTodoSuccessPayload {
+  todos: ITodo[];
+} 
+
+export interface FetchTodoFailurePayload {
+  error: string;
+} 
+
+export interface FetchTodoRequest {
+  type: typeof FETCH_TODO_REQUEST;
 };
 
-export type DecrementCounter = {
-  type: typeof DECREMENT_COUNTER;
+export type FetchTodoSuccess = {
+  type: typeof FETCH_TODO_SUCCESS,
+  payload: FetchTodoSuccessPayload;
 };
 
-export type CounterActions =
-  | IncrementCounter
-  | DecrementCounter;
+export type FetchTodoFailure = {
+  type: typeof FETCH_TODO_FAILURE,
+  payload: FetchTodoFailurePayload;
+};
+
+
+export type TodoActions =
+  | FetchTodoRequest
+  | FetchTodoSuccess
+  | FetchTodoFailure;
 ```
 
 And we're ready to build our first **action.**
 
 ## Step 8: Create Actions
 
-Create a new file `src/store/counter/actions.ts` with the following content:
+Create a new file `src/store/todo/actions.ts` with the following content:
 
 ```typescript
 import {
-  INCREMENT_COUNTER,
-  DECREMENT_COUNTER,
+  FETCH_TODO_REQUEST,
+  FETCH_TODO_FAILURE,
+  FETCH_TODO_SUCCESS,
 } from './actionTypes';
 
 import {
-  IncrementCounter,
-  DecrementCounter,
+  FetchTodoRequest,
+  FetchTodoSuccess,
+  FetchTodoSuccessPayload,
+  FetchTodoFailure,
+  FetchTodoFailurePayload
 } from './types';
 
-export const incrementCounter = (): IncrementCounter => ({
-  type: INCREMENT_COUNTER,
+export const fetchTodoRequest = (): FetchTodoRequest => ({
+  type: FETCH_TODO_REQUEST,
 });
 
-export const decrementCounter = (): DecrementCounter => ({
-  type: DECREMENT_COUNTER,
+export const fetchTodoSuccess = (payload: FetchTodoSuccessPayload): FetchTodoSuccess => ({
+  type: FETCH_TODO_SUCCESS,
+  payload
+});
+
+export const fetchTodoFailure = (payload: FetchTodoFailurePayload): FetchTodoFailure => ({
+  type: FETCH_TODO_FAILURE,
+  payload
 });
 ```
 
@@ -244,45 +297,45 @@ Note, how we return a plain object from an action.
 
 ## Step 9: Create Sagas
 
-The next step is to create a **saga** that watches **INCREMENT_COUNTER** and **DECREMENT_COUNTER** actions and performs the handling of side effects.
+The next step is to create a **saga** that watches **FETCH_TODO_REQUEST** and performs the handling of side effects.
 
-Create a new file `src/store/counter/sagas.ts` with the following content:
+Create a new file `src/store/todo/sagas.ts` with the following content:
 
 ```typescript
-import { all, put, takeEvery } from 'redux-saga/effects'
+import axios from 'axios';
+import { all, call, put, takeLatest } from 'redux-saga/effects'
+import { fetchTodoFailure, fetchTodoSuccess } from './actions';
 
-import { DECREMENT_COUNTER, INCREMENT_COUNTER } from './actionTypes';
+import { FETCH_TODO_REQUEST } from './actionTypes';
+import { ITodo } from './types';
 
-// Worker Saga: Fired on INCREMENT_COUNTER action
-function* incrementCounter() {
+const getTodos = () => axios.get<ITodo[]>("https://jsonplaceholder.typicode.com/todos");
+
+// Worker Saga: Fired on FETCH_TODO_REQUEST action
+function* fetchTodoSaga() {
    try {
-      yield put({ type: INCREMENT_COUNTER });
+      const response = yield call(getTodos);
+      yield put(fetchTodoSuccess({
+         todos: response.data
+      }))
    } catch (e) {
-      console.log(e.message);
-   }
-}
-
-// Worker Saga: Fired on DECREMENT_COUNTER action
-function* decrementCounter() {
-   try {
-      yield put({ type: DECREMENT_COUNTER });
-   } catch (e) {
-      console.log(e.message);
+      yield put(fetchTodoFailure({
+         error: e.message
+      }))
    }
 }
 
 /*
-  Starts incrementCounter/decrementCounter on each dispatched `INCREMENT_COUNTER`/`DECREMENT_COUNTER` action.
+  Starts worker saga on latest dispatched `FETCH_TODO_REQUEST` action.
   Allows concurrent increments.
 */
-function* counterSaga() {
+function* todoSaga() {
    yield all([
-      takeEvery(INCREMENT_COUNTER, incrementCounter),
-      takeEvery(DECREMENT_COUNTER, decrementCounter),
+      takeLatest(FETCH_TODO_REQUEST, fetchTodoSaga),
    ])
 }
 
-export default counterSaga;
+export default todoSaga;
 ```
 
 ## Step 10: Create Root Saga
@@ -294,12 +347,12 @@ Create a new file `src/store/rootSaga.ts` with the following content:
 ```typescript
 import { all, fork } from "redux-saga/effects";
 
-import counterSaga from "./counter/sagas";
+import todoSaga from "./todo/sagas";
 
 export function* rootSaga() {
   return all([
-    fork(counterSaga)
-  ]);
+    fork(todoSaga)
+  ])
 };
 ```
 
@@ -313,19 +366,35 @@ We'll add `reselect` - simple “selector” library for Redux:
 
 There is one major benefit of using `reselect` - it creates memoized selectors, which will re-run only if their arguments change.
 
-Create the file `src/store/counter/selectors.ts` with the following contents:
+Create the file `src/store/todo/selectors.ts` with the following contents:
 
 ```typescript
 import { createSelector } from 'reselect';
 
 import { AppState } from '../rootReducer';
 
-export const getCounter = (state: AppState) =>
-  state.counter.counter;
+const getPending = (state: AppState) =>
+  state.todo.pending;
 
-export const getCounterSelector = createSelector(
-  getCounter,
-  counter => counter,
+const getTodos = (state: AppState) =>
+  state.todo.todos;
+
+const getError = (state: AppState) =>
+  state.todo.error;
+
+export const getTodosSelector = createSelector(
+  getTodos,
+  todos => todos,
+);
+
+export const getPendingSelector = createSelector(
+  getPending,
+  pending => pending,
+);
+
+export const getErrorSelector = createSelector(
+  getError,
+  error => error,
 );
 ```
 
@@ -363,33 +432,27 @@ That's it! We're done with the configuration, it's time to test it out.
 Modify the content of `src/App.tsx` component:
 
 ```tsx
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { getCounterSelector } from './store/counter/selectors';
-import { incrementCounter, decrementCounter } from './store/counter/actions';
+import { getPendingSelector, getTodosSelector, getErrorSelector } from './store/todo/selectors';
+import { fetchTodoRequest } from './store/todo/actions';
 
 const App = () => {
   const dispatch = useDispatch();
-  const counter = useSelector(getCounterSelector);
+  const pending = useSelector(getPendingSelector);
+  const todos = useSelector(getTodosSelector);
+  const error = useSelector(getErrorSelector);
 
-  const handleIncrement = () => {
-    dispatch(incrementCounter());
-  };
-
-  const handleDecrement = () => {
-    dispatch(decrementCounter());
-  };
+ useEffect(() => {
+   dispatch(fetchTodoRequest())
+ })
 
   return (
     <div className='App'>
-      <div>
-        <button onClick={handleIncrement}>Increment</button>
-      </div>
-      <div>
-        <button onClick={handleDecrement}>Decrement</button>
-      </div>
-      <div>{counter}</div>
+      {todos.map(todo => (
+        <div key={todo.id}>{todo.title}</div>
+      ))}
     </div>
   );
 }
