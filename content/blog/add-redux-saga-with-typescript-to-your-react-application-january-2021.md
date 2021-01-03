@@ -96,9 +96,9 @@ export default store;
 
 The store is the result of executing **createStore** function, which takes **rootReducer** as the first argument and middlewares as the second.
 
-`rootReducer` is a combination of all reducers that exist in your app.
+**rootReducer** is a combination of all reducers that exist in your app.
 
-`rootSaga` is a combination of all sagas that exist in your app.
+**rootSaga** is a combination of all sagas that exist in your app.
 
 As your app grows more complex, it's a good idea to split your reducers and sagas into separate functions.
 
