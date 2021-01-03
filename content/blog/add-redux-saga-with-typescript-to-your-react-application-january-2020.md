@@ -1,5 +1,5 @@
 ---
-title: Add Redux Saga With TypeScript To Your React Application (January 2020)
+title: Add Redux Saga With TypeScript To Your React Application (January 2021)
 tag:
   - React
 promote: false
