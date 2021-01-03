@@ -492,5 +492,3 @@ Be sure to read the documentation of [Redux Saga](https://redux-saga.js.org/) be
 I hope this guide was helpful for you.
 
 See you in the next articles.
-
-**P.S.** The code is available in the Github repository.
