@@ -10,9 +10,11 @@ import {
   WrapperInner,
   SidebarDescription,
   SidebarButton,
+  AboutMeLink,
   SidebarSocial,
   BoldText,
   Block,
+  BlockInner,
   Avatar,
   SocialLink,
   SocialImage,
@@ -47,10 +49,13 @@ const Header = () => {
             </SidebarDescription>
           </Block>
           <Block>
+            <BlockInner>
+              <SidebarButton href="https://www.vhudyma-portfolio.eu/">
+                Get in touch
+              </SidebarButton>
+              <AboutMeLink to='/2020-05-01-a-few-words-about-author'>About me</AboutMeLink>
+            </BlockInner>
             <SidebarSocial>{renderSocialLinks()}</SidebarSocial>
-            <SidebarButton href="https://www.vhudyma-portfolio.eu/">
-              Get in touch
-            </SidebarButton>
           </Block>
         </WrapperInner>
       </Container>

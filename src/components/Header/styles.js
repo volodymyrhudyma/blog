@@ -1,4 +1,5 @@
-import styled from "styled-components"
+import { Link } from "gatsby"
+import styled, { css } from "styled-components"
 
 export const Wrapper = styled.div`
   background-color: #fafafa;
@@ -41,18 +42,39 @@ export const SidebarButton = styled.a`
   }
 `
 
+export const AboutMeLink = styled(Link)`
+  flex-shrink: 0;
+  display: inline-block;
+  background-color: transparent;
+  border: 1px solid #404040;
+  color: #000;
+  cursor: pointer;
+  padding: 0.5rem 2rem;
+  transition: background-color 0.5s;
+  outline: none;
+  margin-left: 0.75rem;
+
+  @media (max-width: 468px) {
+    width: 100%;
+    text-align: center;
+    margin-left: 0;
+    margin-bottom: 0.75rem;
+  }
+
+  &:hover {
+    background-color: #404040;
+    color: #fff;
+  }
+`
+
 export const SidebarSocial = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-left: 2rem;
+  justify-content: flex-end;
+  margin-top: 1rem;
 
-  @media (max-width: 1192px) {
-    margin-left: 0;
-  }
-
-  @media (max-width: 992px) {
-    margin-bottom: 1.5rem;
+  @media (max-width: 768px) {
+    margin-top: 1.5rem;
   }
 `
 
@@ -74,14 +96,17 @@ export const Block = styled.div`
   }
 
   &:last-child {
-    flex-direction: row;
-
-    @media (max-width: 992px) {
-      flex-direction: column;
-      margin-bottom: 0;
-    }
+    flex-direction: column;
   }
 `
+
+export const BlockInner = styled.div`
+  @media (max-width: 468px) {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+`;
 
 export const Avatar = styled.div`
   background-image: url("/avatar.jpg");
@@ -110,14 +135,12 @@ export const Avatar = styled.div`
 `
 
 export const SocialLink = styled.a`
-  margin: 0 0.75rem;
+  &:not(:last-child) {
+    margin: 0 0.75rem;
+  }
 
   &:last-child {
-    margin-right: 1.5rem;
-
-    @media (max-width: 992px) {
-      margin-right: 0.75rem;
-    }
+    margin-left: 0.75rem;
   }
 `
 
