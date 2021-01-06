@@ -4,25 +4,25 @@ tag:
   - React
 promote: false
 metaDescription: Learn how to return multiple elements from the render function
-  in React components by using Arrays and Fragments.
-teaser: Since the v16.0, React allows us to return multiple elements from the
-  render function by wrapping them into an array. In earlier versions, it
-  required us to wrap multiple elements in a single parent...
+  in React components using Arrays and Fragments.
+teaser: Since v16.0, React allows us to return multiple elements from the render
+  function by wrapping them in an array. In previous versions, it was necessary
+  to wrap multiple elements into a single parent, which resulted in...
 date: 2021-01-06T07:59:13.503Z
 ---
-Since the v16.0, React allows us to return multiple elements from the **render** function by wrapping them into an array.
+Since v16.0, React allows us to return multiple elements from the **render** function by wrapping them in an array.
 
-In earlier versions, it required us to wrap multiple elements in a single parent.
+In previous versions, it was necessary to wrap multiple elements into a single parent, which resulted in an extra node appearing in the DOM tree.
 
 ## Return An Array
 
 To return an array from the render function, you must remember to do the following:
 
-* Provide a **key** for each element (Refer to my [previous article](/2020-06-21-what-is-key-in-react-and-why-do-we-need-it/) to learn everything about keys)
-* Separate returned elements with commas (Obvious one, right?)
-* Wrap all returned strings in quores
+* Provide a **key** for each element (Read my [previous article](/2020-06-21-what-is-key-in-react-and-why-do-we-need-it/) to learn everything about keys)
+* Separate returned elements with commas (It is obvious, right?)
+* Wrap all returned strings in quotes
 
-Let's see an example:
+Let's look at the example:
 
 ```jsx
 // Can you spot what is wrong here?
@@ -35,11 +35,11 @@ const App = () => {
 };
 ```
 
-...and it does not work. Do you already know why?
+...and a warning is thrown in the console. Do you know why?
 
 ![Missing Keys Warning](/img/screenshot-2021-01-06-at-09.17.02.png "Missing Keys Warning")
 
-You are absolutely right, we missed to add **key** attributes, so let's fix that:
+You are absolutely right, we forgot to add **key** attributes, so let's fix that:
 
 ```jsx
 // Yay, we added keys and it works
@@ -61,7 +61,7 @@ const App = () => {
 };
 ```
 
-And let's inspect the DOM tree to make sure that all our divs are not wrapped in an extra parent element:
+Inspect the DOM tree to make sure all our divs are not enclosed by an extra parent:
 
 ![DOM Tree](/img/screenshot-2021-01-06-at-09.18.37.png "DOM Tree")
 
@@ -69,13 +69,13 @@ And they are not (**root** is the default div, the React application is attached
 
 ## Arrays vs. Fragments
 
-In one of the [previous articles](/fragments-in-react/), I was talking about a Fragment that serves the exact same purpose - lets you group a list of children without adding extra nodes to the DOM.
+In one of the [previous articles](/fragments-in-react/) I talked about a Fragment that serves exactly the same purpose - allows you to group a list of children without adding extra nodes to the DOM.
 
-You may ask: "What is the difference between these two approaches?".
+You may be wondering, what is the difference between these two approaches?.
 
-* Elements returned within Fragment do not require key attributes
-* Elements returned within Fragment should not be separated by commas
-* Strings returned within Fragment do not have to be wrapped in quotes
+* Elements returned within a Fragment do not require key attributes
+* Elements returned within a Fragment should not be separated by commas
+* Strings returned within a Fragment do not need to be quoted
 
 One of the examples above done using Fragment:
 
@@ -94,8 +94,8 @@ const App = () => {
 
 ## Summary
 
-There are two ways of skipping adding an extra parent element to your DOM tree when you want to return multiple elements from a single component: you can either return an array or use Fragment.
+There are two ways to skip adding an extra parent element to your DOM tree if you want to return multiple elements from a single component: You can either return an array or use Fragment.
 
-These two approaches have minor differences, but there are really no benefits in using one over another, they both do their work perfectly fine, and choosing an appropriate one is a matter of preference.
+These two approaches have minor differences, but there are really no advantages to using one over the other, both do their work perfectly fine, and choosing an appropriate one is a matter of preference.
 
-Make sure to try both of them.
+Be sure to try them both.
