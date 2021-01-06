@@ -37,7 +37,7 @@ const App = () => {
 
 ...and a warning is thrown in the console. Do you know why?
 
-![Missing Keys Warning](/img/screenshot-2021-01-06-at-09.17.02.png "Missing Keys Warning")
+![Missing Keys Warning](/img/screenshot-2021-01-06-at-09.46.23.png "Missing Keys Warning")
 
 You are absolutely right, we forgot to add **key** attributes, so let's fix that:
 
@@ -63,7 +63,7 @@ const App = () => {
 
 Inspect the DOM tree to make sure all our divs are not enclosed by an extra parent:
 
-![DOM Tree](/img/screenshot-2021-01-06-at-09.18.37.png "DOM Tree")
+![DOM Tree](/img/screenshot-2021-01-06-at-09.46.36.png "DOM Tree")
 
 And they are not (**root** is the default div, the React application is attached to).
 
