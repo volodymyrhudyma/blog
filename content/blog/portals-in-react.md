@@ -52,6 +52,32 @@ The most reliable solution is to append the modal directly to the **body** eleme
 
 It can be achieved using **Portals**.
 
+## Portals
+
+> [Portals](https://reactjs.org/docs/portals.html) provide a first-class way to render children into a DOM node that exists outside the DOM hierarchy of the parent component.
+
+Portals can be created by using `ReactDOM.createPortal(child, container)`.
+
+* **child** is a React component to be rendered
+* **container** is a class name of the parent DOM element React component should be attached to
+
+```jsx
+render() {
+  return ReactDOM.createPortal(
+    // The component
+    Modal,
+    // The DOM node
+    "modal-root",
+  );
+}
+```
+
 ## The Right Way
+
+Let's refactor our example from the "The Wrong Way" section using Portals:
+
+```jsx
+
+```
 
 ## Summary
