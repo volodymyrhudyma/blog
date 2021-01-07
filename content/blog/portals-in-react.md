@@ -20,14 +20,18 @@ Consider the following example:
 ```jsx
 const App = () => {
   return (
-    <div className="App">
+    <div className="app">
       App Component
       <Modal />
     </div>
   );
 };
 
-const Modal = () => <div className="Modal">Modal Component</div>;
+const Modal = () => (
+  <div className="modal">
+    <div className="modal-inner">Modal Component</div>
+  </div>
+);
 ```
 
 We render **Modal** component inside of an **App** and it gets attached to the nearest parent (**div** with **App** class):
@@ -67,17 +71,49 @@ render() {
     // The component
     Modal,
     // The DOM node
-    "modal-root",
+    document.getElementById("modal-root"),
   );
 }
 ```
 
 ## The Right Way
 
-Let's refactor our example from the "The Wrong Way" section using Portals:
+Let's refactor our example from the "The Wrong Way" section using Portals.
 
-```jsx
+**Step 1:** Create **modal-root** element as a sibling of **root** div in the `public/index.html` file:
 
+```html
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+  <div id="modal-root"></div>
+</body>
 ```
 
-## Summary
+**Step 2:** Create **Portal** component and use it in the **Modal**:
+
+```jsx
+const App = () => {
+  return (
+    <div className="app">
+      App Component
+      <Modal />
+    </div>
+  );
+};
+
+const Modal = () => (
+  <Portal>
+    <div className="modal">
+      <div className="modal-inner">Modal Component</div>
+    </div>
+  </Portal>
+);
+
+const Portal = (props) => {
+  const node = document.getElementById("modal-root");
+  return node ? createPortal(props.children, node) : props.children;
+};
+```
+
+##  Summary
