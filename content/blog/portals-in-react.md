@@ -3,17 +3,21 @@ title: Portals In React
 tag:
   - React
 promote: false
-metaDescription: // META
-teaser: // TEASER
+metaDescription: Learn Portals In React - a way to render an element outside the
+  DOM hierarchy created by the parent element. Portals can be used to render
+  modals and tooltips.
+teaser: When building an application in React, it is sometimes necessary to
+  place an element outside the DOM hierarchy created by the parent component.
+  The simplest example are modals and tooltips...
 date: 2021-01-08T21:04:06.752Z
 ---
-When building an application in React, sometimes it is necessary to put an element outside of the DOM hierarchy created by the parent component.
+When building an application in React, it is sometimes necessary to place an element outside the DOM hierarchy created by the parent component.
 
 The simplest example are **modals** and **tooltips**.
 
-If you render them inside of a normal React component, they will be attached to the nearest parent, which most likely will cause styling conflicts (especially if you have *z-index* or *overflow: hidden*) or wrong behaviour.
+If you render them inside a normal React component, they will be attached to the closes parent component, which will most likely cause styling conflicts (especially if you have *z-index* or *overflow: hidden*) or incorrect behaviour.
 
-## The Wrong Way
+## The "Wrong" Way
 
 Consider the following example:
 
@@ -34,36 +38,36 @@ const Modal = () => (
 );
 ```
 
-We render **Modal** component inside of an **App** and it gets attached to the nearest parent (**div** with **App** class):
+We render the **Modal** component inside an **App** and it is attached to the nearest parent (**div** with **App** class):
 
 ![DOM Structure](/img/screenshot-2021-01-07-at-22.17.17.png "DOM Structure")
 
-Seems like nothing is wrong at the moment, but typically a modal should be positioned at the center of the viewport, overlapping the whole content, like this:
+Does not seem to be anything wrong at the moment, but normally a modal should be positioned in the middle of the viewport and overlap all the content, like this:
 
 ![Modal Example](/img/screenshot-2021-01-07-at-22.23.19.png "Modal Example")
 
-That can be done using **absolute** position, if the parent element does not contain *overflow: hidden* css rule.
+You can do that with *absolute* position if the parent element does not have an *overflow: hidden* css rule. 
 
-If it does - then the modal will be cut to the edges of the parent:
+If it does - then the modal will be cut at the edges of the parent element:
 
 ![Overflow Hidden Example](/img/screenshot-2021-01-07-at-22.28.19.png "Overflow Hidden Example")
 
-One way to resolve this is to just remove *overflow: hidden* css rule, but that may break another part of the application.
+One way to solve this problem is to simply remove the css rule *overflow: hidden*, but that may break another part of the application.
 
-Even if it does not break, the solution is fragile, because someone can accidentally add that rule without knowing that it would break the modal.
+Even if it does not break, the solution is fragile because someone can accidentally add that rule without knowing it would break the modal.
 
-The most reliable solution is to append the modal directly to the **body** element to make sure that it would not be affected by any of the parent element styles.
+The most reliable solution is to append the modal directly to the **body** element to ensure that it is not affected by any of the parent element's styles.
 
-It can be achieved using **Portals**.
+This can be achieved with **Portals**.
 
 ## Portals
 
 > [Portals](https://reactjs.org/docs/portals.html) provide a first-class way to render children into a DOM node that exists outside the DOM hierarchy of the parent component.
 
-Portals can be created by using `ReactDOM.createPortal(child, container)`.
+Portals can be created using `ReactDOM.createPortal(child, container)`.
 
 * **child** is a React component to be rendered
-* **container** is a class name of the parent DOM element React component should be attached to
+* **container** is a class name of the parent DOM element that the React component should be attached to
 
 ```jsx
 render() {
@@ -76,7 +80,7 @@ render() {
 }
 ```
 
-## The Right Way
+## The "Right" Way
 
 Let's refactor our example from the "The Wrong Way" section using Portals.
 
@@ -116,4 +120,10 @@ const Portal = (props) => {
 };
 ```
 
-##  Summary
+## Summary
+
+Portals are definitely a very useful addition to React, used to render elements outside the DOM hierarchy created by the parent component.
+
+It's entirely up to you whether you need Portals or not, depending on your project requirements and the DOM hierarchy.
+
+But it's definitely worth a try.
