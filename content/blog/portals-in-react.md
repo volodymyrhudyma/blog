@@ -40,7 +40,7 @@ const Modal = () => (
 
 We render the **Modal** component inside an **App** and it is attached to the nearest parent (**div** with **App** class):
 
-![DOM Structure](/img/screenshot-2021-01-07-at-22.17.17.png "DOM Structure")
+![DOM Structure](/img/screenshot-2021-01-08-at-16.17.54.png "DOM Structure")
 
 Does not seem to be anything wrong at the moment, but normally a modal should be positioned in the middle of the viewport and overlap all the content, like this:
 
