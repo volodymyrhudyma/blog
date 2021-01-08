@@ -15,7 +15,7 @@ When building an application in React, it is sometimes necessary to place an ele
 
 The simplest example are **modals** and **tooltips**.
 
-If you render them inside a normal React component, they will be attached to the closes parent component, which will most likely cause styling conflicts (especially if you have *z-index* or *overflow: hidden*) or incorrect behaviour.
+If you render them inside a normal React component, they will be attached to the closest parent component, which will most likely cause styling conflicts (especially if you have *z-index* or *overflow: hidden*) or incorrect behaviour.
 
 ## The "Wrong" Way
 
