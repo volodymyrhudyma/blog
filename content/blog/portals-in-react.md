@@ -13,7 +13,7 @@ date: 2021-01-08T21:04:06.752Z
 ---
 When building an application in React, it is sometimes necessary to place an element outside the DOM hierarchy created by the parent component.
 
-The simplest example are **modals** and **tooltips**.
+The simplest examples are **modals** and **tooltips**.
 
 If you render them inside a normal React component, they will be attached to the closest parent component, which will most likely cause styling conflicts (especially if you have *z-index* or *overflow: hidden*) or incorrect behaviour.
 
