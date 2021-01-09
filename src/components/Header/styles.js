@@ -106,7 +106,7 @@ export const BlockInner = styled.div`
     flex-direction: column-reverse;
     align-items: center;
   }
-`;
+`
 
 export const Avatar = styled.div`
   background-image: url("/avatar.jpg");
@@ -145,8 +145,8 @@ export const SocialLink = styled.a`
 `
 
 export const SocialImage = styled.img`
-  width: 24px;
-  min-width: 24px;
+  width: 30px;
+  min-width: 30px;
   margin-bottom: 0;
   display: flex;
 `
