@@ -141,7 +141,7 @@ export default class BlogList extends React.Component {
                 </div>
                 <PageInfo>
                   Page {currentPage} of{" "}
-                  <Link to={`/${numPages.toString()}`} rel="prev">
+                  <Link to={`/tag/${tag.toLowerCase()}/${(numPages).toString()}`} rel="prev">
                     {numPages}
                   </Link>
                 </PageInfo>
