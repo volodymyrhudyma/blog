@@ -40,18 +40,23 @@ const Sidebar = ({ allPosts, tags, extended }) => {
 
   return (
     <Wrapper>
-      <Block>
+      <Block newsletter>
         <Title>
           <HashIconStyled />
           Tags
         </Title>
-        {tags.sort((a,b) => b.totalCount - a.totalCount).map((tag, i) => (
-          <div key={i}>
-            <Link to={`/tag/${tag.fieldValue.toLowerCase()}`} style={{ fontSize: `${16 + (16 * tag.totalCount / 100)}px`}}>
-              {tag.fieldValue} ({tag.totalCount})
-            </Link>
-          </div>
-        ))}
+        {tags
+          .sort((a, b) => b.totalCount - a.totalCount)
+          .map((tag, i) => (
+            <div key={i}>
+              <Link
+                to={`/tag/${tag.fieldValue.toLowerCase()}`}
+                style={{ fontSize: `${16 + (16 * tag.totalCount) / 100}px` }}
+              >
+                {tag.fieldValue} ({tag.totalCount})
+              </Link>
+            </div>
+          ))}
       </Block>
       <Block>
         <Title>
