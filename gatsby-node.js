@@ -62,16 +62,18 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const tagPostsPerPage = 7
   tags.forEach(({ fieldValue, totalCount }) => {
     const numTagPostsPages = Math.ceil(totalCount / tagPostsPerPage)
-    createPage({
-      path: `/tag/${fieldValue.toLowerCase()}`,
-      component: path.resolve("./src/templates/tag-list.js"),
-      context: {
-        tag: fieldValue,
-        limit: tagPostsPerPage,
-        skip: 0,
-        numPages: numTagPostsPages,
-        currentPage: 1,
-      },
+    Array.from({ length: numTagPostsPages }).forEach((_, i) => {
+      createPage({
+        path: i === 0 ? `/tag/${fieldValue.toLowerCase()}` : `/tag/${fieldValue.toLowerCase()}/${i + 1}`,
+        component: path.resolve("./src/templates/tag-list.js"),
+        context: {
+          tag: fieldValue,
+          limit: tagPostsPerPage,
+          skip: i * tagPostsPerPage,
+          numPages: numTagPostsPages,
+          currentPage: i + 1,
+        },
+      })
     })
   })
 }
