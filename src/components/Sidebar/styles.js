@@ -2,6 +2,7 @@ import { Link } from "gatsby"
 import styled, { css } from "styled-components"
 import { Hot } from "@styled-icons/boxicons-solid"
 import { Link as LinkIcon } from "@styled-icons/boxicons-regular"
+import { Hash } from "@styled-icons/evaicons-solid/Hash"
 import { ReactLogo, Javascript } from "@styled-icons/boxicons-logos"
 import { Lightbulb } from "@styled-icons/foundation"
 
@@ -77,6 +78,12 @@ export const LinkIconStyled = styled(LinkIcon)`
   width: 20px;
   margin-right: 0.5rem;
   transition: color 0.25s;
+`
+
+export const HashIconStyled = styled(Hash)`
+  color: #989898;
+  width: 30px;
+  margin-right: 0.5rem;
 `
 
 export const JavascriptIcon = styled(Javascript)`

@@ -63,6 +63,7 @@ export default class BlogList extends React.Component {
     const { showTOC } = this.state
 
     const allPosts = this.props.data.allPosts.edges
+    const tags = this.props.data.tags.group
     const groupByTag = this.groupBy("node.frontmatter.tag")
     const groupedTOC = groupByTag(allPosts)
     return (
@@ -157,7 +158,7 @@ export default class BlogList extends React.Component {
             )}
           </div>
           <SidebarWrapper>
-            <Sidebar allPosts={allPosts} />
+            <Sidebar allPosts={allPosts} tags={tags} />
           </SidebarWrapper>
         </BlogListContent>
       </Layout>
@@ -200,6 +201,12 @@ export const blogListQuery = graphql`
             promote
           }
         }
+      }
+    }
+    tags: allMarkdownRemark(limit: 2000) {
+      group(field: frontmatter___tag) {
+        fieldValue
+        totalCount
       }
     }
   }

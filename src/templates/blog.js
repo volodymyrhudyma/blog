@@ -127,7 +127,7 @@ export default function Template({ data, path, location }) {
           <CommentList comments={comments} />
         </div>
         <SidebarWrapper marginTop>
-          <Sidebar allPosts={data.allPosts.edges} extended />
+          <Sidebar allPosts={data.allPosts.edges} tags={data.tags.group} extended />
         </SidebarWrapper>
       </div>
     </Layout>
@@ -173,6 +173,12 @@ export const pageQuery = graphql`
             promote
           }
         }
+      }
+    }
+    tags: allMarkdownRemark(limit: 2000) {
+      group(field: frontmatter___tag) {
+        fieldValue
+        totalCount
       }
     }
   }

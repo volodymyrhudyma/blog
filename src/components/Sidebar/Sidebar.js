@@ -1,4 +1,5 @@
-import React from "react"
+import React, { Fragment } from "react"
+import { Link } from "gatsby"
 
 import Newsletter from "@components/Newsletter"
 
@@ -12,10 +13,11 @@ import {
   ReactIcon,
   JavascriptIcon,
   LinkIconStyled,
+  HashIconStyled,
   OtherIcon,
 } from "./styles"
 
-const Sidebar = ({ allPosts, extended }) => {
+const Sidebar = ({ allPosts, tags, extended }) => {
   const promote = []
   const reactPosts = []
   const jsPosts = []
@@ -38,6 +40,19 @@ const Sidebar = ({ allPosts, extended }) => {
 
   return (
     <Wrapper>
+      <Block>
+        <Title>
+          <HashIconStyled />
+          Tags
+        </Title>
+        {tags.sort((a,b) => b.totalCount - a.totalCount).map((tag, i) => (
+          <div key={i}>
+            <Link to={`/tag/${tag.fieldValue.toLowerCase()}`} style={{ fontSize: `${16 + (16 * tag.totalCount / 100)}px`}}>
+              {tag.fieldValue} ({tag.totalCount})
+            </Link>
+          </div>
+        ))}
+      </Block>
       <Block>
         <Title>
           <RedHot />
