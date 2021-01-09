@@ -15,6 +15,12 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
               slug
             }
           }
+        }        
+      }
+      tags: allMarkdownRemark(limit: 2000) {
+        group(field: frontmatter___tag) {
+          fieldValue
+          totalCount
         }
       }
     }
@@ -24,6 +30,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return
   }
   const posts = result.data.allMarkdownRemark.edges
+  const tags = result.data.tags.group
 
   // Create blog post page
   const blogPostTemplate = path.resolve(`src/templates/blog.js`)
@@ -47,6 +54,23 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         skip: i * postsPerPage,
         numPages,
         currentPage: i + 1,
+      },
+    })
+  })
+
+  // Create tag-list pages
+  const tagPostsPerPage = 7
+  tags.forEach(({ fieldValue, totalCount }) => {
+    const numTagPostsPages = Math.ceil(totalCount / tagPostsPerPage)
+    createPage({
+      path: `/tag/${fieldValue.toLowerCase()}`,
+      component: path.resolve("./src/templates/tag-list.js"),
+      context: {
+        tag: fieldValue,
+        limit: tagPostsPerPage,
+        skip: 0,
+        numPages: numTagPostsPages,
+        currentPage: 1,
       },
     })
   })
