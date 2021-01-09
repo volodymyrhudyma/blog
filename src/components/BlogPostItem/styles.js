@@ -25,10 +25,9 @@ export const BlogDate = styled.div`
   margin-right: 0.5rem;
 `
 
-export const BlogTag = styled.div`
+export const BlogTag = styled(Link)`
   display: inline-block;
   font-size: 0.85rem;
-  color: #1f7504;
   &:not(:last-child) {
     margin-right: 0.5rem;
   }
