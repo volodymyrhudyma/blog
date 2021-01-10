@@ -8,7 +8,7 @@ metaDescription: Meet the most popular MomentJS alternatives. Dayjs, Date-fns
 teaser: When it comes to working with dates in JavaScript applications, nobody
   wants to mess with the Date object and looks for some ready-made libraries
   that allow easy handling of dates. One of the most popular libraries is
-  [](https://momentjs.com/)MomentJS - a JavaScript date library...
+  MomentJS - a JavaScript date library...
 date: 2021-01-11T09:15:58.726Z
 ---
 When it comes to working with dates in JavaScript applications, nobody wants to mess with the Date object and looks for some ready-made libraries that allow easy handling of dates.
