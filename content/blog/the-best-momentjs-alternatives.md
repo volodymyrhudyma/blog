@@ -9,7 +9,7 @@ teaser: When it comes to handling dates in JavaScript application, no one wants
   to bother with the Date object and looks for some ready-to-use libraries that
   allow them to easily deal with dates. One of the most popular libraries is
   MomentJS - a JavaScript date library...
-date: 2021-01-10T09:15:58.726Z
+date: 2021-01-11T09:15:58.726Z
 ---
 When it comes to handling dates in JavaScript application, no one wants to bother with the Date object and looks for some ready-to-use libraries that allow them to easily deal with dates.
 
