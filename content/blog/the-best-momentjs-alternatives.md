@@ -67,7 +67,7 @@ If you scroll down the Bundlephobia, you will see that it suggests some light we
 
 ![Moment Alternatives](/img/screenshot-2021-01-10-at-12.20.34.png "Moment Alternatives")
 
-Let's quickly check them and see if they can be real replacements for Moment.
+Let's quickly go through them and see an example code.
 
 ## Npm Trends Overview
 
