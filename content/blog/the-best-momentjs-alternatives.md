@@ -28,28 +28,26 @@ The main drawbacks of Moment:
   The moment object in Moment.js is mutable which means that operations like add, subtract, or set change the original moment object:
 
 ```javascript
-const today = moment("2020-01-10"); 
-const tomorrow = today.add(1, "day"); 
+const now = moment(); 
+const tomorrow = now.add(1, "day"); 
 
-// Prints "2020-01-11T00:00:00+01:00"
-console.log(today.format());
+// Prints "2021-01-11T11:01:09+01:00"
+console.log(now.format());
 
-// Prints "2020-01-11T00:00:00+01:00"
+// Prints "2021-01-11T11:01:09+01:00"
 console.log(tomorrow.format());
 ```
 
 To avoid situations like that, you need to remember to **clone** an object before performing any math on it:
 
 ```javascript
-import moment from "moment"
+const now = moment();
+const tomorrow = now.clone().add(1, "day"); 
 
-const today = moment("2020-01-10");
-const tomorrow = today.clone().add(1, "day"); 
+// Prints "2021-01-10T11:02:59+01:00"
+console.log(now.format());
 
-// Prints "2020-01-10T00:00:00+01:00"
-console.log(today.format());
-
-// Prints "2020-01-11T00:00:00+01:00"
+// Prints "2021-01-11T11:02:59+01:00"
 console.log(tomorrow.format());
 ```
 
@@ -79,11 +77,37 @@ If we look at the **Stats** section, we can see that dayjs is the youngest, the 
 
 [Luxon](https://github.com/moment/luxon) is a library for working with dates and times in JavaScript, created by one of the Moment maintainers. The whole history behind creating this library is available [here](https://github.com/moment/luxon/blob/master/docs/why.md).
 
+```javascript
+import { DateTime } from "luxon";
+
+const now = DateTime.local();
+const tomorrow = now.plus({ days: 1 });
+
+// Prints "2021-01-10T11:23:30.305+01:00"
+console.log(now.toISO());
+
+// Prints "2021-01-11T11:23:30.305+01:00"
+console.log(tomorrow.toISO());
+```
+
 ## Dayjs
 
 [Dayjs](https://github.com/iamkun/dayjs) is a minimalist JavaScript library that parses, validates, manipulates, and displays dates and times for modern browsers with a largely Moment.js-compatible API.
 
 If you are used to working with Moment and want to get out quickly, Dayjs can be the best option to start with.
+
+```javascript
+import dayjs from "dayjs";
+
+const now = dayjs();
+const tomorrow = now.add("1", "day");
+
+// Prints "2021-01-10T11:28:17+01:00"
+console.log(now.format());
+
+// Prints "2021-01-11T11:28:17+01:00"
+console.log(tomorrow.format())
+```
 
 ## Date-fns
 
@@ -91,3 +115,16 @@ If you are used to working with Moment and want to get out quickly, Dayjs can be
 for manipulating **JavaScript dates** in **a browser** & **Node.js**.
 
 Read the section "Why date-fns" available [here](https://date-fns.org/).
+
+```javascript
+import { addDays, formatISO } from "date-fns";
+
+const now = new Date(2020, 1, 10);
+const tomorrow = addDays(now, 1);
+
+// Prints "2020-02-10T00:00:00+01:00"
+console.log(formatISO(now));
+
+// Prints "2020-02-11T00:00:00+01:00"
+console.log(formatISO(tomorrow));
+```
