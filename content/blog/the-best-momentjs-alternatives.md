@@ -181,6 +181,25 @@ console.log(now.toISO());
 console.log(tomorrow.toISO());
 ```
 
+Luxon uses the native **Intl API** to provide easy-to-use internationalization.
+
+> [The Intl object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl) is the namespace for the ECMAScript Internationalization API, which provides language sensitive string comparison, number formatting, and date and time formatting.
+
+```javascript
+const dateTime = DateTime.local()
+  .setLocale("de")
+  .toLocaleString(DateTime.DATE_FULL);
+  
+// Prints "10. Januar 2021"
+console.log(dateTime);
+```
+
+Refer to the [install guide](https://moment.github.io/luxon/docs/manual/install.html) for instructions on making sure your platform has access to the Intl APIs and the ICU data to power it. 
+
+**This is especially important for Node, which doesn't ship with ICU data by default**.
+
+To learn how locales work in Luxon, see the [official documentation](https://moment.github.io/luxon/docs/manual/intl.html).
+
 ## Summary
 
 In this article we have reviewed some of the most popular MomentJS alternatives, like **luxon, dayjs** and **date-fns**.
