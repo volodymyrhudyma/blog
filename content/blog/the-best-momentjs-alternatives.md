@@ -132,13 +132,13 @@ Example of adding one day to today's date:
 ```javascript
 import { addDays, formatISO } from "date-fns";
 
-const now = new Date(2020, 1, 10);
+const now = new Date(2020, 0, 10);
 const tomorrow = addDays(now, 1);
 
-// Prints "2020-02-10T00:00:00+01:00"
+// Prints "2020-01-10T00:00:00+01:00"
 console.log(formatISO(now));
 
-// Prints "2020-02-11T00:00:00+01:00"
+// Prints "2020-01-11T00:00:00+01:00"
 console.log(formatISO(tomorrow));
 ```
 
@@ -153,10 +153,10 @@ import { de } from "date-fns/locale";
 And then pass an option to function:
 
 ```javascript
-// "Februar"
+// "Januar"
 format(now, "MMMM", { locale: de });
 
-// "Februar"
+// "Januar"
 format(tomorrow, "MMMM", { locale: de });
 ```
 
