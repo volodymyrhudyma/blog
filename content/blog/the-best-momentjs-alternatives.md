@@ -198,7 +198,7 @@ console.log(dateTime);
 
 Refer to the [install guide](https://moment.github.io/luxon/docs/manual/install.html) for instructions on making sure your platform has access to the Intl APIs and the ICU data to power it. 
 
-**This is especially important for Node, which doesn't ship with ICU data by default**.
+**This is especially important for Node, which does not ship with ICU data by default**.
 
 To learn how locales work in Luxon, see the [official documentation](https://moment.github.io/luxon/docs/manual/intl.html).
 
