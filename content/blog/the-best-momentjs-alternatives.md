@@ -63,7 +63,9 @@ console.log(tomorrow.format());
 
 ![Bundlephobia Moment](/img/screenshot-2021-01-10-at-10.42.11.png "Bundlephobia Moment")
 
-If you scroll down the Bundlephobia, you will see that it suggests some light weight alternatives, like **luxon**, **day-js**, **date-fns**.
+If you scroll down the Bundlephobia, you will see that it suggests some light weight alternatives, like **luxon**, **day-js**, **date-fns:**
+
+![Moment Alternatives](/img/screenshot-2021-01-10-at-12.20.34.png "Moment Alternatives")
 
 Let's quickly check them and see if they can be real replacements for Moment.
 
