@@ -77,27 +77,6 @@ If we look at the **Stats** section, we can see that dayjs is the youngest, the 
 
 ![Npm Trends Stats](/img/screenshot-2021-01-10-at-11.15.27.png "Npm Trends Stats")
 
-## Luxon
-
-*Immutable*
-
-[Luxon](https://github.com/moment/luxon) is a library for working with dates and times in JavaScript, created by one of the Moment maintainers. The whole history behind creating this library is available [here](https://github.com/moment/luxon/blob/master/docs/why.md).
-
-Example of adding one day to today's date:
-
-```javascript
-import { DateTime } from "luxon";
-
-const now = DateTime.local();
-const tomorrow = now.plus({ days: 1 });
-
-// Prints "2021-01-10T11:23:30.305+01:00"
-console.log(now.toISO());
-
-// Prints "2021-01-11T11:23:30.305+01:00"
-console.log(tomorrow.toISO());
-```
-
 ## Dayjs
 
 *Immutable*
@@ -121,6 +100,26 @@ console.log(now.format());
 console.log(tomorrow.format())
 ```
 
+By default, Dayjs comes with English locale only. 
+
+If other locales are needed, they can be loaded on-demand:
+
+```javascript
+import "dayjs/locale/de";
+```
+
+Once it has been imported, it becomes an active locale and you can switch to it or back to the default:
+
+```javascript
+// Switch to "de"
+dayjs.locale("de");
+
+// Switch back to "en"
+dayjs.locale("en");
+```
+
+**Important note:** Changing the locale does not affect the existing instances.
+
 ## Date-fns
 
 *Immutable*
@@ -141,6 +140,45 @@ console.log(formatISO(now));
 
 // Prints "2020-02-11T00:00:00+01:00"
 console.log(formatISO(tomorrow));
+```
+
+Date-fns has a support of the most common locales by default. The full list can be found [here](https://github.com/date-fns/date-fns/tree/master/src/locale).
+
+To use the locale, you need to require it:
+
+```javascript
+import { de } from "date-fns/locale";
+```
+
+And then pass an option to function:
+
+```javascript
+// "Februar"
+format(now, "MMMM", { locale: de });
+
+// "Februar"
+format(tomorrow, "MMMM", { locale: de });
+```
+
+## Luxon
+
+*Immutable*
+
+[Luxon](https://github.com/moment/luxon) is a library for working with dates and times in JavaScript, created by one of the Moment maintainers. The whole history behind creating this library is available [here](https://github.com/moment/luxon/blob/master/docs/why.md).
+
+Example of adding one day to today's date:
+
+```javascript
+import { DateTime } from "luxon";
+
+const now = DateTime.local();
+const tomorrow = now.plus({ days: 1 });
+
+// Prints "2021-01-10T11:23:30.305+01:00"
+console.log(now.toISO());
+
+// Prints "2021-01-11T11:23:30.305+01:00"
+console.log(tomorrow.toISO());
 ```
 
 ## Summary
