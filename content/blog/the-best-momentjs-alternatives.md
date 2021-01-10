@@ -3,8 +3,12 @@ title: The Best MomentJS Alternatives
 tag:
   - JavaScript
 promote: false
-metaDescription: // META
-teaser: // TEASER
+metaDescription: Learn the most popular MomentJS alternatives. Dayjs, Date-fns
+  and Luxon are lightweight, popular and fast libraries for handling dates.
+teaser: When it comes to handling dates in JavaScript application, no one wants
+  to bother with the Date object and looks for some ready-to-use libraries that
+  allow them to easily deal with dates. One of the most popular libraries is
+  MomentJS - a JavaScript date library...
 date: 2021-01-10T09:15:58.726Z
 ---
 When it comes to handling dates in JavaScript application, no one wants to bother with the Date object and looks for some ready-to-use libraries that allow them to easily deal with dates.
@@ -75,7 +79,11 @@ If we look at the **Stats** section, we can see that dayjs is the youngest, the 
 
 ## Luxon
 
+*Immutable*
+
 [Luxon](https://github.com/moment/luxon) is a library for working with dates and times in JavaScript, created by one of the Moment maintainers. The whole history behind creating this library is available [here](https://github.com/moment/luxon/blob/master/docs/why.md).
+
+Example of adding one day to today's date:
 
 ```javascript
 import { DateTime } from "luxon";
@@ -92,9 +100,13 @@ console.log(tomorrow.toISO());
 
 ## Dayjs
 
+*Immutable*
+
 [Dayjs](https://github.com/iamkun/dayjs) is a minimalist JavaScript library that parses, validates, manipulates, and displays dates and times for modern browsers with a largely Moment.js-compatible API.
 
 If you are used to working with Moment and want to get out quickly, Dayjs can be the best option to start with.
+
+Example of adding one day to today's date:
 
 ```javascript
 import dayjs from "dayjs";
@@ -111,10 +123,12 @@ console.log(tomorrow.format())
 
 ## Date-fns
 
-[Date-fns](https://github.com/date-fns/date-fns) is a library that provides the most comprehensive, yet simple and consistent toolset\
-for manipulating **JavaScript dates** in **a browser** & **Node.js**.
+*Immutable*
 
-Read the section "Why date-fns" available [here](https://date-fns.org/).
+[Date-fns](https://github.com/date-fns/date-fns) is a library that provides the most comprehensive, yet simple and consistent toolset\
+for manipulating **JavaScript dates** in **a browser** & **Node.js**. Read the section "Why date-fns" available [here](https://date-fns.org/).
+
+Example of adding one day to today's date:
 
 ```javascript
 import { addDays, formatISO } from "date-fns";
@@ -128,3 +142,11 @@ console.log(formatISO(now));
 // Prints "2020-02-11T00:00:00+01:00"
 console.log(formatISO(tomorrow));
 ```
+
+## Summary
+
+In this article we have reviewed some of the most popular MomentJS alternatives, like **luxon, dayjs** and **date-fns**.
+
+There are more less used libraries for handling dates, but some of them are not fully shipped with necessary functionalities, some are not updated anymore.
+
+Always make sure to consider alternative libraries for handling dates before installing Moment and your project will definitely benefit from that.
