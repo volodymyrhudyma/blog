@@ -3,33 +3,33 @@ title: The Best MomentJS Alternatives
 tag:
   - JavaScript
 promote: false
-metaDescription: Learn the most popular MomentJS alternatives. Dayjs, Date-fns
+metaDescription: Meet the most popular MomentJS alternatives. Dayjs, Date-fns
   and Luxon are lightweight, popular and fast libraries for handling dates.
-teaser: When it comes to handling dates in JavaScript application, no one wants
-  to bother with the Date object and looks for some ready-to-use libraries that
-  allow them to easily deal with dates. One of the most popular libraries is
-  MomentJS - a JavaScript date library...
+teaser: When it comes to working with dates in JavaScript applications, nobody
+  wants to mess with the Date object and looks for some ready-made libraries
+  that allow easy handling of dates. One of the most popular libraries is
+  [](https://momentjs.com/)MomentJS - a JavaScript date library...
 date: 2021-01-11T09:15:58.726Z
 ---
-When it comes to handling dates in JavaScript application, no one wants to bother with the Date object and looks for some ready-to-use libraries that allow them to easily deal with dates.
+When it comes to working with dates in JavaScript applications, nobody wants to mess with the Date object and looks for some ready-made libraries that allow easy handling of dates.
 
-One of the most popular libraries is [MomentJS](https://momentjs.com/) - a JavaScript date library for parsing, validating, manipulating, and formatting dates.
+One of the most popular libraries is [MomentJS](https://momentjs.com/) - a JavaScript date library for parsing, validating, manipulating and formatting dates.
 
-I have been using it for a long time without considering any alternatives, till I have found out that it is too heavy for simple projects.
+I used it for a long time without considering alternatives until I found out that it was too heavy for simple projects.
 
-## Moment Overview
+## MomentJS Overview
 
-Moment is by far the most popular library for handling dates, but it has a lot of disadvantages when comparing to the newer libraries that are intended to work with dates.
+MomentJS is by far the most popular library for dealing with dates, but it has a lot of drawbacks compared to the newer libraries designed to work with dates.
 
-Even the [project team](https://momentjs.com/docs/#/-project-status/) considers it as a **finished** project and would not add any new features to it.
+Even the [project team](https://momentjs.com/docs/#/-project-status/) considers it a **completed** project and would not provide new features.
 
 > We now generally consider Moment to be a legacy project in maintenance mode. It is not *dead*, but it is indeed *done*.
 
-The main drawbacks of Moment:
+Moment's main drawbacks:
 
 * **Mutability**
 
-  The moment object in Moment.js is mutable which means that operations like add, subtract, or set change the original moment object:
+  The Moment object in MomentJS is mutable, meaning that operations such as add, subtract, or set change the original Moment object:
 
 ```javascript
 const now = moment(); 
@@ -42,7 +42,7 @@ console.log(now.format());
 console.log(tomorrow.format());
 ```
 
-To avoid situations like that, you need to remember to **clone** an object before performing any math on it:
+To avoid such situations, you must remember to **clone** an object before doing anything with it:
 
 ```javascript
 const now = moment();
@@ -57,25 +57,25 @@ console.log(tomorrow.format());
 
 * **Size**
 
-  Moment does not work well with [tree shaking](https://webpack.js.org/guides/tree-shaking/) algorithms and grows really large, especially if you need the full internationalization support.
+  MomentJS does not work well with [tree shaking](https://webpack.js.org/guides/tree-shaking/) algorithms and gets very large, especially if you need full internationalization support.
 
-  According to the [Budnlephobia](https://github.com/pastelsky/bundlephobia) - a tool that shows the performance impact of including the npm package, **moment@2.29.1** takes **228.4Kb** minified and **71.2Kb** minified + gzipped:
+  According to [Budnlephobia](https://github.com/pastelsky/bundlephobia) - a tool that shows the performance impact of including the npm package, **moment@2.29.1** takes **228.4Kb** minified and **71.2Kb** minified + gzipped:
 
 ![Bundlephobia Moment](/img/screenshot-2021-01-10-at-10.42.11.png "Bundlephobia Moment")
 
-If you scroll down the Bundlephobia, you will see that it suggests some light weight alternatives, like **luxon**, **day-js**, **date-fns:**
+If you scroll down Bundlephobia, you will see that it suggests some lightweight alternatives, like **luxon**, **day-js**, **date-fns:**
 
 ![Moment Alternatives](/img/screenshot-2021-01-10-at-12.20.34.png "Moment Alternatives")
 
-Let's quickly go through them and see an example code.
+Let's go through them quickly and look at some sample code.
 
 ## Npm Trends Overview
 
-According to the [npm trends](https://www.npmtrends.com/dayjs-vs-date-fns-vs-moment-vs-luxon), still the most popular library for handling dates is Moment, date-fns, dayjs and luxon are on the next places accordingly:
+According to the [npm trends](https://www.npmtrends.com/dayjs-vs-date-fns-vs-moment-vs-luxon), the most popular library for handling dates is still MomentJS, date-fns, dayjs and luxon are in the next places accordingly:
 
 ![Npm Trends Overview](/img/screenshot-2021-01-10-at-11.12.34.png "Npm Trends Overview")
 
-If we look at the **Stats** section, we can see that dayjs is the youngest, the most lightweight and the most rated alternative:
+If we look at the **Stats** section, we can see that dayjs is the youngest, lightest and highest rated alternative:
 
 ![Npm Trends Stats](/img/screenshot-2021-01-10-at-11.15.27.png "Npm Trends Stats")
 
@@ -83,11 +83,11 @@ If we look at the **Stats** section, we can see that dayjs is the youngest, the 
 
 *Immutable*
 
-[Dayjs](https://github.com/iamkun/dayjs) is a minimalist JavaScript library that parses, validates, manipulates, and displays dates and times for modern browsers with a largely Moment.js-compatible API.
+[Dayjs](https://github.com/iamkun/dayjs) is a minimalist JavaScript library that parses, validates, manipulates, and displays date and time information for modern browsers using a largely MomentJS-compatible API.
 
-If you are used to working with Moment and want to get out quickly, Dayjs can be the best option to start with.
+If you are used to working with MomentJS and want to get out quickly, dayjs may be the best option to start with.
 
-Example of adding one day to today's date:
+Example of adding a day to today's date:
 
 ```javascript
 import dayjs from "dayjs";
@@ -102,7 +102,7 @@ console.log(now.format());
 console.log(tomorrow.format())
 ```
 
-By default, Dayjs comes with English locale only. 
+By default, dayjs is shipped with the English locale only. 
 
 If other locales are needed, they can be loaded on-demand:
 
@@ -110,7 +110,7 @@ If other locales are needed, they can be loaded on-demand:
 import "dayjs/locale/de";
 ```
 
-Once it has been imported, it becomes an active locale and you can switch to it or back to the default:
+Once imported, it becomes an active locale and you can switch to it or back to the default:
 
 ```javascript
 // Switch to "de"
@@ -120,16 +120,16 @@ dayjs.locale("de");
 dayjs.locale("en");
 ```
 
-**Important note:** Changing the locale does not affect the existing instances.
+**Important note:** Changing the locale does not affect existing instances.
 
 ## Date-fns
 
 *Immutable*
 
-[Date-fns](https://github.com/date-fns/date-fns) is a library that provides the most comprehensive, yet simple and consistent toolset\
-for manipulating **JavaScript dates** in **a browser** & **Node.js**. Read the section "Why date-fns" available [here](https://date-fns.org/).
+[Date-fns](https://github.com/date-fns/date-fns) is a library that provides the most comprehensive yet simple and consistent toolset\
+for manipulating **JavaScript dates** in **a browser** & **Node.js**. Read the "Why date-fns" section available [here](https://date-fns.org/).
 
-Example of adding one day to today's date:
+Example of adding a day to today's date:
 
 ```javascript
 import { addDays, formatISO } from "date-fns";
@@ -144,15 +144,15 @@ console.log(formatISO(now));
 console.log(formatISO(tomorrow));
 ```
 
-Date-fns has a support of the most common locales by default. The full list can be found [here](https://github.com/date-fns/date-fns/tree/master/src/locale).
+Date-fns supports the most common locales by default. The full list can be found [here](https://github.com/date-fns/date-fns/tree/master/src/locale).
 
-To use the locale, you need to require it:
+To use the locale, you must require it:
 
 ```javascript
 import { de } from "date-fns/locale";
 ```
 
-And then pass an option to function:
+And then pass an option to the function:
 
 ```javascript
 // "Januar"
@@ -166,9 +166,9 @@ format(tomorrow, "MMMM", { locale: de });
 
 *Immutable*
 
-[Luxon](https://github.com/moment/luxon) is a library for working with dates and times in JavaScript, created by one of the Moment maintainers. The whole history behind creating this library is available [here](https://github.com/moment/luxon/blob/master/docs/why.md).
+[Luxon](https://github.com/moment/luxon) is a library for working with dates and times in JavaScript, created by one of the MomentJS maintainers. The full story behind the creation of this library is available [here](https://github.com/moment/luxon/blob/master/docs/why.md).
 
-Example of adding one day to today's date:
+Example of adding a day to today's date:
 
 ```javascript
 import { DateTime } from "luxon";
@@ -196,16 +196,16 @@ const dateTime = DateTime.local()
 console.log(dateTime);
 ```
 
-Refer to the [install guide](https://moment.github.io/luxon/docs/manual/install.html) for instructions on making sure your platform has access to the Intl APIs and the ICU data to power it. 
+Refer to the [installation guide](https://moment.github.io/luxon/docs/manual/install.html) for instructions on how to ensure that your platform has access to the Intl APIs and ICU data to power it. 
 
 **This is especially important for Node, which does not ship with ICU data by default**.
 
-To learn how locales work in Luxon, see the [official documentation](https://moment.github.io/luxon/docs/manual/intl.html).
+To learn how locales work in luxon, see the [official documentation](https://moment.github.io/luxon/docs/manual/intl.html).
 
 ## Summary
 
-In this article we have reviewed some of the most popular MomentJS alternatives, like **luxon, dayjs** and **date-fns**.
+In this article, we have reviewed some of the most popular MomentJS alternatives, such as **luxon, dayjs** and **date-fns**.
 
-There are more less used libraries for handling dates, but some of them are not fully shipped with necessary functionalities, some are not updated anymore.
+There are other lesser-used libraries for handling dates, but some of them do not fully ship with the necessary functionality, and others are no longer updated.
 
-Always make sure to consider alternative libraries for handling dates before installing Moment and your project will definitely benefit from that.
+Always make sure to consider alternative date handling libraries before installing MomentJS, and your project will definitely benefit from that.
