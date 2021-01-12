@@ -9,15 +9,9 @@ import CommentList from "@components/CommentList/CommentList"
 import SEO from "@components/seo"
 import Sidebar from "@components/Sidebar"
 import Newsletter from "@components/Newsletter"
+import { BlackAngleDown } from "@components/TableOfContents/styles"
 
-import {
-  TitleWrapper,
-  Title,
-  Date,
-  BlackAngleDown,
-  SidebarWrapper,
-  Content,
-} from "./styles"
+import { TitleWrapper, Title, Date, SidebarWrapper, Content } from "./styles"
 
 export default function Template({ data, path, location }) {
   const { article, comments } = data
@@ -127,7 +121,11 @@ export default function Template({ data, path, location }) {
           <CommentList comments={comments} />
         </div>
         <SidebarWrapper marginTop>
-          <Sidebar allPosts={data.allPosts.edges} tags={data.tags.group} extended />
+          <Sidebar
+            allPosts={data.allPosts.edges}
+            tags={data.tags.group}
+            extended
+          />
         </SidebarWrapper>
       </div>
     </Layout>
