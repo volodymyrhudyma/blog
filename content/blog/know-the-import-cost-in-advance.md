@@ -120,3 +120,9 @@ And the Import Cost extension really likes the library:
 By picking a different library we seem to save 68.5KB. That is A LOT!
 
 ## Summary
+
+We typically tend to analyze the size of the bundle at the end of the development, when we face performance issues and some optimizations are needed.
+
+The Import Cost VS Code extension shows use the cost of importing external libraries upfront, so you can decide if it is necessary or not.
+
+Read [this article](https://citw.medium.com/keep-your-bundle-size-under-control-with-import-cost-vscode-extension-5d476b3c5a76) from an author of the extension that explains why and how this tool was built.
