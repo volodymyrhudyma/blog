@@ -43,7 +43,7 @@ There are a lot of lightweight libraries available, which would not affect your 
 
 Therefore it is always necessary to choose the ones that would have less impact on your application's size.
 
-## Moment Example
+## MomentJS Example
 
 There is one example that can show how important is to make a research before picking the library to proceed with.
 
@@ -52,8 +52,8 @@ Let's say you need to find a difference between two dates in hours.
 Achieving this using the native Date object in JavaScript can be frustrating:
 
 ```javascript
-const from = new Date('2020-01-10 17:00');
-const to = new Date('2020-01-15 10:00');
+const from = new Date("2020-01-10 17:00");
+const to = new Date("2020-01-15 10:00");
 
 const diffInTime = Math.abs(to - from);
 
@@ -66,12 +66,12 @@ console.log(`Difference in hours is: ${diffInHours}`);
 Then you start searching for a suitable library, look through the most popular ones and see that **MomentJS** is a perfect choice:
 
 ```javascript
-import moment from 'moment';
+import moment from "moment";
 
 const from = moment("2020-01-10 17:00");
 const to = moment("2020-01-15 10:00");
 
-const diffInHours = to.diff(from, 'hours');
+const diffInHours = to.diff(from, "hours");
 
 // Prints "Difference in hours is: 113"
 console.log(`Difference in hours is: ${diffInHours}`);
@@ -87,7 +87,7 @@ Import-Cost is a [Visual Studio Code extension](https://marketplace.visualstudio
 
 It is a great tool for identifying heavy packages and saving some KBs.
 
-Enable this extension for the above code and notice how it complains about the size of the MomentJs:
+Enable this extension for the above code and notice how it complains about the size of the MomentJS:
 
 ![Import Cost Extension In Action](/img/screenshot-2021-01-15-at-17.58.08.png "Import Cost Extension In Action")
 
