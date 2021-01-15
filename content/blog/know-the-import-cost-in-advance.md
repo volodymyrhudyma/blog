@@ -3,8 +3,12 @@ title: Know The Import Cost In Advance
 tag:
   - JavaScript
 promote: false
-metaDescription: // META
-teaser: // TEASER
+metaDescription: Learn an easy way to keep your JavaScript bundle small and
+  optimized at the beginning of the development process by using Import Cost VS
+  Code extension.
+teaser: Keeping your bundle small is one of the most important things that could
+  be done for performance optimization reasons. The larger the bundle is, the
+  more time it takes for users to download, which means they  could not...
 date: 2021-01-15T16:09:37.422Z
 ---
 Keeping your bundle small is one of the most important things that could be done for performance optimization reasons.
