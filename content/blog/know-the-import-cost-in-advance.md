@@ -115,7 +115,7 @@ console.log(`Difference in hours is: ${diffInHours}`);
 
 And the Import Cost extension really likes the library:
 
-![](/img/screenshot-2021-01-15-at-17.59.01.png)
+![Dayjs Import Cost](/img/screenshot-2021-01-15-at-17.59.01.png "Dayjs Import Cost")
 
 By picking a different library we seem to save 68.5KB. That is A LOT!
 
