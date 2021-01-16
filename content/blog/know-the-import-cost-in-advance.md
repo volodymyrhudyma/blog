@@ -9,7 +9,7 @@ metaDescription: Learn a simple way to keep your JavaScript bundle small and
 teaser: Keeping your bundle small is one of the most important things that can
   be done for performance optimization reasons. The larger the bundle, the more
   time it takes users to download, which means they cannot....
-date: 2021-01-15T16:09:37.422Z
+date: 2021-01-16T16:09:37.422Z
 ---
 Keeping your bundle small is one of the most important things that can be done for performance optimization reasons.
 
