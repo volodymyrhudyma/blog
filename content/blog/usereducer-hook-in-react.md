@@ -305,3 +305,17 @@ Triggering an update of the state is as simple as calling **dispatch** with an o
 It is preferable way of handling complex object updates, because it also allows you to optimize the performance by not triggering deep updates when passing callbacks down the component tree.
 
 You can pass **dispatch** instead, React makes sure it does not change between the renders.
+
+## Summary
+
+It is not always obvious when to use **useState** and when **useReducer**, in some cases you might not find any advantages in one over another.
+
+The general rule is to avoid **useState** when working with complex objects or when state updates can happen in the child components (because you would need to pass callbacks down the tree which change between the renders, which is not the case with passing **dispatch** function).
+
+One more nice benefit of using **reducer** is the easiness of testing it - the function can simply be exported.
+
+For those of you, who worked with [Redux](https://redux.js.org/) the whole concept should not be a new thing.
+
+But how is it different from Redux? Didn't we just replaced the whole Redux with the **useReducer** hook?
+
+That is not entirely true, because Redux has way more interesting features and benefits which are definitely worth considering.
