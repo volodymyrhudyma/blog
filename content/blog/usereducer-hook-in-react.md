@@ -83,6 +83,8 @@ As you can see, the user has three ongoing and one completed project.
 Our goal is to allow managing them by creating a component:
 
 ```tsx
+import React, { useState } from "react";
+
 const App = () => {
   const [state, setState] = useState(initialState);
 
@@ -148,3 +150,9 @@ const App = () => {
 ```
 
 Even though it looks like a lot of code, it is very easy-to-read.
+
+We iterate through all ongoing and completed projects and display them with a button on the right side (CSS styles are removed for simplicity sake):
+
+![Working App](/img/screenshot-2021-01-19-at-20.49.50.png "Working App")
+
+The component does it job perfectly fine.
