@@ -1,5 +1,5 @@
 ---
-title: useReducer Hook In React
+title: The useReducer Hook In React
 tag:
   - React
 promote: false
@@ -25,7 +25,7 @@ To understand better the problem, let's create a simple application that allows 
 
 Before getting our hands dirty with the code, define all necessary interfaces:
 
-```tsx
+```typescript
 // Project entity, contains only "id" and "name"
 interface IProject {
   id: number;
@@ -47,7 +47,7 @@ interface IState {
 
 The next step is to create an initial state that is reflected by the **IState** interface:
 
-```tsx
+```typescript
 const initialState: IState = {
   details: {
     name: "John",
@@ -190,7 +190,6 @@ const App = () => {
     // Return something
   );
 };
-
 ```
 
 Project data can be kept in separate state objects and updated separately. 
