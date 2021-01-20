@@ -305,15 +305,33 @@ It is preferable way of handling complex object updates, because it also allows 
 
 You can pass **dispatch** instead, React makes sure it does not change between the renders.
 
-## Summary
+## "useState" vs. "useReducer"
 
 It is not always obvious when to use **useState** and when **useReducer**, in some cases you might not find any advantages in one over another.
 
 The general rule is to avoid **useState** when working with complex objects or when state updates can happen in the child components (because you would need to pass callbacks down the tree which change between the renders, which is not the case with passing **dispatch** function).
 
-One more nice benefit of using **reducer** is the easiness of testing it - the function can simply be exported.
+One more nice benefit of using **reducer** is the easiness of testing - the function can simply be exported.
 
-For those of you, who worked with [Redux](https://redux.js.org/) the whole concept should not be a new thing.
+## "useReducer" vs. Redux
+
+[Redux](https://redux.js.org/) is a library that allows us to manage an application's state easily and predictably.
+
+There are a lot of differences between using Redux and useReducer hook:
+
+* Redux is a global state container, that works "above" your application, while useReducer creates a local state container, belonging to a component
+
+  **Important note**: You can use useContext with useReducer to create a simplified version of a global state container.
+* Redux ships with great tools for debugging ([Redux Dev Tools](https://github.com/reduxjs/redux-devtools))
+* Redux comes with rich middleware ecosystem ([redux-logger](https://github.com/LogRocket/redux-logger), [redux-thunk](https://github.com/reduxjs/redux-thunk), [redux-saga](https://redux-saga.js.org/), etc.)
+* Redux allows to create separate reducers and combine them into one using `combineReducers` helper function
+* Every useReducer ships its own dispatch function, currently there is no way to combine all of them into one, as in Redux, which provides one dispatch function that can take any action
+
+To sum up, useReducer is fine to use in smaller applications, useReducer + useContext in small to medium-sized ones and Redux is only for larger ones.
+
+## Summary
+
+For those of you, who worked with Redux the whole concept should not be a new thing.
 
 But how is it different from Redux? Didn't we just replaced the whole Redux with the **useReducer** hook?
 
