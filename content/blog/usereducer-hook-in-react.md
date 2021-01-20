@@ -371,6 +371,25 @@ You can pass **dispatch** instead, React makes sure it does not change between t
 
 **Important note:** If you return the same value from reducer, React will not re-render the component or fire any effects thanks to using the `Object.is` [comparison algorithm](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#description) under the hood).
 
+## The Third Argument
+
+We have not yet told that the useReducer hook allows the third argument to be passed.
+
+This argument is called **initializer** and is useful for transforming the initial state:
+
+```tsx
+const initializer = (initialState: IState) => {
+  // Do anything with the "initialState" and return the value
+  // What is returned from here is going to be set as "initialState"
+};
+
+const App = () => {
+  const [state, dispatch] = useReducer(reducer, initialState, initializer);
+
+  // ...
+};
+```
+
 ## "useState" vs. "useReducer"
 
 It is not always obvious when to use **useState** and when **useReducer**, in some cases you might not find any advantages in one over another.
