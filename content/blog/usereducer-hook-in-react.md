@@ -415,3 +415,7 @@ There are a lot of differences between using Redux and useReducer hook:
 To sum up, useReducer is fine to use in smaller applications, useReducer + useContext in small to medium-sized ones and Redux is only for larger ones.
 
 ## Summary
+
+In this article we learned how to use the useReducer hook and why it is needed, compared it to the useState and Redux and spotted some similarities and differences.
+
+Remember that in some cases this hook can help to optimize the performance of your application and make your code cleaned and easier to maintain.
