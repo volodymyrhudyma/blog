@@ -3,8 +3,14 @@ title: The useReducer Hook In React
 tag:
   - React
 promote: false
-metaDescription: // META
-teaser: // TEASER
+metaDescription: Learn useReducer hook in React that is responsible for state
+  update in a sophisticated way. It accepts a reducer function and initial state
+  as its arguments.
+teaser: One of the keys to becoming good at React is mastering its hardest part
+  - state management. State is used for everything, from storing the user's
+  input, to reading and displaying data from external systems. There are many
+  available tools that are designed to simplify managing state in React,
+  however...
 date: 2021-01-20T18:52:31.212Z
 ---
 One of the keys to becoming good at React is mastering its hardest part - state management.
@@ -196,6 +202,64 @@ Project data can be kept in separate state objects and updated separately.
 
 Imagine having to store tens of such objects and update them. What a mess!
 
+One more thing to remember is the number of times our component is re-rendered due to setting the state multiple times.
+
+By default, React batches updates, which means that if we set the state two times in a row within the same function, it is smart enough to perform only one update, not two:
+
+```typescript
+ const handleCompleteProject = (projectToComplete: IProject) => {
+    // React batches these updates and re-renders the component only once
+    setCompletedProjects([...completedProjects, projectToComplete]);
+    setOngoingProjects(
+      ongoingProjects.filter((project) => project.id !== projectToComplete.id)
+    );
+};
+```
+
+**However**, if the state is updated within the **asynchronous callback**, these updates are not batched:
+
+```typescript
+// These updates are NOT batched
+// The component re-renders two times!
+const handleCompleteProject = (projectToComplete: IProject) => {
+   setTimeout(() => {
+     setCompletedProjects([...completedProjects, projectToComplete]);
+     setOngoingProjects(
+       ongoingProjects.filter((project) => project.id !== projectToComplete.id)
+     );
+   }, 1000);
+};
+
+...
+
+const handleCompleteProject = (projectToComplete: IProject) => {
+  fetchSomething.then(() => {
+     setCompletedProjects([...completedProjects, projectToComplete]);
+     setOngoingProjects(
+       ongoingProjects.filter((project) => project.id !== projectToComplete.id)
+     );
+  });
+};
+
+...
+
+// Even this causes multiple re-renders
+const handleCompleteProject = async (projectToComplete: IProject) => {
+  await fetchSomething();
+  setCompletedProjects([...completedProjects, projectToComplete]);
+  setOngoingProjects(
+    ongoingProjects.filter((project) => project.id !== projectToComplete.id)
+  );
+};
+```
+
+This is the concept a lot of developers are not aware about, which results in decreasing performance of an application.
+
+There are at least two ways to solve the problem:
+
+* Unify the state, as we did in **An Example With "useState"** section
+* Wrap updates in `unstable_batchedUpdates` callback
+
 ## An Example With "useReducer"
 
 This is exactly the moment **useReducer** comes into play.
@@ -305,13 +369,15 @@ It is preferable way of handling complex object updates, because it also allows 
 
 You can pass **dispatch** instead, React makes sure it does not change between the renders.
 
+**Important note:** If you return the same value from reducer, React will not re-render the component or fire any effects thanks to using the `Object.is` [comparison algorithm](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#description) under the hood).
+
 ## "useState" vs. "useReducer"
 
 It is not always obvious when to use **useState** and when **useReducer**, in some cases you might not find any advantages in one over another.
 
 The general rule is to avoid **useState** when working with complex objects or when state updates can happen in the child components (because you would need to pass callbacks down the tree which change between the renders, which is not the case with passing **dispatch** function).
 
-One more nice benefit of using **reducer** is the easiness of testing - the function can simply be exported.
+One more nice benefit of using **reducer** is the easiness of testing - the function can simply be exported and tested.
 
 ## "useReducer" vs. Redux
 
@@ -330,9 +396,3 @@ There are a lot of differences between using Redux and useReducer hook:
 To sum up, useReducer is fine to use in smaller applications, useReducer + useContext in small to medium-sized ones and Redux is only for larger ones.
 
 ## Summary
-
-For those of you, who worked with Redux the whole concept should not be a new thing.
-
-But how is it different from Redux? Didn't we just replaced the whole Redux with the **useReducer** hook?
-
-That is not entirely true, because Redux has way more interesting features and benefits which are definitely worth considering.
