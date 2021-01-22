@@ -1,5 +1,5 @@
 ---
-title: Global State Management Using With React Hooks
+title: Global State Management Using React Hooks
 tag:
   - React
 promote: false
