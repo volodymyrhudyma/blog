@@ -129,7 +129,7 @@ const App = () => {
       <button>Decrement (-1)</button>
       <button>Reset (0)</button>
       <input value={value} onChange={(e) => setValue(e.target.value)} />
-      <button>Set (<value>)</button>
+      <button>Set ("value")</button>
     </>
   );
 };
@@ -137,7 +137,7 @@ const App = () => {
 
 With some applied styles (which are skipped here for simplicity sake) an app should look the following way:
 
-![Rendered UI](/img/screenshot-2021-01-22-at-23.10.13.png "Rendered UI")
+![Rendered UI](/img/screenshot-2021-01-22-at-23.26.31.png "Rendered UI")
 
 Now, let's make dummy buttons to do something useful.
 
@@ -210,7 +210,7 @@ const App = () => {
           dispatch({ type: "SET_COUNT", payload: parseInt(value) })
         }
       >
-        Set (<value>)
+        Set ("value")
       </button>
     </>
   );
