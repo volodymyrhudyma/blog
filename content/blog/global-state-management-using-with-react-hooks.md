@@ -4,7 +4,10 @@ tag:
   - React
 promote: false
 metaDescription: // META
-teaser: // TEASER
+teaser: When thinking about the state management in React, the first thing that
+  comes to mind is Redux and there is nothing wrong with it if you accept a lot
+  of boilerplate code and complex library configuration. It may be completely
+  unnecessary if your project is...
 date: 2021-01-23T20:56:53.078Z
 ---
 When thinking about the state management in React, the first thing that comes to mind is Redux and there is nothing wrong with it if you accept a lot of boilerplate code and complex library configuration.
@@ -114,6 +117,8 @@ Congratulations, now it is a perfect time to test our changes.
 Modify the **App** component to render counter on the screen, a few buttons that will trigger actions and one input that will allow to set a specific value for the counter:
 
 ```javascript
+import React, { useState } from "react";
+
 const App = () => {
   const [value, setValue] = useState("");
 
@@ -157,3 +162,61 @@ const App = () => {
 ```
 
 Now we have our **initialState** accessible under the **state** variable and we can easily access **state.count**.
+
+The **dispatch** function allows us to dispatch an action (remember we have defined four, right?):
+
+```javascript
+dispatch({ type: "INCREMENT_COUNT" });
+
+dispatch({ type: "DECREMENT_COUNT" });
+
+dispatch({ type: "RESET_COUNT" });
+
+dispatch({ type: "SET_COUNT", payload: 10 });
+```
+
+So, the complete code of the **App** component:
+
+```javascript
+import React, { useContext, useState } from "react";
+
+import { Context } from "./store";
+
+const App = () => {
+  const [value, setValue] = useState("");
+  const [state, dispatch] = useContext(Context);
+
+  return (
+    <>
+      <div>Count: 0</div>
+      <button
+        onClick={() => dispatch({ type: "INCREMENT_COUNT" })}
+      >
+        Increment (+1)
+      </button>
+      <button
+        onClick={() => dispatch({ type: "DECREMENT_COUNT" })}
+      >
+        Decrement (-1)
+      </button>
+      <button
+        onClick={() => dispatch({ type: "RESET_COUNT" })}
+      >
+        Reset (0)
+      </button>
+      <input value={value} onChange={(e) => setValue(e.target.value)} />
+      <button
+         onClick={() =>
+          dispatch({ type: "SET_COUNT", payload: parseInt(value) })
+        }
+      >
+        Set (<value>)
+      </button>
+    </>
+  );
+};
+```
+
+## Bonus Step: Use Multiple Reducers
+
+## Summary
