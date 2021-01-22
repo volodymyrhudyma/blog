@@ -95,7 +95,7 @@ The `action` contains `type` property which determines what is the type of dispa
 
 If we dispatched an action that is not listed in the reducer, it will be handled in the `default` section (we will simply ignore it by returning the current state).
 
-## Step 3: Wrap The Application In <Store> Component
+## Step 3: Wrap The Application In "Store" Component
 
 Finally, we need our components to be aware of the store and expose the global state to all of them.
 
