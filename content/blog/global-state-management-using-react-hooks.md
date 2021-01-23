@@ -241,73 +241,65 @@ So it is always a good idea to keep your reducers as small as possible.
 
 If you worked with Redux, you should know that you can create multiple reducers and combine them all into one, usually called **root reducer** by using the **[combineReducers](https://redux.js.org/api/combinereducers)** function provided by the library.
 
-Let's try to use it.
+Let's try to build our own implementation of it.
 
-#### Install Redux
+#### Combine Multiple Reducers Into One
 
-The very first thing to do is to install Redux:
-
-`yarn add redux`
-
-Next, create `userReducer.js`:
+Create `userReducer.js`:
 
 ```javascript
 export default (state, action) => {
   switch (action.type) {
     case "ADD_USER":
-      return {
-        ...state,
-        users: [...state.users, action.payload],
-      };
+      return [...state, action.payload];
     case "REMOVE_USER":
-      return {
-        ...state,
-        users: state.users.filter((user) => user !== action.payload),
-      };
-
+      return state.filter((user) => user !== action.payload);
     default:
       return state;
   }
 };
 ```
 
-And `projectReducer.js`:
+Create `projectReducer.js`:
 
 ```javascript
 export default (state, action) => {
   switch (action.type) {
     case "ADD_PROJECT":
-      return {
-        ...state,
-        projects: [...state.projects, action.payload],
-      };
+      return [...state, action.payload];
     case "REMOVE_PROJECT":
-      return {
-        ...state,
-        projects: state.projects.filter((project) => project !== action.payload),
-      };
-
+      return state.filter((project) => project !== action.payload);
     default:
       return state;
   }
 };
 ```
 
-And `rootReducer.js` which combines both reducers:
+Create `rootReducer.js` which combines both reducers:
 
 ```javascript
-import { combineReducers } from "redux";
-
 import userReducer from "./userReducer";
 import projectReducer from "./projectReducer";
 
-export default combineReducers({ user: userReducer, project: projectReducer });
+function combineReducers(reducers) {
+  return (state = {}, action) => {
+    const newState = {};
+    for (let key in reducers) {
+      newState[key] = reducers[key](state[key], action);
+    }
+    return newState;
+  };
+}
 
+export default combineReducers({
+  users: userReducer,
+  projects: projectReducer,
+});
 ```
 
 You can control state key names by using different keys for the reducers in the passed object, like we did.
 
-In the root reducer above, the state shape is `{ user, project }`. 
+In the root reducer above, the state shape is `{ users, projects }`. 
 
 Next, inside our Store a **root reducer** has to be passed to the **useReducer** hook:
 
