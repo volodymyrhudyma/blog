@@ -388,6 +388,10 @@ The above code in action:
 
 Is there anything we can do about it?
 
+We can use **React.memo** HOC and wrap our **Users** and **Projects** components into it.
+
+Read more about **React.memo** [here](/boost-performance-with-react-memo/) and about possible solutions to prevent unnecessary re-renders [here](https://github.com/facebook/react/issues/15156).
+
 ## Summary
 
 Redux is not a must-have library in all your projects, there are many existing alternatives that may perform better and are easier-to-set-up in a projects of a smaller-scale.
