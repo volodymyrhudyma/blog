@@ -141,7 +141,7 @@ const App = () => {
 
 With some applied styles (which are skipped here for simplicity sake) an app should look the following way:
 
-![Rendered UI](/img/screenshot-2021-01-22-at-23.26.31.png "Rendered UI")
+![Rendered UI](/img/screenshot-2021-01-23-at-10.07.06.png "Rendered UI")
 
 Now, let's make dummy buttons to do something useful.
 
@@ -304,22 +304,31 @@ In the root reducer above, the state shape is `{ users, projects }`.
 Next, inside our Store a **root reducer** has to be passed to the **useReducer** hook:
 
 ```javascript
-import rootReducer from "./rootReducer";
+import React, { createContext, useReducer } from "react";
 
-// ...
+import rootReducer from "./rootReducer";
 
 const initialState = {
   users: [],
-  projects: [].
+  projects: [],
 };
+
+export const Context = createContext(initialState);
 
 const Store = ({ children }) => {
   const [state, dispatch] = useReducer(rootReducer, initialState);
-  
-  // ..
+
+  return (
+    <Context.Provider value={[state, dispatch]}>{children}</Context.Provider>
+  );
 };
+
+export default Store;
+
 ```
 
 **Important note:** Make sure the names of your properties in the **initialState** correspond to the state key names you provided in the **combineReducers** function, otherwise the state would not get updated.
+
+And you are able to use **ADD_USER**, **REMOVE_USER**, **ADD_PROJECT**, **REMOVE_PROJECT** in any of your components.
 
 ## Summary
