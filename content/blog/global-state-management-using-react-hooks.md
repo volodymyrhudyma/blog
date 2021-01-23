@@ -57,7 +57,7 @@ Finally, we return a `Context.Provider` that passes the **value** to consuming c
 
 In the previous step, a Reducer function was imported to the Store. 
 
-> **Reducers** are functions that take the current **state** and an **action** as arguments, and return a new `state` result. In other words, `(state, action) => newState`.
+> **Reducers** are functions that take the current **state** and an **action** as arguments, and return a new **state** result. In other words, `(state, action) => newState`.
 
 Create a file called `reducer.js` with the following content:
 
@@ -119,7 +119,6 @@ ReactDOM.render(
   </Store>,
   document.getElementById("root")
 );
-
 ```
 
 Now is the perfect time to test our changes.
