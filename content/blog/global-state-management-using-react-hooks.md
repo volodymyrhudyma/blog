@@ -3,7 +3,8 @@ title: Global State Management Using React Hooks
 tag:
   - React
 promote: false
-metaDescription: // META
+metaDescription: Learn how to build an optimized global state management and
+  replace Redux in React by using useReducer hook and Context API.
 teaser: When thinking about the state management in React, the first thing that
   comes to mind is Redux and there is nothing wrong with it if you accept a lot
   of boilerplate code and complex library configuration. It may be completely
