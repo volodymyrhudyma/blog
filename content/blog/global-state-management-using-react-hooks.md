@@ -105,7 +105,7 @@ Finally, we need our components to be aware of the store and expose the global s
 
 Open your `index.js` file and wrap your main component (typically **App**) in **Store**:
 
-```javascript
+```jsx
 ReactDOM.render(
   <Store>
     <App />
@@ -331,4 +331,67 @@ export default Store;
 
 And you are able to use **ADD_USER**, **REMOVE_USER**, **ADD_PROJECT**, **REMOVE_PROJECT** in any of your components.
 
+## Bonus Step: Performance Optimization
+
+One thing worth mentioning is that if any of your components pulls the data out of global Context (**useContext(Context)**), it would get re-rendered every time a change in the state is performed.
+
+And that is actually a bad thing, because the component responsible for managing users should not be re-rendered, when there is a change related to projects.
+
+The code:
+
+```jsx
+import React, { useContext } from "react";
+
+import { Context } from "./store";
+
+// Manage users
+const Users = () => {
+  const [value, dispatch] = useContext(Context);
+  
+  console.log("Users re-render");
+
+  return (
+    <button onClick={() => dispatch({ type: "ADD_USER", payload: "John" })}>
+      Add John User
+    </button>
+  );
+};
+
+// Manage projects
+const Projects = () => {
+  const [value, dispatch] = useContext(Context);
+
+  console.log("Projects re-render");
+  
+  return (
+    <button onClick={() => dispatch({ type: "ADD_PROJECT", payload: "Blog" })}>
+      Add Blog Project
+    </button>
+  );
+};
+
+const App = () => {
+  return (
+    <>
+      <Users />
+      <Projects />
+    </>
+  );
+};
+
+export default App;
+```
+
+The above code in action:
+
+![Unoptimized Context](/img/gif2.gif "Unoptimized Context")
+
+Is there anything we can do about it?
+
 ## Summary
+
+Redux is not a must-have library in all your projects, there are many existing alternatives that may perform better and are easier-to-set-up in a projects of a smaller-scale.
+
+Usually we are not even aware of those alternative ways of managing the state.
+
+Today we have learned yet another way by using **Context API** and **useReducer** hook.
