@@ -202,7 +202,7 @@ const App = () => {
 
   return (
     <>
-      <div>Count: 0</div>
+      <div>Count: {state.count}</div>
       <button
         onClick={() => dispatch({ type: "INCREMENT_COUNT" })}
       >
