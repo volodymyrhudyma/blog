@@ -107,12 +107,19 @@ Finally, our components must be aware of the Store.
 Open your `index.js` file and wrap your main component (typically **App**) in **Store**:
 
 ```jsx
+import React from "react";
+import ReactDOM from "react-dom";
+
+import Store from "./store";
+import App from "./App";
+
 ReactDOM.render(
   <Store>
     <App />
   </Store>,
   document.getElementById("root")
 );
+
 ```
 
 Now is the perfect time to test our changes.
@@ -138,6 +145,8 @@ const App = () => {
     </>
   );
 };
+
+export default App;
 ```
 
 With some applied styles (skipped here for simplicity), an app should look like this:
@@ -220,6 +229,8 @@ const App = () => {
     </>
   );
 };
+
+export default App;
 ```
 
 And see it in action:
