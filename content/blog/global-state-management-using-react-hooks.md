@@ -10,11 +10,11 @@ teaser: When thinking about the state management in React, the first thing that
   unnecessary if your project is...
 date: 2021-01-23T20:56:53.078Z
 ---
-When thinking about the state management in React, the first thing that comes to mind is Redux and there is nothing wrong with it if you accept a lot of boilerplate code and complex library configuration.
+When thinking about the best way of state management in React, the first thing that comes to mind is Redux and there is nothing wrong with it if you accept a lot of boilerplate code and fairly complex library configuration.
 
 It may be completely unnecessary if your project is of a small size.
 
-Today we will create our "own Redux" by using tools React provides us with out-of-the-box: useReducer hook and Context API.
+Today we will create our **"own Redux"** by using tools React provides us with out-of-the-box: **useReducer** hook and **Context API.**
 
 ## Step 1: Create Store
 
@@ -44,17 +44,19 @@ const Store = ({ children }) => {
 export default Store;
 ```
 
-Firstly, we set the initial state of the application in the `initialState` variable.
+Firstly, we set the initial state of the application in the **initialState** variable.
 
-Secondly, we create a Context object that is going to be used to retrieve the `initialState` in a component.
+Secondly, we create a Context object that is going to be used to retrieve the **initialState** in a component.
 
-Thirdly, we create a Store component that uses `useReducer` for updating the state in a convenient way (read more about this hook [here](/usereducer-hook-in-react/)).
+Thirdly, we create a Store component that uses **useReducer** for updating the state in a convenient way (read more about this hook [here](/usereducer-hook-in-react/)).
 
-Finally, we return a `Context.Provider` that passes the `value` down to consuming components and export the component from the store (read more about Context API in React [here](/context-api-in-react/)).
+Finally, we return a `Context.Provider` that passes the **value** down to consuming components and export the component from the store (read more about Context API in React [here](/context-api-in-react/)).
 
 ## Step 2: Create Reducer
 
 In the previous step, a Reducer function has been imported to the Store. 
+
+> **Reducers** are functions that take the current **state** and an **action** as arguments, and return a new `state` result. In other words, `(state, action) => newState`.
 
 Create a file named `reducer.js` with the following content:
 
@@ -87,13 +89,15 @@ export default (state, action) => {
 };
 ```
 
-The Reducer handles four actions - **INCREMENT_COUNT**, **DECREMENT_COUNT**, **SET_COUNT** and **RESET_COUNT** which add a value to the `count` variable, subtract, reset or set it respectively.
+The Reducer handles four actions - **INCREMENT_COUNT**, **DECREMENT_COUNT**, **SET_COUNT** and **RESET_COUNT** which add a value to the **count** variable, subtract, reset or set it respectively.
 
-The `state` object is the current state of the application, the `action` - is an object that is passed when an action is dispatched.
+The **state** object is the current state of the application, the **action** - is a dispatched action.
 
-The `action` contains `type` property which determines what is the type of dispatched action and an optional `payload` which is a new state.
+> **Actions** are plain JavaScript objects that have a **type** field. As mentioned earlier, **you can think of an action as an event that describes something that happened in the application**.
 
-If we dispatched an action that is not listed in the reducer, it will be handled in the `default` section (we will simply ignore it by returning the current state).
+The **action** contains **type** property which determines what is the type of dispatched action and an optional **payload** which is a new data that describes what is happening in application.
+
+If we dispatched an action that is not listed in the reducer, it would be handled in the **default** section (we will simply ignore it by returning the current state).
 
 ## Step 3: Wrap The Application In "Store" Component
 
@@ -110,7 +114,7 @@ ReactDOM.render(
 );
 ```
 
-Congratulations, now it is a perfect time to test our changes.
+Now it is a perfect time to test our changes.
 
 ## Step 4: Create UI And Dispatch Actions
 
@@ -143,7 +147,7 @@ Now, let's make dummy buttons to do something useful.
 
 The first thing we need to do is to access the **initialState** to retrieve the **count** property and display it on the screen.
 
-To do this, import **useContext** from React and **Context** from the **store.js**:
+To do this, import **useContext** from React and **Context** from the **store.js** in **App** component:
 
 ```javascript
 import React, {useContext} from "react";
@@ -151,7 +155,7 @@ import React, {useContext} from "react";
 import { Context } from "./store";
 ```
 
-And retrieve the context in the component:
+And retrieve the context:
 
 ```javascript
 const App = () => {
@@ -175,7 +179,7 @@ dispatch({ type: "RESET_COUNT" });
 dispatch({ type: "SET_COUNT", payload: 10 });
 ```
 
-So, the complete code of the **App** component:
+Merge everything together, so the complete code of the **App** component is the following:
 
 ```javascript
 import React, { useContext, useState } from "react";
@@ -217,6 +221,113 @@ const App = () => {
 };
 ```
 
+And see it in action:
+
+![App In Action](/img/gif.gif "App In Action")
+
 ## Bonus Step: Use Multiple Reducers
+
+Congratulations on building your first global state management systems using React hooks.
+
+Our example application is extremely small and everything it does is just updating the **count** value.
+
+That's why we created only one reducer that handles only four types of actions.
+
+But what if the app is slightly bigger and the number of actions grows to 10-20-30?
+
+Handling them in one reducer leads to a lot of code gathered in one place, which is not the best solution in terms of maintenance.
+
+So it is always a good idea to keep your reducers as small as possible.
+
+If you worked with Redux, you should know that you can create multiple reducers and combine them all into one, usually called **root reducer** by using the **[combineReducers](https://redux.js.org/api/combinereducers)** function provided by the library.
+
+Let's try to use it.
+
+#### Install Redux
+
+The very first thing to do is to install Redux:
+
+`yarn add redux`
+
+Next, create `userReducer.js`:
+
+```javascript
+export default (state, action) => {
+  switch (action.type) {
+    case "ADD_USER":
+      return {
+        ...state,
+        users: [...state.users, action.payload],
+      };
+    case "REMOVE_USER":
+      return {
+        ...state,
+        users: state.users.filter((user) => user !== action.payload),
+      };
+
+    default:
+      return state;
+  }
+};
+```
+
+And `projectReducer.js`:
+
+```javascript
+export default (state, action) => {
+  switch (action.type) {
+    case "ADD_PROJECT":
+      return {
+        ...state,
+        projects: [...state.projects, action.payload],
+      };
+    case "REMOVE_PROJECT":
+      return {
+        ...state,
+        projects: state.projects.filter((project) => project !== action.payload),
+      };
+
+    default:
+      return state;
+  }
+};
+```
+
+And `rootReducer.js` which combines both reducers:
+
+```javascript
+import { combineReducers } from "redux";
+
+import userReducer from "./userReducer";
+import projectReducer from "./projectReducer";
+
+export default combineReducers({ user: userReducer, project: projectReducer });
+
+```
+
+You can control state key names by using different keys for the reducers in the passed object, like we did.
+
+In the root reducer above, the state shape is `{ user, project }`. 
+
+Next, inside our Store a **root reducer** has to be passed to the **useReducer** hook:
+
+```javascript
+import rootReducer from "./rootReducer";
+
+// ...
+
+const initialState = {
+  users: [],
+  projects: [].
+};
+
+const Store = ({ children }) => {
+  const [state, dispatch] = useReducer(rootReducer, initialState);
+  
+  // ..
+};
+```
+
+**Important note:** Make sure the names of your properties in the **initialState** correspond to the state key names you provided in the **combineReducers** function, otherwise the state would not get updated.
 
 ## Summary
