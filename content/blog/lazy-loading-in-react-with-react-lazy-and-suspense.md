@@ -288,13 +288,12 @@ export default ErrorBoundary;
 
 And wrap **Suspense** in the **ErrorBoundary** component:
 
-```javascript
+```jsx
 <ErrorBoundary>
   <Suspense fallback={<div>Loading...</div>}>
     <Users />
   </Suspense>
 </ErrorBoundary>
-      
 ```
 
 ## Summary
