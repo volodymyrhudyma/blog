@@ -3,8 +3,12 @@ title: Lazy Loading In React With React.Lazy And Suspense
 tag:
   - React
 promote: false
-metaDescription: // META
-teaser: // TEASER
+metaDescription: Learn how to use React.lazy and Suspense for code splitting in
+  React. Split your code into small chunks and load them on-demand.
+teaser: The complexity of existing web applications grows in geometric
+  progression each year. The JavaScript more code we write, the more time it
+  takes for our browser to download and execute it. While this might a critical
+  problem in the era of super fast internet, but we cannot assume that...
 date: 2021-01-27T19:58:25.552Z
 ---
 The complexity of existing web applications grows in geometric progression each year. 
@@ -179,3 +183,118 @@ Do not close the developer tools and click on the button and observe how two mor
 The first one contains **moment** library, the second one our **Users** component.
 
 By organizing the code this way we do not force users to download everything which they may even not use.
+
+Sometimes it may not be obvious, where to use lazy loading, but a good starting point are routes:
+
+```jsx
+const Home = React.lazy(() => import("./routes/Home"));
+const Blog = React.lazy(() => import("./routes/Blog"));
+
+const App = () => (
+  <Router>
+    <Suspense fallback={<div>Loading...</div>}>
+      <Switch>
+        <Route exact path="/" component={Home}/>
+        <Route path="/blog" component={Blog}/>
+      </Switch>
+    </Suspense>
+  </Router>
+);
+
+export default App;
+```
+
+## React.lazy Limitations
+
+The feature is awesome, however there are some limitations we should remember about.
+
+#### 1. React.lazy currently only supports default exports.
+
+If you have a file with multiple named exports, you can create an intermediate module that reexports it as the default.
+
+**Components.js:**
+
+```javascript
+export const Users = /* ... */;
+
+export const Projects = /* ... */;
+```
+
+**Users.js**
+
+```javascript
+export { Users as default } from "./Components";
+```
+
+**App.js**
+
+```javascript
+const Users = React.lazy(() => import("./Users"));
+```
+
+#### 2. React.lazy and Suspense are not available for Server-Side Rendering
+
+If you want to do code-splitting in a server rendered app, the React team recommends [Loadable Components](https://github.com/gregberge/loadable-components). 
+
+It has a nice [guide for bundle splitting with server-side rendering](https://loadable-components.com/docs/server-side-rendering/).
+
+## Error Handling
+
+It has already been mentioned that **Suspense** component is used to show some fallback UI while components are loading.
+
+But what if one of those components throws an error?
+
+We can create an [Error Boundary](https://reactjs.org/docs/error-boundaries.html) to provide the best user experience.
+
+> Error boundaries are React components that **catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI** instead of the component tree that crashed.
+
+```jsx
+import React from "react";
+
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { error: null, errorInfo: null };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    this.setState({
+      error,
+      errorInfo,
+    });
+  }
+
+  render() {
+    if (this.state.errorInfo) {
+      return (
+        <div>
+          <h2>Something went wrong.</h2>
+          <details style={{ whiteSpace: "pre-wrap" }}>
+            {this.state.error && this.state.error.toString()}
+            <br />
+            {this.state.errorInfo.componentStack}
+          </details>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
+
+export default ErrorBoundary;
+```
+
+**Important note:** There is no hook equivalent of **componentDidCatch**, but React team is planning to add it soon.
+
+And wrap **Suspense** in the **ErrorBoundary** component:
+
+```javascript
+<ErrorBoundary>
+  <Suspense fallback={<div>Loading...</div>}>
+    <Users />
+  </Suspense>
+</ErrorBoundary>
+      
+```
+
+## Summary
