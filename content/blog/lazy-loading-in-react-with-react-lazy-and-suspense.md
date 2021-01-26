@@ -112,3 +112,70 @@ const Users = () => users.map((user) => <div>{user.toString()}</div>);
 
 export default Users;
 ```
+
+The application is extremely simple and works the following way:
+
+![App Example](/img/app-example.gif "App Example")
+
+Nothing is wrong with it, but let's open the developer tools on the Network tab and see what is being loaded when the users opens an application:
+
+![App Loading](/img/screenshot-2021-01-26-at-20.35.04.png "App Loading")
+
+We can see only one chunk **0.chunk.js** that contains the whole code and weights 443kB (not that we are not using the production build).
+
+But there is absolutely no need to render **User** component and use some resources for it, since it is not visible until the button is clicked, which may never happen.
+
+Let's optimize the above code using the tools React provides us with: **React.lazy** and **Suspense**:
+
+## Using React.Lazy And Suspense
+
+The **App** component:
+
+```jsx
+import React, { Suspense, useState } from "react";
+
+const Users = React.lazy(() => import("./Users"));
+
+const App = () => {
+  const [showUsers, setShowUsers] = useState(false);
+
+  const handleShowUsers = () => {
+    setShowUsers(true);
+  };
+
+  return (
+    <>
+      <button onClick={handleShowUsers}>
+        Reveal users
+      </button>
+      {showUsers && (
+        <Suspense fallback={<div>Loading...</div>}>
+          <Users />
+        </Suspense>
+      )}
+    </>
+  );
+};
+
+export default App;
+```
+
+Note, that now we load **Users** component on-demand, just after the button is clicked.
+
+After doing this change, observe the way application is working now:
+
+![Optimized App](/img/optimized-app.gif "Optimized App")
+
+Next, open the developer Network tab in developer tools and see what files are loaded:
+
+![Optimized App Loading](/img/screenshot-2021-01-26-at-22.35.23.png "Optimized App Loading")
+
+Seems like we load the same files, but notice how the size of the **0.chunk.js** file reduced from 443kB to 409kB.
+
+Do not close the developer tools and click on the button and observe how two more chunks are loaded on-demand:
+
+![New Chunks Loaded](/img/screenshot-2021-01-26-at-22.39.54.png "New Chunks Loaded")
+
+The first one contains **moment** library, the second one our **Users** component.
+
+By organizing the code this way we do not force users to download everything which they may even not use.
