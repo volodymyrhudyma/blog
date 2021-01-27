@@ -27,9 +27,9 @@ That is exactly when **Lazy Loading** comes into play.
 
 Basically, it means that not everything needs to be loaded, especially the components that are not currently on the screen. They can be included if needed.
 
-In React, Lazy Loading can be achieved by using the `React.lazy` function, which takes a function as an argument that needs to call a dynamic `import()`. 
+In React, Lazy Loading can be achieved by using the **React.lazy** function, which takes a function as an argument that needs to call a dynamic **import**. 
 
-This must return a `Promise` that resolves to a module with a `default` export that contains a React component:
+This must return a **Promise** that resolves to a module with a **default** export that contains a React component:
 
 ```javascript
 // Before
@@ -48,7 +48,7 @@ const Example = React.lazy(() => {
 });
 ```
 
-And a `Suspense` component that we can use to display a fallback content (you can pass any React component to the `fallback` property) while we wait for the "lazy" component to load.
+And a **Suspense** component that we can use to display a fallback content (you can pass any React component to the **fallback** property) while we wait for the "lazy" component to load.
 
 You should place the **Suspense** component somewhere above the lazy loaded component.
 
