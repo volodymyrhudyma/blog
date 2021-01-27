@@ -5,31 +5,31 @@ tag:
 promote: false
 metaDescription: Learn how to use React.lazy and Suspense for code splitting in
   React. Split your code into small chunks and load them on-demand.
-teaser: The complexity of existing web applications grows in geometric
-  progression each year. The JavaScript more code we write, the more time it
-  takes for our browser to download and execute it. While this might a critical
-  problem in the era of super fast internet, but we cannot assume that...
+teaser: The complexity of existing web applications grows every year in
+  geometric progression. The more JavaScript code we write, the more time it
+  takes our browser to download and execute it. While this may not be a critical
+  problem in the era of super-fast Internet, we cannot assume that all...
 date: 2021-01-27T19:58:25.552Z
 ---
-The complexity of existing web applications grows in geometric progression each year. 
+The complexity of existing web applications grows every year in geometric progression. 
 
-The JavaScript more code we write, the more time it takes for our browser to download and execute it.
+The more JavaScript code we write, the more time it takes our browser to download and execute it.
 
-While this might a critical problem in the era of super fast internet, but we cannot assume that all our customers have it, as well as super fast devices to open our application from.
+While this may not be a critical problem in the era of super-fast Internet, we cannot assume that all of our customers have it, as well as super-fast devices.
 
-It is always a good idea to optimize the application as much as it is possible, so it consumes the lesser possible amount of resources.
+It's always a good idea to optimize the application as much as possible so that it uses the least amount of resources possible.
 
-That's exactly the moment where **Lazy Loading** comes into play.
+That is exactly when **Lazy Loading** comes into play.
 
 ## Lazy Loading
 
 > **Lazy loading** (also known as asynchronous **loading**) is a design pattern commonly used in computer programming and mostly in web design and development to defer initialization of an object until the point at which it is needed. It can contribute to efficiency in the program's operation if properly and appropriately used.
 
-Basically, it means that it is not necessary to load everything, especially the components that are not currently visible on the screen. They can be included on-demand.
+Basically, it means that not everything needs to be loaded, especially the components that are not currently on the screen. They can be included if needed.
 
-In React, Lazy Loading can be achieved by using `React.lazy` function, which takes a function as an argument that must call a dynamic `import()`. 
+In React, Lazy Loading can be achieved by using the `React.lazy` function, which takes a function as an argument that needs to call a dynamic `import()`. 
 
-This must return a `Promise` which resolves to a module with a `default` export containing a React component:
+This must return a `Promise` that resolves to a module with a `default` export that contains a React component:
 
 ```javascript
 // Before
@@ -48,11 +48,11 @@ const Example = React.lazy(() => {
 });
 ```
 
-And a `Suspense` component, which allows us to show a fallback content (you can pass any React component to the `fallback` property) while we’re waiting for the lazy component to load.
+And a `Suspense` component that we can use to display a fallback content (you can pass any React component to the `fallback` property) while we wait for the "lazy" component to load.
 
-You should place **Suspense** component anywhere above the lazy loaded component.
+You should place the **Suspense** component somewhere above the lazy loaded component.
 
-It is also possible to wrap any number of lazy loaded components into one **Suspense** that would wait for all components to be loaded:
+It is also possible to wrap any number of lazy loaded components into one **Suspense** that waits for all components to load:
 
 ```jsx
 const Example = React.lazy(() => import("./Example"));
@@ -64,7 +64,7 @@ const App = () => (
 );
 ```
 
-The above code will automatically load the bundle containing the **Example** component when this component is first rendered.
+The above code automatically loads the bundle containing the **Example** component when that component is first rendered.
 
 If the component is never rendered - it would never be loaded.
 
@@ -72,7 +72,7 @@ If the component is never rendered - it would never be loaded.
 
 The best way to understand the concept is to see it in action.
 
-Create **App** component that renders a button, clicking on which loads **Users** component containing some heavy logic:
+Create an **App** component that displays a button that, when clicked, loads the **Users** component that contains some heavy logic:
 
 ```jsx
 import React, { useState } from "react";
@@ -117,19 +117,19 @@ const Users = () => users.map((user) => <div>{user.toString()}</div>);
 export default Users;
 ```
 
-The application is extremely simple and works the following way:
+The application is extremely simple and works as follows:
 
 ![App Example](/img/app-example.gif "App Example")
 
-Nothing is wrong with it, but let's open the developer tools on the Network tab and see what is being loaded when the users opens an application:
+There is nothing wrong with this, but let's open the Developer Tools on the Network Tab and see what loads when the user opens an application:
 
 ![App Loading](/img/screenshot-2021-01-26-at-20.35.04.png "App Loading")
 
-We can see only one chunk **0.chunk.js** that contains the whole code and weights 443kB (not that we are not using the production build).
+We can only see one chunk **0.chunk.js**, which contains all the code and weighs 443kB (not that we are not using the production build).
 
-But there is absolutely no need to render **User** component and use some resources for it, since it is not visible until the button is clicked, which may never happen.
+But there is absolutely no need to render the **User** component and use some resources for it, since it is not visible until the button is clicked, which may never happen.
 
-Let's optimize the above code using the tools React provides us with: **React.lazy** and **Suspense**:
+Let's optimize the above code using the tools React provides us: **React.lazy** and **Suspense**:
 
 ## Using React.Lazy And Suspense
 
@@ -164,27 +164,27 @@ const App = () => {
 export default App;
 ```
 
-Note, that now we load **Users** component on-demand, just after the button is clicked.
+Note that we now load the **Users** component on-demand, right after the button is clicked.
 
-After doing this change, observe the way application is working now:
+After making this change, observe how the application works now:
 
 ![Optimized App](/img/optimized-app.gif "Optimized App")
 
-Next, open the developer Network tab in developer tools and see what files are loaded:
+Next, open Network Tab in Developer Tools and see what files are loaded:
 
 ![Optimized App Loading](/img/screenshot-2021-01-26-at-22.35.23.png "Optimized App Loading")
 
-Seems like we load the same files, but notice how the size of the **0.chunk.js** file reduced from 443kB to 409kB.
+It seems like we are loading the same files, but notice how the size of the **0.chunk.js** file has decreased from 443kB to 409kB.
 
-Do not close the developer tools and click on the button and observe how two more chunks are loaded on-demand:
+Do not close Developer Tools, click the button and watch two more chunks load on-demand:
 
 ![New Chunks Loaded](/img/screenshot-2021-01-26-at-22.39.54.png "New Chunks Loaded")
 
-The first one contains **moment** library, the second one our **Users** component.
+The first contains the **moment** library, the second our **Users** component.
 
-By organizing the code this way we do not force users to download everything which they may even not use.
+By organizing the code this way, we do not force users to download everything they might not even use.
 
-Sometimes it may not be obvious, where to use lazy loading, but a good starting point are routes:
+Sometimes it may not be obvious where to use lazy loading, but a good starting point are routes:
 
 ```jsx
 const Home = React.lazy(() => import("./routes/Home"));
@@ -206,11 +206,11 @@ export default App;
 
 ## React.lazy Limitations
 
-The feature is awesome, however there are some limitations we should remember about.
+The feature is great, however there are some limitations we should remember.
 
 #### 1. React.lazy currently only supports default exports.
 
-If you have a file with multiple named exports, you can create an intermediate module that reexports it as the default.
+If you have a file with multiple named exports, you can create an intermediate modules that re-export them as defaults.
 
 **Components.js:**
 
@@ -232,17 +232,17 @@ export { Users as default } from "./Components";
 const Users = React.lazy(() => import("./Users"));
 ```
 
-#### 2. React.lazy and Suspense are not available for Server-Side Rendering
+#### 2. React.lazy and Suspense are not available for Server-Side Rendering.
 
-If you want to do code-splitting in a server rendered app, the React team recommends [Loadable Components](https://github.com/gregberge/loadable-components). 
+If you want to performs code-splitting in a server rendered app, the React team recommends [Loadable Components](https://github.com/gregberge/loadable-components). 
 
-It has a nice [guide for bundle splitting with server-side rendering](https://loadable-components.com/docs/server-side-rendering/).
+There is a nice [guide for bundle splitting with server-side rendering](https://loadable-components.com/docs/server-side-rendering/).
 
 ## Error Handling
 
-It has already been mentioned that **Suspense** component is used to show some fallback UI while components are loading.
+It was mentioned earlier that the **Suspense** component is used to display a fallback UI while loading components.
 
-But what if one of those components throws an error?
+But what if one of these components throws an error?
 
 We can create an [Error Boundary](https://reactjs.org/docs/error-boundaries.html) to provide the best user experience.
 
@@ -284,7 +284,7 @@ class ErrorBoundary extends React.Component {
 export default ErrorBoundary;
 ```
 
-**Important note:** There is no hook equivalent of **componentDidCatch**, but React team is planning to add it soon.
+**Important note:** There is no hook equivalent of **componentDidCatch**, but the React team plans to add it soon.
 
 And wrap **Suspense** in the **ErrorBoundary** component:
 
@@ -297,3 +297,7 @@ And wrap **Suspense** in the **ErrorBoundary** component:
 ```
 
 ## Summary
+
+Proper use of lazy loading can significantly reduce the initial application loading time, as we can be sure that no unused code is loaded. 
+
+React provides us with all the necessary tools (React.lazy and Suspense) to make code splitting as easy as possible.
