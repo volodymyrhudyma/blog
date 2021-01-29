@@ -61,14 +61,26 @@ const url = "intent://#Intent;scheme=instagram://;package=com.instagram.android;
 **IOS:**
 
 ```javascript
+window.location.replace("APP_NAME"); 
+
+setTimeout(() => {
+  window.location.replace("APP_STORE_URL"); 
+}, 10000);
+```
+
+For iOS, try to open mobile app and set the timeout to a few seconds which will only run if an app is not installed.
+
+Make sure to replace **APP_NAME** and **APP_STORE_URL** with the values that belong to your mobile application.
+
+Example code for Instagram:
+
+```javascript
 window.location.replace("instagram://"); 
 
 setTimeout(() => {
   window.location.replace("https://apps.apple.com/us/app/instagram/id389801252"); 
 }, 10000);
 ```
-
-For iOS, try to open mobile app and set the timeout to a few seconds which will only run if an app is not installed.
 
 ## The Complete Example
 
