@@ -4,10 +4,14 @@ tag:
   - React
 promote: false
 metaDescription: // META
-teaser: // TEASER
+teaser: Launching mobile application of the specific page from the browser is
+  called mobile app Deep Linking. It is very useful if you have both, web and
+  mobile applications and want to make easy navigation between them. You may run
+  an email campaign that contains a link to your mobile application, clicking on
+  which...
 date: 2021-01-29T21:21:22.418Z
 ---
-Launching mobile application of the specific page from the browser is called mobile app Deep Linking.
+Launching mobile application of the specific page from the browser is called **Mobile App Deep Linking**.
 
 It is very useful if you have both, web and mobile applications and want to make easy navigation between them.
 
