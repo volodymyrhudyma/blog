@@ -9,7 +9,7 @@ teaser: Launching the mobile application of the specific page from the browser
   is called Mobile App Deep Linking. It is very useful if you have both web and
   mobile applications and want to easily navigate between them. You can launch
   an email campaign that contains a link that users can click to...
-date: 2021-01-29T21:21:22.418Z
+date: 2021-01-30T21:21:22.418Z
 ---
 Launching the mobile application of the specific page from the browser is called **Mobile App Deep Linking**.
 
@@ -137,7 +137,7 @@ const App = () => {
   return (
     <div className="App">
       <div>
-        If you have not been redirected automatically, click the following link:
+        If you have not been automatically redirected, click on the following link:
       </div>
       {isAndroid ? (
         <a href="https://play.google.com/store/apps/details?id=com.instagram.android">
