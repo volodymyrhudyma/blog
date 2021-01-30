@@ -1,0 +1,17 @@
+_id: c7b32c60-62d0-11eb-9644-ff308521c631
+name: Dan
+message: >-
+  Nice article. I agree you don’t always need redux, especially for small
+  projects, but the above does not scale well, so should only be used on small
+  projects. 
+
+
+  It’s often hard to know upfront if your project is small. RTK imho is easier
+  to setup than all the above, so if in doubt I’d recommend just going with it.
+  It will save you time in the long run and your DX will be far nice!
+
+
+  I really recommend people read
+  https://blog.isquaredsoftware.com/2021/01/context-redux-differences
+slug: /global-state-management-using-react-hooks/
+date: '2021-01-30T07:57:21.123Z'
