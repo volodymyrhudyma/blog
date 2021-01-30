@@ -43,19 +43,34 @@ Let's create a Deferred deep link to out mobile application that would open it, 
 **ANDROID:**
 
 ```javascript
-// Android Intent
-const url = "intent://#Intent;scheme=APP_NAME;package=APP_PACKAGE;end";
+// Android Intent Syntax
+intent:  
+  HOST/URI-path // Optional Host  
+  #Intent;  
+    package=\[string\];  
+    action=\[string\];  
+    category=\[string\];  
+    component=\[string\];  
+    scheme=\[string\];  
+  end;
+
+// Android Code
+const url = "intent://APP_HOST/#Intent;scheme=APP_NAME;package=APP_PACKAGE;end";
+
+window.location.replace(url); 
 ```
 
 For Android, Google provides the Intent URL.
 
-Make sure to replace **APP_NAME** and **APP_PACKAGE** with the values that belong to your mobile application.
+Make sure to replace **APP_NAME** and **APP_PACKAGE** with the values that belong to your mobile application, **APP_HOST** is an optional host value, which may not be needed (but is required to open instagram app in the next example).
 
 Example code for Instagram:
 
 ```javascript
 // Open Instagram
-const url = "intent://#Intent;scheme=instagram://;package=com.instagram.android;end";
+const url = "intent://instagram.com/#Intent;scheme=https;package=com.instagram.android;end";
+
+window.location.replace(url); 
 ```
 
 **IOS:**
@@ -88,10 +103,57 @@ To put all the code together, let's create a simple React application:
 
 `npx create-react-app deep-linking`
 
+Install [react-device-detect](https://www.npmjs.com/package/react-device-detect) library that would help us to detect the user's operation system:
+
+`yarn add react-device-detect`
+
 Open the **App** component and replace it with the following code:
 
 ```jsx
-// CODE
+import React, { useEffect } from "react";
+import { isAndroid, isIOS } from "react-device-detect";
+
+const App = () => {
+  useEffect(() => {
+    if (isAndroid) {
+      const url =
+        "intent://instagram.com/#Intent;scheme=https;package=com.instagram.android;end";
+
+      window.location.replace(url);
+    } else if (isIOS) {
+      window.location.replace("instagram://");
+
+      setTimeout(() => {
+        window.location.replace(
+          "https://apps.apple.com/us/app/instagram/id389801252"
+        );
+      }, 10000);
+    } else {
+      window.location.replace("https://instagram.com");
+    }
+  }, []);
+
+  return (
+    <div className="App">
+      <div>
+        If you have not been redirected automatically, click the following link:
+      </div>
+      {isAndroid ? (
+        <a href="https://play.google.com/store/apps/details?id=com.instagram.android">
+          Open Android app
+        </a>
+      ) : isIOS ? (
+        <a href="https://apps.apple.com/us/app/instagram/id389801252">
+          Open iOS app
+        </a>
+      ) : (
+        <a href="https://instagram.com">Open Web app</a>
+      )}
+    </div>
+  );
+};
+
+export default App;
 ```
 
 ## Summary
