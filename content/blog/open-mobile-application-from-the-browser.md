@@ -3,21 +3,21 @@ title: Open Mobile Application From The Browser
 tag:
   - React
 promote: false
-metaDescription: // META
-teaser: Launching mobile application of the specific page from the browser is
-  called mobile app Deep Linking. It is very useful if you have both, web and
-  mobile applications and want to make easy navigation between them. You may run
-  an email campaign that contains a link to your mobile application, clicking on
-  which...
+metaDescription: Learn how to open any mobile app from the browser or redirect
+  to Play/App Store or any fallback URL if it is not installed.
+teaser: Launching the mobile application of the specific page from the browser
+  is called Mobile App Deep Linking. It is very useful if you have both web and
+  mobile applications and want to easily navigate between them. You can launch
+  an email campaign that contains a link that users can click to...
 date: 2021-01-29T21:21:22.418Z
 ---
-Launching mobile application of the specific page from the browser is called **Mobile App Deep Linking**.
+Launching the mobile application of the specific page from the browser is called **Mobile App Deep Linking**.
 
-It is very useful if you have both, web and mobile applications and want to make easy navigation between them.
+It is very useful if you have both web and mobile applications and want to easily navigate between them.
 
-You may run an email campaign that contains a link to your mobile application, clicking on which users can read more about your products in your application.
+You can launch an email campaign that contains a link that users can click to read more about your products in your mobile app.
 
-There are a lot of use cases, but the general purpose is to optimize user experience and increase conversion rate.
+There are many use cases, but the general purpose is to optimize user experience and increase conversion rates.
 
 ## Deep Linking Types
 
@@ -25,20 +25,20 @@ There are two main types of Deep Links:
 
 * Default
 
-  The link opens an application if it is installed, otherwise shows an error message.
+  The link opens an application if it is installed, otherwise an error message will be displayed.
 * Deferred
 
-  The link opens an application if it is installed, otherwise redirects the user to Play or App Store (or to any other chosen location).
+  The link opens an application if it is installed, otherwise the user is redirected to Play or App Store (or another chosen location).
 
-Besides of these, you may have heard about **Contextual Deep Linking**.
+Besides these, you may have heard of **Contextual Deep Linking**.
 
-Contextual Deep Links are usually default or deferred with some additional parameters added to gather more information about users.
+Contextual Deep Links are usually default or deferred with some additional parameters added to collect more information about users.
 
 ## Creating A Deep Link
 
-Let's create a Deferred deep link to out mobile application that would open it, if installed, otherwise redirect to the Store, where the user can download it.
+Let's create a Deferred Deep Link to our mobile app that will open it if it's installed, otherwise redirect to the Store where the user can download it.
 
-**Important note:** this solution may not work properly in all browsers or older Android/iOS versions. However, it should work fine with Chrome and Safari.
+**Important note:** This solution may not work in all browsers or older Android/iOS versions. However, it should work fine with Chrome and Safari.
 
 **ANDROID**
 
@@ -62,7 +62,7 @@ const url = "intent://APP_HOST/#Intent;scheme=APP_NAME;package=APP_PACKAGE;end";
 window.location.replace(url); 
 ```
 
-Make sure to replace **APP_NAME** and **APP_PACKAGE** with the values that belong to your mobile application, **APP_HOST** is an optional host value, which may not be needed (but is required to open instagram app in the next example).
+Be sure to replace **APP_NAME** and **APP_PACKAGE** with the values that belong to your mobile app, **APP_HOST** is an optional host value that may not be needed (but is required to open the instagram app in the next example).
 
 Example code for Instagram:
 
@@ -75,7 +75,7 @@ window.location.replace(url);
 
 **IOS**
 
-For iOS, try to open mobile app and set the timeout to a few seconds which will only run if an app is not installed:
+On iOS, try opening the mobile app and set the timeout to a few seconds, which only runs when an app is not installed:
 
 ```javascript
 window.location.replace("APP_NAME"); 
@@ -86,7 +86,7 @@ setTimeout(() => {
 }, 10000);
 ```
 
-Make sure to replace **APP_NAME** and **APP_STORE_URL** with the values that belong to your mobile application.
+Be sure to replace **APP_NAME** and **APP_STORE_URL** with the values that belong to your mobile application.
 
 Example code for Instagram:
 
@@ -104,7 +104,7 @@ To put all the code together, let's create a simple React application:
 
 `npx create-react-app deep-linking`
 
-Install [react-device-detect](https://www.npmjs.com/package/react-device-detect) library that would help us to detect the user's operation system:
+Install the [react-device-detect](https://www.npmjs.com/package/react-device-detect) library, which would help us detect the user's operating system:
 
 `yarn add react-device-detect`
 
@@ -157,8 +157,12 @@ const App = () => {
 export default App;
 ```
 
+**Important note:** Do not try to test it on either iOS or Android by manually typing the url into the browser, as it will not work. Create a link somewhere that points to your React app and test by clicking on it.
+
 ## Summary
 
-Mobile App Deep Linking is a very complicated topic. It is very hard to prepare a solution that works for every scenario.
+Mobile App Deep Linking is a very complicated subject. 
 
-Fortunately, you do not always have to take care of it by yourself - there are a lot of paid services that would generate links for you and handle all the redirect logic under the hood.
+It is very hard to prepare a solution that works for every scenario.
+
+Fortunately, you do not always have to take care of it yourself - there are a lot of paid services that would generate links for you and do all the redirect logic under the hood.
