@@ -40,7 +40,9 @@ Let's create a Deferred deep link to out mobile application that would open it, 
 
 **Important note:** this solution may not work properly in all browsers or older Android/iOS versions. However, it should work fine with Chrome and Safari.
 
-**ANDROID:**
+**ANDROID**
+
+For Android, Google provides the Intent URL:
 
 ```javascript
 // Android Intent Syntax
@@ -60,8 +62,6 @@ const url = "intent://APP_HOST/#Intent;scheme=APP_NAME;package=APP_PACKAGE;end";
 window.location.replace(url); 
 ```
 
-For Android, Google provides the Intent URL.
-
 Make sure to replace **APP_NAME** and **APP_PACKAGE** with the values that belong to your mobile application, **APP_HOST** is an optional host value, which may not be needed (but is required to open instagram app in the next example).
 
 Example code for Instagram:
@@ -73,17 +73,18 @@ const url = "intent://instagram.com/#Intent;scheme=https;package=com.instagram.a
 window.location.replace(url); 
 ```
 
-**IOS:**
+**IOS**
+
+For iOS, try to open mobile app and set the timeout to a few seconds which will only run if an app is not installed:
 
 ```javascript
 window.location.replace("APP_NAME"); 
 
+// Wait 10s and redirect to App Store if app wsa not opened
 setTimeout(() => {
   window.location.replace("APP_STORE_URL"); 
 }, 10000);
 ```
-
-For iOS, try to open mobile app and set the timeout to a few seconds which will only run if an app is not installed.
 
 Make sure to replace **APP_NAME** and **APP_STORE_URL** with the values that belong to your mobile application.
 
