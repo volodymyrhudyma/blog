@@ -138,9 +138,7 @@ As you see, the custom validator function takes three arguments:
 * `propName` - the name of the property to be validated
 * `componentName` - the name of the component to be displayed in an error message
 
-The function should return an **Error** object if the validation fails. 
-
-Do not do any **console.warn** or **throw**, as this won't work inside **PropTypes.oneOfType**.
+The function should return an **Error** object if the validation fails. Do not do any **console.warn** or **throw**, as this won't work inside **PropTypes.oneOfType**.
 
 The above code in action:
 
@@ -154,7 +152,7 @@ They will be called for each key in the array or the object:
 
 ```javascript
 const emailValidator = (propValue, key, componentName, location, propFullName) => {
-  const regex = /^((([^<>()[]\.,;:s@"]+(.[^<>()[]\.,;:s@"]+)*)|(".+"))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,})))?$/;
+  const regex = /* Any reged to validate email */;
   
   if (!regex.test(propValue[key])) {
     return new Error(`Invalid prop `${propFullName}` passed to `${componentName}`. Expected a valid email address.`);
