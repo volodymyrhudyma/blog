@@ -31,7 +31,7 @@ Apart from providing a bunch of validators out-of-the-box, the library allows us
 
 The list of the most commonly used validators:
 
-```javascript
+```jsx
 Component.propTypes = {
   prop1: PropTypes.number,
   prop2: PropTypes.string,
@@ -51,7 +51,7 @@ We can add `isRequired` to the chain and make the prop required.
 
 If it is not passed - a warning will be shown:
 
-```javascript
+```jsx
 Component.propTypes = {
   prop1: PropTypes.number.isRequired,
 };
