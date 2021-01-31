@@ -84,3 +84,27 @@ If it is not passed - a warning will be shown:
 // WARNING IMAGE HERE
 
 ## Custom Validators
+
+One of the most common cases, where the library's core validators might be not sufficient is validating an email address:
+
+```javascript
+const emailValidator = (props, propName, componentName) => {
+  const regex = /* Any reged to validate email */;
+  
+  if (!regex.test(props[propName])) {
+    return new Error(`Invalid prop `${propName}` passed to `${componentName}`. Expected a valid email address.`);
+  }
+}
+
+Component.propTypes = {
+  email: emailValidator,
+}
+```
+
+As you see, the custom validator function takes three arguments: `props` - all props that are passed to the component, `propName` - name of the property to be validated and `componentName` - name of the component to be displayed in an error message.
+
+The function should return an **Error** object if the validation fails. Do not do any **console.warn** or **throw**, as this won't work inside **PropTypes.oneOfType**.
+
+The above code in action:
+
+// IMAGE HERE
