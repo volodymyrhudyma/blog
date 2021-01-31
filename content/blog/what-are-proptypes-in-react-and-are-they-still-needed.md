@@ -21,6 +21,37 @@ However, React provides us with one more alternative way - **PropTypes**.
 
 In earlier versions of React PropTypes were a part of React library, in the latest releases it was moved to a separate package named [prop-types](https://www.npmjs.com/package/prop-types).
 
+Install PropTypes:
+
+`yarn add prop-types`
+
+Import PropTypes:
+
+```javascript
+// ES6
+import PropTypes from "prop-types";
+
+// CommonJS
+const PropTypes = require("prop-types");
+```
+
+Use PropTypes:
+
+```jsx
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
+const UserDetails = (props) => (
+  /* Do something with the "props" */
+);
+
+Example.propTypes = {
+  id: number,
+  name: string,
+  surname: string,
+};
+```
+
 After defining PropTypes on a component - React will automatically validate them.
 
 If you use this library without React, a function named `PropTypes.checkPropTypes` has to be called manually.
@@ -94,17 +125,55 @@ const emailValidator = (props, propName, componentName) => {
   if (!regex.test(props[propName])) {
     return new Error(`Invalid prop `${propName}` passed to `${componentName}`. Expected a valid email address.`);
   }
-}
+};
 
 Component.propTypes = {
   email: emailValidator,
-}
+};
 ```
 
-As you see, the custom validator function takes three arguments: `props` - all props that are passed to the component, `propName` - name of the property to be validated and `componentName` - name of the component to be displayed in an error message.
+As you see, the custom validator function takes three arguments:
 
-The function should return an **Error** object if the validation fails. Do not do any **console.warn** or **throw**, as this won't work inside **PropTypes.oneOfType**.
+* `props` - all props that are passed to the component
+* `propName` - the name of the property to be validated
+* `componentName` - the name of the component to be displayed in an error message
+
+The function should return an **Error** object if the validation fails. 
+
+Do not do any **console.warn** or **throw**, as this won't work inside **PropTypes.oneOfType**.
 
 The above code in action:
 
 // IMAGE HERE
+
+#### Custom Validators For PropTypes.arrayOf and PropTypes.objectOf
+
+It is possible to create custom validators that will work with **PropTypes.arrayOf** and **PropTypes.objectOf**.
+
+They will be called for each key in the array or the object:
+
+```javascript
+const emailValidator = (propValue, key, componentName, location, propFullName) => {
+  const regex = /^((([^<>()[]\.,;:s@"]+(.[^<>()[]\.,;:s@"]+)*)|(".+"))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,})))?$/;
+  
+  if (!regex.test(propValue[key])) {
+    return new Error(`Invalid prop `${propFullName}` passed to `${componentName}`. Expected a valid email address.`);
+  }
+};
+
+Component.propTypes = {
+  emailList: PropTypes.arrayOf(emailValidator),
+};
+```
+
+This validator takes another props than the previous one:
+
+* `propValue` - an array or object to be validated
+* `key` - the key of the current item in iteration
+* `componentName` - the name of the component to be displayed in an error message
+* `location` - the location of the validated data
+* `propFullName` - the fully resolved name of the currently validated item to be displayed in an error message
+
+## Example Application With PropTypes
+
+## Summary
