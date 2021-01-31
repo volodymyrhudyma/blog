@@ -80,7 +80,7 @@ On iOS, try opening the mobile app and set the timeout to a few seconds, which o
 ```javascript
 window.location.replace("APP_NAME"); 
 
-// Wait 10s and redirect to App Store if app wsa not opened
+// Wait 10s and redirect to App Store if app was not opened
 setTimeout(() => {
   window.location.replace("APP_STORE_URL"); 
 }, 10000);
