@@ -174,4 +174,8 @@ This validator takes another props than the previous one:
 
 ## Example Application With PropTypes
 
+## PropTypes vs. TypeScript
+
+## Do We Still Need PropTypes?
+
 ## Summary
