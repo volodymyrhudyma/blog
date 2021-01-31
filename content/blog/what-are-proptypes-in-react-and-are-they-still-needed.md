@@ -47,12 +47,14 @@ Component.propTypes = {
 
 The above list allows props to be optional. If any of the props `prop1 ... prop7` is not passed to component, we would not get notified.
 
-We can add `isRequired` to the chain and make the prop required. 
-
-If it is not passed - a warning will be shown:
+We can add `isRequired` to the chain and make the prop required:
 
 ```jsx
 Component.propTypes = {
   prop1: PropTypes.number.isRequired,
 };
 ```
+
+If it is not passed - a warning will be shown:
+
+// WARNING IMAGE HERE
