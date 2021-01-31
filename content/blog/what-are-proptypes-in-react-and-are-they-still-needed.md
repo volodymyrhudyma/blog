@@ -27,6 +27,8 @@ If you use this library without React, a function named `PropTypes.checkPropType
 
 ## Basic Validators
 
+*The full list of available validators can be found [documentation](https://reactjs.org/docs/typechecking-with-proptypes.html#proptypes), in the following section we will learn the most common ones.*
+
 Apart from providing a bunch of validators out-of-the-box, the library allows us to create our own, custom ones, which is a nice feature if you want to validate a complex type.
 
 The list of the most commonly used validators:
@@ -42,8 +44,6 @@ Component.propTypes = {
   prop7: PropTypes.any,
 };
 ```
-
-To see the full list of available validators, see the [documentation](https://reactjs.org/docs/typechecking-with-proptypes.html#proptypes).
 
 The above list allows props to be optional. If any of the props `prop1 ... prop7` is not passed to component, we would not get notified.
 
