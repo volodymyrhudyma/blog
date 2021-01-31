@@ -25,7 +25,7 @@ After defining PropTypes on a component - React will automatically validate them
 
 If you use this library without React, a function named `PropTypes.checkPropTypes` has to be called manually.
 
-## Basic Validators
+## PropTypes Validators
 
 *The full list of available validators can be found [documentation](https://reactjs.org/docs/typechecking-with-proptypes.html#proptypes), in the following section we will learn the most common ones.*
 
@@ -42,10 +42,34 @@ Component.propTypes = {
   prop5: PropTypes.array,
   prop6: PropTypes.object,
   prop7: PropTypes.any,
+  
+  // Limited to the specific of values
+  prop8: PropTypes.oneOf([true, false, "true", "false"]),
+  
+  // Limited to the specific types
+  prop9: PropTypes.oneOfType([
+    PropType.bool,
+    PropType.string,
+  ]),
+  
+  // Limited to array of boolean values or strings
+  prop10: PropTypes.arrayOf(
+    PropTypes.oneOfType([
+      PropType.bool,
+      PropType.string
+    ])
+  ),
+  
+  // Limited to a specific shape
+  prop11: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    surname: PropTypes.string,
+  }),
 };
 ```
 
-The above list allows props to be optional. If any of the props `prop1 ... prop7` is not passed to component, we would not get notified.
+The above list allows props to be optional. If any of the props `prop1 ... prop11` is not passed to component, we would not get notified.
 
 We can add `isRequired` to the chain and make the prop required:
 
@@ -58,3 +82,5 @@ Component.propTypes = {
 If it is not passed - a warning will be shown:
 
 // WARNING IMAGE HERE
+
+## Custom Validators
