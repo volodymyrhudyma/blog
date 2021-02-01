@@ -176,6 +176,38 @@ This validator takes another props than the previous one:
 
 ## PropTypes vs. TypeScript
 
+Both, TypeScript and PropTypes are responsible for the type checking, however they work differently and report errors in different ways.
+
+TypeScript checks your code and displays errors in compile time (when you write code):
+
+// Example error
+
+PropTypes checks all props and displays warnings in run time (when your code is executed, but only in development mode).
+
+// Example warning
+
 ## Do We Still Need PropTypes?
+
+One of the most asked question is - "Do we still need PropTypes?".
+
+The answer may not be obvious - it depends.
+
+TypeScript may display an error you if a wrong type of the prop will be passed to the component, but if you integrate with an external API or use external library that does not have any typings, you can not be 100% sure that you will always get the correct data.
+
+That is the moment when PropTypes become useful - they will show a warning in console if any unexpected data ended up in your component, so it is much easier to debug where exactly is an error.
+
+If you want to publish a package that can be consumed with plain JavaScript - you may want to have PropTypes included, so consumers will be notified if they pass wrong arguments.
+
+To sum up - TypeScript typings are lost in the run-time, so to get accurate information about them use PropTypes.
+
+## Generating PropTypes From TypeScript
+
+Duplicating typings in both, TypeScript and PropTypes is time-consuming.
+
+Fortunately, there is a Babel plugin ([babel-plugin-typescript-to-proptypes](https://www.npmjs.com/package/babel-plugin-typescript-to-proptypes)) to generate React PropTypes from TypeScript interfaces or type aliases.
+
+The only drawback is that you have to use Babel in order to utilize this functionality.
+
+// Example code
 
 ## Summary
