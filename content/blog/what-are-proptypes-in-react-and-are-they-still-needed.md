@@ -3,8 +3,13 @@ title: What Are PropTypes In React And Are They Still Needed?
 tag:
   - React
 promote: false
-metaDescription: // META
-teaser: // TEASER
+metaDescription: TypeScript - static type checker vs. PropTypes - run-time props
+  checker in React. Learn similarities, differences and find out what to use in
+  your project.
+teaser: One of the most important things when building React application is to
+  make sure that the components receive correct props. Passing wrong props leads
+  to bugs and unexpected behavior, so it is a good idea to warn developers about
+  it...
 date: 2021-02-03T08:03:01.538Z
 ---
 One of the most important things when building React application is to make sure that the components receive correct props.
@@ -211,3 +216,9 @@ The only drawback is that you have to use Babel in order to utilize this functio
 // Example code
 
 ## Summary
+
+One of the hardest decisions developers have to make are connected with choosing the libraries to use in the project.
+
+On the one hand adding too many of them results in a bundle of a large size and slows the application down, but on the other hand not using necessary ones leads to increasing development time.
+
+When in comes to PropTypes and TypeScript - it very much depends on the circumstances if you must use only one of them, both or nothing, but for the vast majority of projects - TypeScript is enough for a good start.
