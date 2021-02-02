@@ -3,28 +3,30 @@ title: What Are PropTypes In React And Are They Still Needed?
 tag:
   - React
 promote: false
-metaDescription: TypeScript - static type checker vs. PropTypes - run-time props
+metaDescription: TypeScript - static type checker vs. PropTypes - runtime prop
   checker in React. Learn similarities, differences and find out what to use in
   your project.
 teaser: One of the most important things when building React application is to
   make sure that the components receive correct props. Passing wrong props leads
-  to bugs and unexpected behavior, so it is a good idea to warn developers about
-  it...
+  to bugs and unexpected behavior, so it's a good idea to warn developers about
+  this as early...
 date: 2021-02-03T08:03:01.538Z
 ---
 One of the most important things when building React application is to make sure that the components receive correct props.
 
-Passing wrong props leads to bugs and unexpected behavior, so it is a good idea to warn developers about it as soon as possible.
+Passing wrong props leads to bugs and unexpected behavior, so it's a good idea to warn developers about this as early as possible.
 
-There are a few different ways to prevent passing wrong props to React components, probably the most popular one is to use **TypeScript** - a static type checker.
+There are a few different ways to prevent passing incorrect props to React components.
 
-However, React provides us with one more alternative way - **PropTypes**.
+Probably the most popular is using **TypeScript** - a static type checker.
+
+However, React provides us with another alternative option - **PropTypes**.
 
 ## PropTypes In React
 
-**PropTypes** is a mechanism that checks props passed to your component **in the run-time**, ensures that they are of a specified type and warns you in the console if not (only in the development environment).
+**PropTypes** is a mechanism that checks the props passed to your component **at runtime**, makes sure that they are of a certain type, and warns you in the console if not (only in the development environment).
 
-In earlier versions of React PropTypes were a part of React library, in the latest releases it was moved to a separate package named [prop-types](https://www.npmjs.com/package/prop-types).
+In previous versions of React, PropTypes were a part of the React library, in the latest releases it has been moved to a separate package called [prop-types](https://www.npmjs.com/package/prop-types).
 
 Install PropTypes:
 
@@ -59,15 +61,15 @@ Example.propTypes = {
 
 After defining PropTypes on a component - React will automatically validate them.
 
-If you use this library without React, a function named `PropTypes.checkPropTypes` has to be called manually.
+If you use this library without React, a function called `PropTypes.checkPropTypes` must be called manually.
 
 ## PropTypes Validators
 
-*The full list of available validators can be found [documentation](https://reactjs.org/docs/typechecking-with-proptypes.html#proptypes), in the following section we will learn the most common ones.*
+*The complete list of available validators can be found at [documentation](https://reactjs.org/docs/typechecking-with-proptypes.html#proptypes), in the following section we will learn about the most common ones.*
 
-Apart from providing a bunch of validators out-of-the-box, the library allows us to create our own, custom ones, which is a nice feature if you want to validate a complex type.
+Apart from the fact that the library already provides a set of validators, we can also create custom ones, which is a nice feature if you want to validate a complex type.
 
-The list of the most commonly used validators:
+The list of the most common validators:
 
 ```jsx
 Component.propTypes = {
@@ -105,7 +107,9 @@ Component.propTypes = {
 };
 ```
 
-The above list allows props to be optional. If any of the props `prop1 ... prop11` is not passed to component, we would not get notified.
+In the above list, props may be optional. 
+
+If one of the props `prop1 ... prop11` is not passed to the component, we would not be notified.
 
 We can add `isRequired` to the chain and make the prop required:
 
@@ -115,13 +119,13 @@ ExampleComponent.propTypes = {
 };
 ```
 
-If it is not passed - a warning will be shown:
+If it is not passed - a warning will be displayed:
 
 ![PropTypes Warning](/img/screenshot-2021-02-02-at-16.10.11.png "PropTypes Warning")
 
 ## Custom Validators
 
-One of the most common cases, where the library's core validators might be not sufficient is validating an email address:
+One of the most common cases where the library's core validators fall short is when validating an email address:
 
 ```javascript
 const emailValidator = (props, propName, componentName) => {
@@ -137,19 +141,19 @@ Component.propTypes = {
 };
 ```
 
-As you see, the custom validator function takes three arguments:
+As you can see, the custom validator function takes three arguments:
 
 * `props` - all props that are passed to the component
 * `propName` - the name of the property to be validated
-* `componentName` - the name of the component to be displayed in an error message
+* `componentName` - the name of the component to display in an error message
 
-The function should return an **Error** object if the validation fails. Do not do any **console.warn** or **throw**, as this won't work inside **PropTypes.oneOfType**.
+The function should return an **Error** object if validation fails. Do not do any **console.warn** or **throw** as this will not work within **PropTypes.oneOfType**.
 
 #### Custom Validators For PropTypes.arrayOf and PropTypes.objectOf
 
-It is possible to create custom validators that will work with **PropTypes.arrayOf** and **PropTypes.objectOf**.
+It is possible to create custom validators that work with **PropTypes.arrayOf** and **PropTypes.objectOf**.
 
-They will be called for each key in the array or the object:
+They are called for each key in the array or object:
 
 ```javascript
 const emailValidator = (propValue, key, componentName, location, propFullName) => {
@@ -168,53 +172,53 @@ Component.propTypes = {
 This validator takes another props than the previous one:
 
 * `propValue` - an array or object to be validated
-* `key` - the key of the current item in iteration
-* `componentName` - the name of the component to be displayed in an error message
+* `key` - the key of the current element in the iteration
+* `componentName` - the name of the component to display in an error message
 * `location` - the location of the validated data
-* `propFullName` - the fully resolved name of the currently validated item to be displayed in an error message
+* `propFullName` - the fully resolved name of the currently validated element to be displayed in an error message
 
-Custom validators in action:
+Custom validator in action:
 
 ![PropTypes Custom Validator Warning](/img/screenshot-2021-02-02-at-16.12.45.png "PropTypes Custom Validator Warning")
 
 ## PropTypes vs. TypeScript
 
-Both, TypeScript and PropTypes are responsible for the type checking, however they work differently and report errors in different ways.
+Both TypeScript and PropTypes are responsible for type checking, but they work differently and report errors in different ways.
 
-TypeScript checks your code and displays errors in compile time (when you write code):
+TypeScript checks your code and reports errors at compile time (when you write code):
 
 ![TypeScript Warning](/img/screenshot-2021-02-02-at-16.17.10.png "TypeScript Warning")
 
-PropTypes checks all props and displays warnings in run time (when your code is executed, but only in development mode):
+PropTypes checks all props and displays warnings at runtime (when your code is executed, but only in development mode):
 
 ![PropTypes Warning](/img/screenshot-2021-02-02-at-16.10.11.png "PropTypes Warning")
 
 ## Do We Still Need PropTypes?
 
-One of the most asked question is - "Do we still need PropTypes?".
+One of the most frequently asked questions is - "Do we still need PropTypes?".
 
 The answer may not be obvious - it depends.
 
-TypeScript may display an error you if a wrong type of the prop will be passed to the component, but if you integrate with an external API or use external library that does not have any typings, you can not be 100% sure that you will always get the correct data.
+TypeScript may display an error message if an incorrect prop type is passed to the component, but if you are integrating with an external API or using an external library that does not have typings, you can not be 100% sure that you'll always get the right data.
 
-That is the moment when PropTypes become useful - they will show a warning in console if any unexpected data ended up in your component, so it is much easier to debug where exactly is an error.
+That's when PropTypes become useful - they display a warning in the console when unexpected data ends up in your component, making it much easier to debug where exactly an error is.
 
-If you want to publish a package that can be consumed with plain JavaScript - you may want to have PropTypes included, so consumers will be notified if they pass wrong arguments.
+If you want to publish a package that can be consumed with plain JavaScript, you should include PropTypes so that consumers are notified when they pass incorrect arguments.
 
-To sum up - TypeScript typings are lost in the run-time, so to get accurate information about them use PropTypes.
+In summary, TypeScript typings are lost at runtime, so to get accurate information about them, use PropTypes.
 
 ## Generating PropTypes From TypeScript
 
-Duplicating typings in both, TypeScript and PropTypes is time-consuming.
+Duplicating typings in both TypeScript and PropTypes is time-consuming and unnecessary.
 
 Fortunately, there is a Babel plugin ([babel-plugin-typescript-to-proptypes](https://www.npmjs.com/package/babel-plugin-typescript-to-proptypes)) to generate React PropTypes from TypeScript interfaces or type aliases.
 
-The only drawback is that you have to use Babel in order to utilize this functionality.
+The only drawback is that you need to use Babel to use this functionality.
 
 ## Summary
 
-One of the hardest decisions developers have to make are connected with choosing the libraries to use in the project.
+One of the most difficult decisions developers have to make is related to the choice of libraries to be used in the project.
 
-On the one hand adding too many of them results in a bundle of a large size and slows the application down, but on the other hand not using necessary ones leads to increasing development time.
+On the one hand, adding too many of them leads to a large package and slows down the application, but on the other hand, not using necessary libraries leads to an increase in development time.
 
-When in comes to PropTypes and TypeScript - it very much depends on the circumstances if you must use only one of them, both or nothing, but for the vast majority of projects - TypeScript is enough for a good start.
+When it comes to PropTypes and TypeScript, whether you need to use just one of them, both of them, or nothing at all depends a lot on the circumstances, but for the vast majority of projects, TypeScript is sufficient for a good start.
