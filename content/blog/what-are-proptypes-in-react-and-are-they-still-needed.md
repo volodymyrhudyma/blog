@@ -51,9 +51,9 @@ const UserDetails = (props) => (
 );
 
 Example.propTypes = {
-  id: number,
-  name: string,
-  surname: string,
+  id: PropTypes.number,
+  name: PropTypes.string,
+  surname: PropTypes.string,
 };
 ```
 
@@ -110,14 +110,14 @@ The above list allows props to be optional. If any of the props `prop1 ... prop1
 We can add `isRequired` to the chain and make the prop required:
 
 ```jsx
-Component.propTypes = {
+ExampleComponent.propTypes = {
   prop1: PropTypes.number.isRequired,
 };
 ```
 
 If it is not passed - a warning will be shown:
 
-// WARNING IMAGE HERE
+![PropTypes Warning](/img/screenshot-2021-02-02-at-16.10.11.png "PropTypes Warning")
 
 ## Custom Validators
 
@@ -128,7 +128,7 @@ const emailValidator = (props, propName, componentName) => {
   const regex = /* Any reged to validate email */;
   
   if (!regex.test(props[propName])) {
-    return new Error(`Invalid prop `${propName}` passed to `${componentName}`. Expected a valid email address.`);
+    return new Error(`Invalid prop ${propName} passed to ${componentName}. Expected a valid email address.`);
   }
 };
 
@@ -145,10 +145,6 @@ As you see, the custom validator function takes three arguments:
 
 The function should return an **Error** object if the validation fails. Do not do any **console.warn** or **throw**, as this won't work inside **PropTypes.oneOfType**.
 
-The above code in action:
-
-// IMAGE HERE
-
 #### Custom Validators For PropTypes.arrayOf and PropTypes.objectOf
 
 It is possible to create custom validators that will work with **PropTypes.arrayOf** and **PropTypes.objectOf**.
@@ -160,7 +156,7 @@ const emailValidator = (propValue, key, componentName, location, propFullName) =
   const regex = /* Any reged to validate email */;
   
   if (!regex.test(propValue[key])) {
-    return new Error(`Invalid prop `${propFullName}` passed to `${componentName}`. Expected a valid email address.`);
+    return new Error(`Invalid prop ${propFullName} passed to ${componentName}. Expected a valid email address.`);
   }
 };
 
@@ -177,6 +173,10 @@ This validator takes another props than the previous one:
 * `location` - the location of the validated data
 * `propFullName` - the fully resolved name of the currently validated item to be displayed in an error message
 
+Custom validators in action:
+
+![PropTypes Custom Validator Warning](/img/screenshot-2021-02-02-at-16.12.45.png "PropTypes Custom Validator Warning")
+
 ## Example Application With PropTypes
 
 ## PropTypes vs. TypeScript
@@ -185,11 +185,11 @@ Both, TypeScript and PropTypes are responsible for the type checking, however th
 
 TypeScript checks your code and displays errors in compile time (when you write code):
 
-// Example error
+![TypeScript Warning](/img/screenshot-2021-02-02-at-16.17.10.png "TypeScript Warning")
 
-PropTypes checks all props and displays warnings in run time (when your code is executed, but only in development mode).
+PropTypes checks all props and displays warnings in run time (when your code is executed, but only in development mode):
 
-// Example warning
+![PropTypes Warning](/img/screenshot-2021-02-02-at-16.10.11.png "PropTypes Warning")
 
 ## Do We Still Need PropTypes?
 
