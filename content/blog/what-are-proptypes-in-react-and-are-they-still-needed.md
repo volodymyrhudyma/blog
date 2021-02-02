@@ -213,8 +213,6 @@ Fortunately, there is a Babel plugin ([babel-plugin-typescript-to-proptypes](htt
 
 The only drawback is that you have to use Babel in order to utilize this functionality.
 
-// Example code
-
 ## Summary
 
 One of the hardest decisions developers have to make are connected with choosing the libraries to use in the project.
