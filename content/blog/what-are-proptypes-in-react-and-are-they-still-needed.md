@@ -45,8 +45,8 @@ const PropTypes = require("prop-types");
 Use PropTypes:
 
 ```jsx
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 const UserDetails = (props) => (
   /* Do something with the "props" */
@@ -199,7 +199,7 @@ One of the most frequently asked questions is - "Do we still need PropTypes?".
 
 The answer may not be obvious - it depends.
 
-TypeScript may display an error message if an incorrect prop type is passed to the component, but if you are integrating with an external API or using an external library that does not have typings, you can not be 100% sure that you'll always get the right data.
+TypeScript may display an error message if an incorrect prop type is passed to the component, but if you are integrating with an external API or using an external library that does not have typings, you can not be 100% sure that you will always get the right data.
 
 That's when PropTypes become useful - they display a warning in the console when unexpected data ends up in your component, making it much easier to debug where exactly an error is.
 
