@@ -177,8 +177,6 @@ Custom validators in action:
 
 ![PropTypes Custom Validator Warning](/img/screenshot-2021-02-02-at-16.12.45.png "PropTypes Custom Validator Warning")
 
-## Example Application With PropTypes
-
 ## PropTypes vs. TypeScript
 
 Both, TypeScript and PropTypes are responsible for the type checking, however they work differently and report errors in different ways.
