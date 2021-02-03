@@ -1,5 +1,5 @@
 ---
-title: What Are PropTypes In React And Are They Still Needed?
+title: PropTypes In React. Are They Still Needed?
 tag:
   - React
 promote: false
