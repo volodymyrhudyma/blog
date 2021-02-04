@@ -58,7 +58,7 @@ const App = () => <div>{html}</div>;
 
 The page would have worked this way:
 
-![XSS Example](/img/xss.gif "XSS Example")
+![XSS Example](/img/xss-attack.gif "XSS Example")
 
 If attackers executed any JavaScript code on your page, they would have a possibility to read any sensitive data (stored in cookies or local storage) and send to their servers.
 
