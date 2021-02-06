@@ -3,8 +3,11 @@ title: Render Raw HTML In React
 tag:
   - React
 promote: false
-metaDescription: // META
-teaser: // TEASER
+metaDescription: Learn how to sanitize and render HTML code in React by using
+  dangerouslySetInnerHTML prop or external libraries.
+teaser: Sometimes it is necessary to display an HTML code in React which may
+  come from an external source or WYSIWYG editor. By default, you are not
+  allowed to do this for security reasons, but there are a few ways to bypass...
 date: 2021-02-06T21:09:38.994Z
 ---
 Sometimes it is necessary to display an HTML code in React which may come from an external source or WYSIWYG editor.
@@ -149,3 +152,28 @@ const App = () => <div>{parse(cleanHTML)}</div>;
 ```
 
 **Important note:** Always check whether the library sanitized HTML automatically for you or not. The library we used is not doing this, so we still have to sanitize be ourselves.
+
+## Choosing the right way
+
+Choosing the right approach heavily depends on what you are going to do with the HTML you receive.
+
+If you are going to just display it as-is to the users, then you may not need any libraries for that, just sanitize and display it by using **dangerouslySetInnerHTML** prop.
+
+However, if you want to replace some of the HTML tags with React components, and display them, then an external library that allows doing this is definitely a way to go.
+
+Example: replace all **div** elements with **data-report-id** with the component that retrieves and renders an actual report.
+
+When using library, remember to check if it does sanitization for you.
+
+## Summary
+
+Parsing HTML code is a common task when building web applications.
+
+Every developer must know how to do it in the best and most secure way.
+
+In this article we learned:
+
+* Why React blocks rendering HTML code by default
+* What is an XSS attack?
+* Two ways of rendering HTML code in React
+* Why do we need to sanitize HTML code before rendering it with React
