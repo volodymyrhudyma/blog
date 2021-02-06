@@ -3,22 +3,22 @@ title: Render Raw HTML In React
 tag:
   - React
 promote: false
-metaDescription: Learn how to sanitize and render HTML code in React by using
-  dangerouslySetInnerHTML prop or external libraries.
-teaser: Sometimes it is necessary to display an HTML code in React which may
-  come from an external source or WYSIWYG editor. By default, you are not
-  allowed to do this for security reasons, but there are a few ways to bypass...
+metaDescription: Learn how to sanitize and render raw HTML code in React using
+  the dangerouslySetInnerHTML prop or external libraries.
+teaser: Sometimes it is necessary to display an HTML code in React, which comes
+  from an external source or a WYSIWYG editor. By default, this is not allowed
+  for security reasons, but there are a few ways to bypass this limitation...
 date: 2021-02-06T21:09:38.994Z
 ---
-Sometimes it is necessary to display an HTML code in React which may come from an external source or WYSIWYG editor.
+Sometimes it is necessary to display an HTML code in React, which comes from an external source or a WYSIWYG editor.
 
-By default, you are not allowed to do this for security reasons, but there are a few ways to bypass this restriction.
+By default, this is not allowed for security reasons, but there are a few ways to bypass this limitation.
 
-In this article, we will learn how to inject HTML code inside your React component.
+In this article, we will learn how to inject HTML code into your React component.
 
 ## Default Behaviour
 
-In order to better understand the default React behaviour, let's try to embed some HTML into the React component:
+To better understand React's default behaviour, let's try embedding some HTML into the React component:
 
 ```jsx
 const html = `
@@ -31,21 +31,21 @@ const App = () => (
 );
 ```
 
-Seems logical to expect "Heading" and "Paragraph" to be rendered in appropriate tags, but that is not how it works.
+It seems logical to expect "Heading" and "Paragraph" to be rendered in appropriate tags, but that's not how it works.
 
-React will treat html as a string and display the following:
+React treats html as a string and displays the following:
 
 ![HTML Displayed As A String](/img/screenshot-2021-02-04-at-22.23.44.png "HTML Displayed As A String")
 
-The reasoning behind this is simple - we prevent XSS attacks.
+The reason is simple - we prevent XSS attacks.
 
 ## XSS Protection
 
-[Cross-site scripting (XSS)](https://en.wikipedia.org/wiki/Cross-site_scripting) is a type of security vulnerability typically found in web applications. XSS attacks enable attackers to inject client-side scripts into web pages viewed by other users.
+> [Cross-site scripting (XSS)](https://en.wikipedia.org/wiki/Cross-site_scripting) is a type of security vulnerability typically found in web applications. XSS attacks enable attackers to inject client-side scripts into web pages viewed by other users.
 
-In order to prevent this type of vulnerability, React does not allow to render any embedded value in JSX by auto-escaping anything that is not explicitly written in the application and converts the embedded value to a string before rendering it.
+To prevent this type of vulnerability, React disallows the rendering of embedded values in JSX by automatically escaping anything that is not explicitly written in the application and converting the embedded value to a string before rendering.
 
-What would have happened if React allowed it?
+What would have happened if React had allowed it?
 
 ```jsx
 // Inject link, clicking which executes a script
@@ -63,15 +63,15 @@ The page would have worked this way:
 
 ![XSS Example](/img/xss-attack.gif "XSS Example")
 
-If attackers executed any JavaScript code on your page, they would have a possibility to read any sensitive data (stored in cookies or local storage) and send to their servers.
+If attackers run any JavaScript code on your page, they have the ability to read any sensitive data (stored in cookies or local storage) and send it to their servers.
 
-That's exactly why React prevents this situation by default.
+This is exactly why React prevents this situation by default.
 
 ## Way 1: dangerouslySetInnerHTML Prop
 
-HTML elements in React can be given a `dangerouslySetInnerHTML` prop that is a replacement for `innetHTML` and allows rendering HTML string as their content.
+HTML elements in React can be given a `dangerouslySetInnerHTML` prop, which is a replacement for `innerHTML` and allows rendering HTML strings as their content.
 
-It is called dangerous for a reason - by using it you are exposed to the XSS attack:
+It's called dangerous for a reason - using it exposes you to XSS attack:
 
 ```jsx
 const html = `
@@ -84,11 +84,11 @@ const App = () => <div dangerouslySetInnerHTML={{ __html: html }} />;
 
 The prop receives an object with **__html** key.
 
-If you choose this way of going forward, remember to sanitize your HTML before rendering even if it seems "safe" (comes from an Admin panel, or any source controlled by you).
+If you decide to go this route, remember to clean up your HTML before rendering, even if it seems "safe" (it comes from an admin panel or other source you control).
 
 > [HTML sanitization](https://en.wikipedia.org/wiki/HTML_sanitization) is the process of examining an HTML document and producing a new HTML document that preserves only whatever tags are designated "safe" and desired.
 
-There are a lot of external libraries available for this, like [dompurify](https://www.npmjs.com/package/dompurify), [sanitize-html](https://www.npmjs.com/package/sanitize-html), etc.
+There are many external libraries for this, such as [dompurify](https://www.npmjs.com/package/dompurify), [sanitize-html](https://www.npmjs.com/package/sanitize-html), etc.
 
 #### Sanitizing with "dompurify"
 
@@ -118,13 +118,13 @@ const cleanHTML = DOMPurify.sanitize(dirtyHTML, {
 const App = () => <div dangerouslySetInnerHTML={{ __html: cleanHTML }} />;
 ```
 
-Read [the documentation](https://www.npmjs.com/package/dompurify) to find out what tags are allowed by default and how to allow/disallow specific ones.
+Read [the documentation](https://www.npmjs.com/package/dompurify) to find out which tags are allowed by default and how to allow/disallow specific ones.
 
 ## Way 2: Using Extrernal Libraries
 
-One of the best available libraries is [html-react-parser](https://www.npmjs.com/package/html-react-parser). It allows parsing HTML code in both, Node.js and browser.
+One of the best libraries available is [html-react-parser](https://www.npmjs.com/package/html-react-parser). It allows parsing HTML code both in Node.js and in the browser.
 
-Let's install this library:
+Install the library:
 
 `yarn add html-react-parser`
 
@@ -151,29 +151,29 @@ const cleanHTML = DOMPurify.sanitize(dirtyHTML, {
 const App = () => <div>{parse(cleanHTML)}</div>;
 ```
 
-**Important note:** Always check whether the library sanitized HTML automatically for you or not. The library we used is not doing this, so we still have to sanitize be ourselves.
+**Important note:** Always check whether or not the library automatically sanitizes the HTML code. The library we use does not do this, so we still have to sanitize by ourselves.
 
 ## Choosing the right way
 
-Choosing the right approach heavily depends on what you are going to do with the HTML you receive.
+Choosing the right approach depends a lot on what you want to do with the HTML you receive. 
 
-If you are going to just display it as-is to the users, then you may not need any libraries for that, just sanitize and display it by using **dangerouslySetInnerHTML** prop.
+If you just want to display it to users as is, then you may not need any libraries for it, but just clean it up and display it with the **dangerouslySetInnerHTML** prop. 
 
-However, if you want to replace some of the HTML tags with React components, and display them, then an external library that allows doing this is definitely a way to go.
+However, if you want to replace some of the HTML tags with React components and display them, then an external library that allows you to do that is definitely a good solution.
 
-Example: replace all **div** elements with **data-report-id** with the component that retrieves and renders an actual report.
+Example: Replace all **div** elements with **data-report-id** with the component that retrieves and displays an actual report.
 
-When using library, remember to check if it does sanitization for you.
+If you use a library, remember to check if it sanitizes HTML automatically for you.
 
 ## Summary
 
 Parsing HTML code is a common task when building web applications.
 
-Every developer must know how to do it in the best and most secure way.
+Every developer needs to know how to do this in the best and safest way.
 
-In this article we learned:
+In this article, we have learned:
 
 * Why React blocks rendering HTML code by default
 * What is an XSS attack?
-* Two ways of rendering HTML code in React
-* Why do we need to sanitize HTML code before rendering it with React
+* Two ways to render HTML code in React
+* Why we need to sanitize HTML code before rendering it with React
