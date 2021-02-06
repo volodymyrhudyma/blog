@@ -69,7 +69,7 @@ This is exactly why React prevents this situation by default.
 
 ## Way 1: dangerouslySetInnerHTML Prop
 
-HTML elements in React can be given a `dangerouslySetInnerHTML` prop, which is a replacement for `innerHTML` and allows rendering HTML strings as their content.
+HTML elements in React can be given a **dangerouslySetInnerHTML** prop, which is a replacement for **innerHTML** and allows rendering HTML strings as their content.
 
 It's called dangerous for a reason - using it exposes you to XSS attack:
 
