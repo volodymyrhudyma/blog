@@ -65,3 +65,87 @@ If attackers executed any JavaScript code on your page, they would have a possib
 That's exactly why React prevents this situation by default.
 
 ## Way 1: dangerouslySetInnerHTML Prop
+
+HTML elements in React can be given a `dangerouslySetInnerHTML` prop that is a replacement for `innetHTML` and allows rendering HTML string as their content.
+
+It is called dangerous for a reason - by using it you are exposed to the XSS attack:
+
+```jsx
+const html = `
+  <h1>Heading</h1>
+  <p>Paragraph</p>
+`;
+
+const App = () => <div dangerouslySetInnerHTML={{ __html: html }} />;
+```
+
+The prop receives an object with **__html** key.
+
+If you choose this way of going forward, remember to sanitize your HTML before rendering even if it seems "safe" (comes from an Admin panel, or any source controlled by you).
+
+> [HTML sanitization](https://en.wikipedia.org/wiki/HTML_sanitization) is the process of examining an HTML document and producing a new HTML document that preserves only whatever tags are designated "safe" and desired.
+
+There are a lot of external libraries available for this, like [dompurify](https://www.npmjs.com/package/dompurify), [sanitize-html](https://www.npmjs.com/package/sanitize-html), etc.
+
+#### Sanitizing with "dompurify"
+
+Install the library:
+
+`yarn add dompurify`
+
+Use it for your **App** component:
+
+```jsx
+import React from "react";
+import DOMPurify from "dompurify";
+
+// HTML received from the server
+const dirtyHTML = `
+  <h1>Heading</h1>
+  <p>Paragraph</p>
+`;
+
+// The library allows HTML, SVG and MathML
+// We only need HTML
+const cleanHTML = DOMPurify.sanitize(dirtyHTML, {
+  USE_PROFILES: { html: true },
+});
+
+// Render sanitized HTML
+const App = () => <div dangerouslySetInnerHTML={{ __html: cleanHTML }} />;
+```
+
+Read [the documentation](https://www.npmjs.com/package/dompurify) to find out what tags are allowed by default and how to allow/disallow specific ones.
+
+## Way 2: Using Extrernal Libraries
+
+One of the best available libraries is [html-react-parser](https://www.npmjs.com/package/html-react-parser). It allows parsing HTML code in both, Node.js and browser.
+
+Let's install this library:
+
+`yarn add html-react-parser`
+
+And add it to our example:
+
+```jsx
+import React from "react";
+import DOMPurify from "dompurify";
+import parse from "html-react-parser";
+
+// HTML received from the server
+const dirtyHTML = `
+  <h1>Heading</h1>
+  <p>Paragraph</p>
+`;
+
+// The library allows HTML, SVG and MathML
+// We only need HTML
+const cleanHTML = DOMPurify.sanitize(dirtyHTML, {
+  USE_PROFILES: { html: true },
+});
+
+// Render sanitized HTML
+const App = () => <div>{parse(cleanHTML)}</div>;
+```
+
+**Important note:** Always check whether the library sanitized HTML automatically for you or not. The library we used is not doing this, so we still have to sanitize be ourselves.
