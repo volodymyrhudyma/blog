@@ -52,7 +52,7 @@ Locate the commit that adds date handling service:
 
 ![Add Date Service Commit](/img/screenshot-2021-02-07-at-12.14.24.png "Add Date Service Commit")
 
-Copy its hash, navigate to the terminal and execute the following command:
+Copy its hash (from the URL), navigate to the terminal, and execute the following command:
 
 `git cherry-pick bf6dd0785e7524314a1088a3fabf99b7296458c8`
 
