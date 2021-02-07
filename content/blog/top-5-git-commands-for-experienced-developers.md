@@ -201,7 +201,7 @@ They do their work in different ways.
 
 As it was mentioned earlier, one of the biggest benefits of using rebase strategy instead of merge - is a clean commit history.
 
-The second big benefit is a linear commit history, as it can be seen on the bottom image, so is easier to read commit history with **git log**.
+The second big benefit is a linear commit history, as it can be seen on the bottom image, so its easier to read commit history with **git log**.
 
 But you need to be careful when using rebase, as overwriting project history can break your collaboration workflow.
 
@@ -210,3 +210,36 @@ Remember the **Golden Rule Of Rebasing** - never do it on **public branches**.
 Read more about the differences between merge and rebase and the golden rule [here](https://dzone.com/articles/merging-vs-rebasing).
 
 ## git reflog
+
+This command tracks when git refs were updated locally.
+
+`git reflog`
+
+Reflogs are useful in various Git commands, to specify the old value of a reference. 
+
+For example, **HEAD@{5}** means "where HEAD was five moves ago":
+
+![Git Reflog Example](/img/screenshot-2021-02-07-at-16.23.06.png "Git Reflog Example")
+
+Let's try to read a reflog above:
+
+* I added a commit "Change App from main" to the **main** branch
+* I switched to a **feat/app** branch
+* I added a commit "Change App from feature branch" to the **feat/app** branch
+* I started and finished a rebase by executing **git rebase main** from the **feat/app** branch
+
+Imagine that for any reason the rebase was done unnecessarily, so now it is needed to roll the branch back to the original state.
+
+If you have it untouched on the remote, then for sure you can execute:
+
+`git reset --hard origin/feat/app`
+
+To reset it to the remote state, but what if the branch exists only locally?
+
+You can find a reference value before starting the rebase and reset to that moment (**HEAD@{3}** for our example):
+
+`git reset --hard HEAD@{3}`
+
+Voila, you just learned how to undo a rebase.
+
+## Reflog vs. Log
