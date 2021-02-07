@@ -42,7 +42,7 @@ console.log(formattedDate);
 
 Suddenly you realize that someone from your team just added a library for handling dates, let's say [dayjs](https://www.npmjs.com/package/dayjs), and created a nice service that can be used in your component.
 
-The code is not yet merged to the **dev** branch, it is still hanging as a Pull Request in Github, however, it got approved by your colleagues.
+The code is not yet merged to the **main** branch, it is still hanging as a Pull Request in Github, however, it got approved by your colleagues.
 
 You can either wait for it to be merged, but what if the author is out of the office?
 
@@ -108,6 +108,16 @@ This command allows resetting the current branch to the specific commit.
   `git reset --hard HEAD@{<step>}`
 
 ![Git Undo Rebase](/img/screenshot-2021-02-07-at-13.08.20.png "Git Undo Rebase")
+
+* Reset a local branch to the origin
+
+  From time to time I forget that I work on the **main** branch instead of the feature branch and commit my changes.
+
+  After I realize that something is wrong, I reset my local **main** branch to the remote with the following command:
+
+  `git reset --hard origin/main`
+
+![Git Reset Branch To Origin](/img/screenshot-2021-02-07-at-13.13.40.png "Git Reset Branch To Origin")
 
 ## git merge
 
