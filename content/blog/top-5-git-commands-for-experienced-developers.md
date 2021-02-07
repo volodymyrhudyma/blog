@@ -127,21 +127,21 @@ Imagine you are developing a feature on a separate branch and in the meantime, t
 
 Then the main branch must be merged into the feature branch:
 
-![Git Merge Example](/img/screenshot-2021-02-07-at-13.42.23.png "Git Merge Example")
+![Git Merge Example](/img/screenshot-2021-02-07-at-14.26.41.png "Git Merge Example")
 
 This creates a new merge commit that contains the histories of both branches:
 
-![Git Merge Commit](/img/screenshot-2021-02-07-at-13.44.51.png "Git Merge Commit")
+![Git Merge Commit](/img/screenshot-2021-02-07-at-14.27.02.png "Git Merge Commit")
 
 To ensure that the history is preserved, let's check the histories of both branches before the merge.
 
 **main**
 
-![Main Branch History](/img/screenshot-2021-02-07-at-13.46.34.png "Main Branch History")
+![Main Branch History](/img/screenshot-2021-02-07-at-14.25.07.png "Main Branch History")
 
-**feat/date-service**
+**feat/new-date-service**
 
-![Feature Branch History](/img/screenshot-2021-02-07-at-13.47.44.png "Feature Branch History")
+![Feature Branch History](/img/screenshot-2021-02-07-at-14.25.55.png "Feature Branch History")
 
 ## git rebase
 
