@@ -145,6 +145,20 @@ To ensure that the history is preserved, let's check the histories of both branc
 
 ## git rebase
 
+This command allows joining two or more branches together, just as **git merge** with some important differences:
+
+`git rebase <branch>`
+
+#### Example
+
+Rebase the feature branch onto the main branch:
+
+![Git Rebase Example](/img/screenshot-2021-02-07-at-14.15.21.png "Git Rebase Example")
+
+Rebase rewrites commit history by creating brand new commits for each commit in the original branch:
+
+
+
 ## Merge vs. Rebase
 
 ## git reflog
