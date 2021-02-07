@@ -169,6 +169,10 @@ To ensure that the history is preserved, let's check the histories of both branc
 
 ![Git Feature Branch History](/img/screenshot-2021-02-07-at-14.32.57.png "Git Feature Branch History")
 
+One of the biggest benefits of using rebase strategy instead of merge - is a clean commit history. 
+
+Unnecessary merge commits are skipped.
+
 ## Merge vs. Rebase
 
 ## git reflog
