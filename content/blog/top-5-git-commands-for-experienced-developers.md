@@ -123,11 +123,11 @@ This command allows joining two or more branches together.
 
 #### Examples
 
-Imagine you finish developing a new feature on a separate branch and it needs to be included in the upcoming release.
+Imagine you are developing a feature on a separate branch and in the meantime, the main branch was updated by a team member with the changes you need.
 
-It must be merged to the **main** branch:
+Then the main branch must be merged into the feature branch:
 
-![Git Merge Example](/img/screenshot-2021-02-07-at-13.31.21.png "Git Merge Example")
+![Git Merge Example](/img/screenshot-2021-02-07-at-13.42.23.png "Git Merge Example")
 
 ## git rebase
 
