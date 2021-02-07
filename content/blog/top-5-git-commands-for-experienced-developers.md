@@ -117,6 +117,8 @@ This command allows resetting the current branch to the specific commit.
 
 ## git merge
 
+![Git Merge](/img/git-merge.svg "Git Merge")
+
 This command allows joining two or more branches together.
 
 `git merge <branch>`
@@ -146,6 +148,8 @@ To ensure that the history is preserved, let's check the histories of both branc
 Note, how the **commit hashes are not changed** after the merge (still equal to `...7d5` and `...e92` for "Add date service" and "Add needed changes" commits respectively).
 
 ## git rebase
+
+![Git Rebase](/img/git-rebase.svg "Git Rebase")
 
 This command allows joining two or more branches together, just as **git merge** with some important differences:
 
