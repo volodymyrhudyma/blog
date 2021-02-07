@@ -19,7 +19,7 @@ We will skip the basic commands, like **git config**, **git clone**, etc assumin
 
 ## git cherry-pick
 
-This command is extremely helpful for applying the changes from a specific commit by creating a new commit on the active branch.
+This command is extremely helpful for applying the changes from the specific commit by creating a new commit on the active branch.
 
 `git cherry-pick <commit>`
 
@@ -72,6 +72,19 @@ console.log(formattedDate);
 ```
 
 ## git reset
+
+This command allows resetting the current branch to the specific commit.
+
+#### Examples
+
+A file has accidentally been added by **git add** command and needs to be reverted:
+
+```javascript
+git add -A
+git reset
+```
+
+![Git Add Revert](/img/screenshot-2021-02-07-at-12.50.21.png "Git Add Revert")
 
 ## git merge
 
