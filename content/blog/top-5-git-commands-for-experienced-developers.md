@@ -77,14 +77,21 @@ This command allows resetting the current branch to the specific commit.
 
 #### Examples
 
-A file has accidentally been added by **git add** command and needs to be reverted:
-
-```javascript
-git add -A
-git reset
-```
+* A file has accidentally been added by **git add** command and needs to be reverted:
 
 ![Git Add Revert](/img/screenshot-2021-02-07-at-12.50.21.png "Git Add Revert")
+
+* A file has accidentally been committed by **git commit** command and needs to be reverted or you realized that commit was incomplete (we do a soft reset):
+
+![Git Commit Revert](/img/screenshot-2021-02-07-at-12.55.00.png "Git Commit Revert")
+
+* Changes have been committed and you realize afterwards that they are not really needed and have to be removed completely (we do a hard reset):
+
+![Git Commit Remove](/img/screenshot-2021-02-07-at-13.00.01.png "Git Commit Remove")
+
+* Undo a merge or rebase (hard reset):
+
+
 
 ## git merge
 
