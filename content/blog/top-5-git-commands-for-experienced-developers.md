@@ -23,10 +23,6 @@ This command is extremely helpful for applying the changes from the specific com
 
 `git cherry-pick <commit>`
 
-Or skipping creating a commit if further changes to the applied code needed:
-
-`git cherry-pick -n <commit>`
-
 #### Example Usage
 
 Imagine working with a component that displays a formatted date. The component is finished, but it is using the native **Date** object in JavaScript:
@@ -121,6 +117,20 @@ This command allows resetting the current branch to the specific commit.
 
 ## git merge
 
+This command allows joining two or more branches together.
+
+`git merge <branch>`
+
+#### Examples
+
+Imagine you finish developing a new feature on a separate branch and it needs to be included in the upcoming release.
+
+It must be merged to the **main** branch:
+
+![Git Merge Example](/img/screenshot-2021-02-07-at-13.31.21.png "Git Merge Example")
+
 ## git rebase
+
+## Merge vs. Rebase
 
 ## git reflog
