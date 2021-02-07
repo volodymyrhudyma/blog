@@ -23,7 +23,7 @@ This command is extremely helpful for applying the changes from the specific com
 
 `git cherry-pick <commit>`
 
-#### Example Usage
+#### Example
 
 Imagine working with a component that displays a formatted date. The component is finished, but it is using the native **Date** object in JavaScript:
 
@@ -123,7 +123,7 @@ This command allows joining two or more branches together.
 
 `git merge <branch>`
 
-#### Examples
+#### Example
 
 Imagine you are developing a feature on a separate branch and in the meantime, the main branch was updated by a team member with the changes you need.
 
@@ -151,7 +151,7 @@ Note, how the **commit hashes are not changed** after the merge (still equal to 
 
 ![Git Rebase](/img/git-rebase.svg "Git Rebase")
 
-This command allows joining two or more branches together, just as **git merge** with some important differences:
+This command allows joining two or more branches together, just as **git merge** with some important differences.
 
 `git rebase <branch>`
 
