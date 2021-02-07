@@ -32,7 +32,7 @@ Or skipping creating a commit if further changes to the applied code needed:
 Imagine working with a component that displays a formatted date. The component is finished, but it is using the native **Date** object in JavaScript:
 
 ```javascript
-const date = new Date("2020-12-31");
+const date = new Date("2020/12/31");
 
 const formattedDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
 
@@ -65,7 +65,7 @@ And the changes are applied to your branch and can be used immediately:
 ```javascript
 import { formatDate } from "./services/DateService";
 
-const formattedDate = formatDate("2020-12-31");
+const formattedDate = formatDate("2020/12/31");
 
 // Output format: YYYY-MM-DD
 console.log(formattedDate);
