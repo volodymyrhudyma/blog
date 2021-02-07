@@ -151,7 +151,7 @@ Note, how the **commit hashes are not changed** after the merge (still equal to 
 
 ![Git Rebase](/img/git-rebase.svg "Git Rebase")
 
-This command allows joining two or more branches together, just as **git merge** with some important differences.
+This command allows joining two branches together, just as **git merge** with some important differences.
 
 `git rebase <branch>`
 
@@ -182,5 +182,21 @@ One of the biggest benefits of using rebase strategy instead of merge - is a cle
 Unnecessary merge commits are skipped.
 
 ## Merge vs. Rebase
+
+![Git Merge vs. Git Rebase](/img/merge-rebase.png "Git Merge vs. Git Rebase")
+
+Merging and rebasing are both designed for applying changes from one branch into another, however, there are some important differences between the two commands.
+
+They do their work in different ways.
+
+Merge:
+
+* Adds a new merge commit
+* Preserves history
+
+Rebase:
+
+* Does not add a new merge commit
+* Overwrites history by creating new commits for each commit in the original branch
 
 ## git reflog
