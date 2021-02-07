@@ -143,6 +143,8 @@ To ensure that the history is preserved, let's check the histories of both branc
 
 ![Feature Branch History](/img/screenshot-2021-02-07-at-14.25.55.png "Feature Branch History")
 
+Note, how the **commit hashes are not changed** after the merge (still equal to `...7d5` and `...e92` for "Add date service" and "Add needed changes" commits respectively).
+
 ## git rebase
 
 This command allows joining two or more branches together, just as **git merge** with some important differences:
@@ -168,6 +170,8 @@ To ensure that the history is preserved, let's check the histories of both branc
 **feat/new-date-service**
 
 ![Git Feature Branch History](/img/screenshot-2021-02-07-at-14.32.57.png "Git Feature Branch History")
+
+Note, how the **commit hashes for the original branch are changed** after the rebase (from `...17d` to `..ce6` for the "Add date service" commit).
 
 One of the biggest benefits of using rebase strategy instead of merge - is a clean commit history. 
 
