@@ -3,8 +3,12 @@ title: Top 5 Git Commands For Experienced Developers
 tag:
   - Other
 promote: false
-metaDescription: // META
-teaser: // TEASER
+metaDescription: Learn Top 5 Git Commands Every Experienced Developer Should
+  Know - cherry-pick, reset, merge, rebase and reflog.
+teaser: Most applications cannot be successfully developed by one person - they
+  usually require the collaboration of a few developers that work and share the
+  same code. To make the development easier and more robust - a version control
+  system is needed that...
 date: 2021-02-10T09:35:15.628Z
 ---
 Most applications cannot be successfully developed by one person - they usually require the collaboration of a few developers that work and share the same code.
