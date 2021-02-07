@@ -211,7 +211,7 @@ Read more about the differences between merge and rebase and the golden rule [he
 
 ## git reflog
 
-This command tracks when git refs were updated locally.
+This command tracks when git references were updated locally.
 
 `git reflog`
 
@@ -242,4 +242,10 @@ You can find a reference value before starting the rebase and reset to that mome
 
 Voila, you just learned how to undo a rebase.
 
-## Reflog vs. Log
+## Summary
+
+Git is an extremely powerful tool and it provides us with a lot of possibilities.
+
+There are many more important commands that every developer should know, but today we have learned some of the most popular ones (I use almost all of them on a daily basis!).
+
+I know that at the beginning all of these commands are overwhelming, but with a lot of practice, you will eventually become good at each and every one of them.
