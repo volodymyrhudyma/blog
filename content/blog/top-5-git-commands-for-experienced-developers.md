@@ -153,11 +153,21 @@ This command allows joining two or more branches together, just as **git merge**
 
 Rebase the feature branch onto the main branch:
 
-![Git Rebase Example](/img/screenshot-2021-02-07-at-14.15.21.png "Git Rebase Example")
+![Git Rebase Example](/img/screenshot-2021-02-07-at-14.29.57.png "Git Rebase Example")
 
 Rebase rewrites commit history by creating brand new commits for each commit in the original branch:
 
+![Git Rebase Overwritten History](/img/screenshot-2021-02-07-at-14.30.26.png "Git Rebase Overwritten History")
 
+To ensure that the history is preserved, let's check the histories of both branches before the rebase.
+
+**main**
+
+![Git Main Branch History](/img/screenshot-2021-02-07-at-14.31.44.png "Git Main Branch History")
+
+**feat/new-date-service**
+
+![Git Feature Branch History](/img/screenshot-2021-02-07-at-14.32.57.png "Git Feature Branch History")
 
 ## Merge vs. Rebase
 
