@@ -1,5 +1,5 @@
 ---
-title: Top 20 Git Commands For Experienced Developers
+title: Top 5 Git Commands For Experienced Developers
 tag:
   - Other
 promote: false
@@ -13,6 +13,16 @@ To make the development easier and more robust - a version control system is nee
 
 Mastering Git commands is a must-have skill for successful collaboration and code delivery.
 
-Today we will learn the top 20 git commands every experienced developer should know.
+Today we will learn the top 5 git commands every experienced developer should know.
 
-We will skip the basic commands, like **git config**, **git clone**, or **git init** assuming that you used and know them.
+We will skip the basic commands, like **git config**, **git clone**, etc assuming that you used and know them.
+
+## git cherry-pick
+
+## git reset
+
+## git merge
+
+## git rebase
+
+## git reflog
