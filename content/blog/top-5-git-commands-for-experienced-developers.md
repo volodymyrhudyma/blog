@@ -29,6 +29,28 @@ Or skipping creating a commit if further changes to the applied code needed:
 
 #### Example Usage
 
+Imagine working with a component that displays a formatted date. The component is finished, but it is using the native **Date** object in JavaScript.
+
+Suddenly you realize that someone from your team just added a library for handling dates, let's say [dayjs](https://www.npmjs.com/package/dayjs), and created a nice service that can be used in your component.
+
+The code is not yet merged to the **dev** branch, it is still hanging as a Pull Request in Github, however, it got approved by your colleagues.
+
+You can either wait for it to be merged, but what if the author is out of the office?
+
+That's the moment cherry-pick comes into play.
+
+Locate the commit that adds date handling service:
+
+...
+
+Copy its hash, navigate to the terminal and execute the following command:
+
+...
+
+And the changes are applied to your branch and can be used immediately:
+
+...
+
 ## git reset
 
 ## git merge
