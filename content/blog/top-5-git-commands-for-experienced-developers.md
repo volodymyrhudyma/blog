@@ -19,6 +19,16 @@ We will skip the basic commands, like **git config**, **git clone**, etc assumin
 
 ## git cherry-pick
 
+This command is extremely helpful for applying the changes from a specific commit by creating a new commit on the active branch.
+
+`git cherry-pick <commit>`
+
+Or skipping creating a commit if further changes to the applied code needed:
+
+`git cherry-pick -n <commit>`
+
+#### Example Usage
+
 ## git reset
 
 ## git merge
