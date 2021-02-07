@@ -189,14 +189,24 @@ Merging and rebasing are both designed for applying changes from one branch into
 
 They do their work in different ways.
 
-Merge:
+**Merge**:
 
 * Adds a new merge commit
 * Preserves history
 
-Rebase:
+**Rebase**:
 
 * Does not add a new merge commit
 * Overwrites history by creating new commits for each commit in the original branch
+
+As it was mentioned earlier, one of the biggest benefits of using rebase strategy instead of merge - is a clean commit history.
+
+The second big benefit is a linear commit history, as it can be seen on the bottom image, so is easier to read commit history with **git log**.
+
+But you need to be careful when using rebase, as overwriting project history can break your collaboration workflow.
+
+Remember the **Golden Rule Of Rebasing** - never do it on **public branches**.
+
+Read more about the differences between merge and rebase and the golden rule [here](https://dzone.com/articles/merging-vs-rebasing).
 
 ## git reflog
