@@ -129,6 +129,20 @@ Then the main branch must be merged into the feature branch:
 
 ![Git Merge Example](/img/screenshot-2021-02-07-at-13.42.23.png "Git Merge Example")
 
+This creates a new merge commit that contains the histories of both branches:
+
+![Git Merge Commit](/img/screenshot-2021-02-07-at-13.44.51.png "Git Merge Commit")
+
+To ensure that the history is preserved, let's check the histories of both branches before the merge.
+
+**main**
+
+![Main Branch History](/img/screenshot-2021-02-07-at-13.46.34.png "Main Branch History")
+
+**feat/date-service**
+
+![Feature Branch History](/img/screenshot-2021-02-07-at-13.47.44.png "Feature Branch History")
+
 ## git rebase
 
 ## Merge vs. Rebase
