@@ -1,5 +1,5 @@
 ---
-title: Two Ways To Change The Commit Message In Git
+title: 2 Ways To Change A Commit Message In Git
 tag:
   - Other
 promote: false
