@@ -16,7 +16,7 @@ Developers often find themselves in a situation where a commit message was missp
 
 While this is not any kind of a serious problem, it is nice to keep your commits history clean and understandable.
 
-In this article, we will learn two ways to do it.
+In this article, we will learn two ways to change a commit message in Git.
 
 ## Way 1: git commit --amend
 
