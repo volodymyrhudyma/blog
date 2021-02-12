@@ -10,7 +10,7 @@ teaser: Developers often find themselves in a situation where a commit message
   was misspelled because they were in a hurry to deliver a new feature. While
   this is not any kind of a serious problem, it is nice to keep your commits
   history clean and...
-date: 2021-02-13T21:25:32.600Z
+date: 2021-02-12T21:25:32.600Z
 ---
 Developers often find themselves in a situation where a commit message was misspelled because they were in a hurry to deliver a new feature.
 
