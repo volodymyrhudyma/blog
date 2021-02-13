@@ -70,7 +70,7 @@ SPA could be a better choice for websites promoting a single service or product.
 
 MPA could be a better choice for websites with a lot of content that require good SEO, or for websites that promote a lot of services or products (such as Amazon, eBay, etc.)
 
-## React Router
+## Add React Router
 
 React Router is a routing library for React that keeps your UI in sync with the URL and prevents pages from a full reload.
 
@@ -165,7 +165,7 @@ And the application works as expected:
 
 ![React Router v5 In Action](/img/router.gif "React Router v5 In Action")
 
-## Navigating Between Pages
+## Navigate Between Pages
 
 Rendering routes without having the ability to navigate between them is just a waste of time.
 
