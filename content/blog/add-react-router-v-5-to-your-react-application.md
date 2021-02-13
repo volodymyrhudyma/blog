@@ -199,3 +199,7 @@ const Home = ({ history }) => (
 ```
 
 ## Summary
+
+In this article, we have learned how to install, configure and use React Router v5 in React application.
+
+Subscribe to the newsletter to not miss the next article, in which we will learn how to create nested routes.
