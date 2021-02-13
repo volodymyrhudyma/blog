@@ -88,3 +88,78 @@ Run the following code to install the library:
 `yarn add react-router-dom`
 
 It should be successfully installed, so now let's configure it.
+
+Open **index.js**, import **BrowserRouter** and wrap the **App** component with it:
+
+```jsx
+// ...
+import { BrowserRouter } from "react-router-dom";
+
+ReactDOM.render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>,
+  document.getElementById("root")
+);
+
+// ...
+```
+
+Next, open the **App.js** component, import **Route** component, and declare your routes:
+
+```javascript
+// ..
+import { Route, Link } from "react-router-dom";
+
+const App = () => (
+  <>
+    <Header />
+    <Route exact path="/" component={Home}></Route>
+    <Route path="/contact" component={Contact}></Route>
+  </>
+);
+```
+
+As you see, at the very top we render the **Header** component that will allow us to navigate between different pages.
+
+Then we declare "**/**" route that renders the **Home** component on **exact** match and "**/contact**" route that renders the **Contact** component.
+
+**Important note:** If we don't add **exact** to the "**/**" route, then the "**/contact**" route will render not only the **Contact** component, but also **Home**.
+
+After creating missing components, our **App.js** looks the following way:
+
+```jsx
+import { Route, Link } from "react-router-dom";
+
+const Header = () => (
+  <div style={{ marginBottom: "15px" }}>
+    Navigate to:
+    <div>
+      <Link to="/">Home</Link>
+    </div>
+    <div>
+      <Link to="/contact">Contact</Link>
+    </div>
+  </div>
+);
+
+const Home = () => <div>Home</div>;
+
+const Contact = () => <div>Contact</div>;
+
+const App = () => (
+  <>
+    <Header />
+    <Route exact path="/" component={Home}></Route>
+    <Route path="/contact" component={Contact}></Route>
+  </>
+);
+
+export default App;
+```
+
+And the application works as expected:
+
+![React Router v5 In Action](/img/router.gif "React Router v5 In Action")
