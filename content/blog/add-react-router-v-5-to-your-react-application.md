@@ -198,6 +198,4 @@ const Home = ({ history }) => (
 );
 ```
 
-## Nested Routes
-
 ## Summary
