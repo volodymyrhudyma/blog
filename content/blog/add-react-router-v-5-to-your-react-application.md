@@ -134,15 +134,11 @@ After creating missing components, our **App.js** looks the following way:
 import { Route, Link } from "react-router-dom";
 
 const Header = () => (
-  <div style={{ marginBottom: "15px" }}>
+  <>
     Navigate to:
-    <div>
-      <Link to="/">Home</Link>
-    </div>
-    <div>
-      <Link to="/contact">Contact</Link>
-    </div>
-  </div>
+    <Link to="/">Home</Link>
+    <Link to="/contact">Contact</Link>
+  </>
 );
 
 const Home = () => <div>Home</div>;
@@ -163,3 +159,45 @@ export default App;
 And the application works as expected:
 
 ![React Router v5 In Action](/img/router.gif "React Router v5 In Action")
+
+## Navigating Between Pages
+
+Rendering routes without having the ability to navigate between them is just a waste of time.
+
+React Router provides us with two ways to navigate between the pages:
+
+* **Link** component
+
+Import **Link** component from the **react-router-dom** library and add **to** property that indicates which route the user should be navigated to after the click:
+
+```jsx
+// ...
+import { Link } from "react-router-dom";
+
+const Header = () => (
+  <>
+    Navigate to:
+    <Link to="/">Home</Link>
+    <Link to="/contact">Contact</Link>
+  </>
+);
+```
+
+* **history.push** function
+
+Components that are passed to the **component** prop in **Route** component receive **history** prop that can be used to programmatically navigate the user to a specific page:
+
+```jsx
+const Home = ({ history }) => (
+  <>
+    <div>Home</div>
+    <button onClick={() => history.push("/contact")}>
+      Navigate to Contact
+    </button>
+  </>
+);
+```
+
+## Nested Routes
+
+## Summary
