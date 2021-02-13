@@ -19,7 +19,7 @@ React is a library, not a framework, so it does not ship us with this feature.
 
 Fortunately, there are a few available libraries that are designed specifically for this purpose.
 
-The one we will be working with today is called [react-router](https://reactrouter.com/) and it is by far the most popular routing library for React with more than 4.4 million weekly downloads.
+The one we will be working with today is called [react-router](https://reactrouter.com/) and it is by far the most popular routing library for React with more than 4 million weekly downloads.
 
 ## SPA vs. MPA
 
@@ -66,3 +66,25 @@ SPA could be a better choice for websites promoting a single service or product.
 MPA could be a better choice for websites with a lot of content that require good SEO, or for websites that promote a lot of services or products (such as Amazon, eBay, etc.)
 
 ## React Router
+
+React Router is a routing library for React that keeps your UI in sync with the URL and prevents pages from a full reload.
+
+The library includes three packages:
+
+* [react-router](https://www.npmjs.com/package/react-router)
+
+  The core package for the Router.
+* [react-router-dom](https://www.npmjs.com/package/react-router-dom)
+
+  Router for Web applications.
+* [react-router-native](https://www.npmjs.com/package/react-router-native)
+
+  Router for Mobile applications using React Native.
+
+The one we are interested in now is **react-router-dom**, since we are building Web application.
+
+Run the following code to install the library:
+
+`yarn add react-router-dom`
+
+It should be successfully installed, so now let's configure it.
