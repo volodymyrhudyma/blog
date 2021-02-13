@@ -1,5 +1,5 @@
 ---
-title: Add React Router v.5 To Your React Application
+title: Add React Router v5 To Your React Application
 tag:
   - React
 promote: false
