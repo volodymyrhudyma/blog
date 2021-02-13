@@ -112,17 +112,19 @@ ReactDOM.render(
 // ...
 ```
 
-Next, open the **App.js** component, import **Route** component, and declare your routes:
+Next, open the **App.js** component, import **Route** and **Switch** components, and declare your routes:
 
 ```jsx
 // ..
-import { Route, Link } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
 const App = () => (
   <>
     <Header />
-    <Route exact path="/" component={Home}></Route>
-    <Route path="/contact" component={Contact}></Route>
+    <Switch>
+      <Route exact path="/" component={Home}></Route>
+      <Route path="/contact" component={Contact}></Route>
+    </Switch>
   </>
 );
 ```
@@ -131,12 +133,56 @@ As you see, at the very top we render the **Header** component that will allow u
 
 Then we declare "**/**" route that renders the **Home** component on **exact** match and "**/contact**" route that renders the **Contact** component.
 
-**Important note:** If we don't add **exact** to the "**/**" route, then the "**/contact**" route will render not only the **Contact** component, but also **Home**.
+All matched routes are rendered inclusively, therefore if we don't add **exact** to the "**/**" route, then the "**/contact**" route will render not only the **Contact** component, but also **Home**.
+
+The **Switch** component renders the first route that matches the URL.
+
+Consider the following example without **Switch**:
+
+```jsx
+// ..
+import { Route } from "react-router-dom";
+
+const App = () => (
+  <>
+    <Header />
+    <Route exact path="/" component={Home}></Route>
+    <Route path="/users" component={UserList}></Route>
+    {/* Route for displaying specific user's details */}
+    <Route path="/:id" component={User}></Route>
+  </>
+);
+```
+
+Pretending that **UserList** and **User** components will render some text, navigating to the "**/users**" route will render both, **UserList** and **User** component, however, we expect only **UserList** to be rendered:
+
+![Route Without Switch](/img/screenshot-2021-02-13-at-16.21.27.png "Route Without Switch")
+
+In the above example, both dynamic route "**/:id**" and **"/users*"*** match **"/users**" URL.
+
+To change that, wrap the route list in a **Switch** component:
+
+```jsx
+// ..
+import { Switch, Route } from "react-router-dom";
+
+const App = () => (
+  <>
+    <Header />
+    <Switch>
+      <Route exact path="/" component={Home}></Route>
+      <Route path="/users" component={UserList}></Route>
+      {/* Route for displaying specific user's details */}
+      <Route path="/:id" component={User}></Route>
+    </Switch>
+  </>
+);
+```
 
 After creating missing components, our **App.js** looks the following way:
 
 ```jsx
-import { Route, Link } from "react-router-dom";
+import { Switch, Route, Link } from "react-router-dom";
 
 const Header = () => (
   <>
@@ -153,8 +199,10 @@ const Contact = () => <div>Contact</div>;
 const App = () => (
   <>
     <Header />
-    <Route exact path="/" component={Home}></Route>
-    <Route path="/contact" component={Contact}></Route>
+    <Switch>
+      <Route exact path="/" component={Home}></Route>
+      <Route path="/contact" component={Contact}></Route>
+    </Switch>
   </>
 );
 
