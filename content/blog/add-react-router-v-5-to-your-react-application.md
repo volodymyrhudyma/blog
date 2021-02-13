@@ -7,7 +7,7 @@ metaDescription: // META
 teaser: // TEASER
 date: 2021-02-15T09:31:51.682Z
 ---
-A typical React application consists of many different views that are rendered when only some specific conditions are met.
+A typical Single Page Application built with React consists of many different views that are rendered when only some specific conditions are met.
 
 While it is possible to conditionally render all your components under one URL address (`/` by default), it is not a good idea, because you will end up with plenty of unmaintainable code.
 
@@ -25,7 +25,7 @@ The one we will be working with today is called [react-router](https://reactrout
 
 Before getting our hands dirty with the React Router, let's figure out the differences between a traditional Multi-Page Application and a Single-Page Application that we create with React.
 
-> A **single-page application** (**SPA**) is a web applicatio or website that interacts with the user by dynamically rewriting the current [](https://en.wikipedia.org/wiki/Web_page "Web page")web page with new data from the [](https://en.wikipedia.org/wiki/Web_server "Web server")web server, instead of the default method of the browser loading entire new pages. The goal is faster transitions that make the website feel more like a [n](https://en.wikipedia.org/wiki/Application_software "Application software")ative app.
+> A **single-page application** (**SPA**) is a web application or website that interacts with the user by dynamically rewriting the current [](https://en.wikipedia.org/wiki/Web_page "Web page")web page with new data from the [](https://en.wikipedia.org/wiki/Web_server "Web server")web server, instead of the default method of the browser loading entire new pages. The goal is faster transitions that make the website feel more like a [n](https://en.wikipedia.org/wiki/Application_software "Application software")ative app.
 
 In a Single-Page Application, navigating to different URL addresses does not require a full-page reload, whereas in a Multi-Page application the page is being fully reloaded.
 
@@ -64,3 +64,5 @@ Seeing all these pros and cons, it may be hard to pick the right approach until 
 SPA could be a better choice for websites promoting a single service or product.
 
 MPA could be a better choice for websites with a lot of content that require good SEO, or for websites that promote a lot of services or products (such as Amazon, eBay, etc.)
+
+## React Router
