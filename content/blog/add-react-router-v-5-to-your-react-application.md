@@ -9,7 +9,7 @@ date: 2021-02-15T09:31:51.682Z
 ---
 A typical Single Page Application built with React consists of many different views that are rendered when only some specific conditions are met.
 
-While it is possible to conditionally render all your components under one URL address (`/` by default), it is not a good idea, because you will end up with plenty of unmaintainable code.
+While it is possible to conditionally render all your components under one URL address ("**/**" by default), it is not a good idea, because you will end up with plenty of unmaintainable code.
 
 You need to have a possibility to declare application URLs and views that would be displayed when users enter the URL.
 
