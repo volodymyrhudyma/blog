@@ -21,4 +21,46 @@ Fortunately, there are a few available libraries that are designed specifically 
 
 The one we will be working with today is called [react-router](https://reactrouter.com/) and it is by far the most popular routing library for React with more than 4.4 million weekly downloads.
 
-## React Router
+## SPA vs. MPA
+
+Before getting our hands dirty with the React Router, let's figure out the differences between a traditional Multi-Page Application and a Single-Page Application that we create with React.
+
+> A **single-page application** (**SPA**) is a web applicatio or website that interacts with the user by dynamically rewriting the current [](https://en.wikipedia.org/wiki/Web_page "Web page")web page with new data from the [](https://en.wikipedia.org/wiki/Web_server "Web server")web server, instead of the default method of the browser loading entire new pages. The goal is faster transitions that make the website feel more like a [n](https://en.wikipedia.org/wiki/Application_software "Application software")ative app.
+
+In a Single-Page Application, navigating to different URL addresses does not require a full-page reload, whereas in a Multi-Page application the page is being fully reloaded.
+
+There are many benefits of using SPA instead of MPA:
+
+* **Speed**
+
+  SPA reloads the content within the browser, it works and feels much smoother and faster
+* **Loose Coupling**
+
+  With the SPA approach, the front-end and back-end are separate. You just need an API to be exposed to feed your front-end with the data.
+* **Code Reusability**
+
+  Create back-end once and use it for as many front-ends as you want. If you have a mobile application, the same back-end can be used to fetch the data for it as well.
+* **Mobile-friendly**
+
+  SPA is more mobile-friendly and usually works much faster on mobile phones.
+* **Offline mode**
+
+  Implementing caching in SPA allows you to create an application that can work offline.
+
+ But also, let's not forget about the drawbacks:
+
+* **SEO**
+
+  SPA is not as friendly to SEO as MPA, primarily because SPA is written in JavaScript that most search engines do not support yet.
+* **Smaller Scalability**
+
+  Both, in SPA and MPA there are no limits in the number of pages or amount of added content, but making changes to the architecture of SPA typically leads to more refactoring because it contains some components that are spread across the full application.
+* **Heavily Dependent On JavaScript**
+
+  A small number of people disable JavaScript in their browsers for security concerns. SPA would not work properly for them (a partial solution is to use Server-Side Rendering for the initial load, but all other functionality that uses JavaScript still won't be available).
+
+Seeing all these pros and cons, it may be hard to pick the right approach until you have a clear vision of what is the purpose of your application.
+
+SPA could be a better choice for websites promoting a single service or product.
+
+MPA could be a better choice for websites with a lot of content that require good SEO, or for websites that promote a lot of services or products (such as Amazon, eBay, etc.)
