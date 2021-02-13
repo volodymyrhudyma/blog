@@ -109,7 +109,7 @@ ReactDOM.render(
 
 Next, open the **App.js** component, import **Route** component, and declare your routes:
 
-```javascript
+```jsx
 // ..
 import { Route, Link } from "react-router-dom";
 
