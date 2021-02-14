@@ -68,7 +68,7 @@ SPA might be a better choice for websites that promote a single service or produ
 
 MPA might be a better choice for websites with a lot of content that require good SEO, or for websites that promote many of services or products (like Amazon, eBay, etc.).
 
-## Add React Router
+## Install React Router
 
 React Router is a routing library for React that keeps your UI in sync with the URL and prevents pages from a full reload.
 
@@ -91,6 +91,8 @@ Run the following code to install the library:
 `yarn add react-router-dom`
 
 It should be installed successfully, so let's configure it now.
+
+## Configure React Router
 
 Open **index.js**, import **BrowserRouter** and wrap the **App** component with it:
 
@@ -132,6 +134,8 @@ As you can see, at the very top, the **Header** component is rendered, which all
 Then we declare "**/**" route which renders the **Home** component on **exact** match, and "**/contact**" route which renders the **Contact** component.
 
 All matched routes are rendered inclusively, therefore if we don't add **exact** to the "**/**" route, the "**/contact**" route will render not only the **Contact** component, but also **Home**.
+
+#### The Switch Component
 
 The **Switch** component will render the first route that matches the URL.
 
