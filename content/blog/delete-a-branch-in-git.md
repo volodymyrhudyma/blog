@@ -47,6 +47,16 @@ Example:
 
 ## Delete Remote Branch
 
+If the branch has been pushed to remote, you can use the following command to delete it:
+
+`git push origin --delete <name>`
+
+Example:
+
+![Git Delete Remote Branch](/img/screenshot-2021-02-15-at-22.45.43.png "Git Delete Remote Branch")
+
+Note, that the branch would not be deleted locally.
+
 ## Undo Branch Delete
 
 ## Summary
