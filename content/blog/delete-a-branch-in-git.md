@@ -68,7 +68,7 @@ If you accidentally deleted a local branch with some important changes, you can 
 
 And
 
-`git reset --hard HEAD@{n}`
+`git checkout -b <name> <hash>`
 
 Create a branch and delete it:
 
@@ -78,8 +78,12 @@ Use reflog to see what has been recently done:
 
 ![Git Reflog Output](/img/screenshot-2021-02-15-at-22.52.48.png "Git Reflog Output")
 
-And recover the commit:
+And create a new branch with the deleted commit:
 
-![Git Recover Deleted Commit](/img/screenshot-2021-02-15-at-22.55.42.png "Git Recover Deleted Commit")
+![Git Recover Deleted Commit](/img/screenshot-2021-02-15-at-23.01.42.png "Git Recover Deleted Commit")
 
 ## Summary
+
+In this article, we have learned how to delete local and remote git branches and also how to undo the delete if it was done accidentally.
+
+Make sure to play around with the commands to learn and understand them better.
