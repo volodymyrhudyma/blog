@@ -3,8 +3,11 @@ title: Delete A Branch In Git
 tag:
   - Other
 promote: false
-metaDescription: // META
-teaser: // TEASER
+metaDescription: Learn how to delete git branch, both local and remote and how
+  to restore them by using reflog command.
+teaser: Nowadays, it is hard to imaging product development without using Git
+  branches to deliver a part of the functionality. A branch is an independent
+  line of development that is used in order to not mess with the...
 date: 2021-02-18T21:17:43.819Z
 ---
 Nowadays, it is hard to imaging product development without using Git branches to deliver a part of the functionality.
@@ -58,5 +61,25 @@ Example:
 Note, that the branch would not be deleted locally.
 
 ## Undo Branch Delete
+
+If you accidentally deleted a local branch with some important changes, you can restore the changes by using the combination of the following commands:
+
+`git reflog`
+
+And
+
+`git reset --hard HEAD@{n}`
+
+Create a branch and delete it:
+
+![Create And Delete Git Branch](/img/screenshot-2021-02-15-at-22.50.25.png "Create And Delete Git Branch")
+
+Use reflog to see what has been recently done:
+
+![Git Reflog Output](/img/screenshot-2021-02-15-at-22.52.48.png "Git Reflog Output")
+
+And recover the commit:
+
+![Git Recover Deleted Commit](/img/screenshot-2021-02-15-at-22.55.42.png "Git Recover Deleted Commit")
 
 ## Summary
