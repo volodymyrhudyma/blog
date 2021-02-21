@@ -306,6 +306,10 @@ export default App;
 
 Note that we don't need to create a separate component for each product, we can render a generic component that retrieves the product details based on the **slug**.
 
+The final example in action:
+
+![React Router v5 Nested Dynamic Routes](/img/react-router.gif "React Router v5 Nested Dynamic Routes")
+
 ## Summary
 
 React Router is a powerful tool to create a routing system in your React application.
