@@ -45,7 +45,77 @@ const App = () => (
 export default App;
 ```
 
-The corresponding URL can be the following: **/products/adidas-shoes-of-a-specific-type**.
+The corresponding URL can be the following: **/products/product1**.
+
+## Defining Nested Routes
+
+To define nested routes, let's define static **/products** route first.
+
+**App.js** component:
+
+```jsx
+import { Switch, Route, Link } from "react-router-dom";
+
+const Header = () => (
+  <>
+    Navigate to:
+    <Link to="/">Home</Link>
+    <Link to="/products">Products</Link>
+  </>
+);
+
+const Home = () => <div>Home</div>;
+
+const Products = () => <div>Products</div>;
+
+const App = () => (
+  <>
+    <Header />
+    <Switch>
+      <Route exact path="/" component={Home}></Route>
+      <Route path="/products" component={Products}></Route>
+    </Switch>
+  </>
+);
+
+export default App;
+```
+
+Now you can switch between the **Home** and **Products** page.
+
+If you have a small list of products and don't store them anywhere in the database, you can create a separate route for each of them (however, that is not recommended, it is better to use dynamic routes, but we'll talk about them in the next section).
+
+Modify the **Products** component:
+
+```jsx
+// ...
+
+const Product1 = () => <div>Product1</div>;
+
+const Product2 = () => <div>Product2</div>;
+
+const Products = () => (
+  <div>
+    <header>
+      Select a product:
+      <Link to="/products/product1">Product1</Link>
+      <Link to="/products/product2">Product2</Link>
+    </header>
+    <Route path="/products/product1" component={Product1} />
+    <Route path="/products/product2" component={Product2} />
+  </div>
+);
+
+// ...
+```
+
+We know that we sell only **Product1** and **Product2**, so we define their routes and components and render them.
+
+But what if your product catalogue contains thousands of items? 
+
+It doesn't make sense to define a thousand routes, right?
+
+That's when dynamic routing comes into play.
 
 ## Dynamic Routes
 
