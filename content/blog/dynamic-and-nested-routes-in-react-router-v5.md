@@ -111,13 +111,49 @@ const Products = () => (
 
 We know that we sell only **Product1** and **Product2**, so we define their routes and components and render them.
 
-But what if your product catalogue contains thousands of items? 
+But what if your product catalog contains thousands of items? 
 
 It doesn't make sense to define a thousand routes, right?
 
 That's when dynamic routing comes into play.
 
 ## Dynamic Routes
+
+Dynamic routing takes place when your app **is rendering**.
+
+An example of a dynamic route is **/:name** route that would match anything that comes after the slash and make this value available in your component under the same **name** as it is defined:
+
+```jsx
+import { Switch, Route, Link } from "react-router-dom";
+
+const Header = () => (
+  <>
+    Navigate to:
+    <Link to="/">Home</Link>
+    <Link to="/product1">Product</Link>
+  </>
+);
+
+const Home = () => <div>Home</div>;
+
+const Product = ({ match: { params } }) => <div>Product: {params.name}</div>;
+
+const App = () => (
+  <>
+    <Header />
+    <Switch>
+      <Route exact path="/" component={Home}></Route>
+      <Route path="/:name" component={Product}></Route>
+    </Switch>
+  </>
+);
+
+export default App;
+```
+
+When you click on a **Product** link, you would see the **Product product1** text printed on the screen.
+
+Note, that you have access to the **name** parameter by calling **match.params.name** on the **Product** component.
 
 ## Nested Dynamic Routes
 
