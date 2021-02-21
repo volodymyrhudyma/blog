@@ -22,25 +22,23 @@ It is a common thing to nest the UI components multiple levels deep and define t
 A good example for our online store can be nesting the **Product** components inside of the **Products**:
 
 ```jsx
+const products = [
+  {
+    id: 1,
+    name: "Product1",
+  },
+  {
+    id: 2,
+    name: "Product2",
+  },
+];
+
 const Product = ({ name }) => <div>{name}</div>;
 
 const Products = ({ products }) =>
   products.map((product) => <Product key={product.id} name={product.name} />);
 
-const App = () => (
-  <Products
-    products={[
-      {
-        id: 1,
-        name: "Product1",
-      },
-      {
-        id: 2,
-        name: "Product2",
-      },
-    ]}
-  />
-);
+const App = () => <Products products={products} />;
 
 export default App;
 ```
