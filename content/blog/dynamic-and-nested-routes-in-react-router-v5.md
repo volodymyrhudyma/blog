@@ -19,21 +19,12 @@ Imagine building an online store, where you need to let your users see all categ
 
 It is a common thing to nest the UI components multiple levels deep and define the URL that reflects the certain nested structure.
 
-A good example for our online store can be nesting the **Product** components inside of the **Products**:
+A good example for our online store can be nesting the **Product** components inside of the **Products**.
+
+**App.jsx** component:
 
 ```jsx
-const initialProducts = [
-  {
-    id: 1,
-    slug: "product1",
-    name: "Product1",
-  },
-  {
-    id: 2,
-    slug: "product2",
-    name: "Product2",
-  },
-];
+import { initialProducts } from "./data";
 
 const Product = ({ name }) => <div>{name}</div>;
 
@@ -45,13 +36,30 @@ const App = () => <Products products={initialProducts} />;
 export default App;
 ```
 
+**data.js** file:
+
+```javascript
+export const initialProducts = [
+  {
+    id: 1,
+    slug: "product1",
+    name: "Product1",
+  },
+  {
+    id: 2,
+    slug: "product2",
+    name: "Product2",
+  },
+];
+```
+
 The corresponding URL can be the following: **/products/product1**.
 
 ## Defining Nested Routes
 
 To define nested routes, let's define static **/products** route first.
 
-**App.js** component:
+**App.jsx** component:
 
 ```jsx
 import { Switch, Route, Link } from "react-router-dom";
@@ -155,16 +163,67 @@ When you click on a **Product** link, you would see the **Product product1** tex
 
 Note, that you have access to the **slug** parameter by calling **match.params.slug** on the **Product** component and can retrieve given product details based on its slug.
 
+## "useRouteMatch", "useLocation", "useHistory" Hooks
+
+When our component is passed to the **component** property of the **Route**, it is automatically fed up with the following props:
+
+![Route Component Props](/img/screenshot-2021-02-21-at-15.30.42.png "Route Component Props")
+
+* [history](https://reactrouter.com/web/api/history) - provides a minimal API that lets you manage the history stack, navigate, and persist state between sessions
+* [location](https://reactrouter.com/web/api/location) - represents where the app is now, where you want it to go, or even where it was
+* [match](https://reactrouter.com/web/api/match)-contains information about how a <Route path> matched the URL
+
+You can also access them by using the [useRouteMatch](https://reactrouter.com/web/api/Hooks/useroutematch)**,** [useLocation](https://reactrouter.com/web/api/Hooks/uselocation) and [useHistory](https://reactrouter.com/web/api/Hooks/usehistory) hooks:
+
+```jsx
+import {
+  useRouteMatch,
+  useHistory,
+  useLocation,
+} from "react-router-dom";
+
+const Product = (props) => {
+  // Same as props.match
+  const match = useRouteMatch();
+  
+  // Same as props.history
+  const history = useHistory();
+  
+  // Same as props.location
+  const location = useLocation();
+
+  return <div>Product: {match.params.slug}</div>;
+};
+```
+
+## "useParams" Hook
+
+It is possible to get the **slug** param from the URL by using the [useParams](https://reactrouter.com/web/api/Hooks/useparams) hook.
+
+Doing it this way would eliminate the need to use the **props** object or **useRouteMatch** hook:
+
+```jsx
+import {
+  useParams,
+} from "react-router-dom";
+
+const Product = () => {
+  const params = useParams();
+
+  return <div>Product: {params.slug}</div>;
+};
+```
+
 ## Nested Dynamic Routes
 
 Knowing what nested and dynamic routes are, we can learn how to combine both of them. 
 
 Let's rewrite our example from the "Nested Routes" section to include dynamic routing as well.
 
-Typically, online stores retrieve products from the API:
+Typically, online stores retrieve products from the API in the following format that is stored in the **data.js** file, as you should remember from the very first section:
 
 ```javascript
-const initialProducts = [
+export const initialProducts = [
   {
     id: 1,
     slug: "product1",
@@ -182,20 +241,9 @@ We should have a possibility to view all products under the **/products** URL an
 
 ```jsx
 import { useEffect, useState } from "react";
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route, Link, useParams } from "react-router-dom";
 
-const initialProducts = [
-  {
-    id: 1,
-    slug: "product1",
-    name: "Product1",
-  },
-  {
-    id: 2,
-    slug: "product2",
-    name: "Product2",
-  },
-];
+import { initialProducts } from "./data";
 
 const Header = () => (
   <>
@@ -207,12 +255,20 @@ const Header = () => (
 
 const Home = () => <div>Home</div>;
 
-const Product = ({ match: { params } }) => <div>Product: {params.slug}</div>;
+const Product = () => {
+  const params = useParams();
+
+  useEffect(() => {
+    // Fetch single product here
+  }, [params.slug]);
+
+  return <div>Product: {params.slug}</div>;
+};
 
 const Products = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    // ... (Fetch Products)
+    // Fetch products here
     setProducts(initialProducts);
   }, []);
 
@@ -220,7 +276,7 @@ const Products = () => {
     <div>
       <header>
         Select a product:
-        {initialProducts.map((product) => (
+        {products.map((product) => (
           <Link key={product.id} to={`/products/${product.slug}`}>
             {product.name}
           </Link>
