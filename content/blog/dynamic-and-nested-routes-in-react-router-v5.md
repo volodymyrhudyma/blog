@@ -164,7 +164,7 @@ Let's rewrite our example from the "Nested Routes" section to include dynamic ro
 Typically, online stores retrieve products from the API:
 
 ```javascript
-const products = [
+const initialProducts = [
   {
     id: 1,
     slug: "product1",
