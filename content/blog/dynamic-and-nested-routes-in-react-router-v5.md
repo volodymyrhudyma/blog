@@ -83,7 +83,7 @@ const App = () => (
       <Route exact path="/" component={Home}></Route>
       <Route path="/products" component={Products}></Route>
     </Switch>
-  </>
+  </>`
 );
 
 export default App;
@@ -144,7 +144,7 @@ const Header = () => (
 
 const Home = () => <div>Home</div>;
 
-const Product = ({ match: { params } }) => <div>Product: {params.slug}</div>;
+const Product = (props) => <div>Product: {props.match.params.slug}</div>;
 
 const App = () => (
   <>
@@ -161,7 +161,7 @@ export default App;
 
 When you click on a **Product** link, you would see the **Product product1** text printed on the screen.
 
-Note, that you have access to the **slug** parameter by calling **match.params.slug** on the **Product** component and can retrieve given product details based on its slug.
+Note, that you have access to the **slug** parameter by calling **props.match.params.slug** on the **Product** component and can retrieve given product details based on its slug.
 
 ## "useRouteMatch", "useLocation", "useHistory" Hooks
 
@@ -303,3 +303,9 @@ export default App;
 Note, that we don't need to create a separate component for each product, we can render a generic one that would get the product details based on the **slug**.
 
 ## Summary
+
+React Router is a powerful tool for creating a routing system in your React application.
+
+In the [previous article](/add-react-router-v-5-to-your-react-application/), we learned how to set up and configure the library. 
+
+Today we added some nested and dynamic routes to make our demo look like a real-world application.
