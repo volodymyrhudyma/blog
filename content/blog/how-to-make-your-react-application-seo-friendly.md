@@ -79,7 +79,17 @@ If a viewer is a human, a website is loaded normally.
 
 #### Pros and Cons of Pre-Rendering
 
-// TODO
+As with all other approaches, pre-rendering comes with its own advantages and disadvantages.
+
+#### Pros
+
+* allows Google to see the content for indexing
+* easy-to-implement (in comparison to server-side rendering or isomorphic applications)
+* lighter server payload (in comparison to server-side rendering)
+
+#### Cons
+
+* most services that can be used for pre-rendering are paid and work poorly with dynamic content
 
 ## Tip 2: Use Server-Side Rendering
 
