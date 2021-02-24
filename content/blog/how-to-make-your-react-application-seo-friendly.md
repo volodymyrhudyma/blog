@@ -67,7 +67,7 @@ In summary, while your client-side JavaScript application can be indexed, it is 
 
 ## Tip 1: Use Pre-Rendering
 
-Pre-Rendering is a process of pre-loading of the website content with the help of Headless Chrome to prepare it for web crawlers.
+**Pre-Rendering** is a process of pre-loading of the website content with the help of Headless Chrome to prepare it for web crawlers.
 
 > [Headless Chrome](https://developers.google.com/web/updates/2017/04/headless-chrome) is a way to run the Chrome browser in a headless environment. Essentially, running Chrome without chrome! It brings all modern web platform features provided by Chromium and the Blink rendering engine to the command line.
 
@@ -93,13 +93,13 @@ As with all other approaches, Pre-Rendering comes with its own advantages and di
 
 ## Tip 2: Use Server-Side Rendering
 
-With the Server-Side Rendering (SSR) approach, HTML is generated on the server.
+With the **Server-Side Rendering (SSR)** approach, HTML is generated on the server.
 
 Whenever a website is visited, the browser makes a request to the server which generates the HTML content and returns it back.
 
 There is a great open-source framework called [Next.js](https://nextjs.org/), that enables SSR for React-based web applications.
 
-It relieves a lot of problems which are typically faced by the developers, trying to set up SSR from scratch. is easy to start with and has awesome [documentation](https://nextjs.org/docs).
+It relieves a lot of problems that are typically faced by the developers, trying to set up SSR from scratch, is easy to start with, and has awesome [documentation](https://nextjs.org/docs).
 
 Make sure to consider using it when building a website that requires good SEO.
 
