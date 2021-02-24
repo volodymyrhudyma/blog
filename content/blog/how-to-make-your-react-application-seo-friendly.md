@@ -67,6 +67,20 @@ In summary, while your client-side JavaScript application can be indexed, it is 
 
 ## Tip 1: Use Pre-Rendering
 
+Pre-rendering is a process of pre-loading of the website content with the help of Headless Chrome to prepare it for web crawlers.
+
+> [Headless Chrome](https://developers.google.com/web/updates/2017/04/headless-chrome) is a way to run the Chrome browser in a headless environment. Essentially, running Chrome without chrome! It brings all modern web platform features provided by Chromium and the Blink rendering engine to the command line.
+
+Typically pre-rendering done with the help of a service (like [prerender.io](https://prerender.io/)), or a library (like [react-snap](https://github.com/stereobooster/react-snap)) that intercepts all requests to your website and checks **user-agent** to determine whether a website is requested by a robot or a human.
+
+If a viewer is a bot, it gets pre-rendered version of a website (cached HTML).
+
+If a viewer is a human, a website is loaded normally.
+
+#### Pros and Cons of Pre-Rendering
+
+// TODO
+
 ## Tip 2: Use Server-Side Rendering
 
 ## Tip 3: Build Isomorphic Applications
