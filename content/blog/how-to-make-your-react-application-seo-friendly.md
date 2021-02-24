@@ -44,3 +44,31 @@ Check your website on the [PageSpeed Insights](https://developers.google.com/spe
 To get a deeper understanding of how the whole process looks read "[How Google Search Works](https://developers.google.com/search/docs/beginner/how-search-works)" from Google.
 
 ## How Is JavaScript Processed By Google?
+
+JavaScript is used in almost every application these days because it provides us with many great features that allow building better, faster, and more powerful websites.
+
+Websites built with JavaScript can render on a client or on a server and the rendering type defines how easy it would be for a Google Bots to crawl your website.
+
+Server-rendered applications return HTML in the HTTP response, while client-rendered applications do not.
+
+HTTP response of a server-rendered application:
+
+// IMAGE
+
+HTTP response of a client-rendered application:
+
+// IMAGE
+
+if HTML is not returned, Google Bots execute JavaScript and wait for the completion to be able to see the website data, which is indexed and stored afterward.
+
+This process is complicated and there are many things that can go wrong, therefore relying on it is a bit risky.
+
+In summary, while your client-side JavaScript application can be indexed, it is still better to use server-side or pre-rendering, as it makes your website faster both, for users and crawlers.
+
+## Tip 1: Use Pre-Rendering
+
+## Tip 2: Use Server-Side Rendering
+
+## Tip 3: Build Isomorphic Applications
+
+## Summary
