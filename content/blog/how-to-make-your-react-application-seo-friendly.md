@@ -63,36 +63,48 @@ if HTML is not returned, Google Bots execute JavaScript and wait for the complet
 
 This process is complicated and there are many things that can go wrong, therefore relying on it is a bit risky.
 
-In summary, while your client-side JavaScript application can be indexed, it is still better to use server-side or pre-rendering, as it makes your website faster both, for users and crawlers.
+In summary, while your client-side JavaScript application can be indexed, it is still better to use Server-Side or Pre-Rendering, as it makes your website faster both, for users and crawlers.
 
 ## Tip 1: Use Pre-Rendering
 
-Pre-rendering is a process of pre-loading of the website content with the help of Headless Chrome to prepare it for web crawlers.
+Pre-Rendering is a process of pre-loading of the website content with the help of Headless Chrome to prepare it for web crawlers.
 
 > [Headless Chrome](https://developers.google.com/web/updates/2017/04/headless-chrome) is a way to run the Chrome browser in a headless environment. Essentially, running Chrome without chrome! It brings all modern web platform features provided by Chromium and the Blink rendering engine to the command line.
 
-Typically pre-rendering done with the help of a service (like [prerender.io](https://prerender.io/)), or a library (like [react-snap](https://github.com/stereobooster/react-snap)) that intercepts all requests to your website and checks **user-agent** to determine whether a website is requested by a robot or a human.
+Typically Pre-Rendering done with the help of a service (like [prerender.io](https://prerender.io/)), or a library (like [react-snap](https://github.com/stereobooster/react-snap)) that intercepts all requests to your website and checks **user-agent** to determine whether a website is requested by a robot or a human.
 
-If a viewer is a bot, it gets pre-rendered version of a website (cached HTML).
+If a viewer is a bot, it gets Pre-Rendered version of a website (cached HTML).
 
 If a viewer is a human, a website is loaded normally.
 
 #### Pros and Cons of Pre-Rendering
 
-As with all other approaches, pre-rendering comes with its own advantages and disadvantages.
+As with all other approaches, Pre-Rendering comes with its own advantages and disadvantages.
 
 #### Pros
 
 * allows Google to see the content for indexing
-* easy-to-implement (in comparison to server-side rendering or isomorphic applications)
-* lighter server payload (in comparison to server-side rendering)
+* easy-to-implement (in comparison to Server-Side Rendering or isomorphic applications)
+* lighter server payload (in comparison to Server-Side rendering)
 
 #### Cons
 
-* most services that can be used for pre-rendering are paid and work poorly with dynamic content
+* most services that can be used for Pre-Rendering are paid and work poorly with dynamic content
 
 ## Tip 2: Use Server-Side Rendering
 
-## Tip 3: Build Isomorphic Applications
+With the Server-Side Rendering (SSR) approach, HTML is generated on the server.
+
+Whenever a website is visited, the browser makes a request to the server which generates the HTML content and returns it back.
+
+There is a great open-source framework called [Next.js](https://nextjs.org/), that enables SSR for React-based web applications.
+
+It relieves a lot of problems which are typically faced by the developers, trying to set up SSR from scratch. is easy to start with and has awesome [documentation](https://nextjs.org/docs).
+
+Make sure to consider using it when building a website that requires good SEO.
+
+## Tip 3: Use Static-Site Generation
+
+## Tip 4: Build Isomorphic Applications
 
 ## Summary
