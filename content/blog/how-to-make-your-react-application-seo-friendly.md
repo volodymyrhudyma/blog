@@ -57,13 +57,15 @@ Server-rendered applications return HTML filled with all content in the HTTP res
 
 HTTP response of a server-rendered application:
 
-// IMAGE
+![Server-Rendered Application](/img/screenshot-2020-07-04-at-12.36.35.png "Server-Rendered Application")
 
 HTTP response of a client-rendered application:
 
-// IMAGE
+![Client-Rendered Application](/img/screenshot-2020-07-04-at-12.24.25.png "Client-Rendered Application")
 
-if full HTML is not returned, Google Bots execute JavaScript and wait for the completion to be able to see the website data, which is indexed and stored afterward.
+**Important note:** Notice, that `<div id="root"></div>` element is empty. After executing JavaScript files, the whole React application will be rendered inside the `<div id="root></div>` unless you change that:
+
+If complete HTML is not returned, Google Bots execute JavaScript and wait for the completion to be able to see the website data, which is indexed and stored afterward.
 
 This process is complicated and there are many things that can go wrong, therefore relying on it is a bit risky.
 
