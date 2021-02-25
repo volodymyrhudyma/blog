@@ -63,7 +63,7 @@ HTTP response of a Client-Rendered application:
 
 ![Client-Rendered Application](/img/screenshot-2020-07-04-at-12.24.25.png "Client-Rendered Application")
 
-**Important note:** Notice, that **<div id="root"></div>** element is empty. After executing JavaScript files, the whole React application will be rendered inside it unless you change that:
+**Important note:** Notice, that `<div id="root"></div>` element is empty. After executing JavaScript files, the whole React application will be rendered inside it unless you change that:
 
 If complete HTML is not returned, Google Bots execute JavaScript and wait for the completion to be able to see the website data, which is indexed and stored afterward.
 
