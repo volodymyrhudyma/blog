@@ -135,4 +135,20 @@ It uses React in conjunction with GraphQL, has great documentation and many usef
 
 ## Tip 4: Build Isomorphic Applications
 
+**Isomorphic (Universal) Application** - is an application that can run both on the server and the client.
+
+In an Isomorphic Application, the first request is processed by the server and subsequent requests are processed by the browser.
+
+This approach allows web crawlers to get HTML code on their request and index the webpage.
+
+#### Pros Of Isomorphic Apps
+
+* Full SEO support
+* Fast initial load
+* Fast processing of subsequent requests on the client-side
+
+#### Cons Of Isomorphic Apps
+
+* Harder configuration
+
 ## Summary
