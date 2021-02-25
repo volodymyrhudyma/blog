@@ -77,19 +77,15 @@ If a viewer is a bot, it gets Pre-Rendered version of a website (cached HTML).
 
 If a viewer is a human, a website is loaded normally.
 
-#### Pros and Cons of Pre-Rendering
+#### Pros Of Pre-Rendering
 
-As with all other approaches, Pre-Rendering comes with its own advantages and disadvantages.
+* Allows Google to see the content for indexing
+* Easy-to-implement (in comparison to Server-Side Rendering or isomorphic applications)
+* Lighter server payload (in comparison to Server-Side rendering)
 
-#### Pros
+#### Cons Of Pre-Rendering
 
-* allows Google to see the content for indexing
-* easy-to-implement (in comparison to Server-Side Rendering or isomorphic applications)
-* lighter server payload (in comparison to Server-Side rendering)
-
-#### Cons
-
-* most services that can be used for Pre-Rendering are paid and work poorly with dynamic content
+* Most services that can be used for Pre-Rendering are paid and work poorly with dynamic content
 
 ## Tip 2: Use Server-Side Rendering
 
@@ -103,7 +99,39 @@ It relieves a lot of problems that are typically faced by the developers, trying
 
 Make sure to consider using it when building a website that requires good SEO.
 
-## Tip 3: Use Static-Site Generation
+#### Pros Of SSR
+
+* Good for frequently-updated websites
+* Fast initial load
+
+#### Const Of SSR
+
+* High server load
+
+## Tip 3: Use Static-Site Generator
+
+**Static-Site Generation** is a process of generating pages in the build time to make them available instantly after being requested by the user.
+
+The biggest difference between the "traditional" approach (like SSR or Client-Side Rendering) is that instead of waiting for the page to be requested and generated on-demand, Statis-Site Generator does this in advance for every page you serve.
+
+One of the greatest benefits is speed and Search Engines really like that.
+
+**Statis-Site Generator** is a tool that takes your templates, fills them with content, and spits out HTML, CSS, and JavaScript files.
+
+One of the most popular open-source Static-Site Generators is [GatsbyJS](https://www.gatsbyjs.com/).
+
+It uses React in conjunction with GraphQL, has great documentation and many useful plugins that will make the development super fun.
+
+#### Pros Of SSG
+
+* Performance
+* Flexibility
+* Low server load
+
+#### Cons Of SSG
+
+* Hard to manage frequently-updated content - the website has to be re-build to generate newly added pages
+* Long build time
 
 ## Tip 4: Build Isomorphic Applications
 
