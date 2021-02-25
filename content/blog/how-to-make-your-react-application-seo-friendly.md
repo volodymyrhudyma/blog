@@ -3,8 +3,12 @@ title: How To Make Your React Application SEO-Friendly?
 tag:
   - React
 promote: false
-metaDescription: // META
-teaser: // TEASER
+metaDescription: Make your React application SEO-friendly and improve your
+  Google Rank by using these 4 easy tips.
+teaser: Search Engine Optimization (SEO) is a process of improving the quality
+  and quantity of website traffic to a website from search engines. A tremendous
+  number of people use Google as a tool to search for information, so it is
+  extremely important for your website to be ranked...
 date: 2021-02-26T21:08:53.550Z
 ---
 **Search Engine Optimization** (SEO) is a process of improving the quality and quantity of website traffic to a website from search engines.
@@ -13,15 +17,15 @@ A tremendous number of people use Google as a tool to search for information, so
 
 The higher you are ranked, the more traffic you get, as simple as that.
 
-Before we start learning what are the problems with SEO and React and how to get rid of them, let's get a quick overview of how websites are indexed by Google.
+Before we start learning what are the problems with SEO and React and how to get rid of them, let's get a really quick overview of how websites are indexed by Google.
 
 ## Step 1: Crawling
 
 There is no single place where all websites are registered, so Google has to constantly search for new websites and add them to its list.
 
-It uses a lot of [Google Bots](https://developers.google.com/search/docs/advanced/crawling/googlebot) (web crawlers) that do this kind of work.
-
 This process is called **crawling**.
+
+It uses a lot of [Google Bots](https://developers.google.com/search/docs/advanced/crawling/googlebot) (web crawlers) that do this kind of work.
 
 ## Step 2: Indexing
 
@@ -152,3 +156,12 @@ This approach allows web crawlers to get full HTML code on their request and ind
 * Harder configuration
 
 ## Summary
+
+There are a few ways to make your React application SEO-Friendly:
+
+* Pre-Rendering
+* Server-Site Rendering
+* Statis-Site Generation
+* Isomorphic Application
+
+There is no "recommended" approach, each one comes with its own pros and cons, so to choose the proper way, you need to know exactly what type of application are you building.
