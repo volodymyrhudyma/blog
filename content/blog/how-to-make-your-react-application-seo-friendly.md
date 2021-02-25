@@ -4,7 +4,7 @@ tag:
   - React
 promote: false
 metaDescription: Make your React application SEO-friendly and improve your
-  Google Rank by using these 4 easy tips.
+  Google Rank by using one of the 4 easy tips.
 teaser: Search Engine Optimization (SEO) is a process of improving the quality
   and quantity of website traffic to a website from search engines. A tremendous
   number of people use Google as a tool to search for information, so it is
@@ -53,13 +53,13 @@ JavaScript is used in almost every application these days because it provides us
 
 Websites built with JavaScript can render on a client or on a server and the rendering type defines how easy it would be for a Google Bots to crawl your website.
 
-Server-rendered applications return HTML filled with all content in the HTTP response, while client-rendered applications do not.
+Server-Rendered Applications return HTML filled with all content in the HTTP response, while Client-Rendered Applications do not.
 
-HTTP response of a server-rendered application:
+HTTP response of a Server-Rendered Application:
 
 ![Server-Rendered Application](/img/screenshot-2020-07-04-at-12.36.35.png "Server-Rendered Application")
 
-HTTP response of a client-rendered application:
+HTTP response of a Client-Rendered application:
 
 ![Client-Rendered Application](/img/screenshot-2020-07-04-at-12.24.25.png "Client-Rendered Application")
 
@@ -69,7 +69,7 @@ If complete HTML is not returned, Google Bots execute JavaScript and wait for th
 
 This process is complicated and there are many things that can go wrong, therefore relying on it is a bit risky.
 
-In summary, while your client-side JavaScript application can be indexed, it is still better to use Server-Side or Pre-Rendering, as it makes your website faster both, for users and crawlers.
+In summary, while your Client-Side JavaScript application can be indexed, it is still better to use Server-Side or Pre-Rendering, as it makes your website faster both, for users and crawlers.
 
 ## Common JavaScript Issues
 
@@ -158,7 +158,7 @@ It uses React in conjunction with GraphQL, has great documentation and many usef
 * Hard to manage frequently-updated content - the website has to be re-build to generate newly added pages
 * Long build time
 
-## Tip 4: Build Isomorphic Applications
+## Tip 4: Build Isomorphic Application
 
 **Isomorphic (Universal) Application** - is an application that can run both on the server and the client.
 
