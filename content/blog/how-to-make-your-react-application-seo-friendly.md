@@ -49,7 +49,7 @@ JavaScript is used in almost every application these days because it provides us
 
 Websites built with JavaScript can render on a client or on a server and the rendering type defines how easy it would be for a Google Bots to crawl your website.
 
-Server-rendered applications return HTML in the HTTP response, while client-rendered applications do not.
+Server-rendered applications return HTML filled with all content in the HTTP response, while client-rendered applications do not.
 
 HTTP response of a server-rendered application:
 
@@ -59,7 +59,7 @@ HTTP response of a client-rendered application:
 
 // IMAGE
 
-if HTML is not returned, Google Bots execute JavaScript and wait for the completion to be able to see the website data, which is indexed and stored afterward.
+if full HTML is not returned, Google Bots execute JavaScript and wait for the completion to be able to see the website data, which is indexed and stored afterward.
 
 This process is complicated and there are many things that can go wrong, therefore relying on it is a bit risky.
 
@@ -89,7 +89,7 @@ If a viewer is a human, a website is loaded normally.
 
 ## Tip 2: Use Server-Side Rendering
 
-With the **Server-Side Rendering (SSR)** approach, HTML is generated on the server.
+With the **Server-Side Rendering (SSR)** approach, HTML code is generated on the server.
 
 Whenever a website is visited, the browser makes a request to the server which generates the HTML content and returns it back.
 
@@ -139,7 +139,7 @@ It uses React in conjunction with GraphQL, has great documentation and many usef
 
 In an Isomorphic Application, the first request is processed by the server and subsequent requests are processed by the browser.
 
-This approach allows web crawlers to get HTML code on their request and index the webpage.
+This approach allows web crawlers to get full HTML code on their request and index the webpage.
 
 #### Pros Of Isomorphic Apps
 
