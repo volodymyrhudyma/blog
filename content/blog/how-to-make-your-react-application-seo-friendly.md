@@ -69,6 +69,25 @@ This process is complicated and there are many things that can go wrong, therefo
 
 In summary, while your client-side JavaScript application can be indexed, it is still better to use Server-Side or Pre-Rendering, as it makes your website faster both, for users and crawlers.
 
+## Common JavaScript Issues
+
+The most common issues with JavaScript:
+
+* If it contains an error, a Google Bot will see and index an empty page
+* If it takes too long to load, your crawl budget will be drained by the smaller number of pages, so some pages wouldn't be indexed
+
+**Crawl budget is** the level of attention a Search Engine gives your site. 
+
+Wasting it leads to a smaller number of pages being indexed.
+
+If you have Google Search Console connected to your website, go to **Settings** -> **Crawl Stats** and see how many of your pages are crawled every day.
+
+This report can be used to detect whether Google encounters serving problems when crawling your site:
+
+![Crawl Stats Google Search Console](/img/screenshot-2021-02-25-at-21.21.03.png "Crawl Stats Google Search Console")
+
+The higher the response time is, the lower would be the number of crawl requests.
+
 ## Tip 1: Use Pre-Rendering
 
 **Pre-Rendering** is a process of pre-loading of the website content with the help of Headless Chrome to prepare it for web crawlers.
