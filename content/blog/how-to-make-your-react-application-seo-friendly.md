@@ -178,11 +178,8 @@ This approach allows web crawlers to get full HTML code on their request and ind
 
 ## Summary
 
-There are a few ways to make your React application SEO-Friendly:
+There are a few ways to make your React application SEO-Friendly: **Pre-Rendering**, **Server-Side Rendering**, **Statis-Site Generation**, **Isomorphic Application**.
 
-* Pre-Rendering
-* Server-Site Rendering
-* Statis-Site Generation
-* Isomorphic Application
+There is no "recommended" approach, each one comes with its own cost.
 
-There is no "recommended" approach, each one comes with its own pros and cons, so to choose the proper way, you need to know exactly what type of application are you building.
+To choose the proper way, you need to know exactly what type of application are you building and how many resources are available.
