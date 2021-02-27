@@ -34,7 +34,7 @@ export const Form = styled.form`
 
 export const Input = styled.input`
   border: 0;
-  border-bottom: 1px solid #d6d6d6;
+  border-bottom: 1px solid #404040;
   outline: none;
   padding: 0.5rem;
   margin-bottom: 0.25rem;
@@ -79,4 +79,5 @@ export const SubscribeResponse = styled.div`
 export const Hint = styled.div`
   font-size: 0.75rem;
   margin-bottom: 1rem;
+  color: #757575;
 `
