@@ -5,6 +5,7 @@ tag:
 promote: false
 metaDescription: Learn how to delete Git branches, both local and remote, and
   how to restore them using the reflog command.
+shareImage: /img/manage-branches-git.jpg
 teaser: Nowadays, it's hard to imagine product development without using Git
   branches to deliver a part of the functionality. A branch is an independent
   line of development used in order not to interfere with the main line, which
