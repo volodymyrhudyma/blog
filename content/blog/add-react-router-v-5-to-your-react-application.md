@@ -5,7 +5,7 @@ tag:
 promote: false
 metaDescription: Learn how to add React Router v5 to your React Application.
   Configure React Router v5 and learn two ways to navigate between Routes.
-shareImage: /img/install-react-router-v5.jpg
+shareImage: /img/install-react-router-v5-min.jpg
 teaser: A typical Single Page Application built with React consists of many
   different views that are rendered only when some specific conditions are met.
   While it is possible to conditionally render all your components under one...
