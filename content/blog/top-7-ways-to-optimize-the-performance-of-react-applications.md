@@ -2,7 +2,7 @@
 title: Top 7 Ways to Optimize the Performance of React Applications
 tag:
   - React
-promote: false
+promote: true
 metaDescription: "Learn Top 7 Ways to Optimize the Performance of React
   applications: Avoid Large Components, Memoize, Do Code Splitting, Debounce,
   Tree Shake, Avoid Unnecessary Remounting, Paginate."
