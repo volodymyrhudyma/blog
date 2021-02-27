@@ -1,7 +1,7 @@
 ---
 title: How To Delete And Restore Branches In Git?
 tag:
-  - Other
+  - Git
 promote: false
 metaDescription: Learn how to delete Git branches, both local and remote, and
   how to restore them using the reflog command.
