@@ -6,6 +6,8 @@ import Layout from "@components/Layout"
 import SEO from "@components/seo"
 import Sidebar from "@components/Sidebar"
 import TableOfContents from "@components/TableOfContents"
+import LatestPosts from "@components/LatestPosts"
+import Newsletter from "@components/Newsletter"
 
 import {
   PaginationWrapper,
@@ -33,8 +35,9 @@ export default class BlogList extends React.Component {
     return (
       <Layout>
         <SEO title="JavaScript And ReactJS Tutorials With Best Practices" />
+        {currentPage === 1 && <LatestPosts posts={allPosts.slice(0, 4)} />}
         <SubTitle>
-          <TableOfContents allPosts={allPosts} />
+          <TableOfContents allPosts={allPosts} showSearch={currentPage > 1} />
         </SubTitle>
         <BlogListContent>
           <div>
@@ -69,6 +72,7 @@ export default class BlogList extends React.Component {
                 </div>
               </PaginationWrapper>
             )}
+            <Newsletter wide />
           </div>
           <SidebarWrapper>
             <Sidebar allPosts={allPosts} tags={tags} />
@@ -113,6 +117,8 @@ export const blogListQuery = graphql`
             tag
             date(formatString: "MMMM DD, YYYY")
             promote
+            metaDescription
+            shareImage
           }
         }
       }

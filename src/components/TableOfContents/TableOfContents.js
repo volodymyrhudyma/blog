@@ -20,7 +20,7 @@ const searchIndices = [
   { name: `Articles`, title: `Blog Articles`, hitComp: `PostHit` },
 ]
 
-const TableOfContents = ({ allPosts }) => {
+const TableOfContents = ({ allPosts, showSearch }) => {
   const [showTOC, setShowTOC] = useState(false)
   const [showIndexes, setShowIndexes] = useState([])
 
@@ -77,9 +77,11 @@ const TableOfContents = ({ allPosts }) => {
             <BlackAngleDown />
           </span>
         </Wrapper>
-        <SearchWrapper>
-          <Search collapse indices={searchIndices} />
-        </SearchWrapper>
+        {showSearch && (
+          <SearchWrapper>
+            <Search collapse indices={searchIndices} />
+          </SearchWrapper>
+        )}
       </WrapperOuter>
       {showTOC && (
         <div style={{ marginTop: "2rem" }}>

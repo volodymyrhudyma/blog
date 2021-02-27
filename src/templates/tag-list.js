@@ -31,11 +31,12 @@ export default class BlogList extends React.Component {
 
     const allPosts = this.props.data.allPosts.edges
     const tags = this.props.data.tags.group
+
     return (
       <Layout>
         <SEO title="JavaScript And ReactJS Tutorials With Best Practices" />
         <SubTitle>
-          <TableOfContents allPosts={allPosts} />
+          <TableOfContents allPosts={allPosts} showSearch={true} />
         </SubTitle>
         <BlogListContent>
           <div>
@@ -118,6 +119,8 @@ export const tagListQuery = graphql`
             tag
             date(formatString: "MMMM DD, YYYY")
             promote
+            metaDescription
+            shareImage
           }
         }
       }

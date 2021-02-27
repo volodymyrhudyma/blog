@@ -67,15 +67,15 @@ export const StyledLink = styled(Link)`
   }
 `
 
+export const BlogDate = styled.span`
+  font-size: 0.75rem;
+  color: #989898;
+`
+
 export const SearchWrapper = styled.div`
   position: relative;
 
   @media (max-width: 480px) {
     width: 100%;
   }
-`
-
-export const BlogDate = styled.span`
-  font-size: 0.75rem;
-  color: #989898;
 `

@@ -3,7 +3,7 @@ import styled, { css } from "styled-components"
 export const PaginationWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 4rem 0;
+  margin: 4.65rem 0;
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -33,12 +33,12 @@ export const Date = styled.div`
 
 export const SubTitle = styled.div`
   margin-top: 2rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 `
 
 export const BlogListContent = styled.div`
   display: flex;
-  margin-top: 2.5rem;
+  margin-top: 2rem;
 `
 
 export const SidebarWrapper = styled.div`

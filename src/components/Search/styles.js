@@ -35,10 +35,6 @@ export const Form = styled.form`
     min-width: 12.5rem;
   }
 
-  @media (max-width: 768px) {
-    margin-top: 1rem;
-  }
-
   @media (max-width: 480px) {
     width: 100%;
   }
