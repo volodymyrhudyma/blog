@@ -5,7 +5,7 @@ tag:
 promote: false
 metaDescription: Learn how to use Dynamic and Nested Routes in React Router v5
   and access URL params using either the props object or React Hooks.
-shareImage: /img/d-nest-routes.jpg
+shareImage: /img/dynamic-and-nested-routes.jpg
 teaser: In one of the previous articles, we installed and configured React
   Router v5 in the React application. We defined a few static routes (/,
   /contact, /users) that were responsible for displaying the home, contact and
