@@ -29,6 +29,7 @@ export const Title = styled.h1`
 export const Date = styled.div`
   font-size: 0.85rem;
   display: inline-block;
+  color: #757575;
 `
 
 export const SubTitle = styled.div`

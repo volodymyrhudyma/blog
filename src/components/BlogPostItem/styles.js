@@ -29,6 +29,7 @@ export const BlogDetail = styled.div`
 export const BlogDate = styled.div`
   font-size: 0.85rem;
   margin-right: 0.5rem;
+  color: #757575;
 `
 
 export const BlogTag = styled(Link)`
@@ -52,7 +53,7 @@ export const StyledLink = styled(Link)`
 export const PostNumber = styled.div`
   position: absolute;
   right: 0;
-  top: -1.25rem;
+  top: -1.1rem;
   font-size: 3rem;
   color: #d6d6d6;
   display: inline-block;

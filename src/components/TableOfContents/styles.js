@@ -69,7 +69,7 @@ export const StyledLink = styled(Link)`
 
 export const BlogDate = styled.span`
   font-size: 0.75rem;
-  color: #989898;
+  color: #757575;
 `
 
 export const SearchWrapper = styled.div`
