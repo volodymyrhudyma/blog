@@ -19,7 +19,9 @@ const BlogPostItem = ({ post }) => (
       <BlogDetail>
         <BlogDate>{post.frontmatter.date}</BlogDate>
         {post.frontmatter.tag.map(tag => (
-          <BlogTag key={tag} to={`/tag/${tag.toLowerCase()}`}>#{tag}</BlogTag>
+          <BlogTag key={tag} to={`/tag/${tag.toLowerCase()}`}>
+            #{tag}
+          </BlogTag>
         ))}
       </BlogDetail>
       <p style={{ margin: 0 }}>

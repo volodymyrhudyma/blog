@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import { Link } from "gatsby"
 
 export const Wrapper = styled.div`
@@ -25,9 +25,10 @@ export const BlogDate = styled.div`
   margin-right: 0.5rem;
 `
 
-export const BlogTag = styled(Link)`
+export const BlogTag = styled.div`
   display: inline-block;
   font-size: 0.85rem;
+
   &:not(:last-child) {
     margin-right: 0.5rem;
   }

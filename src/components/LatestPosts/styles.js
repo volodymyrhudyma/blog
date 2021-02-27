@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import { Link } from "gatsby"
 
 export const Wrapper = styled.div`
@@ -31,13 +31,22 @@ export const PostsWrapper = styled.div`
   flex-wrap: wrap;
 `
 
+export const PostInner = styled.div`
+  padding: 1rem;
+
+  ${({ backgroundColor }) =>
+    backgroundColor &&
+    css`
+      background-color: ${backgroundColor};
+    `}
+`
+
 export const PostBox = styled(Link)`
   border: 1px solid #d6d6d6;
   width: calc((100% - 3rem) / 4);
   display: flex;
   flex-direction: column;
   color: initial;
-  padding: 0 0 1rem 0;
 
   &:nth-child(-n + 3) {
     margin-right: 1rem;
@@ -79,14 +88,12 @@ export const PostImage = styled.div`
   width: 100%;
   background: url(${props => props.image});
   background-size: cover;
-  margin-bottom: 1rem;
   height: 0;
   padding-top: 56.25%;
 `
 
 export const PostTitle = styled.h3`
   margin: 0 0 1rem 0;
-  padding: 0 1rem;
 `
 
 export const PostDate = styled.div`
@@ -106,7 +113,6 @@ export const PostTag = styled.div`
 export const PostTop = styled.div`
   display: flex;
   align-items: center;
-  padding: 0 1rem;
   flex: auto;
   display: flex;
   align-items: flex-end;
@@ -117,7 +123,6 @@ export const PostTeaser = styled.div`
   flex: auto;
   display: flex;
   align-items: flex-end;
-  padding: 0 1rem;
 `
 
 export const SearchWrapper = styled.div`
