@@ -56,7 +56,7 @@ const Sidebar = ({ allPosts, tags, extended }) => {
             </div>
           ))}
       </Block>
-      <Block popular>
+      <Block white>
         <Title>Most Popular</Title>
         {promote.slice(0, 3).map((post, i) => (
           <Item key={i} to={post.fields.slug}>

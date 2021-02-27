@@ -36,6 +36,12 @@ export const Block = styled.div`
       color: #fff;
     `}
 
+    ${({ white }) =>
+      white &&
+      css`
+        background: #fff;
+      `}
+
   ${({ react }) =>
     react &&
     css`
@@ -54,11 +60,6 @@ export const Block = styled.div`
         background: rgba(241, 80, 47, 0.2);
       `}
 
-  ${({ popular }) =>
-    popular &&
-    css`
-      background: rgba(255, 165, 0, 0.2);
-    `}
 `
 
 export const Title = styled.div`
