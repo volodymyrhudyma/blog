@@ -1,7 +1,7 @@
 ---
 title: 2 Ways To Change A Commit Message In Git
 tag:
-  - Other
+  - Git
 promote: false
 metaDescription: Learn how to change the commit message with the git commit
   --amend command or interactive rebase, and some important differences between
