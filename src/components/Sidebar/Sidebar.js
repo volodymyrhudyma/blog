@@ -63,6 +63,7 @@ const Sidebar = ({ allPosts, tags, extended }) => {
           <RedHot />
           Most Popular
         </Title>
+        {console.log(promote)}
         {promote.slice(0, 3).map((post, i) => (
           <Item key={i} to={post.fields.slug}>
             <LinkIconStyled />

@@ -81,7 +81,7 @@ export const LinkIconStyled = styled(LinkIcon)`
 `
 
 export const HashIconStyled = styled(Hash)`
-  color: #989898;
+  color: #404040;
   width: 30px;
   margin-right: 0.5rem;
 `
