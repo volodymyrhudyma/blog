@@ -42,10 +42,7 @@ const Sidebar = ({ allPosts, tags, extended }) => {
   return (
     <Wrapper>
       <Block>
-        <Title>
-          <HashIconStyled />
-          Tags
-        </Title>
+        <Title>Tags</Title>
         {tags
           .sort((a, b) => b.totalCount - a.totalCount)
           .map((tag, i) => (
@@ -54,7 +51,7 @@ const Sidebar = ({ allPosts, tags, extended }) => {
                 to={`/tag/${tag.fieldValue.toLowerCase()}`}
                 style={{ fontSize: `${16 + (16 * tag.totalCount) / 100}px` }}
               >
-                {tag.fieldValue} ({tag.totalCount})
+                #{tag.fieldValue} ({tag.totalCount})
               </Link>
             </div>
           ))}
