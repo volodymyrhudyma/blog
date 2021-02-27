@@ -2,6 +2,7 @@
 title: Redux Thunk vs. Redux Saga. The differences.
 tag:
   - React
+promote: true
 metaDescription: The most important differences between Redux Thunk and Redux
   Saga. Get to know both approaches and choose the one that best suits your
   project.
