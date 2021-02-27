@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import findIndex from "lodash/findIndex"
 
 import BlogPostItem from "@components/BlogPostItem"
 import Layout from "@components/Layout"
@@ -42,7 +43,14 @@ export default class BlogList extends React.Component {
         <BlogListContent>
           <div>
             {posts.map(({ node }) => (
-              <BlogPostItem key={node.fields.slug} post={node} />
+              <BlogPostItem
+                key={node.fields.slug}
+                post={node}
+                number={findIndex(
+                  allPosts,
+                  post => post.node.frontmatter.title === node.frontmatter.title
+                )}
+              />
             ))}
             {numPages > 1 && (
               <PaginationWrapper>

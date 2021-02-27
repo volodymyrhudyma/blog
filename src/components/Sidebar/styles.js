@@ -19,17 +19,45 @@ export const Wrapper = styled.div`
   }
 `
 export const Block = styled.div`
-  &:not(:last-child) {
-    margin-bottom: 1.5rem;
-  }
+  background: #fafafa;
+  margin: 0 -1.5rem;
+  padding: 1.5rem;
 
-  ${({ newsletter }) =>
-    newsletter &&
+  ${({ green }) =>
+    green &&
     css`
       background: #1f75041c;
-      margin: 0 -1.5rem;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
+    `}
+
+  ${({ black }) =>
+    black &&
+    css`
+      background: #404040;
+      color: #fff;
+    `}
+
+  ${({ react }) =>
+    react &&
+    css`
+      background: rgba(97, 219, 251, 0.2);
+    `}
+
+  ${({ javascript }) =>
+    javascript &&
+    css`
+      background: rgba(240, 219, 79, 0.2);
+    `}
+
+    ${({ git }) =>
+      git &&
+      css`
+        background: rgba(241, 80, 47, 0.2);
+      `}
+
+  ${({ popular }) =>
+    popular &&
+    css`
+      background: rgba(255, 165, 0, 0.2);
     `}
 `
 

@@ -32,6 +32,9 @@ export const PostsWrapper = styled.div`
 `
 
 export const PostInner = styled.div`
+  flex: auto;
+  display: flex;
+  flex-direction: column;
   padding: 1rem;
 
   ${({ backgroundColor }) =>
@@ -47,6 +50,11 @@ export const PostBox = styled(Link)`
   display: flex;
   flex-direction: column;
   color: initial;
+  transition: transform 0.25s;
+
+  &:hover {
+    transform: scale(1.025);
+  }
 
   &:nth-child(-n + 3) {
     margin-right: 1rem;
@@ -99,6 +107,7 @@ export const PostTitle = styled.h3`
 export const PostDate = styled.div`
   font-size: 0.75rem;
   margin-right: 0.5rem;
+  color: #757575;
 `
 
 export const PostTag = styled.div`

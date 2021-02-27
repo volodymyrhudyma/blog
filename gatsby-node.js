@@ -15,7 +15,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
               slug
             }
           }
-        }        
+        }
       }
       tags: allMarkdownRemark(limit: 2000) {
         group(field: frontmatter___tag) {
@@ -43,7 +43,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   })
 
   // Create blog-list pages
-  const postsPerPage = 7
+  const postsPerPage = 9
   const numPages = Math.ceil(posts.length / postsPerPage)
   Array.from({ length: numPages }).forEach((_, i) => {
     createPage({
@@ -59,12 +59,15 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   })
 
   // Create tag-list pages
-  const tagPostsPerPage = 7
+  const tagPostsPerPage = 9
   tags.forEach(({ fieldValue, totalCount }) => {
     const numTagPostsPages = Math.ceil(totalCount / tagPostsPerPage)
     Array.from({ length: numTagPostsPages }).forEach((_, i) => {
       createPage({
-        path: i === 0 ? `/tag/${fieldValue.toLowerCase()}` : `/tag/${fieldValue.toLowerCase()}/${i + 1}`,
+        path:
+          i === 0
+            ? `/tag/${fieldValue.toLowerCase()}`
+            : `/tag/${fieldValue.toLowerCase()}/${i + 1}`,
         component: path.resolve("./src/templates/tag-list.js"),
         context: {
           tag: fieldValue,

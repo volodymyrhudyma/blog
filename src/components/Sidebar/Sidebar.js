@@ -9,9 +9,6 @@ import {
   Title,
   Text,
   Item,
-  RedHot,
-  ReactIcon,
-  JavascriptIcon,
   LinkIconStyled,
   HashIconStyled,
   OtherIcon,
@@ -21,6 +18,7 @@ const Sidebar = ({ allPosts, tags, extended }) => {
   const promote = []
   const reactPosts = []
   const jsPosts = []
+  const gitPosts = []
   const otherPosts = []
 
   allPosts.forEach(({ node }) => {
@@ -29,6 +27,9 @@ const Sidebar = ({ allPosts, tags, extended }) => {
     }
     if (node.frontmatter.tag.includes("JavaScript")) {
       jsPosts.push(node)
+    }
+    if (node.frontmatter.tag.includes("Git")) {
+      gitPosts.push(node)
     }
     if (node.frontmatter.tag.includes("Other")) {
       otherPosts.push(node)
@@ -40,7 +41,7 @@ const Sidebar = ({ allPosts, tags, extended }) => {
 
   return (
     <Wrapper>
-      <Block newsletter>
+      <Block>
         <Title>
           <HashIconStyled />
           Tags
@@ -58,11 +59,8 @@ const Sidebar = ({ allPosts, tags, extended }) => {
             </div>
           ))}
       </Block>
-      <Block>
-        <Title>
-          <RedHot />
-          Most Popular
-        </Title>
+      <Block popular>
+        <Title>Most Popular</Title>
         {promote.slice(0, 3).map((post, i) => (
           <Item key={i} to={post.fields.slug}>
             <LinkIconStyled />
@@ -70,14 +68,11 @@ const Sidebar = ({ allPosts, tags, extended }) => {
           </Item>
         ))}
       </Block>
-      <Block newsletter>
+      <Block green>
         <Newsletter />
       </Block>
-      <Block>
-        <Title>
-          <ReactIcon />
-          React
-        </Title>
+      <Block react>
+        <Title>React</Title>
         {reactPosts.slice(0, 3).map((post, i) => (
           <Item key={i} to={post.fields.slug}>
             <LinkIconStyled />
@@ -85,22 +80,8 @@ const Sidebar = ({ allPosts, tags, extended }) => {
           </Item>
         ))}
       </Block>
-      {extended ? (
-        <Block newsletter>
-          <Title>Like this article?</Title>
-          <Text>Support me by sharing it</Text>
-        </Block>
-      ) : (
-        <Block newsletter>
-          <Title>Like my blog?</Title>
-          <Text>Support me by sharing it</Text>
-        </Block>
-      )}
-      <Block>
-        <Title>
-          <JavascriptIcon />
-          JavaScript
-        </Title>
+      <Block javascript>
+        <Title>JavaScript</Title>
         {jsPosts.slice(0, 3).map((post, i) => (
           <Item key={i} to={post.fields.slug}>
             <LinkIconStyled />
@@ -108,11 +89,29 @@ const Sidebar = ({ allPosts, tags, extended }) => {
           </Item>
         ))}
       </Block>
+      {extended ? (
+        <Block black>
+          <Title>Like this article?</Title>
+          <Text>Support me by sharing it on social media</Text>
+        </Block>
+      ) : (
+        <Block black>
+          <Title>Like my blog?</Title>
+          <Text>Support me by sharing it on social media</Text>
+        </Block>
+      )}
+
+      <Block git>
+        <Title>Git</Title>
+        {gitPosts.slice(0, 3).map((post, i) => (
+          <Item key={i} to={post.fields.slug}>
+            <LinkIconStyled />
+            {post.frontmatter.title}
+          </Item>
+        ))}
+      </Block>
       <Block>
-        <Title>
-          <OtherIcon />
-          Other
-        </Title>
+        <Title>Other</Title>
         {otherPosts.slice(0, 3).map((post, i) => (
           <Item key={i} to={post.fields.slug}>
             <LinkIconStyled />

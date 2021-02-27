@@ -8,11 +8,13 @@ import {
   BlogDate,
   BlogTag,
   StyledLink,
+  PostNumber,
 } from "./styles"
 
-const BlogPostItem = ({ post }) => (
+const BlogPostItem = ({ post, number }) => (
   <Wrapper>
     <div>
+      <PostNumber>{number + 1}</PostNumber>
       <BlogTitle>
         <StyledLink to={post.fields.slug}>{post.frontmatter.title}</StyledLink>
       </BlogTitle>

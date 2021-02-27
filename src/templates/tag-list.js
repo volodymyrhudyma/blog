@@ -6,6 +6,7 @@ import Layout from "@components/Layout"
 import SEO from "@components/seo"
 import Sidebar from "@components/Sidebar"
 import TableOfContents from "@components/TableOfContents"
+import Newsletter from "@components/Newsletter"
 
 import {
   PaginationWrapper,
@@ -40,8 +41,8 @@ export default class BlogList extends React.Component {
         </SubTitle>
         <BlogListContent>
           <div>
-            {posts.map(({ node }) => (
-              <BlogPostItem key={node.fields.slug} post={node} />
+            {posts.map(({ node }, index) => (
+              <BlogPostItem key={node.fields.slug} post={node} number={index} />
             ))}
             {numPages > 1 && (
               <PaginationWrapper>
@@ -74,6 +75,7 @@ export default class BlogList extends React.Component {
                 </div>
               </PaginationWrapper>
             )}
+            <Newsletter wide />
           </div>
           <SidebarWrapper>
             <Sidebar allPosts={allPosts} tags={tags} />

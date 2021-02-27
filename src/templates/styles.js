@@ -3,7 +3,7 @@ import styled, { css } from "styled-components"
 export const PaginationWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 4.65rem 0;
+  margin: 4rem 0;
 
   @media (max-width: 768px) {
     flex-direction: column;
