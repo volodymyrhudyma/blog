@@ -5,7 +5,7 @@ tag:
 promote: false
 metaDescription: Make your React application SEO-Friendly and improve your
   Google Rank by applying one of the 4 simple tips.
-shareImage: /img/seo-react.jpg
+shareImage: /img/seo-react-min.jpg
 teaser: Search Engine Optimization (SEO) is a process of improving the quality
   and quantity of website traffic to a website from search engines. An enormous
   number of people use Google as a tool to search for information, so it is
