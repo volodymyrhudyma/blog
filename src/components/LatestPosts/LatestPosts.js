@@ -36,7 +36,9 @@ const LatestPosts = ({ posts }) => (
           <PostInner>
             <PostTitle>{post.frontmatter.title}</PostTitle>
             <PostTop>
-              <PostDate>{moment(post.frontmatter.date).fromNow()}</PostDate>
+              <PostDate>
+                {moment(post.frontmatter.date).endOf("day").fromNow()}
+              </PostDate>
             </PostTop>
           </PostInner>
         </PostBox>
