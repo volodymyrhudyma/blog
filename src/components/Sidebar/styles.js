@@ -19,7 +19,7 @@ export const Wrapper = styled.div`
   }
 `
 export const Block = styled.div`
-  background: #fafafa;
+  background: #fff;
   margin: 0 -1.5rem;
   padding: 1.5rem;
 
@@ -36,10 +36,10 @@ export const Block = styled.div`
       color: #fff;
     `}
 
-    ${({ white }) =>
-      white &&
+    ${({ grey }) =>
+      grey &&
       css`
-        background: #fff;
+        background: #fafafa;
       `}
 
   ${({ react }) =>

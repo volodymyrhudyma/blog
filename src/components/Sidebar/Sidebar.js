@@ -41,7 +41,7 @@ const Sidebar = ({ allPosts, tags, extended }) => {
 
   return (
     <Wrapper>
-      <Block>
+      <Block grey>
         <Title>Tags</Title>
         {tags
           .sort((a, b) => b.totalCount - a.totalCount)
@@ -56,7 +56,7 @@ const Sidebar = ({ allPosts, tags, extended }) => {
             </div>
           ))}
       </Block>
-      <Block white>
+      <Block>
         <Title>Most Popular</Title>
         {promote.slice(0, 3).map((post, i) => (
           <Item key={i} to={post.fields.slug}>
@@ -68,7 +68,7 @@ const Sidebar = ({ allPosts, tags, extended }) => {
       <Block green>
         <Newsletter />
       </Block>
-      <Block react>
+      <Block grey>
         <Title>React</Title>
         {reactPosts.slice(0, 3).map((post, i) => (
           <Item key={i} to={post.fields.slug}>
@@ -77,7 +77,7 @@ const Sidebar = ({ allPosts, tags, extended }) => {
           </Item>
         ))}
       </Block>
-      <Block javascript>
+      <Block>
         <Title>JavaScript</Title>
         {jsPosts.slice(0, 3).map((post, i) => (
           <Item key={i} to={post.fields.slug}>
@@ -98,7 +98,7 @@ const Sidebar = ({ allPosts, tags, extended }) => {
         </Block>
       )}
 
-      <Block git>
+      <Block>
         <Title>Git</Title>
         {gitPosts.slice(0, 3).map((post, i) => (
           <Item key={i} to={post.fields.slug}>
@@ -107,7 +107,7 @@ const Sidebar = ({ allPosts, tags, extended }) => {
           </Item>
         ))}
       </Block>
-      <Block>
+      <Block grey>
         <Title>Other</Title>
         {otherPosts.slice(0, 3).map((post, i) => (
           <Item key={i} to={post.fields.slug}>

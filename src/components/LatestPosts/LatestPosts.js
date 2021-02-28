@@ -33,15 +33,7 @@ const LatestPosts = ({ posts }) => (
       {posts.map(({ node: post }, index) => (
         <PostBox key={index} to={post.fields.slug}>
           <PostImage image={post.frontmatter.shareImage} />
-          <PostInner
-            backgroundColor={
-              post.frontmatter.tag.includes("React")
-                ? "rgba(97, 219, 251, 0.2)"
-                : post.frontmatter.tag.includes("Git")
-                ? "rgba(241, 80, 47, 0.2)"
-                : ""
-            }
-          >
+          <PostInner>
             <PostTitle>{post.frontmatter.title}</PostTitle>
             <PostTop>
               <PostDate>{moment(post.frontmatter.date).fromNow()}</PostDate>
