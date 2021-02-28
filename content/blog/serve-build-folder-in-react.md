@@ -4,6 +4,7 @@ tag:
   - React
 promote: false
 metaDescription: Learn how to serve React build folder locally in a few easy steps.
+shareImage: /img/serve-build-folder-min.jpg
 teaser: In some specific cases, you may need to run react production application
   locally. For example, if in the development environment the app is working
   fine, but the production environment contains some strange errors. Debugging
