@@ -1,5 +1,4 @@
 import React from "react"
-import moment from "moment"
 
 import Search from "@components/Search"
 
@@ -36,9 +35,7 @@ const LatestPosts = ({ posts }) => (
           <PostInner>
             <PostTitle>{post.frontmatter.title}</PostTitle>
             <PostTop>
-              <PostDate>
-                {moment(post.frontmatter.date).endOf("day").fromNow()}
-              </PostDate>
+              <PostDate>{post.frontmatter.date}</PostDate>
             </PostTop>
           </PostInner>
         </PostBox>
