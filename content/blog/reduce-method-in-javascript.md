@@ -27,7 +27,6 @@ A function that gets executed on each element of an array:
 
 ```javascript
 callback(accumulator, currentValue, [, index[, array]])
-
 ```
 
 It receives four arguments, two of which are optional:
@@ -112,3 +111,53 @@ We will see the following:
 ```
 
 Notice that the first element of an array (**10**) is used as an **accumulator** in the first call.
+
+## Common Usage Examples
+
+There are a lot of possibilities to use the reduce function, but in this section, we will take a look at the most common ones.
+
+#### Example 1: Sum Values In An Array
+
+```javascript
+const result = [1, 2, 3].reduce((acc, item) => acc + item);
+
+// Prints "6"
+console.log(result);
+```
+
+#### Example 2: Convert An Array To The Object
+
+```javascript
+const result = ["apple", "pineapple", "banana"].reduce((acc, item) => {
+  acc[item] = item; 
+  return acc
+}, {});
+
+// Prints { apple: "apple", pineapple: "pineapple", banana: "banana" 
+console.log(result);
+```
+
+#### Example 3: Group Objects By Property
+
+```javascript
+const result = [
+  { name: 'John', age: 18 },
+  { name: 'Andrew', age: 18 },
+  { name: 'Mark', age: 20 }
+].reduce((acc, item) => {
+  if(!acc[item.age]) {
+    acc[item.age] = [];
+  }
+  acc[item.age].push(item);
+  return acc;
+}, {});
+
+// Prints
+// {
+//   "18": [ { name: "John", age: 18 }, { name: "Andrew", age: 18 } ],
+//   "20": [ { name: "Mark", age: 20 } ]
+// }
+console.log(result);
+```
+
+And way more examples available [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce).
