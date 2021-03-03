@@ -3,13 +3,20 @@ title: Reduce Method In JavaScript
 tag:
   - JavaScript
 promote: false
-metaDescription: // META
-teaser: // TEASER
+metaDescription: Learn built-in reduce method in JavaScript that reduces an
+  array to a single value by executing a callback function on each of its
+  elements.
+teaser: Reduce is one of the most difficult to understand yet the most powerful
+  built-it Array methods. It helps us to manage to perform different types of
+  actions on an Array without writing a lot of boilerplate code. Basically, what
+  it does is...
 date: 2021-03-05T18:40:29.733Z
 ---
- Reduce is one of the most difficult to understand yet the most powerful built-it Array methods.
+Reduce is one of the most difficult to understand yet the most powerful built-it Array methods.
 
 It helps us to manage to perform different types of actions on an Array without writing a lot of boilerplate code.
+
+Basically, what it does is reducing an array to a single value.
 
 ## The Reduce Method
 
@@ -118,6 +125,8 @@ There are a lot of possibilities to use the reduce function, but in this section
 
 #### Example 1: Sum Values In An Array
 
+A quick way to get the total of all array numbers:
+
 ```javascript
 const result = [1, 2, 3].reduce((acc, item) => acc + item);
 
@@ -127,17 +136,25 @@ console.log(result);
 
 #### Example 2: Convert An Array To The Object
 
+I personally use this a lot in my projects.
+
+The most recent case was the I received an array of fields to validate from CMS and had to transform that array to an object:
+
 ```javascript
-const result = ["apple", "pineapple", "banana"].reduce((acc, item) => {
-  acc[item] = item; 
+const result = ["name", "surname"].reduce((acc, item) => {
+  acc[item] = {
+    isValid: false,
+  }; 
   return acc
 }, {});
 
-// Prints { apple: "apple", pineapple: "pineapple", banana: "banana" 
+// Prints { name: { isValid: false }, surnamt: { isValid: false } } 
 console.log(result);
 ```
 
 #### Example 3: Group Objects By Property
+
+Reduce is the perfect method to group an array of objects by the property:
 
 ```javascript
 const result = [
@@ -161,3 +178,9 @@ console.log(result);
 ```
 
 And way more examples available [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce).
+
+## Summary
+
+The reduce method is a very powerful tool in hands of the developer that knows how it works and when to use it.
+
+Make sure to use it in your next project!
