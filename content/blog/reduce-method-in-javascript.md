@@ -6,6 +6,7 @@ promote: false
 metaDescription: Learn built-in reduce method in JavaScript, which reduces an
   array to a single value by executing a callback function for each of its
   elements.
+shareImage: /img/reduce-in-js-min.jpg
 teaser: Reduce is one of the most difficult to understand, but the most powerful
   built-in array methods. It helps us perform different kinds of actions on an
   array without writing a lot of boilerplate code. Basically, it...
