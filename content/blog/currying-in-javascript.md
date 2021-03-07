@@ -1,5 +1,5 @@
 ---
-title: Currying In JavaScript
+title: A Simple Guide To Currying In JavaScript
 tag:
   - JavaScript
 promote: false
@@ -220,10 +220,6 @@ import flowRight from "lodash/flowRight";
 
 const sum = a => b => a + b;
 const multiply = a => b => a * b;
-const log = label => value => {
-  console.log(label, value);
-  return value;
-};
 
 // 1$ fee
 const addFee = sum(1);
@@ -235,20 +231,12 @@ const addTax = multiply(1.19);
 const addDiscount = multiply(0.8);
 
 const totalPrice = flowRight(
-  log("addFee"),
   addFee,
-  log("addTax"),
   addTax,
-  log("addDiscount"),
   addDiscount,
 )(20);
 
-/*
-"addDiscount" - 16
-"addTax" - 19.04
-"addFee" - 20.04
-20.04
-*/
+// Prints "20.04"
 console.log(totalPrice);
 ```
 
@@ -257,8 +245,8 @@ Let's break down the above example:
 1. Import a **flowRight** function from **lodash** that creates a function that returns the result of calling the given functions from right to left with **this** binding of the created function, where each successive invocation is supplied the return value of the previous.
 
    Lodash contains also **flow** function that executes the given functions from left to right.
-2. Prepare curried **sum**, **multiply** and **log** functions that would sum, multiply and print values to the console.
-3. Compose all functions with the **flowRight** and start executing them from right to left (from **addDiscount** to **log("addFee")**.
+2. Prepare curried **sum** and **multiply** functions that would sum and multiply given values respectively.
+3. Compose all functions with the **flowRight** and start executing them from right to left (from **addDiscount** to **addFee**).
 4. See the output.
 
 ## Summary
