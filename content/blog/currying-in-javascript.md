@@ -66,7 +66,7 @@ console.log(addTwo);
 console.log(addThree);
 ```
 
-##  Curry Function
+## Curry Function
 
 We can also create a **curry** function that will take a function as an argument and create a curried version of it:
 
@@ -206,4 +206,50 @@ console.log(totalPriceWithSmallDiscount(subscriptionTypes.STANDARD));
 
 [Function Composition](https://en.wikipedia.org/wiki/Function_composition_(computer_science)) is a mechanism to combine simple functions to build more complicated ones.
 
-In the chain of functions, the result of executing the current one is an argument to the next one.
+In the chain of functions, the result of executing the current one is an argument to the next one:
+
+```javascript
+import flowRight from "lodash/flowRight";
+
+const sum = a => b => a + b;
+const multiply = a => b => a * b;
+const log = label => value => {
+  console.log(label, value);
+  return value;
+};
+
+// 1$ fee
+const addFee = sum(1);
+
+// 19% tax
+const addTax = multiply(1.19);
+
+// 20% discount
+const addDiscount = multiply(0.8);
+
+const totalPrice = flowRight(
+  log("addFee"),
+  addFee,
+  log("addTax"),
+  addTax,
+  log("addDiscount"),
+  addDiscount,
+)(20);
+
+/*
+"addDiscount" - 16
+"addTax" - 19.04
+"addFee" - 20.04
+20.04
+*/
+console.log(totalPrice);
+```
+
+Let's break down the above example:
+
+1. Import a **flowRight** function from **lodash** that creates a function that returns the result of invoking the given functions from right to left with **this** binding of the created function, where each successive invocation is supplied the return value of the previous.
+
+   Lodash contains also **flow** function that executes the given functions from left to right.
+2. Prepare curried **sum**, **multiply** and **log** functions that would sum, multiply and print values to the console.
+3. Compose all functions with the **flowRight** and start executing them from right to left (from **addDiscount** to **log("addFee")**.
+4.  See the output.
