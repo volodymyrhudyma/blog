@@ -3,7 +3,7 @@ title: Currying In JavaScript
 tag:
   - JavaScript
 promote: false
-metaDescription: Learn what is Currying in JavaScript, how and when to use it
+metaDescription: Learn what is Currying in JavaScript, how and when to use it,
   with some real-world code examples.
 shareImage: /img/currying-in-javascript.jpg
 teaser: Currying is the technique of converting functions that take multiple
@@ -54,9 +54,9 @@ console.log(curriedSumES5(1)(2)(3));
 
 A normal **sum** function is used to get the sum of three passed arguments.
 
-A curried **curriedSumES5** or **curriedSumES6** functions use currying to do the same thing.
+A **curriedSumES5** or **curriedSumES6** functions use currying to do the same thing.
 
-If we call a curried function with a smaller number of arguments than expected (3 in our case), we will get back a callable function that we can call later call with the next argument:
+If we call a curried function with a smaller number of arguments than expected (3 in our case), we get back a callable function that we can call later with the next argument:
 
 ```javascript
 const addOne = curriedSumES6(1);
@@ -75,7 +75,7 @@ console.log(addThree);
 
 ## Curry Function
 
-We can also create a **curry** function that will take a function as an argument and create a curried version of it:
+We can also create a **curry** function that takes a function as an argument and creates a curried version of it:
 
 ```javascript
 // ES6 Syntax
@@ -105,7 +105,7 @@ const curriedSumES5 = curryES5(sum);
 console.log(curriedSumES5(1)(2)(3));
 ```
 
-However, if you need to create curried functions, a better way is to use the **curry** function from the [lodash](https://lodash.com/) library, because it allows calling a curried function in a normal way as well:
+However, if you need to create curried functions, it is better to use the **curry** function from the [lodash](https://lodash.com/) library, as it allows you to call a curried function in a normal way as well:
 
 ```javascript
 import curry from "lodash/curry";
@@ -133,21 +133,21 @@ const sum = (a, b, c) => sumCurried(a)(b)(c);
 console.log(sum(1, 2, 3));
 ```
 
-Basically, we just create a new function that executes curried.
+Basically, we just create a new function that runs curried.
 
 ## When Do We Need Currying?
 
-After learning the concept a bit, we may wonder why do we even need this thingy?
+After learning the concept a bit, we might wonder why we need this thing at all?
 
 Does it really bring any benefits?
 
-The answer is simple - **yes, it does**.
+The answer is simple - **Yes, it does**.
 
-When we need to call a function with the same or almost the same parameters a few times, it can become handy to have a partial function with a pre-defined argument.
+When we need to call a function with the same or almost the same parameters a few times, it can become handy to have a partial function with a predefined argument.
 
-For example, if we are building a website where users can buy a subscription, we may want to include some discounts for specific users that need to be taken into account when calculating the total price to pay.
+For example, if we are creating a website where users can buy a subscription, we might want to include some discounts for certain users that need to be taken into account when calculating the total price to be paid.
 
-Imagine having a function called **calculateTotalPrice** that shows the total price:
+Imagine having a function called **calculateTotalPrice** that displays the total price:
 
 ```javascript
 const discountTypes = {
@@ -170,7 +170,7 @@ console.log(
 );
 ```
 
-Typically, the total price is not shown only on the summary page, but on the other pages as well, so to include the discount we need to always pass the same value:
+Typically, the total price is not only shown on the summary page, but also on the other pages, so in order to include the discount, we always have to pass the same value:
 
 ```javascript
 // "Plans" page
@@ -211,9 +211,9 @@ console.log(totalPriceWithSmallDiscount(subscriptionTypes.STANDARD));
 
 #### Function Composition
 
-[Function Composition](https://en.wikipedia.org/wiki/Function_composition_(computer_science)) is a mechanism to combine simple functions to build more complicated ones.
+[Function Composition](https://en.wikipedia.org/wiki/Function_composition_(computer_science)) is a mechanism for combining simple functions to create more complicated ones.
 
-In the chain of functions, the result of executing the current one is an argument to the next one:
+In the chain of functions, the result of executing the current function is an argument to the next one:
 
 ```javascript
 import flowRight from "lodash/flowRight";
@@ -254,7 +254,7 @@ console.log(totalPrice);
 
 Let's break down the above example:
 
-1. Import a **flowRight** function from **lodash** that creates a function that returns the result of invoking the given functions from right to left with **this** binding of the created function, where each successive invocation is supplied the return value of the previous.
+1. Import a **flowRight** function from **lodash** that creates a function that returns the result of calling the given functions from right to left with **this** binding of the created function, where each successive invocation is supplied the return value of the previous.
 
    Lodash contains also **flow** function that executes the given functions from left to right.
 2. Prepare curried **sum**, **multiply** and **log** functions that would sum, multiply and print values to the console.
@@ -263,6 +263,6 @@ Let's break down the above example:
 
 ## Summary
 
-Currying is a very important but often misunderstood concept in JavaScript. It allows to transform the function callable as **sum(a, b, c)** can be into callable as **sum(a)(b)(c)**.
+Currying is a very important but often misunderstood concept in JavaScript. It allows you to convert a function callable as **sum(a, b, c)** to a function callable as **sum(a)(b)(c)**.
 
-In this article, we have learned what is currying and how to use it properly with some real-world examples.
+In this article, we learned what currying is and how to use it properly, with some real-world examples.
