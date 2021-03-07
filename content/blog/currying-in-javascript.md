@@ -5,6 +5,7 @@ tag:
 promote: false
 metaDescription: Learn what is Currying in JavaScript, how and when to use it
   with some real-world code examples.
+shareImage: /img/currying-in-javascript.jpg
 teaser: Currying is the technique of converting functions that take multiple
   arguments into a sequence of functions that each take a single argument.
   Curried function acts as a Higher-Order Function that allows creating
