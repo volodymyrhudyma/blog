@@ -7,24 +7,24 @@ metaDescription: Learn what is Currying in JavaScript, how and when to use it
   with some real-world code examples.
 shareImage: /img/currying-in-javascript.jpg
 teaser: Currying is the technique of converting functions that take multiple
-  arguments into a sequence of functions that each take a single argument.
-  Curried function acts as a Higher-Order Function that allows creating
-  functions with some pre-defined data...
+  arguments into a sequence of functions that each take a single argument. A
+  curried function acts as Higher-Order Function, which allows functions to be
+  created with some predefined data...
 date: 2021-03-08T08:51:41.164Z
 ---
 Currying is the technique of converting functions that take multiple arguments into a sequence of functions that each take a single argument.
 
-Curried function acts as a Higher-Order Function that allows creating functions with some pre-defined data in their closure scope.
+A curried function acts as Higher-Order Function, which allows functions to be created with some predefined data in their closure scope.
 
-For example, the function callable as **sum(a, b, c)** can be transformed into callable as **sum(a)(b)(c)**.
+For example, the function callable as **sum(a, b, c)** can be converted to **sum(a)(b)(c)**.
 
-They work thanks to closures that retain the enclosing function scopes after they have returned.
+They work thanks to closures that preserve the enclosing function scopes after they return.
 
 > A [closure](https://en.wikipedia.org/wiki/Closure_(computer_programming)) gives you access to an outer function’s scope from an inner function.
 
 ## The Basic Example
 
-Let's take a look at the example with the **sum(a, b, c)** function:
+Let's look at the example with the **sum(a, b, c)** function:
 
 ```javascript
 const sum = (a, b, c) => a + b + c;
@@ -259,7 +259,7 @@ Let's break down the above example:
    Lodash contains also **flow** function that executes the given functions from left to right.
 2. Prepare curried **sum**, **multiply** and **log** functions that would sum, multiply and print values to the console.
 3. Compose all functions with the **flowRight** and start executing them from right to left (from **addDiscount** to **log("addFee")**.
-4.  See the output.
+4. See the output.
 
 ## Summary
 
