@@ -3,8 +3,12 @@ title: Currying In JavaScript
 tag:
   - JavaScript
 promote: false
-metaDescription: // META
-teaser: // TEASER
+metaDescription: Learn what is Currying in JavaScript, how and when to use it
+  with some real-world code examples.
+teaser: Currying is the technique of converting functions that take multiple
+  arguments into a sequence of functions that each take a single argument.
+  Curried function acts as a Higher-Order Function that allows creating
+  functions with some pre-defined data...
 date: 2021-03-08T08:51:41.164Z
 ---
 Currying is the technique of converting functions that take multiple arguments into a sequence of functions that each take a single argument.
@@ -15,6 +19,8 @@ For example, the function callable as **sum(a, b, c)** can be transformed into c
 
 They work thanks to closures that retain the enclosing function scopes after they have returned.
 
+> A [closure](https://en.wikipedia.org/wiki/Closure_(computer_programming)) gives you access to an outer function’s scope from an inner function.
+
 ## The Basic Example
 
 Let's take a look at the example with the **sum(a, b, c)** function:
@@ -23,13 +29,13 @@ Let's take a look at the example with the **sum(a, b, c)** function:
 const sum = (a, b, c) => a + b + c;
 
 // ES6 Syntax
-const curriedSumES6 = a => b => c => a * b * c;
+const curriedSumES6 = a => b => c => a + b + c;
 
 // ES5 Syntax
 function curriedSumES5(a) {
     return function (b) {
         return function (c)  {
-            return a * b * c;
+            return a + b + c;
         };
     };
 };
@@ -253,3 +259,9 @@ Let's break down the above example:
 2. Prepare curried **sum**, **multiply** and **log** functions that would sum, multiply and print values to the console.
 3. Compose all functions with the **flowRight** and start executing them from right to left (from **addDiscount** to **log("addFee")**.
 4.  See the output.
+
+## Summary
+
+Currying is a very important but often misunderstood concept in JavaScript. It allows to transform the function callable as **sum(a, b, c)** can be into callable as **sum(a)(b)(c)**.
+
+In this article, we have learned what is currying and how to use it properly with some real-world examples.
