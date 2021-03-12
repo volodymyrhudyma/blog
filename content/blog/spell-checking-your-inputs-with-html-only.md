@@ -1,10 +1,15 @@
 ---
-title: Spell Checking Your Inputs With HTML Only
+title: Enable Spell Checking With HTML Only
 tag:
   - Other
 promote: false
-metaDescription: // META
-teaser: // TEASER
+metaDescription: Learn a spellcheck HTML attribute which is user for checking
+  spelling errors in inputs, textareas and content editable fields.
+shareImage: /img/spell-checking-min.jpg
+teaser: Recently I was browsing the Internet and stumbled upon an interesting
+  HTML attribute that allows performing a spell checking of your inputs, text
+  areas, and content editable fields. This can get an extremely useful addition
+  to your website if...
 date: 2021-03-13T14:39:24.270Z
 ---
 Recently I was browsing the Internet and stumbled upon an interesting HTML attribute that allows performing a spell checking of your inputs, text areas, and content editable fields.
@@ -60,3 +65,7 @@ According to the [caniuse](https://caniuse.com/?search=spellcheck), the attribut
 And a lot more of them in [this article](https://www.wufoo.com/html5/spellcheck-attribute/).
 
 ## Summary
+
+I was surprised when I came over this attribute, will definitely start using it when building forms.
+
+Hopefully it will improve the User Experience a tiny bit.
