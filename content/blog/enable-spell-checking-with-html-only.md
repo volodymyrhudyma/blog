@@ -10,7 +10,7 @@ teaser: Recently, while browsing the web, I came across an interesting HTML
   attribute that allows you to spell check your input, text areas, and content
   editable fields. This can become an extremely useful addition to your website
   if you have...
-date: 2021-03-13T14:39:24.270Z
+date: 2021-03-12T14:39:24.270Z
 ---
 Recently, while browsing the web, I came across an interesting HTML attribute that allows you to spell check your input, text areas, and content editable fields. 
 
