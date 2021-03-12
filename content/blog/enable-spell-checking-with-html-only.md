@@ -16,7 +16,7 @@ Recently, while browsing the web, I came across an interesting HTML attribute th
 
 This can become an extremely useful addition to your website if you have a lot of forms that need to be filled out by users. 
 
-## The "spellcheck" attribute
+## The "spellcheck" Attribute
 
 The **spellcheck** attribute is an attribute that defines whether or not the element should be checked for spelling errors:
 
