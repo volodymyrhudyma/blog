@@ -20,7 +20,7 @@ The `spellcheck` is an attribute that defines whether the element should be chec
 <input type="text" spellcheck="true" placeholder="Type something here" />
 
 <!-- Textarea -->
-<textarea spellcheck="true" placeholder="Type something here" />
+<textarea spellcheck="true" placeholder="Type something here"></textarea>
 
 <!-- Editable paragraph -->
 <p contenteditable spellcheck="true">Type something here</p>
@@ -31,4 +31,14 @@ The `spellcheck` is an attribute that defines whether the element should be chec
 
 Obviously, the attribute can contain either **true** or **false** value, intended to tell whether its content should be validated for errors or not.
 
+**Important note:** The explicit usage of boolean value is mandatory, shorthand is not allowed:
+
+```html
+<!-- Shorthand is not allowed -->
+<input type="text" spellcheck placeholder="Type something here" />
+
+```
+
 Let's see the above code in action:
+
+![Spellcheck Code](/img/spellcheck-min.gif "Spellcheck Code")
