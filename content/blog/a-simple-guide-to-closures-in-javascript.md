@@ -359,7 +359,7 @@ The **add** function receives an **x** argument and returns a new function that 
 
 Both, **add1** and **add2** functions are Closures, they share the same body definition but store different Lexical Environments.
 
-## What Are Closures User For?
+## What Closures Are Used For?
 
 Prior to the introduction of Classes in **ES6**, closures provided a way of creating class-like structures, allowing us to emulate private methods.
 
