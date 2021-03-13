@@ -25,9 +25,9 @@ Before proceeding with further definitions and examples, we need to understand h
 
 This is described by the concept named **Lexical Scoping**.
 
-## What Is A Lexical Scope?
+## What Is A Lexical Scoping?
 
-The **Lexical Scope** describes how the variables are resolved inside of the function.
+**Lexical Scoping** describes how the variables are resolved inside of the function.
 
 Consider the following example:
 
@@ -154,3 +154,14 @@ console.log(add2(10));
 The **add** function receives an **x** argument and returns a new function that takes an **y** argument and adds them together.
 
 Both, **add1** and **add2** functions are closures, they share the same body definition, but store different Lexical Environments.
+
+## Lexical Environment
+
+In order to fully understand the wholce concept of Closures, we need to understand what is a Lexical Environment and how it works.
+
+In JavaScript, ecery block of code **{ ... }** within curly braces and the whole script have an internal hidden associated object that is called Lexical Environment which consists of two parts:
+
+* **Environment Record** - maps local variable names to variable values (this is where JavaScript stores variables)
+* **Reference to the Outer Lexical Environment**
+
+A **variable** that is defined is just a property of the Environment Record. Changing it means changing the property of the Environment Record.
