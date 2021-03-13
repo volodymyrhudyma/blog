@@ -8,7 +8,7 @@ metaDescription: Learn everything about Closures and Lexical Environment in
 teaser: The concept of closures is not an easy thing to wrap your head around. A
   lot of experienced developers still struggle to understand it, let alone
   explaining to a colleague or an interview for a new...
-date: 2021-03-14T17:13:28.656Z
+date: 2021-03-15T17:13:28.656Z
 ---
 The concept of closures is not an easy thing to wrap your head around. 
 
@@ -94,7 +94,7 @@ number = 20;
 // Step 4
 {
   environmentRecord: {
-    number: 10,
+    number: 20,
   },
   outer: null,
 }
@@ -104,7 +104,7 @@ The code above demonstrates how the Lexical Environment changes while executing 
 
 **Step 1:** When the script starts, the Lexical Environment is filled with all variables we created in the **uninitialized** state. The variable is known to the engine, but can't be referenced until declared.
 
-**Step 2:** After declaring a variable with the **let** keyword, its value becomes undefined.
+**Step 2:** After declaring a variable with the **let** keyword, its value becomes **undefined**.
 
 **Step** **3**: Variable contains a value.
 
@@ -339,7 +339,7 @@ Once the **initializeUser** function finishes executing, someone could have expe
 
 According to the [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript):
 
-> A **Closure** is the combination of a function and the lexical environment within which that function was declared.
+> A **Closure** is the combination of a function and the Lexical Environment within which that function was declared.
 
 Getting back to the above example, when we assign a reference to the **getFullName** function to the **returnFunc** variable, the instance of **getFullName** function maintains a reference to its Lexical Environment, within which the **user** variable still exists.
 
