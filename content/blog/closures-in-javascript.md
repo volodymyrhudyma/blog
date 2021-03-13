@@ -1,5 +1,5 @@
 ---
-title: Closures In JavaScript
+title: A Simple Guilde To Closures In JavaScript
 tag:
   - JavaScript
 promote: false
