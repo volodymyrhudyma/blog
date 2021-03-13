@@ -304,7 +304,7 @@ let counter = initializeCounter();
 counter = null; // Remove the Lexical Environment from the memory
 ```
 
-## Yet Another Closure Example
+## Yet Another Closure Examples
 
 Consider the following example:
 
@@ -338,25 +338,21 @@ Once the **initializeUser** function finishes executing, someone could have expe
 
 **The reason this code works is that in JavaScript, accessing the variable outside of the local scope creates a Closure.**
 
-According to the [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript):
-
-> A **Closure** is the combination of a function and the Lexical Environment within which that function was declared.
-
-Getting back to the above example, when we assign a reference to the **getFullName** function to the **result** variable, the instance of **getFullName** function maintains a reference to its Lexical Environment, within which the **user** variable still exists.
+When we assign a reference to the **getFullName** function to the **result** variable, the instance of **getFullName** function maintains a reference to its Lexical Environment, within which the **user** variable still exists.
 
 Consider another example:
 
 ```javascript
 const add = x => y => x + y;
 
-const add1 = add(1);
-const add2 = add(2);
+const addOne = add(1);
+const addTwo = add(2);
 
 // Prints "11"
-console.log(add1(10));
+console.log(addOne(10));
 
 // Prints "12"
-console.log(add2(10));
+console.log(addTwo(10));
 ```
 
 The **add** function receives an **x** argument and returns a new function that takes an **y** argument and adds them together.
