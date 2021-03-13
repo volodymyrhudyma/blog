@@ -77,7 +77,6 @@ console.log(initializeUser());
 If we declare the **user** variable in the global scope, it will easily be resolved:
 
 ```javascript
-
 const user = {
   name: "John",
   surname: "Doe",
@@ -165,3 +164,76 @@ In JavaScript, ecery block of code **{ ... }** within curly braces and the whole
 * **Reference to the Outer Lexical Environment**
 
 A **variable** that is defined is just a property of the Environment Record. Changing it means changing the property of the Environment Record.
+
+The following code:
+
+```javascript
+const number = 10;
+```
+
+Corresponds to the following Lexical Environment:
+
+```javascript
+{
+  environmentRecord: {
+    number: 10,
+  },
+  outer: null,
+}
+```
+
+This is **Global Lexical Environment**. It has no **outer** reference.
+
+As the code is being executed, the Lexical Environment changes:
+
+```javascript
+let number;
+
+number = 10;
+
+number = 20;
+```
+
+```javascript
+// Step 1
+{
+  environmentRecord: {
+    number: <uninitialized>,
+  },
+  outer: null,
+}
+
+// Step 2
+{
+  environmentRecord: {
+    number: undefined,
+  },
+  outer: null,
+}
+
+// Step 3
+{
+  environmentRecord: {
+    number: 10,
+  },
+  outer: null,
+}
+
+// Step 4
+{
+  environmentRecord: {
+    number: 10,
+  },
+  outer: null,
+}
+```
+
+The code above demonstrates how the Lexical Environment changes while executing the code above:
+
+**Step 1:** When the script starts, the Lexical Environment is filled with all variables we created in the **uninitialized** state. The variable is known to the engine, but can't be referenced until declared.
+
+**Step 2:** After declaring a variable with the **let** keyword, its value becomes undefined.
+
+**Step** **3**: Variable contains a value.
+
+**Step 4**: Variable changes a value.
