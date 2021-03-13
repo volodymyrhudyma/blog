@@ -70,7 +70,6 @@ const initializeUser = () => {
   return getFullName();
 };
 
-
 // ReferenceError: user is not defined
 console.log(initializeUser());
 ```
@@ -93,7 +92,44 @@ const initializeUser = () => {
   return getFullName();
 };
 
-
 // Prints "John Doe"
 console.log(initializeUser());
 ```
+
+## A Closure Example
+
+Consider the following example:
+
+```javascript
+const initializeUser = () => {
+  const user = {
+    name: "John",
+    surname: "Doe",
+  };
+
+  const getFullName = () => {
+    return `${user.name} ${user.surname}`;
+  };
+  
+  return getFullName;
+};
+
+const getFullName = initializeUser();
+
+// Prints "John Doe"
+console.log(getFullName());
+```
+
+Notice how we return the **getFullName** function **without executing it**.
+
+It may not be obvious that this example works, but it actually does.
+
+In some programming languages, the local variables within the function (like the **user** variable) exist only during the function execution time and are removed later.
+
+Once the **initializeUser** function finishes executing, someone could have expected that the **user** variable will no longer be accessible, but obviously this is not the case in JavaScript.
+
+**The reason this code works is that in JavaScript, accessing the variable outside of the immediate scope creates a Closure.**
+
+According to the [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript):
+
+> A **Closure** is the combination of a function and the lexical environment within which that function was declared.
