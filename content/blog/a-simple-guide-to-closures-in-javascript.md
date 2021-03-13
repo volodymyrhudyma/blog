@@ -5,6 +5,7 @@ tag:
 promote: false
 metaDescription: Learn everything about Closures and Lexical Environment in
   JavaScript by reading this simple step-by-step guide.
+shareImage: /img/closures-in-javascript.jpg
 teaser: The concept of closures is not an easy thing to wrap your head around. A
   lot of experienced developers still struggle to understand it, let alone
   explaining to a colleague or an interview for a new...
