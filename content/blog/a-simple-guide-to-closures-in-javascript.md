@@ -304,7 +304,7 @@ let counter = initializeCounter();
 counter = null; // Remove the Lexical Environment from the memory
 ```
 
-## Yet Another Closure Examples
+## More Closure Examples
 
 Consider the following example:
 
@@ -358,6 +358,50 @@ console.log(addTwo(10));
 The **add** function receives an **x** argument and returns a new function that takes an **y** argument and adds them together.
 
 Both, **add1** and **add2** functions are Closures, they share the same body definition but store different Lexical Environments.
+
+## What Are Closures User For?
+
+Prior to the introduction of Classes in **ES6**, closures provided a way of creating class-like structures, allowing us to emulate private methods.
+
+This is known as the **Module Pattern** and it allows us to write easily maintainable code with reduced namespace pollution and more reusability:
+
+```javascript
+const intializeCounter = () => {
+  let count = 0;
+  const changeCount = (value) => count += value;
+  return {
+    increment: () => {
+      changeCount(1);
+    },
+    decrement: () => {
+      changeCount(-1);
+    },
+    get: () => count,
+  }
+}
+
+const counter = intializeCounter();
+
+console.log(counter.increment());
+// Prints "1"
+console.log(counter.get());
+
+console.log(counter.increment());
+// Prints "2"
+console.log(counter.get());
+
+console.log(counter.decrement());
+// Prints "1"
+console.log(counter.get());
+```
+
+Closures also allow us to use functions to create other functions that add a specific value to their argument. 
+
+In this case, the parent function allowing this behaviour is known as a **Function Factory**.
+
+Using function factories, we are able to achieve a behaviour known as **Currying.**
+
+To learn more about Currying, read this [simple guide](https://www.vhudyma-blog.eu/a-simple-guilde-to-currying-in-javascript/).
 
 ## Summary
 
