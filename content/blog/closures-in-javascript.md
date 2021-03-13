@@ -3,8 +3,11 @@ title: A Simple Guide To Closures In JavaScript
 tag:
   - JavaScript
 promote: false
-metaDescription: META
-teaser: TEASER
+metaDescription: Learn everything about Closures and Lexical Environment in
+  JavaScript by reading this simple step-by-step guide.
+teaser: The concept of closures is not an easy thing to wrap your head around. A
+  lot of experienced developers still struggle to understand it, let alone
+  explaining to a colleague or an interview for a new...
 date: 2021-03-14T17:13:28.656Z
 ---
 The concept of closures is not an easy thing to wrap your head around. 
@@ -23,142 +26,11 @@ A **Closure** is a feature that gives access to an outer function's scope from a
 
 Before proceeding with further definitions and examples, we need to understand how variables are resolved in JavaScript in nested functions.
 
-This is described by the concept named **Lexical Scoping**.
-
-## What Is A Lexical Scoping?
-
-**Lexical Scoping** describes how the variables are resolved inside of the function.
-
-Consider the following example:
-
-```javascript
-const initializeUser = () => {
-  const user = {
-    name: "John",
-    surname: "Doe",
-  };
-  
-  const getFullName = () => {
-    return `${user.name} ${user.surname}`;
-  };
-  
-  return getFullName();
-};
-
-
-// Prints "John Doe"
-console.log(initializeUser());
-```
-
-The **initializeUser** function declares the **user** variable in its scope and the inner **getFullName** function has an access to that variable.
-
-Nested functions have access to the variables declared in the outer scope.
-
-The scope of variable is defined by its position in the code. 
-
-To resolve variables, JavaScript starts at the innermost scope (**getFullName** function) and searches upwards until it finds it.
-
-If the variable is not found, an error is returned:
-
-```javascript
-const initializeUser = () => {
-  
-  const getFullName = () => {
-    return `${user.name} ${user.surname}`;
-  };
-  
-  return getFullName();
-};
-
-// ReferenceError: user is not defined
-console.log(initializeUser());
-```
-
-If we declare the **user** variable in the global scope, it will easily be resolved:
-
-```javascript
-const user = {
-  name: "John",
-  surname: "Doe",
-};
-
-const initializeUser = () => {
-  
-  const getFullName = () => {
-    return `${user.name} ${user.surname}`;
-  };
-  
-  return getFullName();
-};
-
-// Prints "John Doe"
-console.log(initializeUser());
-```
-
-## A Closure Example
-
-Consider the following example:
-
-```javascript
-const initializeUser = () => {
-  const user = {
-    name: "John",
-    surname: "Doe",
-  };
-
-  const getFullName = () => {
-    return `${user.name} ${user.surname}`;
-  };
-  
-  return getFullName;
-};
-
-const returnFunc = initializeUser();
-
-// Prints "John Doe"
-console.log(returnFunc());
-```
-
-Notice how we return the **getFullName** function **without executing it**.
-
-It may not be obvious that this example works, but it actually does.
-
-In some programming languages, the local variables within the function (like the **user** variable) exist only during the function execution time and are removed later.
-
-Once the **initializeUser** function finishes executing, someone could have expected that the **user** variable will no longer be accessible, but obviously this is not the case in JavaScript.
-
-**The reason this code works is that in JavaScript, accessing the variable outside of the immediate scope creates a Closure.**
-
-According to the [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript):
-
-> A **Closure** is the combination of a function and the lexical environment within which that function was declared.
-
-Getting back to the above example, when we assign a reference to the **getFullName** function to the **returnFunc** variable, the instance of **getFullName** function maintains a reference to its Lexical Environment, within which the **user** variable still exists.
-
-Consider another example:
-
-```javascript
-const add = x => y => x + y;
-
-const add1 = add(1);
-const add2 = add(2);
-
-// Prints "11"
-console.log(add1(10));
-
-// Prints "12"
-console.log(add2(10));
-```
-
-The **add** function receives an **x** argument and returns a new function that takes an **y** argument and adds them together.
-
-Both, **add1** and **add2** functions are closures, they share the same body definition, but store different Lexical Environments.
-
 ## Lexical Environment
 
-In order to fully understand the wholce concept of Closures, we need to understand what is a Lexical Environment and how it works.
+In order to fully understand the whole concept of Closures, we need to understand what is a Lexical Environment and how it works.
 
-In JavaScript, ecery block of code **{ ... }** within curly braces and the whole script have an internal hidden associated object that is called Lexical Environment which consists of two parts:
+In JavaScript, every block of code **{ ... }** within curly braces and the whole script has an internal hidden associated object that is called Lexical Environment which consists of two parts:
 
 * **Environment Record** - maps local variable names to variable values (this is where JavaScript stores variables)
 * **Reference to the Outer Lexical Environment**
@@ -237,3 +109,263 @@ The code above demonstrates how the Lexical Environment changes while executing 
 **Step** **3**: Variable contains a value.
 
 **Step 4**: Variable changes a value.
+
+#### Function declarations
+
+Function declarations are instantly fully initialized:
+
+```javascript
+const hello = "Hello";
+  
+function displayGreeting(world) {
+  return `${hello}, ${world}`;
+};
+```
+
+```javascript
+// Step 1
+{
+  environmentRecord: {
+    hello: <uninitialized>,
+    displayGreeting: Function,
+  },
+  outer: null,
+}
+```
+
+This behavior only applies to the Function Declarations, not Function Expressions.
+
+#### Outer Lexical Environment
+
+At the beginning of a function call, a new Lexical Environment is created to store all local variables and parameters of the call:
+
+```javascript
+const hello = "Hello";
+  
+function displayGreeting(world) {
+  return `${hello}, ${world}`;
+};
+
+displayGreeting("World");
+```
+
+```javascript
+{
+  environmentRecord: {
+    world: "World",
+  },
+  outer: {
+    environmentRecord: {
+      hello: "Hello",
+      displayGreeting: Function,
+    },
+    outer: null,
+  },
+}
+```
+
+During the execution process, we have two Lexical Environment: local and global.
+
+The local one has a reference to the global via **outer** field.
+
+When the code tries to access the **hello** variable, the local Lexical Environment is searched first, then the outer one, and so on, until we reach the global Lexical Environment.
+
+If a variable is not found anywhere, that’s an error in strict mode (without use strict, an assignment to a non-existing variable creates a new global variable, preserving the backward compatibility).
+
+#### The Closure Example
+
+Consider the following example of a Closure:
+
+```javascript
+const initializeCounter = () => {
+  let count = 0;
+
+  return () => count++;
+};
+
+const counter = initializeCounter();
+
+// Prints "0"
+console.log(counter());
+
+// Prints "1"
+console.log(counter());
+
+// Prints "2"
+console.log(counter());
+```
+
+We have two Lexical Environments:
+
+```javascript
+{
+  // Lexical Environment of the "initializeCounter" function
+  environmentRecord: {
+    count: 0,
+  },
+  outer: {
+    // Global Lexical Environment
+    environmentRecord: {
+      counter: undefined,
+      initializeCounter: Function,
+    },
+    outer: null,
+  },
+}
+```
+
+During the execution of the **initializeCounter** function, we return a nested one-liner function that remembers the Lexical Environment it was created in.
+
+All functions have the hidden property named **\[[Environment]]**, which keeps the reference to the Lexical Environment they were created in.
+
+So, in our example the **counter.\[[Environment]]** has the reference to the **{ count: 0 }** Lexical Environment.
+
+When the **counter** function is called, a new Lexical Environment is created for that call and its outer reference is taken from the **counter.\[[Environment]]**:
+
+```javascript
+{
+  // Lexical Environment of the "counter" function
+  environmentRecord: {},
+  outer: {
+    // Lexical Environment of the "initializeCounter" function
+    environmentRecord: {
+      count: 0,
+    },
+    outer: {
+      // Global Lexical Environment
+      environmentRecord: {
+        counter: undefined,
+        initializeCounter: Function,
+      },
+      outer: null,
+    },
+  },
+}
+```
+
+Now when JavaScript searches for the **count** variable, it goes through the local environment, which is empty, and then searches through the references and eventually finds it.
+
+**When we update the variable, it is updated in the Lexical Environment, where it belongs.**
+
+The state after the execution of a **counter** function:
+
+```javascript
+{
+  // Lexical Environment of the "counter" function
+  environmentRecord: {},
+  outer: {
+    // Lexical Environment of the "initializeCounter" function
+    environmentRecord: {
+      // "count" variable is updated here
+      count: 1,
+    },
+    outer: {
+      // Global Lexical Environment
+      environmentRecord: {
+        counter: undefined,
+        initializeCounter: Function,
+      },
+      outer: null,
+    },
+  },
+}
+```
+
+Calling the **counter** function multiple times leads to updating the **count** variable multiple times in the Lexical Environment it belongs to.
+
+#### Garbage Collection
+
+Typically, a Lexical environment is removed from the memory after the function executes, because there are no references to it.
+
+However, if there’s a nested function that is still reachable after the end of a function (exactly our case), then it has **\[[Environment]]** property that references the Lexical Environment, therefore it is not garbage-collected:
+
+```javascript
+const initializeCounter = () => {
+  let count = 0;
+
+  return () => count++;
+};
+
+// counter.[[Environment]] contains a reference to the
+// Lexical Environment of the "initializeCounter" function
+const counter = initializeCounter();
+```
+
+**Important Note:** the more times **initializeCounter** function will be created, the more Lexical Environments will be kept in memory.
+
+Do not forget to clean the memory:
+
+```javascript
+let counter = initializeCounter();
+
+// Your code
+
+counter = null; // Remove the Lexical Environment from the memory
+```
+
+## Yet Another Closure Example
+
+Consider the following example:
+
+```javascript
+const initializeUser = () => {
+  const user = {
+    name: "John",
+    surname: "Doe",
+  };
+
+  const getFullName = () => {
+    return `${user.name} ${user.surname}`;
+  };
+  
+  return getFullName;
+};
+
+const returnFunc = initializeUser();
+
+// Prints "John Doe"
+console.log(returnFunc());
+```
+
+Notice how we return the **getFullName** function **without executing it**.
+
+It may not be obvious that this example works, but it actually does.
+
+In some programming languages, the local variables within the function (like the **user** variable) exist only during the function execution time and are removed later.
+
+Once the **initializeUser** function finishes executing, someone could have expected that the **user** variable will no longer be accessible, but obviously, this is not the case in JavaScript.
+
+**The reason this code works is that in JavaScript, accessing the variable outside of the immediate scope creates a Closure.**
+
+According to the [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript):
+
+> A **Closure** is the combination of a function and the lexical environment within which that function was declared.
+
+Getting back to the above example, when we assign a reference to the **getFullName** function to the **returnFunc** variable, the instance of **getFullName** function maintains a reference to its Lexical Environment, within which the **user** variable still exists.
+
+Consider another example:
+
+```javascript
+const add = x => y => x + y;
+
+const add1 = add(1);
+const add2 = add(2);
+
+// Prints "11"
+console.log(add1(10));
+
+// Prints "12"
+console.log(add2(10));
+```
+
+The **add** function receives an **x** argument and returns a new function that takes an **y** argument and adds them together.
+
+Both, **add1** and **add2** functions are closures, they share the same body definition but store different Lexical Environments.
+
+## Summary
+
+The concept of Closures and how they work is not obvious and requires some knowledge of how JavaScript works internally.
+
+I hope that this article shred at least a tiny bit of light on this topic to you.
+
+Make sure to play around with the examples and read some other articles as well to understand it better.
