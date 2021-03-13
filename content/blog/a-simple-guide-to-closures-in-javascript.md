@@ -6,12 +6,12 @@ promote: false
 metaDescription: Learn everything about Closures and Lexical Environment in
   JavaScript by reading this simple step-by-step guide.
 shareImage: /img/closures-in-javascript.jpg
-teaser: The concept of closures is not an easy thing to wrap your head around. A
+teaser: The concept of Closures is not an easy thing to wrap your head around. A
   lot of experienced developers still struggle to understand it, let alone
   explaining to a colleague or an interview for a new...
 date: 2021-03-15T17:13:28.656Z
 ---
-The concept of closures is not an easy thing to wrap your head around. 
+The concept of Closures is not an easy thing to wrap your head around. 
 
 A lot of experienced developers still struggle to understand it, let alone explaining to a colleague or an interview for a new job.
 
@@ -322,10 +322,10 @@ const initializeUser = () => {
   return getFullName;
 };
 
-const returnFunc = initializeUser();
+const result = initializeUser();
 
 // Prints "John Doe"
-console.log(returnFunc());
+console.log(result());
 ```
 
 Notice how we return the **getFullName** function **without executing it**.
@@ -336,13 +336,13 @@ In some programming languages, the local variables within the function (like the
 
 Once the **initializeUser** function finishes executing, someone could have expected that the **user** variable will no longer be accessible, but obviously, this is not the case in JavaScript.
 
-**The reason this code works is that in JavaScript, accessing the variable outside of the immediate scope creates a Closure.**
+**The reason this code works is that in JavaScript, accessing the variable outside of the local scope creates a Closure.**
 
 According to the [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript):
 
 > A **Closure** is the combination of a function and the Lexical Environment within which that function was declared.
 
-Getting back to the above example, when we assign a reference to the **getFullName** function to the **returnFunc** variable, the instance of **getFullName** function maintains a reference to its Lexical Environment, within which the **user** variable still exists.
+Getting back to the above example, when we assign a reference to the **getFullName** function to the **result** variable, the instance of **getFullName** function maintains a reference to its Lexical Environment, within which the **user** variable still exists.
 
 Consider another example:
 
@@ -361,7 +361,7 @@ console.log(add2(10));
 
 The **add** function receives an **x** argument and returns a new function that takes an **y** argument and adds them together.
 
-Both, **add1** and **add2** functions are closures, they share the same body definition but store different Lexical Environments.
+Both, **add1** and **add2** functions are Closures, they share the same body definition but store different Lexical Environments.
 
 ## Summary
 
