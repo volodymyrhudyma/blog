@@ -1,5 +1,5 @@
 ---
-title: A Simple Guilde To Closures In JavaScript
+title: A Simple Guide To Closures In JavaScript
 tag:
   - JavaScript
 promote: false
@@ -21,20 +21,79 @@ That definition sounds hard enough, so maybe the following one illustrates it be
 
 A **Closure** is a feature that gives access to an outer function's scope from an inner function.
 
-Basically, an inner function has an access to all variables declared outside of it:
+Before proceeding with further definitions and examples, we need to understand how variables are resolved in JavaScript in nested functions.
+
+This is described by the concept named **Lexical Scoping**.
+
+## What Is A Lexical Scope?
+
+The **Lexical Scope** describes how the variables are resolved inside of the function.
+
+Consider the following example:
 
 ```javascript
+const initializeUser = () => {
+  const user = {
+    name: "John",
+    surname: "Doe",
+  };
+  
+  const getFullName = () => {
+    return `${user.name} ${user.surname}`;
+  };
+  
+  return getFullName();
+};
+
+
+// Prints "John Doe"
+console.log(initializeUser());
+```
+
+The **initializeUser** function declares the **user** variable in its scope and the inner **getFullName** function has an access to that variable.
+
+Nested functions have access to the variables declared in the outer scope.
+
+The scope of variable is defined by its position in the code. 
+
+To resolve variables, JavaScript starts at the innermost scope (**getFullName** function) and searches upwards until it finds it.
+
+If the variable is not found, an error is returned:
+
+```javascript
+const initializeUser = () => {
+  
+  const getFullName = () => {
+    return `${user.name} ${user.surname}`;
+  };
+  
+  return getFullName();
+};
+
+
+// ReferenceError: user is not defined
+console.log(initializeUser());
+```
+
+If we declare the **user** variable in the global scope, it will easily be resolved:
+
+```javascript
+
 const user = {
   name: "John",
   surname: "Doe",
 };
 
-const getFullName = () => {
-  return `${user.name} ${user.surname}`;
+const initializeUser = () => {
+  
+  const getFullName = () => {
+    return `${user.name} ${user.surname}`;
+  };
+  
+  return getFullName();
 };
 
-// Prints "John Doe"
-console.log(getFullName());
-```
 
-In the example above, the **getFullName** function has access to the **user** variable, declared outside of it.
+// Prints "John Doe"
+console.log(initializeUser());
+```
