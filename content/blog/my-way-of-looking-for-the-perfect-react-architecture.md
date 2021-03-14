@@ -1,5 +1,5 @@
 ---
-title: My way of looking for the perfect React architecture
+title: My Way Of Looking For The Perfect React Architecture
 tag:
   - React
 popular: true
@@ -72,7 +72,7 @@ A new application structure was as follows:
 
 ![Redux screenshot](/img/screenshot-2020-07-29-at-17.12.11.png "Redux screenshot")
 
-## Containers and Presentational Components
+## Containers And Presentational Components
 
 Shortly after we added Redux to the project, we started connecting components to the store, and at first, it felt fine, but after a few days, some of the drawbacks became apparent.
 
@@ -122,7 +122,7 @@ This design approach helps us to build a good project structure that is easy to 
 
 ![Atomic design screenshot](/img/screenshot-2020-07-29-at-17.21.44.png "Atomic design screenshot")
 
-## The current
+## The Current
 
 After using Atomic Design for a while, it was obvious that breaking up large projects into these small parts was an efficient way to work. 
 
