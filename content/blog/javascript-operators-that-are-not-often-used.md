@@ -1,7 +1,8 @@
 ---
-title: JavaScript operators that are not often used
+title: JavaScript Operators That Are Not Often Used
 tag:
   - JavaScript
+promote: false
 metaDescription: Learn unique JavaScript operators that are not used very often.
   For example, optional chaining, nullish coalescing and bitwise operators.
 teaser: JavaScript supports a lot of operators that serve many purposes, such as
@@ -15,7 +16,7 @@ As was to be expected, there are the most and the less popular ones.
 
 Today we will focus on learning the JavaScript operators, which are not often used.
 
-## The double negation
+## The Double Negation
 
 **The double negation** (`!!`) is not an operator itself, but a combination of 2 **negations**. 
 
@@ -55,7 +56,7 @@ In the end, *truthy* value is converted to **true**, *falsy* to **false.**
 !!{} // true
 ```
 
-## The remainder
+## The Remainder
 
 **The remainder** (`%`) operator returns the remainder left over when one operand is divided by a second operand.
 
@@ -72,7 +73,7 @@ It always takes the sign of the dividend.
 -4 % 10 // -4
 ```
 
-## The nullish coalescing
+## The Nullish Coalescing
 
 **The nullish coalescing** (`??`) operator is a logical operator that returns right-side operand if left side equals to **null** or **undefined**, otherwise returns left side.
 
@@ -88,7 +89,7 @@ false ?? "value" // false
 
 To learn this operator more, refer to [this article](/2020-05-29-nullish-coalescing-operator/). 
 
-## The optional chaining
+## The Optional Chaining
 
 **The optional chaining** (`?.`) operator is an error-proof way to access nested object properties, even if an intermediate property does not exist. 
 
@@ -136,7 +137,7 @@ console.log(status); // Prints "undefined"
 
 To learn this operator more, refer to [this article](/2020-05-27-optional-chaining-in-javascript/).
 
-## The exponentiation
+## The Exponentiation
 
 **The exponentiation** (`**`) operator calculates the **base** to the **exponent** power, that is, **base^exponent**.
 
@@ -157,7 +158,7 @@ The operator is right-associative: `a ** b ** c` is equal to `a ** (b ** c)`.
 2 ** 2 ** 3 // 256, not 64
 ```
 
-## The bitwise XOR
+## The Bitwise XOR
 
 **The bitwise XOR** (`^`) operator:
 
@@ -187,7 +188,7 @@ Before: 11100110111110100000000000000110000000000001
 After:              10100000000000000110000000000001
 ```
 
-## The bitwise NOT
+## The Bitwise NOT
 
 **The bitwise NOT** (`~`) operator inverts the bits of the operand:
 
@@ -197,7 +198,7 @@ const a = 5;     // 00000000000000000000000000000101
 console.log(~a); // 11111111111111111111111111111010, outputs -6
 ```
 
-## The left shift
+## The Left Shift
 
 **The left shift** (`<<`) operator shifts the first operand the specified number bits to the left, shifting in zeros from the right.
 
@@ -210,7 +211,7 @@ console.log(a << b); // 00000000000000000000000000010100, outputs 20
 
 **Important note:** Bitwise shifting any number `x` to the left by `y` bits yields `x * 2 ** y`. For example, `5 << 2`translates to: `5 * (2 ** 2) = 5 * (4) = 20`.
 
-## The sign-propagating right shift
+## The Sign-Propagating Right Shift
 
 **The sign-propagating right shift** (`>>`) operator shifts the first operand the specified number of bits to the right. 
 
@@ -229,7 +230,7 @@ const c = -5;
 console.log(c >> b);  // -00000000000000001111111111111110, outputs -2
 ```
 
-## The zero-fill right shift
+## The Zero-Fill Right Shift
 
 **The zero-fill right shift** (`>>>`) operator shifts the first operand the specified number of bits to the right. 
 
