@@ -1,7 +1,8 @@
 ---
-title: Nullish coalescing operator
+title: Nullish Coalescing Operator
 tag:
   - JavaScript
+promote: false
 metaDescription: The nullish coalescing operator "??" in JavaScript is a logical
   operator that returns right-side operand if left side equals to null or
   undefined, otherwise returns right side.
@@ -13,7 +14,7 @@ date: 2020-05-29T07:27:09.769Z
 ---
 The **nullish coalescing operator** is a logical operator that returns right-side operand if left side equals to `null` or `undefined`, otherwise returns left side.
 
-## The syntax
+## The Syntax
 
 The operator is defined using `??`:
 
@@ -48,7 +49,7 @@ const userName = user ?? "John";
 console.log(userName); // Prints "0"
 ```
 
-## Short-circuiting
+## Short-Circuiting
 
 Like the **OR** and **AND** logical operators, the right-hand side expression is not evaluated if the left-hand side proves to be neither `null` nor `undefined`:
 
@@ -78,7 +79,7 @@ const returnTwo = () => {
 console.log(returnOne() ?? returnTwo());
 ```
 
-## Is the same as logical OR?
+## Is The Same As Logical OR?
 
 If you're familiar with logical **OR** `||` operator, you may wonder what's the difference between it and nullish coalescing operator.
 
@@ -96,7 +97,7 @@ console.log(zero ?? "Default value"); // Prints "0"
 console.log(zero || "Default value"); // Prints "Default value"
 ```
 
-## Falsy values
+## Falsy Values
 
 The following values are considered as falsy in JavaScript:
 
