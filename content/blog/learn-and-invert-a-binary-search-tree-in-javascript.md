@@ -1,5 +1,5 @@
 ---
-title: Learn and Invert a Binary Search Tree in JavaScript
+title: Learn And Invert A Binary Search Tree In JavaScript
 tag:
   - JavaScript
 promote: false
@@ -18,7 +18,7 @@ The truth is that many of us do not even know what a Binary Search Tree is, let 
 
 So let's start with the basics.
 
-## What is a Tree?
+## What Is A Tree?
 
 A **Tree** is a widely-used data structure consisting of nodes connected by edges:
 
@@ -48,7 +48,7 @@ To understand trees better, it is necessary to know at least the basic concepts.
 
 To learn more, read [Wikipedia](https://en.wikipedia.org/wiki/Tree_(data_structure)).
 
-## Tree Implementation in JavaScript
+## Tree Implementation In JavaScript
 
 The implementation of a simple tree in JavaScript is straightforward:
 
@@ -86,7 +86,7 @@ child1.addChild(child3);
 console.log(root);
 ```
 
-## What is a Binary Tree?
+## What Is A Binary Tree?
 
 Since we know the basics of a tree, let's take a look at a Binary Tree which is a specialized version of a tree.
 
@@ -106,13 +106,13 @@ Depending on the arrangement of the nodes, there are different types of Binary T
 
 ![Perfect Binary Tree](/img/perfect.jpg "Perfect Binary Tree")
 
-## What is a Binary Search Tree?
+## What Is A Binary Search Tree?
 
 A **Binary Search Tree** is a special type of Binary Tree that contains a maximum of 2 nodes (like all Binary Trees) with one big difference - the values are set so that the **left children must be smaller** than the parent, the **right children - larger**:
 
 ![Binary Search Tree](/img/bst.jpg "Binary Search Tree")
 
-## Binary Search Tree Implementation in JavaScript
+## Binary Search Tree Implementation In JavaScript
 
 The basic implementation of Binary Search Tree in JavaScript (allows you to create a tree and insert nodes): 
 
@@ -184,7 +184,7 @@ binarySearchTree.insert(7);
 binarySearchTree.insert(13);
 ```
 
-## Invert a Binary Search Tree
+## Invert A Binary Search Tree
 
 Now that one has the first knowledge of the given topic, it is finally possible to continue with the inversion of a Binary Search Tree. 
 
