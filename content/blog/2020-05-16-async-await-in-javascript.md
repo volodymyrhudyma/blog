@@ -1,7 +1,8 @@
 ---
-title: Async/await in JavaScript
+title: Async/Await In JavaScript
 tag:
   - JavaScript
+promote: false
 metaDescription: Async/await  keywords act as a syntactic sugar built on top of
   Promises, making asynchronous code look and feel like synchronous, therefore
   easier to produce and maintain.
@@ -14,7 +15,7 @@ These keywords act as a syntactic sugar built on top of Promises, making asynchr
 
 **Important note:** before proceeding with this article make sure you understand Promises and how to use them. Refer to [this article](/2020-05-14-promises-in-javascript/) if you don't.
 
-## Async function
+## Async Function
 
 Async function - it is a function, declared using `async` keyword. This function always returns a Promise which will be resolved or rejected and knows how to handle `await` inside of it:
 
@@ -33,7 +34,7 @@ example()
   .then(result => console.log(result)); // Prints "1"
 ```
 
-## Await keyword
+## Await Keyword
 
 The real benefits of using `async` keyword become apparent when you start combining is with `await`. In fact, `await` is only valid inside of `async` functions, you won't be able to use this keyword in a regular function.
 
@@ -111,7 +112,7 @@ But it can be wrapped into an anonymous function and executed immediately:
 })();
 ```
 
-## Error handling
+## Error Handling
 
 If the Promise resolves, `await promise` returns the result, if it rejects - an error is thrown:
 
@@ -156,7 +157,7 @@ async function example() {
 example(); // TypeError: Failed to fetch
 ```
 
-## The downsides
+## The Downsides
 
 Async/await is really useful to know about, but there are a couple of downsides to consider.
 
