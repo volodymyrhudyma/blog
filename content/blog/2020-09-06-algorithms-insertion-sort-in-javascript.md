@@ -1,7 +1,8 @@
 ---
-title: Algorithms | Insertion Sort in JavaScript
+title: Algorithms | Insertion Sort In JavaScript
 tag:
   - JavaScript
+promote: false
 metaDescription: "Learn Insertion Sort in JavaScript - a simple sorting
   algorithm that builds the final sorted array one item at a time, its
   advantages and disadvantages and why it is one of the best sorting algorithms
@@ -15,7 +16,7 @@ Today we will learn a very simple algorithm that works best for small or almost 
 
 It works on the principle of inserting an element at a certain position, that is why it is called **Insertion Sort**.
 
-## The definition
+## The Definition
 
 **Insertion sort** is a simple sorting algorithm that builds the final sorted array one item at a time.
 
@@ -35,7 +36,7 @@ The visualization:
 
 ![Insertion sort visualization](/img/insertion_sort_animation.gif "Insertion sort visualization")
 
-## The complexity
+## The Complexity
 
 Best-case performance - `O(N)`, if the input array is already sorted.
 
@@ -43,7 +44,7 @@ Worst-case performance - `O(N2)`, if the input array in the decreasing order.
 
 Average - `O(N2)`.
 
-## Pros and Cons
+## Pros And Cons
 
 Insertion Sort has a fast best-case running time and is a good sorting algorithm when the input list is already mostly sorted. 
 
@@ -65,7 +66,7 @@ For larger or more disordered lists, an algorithm with a faster worst and averag
 
 * Inefficient for large data sets
 
-## Implementation in JavaScript
+## Implementation In JavaScript
 
 ```javascript
 const insertionSort = (arr) => {
@@ -99,7 +100,7 @@ const insertionSort = (arr) => {
 }
 ```
 
-## Usage in JavaScript
+## Usage In JavaScript
 
 ```javascript
 // Assuming that the insertionSort function from the example above is accessible
