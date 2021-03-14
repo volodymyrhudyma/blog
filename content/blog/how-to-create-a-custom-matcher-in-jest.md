@@ -1,7 +1,8 @@
 ---
-title: How to create a custom matcher in Jest?
+title: How To Create A Custom Matcher In Jest?
 tag:
   - React
+promote: false
 metaDescription: Learn how to use API provided by Jest to create custom
   matchers. Jest is a JavaScript test runner, library for creating, running, and
   structuring tests.
@@ -16,7 +17,7 @@ While there are many tools available for JavaScript and React.js unit testing, w
 
 **Jest** is a JavaScript test runner, library for creating, running, and structuring tests.
 
-## Install jest
+## Install Jest
 
 To install jest, run the following command in the root folder of the project:
 
@@ -41,7 +42,7 @@ Look at the test again . The `expect(result)` function returns an "expectation" 
 
 When Jest is running, it keeps track of all the failed matchers so it can print nice error messages for you.
 
-## What is a matcher?
+## What Is A Matcher?
 
 A **matcher** (or an **assertion**) is a function used to check for a particular condition. 
 
@@ -63,7 +64,7 @@ expect(functionMock).toHaveBeenCalledWith("arg");
 
 See the full list of available matchers [here](https://jestjs.io/docs/en/expect). 
 
-## Create a custom matcher
+## Create A Custom Matcher
 
 Although Jest is extremely powerful, there are always some project-specific things that could be extracted somewhere to increase the readability of the tests.
 
