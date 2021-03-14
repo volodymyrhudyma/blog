@@ -1,7 +1,8 @@
 ---
-title: Context API in React
+title: Context API In React
 tag:
   - React
+promote: false
 metaDescription: Learn Context API in React - an easy way to create and share a
   global state throughout the application, which is very useful for eliminating
   the need for props drilling. React Context API requires Context, Provider and
@@ -62,7 +63,7 @@ But what if the number of levels increases to 10, or even 20?
 
 **React Context API** to the rescue.
 
-## What is a Context?
+## What Is A Context?
 
 According to the [official React documentation](https://reactjs.org/docs/context.html), **Context** provides a way to pass data through the component tree without having to pass props down manually at each level.
 
