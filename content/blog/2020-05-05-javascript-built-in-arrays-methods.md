@@ -1,7 +1,8 @@
 ---
-title: JavaScript built-in array methods
+title: JavaScript Built-In Array Methods
 tag:
   - JavaScript
+promote: false
 metaDescription: Read an article to learn all built-in array methods in
   JavaScript. We will start from the most popular ones.
 teaser: In this article, we are going to explore all built-in array methods that
@@ -32,7 +33,7 @@ const multiply = (x, y) => {
 const multiply = (x, y) => x * y;
 ```
 
-## Methods list
+## Methods List
 
 Let's list all built-in methods:
 
