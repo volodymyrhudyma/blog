@@ -1,7 +1,8 @@
 ---
-title: Algorithms | Heap Sort in JavaScript
+title: Algorithms | Heap Sort In JavaScript
 tag:
   - JavaScript
+promote: false
 metaDescription: Learn Heap Sort in JavaScript - simple, in-place, unstable,
   comparison sorting algorithm, its advantages and disadvantages and why it is a
   good and widely-used choice.
@@ -14,7 +15,7 @@ The topic of today is **Heap Sort** - a sorting algorithm that is widely used be
 
 It uses heap data structure to find the largest element in each step.
 
-## The definition
+## The Definition
 
 **Heap sort** is a comparison-based algorithm that can be considered as improved Selection Sort.
 
@@ -35,7 +36,7 @@ Heap Sort algorithms can be divided into two parts:
 * Build a heap out of the data
 * Create a sorted array by repeatedly removing the largest element from the heap and inserting it into an array. Once all objects are removed from the heap, we can consider the resulting array can be considered as sorted
 
-## What is heap?
+## What Is Heap?
 
 **Heap** is a tree-based data structure in which the root node is compared with its children and arranged accordingly.
 
@@ -49,7 +50,7 @@ There are two types of heaps:
 
 ![Min heap](/img/min-heap.png "Min heap")
 
-## Build a tree from an array
+## Build A Tree From An Array
 
 Before we build the Heap Sort in JavaScript, it is crucial to understand how array indexes are mapped to tree positions.
 
@@ -90,7 +91,7 @@ Then index of the parent element is (2 - 1) / 2 = 0.5 = ~0
 Which equals to "10"
 ```
 
-## The complexity
+## The Complexity
 
 Best-case performance - `O(NlogN)` if the keys are different and `O(N)` if the keys are the same.
 
@@ -98,7 +99,7 @@ Worst-case performance - `O(NlogN)`.
 
 Average - `O(NlogN)`.
 
-## Pros and Cons
+## Pros And Cons
 
 Although it is slower than a well-implemented Quick Sort, it has the advantage of a better worst-case runtime.
 
@@ -112,7 +113,7 @@ Although it is slower than a well-implemented Quick Sort, it has the advantage o
 
 * Unstable sorting
 
-## Implementation in JavaScript
+## Implementation In JavaScript
 
 ```javascript
 const buildMaxHeap = (arr) => {
@@ -197,7 +198,7 @@ const heapSort = (arr) => {
 }
 ```
 
-## Usage in JavaScript
+## Usage In JavaScript
 
 ```javascript
 // Assuming that all of functions above are accessible
