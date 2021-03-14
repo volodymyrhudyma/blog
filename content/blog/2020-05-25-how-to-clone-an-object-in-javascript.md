@@ -1,7 +1,8 @@
 ---
-title: How to clone an object in JavaScript?
+title: How To Clone An Object In JavaScript?
 tag:
   - JavaScript
+promote: false
 metaDescription: There are many different ways to copy an object in JavaScript.
   Learn how to create a shallow and deep copy of an object.
 teaser: Due to the fact that objects are reference values in JavaScript, copying
@@ -18,7 +19,7 @@ Choosing the right method depends on what would you like to achieve.
 
 Before we start with listing the most popular methods and providing use cases for each and every one of them, let's quickly remind ourselves what is **shallow** and **deep** copy and the differences between them.
 
-## Shallow copy
+## Shallow Copy
 
 > **Shallow copy** is a bit-wise copy of an object. A new object is created that has an exact copy of the values in the original object. If any of the fields of the object are references to other objects, just the reference addresses are copied i.e., only the memory address is copied.
 
@@ -52,7 +53,7 @@ When doing a shallow copy, just the reference address of `other`is copied, not t
 
 That's why when we modify `other.age`it gets updated in both `user`and `newUser`.
 
-## Deep copy
+## Deep Copy
 
 Making a deep copy of an object means copying everything, the newly copied object is completely independent of the original one:
 
@@ -80,7 +81,7 @@ console.log(newUser);
 
 Having in mind the differences between shallow and deep copy, let's start with listing the most popular ways of copying the object:
 
-## Spread operator
+## Spread Operator
 
 *does a shallow copy*
 
@@ -159,7 +160,7 @@ const newUser = Object.assign(target, address);
 
 **Important note:** make sure to remember that `target` object is always mutated.
 
-## JSON object
+## JSON Object
 
 *does a deep copy*
 
@@ -247,7 +248,7 @@ Calling `JSON.stringify` with such data types doesn't throw any errors.
 
 To sum it up, try to avoid this way of cloning an object.
 
-## Using external library
+## Using An External Library
 
 The best way to create a deep copy of an object - is to use a popular, well tested external library, like lodash.
 
@@ -283,7 +284,7 @@ const user = {
 const newUser = clone(user);
 ```
 
-## Custom method
+## Custom Method
 
 There's always a possibility to create your own custom method that would clone an object, but that's like reinventing the wheel.
 
