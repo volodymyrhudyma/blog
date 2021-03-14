@@ -1,7 +1,8 @@
 ---
-title: Hoisting in JavaScript
+title: Hoisting In JavaScript
 tag:
   - JavaScript
+promote: false
 metaDescription: Hoisting is JavaScript's default behavior of moving
   declarations to the top of their scope. To learn this mechanism make sure to
   understand the differences between declaration, initialization and assignment.
@@ -11,7 +12,7 @@ teaser: Hoisting is JavaScript's default behavior of moving declarations to the
   assignment...
 date: 2020-04-30T18:10:27.744Z
 ---
-## Hoisting, what is this?
+## Hoisting, What Is This?
 
 > Hoisting is JavaScript's default behavior of moving declarations to the top of their scope.
 
@@ -64,7 +65,7 @@ a = 10; // Assignment;
 var a = 10;
 ```
 
-## Back to hoisting
+## Back To Hoisting
 
 Consider the following code:
 
@@ -115,7 +116,7 @@ example();
 
 **Important note:** In order to avoid unexpected behavior, do not access variables before you declare it.
 
-## What about "let" and "const"?
+## What About "let" And "const"?
 
 As we remember from the [previous article](/2020-04-28-var-let-and-const-in-javascript-what-is-the-difference/), `let` and `const` are hoisted, but not initialized:
 
@@ -129,7 +130,7 @@ console.log(b); // ReferenceError: b is not defined
 const b = 10;
 ```
 
-## Function hoisting
+## Function Hoisting
 
 Before we move to this section, let's remember how functions can be defined in JavaScript:
 
@@ -163,7 +164,7 @@ const printNumber = () => {
 };
 ```
 
-## Order of precedence
+## Order Of Precedence
 
 **Variable assignments** take precedence over **function declaration**:
 
@@ -189,7 +190,7 @@ var a;
 console.log(a); // Prints "Function a"
 ```
 
-## Using "let" and "const"?
+## Using "let" And "const"?
 
 ```javascript
 function a(){
