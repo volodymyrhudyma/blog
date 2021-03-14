@@ -1,8 +1,9 @@
 ---
-title: How to create and test custom hooks in React?
+title: How To Create And Test Custom Hooks In React?
 tag:
   - React
 popular: true
+promote: false
 metaDescription: Hooks are functions that allow you to “hook into” React state
   and lifecycle features of functional components. Learn how to create and test
   custom hooks in ReactJs.
@@ -17,13 +18,13 @@ React has a few built-in hooks, but sometimes you need to extend their functiona
 
 That is when custom hooks come into play.
 
-## Custom hooks
+## Custom Hooks
 
 **The custom hook** is a simple JavaScript function that allows us to compose built-in hooks to reuse some logic between **FUNCTIONAL** React components (yes, they do not work with class components).
 
 The name of the custom hook should start with **use** to follow the naming convention for hooks (all hooks in React start with this word, right?).
 
-## Creating custom hook
+## Creating Custom Hook
 
 **Important note:** before you even think about creating a new custom hook, you should check if it is available somewhere on the internet. There is a high probability that you will not have to write it by yourself, but just to install an external library.
 
@@ -118,7 +119,7 @@ const UserList = () => {
 
 Building an application this way leads to less code duplication and more reusability of the business logic.
 
-## Testing custom hook
+## Testing Custom Hook
 
 To test our custom hook `useFetch` we need a basic `jest` configuration.
 
@@ -179,7 +180,7 @@ Let's review the test by splitting it to the steps:
 
    The second render happens after we receive the result from an API and update the state with it.
 
-## Useful custom hooks
+## Useful Custom Hooks
 
 In this chapter, I will introduce some custom hooks that I find very helpful.
 
