@@ -1,7 +1,8 @@
 ---
-title: Template literals in JavaScript
+title: Template Literals In JavaScript
 tag:
   - JavaScript
+promote: false
 metaDescription: In JavaScript, there are 3 ways of defining a string and one of
   them is using template literals. Template literals are string literals that
   allow embedding an expression.
@@ -29,7 +30,7 @@ const backticks = `I am a string`;
 
 You are probably familiar with those 2 at the top but have you seen string in backticks ``` `` ``` before?
 
-## Template literals
+## Template Literals
 
 Template literals are enclosed by the backticks ``` `` ```.
 
@@ -87,7 +88,7 @@ const string = `The result is: ${numbers}`;
 console.log(string); // Prints "The result is: 10,20,30"
 ```
 
-## Escaping placeholders
+## Escaping Placeholders
 
 In the template strings, placeholder expressions have special meanings, so it's not possible to use the following pattern without escaping `` `I love ${apple}` ``.
 
@@ -106,7 +107,7 @@ const string = `I love \${apple}`;
 console.log(string); // Prints "I love ${apple}"
 ```
 
-## Multi-line strings
+## Multi-Line Strings
 
 Before introducing template literal feature, JavaScript provided 3 ways of defining multi-line strings:
 
@@ -141,7 +142,7 @@ multi-line
 string`;
 ```
 
-## Nesting placeholders
+## Nesting Placeholders
 
 Nesting placeholders sometimes is the best and easiest method to get things done. 
 
@@ -161,7 +162,7 @@ const string = `
 console.log(string); // Prints: "The result is 10"
 ```
 
-## Tagged templates
+## Tagged Templates
 
 Tagged templates is a more advanced form of template literals.
 
