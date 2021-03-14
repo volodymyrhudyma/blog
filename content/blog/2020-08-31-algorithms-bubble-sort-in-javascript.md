@@ -1,7 +1,8 @@
 ---
-title: Algorithms | Bubble Sort in JavaScript
+title: Algorithms | Bubble Sort In JavaScript
 tag:
   - JavaScript
+promote: false
 metaDescription: Learn and implement Bubble Sort in JavaScript in two ways.
   Bubble Sort is an algorithm with an average complexity of O(N2), which makes
   it inefficient especially for larger data sets.
@@ -17,7 +18,7 @@ If you know many ways to perform a sorting operation, you can choose the best an
 
 In this article we will learn more about **Bubble Sort** and why it might be an inefficient choice.
 
-## The definition
+## The Definition
 
 **Bubble sort** is a sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order:
 
@@ -31,7 +32,7 @@ See the visualization:
 
 ![Bubble sort visualization](/img/iikvbtg.gif "Bubble sort visualization")
 
-## The complexity
+## The Complexity
 
 Best-case performance - `O(1)`, if the list is sorted.
 
@@ -52,7 +53,7 @@ It is very simple algorithm that performs poorly in real world and is used prima
 
 * Extremely time-consuming
 
-## Implementation in JavaScript
+## Implementation In JavaScript
 
 There are two ways of implementing Bubble Sort in JavaScript.
 
@@ -103,7 +104,7 @@ const bubbleSort = (arr) => {
 }
 ```
 
-## Usage in JavaScript
+## Usage In JavaScript
 
 ```javascript
 // Assuming that the bubbleSort function from the example above is accessible
