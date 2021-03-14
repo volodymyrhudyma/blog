@@ -1,7 +1,8 @@
 ---
-title: Promises in JavaScript
+title: Promises In JavaScript
 tag:
   - JavaScript
+promote: false
 metaDescription: Promise - it is an object that produces some value in the
   future. This object represents the result of an asynchronous operation.
 teaser: Promise - it is an object that produces some value in the future. This
@@ -27,7 +28,7 @@ However, managing callbacks tends to be tricky when you want to do some complex 
 
 That's what is solved by promises.
 
-## How to create a promise?
+## How To Create A Promise?
 
 Promise is created using a constructor that takes a callback function with 2 arguments:
 
@@ -73,7 +74,7 @@ promise
   .catch(error => console.log(error)); // Prints "Fail"
 ```
 
-## Promise consumers
+## Promise Consumers
 
 Promises can be consumed by registering the following methods: `then` and `catch`.
 
@@ -182,7 +183,7 @@ promise
   });
 ```
 
-## Chaining promises
+## Chaining Promises
 
 Each of those methods: `then`, `catch`, `finally` returns a newly generated promise, which means that it can be chained:
 
@@ -201,7 +202,7 @@ promise
   .catch(error => console.log(error));
 ```
 
-## Static methods
+## Static Methods
 
 #### `Promise.all(iterable)`
 
@@ -339,7 +340,7 @@ const promise1 = new Promise((resolve, reject) => {
 promise1.catch(error => console.log(error)); // Prints "Error"
 ```
 
-## Callback hell
+## Callback Hell
 
 Do you remember that promises were designed in order to avoid using callbacks to handle asynchronous operations? 
 
