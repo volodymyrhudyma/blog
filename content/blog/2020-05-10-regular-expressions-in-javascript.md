@@ -1,7 +1,8 @@
 ---
-title: Regular expressions in JavaScript
+title: Regular Expressions In JavaScript
 tag:
   - JavaScript
+promote: false
 metaDescription: "Regular expression is a sequence of characters that define a
   search pattern that is used to find occurrences in text and/or replace them. "
 teaser: Regular expression is a sequence of characters that define a search
@@ -11,7 +12,7 @@ date: 2020-05-10T11:01:06.424Z
 ---
 Regular expression is a sequence of characters that define a search pattern that is used to find occurrences in text and/or replace them. JavaScript has built-in regex support.
 
-## How to create regex?
+## How To Create Regex?
 
 In JavaScript, there are 2 ways of defining regex: using `RegExp` constructor or literal notation:
 
@@ -28,7 +29,7 @@ In the above example `i` is the flag. Flags allow us to affect the search by def
 
 We'll cover this topic later on.
 
-## Literal notation vs constructor
+## Literal Notation vs. Constructor
 
 **Literal notation** results in the compilation of the regular expression when the expression is evaluated. 
 
@@ -65,7 +66,7 @@ Assume that we have the following string `abcabcabc`. Let's see what will be mat
 /ABC/gi // Matches all 3 occurrences of "abc"
 ```
 
-## Regex patterns
+## Regex Patterns
 
 There are a lot of different regex patterns that can be used. There is no need to remember them all, it's totally fine to refer to the [cheat sheet](https://www.keycdn.com/support/regex-cheatsheet) from time to time.
 
@@ -96,7 +97,7 @@ Quantifiers are symbols that indicate the scope of the search string:
 * `{N,M}` - Match at least **N** occurrences and at most **M** occurrences of the preceding regex (if **M** > **N**)
 * `X|Y` - match either **X** or **Y**
 
-## Regex methods
+## Regex Methods
 
 When testing regex, we use one of the following methods: **Regex.prototype.test(string)** or **Regex.prototype.exec(string)**:
 
@@ -173,7 +174,7 @@ Prints:
 console.log(pattern.exec(string));
 ```
 
-## Capturing groups
+## Capturing Groups
 
 But wait, what if we don't only need to check it, but to get the part of a match? Check out the [next article,](/2020-05-12-capturing-groups-in-regular-expressions/) which explains capturing groups in-depth.
 
