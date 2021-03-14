@@ -1,5 +1,5 @@
 ---
-title: The Right Way of Logging with Console API in JavaScript
+title: The Right Way Of Logging With Console API In JavaScript
 tag:
   - JavaScript
 promote: false
@@ -199,7 +199,7 @@ Output:
 
 ![Console.countReset output](/img/screenshot-2020-11-11-at-15.20.01.png "Console.countReset output")
 
-## Assert and Log
+## Assert And Log
 
 Syntax: `console.assert(assertion, arg [, arg2, ..., argN])`
 
@@ -290,7 +290,7 @@ Expand the first level by clicking on a disclosure button:
 
 ![Console.groupCollapsed output](/img/screenshot-2020-11-11-at-14.49.50.png "Console.groupCollapsed output")
 
-## Log a Stack Trace
+## Log A Stack Trace
 
 Syntax: `console.trace([message, ...args ])`
 
@@ -327,7 +327,7 @@ Output:
 
 ![Console.trace output](/img/screenshot-2020-11-11-at-15.00.01.png "Console.trace output")
 
-## Log a Table
+## Log A Table
 
 Syntax: `console.table(data [, columns])`
 
