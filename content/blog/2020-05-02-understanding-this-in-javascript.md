@@ -1,7 +1,8 @@
 ---
-title: Understanding "this" in JavaScript
+title: Understanding "this" In JavaScript
 tag:
   - JavaScript
+promote: false
 metaDescription: '"This" is a special object in JavaScript that refers to an
   object it belongs to, its value is decided at the moment of code execution.'
 teaser: "\"This\" is a special object in JavaScript that refers to an object it
@@ -10,11 +11,11 @@ teaser: "\"This\" is a special object in JavaScript that refers to an object it
   rules..."
 date: 2020-05-02T08:28:11.982Z
 ---
-## What is this?
+## What Is This?
 
 It is a special object in JavaScript that refers to an object it belongs to. The value of `this` is decided at the moment of code execution.
 
-## The value of this
+## The Value Of This
 
 How do you know what `this` refers to? It's simple, take a look at the following rules:
 
