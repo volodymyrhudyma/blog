@@ -1,7 +1,8 @@
 ---
-title: Algorithms | Binary Search in JavaScript
+title: Algorithms | Binary Search In JavaScript
 tag:
   - JavaScript
+promote: false
 metaDescription: Learn Binary Search in JavaScript - one of the fastest search
   algorithms, that finds the position of a target value within a sorted array.
 teaser: The search is fundamental for every programming language. Having a lot
@@ -24,7 +25,7 @@ It is therefore crucial to know as many search algorithms as possible and to be 
 
 In this article we will learn Binary Search - one of the fastest searching algorithms which **works only with sorted arrays**.
 
-## The definition
+## The Definition
 
 **Binary Search**  is a search algorithm that finds the position of a target value within a **sorted** array. 
 
@@ -46,7 +47,7 @@ If the search ends with the remaining half being empty, the target is not in the
 
 ![Binary search illustration (source: Wikipedia)](/img/bs.svg "Binary search illustration (source: Wikipedia)")
 
-## The complexity
+## The Complexity
 
 The complexity of the Binary Search is `O(logN)` where `N` is the number of elements within an array.
 
@@ -69,7 +70,7 @@ We do not live in a perfect world, and Binary Search has advantages and disadvan
 * Works only with sorted arrays
 * Using it on small arrays can be an overkill
 
-## Implementation in JavaScript
+## Implementation In JavaScript
 
 The flow:
 
@@ -116,7 +117,7 @@ const binarySearch = function (array, target) {
 }
 ```
 
-## Usage in JavaScript
+## Usage In JavaScript
 
 ```javascript
 // Assuming that the binarySearch function from the example above is accessible
