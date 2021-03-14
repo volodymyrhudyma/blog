@@ -1,7 +1,8 @@
 ---
-title: Generators in JavaScript
+title: Generators In JavaScript
 tag:
   - JavaScript
+promote: false
 metaDescription: Generator function - a special kind of function that can stop
   midway and continue execution from the place where it stopped. Learn how to
   use generators in JavaScript.
@@ -40,7 +41,7 @@ function* exampleGenerator() {
 
 **Important note:** it's not possible to create a generator using an arrow function.
 
-## Iterable protocol
+## Iterable Protocol
 
 This protocol defines the iteration behavior of objects. 
 
@@ -48,13 +49,13 @@ That means the way an object iterates through its items, and also allows us to h
 
 *In order to learn more about it, refer to [this article](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#The_iterable_protocol).*
 
-## Iterator protocol
+## Iterator Protocol
 
 This protocol defines a standard way to produce a sequence of values (either finite or infinite), and potentially a return value when all values have been generated.
 
 *In order to learn more about it, refer to [this article](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#The_iterator_protocol).*
 
-## Generator object
+## Generator Object
 
 Generator object can not be instantiated using `new` keyword, it only can be returned from the generator function:
 
@@ -88,7 +89,7 @@ function exampleFunction() {
 const result = exampleFunction(); // Prints "1", "2", "3"
 ```
 
-## Generator methods
+## Generator Methods
 
 Generator object provides us with 3 built-in methods:
 
@@ -170,7 +171,7 @@ console.log(result.next());
 console.log(result.throw(new Error("Something went wrong")));
 ```
 
-## Usage of generators
+## Usage Of Generators
 
 When you start learning about the generators it may not be obvious where are they used, so let's take a look at the use cases:
 
