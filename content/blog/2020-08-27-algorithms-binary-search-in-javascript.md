@@ -55,7 +55,7 @@ Best-case performance - `O(1)`, when the target element is in the middle of an a
 
 Worst-case performance - `O(logN)`, when the target element is found at the end, when an array is narrowed down to single item.
 
-## Pros and Cons
+## Pros And Cons
 
 We do not live in a perfect world, and Binary Search has advantages and disadvantages as well:
 
