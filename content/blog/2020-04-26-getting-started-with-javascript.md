@@ -1,7 +1,8 @@
 ---
-title: Getting started with JavaScript
+title: Getting Started With JavaScript
 tag:
   - JavaScript
+promote: false
 metaDescription: Javascript is a dynamically-typed, interpreted programming
   language that was originally developed to add dynamic and interactive elements
   to web pages. It runs both, on the client and server-side.
@@ -10,7 +11,7 @@ teaser: Javascript is a dynamically-typed, interpreted programming language that
   It runs both, on the client and server-side...
 date: 2020-04-26T07:02:40.028Z
 ---
-## What is Javascript?
+## What Is Javascript?
 
 Javascript is a dynamically-typed, interpreted programming language that was originally developed to add dynamic and interactive elements to web pages. It runs both, on the client and server-side. 
 
@@ -20,7 +21,7 @@ Running on the server-side is possible with Node.js.
 
 > **Node.js** is an open source development platform for executing JavaScript code server-side.
 
-## What does "interpreted" mean?
+## What Does "Interpreted" Mean?
 
 It means that source code isn’t compiled into binary code prior to execution.
 
@@ -32,7 +33,7 @@ That’s the job for a JavaScript engine.
 
 In order to start coding in JavaScript, you don’t have to install any additional software. Each modern web browser comes with a JavaScript engine out-of-the-box. You can simply run scripts inside the browser.
 
-## What is a dynamically-typed language?
+## What Is A Dynamically-Typed Language?
 
 Dynamically-typed languages are those where the interpreter assigns variables a type at runtime based on the variable's value.
 
@@ -76,7 +77,7 @@ Have you found an error in the code above?
 
 You're absolutely right, we misspelled `surname` property. Notice that the code is allowed to be run even though Javascript can be smart enough to raise an error before you even finish to type misspelled property name. But it needs your hand.
 
-## Static type checking
+## Static Type Checking
 
 Static-typed languages are those where the types are checked on the fly, during code execution. 
 
@@ -86,7 +87,7 @@ Is this the only benefit? The answer is - no.
 
 It also offers auto-completion, generating documentation, and faster compilation.
 
-## Typescript
+## TypeScript
 
 Typescript is not actually a static type check but can be used as one. It is a programming language developed by Microsoft, typed superset of JavaScript which is compiled to plain JavaScript. It's extremely useful when building large-scale applications.
 
@@ -128,7 +129,7 @@ I recommend you to read [this awesome article](https://stxnext.com/blog/2019/08/
 
 **Conclusion**: always use **Typescript** in medium/large scale applications.
 
-## Types in Javascript
+## Types In Javascript
 
 There are 7 types considered to be **Primitive** and 1 **Reference** type*.*
 
@@ -148,7 +149,7 @@ There are 7 types considered to be **Primitive** and 1 **Reference** type*.*
 
 Everything else is an **Object** type (objects are used to store collections of data and more complex entities).
 
-## Primitives vs References
+## Primitives vs. References
 
 The key difference between them is how they store values.
 
@@ -200,7 +201,7 @@ When you copy `user` value to another variable `newUser` it's the address that g
 
 Both `user` and `newUser` contain a reference to the same object in memory. Therefore, altering any of the values will cause both to update.
 
-## Reassigning reference
+## Reassigning Reference
 
 To reassign a reference means to replace the old reference with a new one. Example:
 
@@ -222,7 +223,7 @@ When there are no references to values in memory, JavaScript engine can perform 
 
 > Some high-level languages, such as JavaScript, utilize a form of automatic memory management known as **garbage collection**(GC). The purpose of a **garbage collector** is to monitor memory allocation and determine when a block of allocated memory is no longer needed and reclaim it.
 
-## Object equality
+## Object Equality
 
 Object equality could be confusing at first sight, but after understanding Reference types it should become pretty straightforward.
 
@@ -285,7 +286,7 @@ Other options:
 * Write a recursive function that will loop over object properties and make sure they are the same
 * Use well-tested and popular library ([underscore](https://underscorejs.org/#isEqual), [lodash](https://lodash.com/docs/4.17.15#isEqual)) -> *Recommended one*
 
-## Comparison operators
+## Comparison Operators
 
 Javascript has both **strict** `===` and **abstract** `==` equality comparisons. 
 
@@ -310,7 +311,7 @@ Abstract equality comparison:
 1 == "1" // true
 ```
 
-## Type coercion basics
+## Type Coercion Basics
 
 > **Coercion** is the term that is used for *unexpected type casting* in JavaScript
 
@@ -460,6 +461,6 @@ Quick recap:
 * Abstract equality comparison converts operands to the same type and applies strict comparison
 * Unexpected type casting in JavaScript is called coercion
 
-## Suggested reading
+## Suggested Reading
 
 Hiring managers looking to spot the best Javascript developers may want [to check out this article](https://www.toptal.com/javascript#hiring-guide) from Toptal.
