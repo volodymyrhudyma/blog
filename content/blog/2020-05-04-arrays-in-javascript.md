@@ -1,7 +1,8 @@
 ---
-title: Arrays in JavaScript
+title: Arrays In JavaScript
 tag:
   - JavaScript
+promote: false
 metaDescription: Array in JavaScript is an ordered collection of values where
   each value has its own position, known as an index. In an array index of the
   first element is 0.
@@ -19,7 +20,7 @@ In JavaScript arrays use **numbered indexes**, objects use **named indexes**.
 
 You can say that arrays are a special kind of objects with numbered indexes.
 
-## Create an array
+## Create An Array
 
 As with objects, there are numerous ways of creating an array. 
 
@@ -49,7 +50,7 @@ const objects = [
 ];
 ```
 
-## Access array elements
+## Access Array Elements
 
 **Important note:** remember that array indexes start at `0`.
 
@@ -71,7 +72,7 @@ const users = ["John", "Andrew", "Mike"];
 console.log(users[users.length - 1]); // Prints "Mike"
 ```
 
-## What if an element does not exist?
+## What If An Element Does Not Exist?
 
 If element under the given index does not exist, you would receive `undefined`:
 
@@ -81,7 +82,7 @@ const users = ["John", "Andrew", "Mike"];
 console.log(users[3]); // Prints "undefined"
 ```
 
-## Add element
+## Add Element
 
 In order to add an element to the end of the array, use `push` method:
 
@@ -127,7 +128,7 @@ console.log(users); // Prints ["John", "Andrew", undefined, undefined, "Mary"]
 
 **Note:** yes, you can add elements to array also by specifying an index, but that's not the best way. Use `push` or `unshift` instead.
 
-## Change element
+## Change Element
 
 To change the value in an array, use `index` and assignment operator:
 
@@ -149,7 +150,7 @@ users[2] = "Mike";
 console.log(users); // Prints ["John", "Andrew", "Mike"]
 ```
 
-## Delete element
+## Delete Element
 
 There are a lot of ways to remove an element from an array. Let's take a look at some of them:
 
@@ -213,7 +214,7 @@ const filteredUsers = users.filter(user => user !== "John");
 console.log(filteredUsers); // Prints ["Andrew", "Mike", "Mary"]
 ```
 
-## Check if element exists
+## Check If Element Exists
 
 To check if element exists in an array, use `includes` method. It returns `true` if element exists in an array, `false` if not:
 
@@ -227,7 +228,7 @@ console.log(users.includes("Mary")); // Prints "false"
 
 **Important note:** `includes` function accepts 2 parameters: element and start position. By default start position is `0`. You can change it if you need.
 
-## Iterate over array elements
+## Iterate Over Array Of Elements
 
 There are a lot of ways to iterate over the array elements. Some of them are:
 
@@ -264,7 +265,7 @@ users.forEach(function(item, index) {
 })
 ```
 
-## Array length
+## Array Length
 
 `length` property of an array returns the number of elements in an array. The length of an array is always one more than its highest index.
 
@@ -274,7 +275,7 @@ const users = ["John", "Andrew", "Mike"];
 console.log(users.length); // Prints "3"
 ```
 
-## How to recognize an array
+## How To Recognize An Array
 
 Sometimes it's necessary to know if the variable is an array or no. The first thing that comes to mind is `typeof` operator, let's try to use it:
 
@@ -306,7 +307,7 @@ const users = ["John", "Andrew", "Mike"];
 console.log(users instanceof Array); // Prints "true"
 ```
 
-## Array properties and methods
+## Array Properties And Methods
 
 JavaScript arrays have a lot of built properties and methods, in order to learn more about them, read [this article](/2020-05-05-javascript-built-in-arrays-methods/).
 
