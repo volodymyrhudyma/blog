@@ -35,7 +35,11 @@ export default class BlogList extends React.Component {
 
     return (
       <Layout>
-        <SEO title="The Easiest JavaScript And ReactJS Tutorials" />
+        <SEO
+          title={`The Easiest JavaScript And ReactJS Tutorials ${
+            currentPage > 1 ? `| Page ${currentPage}` : ``
+          }`}
+        />
         {currentPage === 1 && <LatestPosts posts={allPosts.slice(0, 4)} />}
         <SubTitle>
           <TableOfContents allPosts={allPosts} showSearch={currentPage > 1} />
