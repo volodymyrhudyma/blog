@@ -1,7 +1,8 @@
 ---
-title: Typescript "type" vs "interface". What's the difference?
+title: Typescript "Type" vs, "Interface". What Is The Difference?
 tag:
   - JavaScript
+promote: false
 metaDescription: Type vs. Interface in TypeScript. What is the difference
   between them? Even if you are familiar with both of them, the answer might not
   be obvious.
@@ -70,7 +71,7 @@ interface User {
 };
 ```
 
-## The difference
+## The Difference
 
 As we have already mentioned, they are both very similar, however, there are some important differences:
 
