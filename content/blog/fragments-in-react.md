@@ -1,5 +1,5 @@
 ---
-title: Fragments in React
+title: Fragments In React
 tag:
   - React
 promote: false
@@ -18,7 +18,7 @@ For this to work properly, all of these elements should be wrapped in a parent e
 
 Typically, this parent element is a simple **div** or **span**, which does not really provide any value and can even cause some problems.
 
-## Problem
+## The Problem
 
 Consider the following example:
 
