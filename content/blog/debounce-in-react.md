@@ -1,7 +1,8 @@
 ---
-title: Debounce in React
+title: Debounce In React
 tag:
   - React
+promote: false
 metaDescription: Learn about the most popular use cases for a Debounce function
   in JavaScript. The Debounce function is a higher-order function that limits
   the execution rate of the callback function.
@@ -19,7 +20,7 @@ In most cases we can limit their number so that they are not executed too often.
 
 This is where the debouncing technique comes into play.
 
-## What is debouncing?
+## What Is Debouncing?
 
 **Debouncing** is a programming technique used to ensure that complex and time-consuming tasks are not executed too often.
 
@@ -27,7 +28,7 @@ The Debounce function is a higher-order function that limits the execution rate 
 
 > A **higher order function** is a function that takes a function as an argument, or returns a function.
 
-## Example use cases
+## Example Use Cases
 
 The article is worth nothing if it does not include some real-world use cases, which will help to understand why this concept is so important.
 
@@ -178,7 +179,7 @@ export default App;
 
 ![Window resize debounce](/img/resize-db.gif "Window resize debounce")
 
-## Debounce function from scratch
+## Debounce Function From Scratch
 
 In the examples above, we used the **debounce** function provided by **[lodash](https://lodash.com/)**.
 
