@@ -1,8 +1,9 @@
 ---
-title: Default vs. Named Export. What is the difference?
+title: Default vs. Named Export. What Is The Difference?
 tag:
   - JavaScript
 popular: false
+promote: false
 metaDescription: "Named Exports vs. Default Exports.The differences between both
   approaches: names exports are used to export several values from the module,
   default - only one value."
@@ -18,7 +19,7 @@ Today, JavaScript applications are rapidly growing in size, prompting programmer
 
 This is exactly why modules were introduced in ES6 (2015).
 
-## Module in JavaScript
+## Module In JavaScript
 
 What is a module? A module is just a file.
 
@@ -47,7 +48,7 @@ But the use of the `.mjs` extension brings some advantages:
 
 For the sake of simplicity, we will stick with the `.js` extension in this article.
 
-## Named export
+## Named Export
 
 After adding first modules containing some functions to an application, there is a need to have a reliable way of accessing them.
 
@@ -128,7 +129,7 @@ In this chapter we used named exports - each value in the module has been referr
 
 For named exports there is no limit to the number of values exported from a single file.
 
-## Default export
+## Default Export
 
 There is another type of export that is only allowed once per file - **default export**:
 
@@ -165,7 +166,7 @@ import anyNameWeLike from "./projects";
 
 For default export, it is possible to export only a single value per file.
 
-## Combining both approaches
+## Combining Both Approaches
 
 It is also possible to combine both approaches in the single file:
 
@@ -194,7 +195,7 @@ Import statement:
 import fetchUsers, { transformUsers, getAdminUsers } from "./users";
 ```
 
-## Renaming imported function
+## Renaming Imported Function
 
 Sometimes, it can happen that the name of the imported function may already be used in your code:
 
