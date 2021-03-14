@@ -1,5 +1,5 @@
 ---
-title: Cancel a Request in JavaScript
+title: Cancel A Request In JavaScript
 tag:
   - JavaScript
 promote: false
