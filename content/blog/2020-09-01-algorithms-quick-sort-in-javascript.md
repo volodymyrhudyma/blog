@@ -1,7 +1,8 @@
 ---
-title: Algorithms | Quick Sort in JavaScript
+title: Algorithms | Quick Sort In JavaScript
 tag:
   - JavaScript
+promote: false
 metaDescription: 'Learn Quick Sort in JavaScript - efficient sorting algorithm
   that follows the "divide-and-conquer" approach, its advantages and
   disadvantages and why it works good for sorting large datasets. '
@@ -17,7 +18,7 @@ If implemented well, it can be about two to three times faster than its main com
 
 In this article we will learn more about **Quick Sort** and how it can be implemented most efficiently.
 
-## The definition
+## The Definition
 
 **Quick Sort** is an efficient sorting algorithm that follows the "divide-and-conquer" approach.
 
@@ -31,7 +32,7 @@ Animated visualization of the quicksort algorithm. The horizontal lines are pivo
 
 ![Quick Sort visualization](/img/sorting_quicksort_anim.gif "Quick Sort visualization")
 
-## The complexity
+## The Complexity
 
 Best-case performance - `O(NlogN)`, if each time we divide an array into two nearly equal or equal pieces.
 
@@ -41,7 +42,7 @@ This can occur if the selected pivot element is the smallest or the largest one 
 
 Average - `O(NlogN)`.
 
-## Pros and Cons
+## Pros And Cons
 
 Even though Quick Sort is an efficient algorithm, the efficiency is majorly impacted by which element is chosen as the pivot point.
 
@@ -61,7 +62,7 @@ Even though Quick Sort is an efficient algorithm, the efficiency is majorly impa
 
 * The efficiency of the algorithm highly depends on the chosen pivot element. Choosing the wrong one leads to poorer performance
 
-## Implementation in JavaScript
+## Implementation In JavaScript
 
 ```javascript
 const quickSort = (arr, left = 0, right = arr.length - 1) => {
@@ -131,7 +132,7 @@ const partition = (arr, left, right) => {
 }
 ```
 
-## Usage in JavaScript
+## Usage In JavaScript
 
 ```javascript
 // Assuming that the quickSort function from the example above is accessible
@@ -140,7 +141,7 @@ const arr = [1, 56, 31, 12, 14, 3, 4];
 console.log(quickSort(arr)); // Prints "[1, 3, 4, 12, 14, 31, 56]"
 ```
 
-## Default sorting in JavaScript
+## Default Sorting In JavaScript
 
 In JavaScript, there is built-in `sort` function:
 
