@@ -78,7 +78,7 @@ export const Item = styled(Link)`
 
   &:not(:last-child) {
     padding-bottom: 0.5rem;
-    border-bottom: 1px solid #404040;
+    border-bottom: 1px solid #d6d6d6;
   }
 
   &:hover {
