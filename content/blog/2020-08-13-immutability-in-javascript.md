@@ -1,7 +1,8 @@
 ---
-title: Immutability in JavaScript
+title: Immutability In JavaScript
 tag:
   - JavaScript
+promote: false
 metaDescription: Learn the difference between Immutable and Mutable data types.
   Immutable means unchanging over time or unable to be changed, so modifying the
   copy of an immutable object does not change the original.
@@ -105,7 +106,7 @@ console.log(bar); // Prints: { a: "A", b: "B" } good!
 
 The `bar` object remains unchanged.
 
-## Creating immutable objects
+## Creating Immutable Objects
 
 In this section we will review the tools JavaScript provides to create immutable objects.
 
@@ -148,7 +149,7 @@ console.log(source === result); // Prints "false"
 
 There are a lot of external libraries available to deal with immutability, like [immutable.js](https://github.com/immutable-js/immutable-js) and [immer.js](https://github.com/immerjs/immer).
 
-## The benefits of immutability
+## The Benefits Of Immutability
 
 What are the good parts about writing the code in immutable way?
 
@@ -162,7 +163,7 @@ What are the good parts about writing the code in immutable way?
 
   History entries can be collected in separate (immutable) objects and the state can be replaced with them at any given moment. Need to undo something? Just restore the state saved while undoing and that is it.
 
-## The drawbacks of immutability
+## The Drawbacks Of Immutability
 
 We already know that you need to create a new object instance to modify it.
 
