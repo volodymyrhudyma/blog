@@ -35,7 +35,7 @@ export default class BlogList extends React.Component {
 
     return (
       <Layout>
-        <SEO title="JavaScript And ReactJS Tutorials With Best Practices" />
+        <SEO title="The Simplest JavaScript And ReactJS Tutorials" />
         <SubTitle>
           <TableOfContents allPosts={allPosts} showSearch={true} />
         </SubTitle>
