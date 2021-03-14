@@ -1,5 +1,5 @@
 ---
-title: 6 Reasons Why Every Programmer Should Have a Blog
+title: 6 Reasons Why Every Programmer Should Have A Blog
 tag:
   - Other
 promote: false
@@ -29,7 +29,7 @@ The question is - why? Surely we have enough experience to describe at least one
 
 In this article I will try to convince you why blogging is cool and what benefits it brings (**in my opinion**) and why you should start blogging right away.
 
-## Pay the Debt
+## Pay The Debt
 
 The first and most important reason is to "**Pay the Debt**". We all have a big debt to pay to less experienced developers, like those we learned from had.
 
@@ -63,7 +63,7 @@ You can explain your vision to the team members with more confidence and convinc
 
 My personal feeling after more than half a year of blogging - even if the topic is simple and familiar, many new things are discovered when writing an article about it.
 
-## Build a Personal Brand
+## Build A Personal Brand
 
 Whether you are an employee or a business owner, building a personal brand and promoting yourself is no less important if you want to be considered a professional in your field.
 
@@ -73,7 +73,7 @@ Eventually, you will reach a point when the customers will be looking for you an
 
 To sum up, it helps you to **stand out from the crowd**.
 
-## Build a Connection Network
+## Build A Connection Network
 
 Publishing a good article can trigger a discussion through which you can get in touch with a large number of people with whom you can build good relationships or partnership.
 
