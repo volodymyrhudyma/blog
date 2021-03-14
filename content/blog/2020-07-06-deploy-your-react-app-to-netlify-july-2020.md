@@ -1,7 +1,8 @@
 ---
-title: Deploy your React application to Netlify (Full Guide, July 2020)
+title: Deploy Your React Application To Netlify (Full Guide, July 2020)
 tag:
   - React
+promote: false
 metaDescription: Learn how to deploy and host ReactJs application with Netlify.
   Netlify is a service that automates builds, deployments, and manages your
   websites.
@@ -30,7 +31,7 @@ It provides:
 * HTTPS for each website by default 
 * built-in DNS management
 
-## Preparing an application
+## Preparing An Application
 
 For the purposes of this tutorial, we can clone [boilerplate](https://github.com/volodymyrhudyma/react-redux-typescript-app) from the Github:
 
@@ -135,7 +136,7 @@ The last step is to create a build for our application by executing:
 
 `yarn build`
 
-## Creating Netlify account
+## Creating Netlify Account
 
 To create an account on Netlify, go to <https://www.netlify.com/> and click the "Sign up" link at the top right of the page.
 
@@ -145,7 +146,7 @@ You should be able to log in and see the empty dashboard:
 
 ![Netlify dashboard](/img/screenshot-2020-07-07-at-17.52.16.png "Netlify dashboard")
 
-## Deploying from the terminal
+## Deploying From The Terminal
 
 We will start with `netlify-cli` library, which is a command-line interface (CLI) that allows you to deploy sites or configure continuous deployment directly from the command line.
 
@@ -213,7 +214,7 @@ Notice the 3 URLs we received in the terminal:
 
   Represents the production URL with the latest deployed changes
 
-## Deploying from Github
+## Deploying From GitHub
 
 Netlify provides us with the possibility to deploy the website directly from Github.
 
