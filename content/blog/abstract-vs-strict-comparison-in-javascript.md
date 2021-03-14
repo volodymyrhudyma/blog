@@ -3,24 +3,24 @@ title: Abstract vs. Strict Comparison In JavaScript
 tag:
   - JavaScript
 promote: false
-metaDescription: Learn the main difference between the Abstract and Strict
-  Comparison in JavaScript and the algorithms behind both approaches.
+metaDescription: Learn the main difference between Abstract (==) and Strict
+  (===) Comparison in JavaScript and the algorithms behind both approaches.
 shareImage: /img/abstr.-vs.-str..jpg
 teaser: "One of the essential things to understand when getting started with
   JavaScript is how to check if two values are equal. JavaScript provides three
-  ways to do it: Abstract equality operator (==), Strict equality operator
+  ways to do this: Abstract Equality Operator (==), Strict Equality Operator
   (===), and..."
 date: 2021-03-17T15:53:12.574Z
 ---
 One of the essential things to understand when getting started with JavaScript is how to check if two values are equal.
 
-JavaScript provides three ways to do it: Abstract equality operator (**\==**), Strict equality operator (**\===**), and **Object.is()** method.
+JavaScript provides three ways to do this: Abstract Equality Operator (**\==**), Strict Equality Operator (**\===**), and **Object.is()** method.
 
-In this article, we are going to learn how Abstract equality and Strict equality operators work and the differences between them.
+In this article, we will learn how Abstract Equality and Strict Equality Operators work and the main difference between them.
 
 ## Abstract Equality Operator (==)
 
-The Abstract equality operator checks if two operands are equal and, returning **true** if equal, otherwise **false**:
+The Abstract Equality Operator checks whether two operands are equal and returns **true** if equal, **false** otherwise:
 
 ```javascript
 // Prints "true"
@@ -36,9 +36,9 @@ console.log('1' == '1');
 console.log(1 == '1');
 ```
 
-As you should notice, even if the type of the operands does not match, as in the second and fourth example, the operator returns **true**.
+As you should notice, the operator returns **true** even if the type of the operands does not match, as in the second and fourth examples.
 
-That's how it works - **first, it converts the operands to the same type, then does a comparison**.
+This is how it works - **First, the operands are converted to the same type, then a comparison is performed**.
 
 ## Abstract Equality Comparison Algorithm
 
@@ -52,17 +52,12 @@ The comparison **x == y**, where **x** and **y** are values, is performed the fo
 
    C. If the type of **x** is a **number**, then:
 
-   \    I. If **x** is **NaN**, return **false**.
-
-   \    II. If **y** is **NaN**, return **false**.
-
-   \    III. If **x** is the same number as **y**, return **true**.
-
-   \    IV. If **x** is +0 and **y** is -0, return **true**.
-
-   \    V. If **x** is -0 and **y** is +0, return **true**.
-
-   \    VI. Otherwise return **false**.
+   * If **x** is **NaN**, return **false**.
+   * If **y** is **NaN**, return **false**.
+   * If **x** is the same number as **y**, return **true**.
+   * If **x** is +0 and **y** is -0, return **true**.
+   * If **x** is -0 and **y** is +0, return **true**.
+   * Otherwise, return **false**.
 
    D. If the type of **x** is a string, then if **x** and **y** are of the same length and the same characters are at the corresponding positions, return **true**, otherwise, return **false**.
 
@@ -81,9 +76,9 @@ The comparison **x == y**, where **x** and **y** are values, is performed the fo
 
 ## Strict Equality Operator (===)
 
-The Strict equality operator checks if two operands are equal **and are of the same type**.
+The Strict Equality Operator checks whether two operands are equal **and are of the same type**.
 
-It considers the operands of different types not to be equal, without trying to convert them to the same type:
+It considers operands of different types as not equal without attempting to convert them to the same type:
 
 ```javascript
 // Prints "true"
@@ -125,14 +120,14 @@ The comparison **x === y**, where **x** and **y** are values, is performed the f
 
 ## Which One To Use?
 
-In 99% of the cases, you should use Strict equality (**\===**), since it will increase the clarity of the code and eliminate any false positives that may occur.
+In 99% of cases, you should use Strict Equality (**\===**), as it increases the clarity of the code and eliminates any false positives that may occur.
 
-If you need to compare the values of different types, do the type conversion explicitly by yourself.
+If you need to compare the values of different types, do the type conversion explicitly yourself.
 
-This will increase the readability and maintainability of your code because not all developers are aware of the type coercion algorithm used by the Abstract equality operator.
+This also increases the readability and maintainability of your code, since not all developers know how the type conversion algorithm is used by the Abstract Equality Operator.
 
 ## Summary
 
-In this article we have learned the main difference between the Abstract and Strict comparisons in JavaScript and what algorithms do they both use when comparing operands.
+In this article, we learned about the main difference between Abstract and Strict comparisons in JavaScript and what algorithms they both use when comparing operands.
 
 This is one of the most important topics to understand both, for beginners and experienced developers, since making a mistake (missing one **\=** sign) is not as hard as debugging the resulting error.
