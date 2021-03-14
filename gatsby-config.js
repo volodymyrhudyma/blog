@@ -105,7 +105,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `The Simplest JavaScript And ReactJS Tutorials`,
+        name: `The Easiest JavaScript And ReactJS Tutorials`,
         short_name: `starter`,
         start_url: `/`,
         background_color: `#1f7504`,
