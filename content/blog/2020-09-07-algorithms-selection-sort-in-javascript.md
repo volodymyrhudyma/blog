@@ -2,6 +2,7 @@
 title: Algorithms | Selection Sort in JavaScript
 tag:
   - JavaScript
+promote: false
 metaDescription: "Learn Selection Sort in JavaScript - simple, in-place,
   unstable, comparison sorting algorithm, its advantages and disadvantages and
   why it is good for small datasets and bad for larger ones. "
@@ -16,7 +17,7 @@ It is often used for educational purposes due to its simplicity.
 
 Selection Sort has retained its name because it repeatedly selects the next-smallest element and swaps it into the right place.
 
-## The definition
+## The Definition
 
 **Selection Sort** is a simple and easy-to-implement comparison algorithm.
 
@@ -34,7 +35,7 @@ The visualization:
 
 ![Selection Sort visualization](/img/selection_sort_animation.gif "Selection Sort visualization")
 
-## The complexity
+## The Complexity
 
 Selection Sort has a rather poor average time complexity because it takes two loops to complete itself.
 
@@ -44,7 +45,7 @@ Worst-case performance - `O(N^2)`.
 
 Average - `O(N^2)`.
 
-## Pros and Cons
+## Pros And Cons
 
 Even though the algorithm is inefficient, it was a base for some widely used sorting algorithms, like Heap Sort.
 
@@ -58,7 +59,7 @@ Even though the algorithm is inefficient, it was a base for some widely used sor
 
 * Inefficient, especially for large datasets
 
-## Implementation in JavaScript
+## Implementation In JavaScript
 
 ```javascript
 const selectionSort = (arr) => {
@@ -95,7 +96,7 @@ const selectionSort = (arr) => {
 }
 ```
 
-## Usage in JavaScript
+## Usage In JavaScript
 
 ```javascript
 // Assuming that the selectionSort function from the example above is accessible
