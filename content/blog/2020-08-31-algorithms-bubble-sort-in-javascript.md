@@ -40,7 +40,7 @@ Worst-case performance - `O(N2)`, if the list is not sorted.
 
 Average - `O(N2)`.
 
-## Pros and Cons
+## Pros And Cons
 
 It is very simple algorithm that performs poorly in real world and is used primarily as an educational tool.
 
