@@ -1,5 +1,5 @@
 ---
-title: The Limitations and Security of LocalStorage in JavaScript
+title: The Limitations And Security Of LocalStorage In JavaScript
 tag:
   - JavaScript
 promote: false
@@ -19,7 +19,7 @@ Stored data is specific to the protocol of the page. Storing a value on `http://
 
 The same rule applies to domain names, you cannot access anything stored in the LocalStorage on another domain.
 
-## The "localStorage" property
+## The "LocalStorage" Property
 
 The read-only `localStorage` property allows you to access a Web Storage for the specific domain.
 
@@ -98,7 +98,7 @@ If someone injects their own JavaScript code into your website, they can retriev
 
 All sensitive data stored in LocalStorage can be stolen.
 
-## What am I Allowed To Store?
+## What Am I Allowed To Store?
 
 The answer is simple - all publicly available, non-sensitive data that needs to be shared across different tabs or windows in the same domain.
 
