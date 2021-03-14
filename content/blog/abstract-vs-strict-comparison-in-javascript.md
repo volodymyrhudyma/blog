@@ -1,5 +1,5 @@
 ---
-title: Abstract (==) vs. Strict (===) Comparison In JavaScript
+title: Abstract vs. Strict Comparison In JavaScript
 tag:
   - JavaScript
 promote: false
