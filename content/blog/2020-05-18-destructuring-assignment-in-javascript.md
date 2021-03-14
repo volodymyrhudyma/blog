@@ -1,7 +1,8 @@
 ---
-title: Destructuring assignment in JavaScript
+title: Destructuring Assignment In JavaScript
 tag:
   - JavaScript
+promote: false
 metaDescription: "Destructuring assignment is a special syntax that allows us to
   retrieve pieces of arrays or objects and assign them to separate variables.
   This approach can be used for: arrays, objects, and iterables."
@@ -14,7 +15,7 @@ Destructuring assignment is a special syntax that allows us to retrieve pieces o
 
 This approach can be used for: arrays, objects, and iterables.
 
-## Destructuring arrays
+## Destructuring Arrays
 
 Let's start by taking a grasp of how arrays are destructured.
 
@@ -139,7 +140,7 @@ console.log(thirdNumber); // Prints "3"
 
 In the example above, the assigned number `30` is ignored.
 
-## Destructuring objects
+## Destructuring Objects
 
 Objects are destructured exactly the same way as arrays, except the parentheses `[]` are replaced with curly braces `{}`:
 
@@ -313,7 +314,7 @@ const user = {
 
 Code blocks begin with a curly brace, statements must not begin with it.
 
-## Destructuring in function parameters
+## Destructuring In Function Parameters
 
 We can create a function that accepts a single object with multiple properties as a parameter instead of many individual parameters. 
 
@@ -384,7 +385,7 @@ const user = createUser({
 });
 ```
 
-## Multiple return values
+## Multiple Return Values
 
 The function can return multiple values (using an array literal), which can be destructured later on:
 
