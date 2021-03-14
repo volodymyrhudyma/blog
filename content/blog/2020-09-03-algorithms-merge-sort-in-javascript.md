@@ -1,7 +1,8 @@
 ---
-title: Algorithms | Merge Sort in JavaScript
+title: Algorithms | Merge Sort In JavaScript
 tag:
   - JavaScript
+promote: false
 metaDescription: 'Learn Merge Sort in JavaScript - efficient sorting algorithm
   that follows the "divide-and-conquer" approach, its advantages and
   disadvantages and why it is one of the best sorting algorithms. '
@@ -18,7 +19,7 @@ As we are beginning to find out, there is no such thing as a perfect sorting alg
 
 Today we will learn **Merge Sort**, an algorithm that was invented by John von Neumann in 1945 and see how it works in practice.
 
-## The definition
+## The Definition
 
 **Merge sort** is an efficient sorting algorithm that follows the "divide-and-conquer" approach.
 
@@ -32,7 +33,7 @@ The visualization:
 
 ![Merge sort visualization](/img/300px-merge_sort_animation2.gif "Merge sort visualization")
 
-## The complexity
+## The Complexity
 
 Best-case performance - `O(NlogN)`.
 
@@ -40,7 +41,7 @@ Worst-case performance - `O(NlogN)`.
 
 Average - `O(NlogN)`.
 
-## Pros and Cons
+## Pros And Cons
 
 Merge Sort can be adapted to work with very large lists stored on media with slow-access speeds, such as disk storage or network-attached storage.
 
@@ -54,7 +55,7 @@ Merge Sort can be adapted to work with very large lists stored on media with slo
 * May be slower than other sorting algorithms for small datasets
 * The most common implementation requires the memory size of the input to be allocated for the sorted output to be stored in
 
-## Implementation in JavaScript
+## Implementation In JavaScript
 
 ```javascript
 const merge = (left, right) => {
@@ -98,7 +99,7 @@ const mergeSort = arr => {
 };
 ```
 
-## Usage in JavaScript
+## Usage In JavaScript
 
 ```javascript
 // Assuming that the mergeSort function from the example above is accessible
