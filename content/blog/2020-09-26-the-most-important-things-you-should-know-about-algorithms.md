@@ -18,7 +18,7 @@ But there are many more things we should have a basic understanding of when deal
 
 Let's take a look and learn all of them today.
 
-## In-place algorithm
+## In-Place Algorithm
 
 The algorithm is called **in-place** when it transforms input almost with almost no additional memory, however, a small constant extra space used **for variables** is allowed.
 
@@ -58,7 +58,7 @@ Examples of in-place sorting algorithms:
 
   In summary, qualifying Quick Sort as in-place or not-in-place depends on the definition of in-place algorithms, which can be different in different sources.
 
-## Not-in-place algorithm
+## Not-In-Place Algorithm
 
 The algorithm is called **not-in-place** if it transforms input using additional memory, which depends on input size.
 
@@ -68,7 +68,7 @@ Examples of not-in-place sorting algorithms:
 
   The space complexity is `O(N)`.
 
-## Divide-and-conquer algorithm
+## Divide-And-Conquer Algorithm
 
 **Divide and conquer** is an [](https://en.wikipedia.org/wiki/Algorithm_design_paradigm "Algorithm design paradigm")algorithm design paradigm based on multi-branched [](https://en.wikipedia.org/wiki/Recursion "Recursion")recursion.
 
@@ -83,7 +83,7 @@ Examples of divide-and-conquer sorting algorithms:
 * **Quick Sort**
 * **Merge Sort**
 
-## Comparison-based algorithm
+## Comparison-Based Algorithm
 
 **The comparison-based algorithm** is a kind of sorting algorithm that works only on the input array by comparing pairs of elements and moving elements around based on the results of these comparisons.
 
@@ -96,7 +96,7 @@ Examples of comparison-based sorting algorithms:
 * **Quick Sort**
 * **Merge Sort**
 
-## Stable algorithm
+## Stable Algorithm
 
 **A stable sorting algorithm** preserves the order of records with equal keys.
 
@@ -110,7 +110,7 @@ Examples of stable sorting algorithms:
 * **Insertion Sort**
 * **Merge Sort**
 
-## Unstable algorithm
+## Unstable Algorithm
 
 **The unstable sorting algorithm** does not preserve the order of records with equal keys.
 
@@ -120,7 +120,7 @@ Examples of unstable sorting algorithms:
 * **Heap Sort**
 * **Quick Sort**
 
-## Big O notation with examples
+## Big O Notation With Examples
 
 In the previous sections we have talked a little about space complexity, but do we really understand what does `O(...)` mean?
 
@@ -254,7 +254,7 @@ The following image shows the number of operations **N** versus the input size *
 
 ![Algorithms complexity explained](/img/webp.net-resizeimage-1-.png "Algorithms complexity explained")
 
-## Algorithm complexity
+## Algorithm Complexity
 
 **The complexity of an algorithm** is a measure of the time, space, or other resources required for its execution.
 
