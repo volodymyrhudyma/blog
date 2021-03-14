@@ -65,7 +65,7 @@ const linkedList = {
 };
 ```
 
-## Pros and Cons
+## Pros And Cons
 
 Since the linked list is a very similar data structure to an array, in this section we will compare both of them.
 
