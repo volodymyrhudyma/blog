@@ -5,6 +5,11 @@
     "icon": "/icons/linkedin.svg"
   },
   {
+    "name": "Facebook",
+    "link": "https://www.facebook.com/vhudyma.eu",
+    "icon": "/icons/facebook.svg"
+  },
+  {
     "name": "Github",
     "link": "https://github.com/volodymyrhudyma",
     "icon": "/icons/github.svg"
