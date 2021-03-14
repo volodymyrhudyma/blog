@@ -1,7 +1,8 @@
 ---
-title: What are the controlled and uncontrolled components in React?
+title: What Are The Controlled And Uncontrolled Components In React?
 tag:
   - React
+promote: false
 metaDescription: Learn the differences between Controlled and Uncontrolled
   components in React. Find the advantages and disadvantages of both approaches.
 teaser: We, as software developers, often build different kinds of forms, which
@@ -13,7 +14,7 @@ We, as software developers, often build different kinds of forms, which consist 
 
 There are 2 ways of defining those elements, the controlled and uncontrolled way.
 
-## The controlled way
+## The Controlled Way
 
 The element is controlled when **its state is controlled by us**, or to be more precise, **by the React component**.
 
@@ -62,7 +63,7 @@ const Example = () => {
 
 When the user types something in the input, **the component is re-rendered**. 
 
-## The uncontrolled way
+## The Uncontrolled Way
 
 The uncontrolled components act like traditional HTML elements.
 
@@ -105,7 +106,7 @@ Note, that we have access to the `input` element by using `ref.current` and to i
 
 **Important note:** uncontrolled components aren't re-rendered when the user types something, therefore they have a little bit better performance.
 
-## Which approach is better?
+## Which Approach Is Better?
 
 As it's officially stated in the [React documentation](https://reactjs.org/docs/uncontrolled-components.html), we should use controlled components **as much as possible**.
 
