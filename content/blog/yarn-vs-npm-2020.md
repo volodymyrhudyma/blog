@@ -2,6 +2,7 @@
 title: Yarn vs. Npm In 2020
 tag:
   - JavaScript
+promote: false
 metaDescription: NPM vs YARN. Learn the similarities and differences between Npm
   and Yarn. The best package manager for use in 2020. Yarn was developed by
   Facebook as an alternative to npm and released in 2016.
@@ -32,7 +33,7 @@ This registry is accessed via the client, and all available packages can be brow
 
 The package manager belongs to npm, Inc. which was acquired by Github in March 2020.
 
-## Install npm
+## Install Npm
 
 Npm is automatically installed with Node.js.
 
@@ -71,7 +72,7 @@ It was developed when the team of Facebook developers faced some npm limitations
 
 Read more about the reasons for creating yarn [here](https://engineering.fb.com/web/yarn-a-new-package-manager-for-javascript/).
 
-## Install yarn
+## Install Yarn
 
 Yarn offers [great documentation](https://classic.yarnpkg.com/en/docs/install) that describes a lot of ways to install it on your machine.
 
@@ -79,7 +80,7 @@ Verify the installed version:
 
 ![Yarn version check](/img/screenshot-2020-10-01-at-22.35.06.png "Yarn version check")
 
-## Latest versions comparison
+## Latest Versions Comparison
 
 According to these [benchmarks](https://github.com/pnpm/benchmarks-of-javascript-package-managers), the latest versions of npm and yarn do not differ significantly in speed.
 
@@ -159,7 +160,7 @@ After this command is executed, yarn prints all installed packages in alphabetic
 
 Both package managers have a cache, but, according to the benchmarks, **yarn** cache is faster.
 
-## Most used commands
+## Most Used Commands
 
 After setting up the environment, it is necessary to know some basic commands to get started with these great tools.
 
@@ -205,7 +206,7 @@ Here is a list of the most popular and frequently used commands for both package
 
 `yarn upgrade | npm update`
 
-## Yarn workspaces
+## Yarn Workspaces
 
 Workspaces are a new way to set up the architecture of the project.
 
