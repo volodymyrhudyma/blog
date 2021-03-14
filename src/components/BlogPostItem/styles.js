@@ -4,9 +4,11 @@ import { Link } from "gatsby"
 export const Wrapper = styled.div`
   display: flex;
   position: relative;
+  border-bottom: 1px solid #d6d6d6;
 
   &:not(:last-child) {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
   }
 `
 
