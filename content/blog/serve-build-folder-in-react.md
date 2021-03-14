@@ -69,7 +69,7 @@ After running these commands, you should see which port your application is list
 
 ![Served Built Folder Port](/img/screenshot-2021-02-28-at-12.45.50.png "Served Built Folder Port")
 
-Now just open the URL (**http://localhost:5000**) in the browser and see what happens there.
+Now just open the URL (**localhost:5000**) in the browser and see what happens there.
 
 To add some logs, you would have to re-build an application and serve it once again.
 
