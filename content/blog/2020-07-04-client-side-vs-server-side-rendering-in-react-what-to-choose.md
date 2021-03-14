@@ -1,7 +1,8 @@
 ---
-title: Client-side vs server-side rendering. What to choose?
+title: Client-Side vs. Server-Side Rendering. What To Choose?
 tag:
   - JavaScript
+promote: false
 metaDescription: Server-Side Rendering vs. Client-Side Rendering. Learn what the
   differences between the two approaches are and which one is the best.
 teaser: Server-side rendering has become increasingly popular in recent years.
@@ -23,7 +24,7 @@ Before we proceed with the detailed discussion of the benefits of both approache
 
 **Important note:** In the following sections we assume that the React library is used.
 
-## Client-side rendering
+## Client-Side Rendering
 
 **CSR** means that our page is rendered in the browser by JavaScript.
 
@@ -93,7 +94,7 @@ It is good practice to show the loading screen or some placeholders while the da
 
   **The second wave** can occur a few hours to even a few weeks later, Google returns to the page when additional resources are available to fully render and index the JS generated content.
 
-## Server-side rendering
+## Server-Side Rendering
 
 **SSR** means that our page is rendered on the server.
 
@@ -142,7 +143,7 @@ When using **CSR** user is able to see the website **during the fifth step**.
 
   Some external libraries may need special treatment to be able to run in a server-rendered app.
 
-## Choosing the right way
+## Choosing The Right Way
 
 Choosing the right way of building your website is extremely important. 
 
