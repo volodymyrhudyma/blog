@@ -5,7 +5,7 @@ tag:
 promote: false
 metaDescription: Learn the main difference between the Abstract and Strict
   Comparison in JavaScript and the algorithms behind both approaches.
-shareImage: /img/abstract-vs-strict-comparison.jpg
+shareImage: /img/abstract-vs.-strict.jpg
 teaser: "One of the essential things to understand when getting started with
   JavaScript is how to check if two values are equal. JavaScript provides three
   ways to do it: Abstract equality operator (==), Strict equality operator
