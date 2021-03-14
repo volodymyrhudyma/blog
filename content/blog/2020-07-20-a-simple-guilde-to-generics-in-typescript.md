@@ -1,7 +1,8 @@
 ---
-title: A simple guide to generics in TypeScript
+title: A Simple Guide To Generics In TypeScript
 tag:
   - JavaScript
+promote: false
 metaDescription: Learn how to use generic types in TypeScript to increase code
   reusability. Generics allow the code to be used with a variety of types rather
   than a single one.
@@ -16,7 +17,7 @@ It allows the code to be used not only with a single type, but with a variety of
 
 So basically you are allowing users to use **your** **code** with **their own types**.
 
-## The problem
+## The Problem
 
 Imagine the following situation: you build a `Select` component and it receives some props. One of these is `options`, which contains all available options that are displayed on the list.
 
@@ -56,7 +57,7 @@ type Option = {
 
 But this code causes the type to be lost on the way, because if we get an `option` (e.g. in the `onChange` handler), we cannot tell if the value is `string` or `number`.
 
-## The solution
+## The Solution
 
 The solution is to use **generics:**
 
@@ -103,7 +104,7 @@ const stringOptions: Option<string> = [
 
 As you may have noticed, we use type variable to retrieve a type from the user and use it as a `value` type.
 
-## The identity function
+## The Identity Function
 
 > **The identity function** is a function that will return back whatever is passed in.
 
@@ -160,7 +161,7 @@ const identity = <T extends ILength>(argument: T): T => {
 };
 ```
 
-## More complex example
+## More Complex Example
 
 You can declare a type parameter that is constrained by another type parameter.
 
