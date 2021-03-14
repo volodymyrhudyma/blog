@@ -1,7 +1,8 @@
 ---
-title: TypeScript - unknown vs. any. What is the difference?
+title: TypeScript - Unknown vs. Any. What Is The Difference?
 tag:
   - JavaScript
+promote: false
 metaDescription: "Learn the main differences between the TypeScript's 2 top
   types: unknown and any. Any represents every possible value, unknown is much
   less permissive and type-safe counterpart of any."
@@ -16,7 +17,7 @@ TypeScript has two top types - **any** and **unknown**.
 
 In the next few sections, we will familiarise ourselves with both keywords, identify the most important differences between them, and find out when we can use each.
 
-## The "any" type
+## The "Any" Type
 
 Sometimes we want to describe a variable we do not know the type of. 
 
@@ -50,7 +51,7 @@ Using it allows us to escape from the type system and write code as if it was pu
 
 But writing code this way leads to some unpredictable errors that TypeScript can easily prevent.
 
-## The "unknown" type
+## The "Unknown" Type
 
 Just like with **any**, we use the **unknown** type to describe a variable we do not know the type of:
 
@@ -100,7 +101,7 @@ By switching from **any** to **unknown** we reduced the number of available acti
 
 We can not perform any operations on the **unknown** type without narrowing it down.
 
-## Narrowing down the "unknown" type
+## Narrowing Down The "Unknown" Type
 
 There are a few ways to narrow down the **unknown** type, like: type assertions, **typeof**/**instanceof** operators.
 
@@ -161,7 +162,7 @@ console.log(getDateISOString("string")); // Prints "Not a date"
 console.log(getDateISOString(new Date())); // Prints "2020-08-10T18:51:51.673Z"
 ```
 
-## Union types with "unknown"
+## Union Types With "Unknown"
 
 In a union type, **unknown** absorbs every type. 
 
@@ -178,7 +179,7 @@ type D = unknown | any; // any
 
 **Important note:** if union type contains **any**, it evaluates to **any**.
 
-## Intersection types with "unknown"
+## Intersection Types With "Unknown"
 
 In an intersection type, **unknown** is absorbed by every type. 
 
