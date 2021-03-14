@@ -1,7 +1,8 @@
 ---
-title: Call, apply and bind in Javascript
+title: Call, Apply And Bind In JavaScript
 tag:
   - JavaScript
+promote: false
 metaDescription: 'Call, apply and bind are all methods within the function
   prototype, basically doing the same thing: allow us to call a function with
   given "this" context and arguments, but in different ways.'
@@ -13,13 +14,13 @@ date: 2020-05-02T10:53:21.451Z
 ---
 In this post we are going to discuss some famous JavaScript methods: `call`, `apply` and `bind`, see how they work, what are they used for, and how to use them properly in order to get things working.
 
-## Call, apply and bind
+## Call, Apply And Bind
 
 They are all methods within the function prototype, basically doing the same thing: allow us to call a function with given `this` context and arguments, but in different ways.
 
 You can refer to [this article](/2020-05-02-understanding-this-in-javascript/) in order to learn more about `this` object in JavaScript.
 
-## Call or Function.prototype.call
+## Call Or Function.prototype.call
 
 `call` is used to immediately execute a function with given `this` context and arguments:
 
@@ -38,7 +39,7 @@ greet.call(user, "Welcome", 10); // Prints "Welcome, John Doe, your table number
 
 As you can see, `call` function receives `user` as the first parameter, therefore it is the context. Second and third parameters are passed directly to the `greet` function.
 
-## Apply or Function.prototype.apply
+## Apply Or Function.prototype.apply
 
 `apply` behaves exactly the same way as `call`, with the only difference - it receives an array of the arguments as the second parameter:
 
@@ -57,7 +58,7 @@ getFullName.apply(user, ["Welcome", 10]); // Prints "Welcome, John Doe, your tab
 
 Were you able to spot the difference?
 
-## Bind or Function.prototype.bind
+## Bind Or Function.prototype.bind
 
 The behavior of `bind` method is exactly the same as of `apply` with just only one difference. But it's really huge.
 
@@ -95,13 +96,13 @@ const boundFunction = getFullName.bind(user); // "bind" returns bound function
 boundFunction("Welcome", 10); // Prints "Welcome, John Doe, your table number is: 10"
 ```
 
-## Borrowing methods
+## Borrowing Methods
 
 Sometimes it’s desirable to reuse a function or method on a different object other than the object or prototype it was defined. 
 
 By using `call`, `apply` and `bind`, we can easily borrow methods from different objects without having to inherit from them.
 
-## Borrowing Max from the Math Object
+## Borrowing Max From The Math Object
 
 Imagine the following situation: you have an array of numbers and need to find a maximum number. You know that there is `Math.max` function that does exactly what we need, so why don't we use it? 
 
@@ -127,7 +128,7 @@ We pass `null` as the first argument, because we don't really need to pass conte
 
 The second argument, our `numbers` array gets converted to arguments add will be accepted as a valid parameter for `Math.max` function.
 
-## Borrowing join and filter from Array
+## Borrowing Join And Filter From Array
 
 ```javascript
 Array.prototype.join.call("abc", ","); // "a,b,c"
@@ -141,7 +142,7 @@ As you can see it's cool to benefit from borrowing prototype methods, but there'
 
 We don't have to write `Array.prototype` each time we want to borrow something. We can benefit from **literals**.
 
-## Using literals
+## Using Literals
 
 > **Literals** are used to represent values in JavaScript. These are fixed values, not variables, that you literally provide in your script
 
