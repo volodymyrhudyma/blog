@@ -1,7 +1,8 @@
 ---
-title: How To Mock Date/Moment in Jest?
+title: How To Mock Date/Moment In Jest?
 tag:
   - React
+promote: false
 metaDescription: "Learn how to mock the current date in Jest. Mock moment/Date
   objects in tests to make your tests reliable. See practical examples of
   mocking the current date in Jest. "
@@ -63,7 +64,7 @@ It fails because it takes some time to execute the code after mounting the compo
 
 It is obvious that writing tests that do not mock the current date to a static value is not reliable.
 
-## Mock Date to Rescue
+## Mock Date To Rescue
 
 Fortunately, there is a great library called [mockdate](https://www.npmjs.com/package/mockdate), which serves exactly the purpose of mocking the current date in tests.
 
