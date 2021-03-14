@@ -3,12 +3,13 @@ title: A Simple Guide To Closures In JavaScript
 tag:
   - JavaScript
 promote: false
-metaDescription: Learn everything about Closures and Lexical Environment in
-  JavaScript by reading this simple step-by-step guide.
+metaDescription: Learn all about Closures and Lexical Environment in JavaScript
+  by reading this simple step-by-step guide.
 shareImage: /img/closures-in-javascript.jpg
-teaser: The concept of Closures is not an easy thing to wrap your head around. A
-  lot of experienced developers still struggle to understand it, let alone
-  explaining to a colleague or an interview for a new...
+teaser: The concept of Closures is not an easy thing to wrap your head around.
+  Many experienced developers still have trouble understanding it, let alone
+  explaining it to a colleague or in an interview for a new job. Today we will
+  learn it with..
 date: 2021-03-15T17:13:28.656Z
 ---
 The concept of Closures is not an easy thing to wrap your head around. 
