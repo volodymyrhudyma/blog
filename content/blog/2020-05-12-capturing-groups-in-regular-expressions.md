@@ -1,7 +1,8 @@
 ---
-title: Capturing groups in regular expressions
+title: Capturing Groups In Regular Expressions
 tag:
   - JavaScript
+promote: false
 metaDescription: JavaScript | Capturing groups in regular expressions allow you
   to get the part of a match. Capturing group can be created by using
   parentheses.
@@ -18,11 +19,11 @@ You can easily do so by using so-called **capturing groups**.
 
 **Important note**: make sure to check out the [previous article](/2020-05-10-regular-expressions-in-javascript/), where regular expressions are explained in-depth.
 
-## How to create capturing group?
+## How To Create A Capturing Group?
 
 Capturing group can be created by using parentheses `(...)`. 
 
-## Accessing capturing group
+## Accessing Capturing Group
 
 To access the content of the capturing group, use a dollar sign with the group number.
 
@@ -125,7 +126,7 @@ console.log(string.replace("John", "Andrew"));
 console.log(string.replace(/John/g, "Andrew")); 
 ```
 
-## Named capturing groups
+## Named Capturing Groups
 
 All of the defined capturing groups can be given name and referenced by it later.
 
@@ -146,7 +147,7 @@ console.log(string.replace(pattern, "$<day>/$<month>/$<year>"));
 
 In the example above we defined 3 groups, each of them is referenced by name: `year`, `month`, `day`.
 
-## Optional capturing groups
+## Optional Capturing Groups
 
 A capturing group can be made optional by using `(...)?`. If it’s not found, the resulting array slot will contain `undefined`:
 
@@ -186,7 +187,7 @@ Prints:
 console.log(regex.exec(string));
 ```
 
-## Nested capturing groups
+## Nested Capturing Groups
 
 Capturing groups can be nested. As for not nested capturing groups, numbering also goes from left to right.
 
@@ -246,7 +247,7 @@ const regex = /John/g;
 console.log(string.match(regex)); // Prints: ["John", "John"]
 ```
 
-## Non-capturing groups
+## Non-Capturing Groups
 
 Sometimes we want to apply a quantifier, but we don’t want contents in results. It can be done using `?:` in the beginning:
 
