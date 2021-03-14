@@ -21,7 +21,7 @@ But like any tool, if it is not used properly, it creates more problems than it 
 
 Today we will take a look at the 7 most common mistakes that most of React developers make.
 
-## Direct state modification
+## Direct State Modification
 
 Every developer who starts working with React is taught that the state should not be modified directly.
 
@@ -253,7 +253,7 @@ Now React knows that the elements with the keys "**one**" and "**two**" have jus
 
 After a general overview of how React performs updates, you might have guessed that a direct change of state would not trigger the entire reconciliation process and therefore the component could not be re-rendered.
 
-## Not using "key" properly
+## Not Using "Key" Properly
 
 After you have found out what the `key` is used for, it is necessary to know how to set it correctly, because if you do not do that, it will lead to unexpected errors.
 
@@ -345,7 +345,7 @@ Changing from `<li key={index}>` to `<li key={item.id}>` solves an issue:
 
 Be very careful with this, as this type of issue is extremely hard to debug.
 
-## Not batching updates
+## Not Batching Updates
 
 If you know React well, you might not agree with the above statement and you would be right.
 
@@ -490,7 +490,7 @@ const handleClick = async () => {
 };
 ```
 
-## Misunderstanding deep and shallow copies
+## Misunderstanding Deep And Shallow Copies
 
 **Shallow copy** is a bit-wise copy of an object. 
 
@@ -576,7 +576,7 @@ We can safely modify the `other` object, since it is now not connected to the `u
 
 The best way to make a deep copy is to use an external library, such as [lodash](https://lodash.com/).
 
-## Calling functions instead of passing as a reference
+## Calling Functions Instead Of Passing As A Reference
 
 Make sure that you do not call the function when you pass it to the component.
 
@@ -598,7 +598,7 @@ render() {
 
 This problem is often seen in code written by inexperienced developers, but it is not that uncommon.
 
-## Forgetting to bind function declaration
+## Forgetting To Bind Function Declaration
 
 JavaScript uses the `bind` method is used to create a new function with given `this` context:
 
@@ -705,7 +705,7 @@ These are also possible but not recommended solutions.
 
 In the next chapter let's find out why.
 
-## Creating new functions on every render
+## Creating New Functions On Every Render
 
 To bind a function to the context means to create a new one.
 
