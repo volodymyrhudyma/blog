@@ -1,5 +1,5 @@
 ---
-title: Redux Thunk vs. Redux Saga. The differences.
+title: Redux Thunk vs. Redux Saga. The Differences.
 tag:
   - React
 promote: true
