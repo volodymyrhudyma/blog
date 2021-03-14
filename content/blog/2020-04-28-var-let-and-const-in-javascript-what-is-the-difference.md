@@ -1,7 +1,8 @@
 ---
-title: Var, let and const in Javascript. What is the difference?
+title: Var, let and const In JavaScript. What Is The Difference?
 tag:
   - JavaScript
+promote: false
 metaDescription: Learn the differences between var, let and const. During a long
   time, "var" keyword was a king in JavaScript world.
 teaser: During a long time, "var" keyword was a king in JavaScript world. You
@@ -12,7 +13,7 @@ date: 2020-04-28T19:16:33.434Z
 ---
 **Important note:** We are not taking into account **[hoisting](/2020-04-30-hoisting-in-javascript/)** in this article as it is a more advanced JavaScript concept.
 
-## You probably know the "var" keyword
+## You Probably Know The "var" Keyword
 
 During a long time, `var` keyword was a king in JavaScript world. You didn't yet have to bother about how to declare a variable, but how to choose the perfect name for it.
 
@@ -22,7 +23,7 @@ var userName = "John";
 
 But using `var` keyword sometimes leads to unexpected issues especially if you are not familiar with all pitfalls. 
 
-## \#1 pitfall
+## \#1 Pitfall
 
 You should always remember that `var` is **globally** scoped in case if it is declared outside of the function and **locally/function** scoped if it is declared inside of the function body.
 
@@ -51,7 +52,7 @@ console.log(localVariable); // ReferenceError: localVariable is not defined
 console.log(globalVariable); // Prints "global"
 ```
 
-## \#2 pitfall
+## \#2 Pitfall
 
 Variables declared using `var` keyword can be re-declared and updated.
 
@@ -89,7 +90,7 @@ changeUserName();
 console.log(userName); // Prints "Andrew"
 ```
 
-## "Let" to rescue
+## "Let" To Rescue
 
 `let` comes as an improvement for `var` since **ES2015(ES6)** came out. It is **block-scoped,** which means that the variable declared in a block is only available within that block.
 
@@ -142,7 +143,7 @@ changeUserName();
 console.log(userName); // Prints "John"
 ```
 
-## "Const" as an improvement
+## "Const" As An Improvement
 
 Just like variables declared using `let` keyword, `const` variables are **block-scoped**. 
 
@@ -166,7 +167,7 @@ And actually this is awesome. Once you declared your variable as `const` you are
 
 But... wait. Really? What about objects?
 
-## \#3 pitfall
+## \#3 Pitfall
 
 Consider the following example:
 
