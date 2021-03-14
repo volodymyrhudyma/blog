@@ -1,5 +1,5 @@
 ---
-title: Avoid Wasting Performance with Reselect in React
+title: Avoid Wasting Performance With Reselect In React
 tag:
   - React
 promote: false
@@ -22,7 +22,7 @@ Rendering cycles are  always costly, so it is best to have the smallest possible
 
 In this article you will see how we can optimize the React application with almost no effort.
 
-## Build and Configure an App
+## Build And Configure An App
 
 I have read many articles explaining this simple concept with complicated examples, which may seem overwhelming for beginners, so for the sake of simplicity I have created not a typical real-world application.
 
@@ -135,7 +135,7 @@ Imagine that this selector contains a piece of heavy logic. It would slow down t
 
 This is exactly the moment when `reselect` comes into play.
 
-## What is a Reselect?
+## What Is A Reselect?
 
 **Reselect** is a [selector library](https://github.com/reduxjs/reselect) for Redux which provides a `createSelector` function used to create memoized selectors.
 
