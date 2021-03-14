@@ -1,7 +1,8 @@
 ---
-title: Algorithms | Linked List in JavaScript
+title: Algorithms | Linked List In JavaScript
 tag:
   - JavaScript
+promote: false
 metaDescription: "A linked list is the linear collection of data whose order is
   not given by their physical placement in memory. There are 3 types of linked
   lists: singly-linked, doubly-linked and circular-linked. Learn the differences
@@ -13,7 +14,7 @@ date: 2020-08-24T08:55:49.732Z
 ---
 Linked list is one of the most basic and important algorithms, which is really hard not to mention when you get into this complex topic.
 
-## The definition
+## The Definition
 
 A **linked list** is the linear collection of data whose order is not given by their physical placement in memory (unlike array). Instead, **each element contains a reference to the next one**.
 
@@ -27,19 +28,19 @@ If a list is empty, the head is a **null** reference.
 
 There are 3 types of linked lists, so far we have been talking about **Singly-linked list** where each node contains only one reference - to the next node.
 
-## Doubly-linked list
+## Doubly-Linked List
 
 **Doubly-linked list** is a linked list where each node contains two references - to the previous and next nodes:
 
 ![Doubly-linked list illustration](/img/doubly-linked-list.svg "Doubly-linked list illustration")
 
-## Circular-linked list
+## Circular-Linked List
 
 **Circular-linked list** is a linked list where the last node points to the first node of the list:
 
 ![Circular-linked list illustration](/img/circularly-linked-list.svg "Circular-linked list illustration")
 
-## Example in JavaScript
+## Example In JavaScript
 
 In JavaScript linked lists look the following way:
 
@@ -78,7 +79,7 @@ Since the linked list is a very similar data structure to an array, in this sect
 * Linked lists do not allow random access to data, therefore search operations are expensive, as the data needs to be read in order from the beginning
 * Singly-linked lists are cumbersome to navigate backward and while this might be a smaller problem with doubly-linked lists, more memory is consumed in allocating space for a reference to the previous node
 
-## Implementation in JavaScript
+## Implementation In JavaScript
 
 In this section, we will implement a **Singly-linked list** using JavaScript.
 
@@ -318,7 +319,7 @@ That is pretty much all when it comes to implementation.
 
 Now let's use the above methods and create our first linked list.
 
-## Usage in JavaScript
+## Usage In JavaScript
 
 Create a linked list and add `1`, `2` and `3` to it:
 
