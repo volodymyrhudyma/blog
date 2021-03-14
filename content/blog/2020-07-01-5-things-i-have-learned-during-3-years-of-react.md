@@ -1,8 +1,9 @@
 ---
-title: 5 things I have learned during 3 years of React
+title: 5 Things I Have Learned During 3 Years Of React
 tag:
   - React
 popular: false
+promote: false
 metaDescription: Read about some of my most important takeaways after 3 years of
   working with ReactJs. Understanding them is one of the keys to becoming a good
   programmer and a valuable person in the team.
@@ -109,7 +110,7 @@ calculateHoursDiff(
 
 In the example above we import the ready-to-use function `differenceInHours`, which calculates the difference for us.
 
-## Readability over everything
+## Readability Over Everything
 
 *The solution should not be more complex than the problem.*
 
@@ -166,7 +167,7 @@ const getActiveUsers = (users) => {
 };
 ```
 
-## Read the documentation
+## Read The Documentation
 
 *Documentation is a gift. Make sure you open it, read it, and use it.*
 
@@ -186,7 +187,7 @@ Personally, I did not like to read the docs, because I wanted to use the technol
 
 Times are changing and now there is no room for doubt about how to start learning new technologies.
 
-## Write tests
+## Write Tests
 
 *\- Should I write tests?*\
 *\- Yes, yes, and yes!*
@@ -251,7 +252,7 @@ describe("Example component", () => {
 });
 ```
 
-## Do not make everything reusable
+## Do Not Make Everything Reusable
 
 *Messy, but reusable code should not be produced.*
 
