@@ -1,7 +1,8 @@
 ---
-title: Spread operator in JavaScript
+title: Spread Operator In JavaScript
 tag:
   - JavaScript
+promote: false
 metaDescription: Spread operator in JavaScript is used to access all elements
   inside of an iterable. Don't worry if the definition is not clear, read an
   article to learn more.
@@ -237,7 +238,7 @@ Property `other` references to an object which contains `age`. When doing shallo
 
 That's why when we modify `other.age` it gets updated in both `user` and `newUser`.
 
-## The "rest" pattern
+## The "Rest" Pattern
 
 The **rest pattern** syntax allows us to represent an indefinite number of arguments as an array:
 
@@ -252,7 +253,7 @@ console.log(rest); // Prints "[2, 3, 5, 8]"
 
 In the example above, the rest pattern collected all elements but the first one into an array.
 
-## The difference between "rest" pattern and spread operator
+## The Difference Between "Rest" Pattern And Spread Operator
 
 Spread operator unpacks, rest packs:
 
