@@ -1,5 +1,5 @@
 ---
-title: "Warning: Can't perform a React state update on an unmounted component"
+title: "Warning: Can't Perform A React State Update On An Unmounted Component"
 tag:
   - React
 promote: false
@@ -135,7 +135,7 @@ When this component is rendered (after clicking the "**Show user**" button), the
 
 Now we know exactly what the problem is, let's solve it.
 
-## Fixing an Example
+## Fixing An Example
 
 The fix is quite simple - we need to declare a variable `let mounted = true;` inside the **useEffect** hook, set to `false` in the cleanup function, and check this variable before updating the state:
 
