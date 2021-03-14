@@ -1,7 +1,8 @@
 ---
-title: Immutable update patterns in JavaScript
+title: Immutable Update Patterns In JavaScript
 tag:
   - JavaScript
+promote: false
 metaDescription: "Immutable Update Patterns in JavaScript. Find the best ways to
   update nested Objects and Arrays in an immutable way by using deep and shallow
   copies. "
@@ -14,7 +15,7 @@ In this article we will focus on practical examples of how to modify an Array/Ob
 
 Before we start learning, let's remember what shallow and deep copies are and how they differ.
 
-## Shallow copy
+## Shallow Copy
 
 **Shallow copy** is a bit-wise copy of an object. A new object is created that has an exact copy of the values in the original object. 
 
@@ -48,7 +49,7 @@ When doing a shallow copy, just the reference address of `other` is copied, not 
 
 That's why when we modify `other.age` it gets updated in both `user` and `newUser`.
 
-## Deep copy
+## Deep Copy
 
 **Deep copy** is a full copy of an object. The newly copied object is completely independent of the original one:
 
@@ -76,7 +77,7 @@ console.log(newUser);
 
 Modifying `other.age` does not affect the `user` object, as `newUser` is a deep copy.
 
-## Things to remember
+## Things To Remember
 
 * Spread operator (`...`) only does a shallow copy of an object
 * Use an external library to create a deep copy, for example [`lodash`](https://lodash.com/)``
@@ -403,7 +404,7 @@ const updatedUser = {
 console.log(updatedUser);
 ```
 
-## The most common mistake
+## The Most Common Mistake
 
 The most common mistake people make is modifying the original array/object while believing they are doing an update in an immutable way.
 
