@@ -1,7 +1,8 @@
 ---
-title: Objects in JavaScript
+title: Objects In JavaScript
 tag:
   - JavaScript
+promote: false
 metaDescription: Everything in JavaScript, except Primitives are Objects, that's
   why it's the most important part of the language.
 teaser: Everything in JavaScript, except "Primitives" are "Objects", that's why
@@ -14,7 +15,7 @@ Everything in JavaScript, except Primitives are Objects, that's why it's the mos
 
 Objects are collections of properties, defined as key-value pairs.
 
-## Create an object
+## Create An Object
 
 There are a lot of different ways to create an object in JavaScript, but we'll take a look at the most popular and the shortest one:
 
@@ -33,7 +34,7 @@ const user = {
 
 In the example above `name` and `surname` are the keys and `John` and `Doe` are the values.
 
-## Access object property
+## Access Object Property
 
 There are 2 ways of accessing object properties: using **dot notation** and **array-like notation**.
 
@@ -75,7 +76,7 @@ console.log(user["full name"]); // Prints "John"
 console.log(user."full name"); // SyntaxError: Unexpected token
 ```
 
-## What if property does not exist?
+## What If Property Does Not Exist?
 
 If property you are trying to access doesn't exist, you would receive `undefined`:
 
@@ -88,7 +89,7 @@ const user = {
 console.log(user.full_name); // Prints "undefined"
 ```
 
-## Add property
+## Add Property
 
 You can add property to an object after it was created:
 
@@ -103,7 +104,7 @@ user.full_name = "John Doe";
 console.log(user); // Prints { name: "John", surname: "Doe", full_name: "John Doe" }
 ```
 
-## Change property
+## Change Property
 
 To change property in an object, use an assignment operator:
 
@@ -117,7 +118,7 @@ user.name = "Andrew";
 console.log(user); // Prints { name: "Andrew" }
 ```
 
-## Delete property
+## Delete Property
 
 Use `delete` operator to remove property from an object:
 
@@ -132,7 +133,7 @@ delete user.name;
 console.log(user); // Prints { surname: "Doe" }
 ```
 
-## Check if property exist
+## Check If Property Exists
 
 Use `in` operator to check if property exists in an object:
 
@@ -147,7 +148,7 @@ console.log("name" in user); // Prints "true"
 console.log("full_name" in user); // Prints "false"
 ```
 
-## Iterate over properties
+## Iterate Over Properties
 
 Use `for ... in` loop in order to iterate over properties in an object:
 
@@ -181,7 +182,7 @@ for (const propertyName in user) {
 }
 ```
 
-## Object methods
+## Object Methods
 
 Methods are actions that can be performed on objects:
 
@@ -275,7 +276,7 @@ Arrow function doesn't bind own `this` context, so we don't have access to objec
 
 **Important note:** do not define object's methods using arrow functions.
 
-## Built-in object functions
+## Built-In Object Functions
 
 All objects in JavaScript descend from the parent `Object` constructor. `Object` has a lot of useful built-in methods we can access and use.
 
