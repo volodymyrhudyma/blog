@@ -1,5 +1,5 @@
 ---
-title: The best tools for React development (June 2020)
+title: The Best Tools For React Development (June 2020)
 tag:
   - React
 popular: true
@@ -48,7 +48,7 @@ Finally, the browser will open `http://localhost:3000/` and the React applicatio
 
 Refer to the [official documentation](https://create-react-app.dev/) to read more.
 
-## Typescript
+## TypeScript
 
 **Typescript** is a programming language developed by Microsoft, a typed superset of JavaScript which is compiled to plain JavaScript.
 
@@ -70,7 +70,7 @@ Or to the existing application, built with CRA:
 
 Read more about typescript [here](https://www.typescriptlang.org/docs/home.html).
 
-## Styled components
+## Styled Components
 
 Styled Components is the library that enables writing of CSS in JavaScript using tagged template literals.
 
@@ -122,7 +122,7 @@ export default Loader;
 
 To read the installation guide, please refer to the [official documentation](https://styled-components.com/docs).
 
-## Jest + enzyme
+## Jest + Enzyme
 
 It's good practice - to cover all your components with unit tests to be sure that adding new features won't break any of the existing ones.
 
@@ -291,7 +291,7 @@ Finally, create `.prettierrc` file in the root folder with the following content
 
 That's it! Provided configurations can be changed according to your needs, feel free to check the [official documentation](https://prettier.io/docs/en/) to find out more.
 
-## Typescript aliases
+## Typescript Aliases
 
 Take a look at the following code. Can you tell what's wrong with it?
 
@@ -339,7 +339,7 @@ One more major benefit of this approach comes into play when we will refactor ou
 
 **We won't have to update any imports**, as we would have to without using typescript aliases.
 
-## Storybook
+## StoryBook
 
 **Storybook** is a tool that enables developers to create components in isolation in an isolated development environment.
 
