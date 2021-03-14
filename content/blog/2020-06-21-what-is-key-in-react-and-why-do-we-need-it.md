@@ -1,7 +1,8 @@
 ---
-title: What is "key" in React and why do we need it?
+title: What Is "Key" In React And Why Do We Need It?
 tag:
   - React
+promote: false
 metaDescription: Keys help React identify which items have changed, are added,
   or are removed. Keys should be given to the elements inside the array to give
   the elements a stable identity.
@@ -59,7 +60,7 @@ And the warning is gone! But do you know why?
 
 Let's find out what happens behind the scenes.
 
-## Why does React need it?
+## Why Does React Need It?
 
 To understand this better, let's learn a new term: **Reconciliation.**
 
@@ -112,7 +113,7 @@ The main problem here is inefficiency.
 
 We could have avoided 2 unnecessary mutations by providing a small hint to React: the **key** prop.
 
-## The "key" prop
+## The "Key" Prop
 
 > Keys help React identify which items have changed, are added, or are removed. Keys should be given to the elements inside the array to give the elements a stable identity.
 
@@ -146,7 +147,7 @@ const List = ({ data }) => (
 
 **Important note:** it's not recommended to use an **index** as a **key** if an order of list elements may change.
 
-## "index" as a key
+## Index As A Key
 
 Using **index** as a key leads to unexpected errors when the order of your list elements can be changed.
 
@@ -207,7 +208,7 @@ Changing the `<li key={index}>` to `<li key={item.id}>` solves an issue:
 
 Be very careful of that, as those kinds of issues are extremely hard to debug.
 
-## Uniqueness among siblings
+## Uniqueness Among Siblings
 
 Keys need to be unique, but only among their siblings.
 
@@ -228,7 +229,7 @@ In other words, each item within an array should have a unique key, but it shoul
 
 `child.id` can be the same as `item.id` as they aren't siblings.
 
-## Keys are not passed as a prop
+## Keys Are Not Passed As A Prop
 
 React doesn't automatically pass **key** as a prop to the component, which means that if you need access to it, you should pass it as another prop:
 
