@@ -1,7 +1,8 @@
 ---
-title: BroadcastChannel API in JavaScript
+title: BroadcastChannel API In JavaScript
 tag:
   - JavaScript
+promote: false
 metaDescription: Learn BroadcastChannel API - a new Web API that enables
   cross-context communication between different windows/tabs/iframes **of the
   same origin**.
@@ -16,7 +17,7 @@ The **BroadcastChannel API** is a new Web API that enables the communication bet
 >
 > A list of all available Web APIs can be found [here](https://developer.mozilla.org/en-US/docs/Web/API).
 
-## Why is it needed?
+## Why Is It Needed?
 
 The first question that came to my mind when I read about this concept was: "What purpose does it serve?".
 
@@ -30,7 +31,7 @@ Fortunately, the BroadcastChannel API helps us to solve this problem.
 
 Before we dig into the code, it is necessary to check the browser support to make sure that it is safe to use in production.
 
-## Browser support
+## Browser Support
 
 According to **[caniuse.com](https://caniuse.com/broadcastchannel)**, the BroadcastChannel API is available for **78,85%** of the users (as of 17/10/2020).
 
@@ -38,7 +39,7 @@ It is not supported in IE11, Safari and older versions of Edge, so if these brow
 
 > In web development, a **polyfill** is code that implements a feature on web browsers that do not support it.
 
-## API overview
+## API Overview
 
 First, create a channel and save a reference to it in a variable:
 
@@ -91,7 +92,7 @@ Error message:
 
 ![BroadcastChannel API function error](/img/screenshot-2020-10-16-at-18.48.30.png "BroadcastChannel API function error")
 
-## Structured Clone algorithm
+## Structured Clone Algorithm
 
 The **Structured Clone algorithm** is a new algorithm defined by the HTML5 specification for serializing complex JavaScript objects.
 
@@ -121,7 +122,7 @@ The JSON approach has many limitations, which were fully covered in one of my [e
 
 To read more about the advantages of the Structured Clone approach, read [this article](http://man.hubwiz.com/docset/JavaScript.docset/Contents/Resources/Documents/developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm.html).
 
-## Real-world example
+## Real-World Example
 
 Remember we talked about logging out users on all open tabs?
 
@@ -172,7 +173,7 @@ Let's add this feature to our website using the BroadcastChannel API:
 
 **Important note:** The channel would not broadcast to itself, which means that if the `doLogout` action is not performed manually after clicking the button, the user would not be logged out of the current tab.
 
-## Npm library
+## Npm Library
 
 There is an npm library called **[broadcast-channel](https://www.npmjs.com/package/broadcast-channel)** that behaves similarly to the BroadcastChannel API which is currently only available in a few browsers, but supports all of them and ... **Node environment**. 
 
