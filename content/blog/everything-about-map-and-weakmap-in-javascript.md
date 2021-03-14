@@ -1,7 +1,8 @@
 ---
-title: Everything About Map and WeakMap in JavaScript
+title: Everything About Map And WeakMap In JavaScript
 tag:
   - JavaScript
+promote: false
 metaDescription: Learn everything you should know about Map and WeakMap objects
   in JavaScript that were introduced with the ES6 release. A Map is an object
   that contains key-value pairs. A WeakMap is a similar object with some
@@ -17,7 +18,7 @@ They were developed to be used as an alternative to Objects as key-value storage
 
 Unlike Objects, that are limited to having a String or a Symbol as a key, Maps allow you to use **any value as a key**, WeakMaps - **only objects**.
 
-## What is a Map?
+## What Is A Map?
 
 A **Map** is an object in JavaScript that contains key-value pairs. 
 
@@ -106,7 +107,7 @@ users.clear();
 console.log(users); // Map {}
 ```
 
-## Instance Properties and Methods of Map
+## Instance Properties And Methods Of Map
 
 #### Get the size
 
@@ -188,7 +189,7 @@ Objects are similar to Maps, both allow you to store, retrieve, and delete value
 * A **Map** can be iterated directly due to being Iterable, an **Object** requires obtaining its keys and iterating over them
 * A **Map** is optimized to perform better than an **Object** when adding or removing elements frequently
 
-## What is a WeakMap?
+## What Is A WeakMap?
 
 A **WeakMap** is similar to the **Map** with some important differences:
 
@@ -240,7 +241,7 @@ john = null;
 console.log(users);
 ```
 
-## Instance Methods of WeakMap
+## Instance Methods Of WeakMap
 
 **WeakMap** only supports the following methods:
 
@@ -259,7 +260,7 @@ It is decided by the JavaScript engine. The cleanup can be done immediately or a
 
 Since an object is also deleted from the WeakMap, we do not exactly know what elements it contains, so we cannot calculate the size or iterate over its elements. 
 
-## When to use WeakMaps?
+## When To Use WeakMaps?
 
 WeakMaps can be extremely useful for storing information about the keys, which is only valuable if the key has not been garbage-collected.
 
