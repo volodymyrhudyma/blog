@@ -1,7 +1,8 @@
 ---
-title: Everything About Set and WeakSet in JavaScript
+title: Everything About Set And WeakSet In JavaScript
 tag:
   - JavaScript
+promote: false
 metaDescription: Learn Sets and WeakSets - objects that contain a collection of
   unique values. Sets can contain values of any type, WeakSets can only contain
   objects. Objects in WeakSets are "weakly held", which means that they can be
@@ -17,7 +18,7 @@ Unlike Arrays, however, Sets and WeakSets cannot store duplicate values.
 
 Let's start learning how to work with both.
 
-## What is a Set?
+## What Is A Set?
 
 A Set is an object that contains a collection of **unique values**. Each value can only occur once. 
 
@@ -99,7 +100,7 @@ users.clear();
 console.log(users); // Set {}
 ```
 
-## Instance Properties and Methods of Set
+## Instance Properties And Methods Of Set
 
 #### Get the size
 
@@ -184,7 +185,7 @@ const uniqueUsers = [...new Set(users)];
 console.log(uniqueUsers); // [ "John", "Andrew", "Mike" ]
 ```
 
-## What is a WeakSet?
+## What Is A WeakSet?
 
 A **WeakSet** is similar to the **Set** with some important differences:
 
@@ -236,7 +237,7 @@ john = null;
 console.log(users);
 ```
 
-## Instance Methods of WeakSet
+## Instance Methods Of WeakSet
 
 **WeakSet** only supports the following methods:
 
@@ -254,7 +255,7 @@ It is decided by the JavaScript engine. The cleanup can be done immediately or a
 
 Since an object is also deleted from the WeakSet, we do not exactly know what elements it contains, so we cannot calculate the size or iterate over its elements.
 
-## When to use WeakSets?
+## When To Use WeakSets?
 
 WeakSets can be used to tag objects without mutating them:
 
