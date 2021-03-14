@@ -1,73 +1,74 @@
 ---
-title: A few words about author
+title: A Few Words About Author
 tag:
   - Other
+promote: false
 metaDescription: Hello, my name is Volodymyr Hudyma, I am a software developer
-  for more than 5 years now. I was born and lived in Ukraine till I turned 17
-  and it occurred that there was a big decision ahead of me.
-teaser: Hello, my name is Volodymyr Hudyma, I am a software developer for more
-  than 5 years now. I was born and lived in Ukraine till I turned 17 and it
-  occurred that there was a big decision ahead of me...
+  for more than 6 years. Visit my blog and let's learn JavaScript and React
+  together.
+teaser: Hello, my name is Volodymyr Hudyma, I am a software developerfor more
+  than 6 years.I was born and lived in Ukraine until I turned 17 and had a big
+  decision ahead of me. Do you remember the time, when you just finished...
 date: 2020-04-20T10:21:23.175Z
 ---
-Hello, my name is Volodymyr Hudyma, I am a software developer for more than 5 years now.
+Hello, my name is Volodymyr Hudyma, I am a software developer **for more than 6 years**.
 
-## About me
+## About Me
 
-I was born and lived in Ukraine till I turned 17 and it occurred that there was a big decision ahead of me.
+I was born and lived in Ukraine until I turned 17 and had a big decision ahead of me.
 
-Remember those times, when you just finished school and had to choose who to become in the future? I do.
+Do you remember the time, when you just finished school and had to decide who you wanted to be in the future? I do.
 
-That is one of the hardest decisions one has to make. But I was lucky and thanks to my parents, we did it right - I started learning Programming in University of Information Technology and Management in Rzeszów, Poland.
+That's one of the hardest decisions to make. But I was lucky and thanks to my parents we got it right - I started learning programming at the University of Information Technology and Management in Rzeszów, Poland.
 
-The study went on, I was diving into the world of creating software and felt like that's what I want to do in the future, at least I promised myself to try.
+The studies continued, I immersed myself in the world of software creation and felt that this is what I want to do in the future, at least I promised myself to try.
 
-Having studied hard to pass all university exams, I tried to find some time to learn coding by reading educational articles, watching videos on youtube, taking some free online courses.
+Having studied hard to pass all university exams, I tried to find some time to learn coding by reading educational articles, watching videos on Youtube, and taking some free online courses.
 
-After a few months of learning it was obvious that I was ready to search for my first job.
+After a few months of learning, it was obvious that I was ready to look for my first job.
 
-I did a research and found out that PHP developers were in high demand at that time (2014-2015), so I applied and succeeded.
+I did a research and found that PHP developers were in high demand at the time (2014-2015), so I applied and succeeded.
 
-## Commercial experience
+## Commercial Experience
 
-That's how my journey started in March 2015.
+This is how my journey began in March 2015.
 
-For the first 2 years I've been working as full-stack developer, building both back-end and front-end then switched to the pure front-end.
+For the first 2 years, I worked as a full-stack developer, building both back-end and front-end, then I switched to pure front-end.
 
-I've been working with React from April 2017. I decided to concentrate on this technology and deeply learn it in order to become an expert.
+As of April 2017, I have been working with React. I decided to focus on this technology and learn it thoroughly to become an expert.
 
-Having finished a lot of projects (from big commercial ones, to small private) I realized that there is no better alternative at the current moment.
+After completing many projects (from large commercial to small private), I realized that there was no better alternative at that point in time.
 
 ## Why React?
 
-One of the biggest advantages of React - strong community and ecosystem built around this library. It's backed up and maintained by Facebook.
+One of the biggest advantages of React - a strong community and ecosystem built around this library. It is supported and maintained by Facebook.
 
-React is constantly provided with the new features, which means that basically everything you will need for successful completion of a new project is already there and available for a use.
+React is constantly updated with new features, which means that basically, everything you need to successfully complete the new project is already there and available for instant use.
 
-React is SEO-friendly, it can be run on the server as well as on the client.
+React is SEO-friendly, it can run both on the server and the client.
 
-React can be boldly called a “learn once – write anywhere”. Using React library you are able to build native apps for IOS and Android by using React Native framework.
+React can be boldly described as "**learn once - write anywhere**". With the React library, you are able to build native apps for IOS and Android using the React Native framework. 
 
-Finally, it it easy-to-learn.
+Finally, it is easy to learn.
 
-## Why did I start this blog?
+## Why Did I Start This Blog?
 
-The main reason is, of course, to increase my expertise, as the best way to learn something - is to teach it.
+The main reason, of course, is to expand my expertise, because the best way to learn something - is to teach it.
 
-By working as a JavaScript developer, you learn a lot of advanced concepts by using them almost on daily basis, but you tend to forget the basics.
+When you work as a JavaScript developer, you learn a lot of advanced concepts by using them almost every day, but you tend to forget the basics.
 
-That's why I start with covering up the most basic things that probably most of you know.
+So I'm going to start by covering the most basic things that most of you probably know.
 
-**Important note:** do not treat articles in this blog as the only source of truth and think critically. Sometimes articles are not covering the topic in 100%, be aware of that. You can always find better and more complete explanations in the internet. But be sure that all information, provided here is written the simplest way it can be with a lot of practical examples.
+**Important Note:** Do not treat articles on this blog as the sole source of truth and think critically. Sometimes articles do not cover the topic 100%, be aware of that. You can always find better and more complete explanations on the internet. But be sure that all information provided here is written as simply as possible and includes many practical examples.
 
-## Thank you
+## Thank You
 
-Thank you for visiting my blog, hopefully you will learn a lot from here.
+Thanks for visiting my blog, hopefully, you will learn a lot from here.
 
-Please, do not hesitate to leave your feedback in the comments section below each article.
+Please, feel free to leave your feedback in the comment section below each article.
 
-Be well, do good deeds and keep in touch.
+Be well, do good deeds and stay in touch.
 
 Click here to read the [first article](/2020-04-26-getting-started-with-javascript).
 
-***P.S. You are allowed to use any information provided in this blog for any of your needs.***
+***P.S. You may use any information provided in this blog for any of your needs.***
