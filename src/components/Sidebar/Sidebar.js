@@ -88,12 +88,12 @@ const Sidebar = ({ allPosts, tags, extended }) => {
       </Block>
       {extended ? (
         <Block black>
-          <Title>Like this article?</Title>
+          <Title>Like This Article?</Title>
           <Text>Support me by sharing it on social media</Text>
         </Block>
       ) : (
         <Block black>
-          <Title>Like my blog?</Title>
+          <Title>Like My Blog?</Title>
           <Text>Support me by sharing it on social media</Text>
         </Block>
       )}

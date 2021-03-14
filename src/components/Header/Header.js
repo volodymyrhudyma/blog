@@ -43,7 +43,7 @@ const Header = () => {
               <Avatar />
             </Link>
             <SidebarDescription>
-              I am
+              I Am
               <br /> Volodymyr Hudyma
               <BoldText>{"<FrontEndDeveloper />"}</BoldText>
             </SidebarDescription>
@@ -51,9 +51,11 @@ const Header = () => {
           <Block>
             <BlockInner>
               <SidebarButton href="https://www.vhudyma-portfolio.eu/">
-                Get in touch
+                Get In Touch
               </SidebarButton>
-              <AboutMeLink to='/2020-05-01-a-few-words-about-author'>About me</AboutMeLink>
+              <AboutMeLink to="/2020-05-01-a-few-words-about-author">
+                About Me
+              </AboutMeLink>
             </BlockInner>
             <SidebarSocial>{renderSocialLinks()}</SidebarSocial>
           </Block>

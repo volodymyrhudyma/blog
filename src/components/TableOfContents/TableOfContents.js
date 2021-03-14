@@ -57,7 +57,7 @@ const TableOfContents = ({ allPosts, showSearch }) => {
           onClick={toggleTOC}
           onKeyPress={toggleTOC}
         >
-          Table of contents
+          Table Of Contents
           <span
             style={{
               fontWeight: "400",

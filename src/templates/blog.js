@@ -56,7 +56,7 @@ export default function Template({ data, path, location }) {
       <div style={{ display: "flex" }}>
         <div>
           <div style={{ marginTop: "2rem" }}>
-            You are here:{" "}
+            You Are Here:{" "}
             <Link style={{ marginRight: "0.25rem" }} to="/">
               Home
             </Link>
@@ -82,7 +82,7 @@ export default function Template({ data, path, location }) {
             onClick={toggleTOC}
             onKeyPress={toggleTOC}
           >
-            Table of contents
+            Table Of Contents
             <span
               style={{
                 transform: showTOC ? "rotate(180deg)" : "rotate(0)",
