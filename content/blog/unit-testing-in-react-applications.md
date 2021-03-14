@@ -22,7 +22,7 @@ Depending on your application, there are different types of tests that can be au
 
 In this article we will learn about **Unit Testing** and why it is crucial for the majority of projects.
 
-## What is Unit Testing?
+## What Is Unit Testing?
 
 **Unit Testing** is a software testing method in which individual units of source code are tested to determine whether they function as expected separately.
 
@@ -30,7 +30,7 @@ Unit tests are automated tests written by the software developers to ensure that
 
 The main purpose of this type of testing is to isolate different parts of the program and ensure that they are correct.
 
-## The benefits of Unit Testing
+## The Benefits Of Unit Testing
 
 Testing is essential to guarantee the application works as expected.
 
@@ -59,7 +59,7 @@ Having the majority of your application's code covered with tests brings many be
 
   By offering the top-quality software, you will enhance your reputation by the great customer's feedback.
 
-## What should be unit-tested?
+## What Should Be Unit-Tested?
 
 The answer to this question is simple - **everything**... in a perfect world.
 
@@ -73,7 +73,7 @@ Always write tests for edge cases, as they cause many errors.
 
 Whenever you find a bug, fix it and cover it with the unit tests to ensure that the application does not crash twice at the same location.
 
-## What should not be unit-tested?
+## What Should Not Be Unit-Tested?
 
 Of course, there is some stuff that does not to be unit tested.
 
@@ -95,7 +95,7 @@ Businesses tend to grow and change their requirements according to their needs, 
 
 There is a high probability that the change would harm the project, so you either need to add a test for it, or verify that this piece of code is indirectly tested elsewhere.
 
-## Test coverage
+## Test Coverage
 
 What is test coverage?
 
@@ -113,7 +113,7 @@ Developers should stop testing when it feels like the tests become contrived and
 
 For most projects, figures such as 70-80% seem appropriate. Increasing these figures will result in a slower bug-detection rate, which is not that cost-effective.
 
-## Testing stateless components in React
+## Testing Stateless Components In React
 
 This section summarizes all the findings we have gained so far and puts them into practice.
 
@@ -210,7 +210,7 @@ We use Shallow Rendering to test the component as a unit, in isolation.
 
 By using `shallow` method we do not render any child components.
 
-## Collecting test coverage with Jest
+## Collecting Test Coverage With Jest
 
 Before we proceed to the next section, let's measure the test coverage of the `Article` component.
 
@@ -230,7 +230,7 @@ Go to the **test-cov** directory where Jest outputs its coverage files and open 
 
 Observe the test coverage for `Article` component, it is **100%**.
 
-## Testing stateful components in React
+## Testing Stateful Components In React
 
 We already know how to perform simple React Components tests that are only responsible for rendering text on the screen. 
 
@@ -308,7 +308,7 @@ it("should render provided text", () => {
 
 If all these tests are passed and green, you can be sure that the component works and delivers its value to users.
 
-## Testing complex components in React
+## Testing Complex Components In React
 
 In this section we will test the React Component, which retrieves data from an external API based on the input provided by the user and displays it in a list:
 
@@ -437,7 +437,7 @@ it("should display found items", () => {
 });
 ```
 
-## Testing redux-thunk
+## Testing Redux Thunk
 
 **Redux Thunk** is one of the most popular middlewares for Redux. It allows you to write asynchronous logic that interacts with the store.
 
@@ -701,7 +701,7 @@ describe("usersSelector tests", () => {
 });
 ```
 
-## Testing redux-saga
+## Testing Redux Saga
 
 **Redux Saga** is a library that aims to make application side effects (i.e. asynchronous things like data fetching and impure things like accessing the browser cache) easier to manage, more efficient to execute, easy to test, and better at handling failures.
 
