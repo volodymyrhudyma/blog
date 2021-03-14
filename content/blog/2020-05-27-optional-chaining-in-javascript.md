@@ -1,7 +1,8 @@
 ---
-title: Optional chaining in JavaScript
+title: Optional Chaining In JavaScript
 tag:
   - JavaScript
+promote: false
 metaDescription: "Optional chaining in JavaScript is a new error-proof way to
   access nested object properties, even if an intermediate property doesn't
   exist. "
@@ -53,7 +54,7 @@ const user = {
 const street = user.address.street; 
 ```
 
-## Optional chaining
+## Optional Chaining
 
 The optional chaining `?.` stops the evaluation and returns `undefined` if the part before `?.` is `null` or `undefined`.
 
@@ -73,7 +74,7 @@ Pretty cool, huh?
 
 The code stops evaluation at the place of `?.` never accessing `street` property. 
 
-## Short-circuiting
+## Short-Circuiting
 
 If the expression on the left of `?.` is either `null` or `undefined`, the right side is not evaluated:
 
@@ -81,7 +82,7 @@ If the expression on the left of `?.` is either `null` or `undefined`, the right
 a?.[++x] // "x" is incremented if and only if "a" is not null/undefined
 ```
 
-## Do not overuse it
+## Do Not Overuse It
 
 It's important to understand where it's necessary to use optional chaining to avoid making debugging harder:
 
@@ -111,7 +112,7 @@ const street = user.address?.street;
 console.log(street); // Prints "undefined"
 ```
 
-## Call non-existing function
+## Call Non-Existing Function
 
 Optional chaining also works with functions, `functionName?.()` syntax can be used to execute a function that may not exist:
 
@@ -136,7 +137,7 @@ console.log(user1FullName); // Prints "John Doe"
 console.log(user2FullName); // Prints "undefined"
 ```
 
-## Retrieve dynamic parameter
+## Retrieve Dynamic Parameter
 
 `?.[key]` syntax can be used in order to get a dynamic parameter from an object:
 
@@ -153,7 +154,7 @@ const value = user?.[key];
 console.log(value); // Prints "Doe" if exists and "undefined" if not
 ```
 
-## Delete optional property
+## Delete Optional Property
 
 It is also possible to use `?.` with `delete` keyword in order to delete property if it exists:
 
