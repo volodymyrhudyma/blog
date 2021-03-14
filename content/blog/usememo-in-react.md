@@ -2,6 +2,7 @@
 title: "React Hooks: useMemo"
 tag:
   - React
+promote: false
 metaDescription: Learn how to optimize your React application by using the
   useMemo hook. This hook memoizes the output and will only recompute it if only
   one of its dependencies changed.
@@ -18,7 +19,7 @@ The complete list of available hooks can be found in the [official documentation
 
 Today we will concentrate on the **useMemo**, which can be used to optimize expensive calculations.
 
-## The hook
+## The Hook
 
 The **useMemo** hook expects a function and an array of dependencies to be provided:
 
@@ -54,7 +55,7 @@ const sum = (a, b) => a + b;
 
 If it uses memoization and is called for the first time with arguments (**10**, **10)**, the result **20** will be remembered and the next time it is called with the same arguments, no calculations are performed to obtain the expected result.
 
-## Example usage
+## Example Usage
 
 There is a component that allows the user to click on a **div** and **button** element.
 
@@ -118,7 +119,7 @@ Clicking on the **button** element should no longer be blocked:
 
 ![Example with using useMemo hook](/img/fast.gif "Example with using useMemo hook")
 
-## Do not overuse it
+## Do Not Overuse It
 
 It is extremely easy to overuse the **useMemo** hook after you have learned all its advantages.
 
