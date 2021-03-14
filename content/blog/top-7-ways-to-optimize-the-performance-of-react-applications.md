@@ -1,5 +1,5 @@
 ---
-title: Top 7 Ways to Optimize the Performance of React Applications
+title: Top 7 Ways To Optimize The Performance Of React Applications
 tag:
   - React
 promote: true
