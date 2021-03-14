@@ -1,7 +1,8 @@
 ---
-title: Getting started with React
+title: Getting Started With React
 tag:
   - React
+promote: false
 metaDescription: React is a declarative, efficient, and flexible JavaScript
   library for building user interfaces. It lets you compose complex UIs from
   small and isolated pieces of code called components.
@@ -72,7 +73,7 @@ Try to make any change in `src/App.js` file.
 
 The change will be applied immediately, as the page will automatically reload if you make changes to the code.
 
-## Application's structure
+## Application's Structure
 
 The structure of the created React application is the following:
 
