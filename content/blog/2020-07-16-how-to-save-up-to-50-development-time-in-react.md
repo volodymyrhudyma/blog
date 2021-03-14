@@ -1,7 +1,8 @@
 ---
-title: How to save up to 50% development time in React?
+title: How To Save Up To 50% Development Time In React?
 tag:
   - React
+promote: false
 metaDescription: Learn how you can reduce the cost of developing a custom
   software solution by up to 50% when using ReactJs.
 teaser: Custom software development can be expensive because the development
@@ -15,7 +16,7 @@ But there are a few things you can do to reduce the cost of developing a custom 
 
 Let's go through them one by one.
 
-## Prepare a boilerplate
+## Prepare A Boilerplate
 
 The first thing that will save a lot of time is to use a boilerplate.
 
@@ -29,7 +30,7 @@ I strongly recommend you to use it unless you are an experienced developer and c
 
 If you decide to create your own started pack, feel free to read [this article](/2020-06-09-the-best-tools-for-react-development/) that describes most of the tools you will need.
 
-## Use available libraries
+## Use Available Libraries
 
 Most projects require "standard" features, such as integration with an external API, displaying different lists, filtering or sorting them, etc.
 
@@ -75,7 +76,7 @@ Using external libraries can save you a lot of development time if you do not wa
 
 This is a perfect use case for building an **MVP** (Minimum Viable Product) or **PoC** (Proof of Concept).
 
-## Build or use existing UI kit
+## Build Or Use Existing UI Kit
 
 React is perfect for creating reusable components that can either be developed from scratch or used existing.
 
@@ -133,7 +134,7 @@ Just, as with external libraries, using ready-made UI kits could save you a lot 
 
 This is a perfect use case for building an **MVP** (Minimum Viable Product) or **PoC** (Proof of Concept).
 
-## Use storybook
+## Use StoryBook
 
 **Storybook** is a tool that allows developers to create components in isolation in an isolated development environment.
 
@@ -151,7 +152,7 @@ The storybook could be used as documentation for the project, especially when a 
 
 In summary, installing and configuring Storybook takes some time, but once this is done, your project will benefit greatly.
 
-## Use React snippets for your IDE
+## Use React Snippets For Your IDE
 
 If you use the VS Code, there is a great extension: [Reactjs code snippets](https://marketplace.visualstudio.com/items?itemName=xabikos.ReactSnippets) which could be installed to the IDE.
 
@@ -169,7 +170,7 @@ And try to use them by simply typing and pressing Enter:
 
 This means an enormous saving of time, as the skeleton does not have to be manually coded for each component.
 
-## Use Prettier (code formatter)
+## Use Prettier (Code Formatter)
 
 The use of code formatters offers more significant advantages than just shortening development time, but it is definitely worth mentioning. 
 
