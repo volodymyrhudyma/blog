@@ -1,5 +1,5 @@
 ---
-title: A Complete Guide To Server-Sent Events in JavaScript
+title: A Complete Guide To Server-Sent Events In JavaScript
 tag:
   - JavaScript
 promote: false
@@ -241,7 +241,7 @@ const App = () => {
 };
 ```
 
-## Putting it Together
+## Putting It All Together
 
 To see our example in action, start the client (your start script may look different):
 
