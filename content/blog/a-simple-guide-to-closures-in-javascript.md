@@ -395,18 +395,18 @@ console.log(counter.decrement());
 console.log(counter.get());
 ```
 
-Closures also allow us to use functions to create other functions that add a specific value to their argument. 
+With Closures, we can also use functions to create other functions that add a specific value to their argument. 
 
-In this case, the parent function allowing this behaviour is known as a **Function Factory**.
+In this case, the parent function that enables this behaviour is known as a **Function Factory**.
 
-Using function factories, we are able to achieve a behaviour known as **Currying.**
+With Function Factories, we can achieve a behaviour known as **Currying.**
 
 To learn more about Currying, read this [simple guide](https://www.vhudyma-blog.eu/a-simple-guilde-to-currying-in-javascript/).
 
 ## Summary
 
-The concept of Closures and how they work is not obvious and requires some knowledge of how JavaScript works internally.
+The concept of Closures and how they work is not obvious and requires some knowledge of the internal workings of JavaScript.
 
-I hope that this article shred at least a tiny bit of light on this topic to you.
+I hope that this article was able to shed at least a little bit of light on this topic for you.
 
-Make sure to play around with the examples and read some other articles as well to understand it better.
+Be sure to play around with the examples and read some other articles as well to understand it better.
