@@ -382,8 +382,64 @@ And display an error message below each input (read it from **formik.errors.<fie
 
 As you may have noticed, we made all fields required, except of the **message**. Let it be optional.
 
-One more thing - Formik will allow **handleSubmit** function to be executed only if the form does not contain any errors.
+By default, Formik validates the whole form after each change event, on blur and before submission, which has a negative impact on the user experience, because showing an error for the **email** field if user types the **fullName** is not correct:
 
-If there is at least one, the form can't be submitted, unless an error is fixed.
+![Formik Validation All At Once](/img/validation-all.gif "Formik Validation All At Once")
+
+One more thing to remember - It will allow **handleSubmit** function to be executed only if the form does not contain any errors, if there is at least one, the form can't be submitted, unless an error is fixed.
+
+#### Show errors for "touched" fields only
+
+Showing the whole list of errors for the form when providing the data for only the first input is not good at all.
+
+Let's fix it to show the errors only related to the current field, after user stops typing.
+
+Formik keeps track of the "touched" fields, just like of the "errors" or "values".
+
+To use this field, we have to pass **formik.handleBlur** function to each input (this function works similar to the **formik.handleChange**):
+
+```jsx
+// ..
+<div className="form-group">
+  <label htmlFor="fullName">Full name:</label>
+  <input
+    type="text"
+    id="fullName"
+    name="fullName"
+    value={formik.values.fullName}
+    onChange={formik.handleChange}
+    {/* Pass "formik.handleBlur" to use "touched" field */}
+    onBlur={formik.handleBlur}
+  />
+  {formik.errors.fullName}
+</div>
+
+// ..
+```
+
+And let's use **formik.touched.<field>** to see if the field has been touched and hide an error if the fields is not yet visited:
+
+```jsx
+// ..
+<div className="form-group">
+  <label htmlFor="fullName">Full name:</label>
+  <input
+    type="text"
+    id="fullName"
+    name="fullName"
+    value={formik.values.fullName}
+    onChange={formik.handleChange}
+    onBlur={formik.handleBlur}
+  />
+  {/* Display an error only if the field was "touched" */}
+  {formik.touched.fullName && formik.errors.fullName}
+</div>
+
+// ..
+```
+
+Works perfectly fine:
+
+![Formik Validation One At A Time](/img/validation-one.gif "Formik Validation One At A Time")
 
 ## Summary
