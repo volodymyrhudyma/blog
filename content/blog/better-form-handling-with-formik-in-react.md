@@ -615,7 +615,7 @@ const [initialValues, setInitialValues] = useState({
   fullName: "",
   email: "",
   message: "",
-  accept: false,
+  terms: false,
 });
 
 useEffect(() => {
@@ -625,7 +625,7 @@ useEffect(() => {
       fullName: "John Doe",
       email: "johndoe@gmail.com",
       message: "Hello, I am John Doe, nice to meet you!",
-      accept: true,
+      terms: true,
     });
   }, 1000);
 }, []);
@@ -666,6 +666,8 @@ it controls whether Formik should reset the form if **initialValues** changes (u
 ```
 
 And we see how the form is pre-populated with our data, good job!
+
+![Pre-Populated Form](/img/screenshot-2021-03-18-at-22.45.28.png "Pre-Populated Form")
 
 ## Summary
 
