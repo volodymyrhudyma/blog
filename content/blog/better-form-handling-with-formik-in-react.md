@@ -259,6 +259,127 @@ The next step is to pass each of these to our form:
 
 And that's it, our form, powered by the Formik is working!
 
+Now, look carefully at the code and notice that:
+
+* The exact same **handleChange** function is passed for every input
+
+  So, to let formik know what input are we changing, we must pass **id** or **name** properties. If we don't pass any of them, the following warning will be thrown and an input field would not be updated with the provided value:
+
+![Formik Warning](/img/screenshot-2021-03-18-at-19.26.41.png "Formik Warning")
+
+* **id** and **name** should match field name defined in the **initialValues**
+* Field value is accessed by **formik.values.<field>**
+
 ## Step 3: Validate Form
+
+Let's add validation using Formik, as it doesn't make sense to allow users to send an empty form.
+
+To add validation, let's define a custom validation function and pass it to the **validate** field in the **useFormik** hook.
+
+If an error should be shown, this custom function should return an object with the property names, same as passed to the **initialValues**:
+
+```javascript
+const customValidator = (values) => {
+  const errors = {};
+
+  // Validate firstName
+  if (!values.fullName) {
+    errors.fullName = "Full name is required";
+  } else if (values.fullName.length > 50) {
+    errors.firstName = "Are you really sure that your full name is that big?";
+  }
+
+  // Validate email
+  if (!values.email) {
+    errors.email = "Email is required";
+  } else if (values.lastName.length > 50) {
+    errors.email = "Are you really sure that your email is that big?";
+  }
+
+  // Validate accept
+  if (!values.accept) {
+    errors.terms = "You should accept terms and conditions";
+  }
+
+  return errors;
+};
+```
+
+Then pass it to the **useFormik** hook:
+
+```jsx
+// ..
+const formik = useFormik({
+  initialValues: {
+    fullName: "",
+    email: "",
+    message: "",
+    accept: false,
+  },
+  validate: customValidator,
+  onSubmit: (values) => {
+    console.log(values);
+  },
+});
+
+// ..
+```
+
+And display an error message below each input (read it from **formik.errors.<field>**):
+
+```jsx
+<form onSubmit={formik.handleSubmit}>
+  <div className="form-group">
+    <label htmlFor="fullName">Full name:</label>
+    <input
+      type="text"
+      id="fullName"
+      name="fullName"
+      value={formik.values.fullName}
+      onChange={formik.handleChange}
+    />
+    {/* Show fullName error if exists */}
+    {formik.errors.fullName}
+  </div>
+  <div className="form-group">
+    <label htmlFor="email">Email:</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      value={formik.values.email}
+      onChange={formik.handleChange}
+    />
+    {/* Show email error if exists */}
+    {formik.errors.email}
+  </div>
+  <div className="form-group">
+    <label htmlFor="message">Message:</label>
+    <textarea
+      id="message"
+      name="message"
+      value={formik.values.message}
+      onChange={formik.handleChange}
+    />
+  </div>
+  <div className="form-group">
+    <div className="checkbox">
+      <input
+        id="terms"
+        name="terms"
+        type="checkbox"
+        value={formik.values.terms}
+        onChange={formik.handleChange}
+      />
+      <label htmlFor="terms">I accept Terms And Conditions</label>
+    </div>
+    {/* Show terms error if exists */}
+    {formik.errors.terms}
+  </div>
+  <button>Submit</button>
+</form>
+```
+
+As you may have noticed, we made all fields required, except of the **message**. Let it be optional.
 
 ## Summary
