@@ -536,9 +536,9 @@ In the above code we have to manually pass **formikProps** to inputs (even if we
 
 It leads to a lot of code repetition, which can be avoided if we use React Context.
 
-Fortunately, Formik uses it internally and exposes components, like **<Formik />**, **<Form />**, **<Field />**, **<ErrorMessage />**.
+Fortunately, Formik uses it internally and exposes components, like **Formik**, **Form**, **Field**, **ErrorMessage**.
 
-All of them use React Context to connect with the **<Formik />** state and methods:
+All of them use React Context to connect with the **Formik** state and methods:
 
 ```jsx
 import * as Yup from "yup";
@@ -600,9 +600,9 @@ const ContactForm = () => (
 export default ContactForm;
 ```
 
-Note, that the **<Field />** component renders an input by default with given name and implicitly grabs **handleChange**, **handleBlur** and **value** and pass in to the input along with your custom props.
+Note, that the **Field** component renders an input by default with given name and implicitly grabs **handleChange**, **handleBlur** and **value** and pass in to the input along with your custom props.
 
-If you want to render **textarea**, pass **as** prop to the **<Field />** component.
+If you want to render **textarea**, pass **as** prop to the **Field** component.
 
 ## Step 8: Pre-Populating Initial State
 
