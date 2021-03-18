@@ -387,7 +387,7 @@ By default, Formik validates the whole form after each change event, on blur and
 
 One more thing to remember - It will allow **handleSubmit** function to be executed only if the form does not contain any errors, if there is at least one, the form can't be submitted, unless an error is fixed.
 
-#### Show errors for "touched" fields only
+## Step 4: Show errors for "touched" fields only
 
 Showing the whole list of errors for the form when providing the data for only the first input is not good at all.
 
@@ -441,7 +441,7 @@ Works perfectly fine:
 
 ![Formik Validation One At A Time](/img/validation-one.gif "Formik Validation One At A Time")
 
-#### Maybe A Better Validation?
+## Step 5: Maybe A Better Validation?
 
 The validation is left up to you, so you have a plenty of space to do whatever is needed, either use a popular library or create validators yourself.
 
@@ -491,7 +491,7 @@ const formik = useFormik({
 
 Looks so much cleaner and better.
 
-#### Reducing Some Boilerplate Code
+## Step 6: Reducing Some Boilerplate Code
 
 Notice, how we duplicated a lot of things in the code above, like explicit passing of the **onChange**, **onBlur**, etc.
 
@@ -530,4 +530,86 @@ With this:
 </div>
 ```
 
+## Step 7: Using A Bit Of React Context
+
+In the above code we have to manually pass **formikProps** to inputs (even if we use **getFieldProps**, it still has to be present).
+
+It leads to a lot of code repetition, which can be avoided if we use React Context.
+
+Fortunately, Formik uses it internally and exposes components, like **<Formik />**, **<Form />**, **<Field />**, **<ErrorMessage />**.
+
+All of them use React Context to connect with the **<Formik />** state and methods:
+
+```jsx
+import * as Yup from "yup";
+import { Formik, Field, Form, ErrorMessage } from "formik";
+
+const validationSchema = Yup.object({
+  fullName: Yup.string()
+    .max(50, "Are you really sure that your full name is that big?")
+    .required("Full name is required"),
+  email: Yup.string()
+    .email("Invalid email address")
+    .required("Email is required")
+    .max(50, "Are you really sure that your email is that big?"),
+  terms: Yup.bool().oneOf([true], "You should accept terms and conditions"),
+});
+
+const ContactForm = () => (
+  <div className="App">
+    <Formik
+      initialValues={{
+        fullName: "",
+        email: "",
+        message: "",
+        terms: false,
+      }}
+      validationSchema={validationSchema}
+      onSubmit={(values) => {
+        console.log(values);
+      }}
+    >
+      <Form>
+        <div className="form-group">
+          <label htmlFor="fullName">Full name:</label>
+          <Field type="text" name="fullName" />
+          <ErrorMessage name="fullName" />
+        </div>
+        <div className="form-group">
+          <label htmlFor="email">Email:</label>
+          <Field type="text" name="email" />
+          <ErrorMessage name="email" />
+        </div>
+        <div className="form-group">
+          <label htmlFor="message">Message:</label>
+          <Field as="textarea" name="message" />
+        </div>
+        <div className="form-group">
+          <div className="checkbox">
+            <Field type="checkbox" name="terms" />
+            <label htmlFor="terms">I accept Terms And Conditions</label>
+          </div>
+          <ErrorMessage name="terms" />
+        </div>
+        <button>Submit</button>
+      </Form>
+    </Formik>
+  </div>
+);
+
+export default ContactForm;
+```
+
+Note, that the **<Field />** component renders an input by default with given name and implicitly grabs **handleChange**, **handleBlur** and **value** and pass in to the input along with your custom props.
+
+If you want to render **textarea**, pass **as** prop to the **<Field />** component.
+
 ## Summary
+
+In this article we have created a simple Contact Form using React, Formik and Yup libraries.
+
+I hope you liked these awesome library stack and will try it in your next project.
+
+However, remember that we have touched only a little part of all feature that are provided by Formik, so make sure to check the [documentation](https://formik.org/docs/overview) out to learn more.
+
+P.S. All code is accessible in Github repository.
