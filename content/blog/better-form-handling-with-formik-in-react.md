@@ -137,6 +137,8 @@ const handleFullNameChange = (e) => {
   />
   {fullNameError}
 </div>
+
+// ..
 ```
 
 To store an error message for each field, we would need a separate state entry and the validation logic has to be implemented manually (however, we can use some helper libraries, like [Yup](https://github.com/jquense/yup)).
@@ -253,6 +255,7 @@ The next step is to pass each of these to our form:
   </div>
   <button>Submit</button>
 </form>
+
 // ..
 ```
 
@@ -327,6 +330,7 @@ const formik = useFormik({
 And display an error message below each input (read it from **formik.errors.<field>**):
 
 ```jsx
+// ..
 <form onSubmit={formik.handleSubmit}>
   <div className="form-group">
     <label htmlFor="fullName">Full name:</label>
@@ -377,6 +381,8 @@ And display an error message below each input (read it from **formik.errors.<fie
   </div>
   <button>Submit</button>
 </form>
+
+// ..
 ```
 
 As you may have noticed, we made all fields required, except of the **message**. Let it be optional.
@@ -502,7 +508,8 @@ Given some field-level info, it returns to you the exact group of **onChange**, 
 We can replace this:
 
 ```jsx
- <div className="form-group">
+// ..
+<div className="form-group">
   <label htmlFor="fullName">Full name:</label>
   <input
     type="text"
@@ -514,11 +521,14 @@ We can replace this:
   />
   {formik.errors.fullName}
 </div>
+
+// ..
 ```
 
 With this:
 
 ```jsx
+// ..
 <div className="form-group">
   <label htmlFor="fullName">Full name:</label>
   <input
@@ -528,6 +538,8 @@ With this:
   />
   {formik.errors.fullName}
 </div>
+
+// ..
 ```
 
 ## Step 7: Using A Bit Of React Context
@@ -611,6 +623,7 @@ Some forms are pre-populated with the data that comes from an external systems, 
 First of all, the data must be fetched, so let's simulate it in the **useEffect** hook:
 
 ```jsx
+// ..
 const [initialValues, setInitialValues] = useState({
   fullName: "",
   email: "",
@@ -629,6 +642,8 @@ useEffect(() => {
     });
   }, 1000);
 }, []);
+
+// ..
 ```
 
 We keep the initial state of the form in state and update it with the values fetched from an external API.
@@ -643,6 +658,8 @@ The next thing we have to do is to pass **initialValues** to Formik:
     console.log(values);
   }}
 >
+  {/* ... */}
+</Formik>
 ```
 
 Try it and see how it ... doesn't work! Can you guess why?
