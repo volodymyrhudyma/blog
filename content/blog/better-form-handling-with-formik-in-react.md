@@ -491,4 +491,43 @@ const formik = useFormik({
 
 Looks so much cleaner and better.
 
+#### Reducing Some Boilerplate Code
+
+Notice, how we duplicated a lot of things in the code above, like explicit passing of the **onChange**, **onBlur**, etc.
+
+Formik provides us with a **getFieldProps()** method that makes wiring up inputs much faster.
+
+Given some field-level info, it returns to you the exact group of **onChange**, **onBlur**, **value**, **name**.
+
+We can replace this:
+
+```jsx
+ <div className="form-group">
+  <label htmlFor="fullName">Full name:</label>
+  <input
+    type="text"
+    id="fullName"
+    name="fullName"
+    value={formik.values.fullName}
+    onChange={formik.handleChange}
+    onBlur={formik.handleBlur}
+  />
+  {formik.errors.fullName}
+</div>
+```
+
+With this:
+
+```jsx
+<div className="form-group">
+  <label htmlFor="fullName">Full name:</label>
+  <input
+    type="text"
+    id="fullName"
+    {...formik.getFieldProps('fullName')}
+  />
+  {formik.errors.fullName}
+</div>
+```
+
 ## Summary
