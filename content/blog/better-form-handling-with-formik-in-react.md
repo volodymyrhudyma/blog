@@ -382,4 +382,8 @@ And display an error message below each input (read it from **formik.errors.<fie
 
 As you may have noticed, we made all fields required, except of the **message**. Let it be optional.
 
+One more thing - Formik will allow **handleSubmit** function to be executed only if the form does not contain any errors.
+
+If there is at least one, the form can't be submitted, unless an error is fixed.
+
 ## Summary
