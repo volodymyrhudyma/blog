@@ -137,7 +137,6 @@ const handleFullNameChange = (e) => {
   />
   {fullNameError}
 </div>
-
 ```
 
 To store an error message for each field, we would need a separate state entry and the validation logic has to be implemented manually (however, we can use some helper libraries, like [Yup](https://github.com/jquense/yup)).
@@ -188,7 +187,7 @@ const formik = useFormik({
     fullName: "",
     email: "",
     message: "",
-    accept: false,
+    terms: false,
   },
   onSubmit: (values) => {
     console.log(values);
@@ -296,8 +295,8 @@ const customValidator = (values) => {
     errors.email = "Are you really sure that your email is that big?";
   }
 
-  // Validate accept
-  if (!values.accept) {
+  // Validate terms
+  if (!values.terms) {
     errors.terms = "You should accept terms and conditions";
   }
 
@@ -314,7 +313,7 @@ const formik = useFormik({
     fullName: "",
     email: "",
     message: "",
-    accept: false,
+    terms: false,
   },
   validate: customValidator,
   onSubmit: (values) => {
@@ -441,5 +440,55 @@ And let's use **formik.touched.<field>** to see if the field has been touched an
 Works perfectly fine:
 
 ![Formik Validation One At A Time](/img/validation-one.gif "Formik Validation One At A Time")
+
+#### Maybe A Better Validation?
+
+The validation is left up to you, so you have a plenty of space to do whatever is needed, either use a popular library or create validators yourself.
+
+However, Formik authors love [Yup](https://github.com/jquense/yup) - JavaScript schema builder for value parsing and validation, so the integration between two libraries is awesome.
+
+The **useFormik** hook allows us to pass **validationSchema**, which is a special Yup-related property that allows to pass Yup validation schema to Formik.
+
+Let's install Yup first:
+
+`yarn add yup`
+
+Then, let's define a Yup validation schema for our form:
+
+```javascript
+const validationSchema = Yup.object({
+  fullName: Yup.string()
+    .max(50, "Are you really sure that your full name is that big?")
+    .required("Full name is required"),
+  email: Yup.string()
+    .email("Invalid email address")
+    .required("Email is required")
+    .max(50, "Are you really sure that your email is that big?"),
+  terms: Yup.bool().oneOf([true], "You should accept terms and conditions"),
+});
+```
+
+And pass it to the **useFormik** hook:
+
+```jsx
+// ..
+const formik = useFormik({
+  initialValues: {
+    fullName: "",
+    email: "",
+    message: "",
+    terms: false,
+  },
+  // Pass schema as "validationSchema"
+  validationSchema,
+  onSubmit: (values) => {
+    console.log("Submitted!");
+  },
+});
+
+// ..
+```
+
+Looks so much cleaner and better.
 
 ## Summary
