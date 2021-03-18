@@ -97,6 +97,72 @@ If we don't use **value** and **onChange** properties and let the inputs keep th
 
 Read more about Controlled vs. Uncontrolled components [here](/2020-06-26-controlled-and-uncontrolled-components-in-react/).
 
+## Why Formik?
+
+Before adding Formik, let's try to understand why do we need it at all and what benefits does it bring.
+
+If we were about to add a validation to our form, we could end up with the following code:
+
+```jsx
+// ...
+const [fullNameError, setFullNameError] = useState("");
+
+const handleFullNameChange = (e) => {
+  const { value } = e.target;
+
+  setFullName(value);
+
+  if (!value) {
+    setFullNameError("Full name is required");
+  }
+
+  if (/\d/.test(value)) {
+    setFullNameError("Full name should not contain numbers");
+  }
+
+  if (value.length > 50) {
+    setFullNameError("Are you really sure that your full name is that big?");
+  }
+};
+
+// ...
+
+<div className="form-group">
+  <label htmlFor="full-name">Full name:</label>
+  <input
+    type="text"
+    id="full-name"
+    name="full-name"
+    value={fullName}
+    onChange={handleFullNameChange}
+  />
+  {fullNameError}
+</div>
+
+```
+
+To store an error message for each field, we would need a separate state entry and the validation logic has to be implemented manually (however, we can use some helper libraries, like [Yup](https://github.com/jquense/yup)).
+
+For a simple form, like this that contains only 5 fields, we would have to keep 10 state entries (5 for storing values, 5 for the validation).
+
+Imagine if the form grows to 15-20 fields? That would result in a mess in the code.
+
+That's the moment Formik comes into play - it manages state and validation for you.
+
+Generally speaking, what is Formik?
+
+As per the [documentation](https://formik.org/docs/overview):
+
+**Formik** is a small group of React components and hooks for building forms in React and React Native. 
+
+It helps with the three parts: 
+
+* **Getting values in and out of form state** 
+* **Validation and error messages** 
+* **Handling form submission** 
+
+By colocating all of the above in one place, Formik keeps things organized - making testing, refactoring, and reasoning about your forms a breeze.
+
 ## Step 2: Add Formik
 
 ## Step 3: Validate Form
