@@ -34,11 +34,11 @@ const ContactForm = () => {
     <div className="App">
       <form>
         <div className="form-group">
-          <label htmlFor="full-name">Full name:</label>
+          <label htmlFor="fullName">Full name:</label>
           <input
             type="text"
-            id="full-name"
-            name="full-name"
+            id="fullName"
+            name="fullName"
             value={fullName}
             onChange={(e) => setFullName(e.target.value)}
           />
@@ -126,13 +126,12 @@ const handleFullNameChange = (e) => {
 };
 
 // ...
-
 <div className="form-group">
-  <label htmlFor="full-name">Full name:</label>
+  <label htmlFor="fullName">Full name:</label>
   <input
     type="text"
-    id="full-name"
-    name="full-name"
+    id="fullName"
+    name="fullName"
     value={fullName}
     onChange={handleFullNameChange}
   />
@@ -164,6 +163,101 @@ It helps with the three parts:
 By colocating all of the above in one place, Formik keeps things organized - making testing, refactoring, and reasoning about your forms a breeze.
 
 ## Step 2: Add Formik
+
+To begin with, install the library:
+
+`yarn add formik`
+
+There are a few ways of integration Formik into your application:
+
+* **useFormik** hook
+* **Formik** component
+* **withFormik** higher-order component
+
+In this tutorial we will stick with the first and modern way - **useFormik** hook, as hooks are a great addition to React and I suggest using them whenever possible.
+
+Let's import the hook and use it in our code:
+
+```javascript
+// ..
+import { useFormik } from "formik";
+
+// ..
+const formik = useFormik({
+  initialValues: {
+    fullName: "",
+    email: "",
+    message: "",
+    accept: false,
+  },
+  onSubmit: (values) => {
+    console.log(values);
+  },
+});
+
+console.log(formik);
+
+// ..
+```
+
+We should pass **initialValues** and a submission function **onSubmit** to the **useFormik** hook.
+
+The hook returns us all available properties (at the moment we only care about **handleSubmit** - function that is fired when the user clicks a submit button, **handleChange** - function that triggers whenever a field is changes, **values** - an object containing the current values of a form):
+
+![Formik Object](/img/screenshot-2021-03-18-at-18.44.16.png "Formik Object")
+
+The next step is to pass each of these to our form:
+
+```jsx
+// ..
+<form onSubmit={formik.handleSubmit}>
+  <div className="form-group">
+    <label htmlFor="fullName">Full name:</label>
+    <input
+      type="text"
+      id="fullName"
+      name="fullName"
+      value={formik.values.fullName}
+      onChange={formik.handleChange}
+    />
+  </div>
+  <div className="form-group">
+    <label htmlFor="email">Email:</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      value={formik.values.email}
+      onChange={formik.handleChange}
+    />
+  </div>
+  <div className="form-group">
+    <label htmlFor="message">Message:</label>
+    <textarea
+      id="message"
+      name="message"
+      value={formik.values.message}
+      onChange={formik.handleChange}
+    />
+  </div>
+  <div className="form-group">
+    <div className="checkbox">
+      <input
+        id="terms"
+        name="terms"
+        type="checkbox"
+        value={formik.values.terms}
+        onChange={formik.handleChange}
+      />
+      <label htmlFor="terms">I accept Terms And Conditions</label>
+    </div>
+  </div>
+  <button>Submit</button>
+</form>
+// ..
+```
+
+And that's it, our form, powered by the Formik is working!
 
 ## Step 3: Validate Form
 
