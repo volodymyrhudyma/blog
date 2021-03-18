@@ -604,6 +604,69 @@ Note, that the **<Field />** component renders an input by default with given na
 
 If you want to render **textarea**, pass **as** prop to the **<Field />** component.
 
+## Step 8: Pre-Populating Initial State
+
+Some forms are pre-populated with the data that comes from an external systems, so let's see how it can be added to our form.
+
+First of all, the data must be fetched, so let's simulate it in the **useEffect** hook:
+
+```jsx
+const [initialValues, setInitialValues] = useState({
+  fullName: "",
+  email: "",
+  message: "",
+  accept: false,
+});
+
+useEffect(() => {
+  // Simulate call to an external API
+  setTimeout(() => {
+    setInitialValues({
+      fullName: "John Doe",
+      email: "johndoe@gmail.com",
+      message: "Hello, I am John Doe, nice to meet you!",
+      accept: true,
+    });
+  }, 1000);
+}, []);
+```
+
+We keep the initial state of the form in state and update it with the values fetched from an external API.
+
+The next thing we have to do is to pass **initialValues** to Formik:
+
+```jsx
+<Formik
+  initialValues={initialValues}
+  validationSchema={validationSchema}
+  onSubmit={(values) => {
+    console.log(values);
+  }}
+>
+```
+
+Try it and see how it ... doesn't work! Can you guess why?
+
+By default, Formik doesn't reset the form if **initialValues** prop changes, but we can force him to reset it by passing **enableReinitialize={true}**.
+
+Default value for this prop is **false**. 
+
+it controls whether Formik should reset the form if **initialValues** changes (using deep equality):
+
+```jsx
+<Formik
+  initialValues={initialValues}
+  // Equals to "false" by default
+  enableReinitialize={true}
+  validationSchema={validationSchema}
+  onSubmit={(values) => {
+    console.log(values);
+  }}
+>
+```
+
+And we see how the form is pre-populated with our data, good job!
+
 ## Summary
 
 In this article we have created a simple Contact Form using React, Formik and Yup libraries.
