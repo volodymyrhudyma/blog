@@ -9,7 +9,7 @@ shareImage: /img/formik-min.jpg
 teaser: Forms play a crucial role in modern web development, by enabling a
   possibility to gather information from the customers. Good handling of them is
   a must in order not to lose any data by a stupid validation mistake or...
-date: 2021-03-22T08:33:32.355Z
+date: 2021-03-23T08:33:32.355Z
 ---
 Forms play a crucial role in modern web development, by enabling a possibility to gather information from the customers.
 
