@@ -3,8 +3,12 @@ title: Better Form Handling With Formik In React
 tag:
   - React
 promote: false
-metaDescription: // META
-teaser: // TEASER
+metaDescription: Learn how to use Formik with React for a better form handling,
+  validation and submission.
+shareImage: /img/formik-min.jpg
+teaser: Forms play a crucial role in modern web development, by enabling a
+  possibility to gather information from the customers. Good handling of them is
+  a must in order not to lose any data by a stupid validation mistake or...
 date: 2021-03-22T08:33:32.355Z
 ---
 Forms play a crucial role in modern web development, by enabling a possibility to gather information from the customers.
@@ -741,7 +745,7 @@ const ContactForm = () => {
 
 If the submit button is placed in the parent component, you can bind **submitForm** and trigger submission from the parent:
 
-```javascript
+```jsx
 const ParentComponent = () => {
   let submitForm = null;
 
