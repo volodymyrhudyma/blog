@@ -686,6 +686,104 @@ And we see how the form is pre-populated with our data, good job!
 
 ![Pre-Populated Form](/img/screenshot-2021-03-18-at-22.45.28.png "Pre-Populated Form")
 
+## Bonus Step: Submitting Form Outside Of Formik
+
+A common use case when working with forms is a need to submit them by a clicking on a button that is placed outside of the **form** element.
+
+In this section we will review a few ways how to do that with and without Formik.
+
+#### \#1 - Use "form" Attribute
+
+Probably, the easiest solution if you don't need to support IE11 and below ([caniuse](https://caniuse.com/?search=form) link) is to use the **form** attribute on a submit button (it needs to match the id of the form you want to submit):
+
+```jsx
+<>  
+  <Formik
+    // ..
+  >
+    <Form id="contact-form">
+      {/* ... */}
+    </Form>
+  </Formik>
+  <button form="contact-form">Submit</button>
+</>
+```
+
+#### \#2 - Use A Reference To Formik Component
+
+This is a good solution that works fine for all browsers.
+
+Just save the reference to Formik and call **handleSubmit** on it:
+
+```jsx
+const ContactForm = () => {
+  const formRef = useRef(null);
+  
+  // ..
+  const handleSubmit = () => {
+    if (formRef.current) {
+      formRef.current.handleSubmit();
+    }
+  };
+  
+   return (
+      <Formik
+        // ..
+        innerRef={formRef}
+      >
+        {/* ... */}
+      </Formik>
+   );
+};
+```
+
+#### \#3 - Bind Submit Form In Parent Component
+
+If the submit button is placed in the parent component, you can bind **submitForm** and trigger submission from the parent:
+
+```javascript
+const ParentComponent = () => {
+  let submitForm = null;
+
+  const bindSubmitForm = (form) => {
+    submitForm = form;
+  };
+
+  const handleSubmit = (e) => {
+    if (submitForm) {
+      submitForm(e);
+    }
+  };
+
+  return (
+    <>
+      <button onClick={handleSubmit}>Submit</button>
+      <ContactForm bindSubmitForm={bindSubmitForm} />
+    </>
+  );
+};
+
+const ContactForm = ({ bindSubmitForm }) => {
+  return (
+    <Formik
+      initialValues={initialValues}
+      enableReinitialize={true}
+      validationSchema={validationSchema}
+      onSubmit={(values) => {
+        console.log(values);
+      }}
+    >
+      {(formikProps) => {
+        bindSubmitForm(formikProps.submitForm);
+        return (
+          // ...
+        );
+      }}
+    </Formik>
+  );
+};
+```
+
 ## Summary
 
 In this article we have created a simple Contact Form using React, Formik and Yup libraries.
@@ -693,5 +791,3 @@ In this article we have created a simple Contact Form using React, Formik and Yu
 I hope you liked these awesome library stack and will try it in your next project.
 
 However, remember that we have touched only a little part of all feature that are provided by Formik, so make sure to check the [documentation](https://formik.org/docs/overview) out to learn more.
-
-P.S. All code is accessible in Github repository.
