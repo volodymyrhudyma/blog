@@ -3,27 +3,28 @@ title: Better Form Handling With Formik In React
 tag:
   - React
 promote: false
-metaDescription: Learn how to use Formik with React for a better form handling,
+metaDescription: Learn how to use Formik with React for better form handling,
   validation and submission.
 shareImage: /img/formik-min.jpg
-teaser: Forms play a crucial role in modern web development, by enabling a
-  possibility to gather information from the customers. Good handling of them is
-  a must in order not to lose any data by a stupid validation mistake or...
+teaser: Forms play a crucial role in modern web development by providing a way
+  to collect information from customers. Handling them well is a must to avoid
+  losing data due to a silly validation mistake or bug in the code, which is not
+  always...
 date: 2021-03-23T08:33:32.355Z
 ---
-Forms play a crucial role in modern web development, by enabling a possibility to gather information from the customers.
+Forms play a crucial role in modern web development by providing a way to collect information from customers.
 
-Good handling of them is a must in order not to lose any data by a stupid validation mistake or bug in the code, which is not always an easy task, especially if forms are of a big size.
+Handling them well is a must to avoid losing data due to a silly validation mistake or bug in the code, which is not always an easy task, especially when forms are large.
 
-While React definitely eases working with forms, it is still hard to build a maintainable, scalable, and testable solution without adding any helper libraries.
+While React makes it easier to work with forms, it's still difficult to build a maintainable, scalable and testable solution without adding any helper libraries.
 
-There are a lot of libraries, designed to make handling forms better, like [formik](https://www.npmjs.com/package/formik), [react-hook-form](https://www.npmjs.com/package/react-hook-form), [redux-form](https://www.npmjs.com/package/redux-form), or [react-final-form](https://www.npmjs.com/package/react-final-form).
+There are a lot of libraries that improve the handling of forms, like [formik](https://www.npmjs.com/package/formik), [react-hook-form](https://www.npmjs.com/package/react-hook-form), [redux-form](https://www.npmjs.com/package/redux-form), or [react-final-form](https://www.npmjs.com/package/react-final-form).
 
-Each one comes with its own pros and cons, but today we will focus on the most used and popular one - [Formik](https://formik.org/docs/overview).
+Each has its own advantages and disadvantages, but today we will focus on the most commonly used and popular one - [Formik](https://formik.org/docs/overview).
 
-## Step 1: Build A Basic Login Form
+## Step 1: Create A Basic Login Form
 
-Before we begin digging into Formik and stuff, we need a simple form, built with raw React:
+Before we start getting into Formik and such, we need a simple form built with raw React:
 
 ```jsx
 import { useState } from "react";
@@ -87,25 +88,25 @@ const ContactForm = () => {
 export default ContactForm;
 ```
 
-The structure is very simple, we have a wrapper **div**, then a **form** containing 5 elements: text input, email input, textarea, checkbox and a submit button.
+The structure is very simple, we have a wrapper **div**, then a **form** that contains 5 elements: text input, email input, textarea, checkbox and a submit button.
 
-We will skip CSS for the simplicity, but at the end of an article I will post a link to the github repository which will contain the full code (with CSS).
+Fort simplicity, we will skip the CSS code.
 
-Our form looks the following way:
+Here's what our code looks like:
 
 ![React Form](/img/screenshot-2021-03-18-at-18.18.43.png "React Form")
 
-Notice, that we store the value of inputs in the local state of a React component, which means that inputs are **controlled**.
+Note that we store the value of inputs in the local state of a React component, which means that inputs are **controlled**.
 
-If we don't use **value** and **onChange** properties and let the inputs keep their state internally, they will be called **uncontrolled**, because we are not in control of their state, but DOM is.
+If we don't use the **value** and **onChange** properties and let inputs keep their state internally, they are called **uncontrolled** because we don't have control over their state, but DOM.
 
 Read more about Controlled vs. Uncontrolled components [here](/2020-06-26-controlled-and-uncontrolled-components-in-react/).
 
 ## Why Formik?
 
-Before adding Formik, let's try to understand why do we need it at all and what benefits does it bring.
+Before adding Formik, let's try to understand why we need it in the first place and what benefits it brings.
 
-If we were about to add a validation to our form, we could end up with the following code:
+If we were to add validation to our form, we might end up with the following code:
 
 ```jsx
 // ...
@@ -145,19 +146,19 @@ const handleFullNameChange = (e) => {
 // ..
 ```
 
-To store an error message for each field, we would need a separate state entry and the validation logic has to be implemented manually (however, we can use some helper libraries, like [Yup](https://github.com/jquense/yup)).
+To store an error message for each field, we would need a separate state entry and the validation logic must be implemented manually (but, we can use some helper libraries, like [Yup](https://github.com/jquense/yup)).
 
-For a simple form, like this that contains only 5 fields, we would have to keep 10 state entries (5 for storing values, 5 for the validation).
+For a simple form, like this one, which contains only 5 fields, we would need to keep 10 state entries (5 for storing values, 5 for validation).
 
-Imagine if the form grows to 15-20 fields? That would result in a mess in the code.
+Imagine if the form grew to 15-20 fields? That would cause chaos in the code.
 
-That's the moment Formik comes into play - it manages state and validation for you.
+That's where Formik comes in - it manages state and validation for you.
 
 Generally speaking, what is Formik?
 
-As per the [documentation](https://formik.org/docs/overview):
+As described in the [documentation](https://formik.org/docs/overview):
 
-**Formik** is a small group of React components and hooks for building forms in React and React Native. 
+**Formik** is a small set of React components and hooks for creating forms in React and React Native. 
 
 It helps with the three parts: 
 
@@ -165,21 +166,21 @@ It helps with the three parts:
 * **Validation and error messages** 
 * **Handling form submission** 
 
-By colocating all of the above in one place, Formik keeps things organized - making testing, refactoring, and reasoning about your forms a breeze.
+By putting all of the above in one place, Formik keeps things organized and makes testing, refactoring, and reasoning about your forms a breeze.
 
 ## Step 2: Add Formik
 
-To begin with, install the library:
+First, install the library:
 
 `yarn add formik`
 
-There are a few ways of integration Formik into your application:
+There are a few ways to integrate Formik into your application:
 
 * **useFormik** hook
 * **Formik** component
 * **withFormik** higher-order component
 
-In this tutorial we will stick with the first and modern way - **useFormik** hook, as hooks are a great addition to React and I suggest using them whenever possible.
+In this tutorial, we'll stick with the first and modern method - **useFormik** hook, as hooks are a great addition to React and I recommend using them whenever possible.
 
 Let's import the hook and use it in our code:
 
@@ -207,11 +208,11 @@ console.log(formik);
 
 We should pass **initialValues** and a submission function **onSubmit** to the **useFormik** hook.
 
-The hook returns us all available properties (at the moment we only care about **handleSubmit** - function that is fired when the user clicks a submit button, **handleChange** - function that triggers whenever a field is changes, **values** - an object containing the current values of a form):
+The hook will return us all available properties (at the moment we are interested only in **handleSubmit** - function fired when user clicks on a submit button, **handleChange** - function fired when a field is changed, **values** - an object containing current values of a form):
 
 ![Formik Object](/img/screenshot-2021-03-18-at-18.44.16.png "Formik Object")
 
-The next step is to pass each of these to our form:
+The next step is to pass each of these elements to our form:
 
 ```jsx
 // ..
@@ -263,26 +264,26 @@ The next step is to pass each of these to our form:
 // ..
 ```
 
-And that's it, our form, powered by the Formik is working!
+And that's it, our form, powered by the Formik, works!
 
-Now, look carefully at the code and notice that:
+Now take a close look at the code and notice that:
 
-* The exact same **handleChange** function is passed for every input
+* The exact same **handleChange** function is passed for each input
 
-  So, to let formik know what input are we changing, we must pass **id** or **name** properties. If we don't pass any of them, the following warning will be thrown and an input field would not be updated with the provided value:
+  So to let Formik know which input we are changing, we need to pass the **id** or **name** properties. If we don't pass either of them, the following warning will be triggered and an input field would not be updated with the value provided:
 
 ![Formik Warning](/img/screenshot-2021-03-18-at-19.26.41.png "Formik Warning")
 
-* **id** and **name** should match field name defined in the **initialValues**
-* Field value is accessed by **formik.values.<field>**
+* **id** and **name** should match the field name defined in **initialValues**
+* The field value is accessed with **formik.values.<field>**
 
 ## Step 3: Validate Form
 
-Let's add validation using Formik, as it doesn't make sense to allow users to send an empty form.
+Let's add validation with Formik, since it doesn't make sense to allow users to submit a blank form.
 
-To add validation, let's define a custom validation function and pass it to the **validate** field in the **useFormik** hook.
+To add validation, we define a custom validation function and pass it to the **validate** field in the **useFormik** hook.
 
-If an error should be shown, this custom function should return an object with the property names, same as passed to the **initialValues**:
+If an error is to be displayed, this custom function should return an object with the property names that were also passed to **initialValues**:
 
 ```javascript
 const customValidator = (values) => {
@@ -331,7 +332,7 @@ const formik = useFormik({
 // ..
 ```
 
-And display an error message below each input (read it from **formik.errors.<field>**):
+And display an error message under each input (read it from **formik.errors.<field>**):
 
 ```jsx
 // ..
@@ -389,23 +390,23 @@ And display an error message below each input (read it from **formik.errors.<fie
 // ..
 ```
 
-As you may have noticed, we made all fields required, except of the **message**. Let it be optional.
+As you may have noticed, we've made all the fields required except for **message**. Let it be optional.
 
-By default, Formik validates the whole form after each change event, on blur and before submission, which has a negative impact on the user experience, because showing an error for the **email** field if user types the **fullName** is not correct:
+By default, Formik validates the entire form after each change event, on blur and before submission, which negatively impacts the user experience because showing an error for the **email** field if user types the **fullName** is not correct:
 
 ![Formik Validation All At Once](/img/validation-all.gif "Formik Validation All At Once")
 
-One more thing to remember - It will allow **handleSubmit** function to be executed only if the form does not contain any errors, if there is at least one, the form can't be submitted, unless an error is fixed.
+One more note: the **handleSubmit** function can only be executed if the form contains no errors, if there is at least one, the form cannot be submitted unless an error is fixed.
 
 ## Step 4: Show errors for "touched" fields only
 
-Showing the whole list of errors for the form when providing the data for only the first input is not good at all.
+Showing the entire error list for the form when data is only entered for the first input is not good at all.
 
-Let's fix it to show the errors only related to the current field, after user stops typing.
+Let's change it to show only the errors related to the current field after the user has stopped typing.
 
-Formik keeps track of the "touched" fields, just like of the "errors" or "values".
+Formik keeps track of the "touched" fields, just like the "errors" or "values".
 
-To use this field, we have to pass **formik.handleBlur** function to each input (this function works similar to the **formik.handleChange**):
+To use this field, we need to pass the **formik.handleBlur** function to each input (this function works similarly to **formik.handleChange**):
 
 ```jsx
 // ..
@@ -426,7 +427,7 @@ To use this field, we have to pass **formik.handleBlur** function to each input 
 // ..
 ```
 
-And let's use **formik.touched.<field>** to see if the field has been touched and hide an error if the fields is not yet visited:
+And let's use **formik.touched.<field>** to see if the field has been touched and hide an error if the field has not yet been visited:
 
 ```jsx
 // ..
@@ -453,17 +454,17 @@ Works perfectly fine:
 
 ## Step 5: Maybe A Better Validation?
 
-The validation is left up to you, so you have a plenty of space to do whatever is needed, either use a popular library or create validators yourself.
+The validation is up to you, so you have a lot of space to do whatever is needed, either use a popular library or create validators yourself.
 
-However, Formik authors love [Yup](https://github.com/jquense/yup) - JavaScript schema builder for value parsing and validation, so the integration between two libraries is awesome.
+However, Formik authors love [Yup](https://github.com/jquense/yup) - JavaScript schema builder for parsing and validating values, so integration between two libraries is great.
 
-The **useFormik** hook allows us to pass **validationSchema**, which is a special Yup-related property that allows to pass Yup validation schema to Formik.
+The **useFormik** hook allows us to pass **validationSchema**, a special Yup-related property that allows us to pass the Yup validation schema to Formik.
 
 Let's install Yup first:
 
 `yarn add yup`
 
-Then, let's define a Yup validation schema for our form:
+Then we define a Yup validation schema for our form:
 
 ```javascript
 const validationSchema = Yup.object({
@@ -499,15 +500,15 @@ const formik = useFormik({
 // ..
 ```
 
-Looks so much cleaner and better.
+Looks much cleaner and better.
 
-## Step 6: Reducing Some Boilerplate Code
+## Step 6: Reduce Some Boilerplate Code
 
-Notice, how we duplicated a lot of things in the code above, like explicit passing of the **onChange**, **onBlur**, etc.
+Notice how we duplicated many things in the code above, such as explicitly passing **onChange**, **onBlur**, etc.
 
 Formik provides us with a **getFieldProps()** method that makes wiring up inputs much faster.
 
-Given some field-level info, it returns to you the exact group of **onChange**, **onBlur**, **value**, **name**.
+With some field-level information, it returns you the exact group of **onChange**, **onBlur**, **value**, **name**.
 
 We can replace this:
 
@@ -546,15 +547,15 @@ With this:
 // ..
 ```
 
-## Step 7: Using A Bit Of React Context
+## Step 7: Use A Bit Of React Context
 
-In the above code we have to manually pass **formikProps** to inputs (even if we use **getFieldProps**, it still has to be present).
+In the code above, we need to manually pass **formikProps** to the inputs (even if we use **getFieldProps**, it still needs to be there).
 
-It leads to a lot of code repetition, which can be avoided if we use React Context.
+This leads to a lot of code repetition, which can be avoided if we use React Context.
 
 Fortunately, Formik uses it internally and exposes components, like **Formik**, **Form**, **Field**, **ErrorMessage**.
 
-All of them use React Context to connect with the **Formik** state and methods:
+All of them use React Context, to connect to the **Formik** state and methods:
 
 ```jsx
 import * as Yup from "yup";
@@ -616,15 +617,15 @@ const ContactForm = () => (
 export default ContactForm;
 ```
 
-Note, that the **Field** component renders an input by default with given name and implicitly grabs **handleChange**, **handleBlur** and **value** and pass in to the input along with your custom props.
+Note that by default, the **Field** component renders an input with the specified name and implicitly grabs **handleChange**, **handleBlur** and **value** and passes them to the input along with your custom props.
 
 If you want to render **textarea**, pass **as** prop to the **Field** component.
 
-## Step 8: Pre-Populating Initial State
+## Step 8: Pre-Populate Initial State
 
-Some forms are pre-populated with the data that comes from an external systems, so let's see how it can be added to our form.
+Some forms are pre-populated with data coming from an external APIs, so let's see how to add it to our form. 
 
-First of all, the data must be fetched, so let's simulate it in the **useEffect** hook:
+First, the data needs to be fetched:
 
 ```jsx
 // ..
@@ -650,9 +651,9 @@ useEffect(() => {
 // ..
 ```
 
-We keep the initial state of the form in state and update it with the values fetched from an external API.
+We keep the initial state of the form in the local component's state and update it with values fetched from an external API.
 
-The next thing we have to do is to pass **initialValues** to Formik:
+Next, we need to pass **initialValues** to Formik:
 
 ```jsx
 <Formik
@@ -666,13 +667,13 @@ The next thing we have to do is to pass **initialValues** to Formik:
 </Formik>
 ```
 
-Try it and see how it ... doesn't work! Can you guess why?
+Try it and see that it ... doesn't work! Can you guess why?
 
-By default, Formik doesn't reset the form if **initialValues** prop changes, but we can force him to reset it by passing **enableReinitialize={true}**.
+By default, Formik does not reset the form when **initialValues** prop changes, but we can force it to reset the values by passing **enableReinitialize={true}**.
 
-Default value for this prop is **false**. 
+The default value for this prop is **false**. 
 
-it controls whether Formik should reset the form if **initialValues** changes (using deep equality):
+It controls whether Formik should reset the form when **initialValues** changes (using Deep Equality):
 
 ```jsx
 <Formik
@@ -686,19 +687,19 @@ it controls whether Formik should reset the form if **initialValues** changes (u
 >
 ```
 
-And we see how the form is pre-populated with our data, good job!
+And see the form pre-filled with the data, well done!
 
 ![Pre-Populated Form](/img/screenshot-2021-03-18-at-22.45.28.png "Pre-Populated Form")
 
-## Bonus Step: Submitting Form Outside Of Formik
+## Bonus Step: Submit Form Outside Of Formik
 
-A common use case when working with forms is a need to submit them by a clicking on a button that is placed outside of the **form** element.
+A common use case when working with forms is the need to submit them by clicking a button placed outside the **form** element.
 
-In this section we will review a few ways how to do that with and without Formik.
+In this section, we will see some ways to do this with and without Formik.
 
 #### \#1 - Use "form" Attribute
 
-Probably, the easiest solution if you don't need to support IE11 and below ([caniuse](https://caniuse.com/?search=form) link) is to use the **form** attribute on a submit button (it needs to match the id of the form you want to submit):
+Probably the easiest solution, if you don't need to support IE11 and below ([caniuse](https://caniuse.com/?search=form) link), is to use the **form** attribute on a submit button (it must match the id of the form you want to submit):
 
 ```jsx
 <>  
@@ -713,9 +714,9 @@ Probably, the easiest solution if you don't need to support IE11 and below ([can
 </>
 ```
 
-#### \#2 - Use A Reference To Formik Component
+#### \#2 - Use A Reference To The Formik Component
 
-This is a good solution that works fine for all browsers.
+This is a good solution that works well on all browsers.
 
 Just save the reference to Formik and call **handleSubmit** on it:
 
@@ -790,8 +791,10 @@ const ContactForm = ({ bindSubmitForm }) => {
 
 ## Summary
 
-In this article we have created a simple Contact Form using React, Formik and Yup libraries.
+In this article, we created a simple Contact Form using React, Formik and Yup libraries.
 
-I hope you liked these awesome library stack and will try it in your next project.
+Hope you enjoyed this awesome library and will try it in your next project.
 
-However, remember that we have touched only a little part of all feature that are provided by Formik, so make sure to check the [documentation](https://formik.org/docs/overview) out to learn more.
+However, keep in mind that we've only touched on a small portion of all the features Formik offers. 
+
+So be sure to check out the [documentation](https://formik.org/docs/overview) to learn more.
