@@ -541,7 +541,7 @@ const newUser = {
   },
 };
 
-// Prints {name: "John", surname: "Doe", age: 22}
+// Prints {name: "John", surname: "Doe", age: 18}
 console.log(user);
 
 // Prints {name: "John", surname: "Doe", age: 22}
