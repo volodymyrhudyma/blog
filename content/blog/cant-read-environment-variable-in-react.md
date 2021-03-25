@@ -70,7 +70,7 @@ Still no success, let's find out why.
 
 The second thing to remember is that, for security reasons, create-react-app does not allow you to define Environment Variables that do not start with the **REACT\_APP\_** prefix.
 
-Our name: **MY_ENVIRONMENT_VARIABLE** is definitely wrong and will not work.
+Our name: "**MY_ENVIRONMENT_VARIABLE**" is definitely wrong and will not work.
 
 Let's change it:
 
