@@ -37,7 +37,7 @@ A lot of people to keep their pace create unhealthy routines that have a negativ
 
 They don't keep the balance between the work and a good rest, putting the work in the first place which leads to quick emotional burnout and losing some control of your professional and personal life.
 
-That's what I understood a few weeks after starting the blog - writing a good article on my blog is nowhere as important as regular switching to different other activities, that may be completely unrelated to programming.
+That's what I understood a few weeks after starting the blog - writing a good article on my blog is nowhere as important as regular switching to different other activities, that may be completely unrelated to programming to preserve physical and mental health.
 
 ## \#2 Promote Your Blog Even If It Contains Only One Article
 
@@ -55,11 +55,45 @@ Only the 21th was promoted properly and gained some traffic from both, Google an
 
 If I had to give you an advice - go live with the first ever article, gather feedback from your readers and learn from your mistakes.
 
-## Most Popular Posts
+## Posts Analytics
 
-## Personal Favourite Posts
+In this section I would like to share with you some analytics insights.
 
-## Most Time-Consuming Posts
+#### Most Popular Posts
+
+Not all posts attracted a lot of visitors, but still there are some clear winners among all 99 articles that are published in this blog:
+
+* [The Best Tools For React Development (June 2020)](https://www.vhudyma-blog.eu/2020-06-09-the-best-tools-for-react-development/) - the first article I have ever promoted on social media
+* [Top 7 Mistakes Most React Developers Make](https://www.vhudyma-blog.eu/top-mistakes-most-react-developers-make/) - an article that was written for my small 20 min talkon a Hackathon event that my current employer organized in Wrocław
+* [My Way Of Looking For The Perfect React Architecture](https://www.vhudyma-blog.eu/my-way-of-looking-for-the-perfect-react-architecture/) - I described my path of figuring out the best and universal architecture for any React app that needs to be created
+
+#### Least Popular Posts
+
+The following posts weren't successful in terms of attracting traffic, even though I am fully satisfied with each of them:
+
+* [Destructuring assignment in JavaScript](https://www.vhudyma-blog.eu/2020-05-18-destructuring-assignment-in-javascript/) - a good guide into the Destructuring Assignment in JavaScript with a lot of practical and simple examples
+* [Regular expressions in JavaScript](https://www.vhudyma-blog.eu/2020-05-10-regular-expressions-in-javascript/) - I explained some basics of RegEx, patterns and methods with examples
+* [Template Literals In JavaScript](https://www.vhudyma-blog.eu/2020-05-17-template-literals-in-javascript/) - if you don't know what Template Literals are, then this is a must-read
+
+The reason they haven't become popular is that I didn't promote them at all.
+
+#### My Top 3 Posts
+
+Top 3 articles I am most satisfied with are some recent ones:
+
+* [Better Form Handling With Formik In React](https://www.vhudyma-blog.eu/better-form-handling-with-formik-in-react/) - a complete guide to Formik - a neat library for better forms handling
+* [The Best MomentJS Alternatives](https://www.vhudyma-blog.eu/the-best-momentjs-alternatives/) - the comparison of a few libraries for handling dates, thanks to which I migrated from **moment** to **dayjs** in my project and saved a lot of space
+* [Add Redux Saga With TypeScript To Your React Application (January 2021)](https://www.vhudyma-blog.eu/add-redux-saga-with-typescript-to-your-react-application-january-2021/) - a complete guide to installing and configuring Redux Saga in React application
+
+#### My Worst 3 Posts
+
+Lack of time to write a good-quality post, but need to publish an article in order not to give up on consistency leads to publishing articles I am not satisfied with:
+
+* [Serve Build Folder In React](https://www.vhudyma-blog.eu/serve-build-folder-in-react/)
+* [Return Multiple Elements From Render In React](https://www.vhudyma-blog.eu/return-multiple-elements-from-render-in-react/)
+* [Can't Read Environment Variable In React?](https://www.vhudyma-blog.eu/cant-read-environment-variable-in-react/)
+
+That's what I found could be interesting for you.
 
 ## A Few Words About Me
 
