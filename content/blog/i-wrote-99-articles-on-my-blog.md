@@ -97,7 +97,15 @@ That's what I found could be interesting for you.
 
 ## A Few Words About Me
 
+If you are new to my blog and wondering who is the author - my name is Volodymyr Hudyma, as you may have already noticed, and I am a software developer for more than 6 years.
+
+Here is a [small post](https://www.vhudyma-blog.eu/2020-05-01-a-few-words-about-author/) if you want to get to know me better.
+
+It also describes a few reasons why I have started this blog and why I have chosen React as a main tool for developing web applications.
+
 ## Subscriber's Feedback
+
+A lot of time passed since the launch of my blog, so I gathered some feedback from the people that are subscribed to my newsletter and here is what they say:
 
 ## Future Plans
 
