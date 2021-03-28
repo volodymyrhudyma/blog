@@ -55,13 +55,23 @@ Only the 21th was promoted properly and gained some traffic from both, Google an
 
 If I had to give you an advice - go live with the first ever article, gather feedback from your readers and learn from your mistakes.
 
+## \#3 Listen More To Your Audience
+
+This is not a mistake, but a thing that I want to do more of, since from the very beginning my blog was only about expanding my knowledge and learning new skills.
+
+I have been always writing about the topics that I am interested in almost without thinking about my audience's preferences.
+
+It was fine till the point when the audience started to grow and my responsibilities have extended.
+
+Now the goal is more to meet the needs of an audience rather than my own.
+
 ## Posts Analytics
 
 In this section I would like to share with you some analytics insights.
 
 #### Most Popular Posts
 
-Not all posts attracted a lot of visitors, but still there are some clear winners among all 99 articles that are published in this blog:
+Not all posts attracted a lot of visitors, but still there are some clear winners among all 99 articles:
 
 * [The Best Tools For React Development (June 2020)](https://www.vhudyma-blog.eu/2020-06-09-the-best-tools-for-react-development/) - the first article I have ever promoted on social media
 * [Top 7 Mistakes Most React Developers Make](https://www.vhudyma-blog.eu/top-mistakes-most-react-developers-make/) - an article that was written for my small 20 min talkon a Hackathon event that my current employer organized in Wrocław
@@ -75,7 +85,7 @@ The following posts weren't successful in terms of attracting traffic, even thou
 * [Regular expressions in JavaScript](https://www.vhudyma-blog.eu/2020-05-10-regular-expressions-in-javascript/) - I explained some basics of RegEx, patterns and methods with examples
 * [Template Literals In JavaScript](https://www.vhudyma-blog.eu/2020-05-17-template-literals-in-javascript/) - if you don't know what Template Literals are, then this is a must-read
 
-The reason they haven't become popular is that I didn't promote them at all.
+The reason they haven't become popular, most probably, is that I didn't promote them at all.
 
 #### My Top 3 Posts
 
@@ -93,7 +103,9 @@ Lack of time to write a good-quality post, but need to publish an article in ord
 * [Return Multiple Elements From Render In React](https://www.vhudyma-blog.eu/return-multiple-elements-from-render-in-react/)
 * [Can't Read Environment Variable In React?](https://www.vhudyma-blog.eu/cant-read-environment-variable-in-react/)
 
-For those of you who have been following along only recently, you may want to check out the table of contents on the main page to see what you might have missed.
+For those of you who have been following along only recently, you may want to check out the table of contents on the main page to see what you might have missed:
+
+![Table Of Contents On The Main Page](/img/screenshot-2021-03-28-at-21.52.51.png "Table Of Contents On The Main Page")
 
 ## A Few Words About Me
 
