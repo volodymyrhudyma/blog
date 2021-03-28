@@ -5,7 +5,7 @@ tag:
 promote: false
 metaDescription: // META
 teaser: // TEASER
-date: 2021-03-31T12:03:20.430Z
+date: 2021-03-31T12:30:00.000Z
 ---
 Back in mid-April 2020, almost a year ago I have decided to start my programming blog in order to expand my knowledge in some areas I felt I lacked it.
 
