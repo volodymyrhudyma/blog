@@ -93,7 +93,7 @@ Lack of time to write a good-quality post, but need to publish an article in ord
 * [Return Multiple Elements From Render In React](https://www.vhudyma-blog.eu/return-multiple-elements-from-render-in-react/)
 * [Can't Read Environment Variable In React?](https://www.vhudyma-blog.eu/cant-read-environment-variable-in-react/)
 
-That's what I found could be interesting for you.
+For those of you who have been following along only recently, you may want to check out the table of contents on the main page to see what you might have missed.
 
 ## A Few Words About Me
 
