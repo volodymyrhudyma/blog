@@ -3,8 +3,13 @@ title: I Wrote 99 Articles On My Blog
 tag:
   - Other
 promote: false
-metaDescription: // META
-teaser: // TEASER
+metaDescription: This is the 100th and the most important article on my blog,
+  where I will analyze my blogging experience and will try to point out the most
+  important mistakes and takeaways I have made during the year of blogging.
+teaser: Back in mid-April 2020, almost a year ago I have decided to start my
+  programming blog in order to expand my knowledge in some areas I felt I lacked
+  it. The journey began with a small introduction of myself and the reasoning
+  behind...
 date: 2021-03-31T12:30:00.000Z
 ---
 Back in mid-April 2020, almost a year ago I have decided to start my programming blog in order to expand my knowledge in some areas I felt I lacked it.
@@ -121,4 +126,34 @@ A lot of time passed since the launch of my blog, so I gathered some feedback fr
 
 ## Future Plans
 
+Now is a good time to create some plans for the future of my blog.
+
+#### \#1 Focus On The Audience's Preferences
+
+The main thing I would like to do - is focus more on what is interesting for my audience.
+
+This will be done through sending surveys to my subscribers with a list of topics they can choose from (or type their own topic).
+
+#### \#2 Start A Youtube Channel
+
+This is something I wanted to do for so long, but didn't (and still don't) have enough time to start.
+
+I think this would open the doors for a wider audience and bring more options to promote and develop my skills, as well as my blog.
+
+For sure, Youtube is a very long-term game, so I hope I would be able to maintain at least same consistency in publishing good-quality videos, as I do now with my blog.
+
+#### \#3 Duplicate Youtube Content On My Blog
+
+In order to not be limited to Youtube only with my videos, I would duplicate their content on my blog, so everyone would be able to follow along by reading articles.
+
 ## Summary
+
+The decision to start blogging was one of the best decisions that quarantine has brought to me.
+
+It's been amazing journey for almost a year and I hope it will last at least a thousand times longer.
+
+You never know how many knowledge you still lack until you start trying to explain even the simplest things to other people.
+
+This experience is incredible and I strongly encourage everyone to start sharing the knowledge as soon as possible.
+
+**P.S**. Read one of my previous articles "[6 Reasons Why Every Programmer Should Start A Blog](https://www.vhudyma-blog.eu/6-reasons-why-every-programmer-should-have-a-blog/)".
