@@ -41,6 +41,20 @@ That's what I understood a few weeks after starting the blog - writing a good ar
 
 ## \#2 Promote Your Blog Even If It Contains Only One Article
 
+The second mistake was waiting for a specific number of articles before publishing them live and promoting on social media.
+
+I thought that unless I have at least 20-30 good-quality articles, no one would ever visit my blog, as a lot of good content needs to be provided to interest your readers.
+
+I also knew that after the blog is published, I would have to work a lot on SEO, but I had no idea how to do it properly.
+
+It was always like - okay, I will add one more article and then maybe investigate this topic.
+
+This led to me purchasing the domain and setting up a website while having 20 articles in my pocket.
+
+Only the 21th was promoted properly and gained some traffic from both, Google and social media (I am mainly publishing on LinkedIn).
+
+If I had to give you an advice - go live with the first ever article, gather feedback from your readers and learn from your mistakes.
+
 ## Most Popular Posts
 
 ## Personal Favourite Posts
