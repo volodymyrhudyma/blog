@@ -39,6 +39,8 @@ They don't keep the balance between the work and a good rest, putting the work i
 
 That's what I understood a few weeks after starting the blog - writing a good article on my blog is nowhere as important as regular switching to different other activities, that may be completely unrelated to programming.
 
+## \#2 Promote Your Blog Even If It Contains Only One Article
+
 ## Most Popular Posts
 
 ## Personal Favourite Posts
