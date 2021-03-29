@@ -3,28 +3,28 @@ title: I Wrote 99 Articles On My Blog
 tag:
   - Other
 promote: false
-metaDescription: This is the 100th and the most important article on my blog,
-  where I will analyze my blogging experience and will try to point out the most
-  important mistakes and takeaways I have made during the year of blogging.
-teaser: Back in mid-April 2020, almost a year ago I have decided to start my
-  programming blog in order to expand my knowledge in some areas I felt I lacked
-  it. The journey began with a small introduction of myself and the reasoning
-  behind...
+metaDescription: This is the 100th and most important article on my blog, where
+  I analyze my experience with blogging and try to point out the most important
+  mistakes and learnings I made during the year of blogging.
+teaser: In mid April 2020, almost a year ago, I decided to start my programming
+  blog mainly to expand my knowledge in some areas I felt I was lacking. The
+  journey started with a little introduction of myself and the reasoning behind
+  kicking off. After finishing the first post...
 date: 2021-03-31T12:30:00.000Z
 ---
-Back in mid-April 2020, almost a year ago I have decided to start my programming blog in order to expand my knowledge in some areas I felt I lacked it.
+In mid April 2020, almost a year ago, I decided to start my programming blog mainly to expand my knowledge in some areas I felt I was lacking.
 
-The journey began with a small introduction of myself and the reasoning behind kicking off.
+The journey started with a little introduction of myself and the reasoning behind kicking off.
 
-Having finished the first post, I realized that writing is much easier than I initially thought.
+After finishing the first post, I realized that writing is much easier than I initially thought.
 
-The hardest part was to force sacrificing some activities to find a few hours of spare time and devote them to blogging, especially knowing that blogging is a long-term game and you would not get any significant returns in the near future.
+The hardest part was forcing myself to sacrifice some activities to find a few hours of free time and devote them to blogging, especially knowing that blogging is a long-term game and you would be making any significant returns in the near future.
 
-After the first post there was the second, third and so on in just the next few days.
+After the first post, there was the second, third and so on in just a few days.
 
-I felt so passionate about having an ability to share my knowledge with other programmers that I just couldn't stop writing and thinking a few articles ahead.
+I was so excited about the possibility of sharing my knowledge with other programmers that I just couldn't stop writing and thinking a few articles ahead.
 
-That was exactly the time I faced the number one mistake.
+That was exactly when I was confronted with mistake number one.
 
 ## \#1 Avoid Creating Routines That Lead To Emotional Burnout
 
@@ -32,128 +32,134 @@ That was exactly the time I faced the number one mistake.
 >
 > "A slow sort of country!" said the Queen. "Now, here, you see, it takes all the running you can do, to keep in the same place. If you want to get somewhere else, you must run at least twice as fast as that!"
 
-In a programming world, everything changes so fast that just to stay in the same place you need to keep improving yourself and learning as much as possible as often as possible.
+In the world of programming, everything changes so fast that in order to stay on the same page, you have to constantly improve and learn as much as possible.
 
-Being on top requires even more energy, time and willingness to dedicate most of your time not only to learn, but to create.
+Staying on top requires even more energy, time, and a willingness to dedicate the majority of your time not only to learning, but also creating.
 
-It sounds a bit strange, but constant self-development is a huge source of stress and it's true not only for beginners.
+It sounds a bit strange, but constant self-development is a huge source of stress and it doesn't just apply to beginners, but to professionals as well.
 
-A lot of people to keep their pace create unhealthy routines that have a negative impact on different areas of their life.
+Many people, in order to keep up their pace, create unhealthy routines that negatively impact different areas of their lives.
 
-They don't keep the balance between the work and a good rest, putting the work in the first place which leads to quick emotional burnout and losing some control of your professional and personal life.
+They don't balance work with a good rest and put work first, which leads to quick emotional burnout and loss of control over your professional and personal life.
 
-That's what I understood a few weeks after starting the blog - writing a good article on my blog is nowhere as important as regular switching to different other activities, that may be completely unrelated to programming to preserve physical and mental health.
+This is what I came to understand a few weeks after starting the blog - writing a good article on my blog is nowhere near as important as regularly switching to various other activities that may have nothing to do with programming to maintain physical and mental health
 
-## \#2 Promote Your Blog Even If It Contains Only One Article
+## \#2 Promote Your Blog From The Very Beginning
 
-The second mistake was waiting for a specific number of articles before publishing them live and promoting on social media.
+The second mistake was waiting for a certain number of articles before publishing the blog live and promoting on social media.
 
-I thought that unless I have at least 20-30 good-quality articles, no one would ever visit my blog, as a lot of good content needs to be provided to interest your readers.
+I thought if I didn't have at least 20-30 good quality articles, no one would ever visit my blog because you have to provide a lot of good content to keep your readers interested.
 
-I also knew that after the blog is published, I would have to work a lot on SEO, but I had no idea how to do it properly.
+I also knew that I would have to work a lot on SEO after publishing the blog, but I had no idea how to do it properly.
 
-It was always like - okay, I will add one more article and then maybe investigate this topic.
+It was always like - okay, I'll add another article and then maybe explore this topic.
 
-This led to me purchasing the domain and setting up a website while having 20 articles in my pocket.
+That led to me buying the domain and setting up a website while I had 20 articles under my belt.
 
-Only the 21th was promoted properly and gained some traffic from both, Google and social media (I am mainly publishing on LinkedIn).
+Only the 21st was properly promoted and gained some traffic, both from Google and social media (I post mostly on LinkedIn).
 
-If I had to give you an advice - go live with the first ever article, gather feedback from your readers and learn from your mistakes.
+If I had to give you one piece of advice - go live with the very first article, gather feedback from your readers and learn from your mistakes.
 
-## \#3 Listen More To Your Audience
+## \#3 Listen To Your Audience More
 
-This is not a mistake, but a thing that I want to do more of, since from the very beginning my blog was only about expanding my knowledge and learning new skills.
+This isn't a mistake, but something I want to do more of, because from the beginning my blog has been all about expanding my knowledge and learning new skills. 
 
-I have been always writing about the topics that I am interested in almost without thinking about my audience's preferences.
+I've always written about the topics that interest me, almost without thinking about the preferences of my audience. 
 
-It was fine till the point when the audience started to grow and my responsibilities have extended.
+That was fine until the point when the audience started to grow and my responsibilities expanded. 
 
-Now the goal is more to meet the needs of an audience rather than my own.
+Now the goal is to meet an audience's needs rather than my own.
 
 ## Posts Analytics
 
-In this section I would like to share with you some analytics insights.
+In this section I would like to give you some insights into the blog analytics.
 
 #### Most Popular Posts
 
-Not all posts attracted a lot of visitors, but still there are some clear winners among all 99 articles:
+Not all posts attracted many visitors, but still there are some clear winners among all 99 articles:
 
-* [The Best Tools For React Development (June 2020)](https://www.vhudyma-blog.eu/2020-06-09-the-best-tools-for-react-development/) - the first article I have ever promoted on social media
-* [Top 7 Mistakes Most React Developers Make](https://www.vhudyma-blog.eu/top-mistakes-most-react-developers-make/) - an article that was written for my small 20 min talkon a Hackathon event that my current employer organized in Wrocław
-* [My Way Of Looking For The Perfect React Architecture](https://www.vhudyma-blog.eu/my-way-of-looking-for-the-perfect-react-architecture/) - I described my path of figuring out the best and universal architecture for any React app that needs to be created
+* [The Best Tools For React Development (June 2020)](https://www.vhudyma-blog.eu/2020-06-09-the-best-tools-for-react-development/) - the first article I ever promoted on social media, describes top tools I personally use in my daily work
+* [Top 7 Mistakes Most React Developers Make](https://www.vhudyma-blog.eu/top-mistakes-most-react-developers-make/) - an article written for my small 20-minute talk at a hackathon event organized by my current employer in Wrocław
+* [My Way Of Looking For The Perfect React Architecture](https://www.vhudyma-blog.eu/my-way-of-looking-for-the-perfect-react-architecture/) - I described my way of figuring out the best and universal architecture for any React app
 
 #### Least Popular Posts
 
-The following posts weren't successful in terms of attracting traffic, even though I am fully satisfied with each of them:
+The following posts were unsuccessful in terms of gaining traffic, although I am fully satisfied with each of them:
 
-* [Destructuring assignment in JavaScript](https://www.vhudyma-blog.eu/2020-05-18-destructuring-assignment-in-javascript/) - a good guide into the Destructuring Assignment in JavaScript with a lot of practical and simple examples
+* [Destructuring assignment in JavaScript](https://www.vhudyma-blog.eu/2020-05-18-destructuring-assignment-in-javascript/) - a good introduction to Destructuring Assignment in JavaScript with lots of practical and simple examples
 * [Regular expressions in JavaScript](https://www.vhudyma-blog.eu/2020-05-10-regular-expressions-in-javascript/) - I explained some basics of RegEx, patterns and methods with examples
-* [Template Literals In JavaScript](https://www.vhudyma-blog.eu/2020-05-17-template-literals-in-javascript/) - if you don't know what Template Literals are, then this is a must-read
+* [Template Literals In JavaScript](https://www.vhudyma-blog.eu/2020-05-17-template-literals-in-javascript/) - if you don't know what Template Literals are, this is a must read
 
-The reason they haven't become popular, most probably, is that I didn't promote them at all.
+The reason they haven't become popular is probably because I didn't promote them at all.
 
 #### My Top 3 Posts
 
-Top 3 articles I am most satisfied with are some recent ones:
+The top 3 articles I'm most satisfied with are some of the most recent ones:
 
-* [Better Form Handling With Formik In React](https://www.vhudyma-blog.eu/better-form-handling-with-formik-in-react/) - a complete guide to Formik - a neat library for better forms handling
-* [The Best MomentJS Alternatives](https://www.vhudyma-blog.eu/the-best-momentjs-alternatives/) - the comparison of a few libraries for handling dates, thanks to which I migrated from **moment** to **dayjs** in my project and saved a lot of space
-* [Add Redux Saga With TypeScript To Your React Application (January 2021)](https://www.vhudyma-blog.eu/add-redux-saga-with-typescript-to-your-react-application-january-2021/) - a complete guide to installing and configuring Redux Saga in React application
+* [Better Form Handling With Formik In React](https://www.vhudyma-blog.eu/better-form-handling-with-formik-in-react/) - a complete guide to Formik - a neat library for better form handling
+* [The Best MomentJS Alternatives](https://www.vhudyma-blog.eu/the-best-momentjs-alternatives/) - the comparison of some libraries for handling dates, thanks to which I switched from **moment** to **dayjs** in my project and saved a lot of space
+* [Add Redux Saga With TypeScript To Your React Application (January 2021)](https://www.vhudyma-blog.eu/add-redux-saga-with-typescript-to-your-react-application-january-2021/) - a complete guide to installing and configuring Redux Saga in a React application
 
 #### My Worst 3 Posts
 
-Lack of time to write a good-quality post, but need to publish an article in order not to give up on consistency leads to publishing articles I am not satisfied with:
+Lack of time to write a quality post, but the need to publish an article to not give up consistency leads to publishing articles I am not satisfied with:
 
-* [Serve Build Folder In React](https://www.vhudyma-blog.eu/serve-build-folder-in-react/)
-* [Return Multiple Elements From Render In React](https://www.vhudyma-blog.eu/return-multiple-elements-from-render-in-react/)
-* [Can't Read Environment Variable In React?](https://www.vhudyma-blog.eu/cant-read-environment-variable-in-react/)
+* [Serve Build Folder In React](https://www.vhudyma-blog.eu/serve-build-folder-in-react/) - one of the smallest articles I've ever written explaining how to open a production version of your React application locally
+* [Return Multiple Elements From Render In React](https://www.vhudyma-blog.eu/return-multiple-elements-from-render-in-react/) - explains how to return multiple elements from a single component without creating extra DOM elements
+* [Can't Read Environment Variable In React?](https://www.vhudyma-blog.eu/cant-read-environment-variable-in-react/) - a few simple rules for adding/changing environment variables in a React application, created with create-react-app
 
-For those of you who have been following along only recently, you may want to check out the table of contents on the main page to see what you might have missed:
+For those of you who are new to my blog, you may want to check out the table of contents on the main page to see what you might have missed:
 
 ![Table Of Contents On The Main Page](/img/screenshot-2021-03-28-at-21.52.51.png "Table Of Contents On The Main Page")
 
 ## A Few Words About Me
 
-If you are new to my blog and wondering who is the author - my name is Volodymyr Hudyma, as you may have already noticed, and I am a software developer for more than 6 years.
+If you're new to my blog and wondering who the author is - my name is Volodymyr Hudyma and I've ben a software developer for more than 6 years.
 
-Here is a [small post](https://www.vhudyma-blog.eu/2020-05-01-a-few-words-about-author/) if you want to get to know me better.
+Here's a [small post](https://www.vhudyma-blog.eu/2020-05-01-a-few-words-about-author/) if you want to get to know me better.
 
-It also describes a few reasons why I have started this blog and why I have chosen React as a main tool for developing web applications.
+It also describes a few reasons why I started this blog and why I chose React as my main tool for web application development.
 
 ## Subscriber's Feedback
 
-A lot of time passed since the launch of my blog, so I gathered some feedback from the people that are subscribed to my newsletter and here is what they say:
+A lot of time has passed since I started my blog, so I've been collecting some feedback from people who have subscribed to my newsletter, and here's what they're saying:
 
 ## Future Plans
 
-Now is a good time to create some plans for the future of my blog.
+Now is a good time to make some plans for the future of my blog.
 
-#### \#1 Focus On The Audience's Preferences
+#### \#1 Focus More On The Audience's Preferences
 
-The main thing I would like to do - is focus more on what is interesting for my audience.
+The most important thing I want to do - is to focus more on what is interesting to my audience. 
 
-This will be done through sending surveys to my subscribers with a list of topics they can choose from (or type their own topic).
+I'll do this by sending out surveys to my subscribers with a list of topics they can choose from (or enter their own topic) and through various social media polls.
 
 #### \#2 Start A Youtube Channel
 
-This is something I wanted to do for so long, but didn't (and still don't) have enough time to start.
+This is something I've wanted to do for so long, but haven't had (and still don't have) enough time to start.
 
-I think this would open the doors for a wider audience and bring more options to promote and develop my skills, as well as my blog.
+I think this would open the doors to a wider audience and provide more opportunities to promote and develop programming skills, as well as the blog. 
 
-For sure, Youtube is a very long-term game, so I hope I would be able to maintain at least same consistency in publishing good-quality videos, as I do now with my blog.
+Certainly YouTube is a long term play, so hopefully I would be able to at least maintain the same consistency in posting good quality videos as I do now with the blog.
 
-#### \#3 Duplicate Youtube Content On My Blog
+#### \#3 Duplicate Youtube Content On The Blog
 
-In order to not be limited to Youtube only with my videos, I would duplicate their content on my blog, so everyone would be able to follow along by reading articles.
+In order to not be limited to just Youtube with my videos, I would duplicate their content on my blog so that everyone is able to follow along by reading articles.
+
+#### \#4 Build A Few Small Products
+
+Learning a lot of new stuff just in theory without applying it to real projects is a waste of time, so building a few good products is a must.
+
+The plan is to create at least 3 small useful products using the tools and skills we have developed together over the last year.
 
 ## Summary
 
-The decision to start blogging was one of the best decisions that quarantine has brought to me.
+Deciding to start blogging was one of the best decisions quarantine has brought me. 
 
-It's been amazing journey for almost a year and I hope it will last at least a thousand times longer.
+It's been an amazing journey for almost a year and I hope it will last at least a thousand times longer. 
 
-You never know how many knowledge you still lack until you start trying to explain even the simplest things to other people.
+You never know how much knowledge you lack until you start explaining even the simplest things to other people. 
 
-This experience is incredible and I strongly encourage everyone to start sharing the knowledge as soon as possible.
+This experience is incredible and I recommend everyone to start sharing the knowledge as soon as possible. 
 
-**P.S**. Read one of my previous articles "[6 Reasons Why Every Programmer Should Start A Blog](https://www.vhudyma-blog.eu/6-reasons-why-every-programmer-should-have-a-blog/)".
+**P.S**. Read one of my previous articles "[6 reasons why every programmer should start a blog](https://www.vhudyma-blog.eu/6-reasons-why-every-programmer-should-have-a-blog/)".
