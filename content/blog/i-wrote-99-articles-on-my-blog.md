@@ -148,11 +148,13 @@ A lot of time has passed since I started my blog, so I've been collecting some f
 >
 > This blog rocks!
 
-There is a lot of positive feedback, as well as some improvement propositions/pointing out the things that could have been done better.
+There is a lot of positive feedback, but also some suggestions for improvement/hints on things that could have been done better. 
 
-I would like to say a huge Than You to all people who responded to my survey, your feedback is very much appreciated and helps to make this blog better.
+I would like to say a big thank you to everyone who participated in my survey. 
 
-**P.S.** If you want to leave your feedback, please click on [this link](https://us10.list-manage.com/survey?u=6a773660aa826636b1a44c965&id=9ec71ec725&attribution=false).
+Your feedback is greatly appreciated and helps to make this blog better.
+
+**P.S.** If you would like to leave your feedback, please click on [this link](https://us10.list-manage.com/survey?u=6a773660aa826636b1a44c965&id=9ec71ec725&attribution=false).
 
 ## Future Plans
 
