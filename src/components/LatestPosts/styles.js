@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components"
 import { Link } from "gatsby"
+import { Stars } from "@styled-icons/bootstrap"
 
 export const Wrapper = styled.div`
   margin-top: 2rem;
@@ -45,6 +46,7 @@ export const PostInner = styled.div`
 `
 
 export const PostBox = styled(Link)`
+  position: relative;
   border: 1px solid #d6d6d6;
   width: calc((100% - 3rem) / 4);
   display: flex;
@@ -140,4 +142,14 @@ export const SearchWrapper = styled.div`
   @media (max-width: 480px) {
     width: 100%;
   }
+`
+
+export const StarsWrapper = styled(Stars)`
+  width: 2.5rem;
+  height: 2.5rem;
+  color: #fff;
+  position: absolute;
+  top: 0.5rem;
+  left: 0.25rem;
+  z-index: 1;
 `

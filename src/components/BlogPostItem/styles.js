@@ -1,5 +1,6 @@
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 import { Link } from "gatsby"
+import { Stars } from "@styled-icons/bootstrap"
 
 export const Wrapper = styled.div`
   display: flex;
@@ -64,4 +65,10 @@ export const PostNumber = styled.div`
   @media (max-width: 768px) {
     display: none;
   }
+`
+
+export const StarsWrapper = styled(Stars)`
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-right: 0.5rem;
 `
