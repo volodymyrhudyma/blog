@@ -124,6 +124,36 @@ It also describes a few reasons why I started this blog and why I chose React as
 
 A lot of time has passed since I started my blog, so I've been collecting some feedback from people who have subscribed to my newsletter, and here's what they're saying:
 
+#### Why are you subscribed?
+
+> Very useful and well explained (and sometime researched) programming skills, that often fit my current needs.
+>
+> I'm a frontend developer and I'm interest in javascript, React and similar.
+>
+> Because you write quality blog articles! You explain things well, and have a nice and exhaustive approach on many different subjects.
+
+#### Is the blog useful for you?
+
+> Yes, even if you describe things I already know it sometime gives me some deeper look into it, but I also learned new things.
+>
+> A lot! 
+>
+> If it is only useful to me a few times, it's a lot useful to my team-mates and students!
+
+#### If I asked you to write an honest feedback about my blog, what would it be?
+
+> Well, what I wrote in the first two textareas :D I also took the chance to write it to you in person, but again: well done, keep up the good work. something you maybe don't like to hear: It's not that I don't like the new design/layout, but the very simple initial theme already did a great job imho.
+>
+> I think that your articles are well written and interesting.
+>
+> This blog rocks!
+
+There is a lot of positive feedback, as well as some improvement propositions/pointing out the things that could have been done better.
+
+I would like to say a huge Than You to all people who responded to my survey, your feedback is very much appreciated and helps to make this blog better.
+
+**P.S.** If you want to leave your feedback, please click on [this link](https://us10.list-manage.com/survey?u=6a773660aa826636b1a44c965&id=9ec71ec725&attribution=false).
+
 ## Future Plans
 
 Now is a good time to make some plans for the future of my blog.
