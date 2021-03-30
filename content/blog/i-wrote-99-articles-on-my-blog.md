@@ -6,6 +6,7 @@ promote: false
 metaDescription: This is the 100th and most important article on my blog, where
   I analyze my experience with blogging and try to point out the most important
   mistakes and learnings I made during the year of blogging.
+shareImage: /img/100th-article.jpg
 teaser: In mid April 2020, almost a year ago, I decided to start my programming
   blog mainly to expand my knowledge in some areas I felt I was lacking. The
   journey started with a little introduction of myself and the reasoning behind
