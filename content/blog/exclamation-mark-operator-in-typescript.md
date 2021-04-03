@@ -148,16 +148,20 @@ const App = () => {
 };
 ```
 
-#### In Unit Tests
-
- 
-
 ## When It Is Not Useful?
 
 Basically, by using this operator, you say to the TypeScript: "I know better than you and I take all responsibility for it", therefore now you have way more responsibility for your code.
 
 If for any reason, your assertion would not be true, the run-time error will happen.
 
-That's the reason using it is not the best idea for 90% of the cases.
+That's the reason using it is not the best idea for 99% of the cases.
 
 So, think twice before using it.
+
+## Summary
+
+**Non-Null Assertion Operator** forces the compiler to ignore **undefined** or **null** types.
+
+Developers need to be extremely careful when using it, since a misuse leads to a run-time errors we are responsible for and that could be prevented by the TypeScript
+
+However, in some special cases it makes your code a little less verbose and allows to skip writing some additional if checks.
