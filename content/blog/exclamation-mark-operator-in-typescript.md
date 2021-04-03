@@ -7,7 +7,7 @@ metaDescription: Learn about Exclamation Mark, aka Non-Null Asserion Operator in
   TypeScript and why it can be a useful addition to your project.
 shareImage: /img/non-null-assertion.jpg
 teaser: If you are using TypeScript, you might have noticed an Exclamation Mark
-  (**!**) operator that does some kind of magic and makes your compiler ignore
+  (!) operator that does some kind of magic and makes your compiler ignore
   possible errors. Let's learn what the purpose of this operator is and how it
   can be a useful addition to...
 date: 2021-04-04T09:23:41.408Z
