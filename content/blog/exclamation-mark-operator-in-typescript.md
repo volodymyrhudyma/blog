@@ -1,5 +1,5 @@
 ---
-title: Exclamation Mark Operator In TypeScript
+title: Exclamation Mark In TypeScript
 tag:
   - JavaScript
 promote: false
