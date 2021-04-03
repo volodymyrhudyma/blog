@@ -3,17 +3,21 @@ title: Exclamation Mark In TypeScript
 tag:
   - JavaScript
 promote: false
-metaDescription: // META
-teaser: // TEASER
+metaDescription: Learn about Exclamation Mark, aka Non-Null Asserion Operator in
+  TypeScript and why it can be a useful addition to your project.
+teaser: If you are using TypeScript, you might have noticed an Exclamation Mark
+  (**!**) operator that does some kind of magic and makes your compiler ignore
+  possible errors. Let's learn what the purpose of this operator is and how it
+  can be a useful addition to...
 date: 2021-04-04T09:23:41.408Z
 ---
-If you used TypeScript, you could have noticed an Exclamation Mark (**!**) operator that does some kind of a magic and makes your compiler ignore possible errors.
+If you are using TypeScript, you might have noticed an Exclamation Mark (**!**) operator that does some kind of magic and makes your compiler ignore possible errors.
 
-Let's learn what is the purpose of it and how it can be useful in our projects.
+Let's learn what the purpose of this operator is and how it can be a useful addition to our projects.
 
 ## Non-Null Assertion Operator
 
-The "Exclamation Mark" operator is called **Non-Null Assertion Operator** and adding it makes the compiler ignore **undefined** or **null** types.
+The "Exclamation Mark" operator is called **Non-Null Assertion Operator** and adding this operator causes the compiler to ignore **undefined** or **null** types.
 
 Consider the following example:
 
@@ -28,14 +32,14 @@ const parseValue = (value: string) => {
 };
 ```
 
-It results in the following TypeScript error:
+This leads to the following TypeScript error:
 
 **Argument of type 'string | undefined' is not assignable to parameter of type 'string'.**\
 **Type 'undefined' is not assignable to type 'string'.**
 
-Which is true, because we expect **value** in the **prepareValue** function to be **undefined** or a **string**, but then we pass it to the **parseValue** function that expects only **string**.
+That's right, because we expect **value** in the **prepareValue** function to be **undefined** or a **string**, but then we pass it to the **parseValue** function, which expects only **string**.
 
-However, in certain cases we can be sure that the **value** will not be **undefined** and that's exactly the case when we need the Non-Null Assertion Operator:
+However, in certain cases we can be sure that the **value** will not be **undefined**, and that is exactly the case when we need the Non-Null Assertion Operator:
 
 ```typescript
 const prepareValue = (value?: string) => {
@@ -50,15 +54,15 @@ const parseValue = (value: string) => {
 
 The above code works just fine.
 
-However, we should be extremely careful when using it, since it can produce unexpected behavior if the **value** is indeed **undefined**.
+However, we should be extremely careful when using it, as it can lead to unexpected behavior if the **value** is actually **undefined**.
 
 ## When Is It Useful?
 
-Now, when we know what is the Non-Null Assertion Operator, then next thing is to learn some real-world use cases, because it may seem useless at the beginning.
+Now that we know what Non-Null Assertion Operator is, the next thing we need to do is learn some real-world use cases, because at first it may seem useless.
 
 #### Search For An Item That Exists In A List
 
-In some cases you are sure that an item exists in a list and you might want to search for it:
+In some cases, you are sure that an element is present in a list, and you may want to search for it:
 
 ```typescript
 interface Config {
@@ -85,11 +89,11 @@ const getConfig = (id: number) => {
 const config = getConfig(1);
 ```
 
-We have a list of configs and having an id we want to find the whole config object.
+We have a list of configs and want to find the entire config object based on an id.
 
-The above code does this perfectly fine, however if we look at the type of the **config** variable, it would be **Config | undefined**.
+The code above does this perfectly fine, but if we look at the type of the variable **config**, it would be **Config | undefined**. 
 
-We can use the Non-Null Assertion Operator to tell the TypeScript that the **config** should exist, so there is no need to assume that it can be **undefined**:
+We can use the Non-Null Assertion Operator to tell TypeScript that the **config** should exist, so we don't have to assume it can be **undefined**:
 
 ```typescript
 // ...
@@ -103,7 +107,7 @@ const getConfig = (id: number) => {
 const config = getConfig(1);
 ```
 
-Voila, if we are about to get any properties from the **config** object, we don't have to check if it exists before doing that.
+Voila, if we are about to get any properties from the **config** object, we no longer need to check if it exists before doing so.
 
 #### Handling Refs In React
 
@@ -130,11 +134,11 @@ const App = () => {
 };
 ```
 
-In the example above we created a simple component that has an access to the **<div class="App">** DOM node.
+In the above example, we have created a simple component that has access to the **div** with the **App** class DOM node. 
 
-We also have a button, clicking on which gets the size of an elements and its position in the viewport.
+We also have a button that, when clicked, displays the size of an element and its position in the viewport. 
 
-In this simple example we are sure that the accessed element is mounted after clicking on a **button**, so we can add a small hint to the TypeScript:
+In this simple example, we are sure that the element being accessed is mounted after clicking a **button**, so we can add a little hint in the TypeScript:
 
 ```tsx
 // ...
@@ -150,20 +154,20 @@ const App = () => {
 };
 ```
 
-## When It Is Not Useful?
+## When Is It Not Useful?
 
-Basically, by using this operator, you say to the TypeScript: "I know better than you and I take all responsibility for it", therefore now you have way more responsibility for your code.
+Basically, by using this operator, you're saying to TypeScript: "**I know better than you and I'll take responsibility for it**", so now you have much more responsibility for your code. 
 
-If for any reason, your assertion would not be true, the run-time error will happen.
+If for some reason your assertion is not true, the runtime error will occur. 
 
-That's the reason using it is not the best idea for 99% of the cases.
+That's why 99% of the time it's not the best idea to use it.
 
-So, think twice before using it.
+It is much safer to handle these cases in the code by making some additional checks.
 
 ## Summary
 
 **Non-Null Assertion Operator** forces the compiler to ignore **undefined** or **null** types.
 
-Developers need to be extremely careful when using it, since a misuse leads to a run-time errors we are responsible for and that could be prevented by the TypeScript
+Developers must be extremely careful when using it, as misuse will result in a runtime error, which could be prevented by the TypeScript.
 
-However, in some special cases it makes your code a little less verbose and allows to skip writing some additional if checks.
+However, in some special cases, it makes your code a little less lengthy and allows you to skip writing some extra if checks.
