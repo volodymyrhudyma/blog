@@ -116,7 +116,9 @@ const App = () => {
   const ref = useRef<HTMLDivElement>(null);
 
   const handleClick = () => {
-    console.log(ref.current?.getBoundingClientRect());
+    if(ref.current) {
+      console.log(ref.current.getBoundingClientRect());
+    }
   };
 
   return (
@@ -132,7 +134,7 @@ In the example above we created a simple component that has an access to the **<
 
 We also have a button, clicking on which gets the size of an elements and its position in the viewport.
 
-In this simple example we are sure that the accessed element is mounted after clicking on a **button**, so we can add a small hint to the TypeScript (in order not to have to use [Optional Chaining Operator](/2020-05-27-optional-chaining-in-javascript/)):
+In this simple example we are sure that the accessed element is mounted after clicking on a **button**, so we can add a small hint to the TypeScript:
 
 ```tsx
 // ...
