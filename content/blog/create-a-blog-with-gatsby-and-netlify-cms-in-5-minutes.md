@@ -77,12 +77,12 @@ The next step is to install a template.
 
 Create a folder that would contain all your projects if you don't have any, open it and execute the following inside:
 
-`gatsby new blog https://github.com/gatsbyjs/gatsby-starter-blog`
+`gatsby new my-blog https://github.com/gatsbyjs/gatsby-starter-blog`
 
 Let's break the above command in parts:
 
 * **gatsby new** - creates a new Gatsby project
-* **blog** - a name of your project, you can type any name
+* **my-blog** - a name of your project, you can type any name
 * **URL**(https://github.com/gatsbyjs/gatsby-starter-blog) - the URL to the starter repository 
 
 Once the installation process completes, let's navigate to the project:
