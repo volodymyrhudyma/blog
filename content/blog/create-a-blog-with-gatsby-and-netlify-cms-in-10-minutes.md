@@ -102,7 +102,7 @@ The next step is to create a Github Repository and put the template's code insid
 
 I prefer to keep it in the "Private" repository, so let's create one:
 
-![Create Github Private Repository](/img/screenshot-2021-04-05-at-14.39.15.png "Create Github Private Repository")
+![Create Github Private Repository](/img/screenshot-2021-04-05-at-18.34.28.png "Create Github Private Repository")
 
 And follow these instructions to push the code:
 
@@ -232,7 +232,7 @@ NetlifyCMS did a commit to our **my-blog** repository:
 
 Also, let's check the UI to make sure that the article is visible:
 
-![New Article Appeared In The UI](/img/screenshot-2021-04-05-at-15.36.12.png "New Article Appeared In The UI")
+![New Article Appeared In The UI](/img/screenshot-2021-04-05-at-18.35.00.png "New Article Appeared In The UI")
 
 ## Deploy Your Blog To Netlify
 
@@ -248,7 +248,7 @@ Create an account if you don't have any, log in and click on a **New site from G
 
 In the next step, choose the Github as your Git provider:
 
-![Choose Git Provider](/img/screenshot-2021-04-05-at-15.42.57.png "Choose Git Provider")
+![Choose Git Provider](/img/screenshot-2021-04-05-at-18.35.25.png "Choose Git Provider")
 
 And pick a repository:
 
@@ -256,11 +256,11 @@ And pick a repository:
 
 **Important note:** if you can not find your repository in the list, you need to provide Netlify with access to it. To do that, click on the link below the list: **Can’t see your repo here? Configure the Netlify app on GitHub:**
 
-![Adding Repo To Be Seen By Netlify](/img/screenshot-2021-04-05-at-15.45.48.png "Adding Repo To Be Seen By Netlify")
+![Adding Repo To Be Seen By Netlify](/img/screenshot-2021-04-05-at-18.35.51.png "Adding Repo To Be Seen By Netlify")
 
 Finally, provide the deploy settings. The most important ones are: which branch to deploy (we will deploy **main**), which command to execute to build the project (in our case **yarn build**), and which folder to deploy (in our case **public** folder):
 
-![Deploy Site Configuration](/img/screenshot-2021-04-05-at-15.47.17.png "Deploy Site Configuration")
+![Deploy Site Configuration](/img/screenshot-2021-04-05-at-18.36.24.png "Deploy Site Configuration")
 
 And click on a **Deploy site** button.
 
@@ -290,7 +290,7 @@ Which basically means that you need to add your deployed site as an OAuth applic
 
 When you complete the registration, you’ll be given a **Client ID** and a **Client Secret** for the app:
 
-![Client ID And Secret](/img/screenshot-2021-04-05-at-16.01.53.png "Client ID And Secret")
+![Client ID And Secret](/img/screenshot-2021-04-05-at-18.36.51.png "Client ID And Secret")
 
 You need to add these to your Netlify site:
 
