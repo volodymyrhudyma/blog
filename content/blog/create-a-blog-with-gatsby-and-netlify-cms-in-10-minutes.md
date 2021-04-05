@@ -10,7 +10,7 @@ teaser: Creating a website has never been easier than it is now. There is an
   enormous amount of tools available for building a website of varying
   complexity - from a small landing page to a huge web application that
   processes hundreds of thousands of...
-date: 2021-04-06T09:40:43.824Z
+date: 2021-04-07T09:40:43.824Z
 ---
 Creating a website has never been easier than it is now.
 
