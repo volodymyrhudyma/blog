@@ -67,9 +67,9 @@ Gatsby provides us with a lot of starters we can use for our blog.
 
 Click [here](https://www.gatsbyjs.com/starters/?c=Blog) to see the full list.
 
-I have chosen [this](https://www.gatsbyjs.com/starters/stackrole/gatsby-starter-foundation) template, since it is nice-looking both, on Web and Mobile and provides us with all necessary stuff for a blog - pagination, article detail page and some more pages, like About or Contact:
+I have chosen [](https://www.gatsbyjs.com/starters/stackrole/gatsby-starter-foundation)this template, since it it the official template for a blog build by the Gatsby team:
 
-![Chosen Blog Template](/img/foundation.stackrole.com_-1-.png "Chosen Blog Template")
+![Chosen Blog Template](/img/screenshot-2021-04-05-at-12.52.03.png "Chosen Blog Template")
 
 ## Install A Template
 
@@ -77,13 +77,13 @@ The next step is to install a template.
 
 Create a folder that would contain all your projects if you don't have any, open it and execute the following inside:
 
-`gatsby new blog https://github.com/stackrole/gatsby-starter-foundation`
+`gatsby new blog https://github.com/gatsbyjs/gatsby-starter-blog`
 
 Let's break the above command in parts:
 
 * **gatsby new** - creates a new Gatsby project
 * **blog** - a name of your project, you can type any name
-* **URL** - the URL to the starter repository 
+* **URL**(https://github.com/gatsbyjs/gatsby-starter-blog) - the URL to the starter repository 
 
 Once the installation process completes, let's navigate to the project:
 
