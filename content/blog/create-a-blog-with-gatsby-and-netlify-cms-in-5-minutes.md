@@ -195,7 +195,7 @@ Basically, that's it with the configuration, now you can login and check the CMS
 
 Type in the browser: **localhost:8000/admin** and you will see the following screen:
 
-![NetlifyCMS Login Page](/img/screenshot-2021-04-05-at-15.25.38.png "NetlifyCMS Login Page")
+![NetlifyCMS Login Page](/img/screenshot-2021-04-05-at-15.37.55.png "NetlifyCMS Login Page")
 
 You can login to the CMS via Github, so click on the button, authorize the application and you will end up on the dashboard page:
 
