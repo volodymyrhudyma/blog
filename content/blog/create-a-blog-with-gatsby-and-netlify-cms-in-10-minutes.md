@@ -3,16 +3,20 @@ title: Create A Blog With Gatsby And Netlify CMS In 10 Minutes
 tag:
   - React
 promote: false
-metaDescription: // META
+metaDescription: Learn how to create and publish a simple blog with Gatsby and
+  NetlifyCMS in just 10 minutes with almost no configuration.
 shareImage: /img/blog-in-10-minutes.jpg
-teaser: // TEASER
+teaser: Creating a website has never been easier than it is now. There is an
+  enormous amount of tools available for building a website of varying
+  complexity - from a small landing page to a huge web application that
+  processes hundreds of thousands of...
 date: 2021-04-06T09:40:43.824Z
 ---
-Building a website has never been easier than today.
+Creating a website has never been easier than it is now.
 
-There are a tremendous amount of tools available for building a website of a different complexity - from a small landing page to a huge web application handling hundreds of thousands requests per second.
+There is an enormous amount of tools available for building a website of varying complexity - from a small landing page to a huge web application that processes hundreds of thousands of requests per second.
 
-Today we will build a simple blog using [Gatsby](https://www.gatsbyjs.com/) for the Front-End, and [NetlifyCMS](https://www.netlifycms.org/) for the Content Management.
+Today we are going to build a simple blog using [Gatsby](https://www.gatsbyjs.com/) for the Front-End and [NetlifyCMS](https://www.netlifycms.org/) for the Content Management.
 
 ## Gatsby
 
