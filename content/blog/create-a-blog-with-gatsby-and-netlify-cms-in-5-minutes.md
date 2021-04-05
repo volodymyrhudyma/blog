@@ -51,4 +51,46 @@ As soon as the installation process completed successfully, we are ready to star
 
 Obviously, apart from the Gatsby CLI we also need **Node.js** and **Git** installed to be able to run the JavaScript code outside of the browser and push it to the repository.
 
-## Picking Up A Template
+## Pick Up A Template
+
+We have two options of building a blog available: either create it from scratch or use an existing template that has a lot of things done for you.
+
+Both approaches have their pros and cons.
+
+If we choose creating from scratch - we would have more control over the website, however we would spend a lot of time configuring some basic things that could already be configured for you.
+
+If we choose to use an existing template - we would save a lot of time on a things that are already done for you, however we would have a little less control over the website and changing any of the existing configuration would take slightly more time, because it wasn't done by us.
+
+In this tutorial, since we are setting up a blog in 5 minutes, choosing the second option is a must.
+
+Gatsby provides us with a lot of starters we can use for our blog.
+
+Click [here](https://www.gatsbyjs.com/starters/?c=Blog) to see the full list.
+
+I have chosen [this](https://www.gatsbyjs.com/starters/stackrole/gatsby-starter-foundation) template, since it is nice-looking both, on Web and Mobile and provides us with all necessary stuff for a blog - pagination, article detail page and some more pages, like About or Contact:
+
+![Chosen Blog Template](/img/foundation.stackrole.com_-1-.png "Chosen Blog Template")
+
+## Install A Template
+
+The next step is to install a template.
+
+Create a folder that would contain all your projects if you don't have any, open it and execute the following inside:
+
+`gatsby new blog https://github.com/stackrole/gatsby-starter-foundation`
+
+Let's break the above command in parts:
+
+* **gatsby new** - creates a new Gatsby project
+* **blog** - a name of your project, you can type any name
+* **URL** - the URL to the starter repository 
+
+Once the installation process completes, let's navigate to the project:
+
+`cd blog`
+
+And run it locally:
+
+`yarn develop`
+
+And it should be accessible under the **localhost:8000**.
