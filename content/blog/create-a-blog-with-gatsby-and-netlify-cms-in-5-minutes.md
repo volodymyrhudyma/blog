@@ -94,3 +94,58 @@ And run it locally:
 `yarn develop`
 
 And it should be accessible under the **localhost:8000**.
+
+## Create Github Repository
+
+The next step is to create a Github Repository and put the template's code inside.
+
+I prefer to keep it in the "Private" repository, so let's create one:
+
+![Create Github Private Repository](/img/screenshot-2021-04-05-at-14.39.15.png "Create Github Private Repository")
+
+And follow these instructions to push the code:
+
+```javascript
+git remote add origin https://github.com/volodymyrhudyma/my-blog.git
+git branch -M main
+git push -u origin main
+```
+
+Alright, let's add NetlifyCMS then.
+
+## Add NetlifyCMS
+
+To begin with, we have to install the following dependencies:
+
+* [netlify-cms-app](https://www.npmjs.com/package/netlify-cms-app) - a CMS for static site generators, gives users a simple way to edit and add content to any site built with a static site generator
+* [gatsby-plugin-netlify-cms](https://www.gatsbyjs.com/plugins/gatsby-plugin-netlify-cms/) - automatically generates an admin/index.html with a default Netlify CMS implementation
+
+`yarn add netlify-cms-app gatsby-plugin-netlify-cms`
+
+To configure the CMS, create a **static/admin/config.yml**:
+
+```yaml
+backend:
+  name: volodymyrhudyma/my-blog
+  branch: main
+
+media_folder: static/img
+public_folder: /img
+
+collections:
+  - name: 'blog'
+    label: 'Blog'
+    folder: 'content/blog'
+    create: true
+    slug: 'index'
+    media_folder: ''
+    public_folder: ''
+    path: '{{title}}/index'
+    editor:
+      preview: false
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Description', name: 'description', widget: 'string' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+```
