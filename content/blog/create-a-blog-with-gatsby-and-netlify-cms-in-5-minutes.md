@@ -113,7 +113,7 @@ git push -u origin main
 
 Alright, let's add NetlifyCMS then.
 
-## Add NetlifyCMS
+## Configure NetlifyCMS
 
 To begin with, we have to install the following dependencies:
 
@@ -171,3 +171,22 @@ The configuration looks scary, so let's see what each of these lines does:
     * **name** (required): unique identifier for the field, used as the key when referenced in other contexts
     * **label**: label for the field in the editor UI; defaults to the value of **name**
     * **widget**: defines editor UI and inputs and file field data types (see all widgets [here](https://www.netlifycms.org/docs/widgets/))
+
+Next, add the plugin to your **gatsby-config.js**:
+
+```javascript
+plugins: [
+  `gatsby-plugin-netlify-cms`,
+  // ...
+],
+```
+
+And push the changes to the Github.
+
+```javascript
+git add -A
+git commit -m "Add NetlifyCMS config"
+git push
+```
+
+## Deploy A Template To Netlify
