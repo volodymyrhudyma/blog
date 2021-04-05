@@ -126,21 +126,19 @@ To configure the CMS, create a **static/admin/config.yml**:
 
 ```yaml
 backend:
-  name: volodymyrhudyma/my-blog
-  branch: main
+  name: github
+  repo: volodymyrhudyma/blog
+  branch: master
 
-media_folder: static/img
-public_folder: /img
+media_folder: "static/img"
+public_folder: "/img"
 
 collections:
-  - name: 'blog'
-    label: 'Blog'
-    folder: 'content/blog'
+  - name: "blog"
+    label: "Blog"
+    folder: "content/blog"
     create: true
-    slug: 'index'
-    media_folder: ''
-    public_folder: ''
-    path: '{{title}}/index'
+    slug: "{{slug}}"
     editor:
       preview: false
     fields:
@@ -149,3 +147,27 @@ collections:
       - { label: 'Description', name: 'description', widget: 'string' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
 ```
+
+The configuration looks scary, so let's see what each of these lines does:
+
+* **backend** section -  specifies how to access the backend of your website
+
+  * **repo** - the name of your Github repository, including user name.
+  * **branch** - the main branch of your blog.
+* **media_folder** - specifies the folder path where uploaded files should be saved, relative to the base of the repo
+* **public_folder** - specifies the folder path where the files uploaded by the media library will be accessed, relative to the base of the built site. Defaults to the value of media_folder, with an opening / if one is not already included
+* **collections** section - determines how content types and editor fields in the UI generate files and content in your repository
+
+  * **name** - unique identifier for the collection, used as the key when referenced in other contexts
+  * **label** - label for the collection in the editor UI; defaults to the value of **name**
+  * **folder** - specifies the location of the collection
+  * **create** - allows users to create new items in the collection if set to **true**, defaults to **false**
+  * **slug** - specifies a template for generating new filenames
+  * **editor** section - changes options for the editor view of a collection or a file inside a files collection
+
+    * **preview** - the only option so far, set **false** to disable the preview pane for this collection or file, defaults to  **true**
+  * **fields** section - maps editor UI widgets to field-value pairs, accepts a list of collection objects, some (but not all) available options:
+
+    * **name** (required): unique identifier for the field, used as the key when referenced in other contexts
+    * **label**: label for the field in the editor UI; defaults to the value of **name**
+    * **widget**: defines editor UI and inputs and file field data types (see all widgets [here](https://www.netlifycms.org/docs/widgets/))
