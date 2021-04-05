@@ -189,7 +189,7 @@ git commit -m "Add NetlifyCMS config"
 git push
 ```
 
-## Login To CMS
+## Login To CMS Locally
 
 Basically, that's it with the configuration, now you can login and check the CMS we have just added.
 
@@ -205,7 +205,7 @@ You can login to the CMS via Github, so click on the button, authorize the appli
 
 Are you eager to test adding a new blog post to our CMS?
 
-Before doing that, let's clean the existing posts that are stored under **content/blog** directory.
+Before doing that, let's clean the existing posts that are stored under **content/blog** directory and push changes to the Github repository.
 
 Make sure that the directory exists, but is empty and let's add content for a new article:
 
@@ -270,3 +270,39 @@ Netlify will build and deploy the website for you.
 Once the deployment is complete, your site will accessible:
 
 ![Accessible Website](/img/screenshot-2021-04-05-at-15.50.22.png "Accessible Website")
+
+## Login To CMS On Netlify
+
+Everything seems to be working as expected, until we try to log in to the CMS.
+
+After clicking on a **Login with Github** button, you will see the following:
+
+![No Auth Provider Netlify](/img/screenshot-2021-04-05-at-15.55.27.png "No Auth Provider Netlify")
+
+Which basically means that you need to add your deployed site as an OAuth application in your GitHub settings:
+
+* In GitHub, go to your account **Settings -> Developer Settings ->** **OAuth Apps**
+* Click **New OAuth App**
+* Fill the form (the most important thing - put **https://api.netlify.com/auth/done** in the **Authorization Callback URL** field) and click **Register Application**:
+
+![OAuth App In Github](/img/screenshot-2021-04-05-at-15.59.10.png "OAuth App In Github")
+
+When you complete the registration, you’ll be given a **Client ID** and a **Client Secret** for the app:
+
+![Client ID And Secret](/img/screenshot-2021-04-05-at-16.01.53.png "Client ID And Secret")
+
+You need to add these to your Netlify site:
+
+* Go to **Site settings** > **Access control** > **OAuth**
+* Under **Authentication Providers**, select **Install Provider**
+* Select **GitHub** and enter the **Client ID** and **Client Secret**, then save
+
+![Add OAuth App In Netlify](/img/screenshot-2021-04-05-at-16.03.38.png "Add OAuth App In Netlify")
+
+Perfect, try to log in to the CMS now.. autorize an application and see how it works!
+
+Congratulations, your first blog is up and running.
+
+The next steps are: publishing a good quality content and purchasing a domain.
+
+## Summary
