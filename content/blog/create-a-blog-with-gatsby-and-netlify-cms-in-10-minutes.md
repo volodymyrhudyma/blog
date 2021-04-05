@@ -70,7 +70,7 @@ Click [here](https://www.gatsbyjs.com/starters/?c=Blog) to see the full list.
 
 I have chosen [](https://www.gatsbyjs.com/starters/stackrole/gatsby-starter-foundation)this template, since it it the official template for a blog build by the Gatsby team:
 
-![Chosen Blog Template](/img/screenshot-2021-04-05-at-12.52.03.png "Chosen Blog Template")
+![Chosen Blog Template](/img/screenshot-2021-04-05-at-18.32.46.png "Chosen Blog Template")
 
 ## Install A Template
 
@@ -224,7 +224,7 @@ Then switch to the code editor and make a pull:
 
 You should see the article appeared in the **content/blog** folder:
 
-![Article Visible In The Code](/img/screenshot-2021-04-05-at-15.34.09.png "Article Visible In The Code")
+![Article Visible In The Code](/img/screenshot-2021-04-05-at-18.33.26.png "Article Visible In The Code")
 
 NetlifyCMS did a commit to our **my-blog** repository:
 
