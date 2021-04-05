@@ -1,5 +1,5 @@
 ---
-title: Create A Blog With Gatsby And Netlify CMS In 5 Minutes
+title: Create A Blog With Gatsby And Netlify CMS In 10 Minutes
 tag:
   - React
 promote: false
@@ -62,7 +62,7 @@ If we choose creating from scratch - we would have more control over the website
 
 If we choose to use an existing template - we would save a lot of time on a things that are already done for you, however we would have a little less control over the website and changing any of the existing configuration would take slightly more time, because it wasn't done by us.
 
-In this tutorial, since we are setting up a blog in 5 minutes, choosing the second option is a must.
+In this tutorial, since we are setting up a blog in 10 minutes, choosing the second option is a must.
 
 Gatsby provides us with a lot of starters we can use for our blog.
 
