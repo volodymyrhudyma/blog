@@ -307,3 +307,9 @@ Congratulations, your first blog is up and running.
 The next steps are: publishing a good quality content and purchasing a domain.
 
 ## Summary
+
+Creating a blog is very simple if you have just basic programming skills.
+
+Today, we have used Gatsby, as a Static Site Generator (SSG), Netlify as a service that automates builds and deployments and NetlifyCMS as a Conent Management system which is perfect for SSGs.
+
+I hope this article was useful for you and see you in the next ones, where we will dig deeper into the Gatsby itself and add some more interesting features every blog should have (like pagination, searching, filtering etc).
