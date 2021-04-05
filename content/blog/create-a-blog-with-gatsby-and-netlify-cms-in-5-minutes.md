@@ -125,27 +125,27 @@ To begin with, we have to install the following dependencies:
 To configure the CMS, create a **static/admin/config.yml**:
 
 ```yaml
-backend:
+ backend:
   name: github
-  repo: volodymyrhudyma/blog
-  branch: master
+  repo: volodymyrhudyma/my-blog
+  branch: main
 
 media_folder: "static/img"
 public_folder: "/img"
 
 collections:
-  - name: "blog"
-    label: "Blog"
+  - name: "article"
+    label: "Article"
     folder: "content/blog"
     create: true
     slug: "{{slug}}"
     editor:
       preview: false
     fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Description', name: 'description', widget: 'string' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
 ```
 
 The configuration looks scary, so let's see what each of these lines does:
@@ -189,4 +189,46 @@ git commit -m "Add NetlifyCMS config"
 git push
 ```
 
-## Deploy A Template To Netlify
+## Login To CMS
+
+Basically, that's it with the configuration, now you can login and check the CMS we have just added.
+
+Type in the browser: **localhost:8000/admin** and you will see the following screen:
+
+![NetlifyCMS Login Page](/img/screenshot-2021-04-05-at-15.25.38.png "NetlifyCMS Login Page")
+
+You can login to the CMS via Github, so click on the button, authorize the application and you will end up on the dashboard page:
+
+![NetlifyCMS Dashboard Page](/img/screenshot-2021-04-05-at-15.30.03.png "NetlifyCMS Dashboard Page")
+
+## Add New Blog Post
+
+Are you eager to test adding a new blog post to our CMS?
+
+Before doing that, let's clean the existing posts that are stored under **content/blog** directory.
+
+Make sure that the directory exists, but is empty and let's add content for a new article:
+
+![New Article Content](/img/screenshot-2021-04-05-at-15.30.42.png "New Article Content")
+
+And click **Publish**.
+
+You should now see the entry in the list:
+
+![New Article In The List](/img/screenshot-2021-04-05-at-15.31.33.png "New Article In The List")
+
+Then switch to the code editor and make a pull:
+
+`git pull`
+
+You should see the article appeared in the **content/blog** folder:
+
+![Article Visible In The Code](/img/screenshot-2021-04-05-at-15.34.09.png "Article Visible In The Code")
+
+NetlifyCMS did a commit to our **my-blog** repository:
+
+![NetlifyCMS Commit On Github](/img/screenshot-2021-04-05-at-15.35.35.png "NetlifyCMS Commit On Github")
+
+Also, let's check the UI to make sure that the article is visible:
+
+![New Article Appeared In The UI](/img/screenshot-2021-04-05-at-15.36.12.png "New Article Appeared In The UI")
