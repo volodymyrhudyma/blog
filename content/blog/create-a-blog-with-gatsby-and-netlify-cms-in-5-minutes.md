@@ -4,6 +4,7 @@ tag:
   - React
 promote: false
 metaDescription: // META
+shareImage: /img/blog-in-10-minutes.jpg
 teaser: // TEASER
 date: 2021-04-06T09:40:43.824Z
 ---
