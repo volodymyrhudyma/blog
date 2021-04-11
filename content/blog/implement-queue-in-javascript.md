@@ -30,8 +30,6 @@ To better understand this data structure, think of a real-world queues, for exam
 
 If there is a queue of people in front of the restaurant, then the first person to get into the queue will be the first person to enter the restaurant, as simple as that.
 
-![Queue To The Restaurant](/img/2942529.jpg "Queue To The Restaurant")
-
 A Queue has two pointers:
 
 * **head** - the oldest element in the queue
