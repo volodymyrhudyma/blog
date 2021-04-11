@@ -91,23 +91,34 @@ Let's see an implementation without using **shift** method:
 ```javascript
 class Queue {
   constructor() {
+    // The actual queue
     this.elements = {};
+    // The index of the head element
     this.head = 0;
+    // The index of the tail element
     this.tail = 0;
   }
 
   enqueue(element) {
+    // Add an element on the current tail index
     this.elements[this.tail] = element;
+    // Increase the index of the tail element
+    // So the next elements are added at the end
     this.tail++;
   }
 
   dequeue() {
+    // If the queue is empty, return "undefined"
     if (this.tail === this.head) {
       return undefined;
     }
+    // Pick an element
     const element = this.elements[this.head];
+    // Delete it
     delete this.elements[this.head];
+    // Increase the head index
     this.head++;
+    // Return the element
     return element;
   }
 }
@@ -155,4 +166,16 @@ console.log(queue);
 
 Both, **enqueue** and **dequeue** methods, use property accessors and increment operation to manipulate the data, so the time complexity is maintained on a **O(1)** level.
 
+## Use Cases
+
+It is great that now you know a bit more about the Queue and can implement it, however you might wonder what are the use cases of this data structure?
+
+
+
 ## Summary
+
+Data structures are relatively simple yet important concept to learn about.
+
+They offer a great help in solving some common problems in an easy and efficient way.
+
+Today we learned Queue - a linear data structure of a FIFO (First In - First Out) type and implemented it in JavaScript in two ways: an efficient one with **O(1)** time complexity and the one that should be avoided, with **O(n)** complexity.
