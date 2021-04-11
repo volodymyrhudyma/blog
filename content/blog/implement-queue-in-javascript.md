@@ -62,10 +62,10 @@ class Queue {
     this.items = [];
   }
   enqueue(element) {
-    this.items.push(element)
+    this.items.push(element);
   }
   dequeue() {
-    return this.items.shift()
+    return this.items.shift();
   }
 }
 
@@ -103,7 +103,6 @@ class Queue {
     // The index of the tail element
     this.tail = 0;
   }
-
   enqueue(element) {
     // Add an element on the current tail index
     this.elements[this.tail] = element;
@@ -111,7 +110,6 @@ class Queue {
     // So the next elements are added at the end
     this.tail++;
   }
-
   dequeue() {
     // If the queue is empty, return "undefined"
     if (this.tail === this.head) {
@@ -144,9 +142,7 @@ Queue {
   head: 0,
   tail: 3,
   __proto__: Queue {
-    constructor: ƒ Queue(),
-    enqueue: ƒ enqueue(),
-    dequeue: ƒ dequeue()
+    ...
   }
 }
 */
@@ -160,9 +156,7 @@ Queue {
   head: 1,
   tail: 3,
   __proto__: Queue {
-    constructor: ƒ Queue(),
-    enqueue: ƒ enqueue(),
-    dequeue: ƒ dequeue()
+    ...
   }
 }
 */
