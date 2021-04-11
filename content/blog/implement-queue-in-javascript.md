@@ -35,7 +35,7 @@ A Queue has two pointers:
 * **head** - the oldest element in the queue
 * **tail** - the latest element added to the queue
 
-![Queue Image](/img/queue.png "Queue Image")
+![Queue Image](/img/screenshot-2021-04-11-at-21.43.17.png "Queue Image")
 
 We can perform some basic operations on in, which will be described in the next section.
 
