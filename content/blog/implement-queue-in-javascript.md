@@ -3,8 +3,13 @@ title: Implement Queue In JavaScript
 tag:
   - JavaScript
 promote: false
-metaDescription: // META
-teaser: // TEASER
+metaDescription: Learn how to implement Queue data structure in JavaScript.
+  Queue is a linear data structure of a FIFO type.
+shareImage: /img/queue-in-javascript.jpg
+teaser: In JavaScript, there are many data structures designed to solve common
+  problems. Knowing them is a must for a good developer in order to be able to
+  efficiently manipulate the data. Today we will learn one of the most basic and
+  popular data structures...
 date: 2021-04-12T18:18:49.695Z
 ---
 In JavaScript, there are many data structures designed to solve common problems.
@@ -54,24 +59,26 @@ The constant time means that no matter what the size of the queue is, accessing 
 One of the possible implementations that **should be avoided**, we will later find out why:
 
 ```javascript
-const queue = [];
+class Queue {
+  constructor() {
+    this.items = [];
+  }
+  enqueue(element) {
+    this.items.push(element)
+  }
+  dequeue() {
+    return this.items.shift()
+  }
+}
 
-const enqueue = (element) => queue.push(element);
+const queue = new Queue();
 
-const dequeue = () => queue.shift();
-
-enqueue(1);
-enqueue(2);
-enqueue(3);
-
-// Prints "[1, 2, 3]"
-console.log(queue);
+queue.enqueue(1);
+queue.enqueue(2);
+queue.enqueue(3);
 
 // Prints "1"
-console.log(dequeue());
-
-// Prints "[2, 3]"
-console.log(queue);
+console.log(queue.dequeue());
 ```
 
 JavaScript is a very powerful tool and it provides us with all the necessary things we need to easily implement the Queue data structure.
@@ -165,12 +172,6 @@ console.log(queue);
 ```
 
 Both, **enqueue** and **dequeue** methods, use property accessors and increment operation to manipulate the data, so the time complexity is maintained on a **O(1)** level.
-
-## Use Cases
-
-It is great that now you know a bit more about the Queue and can implement it, however you might wonder what are the use cases of this data structure?
-
-
 
 ## Summary
 
