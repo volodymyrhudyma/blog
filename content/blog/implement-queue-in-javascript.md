@@ -45,13 +45,40 @@ There are two fundamental operations on a Queue data structure:
 
 ## Time Complexity
 
-In order to maintain the performance, all operations on a queue must be performed in constant time(**O(1)** time complexity).
+In order to maintain the performance, all operations on a queue must be performed in constant time (**O(1)** time complexity).
 
 The constant time means that no matter what the size of the queue is, accessing any single element takes constant time as only one operation has to be performed to locate it.
 
-JavaScript provides us with a **shift** array method that is used to remove the first element.
+## The Implementation
 
-It can be used to implement the **dequeue** operation, however it is not efficient for a large amount of data.
+One of the possible implementations that **should be avoided**, we will later find out why:
+
+```javascript
+const queue = [];
+
+const enqueue = (element) => queue.push(element);
+
+const dequeue = () => queue.shift();
+
+enqueue(1);
+enqueue(2);
+enqueue(3);
+
+// Prints "[1, 2, 3]"
+console.log(queue);
+
+// Prints "1"
+console.log(dequeue());
+
+// Prints "[2, 3]"
+console.log(queue);
+```
+
+JavaScript is a very powerful tool and it provides us with all the necessary things we need to easily implement the Queue data structure.
+
+It ships with a **shift** array method that is used to remove the first element.
+
+In the example above, we used it to implement the **dequeue** operation, however it is not efficient for a large amount of data.
 
 The **shift** method removes the element at the zero index and shifts the values at consecutive indexes down, which results in **O(n)** time complexity.
 
@@ -59,4 +86,73 @@ The bigger array is - the more elements will be shifted.
 
 In conclusion - it is better to avoid using **shift** method when implementing the Queue in JavaScript.
 
-## The Implementation
+Let's see an implementation without using **shift** method:
+
+```javascript
+class Queue {
+  constructor() {
+    this.elements = {};
+    this.head = 0;
+    this.tail = 0;
+  }
+
+  enqueue(element) {
+    this.elements[this.tail] = element;
+    this.tail++;
+  }
+
+  dequeue() {
+    if (this.tail === this.head) {
+      return undefined;
+    }
+    const element = this.elements[this.head];
+    delete this.elements[this.head];
+    this.head++;
+    return element;
+  }
+}
+```
+
+And test it:
+
+```javascript
+const queue = new Queue();
+
+queue.enqueue(1);
+queue.enqueue(2);
+queue.enqueue(3);
+
+/* 
+Queue {
+  elements: { '0': 1, '1': 2, '2': 3 },
+  head: 0,
+  tail: 3,
+  __proto__: Queue {
+    constructor: ƒ Queue(),
+    enqueue: ƒ enqueue(),
+    dequeue: ƒ dequeue()
+  }
+}
+*/
+
+// Prints "1"
+console.log(queue.dequeue());
+
+/* 
+Queue {
+  elements: { '1': 2, '2': 3 },
+  head: 1,
+  tail: 3,
+  __proto__: Queue {
+    constructor: ƒ Queue(),
+    enqueue: ƒ enqueue(),
+    dequeue: ƒ dequeue()
+  }
+}
+*/
+console.log(queue);
+```
+
+Both, **enqueue** and **dequeue** methods, use property accessors and increment operation to manipulate the data, so the time complexity is maintained on a **O(1)** level.
+
+## Summary
