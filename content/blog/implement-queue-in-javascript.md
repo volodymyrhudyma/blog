@@ -5,7 +5,7 @@ tag:
 promote: false
 metaDescription: // META
 teaser: // TEASER
-date: 2021-04-11T18:18:49.695Z
+date: 2021-04-12T18:18:49.695Z
 ---
 In JavaScript, there are many data structures designed to solve common problems.
 
