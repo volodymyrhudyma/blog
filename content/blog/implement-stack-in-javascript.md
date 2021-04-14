@@ -114,8 +114,24 @@ stack.push(3);
 
 ## Stack vs. Queue
 
+In the [previous article](/implement-queue-in-javascript/), we learned about the queue in JavaScript.
+
+Today, after getting to know stack, you may wonder what are the key differences between both data structures.
+
+On the one hand, they are quite similar, linear data structures, but on the other hand - they are of different types.
+
+The queue is of a FIFO (First In - First Out), which means that the first element added to the queue is also the first element to leave it.
+
+The stack is of a LIFO (Last In - First Out) or FILO (First In - Last Our) type, which means that the last item added to the stack will be the first one to be taken out.
+
+Another difference is that the insertion and deletion processes in stack are performed only at the top and we have to maintain only one pointer - to the **top** element, when in the queue we maintain two pointers - **head** and **tail**. 
+
+Lastly, stacks are used to solve recursive problems, queues - sequential elements processing.
+
 ## Summary
 
-Stack is a very basic, linear data structure of a **LIFO** (Last In - First Out) of **FILO** (First In - Last Out) type.
+Stack is a very basic, linear data structure of a **LIFO** (Last In - First Out) or **FILO** (First In - Last Out) type.
 
 When implementing stack, remember about setting and checking max size to prevent it from being in an overflow state.
+
+Make sure to play around with the implementation to understand the data structure better.
