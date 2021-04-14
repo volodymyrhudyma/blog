@@ -18,7 +18,7 @@ Think about a stack as of an array with limited capabilities - you can only **in
 
 A stack has one pointer, called **top**, which points to the last added element.
 
-![Stack Image](/img/stack.png "Stack Image")
+![Stack Image](/img/stack-in-js.png "Stack Image")
 
 ## Basic Operations
 
