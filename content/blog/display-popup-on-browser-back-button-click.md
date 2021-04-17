@@ -5,6 +5,7 @@ tag:
 promote: false
 metaDescription: Learn how to display alert on browser back button click or page
   reload using an event that is designed specifically for this purpose.
+shareImage: /img/alert-in-browser.jpg
 teaser: When website users are asked to provide a lot of input, it is important
   to make sure that the data will not be lost if something unexpected happens.
   One way to ensure that is to store the data somewhere (in the local storage,
