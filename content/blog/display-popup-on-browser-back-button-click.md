@@ -64,7 +64,7 @@ const handleBeforeUnload = (e) => {
 
 Even though the above code is written in React, is can be easily converted to the vanilla JavaScript.
 
-The above code in action:
+The above code in action (firstly I click on a browser back button, secondly I refresh the page):
 
 ![Alert When Clicking Back Browser Button](/img/alert.gif "Alert When Clicking Back Browser Button")
 
