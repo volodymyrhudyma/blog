@@ -64,6 +64,10 @@ const handleBeforeUnload = (e) => {
 
 Even though the above code is written in React, is can be easily converted to the vanilla JavaScript.
 
+The above code in action:
+
+![Alert When Clicking Back Browser Button](/img/alert.gif "Alert When Clicking Back Browser Button")
+
 ## Browser Compatibility
 
 ![Beforeunload Browser Compatibility](/img/screenshot-2021-04-17-at-12.00.54.png "Beforeunload Browser Compatibility")
