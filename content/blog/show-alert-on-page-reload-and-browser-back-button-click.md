@@ -10,7 +10,7 @@ teaser: When website users are asked to provide a lot of input, it is important
   to make sure that the data is not lost if something unexpected happens. One
   way to ensure this is to store the data somewhere (e.g. in the local storage),
   so that when the user leaves the page...
-date: 2021-04-18T08:34:47.843Z
+date: 2021-04-19T08:34:47.843Z
 ---
 When website users are asked to provide a lot of input, it is important to make sure that the data is not lost if something unexpected happens.
 
