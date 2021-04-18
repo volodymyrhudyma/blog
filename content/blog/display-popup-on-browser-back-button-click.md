@@ -3,47 +3,47 @@ title: Show Alert On Page Reload And Browser Back Button Click
 tag:
   - JavaScript
 promote: false
-metaDescription: Learn how to display alert on browser back button click or page
-  reload using an event that is designed specifically for this purpose.
+metaDescription: Learn how to display an alert when you click the back button in
+  the browser or reload the page using an event specifically for this purpose.
 shareImage: /img/alert-in-browser.jpg
 teaser: When website users are asked to provide a lot of input, it is important
-  to make sure that the data will not be lost if something unexpected happens.
-  One way to ensure that is to store the data somewhere (in the local storage,
-  for example), so...
+  to make sure that the data is not lost if something unexpected happens. One
+  way to ensure this is to store the data somewhere (e.g. in the local storage),
+  so that when the user leaves the page...
 date: 2021-04-18T08:34:47.843Z
 ---
-When website users are asked to provide a lot of input, it is important to make sure that the data will not be lost if something unexpected happens.
+When website users are asked to provide a lot of input, it is important to make sure that the data is not lost if something unexpected happens.
 
-One way to ensure that is to store the data somewhere (in the [local storage](/the-limitations-and-security-of-localstorage-in-javascript/), for example), so in case when the page is left - the data still persists on the next visit.
+One way to ensure this is to store the data somewhere (e.g. in the [local storage](/the-limitations-and-security-of-localstorage-in-javascript/)), so that when the user leaves the page - the data will persist on the next visit.
 
-But another way is to display a popup that warns user about losing the data when leaving the page.
+Another option is to display a popup that warns the user about the loss of the data when leaving the page.
 
-In this article we will learn how to display such popup using JavaScript.
+In this article we will learn how to display such a popup using JavaScript.
 
 ## Before Unload Event
 
 The **beforeunload** event is fired when the window, the document and its resources are about to be unloaded. 
 
-It enables a web page to trigger a confirmation dialog asking the user if they really want to leave the page. 
+It allows a web page to trigger a confirmation dialogue asking the user if they really want to leave the page. 
 
-In case of the confirmation - the browser navigates to the new page, otherwise the navigation is cancelled.
+In case of confirmation - the browser navigates to the new page, otherwise the navigation is aborted.
 
-According to the specification - for a popup to be shown, we just need to call **preventDefault** on an en event, however one important thing to remember is that it doesn't work for all browsers.
+According to the specification - in order for a popup to be displayed, we just need to call **preventDefault** on an en event, however, one important thing to note is that it does not work for all browsers.
 
-In order to support all browsers, apart from calling **preventDefault**, we still have to:
+To support all browsers, in addition to calling **preventDefault**, we need to:
 
-* Assign string to **returnValue** of an event
+* Assign a string to **returnValue** of an event
 * Return a string from the event handler
 
-A while ago, this returned string was displayed in the confirmation dialogue, but now it is not in most browsers.
+Some time ago this returned string was displayed in the confirmation dialogue, but now it is not in most browsers.
 
-So, even if you return a custom message, most browsers would still show the default one that can't be changed.
+So, even if you return a custom message, most browsers would still display the default message which cannot be changed.
 
-Also, remember that you can't change the design of that modal, you always have to stick with the default one.
+Also remember that you can't change the design of this popup, you always have to stick with the default.
 
 ## The Example
 
-Let's write some code that listens to the **beforeunload** event and triggers a popup:
+Let's write some code that listens for the **beforeunload** event and triggers a popup:
 
 ```jsx
  useEffect(() => {
@@ -62,9 +62,9 @@ const handleBeforeUnload = (e) => {
 };
 ```
 
-Even though the above code is written in React, is can be easily converted to the vanilla JavaScript.
+Although the above code is written in React, it can easily be converted to vanilla JavaScript.
 
-The above code in action (firstly I click on a browser back button, secondly I refresh the page):
+The above code in action (first I click a browser back button, second I refresh the page):
 
 ![Alert When Clicking Back Browser Button](/img/alert.gif "Alert When Clicking Back Browser Button")
 
@@ -72,22 +72,22 @@ The above code in action (firstly I click on a browser back button, secondly I r
 
 ![Beforeunload Browser Compatibility](/img/screenshot-2021-04-17-at-12.00.54.png "Beforeunload Browser Compatibility")
 
-The solution with combining **preventDefault**, assigning string to **returnValue** and returning a string works in the majority of browsers.
+The solution with the combination **preventDefault**, assigning string to **returnValue** and returning a string works in most browsers.
 
-See the [Browser Compatibility](https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event#browser_compatibility) section to learn what browsers require which code in the event handler to work.
+See the [Browser Compatibility](https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event#browser_compatibility) section to find out which browsers require which code in the event handler to work.
 
-Also remember, that it is possible to disable browsers from listening to **beforeunload** event, with an extension or a native setting, like **dom.disable_beforeunload** in **about:config** in Firefox.
+Also remember that it is possible to prevent browsers from listening for the **beforeunload** event with an extension or native setting, such as **dom.disable_beforeunload** in **about:config** in Firefox.
 
-See [this section](https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers/onbeforeunload#browser_compatibility) learn more about how the event behaves in different browsers.
+See [this section](https://developer.mozilla.org/en-US/docs/Web/API/WindowEventHandlers/onbeforeunload#browser_compatibility) to learn more about how the event behaves in different browsers.
 
 ## Summary
 
-In this article, we learned how to display a confirmation dialogue when the user presses back button in the browser of reloads the page with the help of a **beforeunload** event.
+In this article, we learned how to display a confirmation dialogue when the user presses the back button in the browser or reloads the page using the **beforeunload** event.
 
 The **beforeunload** event is fired when the window, the document and its resources are about to be unloaded.
 
 It works fine in most browsers if you follow 3 simple rules in the event handler:
 
 * Call **preventDefault**
-* Assign string to the **returnValue**
+* Assign a string to the **returnValue**
 * Return a string from the event handler
