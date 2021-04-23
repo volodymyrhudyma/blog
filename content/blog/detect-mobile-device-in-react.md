@@ -6,6 +6,7 @@ promote: false
 metaDescription: Learn a few ways to detect if a React app is rendering on a
   mobile device or on the desktop, and why you should never use User-Agent
   header for it.
+shareImage: /img/detect-mobile-in-react.jpg
 teaser: In some cases you need to identify whether your application is being
   viewed from the desktop or mobile device. It might be useful to prevent
   expensive computations from being performed on mobile devices, as they are not
