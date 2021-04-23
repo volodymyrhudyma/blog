@@ -3,8 +3,13 @@ title: Detect Mobile Device In React
 tag:
   - React
 promote: false
-metaDescription: // META
-teaser: // TEASER
+metaDescription: Learn a few ways to detect if a React application is rendered
+  on the mobile device or desktop any why you should never use User-Agent header
+  for this.
+teaser: In some cases you need to detect whether your application is being
+  viewed from the desktop or from the mobile device. It might be useful to
+  prevent doing expensive calculations on mobile devices, since they are not
+  as...
 date: 2021-04-23T12:29:18.283Z
 ---
 In some cases you need to detect whether your application is being viewed from the desktop or from the mobile device.
@@ -115,3 +120,47 @@ Quite a lot of code, but works like a charm.
 When implementing a feature, always remember that you are, in 99% of the cases, not the only person to do that, so, most probably, there is a library that does exactly what you need.
 
 Detecting mobile browser feature is not an exception, so let's search for a React library, designed for this purpose.
+
+The most popular one is [react-device-detect](https://www.npmjs.com/package/react-device-detect) with more than 290 thousands weekly downloads (pretty popular, huh?).
+
+Apart from just telling you whether the render system is mobile or desktop, it provides a lot of helper methods, that can be used fro more precise detection:
+
+First, install the library:
+
+`yarn add react-device-detect`
+
+Next, use it:
+
+```jsx
+import { isMobile } from "react-device-detect";
+
+const DeviceDetector = () => (
+  <div>I am rendered on: {isMobile ? "Mobile" : "Desktop"}</div>
+);
+
+export default DeviceDetector;
+```
+
+ You can also use React components to differentiate between the platforms:
+
+```jsx
+import { BrowserView, MobileView } from "react-device-detect";
+
+const DeviceDetector = () => (
+  <>
+    <BrowserView>I am rendered on: Desktop</BrowserView>
+    <MobileView>I am rendered on: Mobile</MobileView>
+  </>
+);
+
+export default DeviceDetector;
+
+```
+
+And the code looks much, much cleaner and better.
+
+## Summary
+
+Device detection is a common task in web development which is mostly used for performance optimizations.
+
+There are a lot of ways to detect the device, so you need to be aware of what ways are safe and what should better be avoided.
