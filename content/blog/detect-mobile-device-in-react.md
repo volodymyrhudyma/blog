@@ -3,24 +3,24 @@ title: Detect Mobile Device In React
 tag:
   - React
 promote: false
-metaDescription: Learn a few ways to detect if a React application is rendered
-  on the mobile device or desktop any why you should never use User-Agent header
-  for this.
-teaser: In some cases you need to detect whether your application is being
-  viewed from the desktop or from the mobile device. It might be useful to
-  prevent doing expensive calculations on mobile devices, since they are not
+metaDescription: Learn a few ways to detect if a React app is rendering on a
+  mobile device or on the desktop, and why you should never use User-Agent
+  header for it.
+teaser: In some cases you need to identify whether your application is being
+  viewed from the desktop or mobile device. It might be useful to prevent
+  expensive computations from being performed on mobile devices, as they are not
   as...
 date: 2021-04-23T12:29:18.283Z
 ---
-In some cases you need to detect whether your application is being viewed from the desktop or from the mobile device.
+In some cases you need to identify whether your application is being viewed from the desktop or mobile device.
 
-It might be useful to prevent doing expensive calculations on mobile devices, since they are not as performant as the computers.
+It might be useful to prevent expensive computations from being performed on mobile devices, as they are not as performant as computers.
 
-Today we will learn not only how to do it in React, but also what common approaches should be avoided and why.
+Today we'll not only learn how to do that in React, but also which common approaches to avoid and why.
 
 ## The Wrong Way
 
-One of the most common ways of checking whether your application is rendered on mobile is checking the **User-Agent** request header.
+One of the most common ways of checking whether your application is rendering on mobile devices is to check the **User-Agent** request header of the navigator.
 
 > The [User-Agent](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent) request header is a characteristic string that lets servers and network peers identify the application, operating system, vendor, and/or version of the requesting user agent.
 
@@ -50,29 +50,29 @@ const DeviceDetector = () => {
 export default DeviceDetector;
 ```
 
-However, this technique is considered unreliable, not only because it is likely that the User-Agent will change in the future releases of the browsers, but also because of UA spoofing.
+However, this technique is considered unreliable, not only because it is likely that User-Agent will change in future versions of browsers, but also because of UA spoofing.
 
-**UA spoofing** is replacing the User-Agent string that is sent by your browser as an HTTP header with another value.
+**UA spoofing** is the replacement of the User-Agent string, which is sent by your browser as HTTP header, with another value.
 
-Why is that needed? Because a lot of websites are made to support well only specific browsers.
+Why is that needed? Because many websites are designed to support only certain browsers well.
 
-These websites include code that detects browser version and adjusts displayed content according to the received result, which means that using less popular browsers leads to potential missing of the important content.
+These websites contain code that detects the browser version and adjusts the content displayed according to the result obtained, which means that using less common browsers may result in important content not being displayed.
 
-To prevent that, various browsers have a feature to spoof their identification to force certain content to be shown.
+To prevent that, various browsers have a function that fakes their identification to force the display of certain content.
 
-For example, the Android browser identifies itself as Safari in order to aid compatibility.
+For example, the Android browser identifies itself as Safari to aid compatibility.
 
-Chrome allows this as well, read [this post](https://developer.chrome.com/docs/devtools/device-mode/override-user-agent/) to learn more.
+Chrome also allows this, read [this post](https://developer.chrome.com/docs/devtools/device-mode/override-user-agent/) to learn more.
 
 ## The Right Way #1
 
-Thankfully, there are much better alternatives for detecting if your application is rendered on mobile or on desktop, like **Navigator.maxTouchPoints**.
+Fortunately, there are much better alternatives to detect whether your app is rendering on mobile or desktop, like **Navigator.maxTouchPoints**.
 
 > The [maxTouchPoints](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/maxTouchPoints) read-only property of the Navigator interface returns the maximum number of simultaneous touch contact points are supported by the current device.
 
-It can be used to detect whether the device has touch screen or not, then, default back to checking the user agent screen only if there is no available **maxTouchPoints** property in **Navigator** object:
+It can be used to detect if the device has a touch screen or not, and then by default check the user agent screen only if there is no available **maxTouchPoints** property in the **Navigator** object. 
 
-Here is full example of using it (taken from [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Browser_detection_using_the_user_agent), but adjusted for React):
+Here's a full example of how to use it (taken from [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Browser_detection_using_the_user_agent), but adapted for React):
 
 ```jsx
 import { useState, useEffect } from "react";
@@ -113,17 +113,17 @@ const DeviceDetector = () => {
 export default DeviceDetector;
 ```
 
-Quite a lot of code, but works like a charm.
+Quite a bit of code, but works like a charm.
 
 ## The Right Way #2
 
-When implementing a feature, always remember that you are, in 99% of the cases, not the only person to do that, so, most probably, there is a library that does exactly what you need.
+When implementing a feature, always remember that 99% of the time you're not the only person doing it, so there's most likely a library that does exactly what you need.
 
-Detecting mobile browser feature is not an exception, so let's search for a React library, designed for this purpose.
+Detecting mobile browser feature is no exception, so let's look for a React library designed for this purpose.
 
-The most popular one is [react-device-detect](https://www.npmjs.com/package/react-device-detect) with more than 290 thousands weekly downloads (pretty popular, huh?).
+The most popular one is [react-device-detect](https://www.npmjs.com/package/react-device-detect) with more than 290 thousand weekly downloads (pretty popular, right?).
 
-Apart from just telling you whether the render system is mobile or desktop, it provides a lot of helper methods, that can be used fro more precise detection:
+Apart from just telling you if the rendering system is mobile or desktop, it provides a lot of helper methods that can be used for more accurate detection:
 
 First, install the library:
 
@@ -141,7 +141,7 @@ const DeviceDetector = () => (
 export default DeviceDetector;
 ```
 
- You can also use React components to differentiate between the platforms:
+ You can also use React components to differentiate between platforms:
 
 ```jsx
 import { BrowserView, MobileView } from "react-device-detect";
@@ -161,6 +161,6 @@ And the code looks much, much cleaner and better.
 
 ## Summary
 
-Device detection is a common task in web development which is mostly used for performance optimizations.
+Device detection is a common task in web development, mostly used for performance optimizations.
 
-There are a lot of ways to detect the device, so you need to be aware of what ways are safe and what should better be avoided.
+There are many ways to detect the device, so you need to be aware of which ways are safe and which are better to be avoided.
