@@ -299,6 +299,8 @@ console.log(userProxy);
 
 The ownKeys trap is triggered with only one argument: **target,** when one of the following methods was invoked: **Object.getOwnPropertyNames**, **Object.getOwnPropertySymbols, for ... in, Object.keys, Object.values, Object.entries**.
 
+It executes only with a **target** object:
+
 ```javascript
 const handler = {
   ownKeys: (target) => {
@@ -339,6 +341,82 @@ console.log(keys);
 
 The apply trap is triggered when a wrapped function is invoked.
 
-It executes with the following arguments: **target**, **thisArg** - the value of **this**, **args** - a list of arguments.
+It executes with the following arguments: **target**, **thisArg** - the value of **this**, **args** - a list of arguments:
+
+```javascript
+const handler = {
+  apply: (target, thisArg, args) => {
+    // ...
+  }
+};
+```
+
+**Important note:** the apply trap can return **any** value.
+
+In the following example we get the result of executing the target function and multiply it by 2:
+
+```javascript
+const sum = (x, y) => {
+  return x + y;
+}
+
+const handler = {
+  apply: (target, thisArg, args) => {
+    return target(args[0], args[1]) * 2;
+  }
+};
+
+const sumProxy = new Proxy(sum, handler);
+
+// Prints "3"
+console.log(sum(1, 2));
+
+// Prints "6"
+console.log(sumProxy(1, 2));
+
+```
+
+## The "Construct" Trap
+
+The construct trap is triggered when a **new** keyword is used.
+
+It executes with the following arguments: **target**, **args** - arguments of the constructor, **newTarget** - originally called constructor:
+
+```javascript
+const handler = {
+  construct: (target, args, newTarget) => {
+    // ...
+  }
+};
+```
+
+**Important note:** the construct trap should return an **object**.
+
+In the following example we don't really modify arguments passed to the constructor, but just display a log message to ensure that the trap works as we expect it to:
+
+```javascript
+function Cat(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+const handler = {
+  construct(target, args) {
+    console.log('Cat constructor is called');
+    return new target(...args);
+  }
+};
+
+const CatProxy = new Proxy(Cat, handler);
+
+// Prints "Cat constructor is called"
+const friend = new CatProxy("Barsik", 1);
+
+// Prints "Barsik"
+console.log(friend.name);
+
+// Prints "1"
+console.log(friend.age);
+```
 
 ## Summary
