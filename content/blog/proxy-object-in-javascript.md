@@ -134,7 +134,7 @@ One of the most important and commonly used traps are, of course, get and set.
 
 They are designed for intercepting reading and writing object properties.
 
-As we already know, the get trap is triggered with the **target** and **property** arguments, which contain information about the target object and the retrieved property respectively:
+As we already know, the get trap is executed with the **target** and **property** arguments, which contain information about the target object and the retrieved property respectively:
 
 ```javascript
 const handler = {
@@ -165,6 +165,136 @@ It becomes useful when an object contains translations and in case if the transl
 
 ## The "Set" Trap
 
-## "Has" Trap
+The set trap is triggered when a property is being set on the target object:
+
+```javascript
+const handler = {
+  get: (target, property, value) => {
+    // ...
+  }
+};
+```
+
+It is executed with three arguments: **target**, **handler** and a **value**, which represents the value of the property we want to set.
+
+**Important note:** the set trap should return **true** if setting is successful, otherwise - **false**.
+
+It might be useful to prevent setting specific field on an object:
+
+```javascript
+const user = {
+  name: "John",
+  surname: "Doe",
+  age: 18,
+};
+
+const handler = {
+  set: (target, property, value) => {
+    if(property === 'age') {
+      return false;
+    }
+    target[property] = value;
+    return true;
+  }
+};
+
+const userProxy = new Proxy(user, handler);
+
+userProxy.name = "Andrew";
+userProxy.surname = "Hopkins";
+
+// "Age" will not be updated
+userProxy.age = 20;
+
+// { name: "Andrew", surname: "Hopkins", age: 18 }
+console.log(user);
+
+// { name: "Andrew", surname: "Hopkins", age: 18 }
+console.log(userProxy);
+```
+
+## The "Has" Trap
+
+The has trap is triggered when **in** operator is used with the following arguments: **target** and **property**:
+
+```javascript
+const handler = {
+  has: (target, property) => {
+    // ...
+  }
+};
+```
+
+We can create a Proxy Object that would allow us to use **in** operator for checking if the given value is present in the target array:
+
+```javascript
+const users = ["John", "Andrew", "Michael"];
+
+const handler = {
+  has: (target, property) => {
+    return target.includes(property)
+  }
+};
+
+const userProxy = new Proxy(users, handler);
+
+// Prints "true"
+console.log("John" in userProxy);
+
+// Prints "false"
+console.log("Unknown" in userProxy);
+```
+
+## The "DeleteProperty" Trap
+
+The has trap is triggered with the following arguments: **target** and **property,** when **delete** operator is used:
+
+```javascript
+const handler = {
+  deleteProperty: (target, property) => {
+    // ...
+  }
+};
+```
+
+**Important note:** the deleteProperty trap should return **true** if deleting is successful, otherwise - **false**.
+
+Let's see how we can block a property from being deleted:
+
+```javascript
+const user = {
+  name: "John",
+  surname: "Doe",
+  age: 18,
+};
+
+const handler = {
+  deleteProperty: (target, property) => {
+    if(property === 'age') {
+      return false;
+    }
+    delete target[property];
+    return true;
+  }
+};
+
+const userProxy = new Proxy(user, handler);
+
+delete userProxy.name;
+delete userProxy.surname;
+
+// Would not be deleted
+delete userProxy.age;
+
+// Prints "{ age: 18 }"
+console.log(user);
+
+// Prints "{ age: 18 }"
+console.log(userProxy);
+```
+
+## The "OwnKeys" Trap
+
+
 
 ## Summary
