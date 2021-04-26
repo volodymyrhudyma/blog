@@ -225,6 +225,8 @@ const handler = {
 };
 ```
 
+**Important note:** the has trap should return a boolean value.
+
 We can create a Proxy Object that would allow us to use **in** operator for checking if the given value is present in the target array:
 
 ```javascript
@@ -295,6 +297,48 @@ console.log(userProxy);
 
 ## The "OwnKeys" Trap
 
+The ownKeys trap is triggered with only one argument: **target,** when one of the following methods was invoked: **Object.getOwnPropertyNames**, **Object.getOwnPropertySymbols, for ... in, Object.keys, Object.values, Object.entries**.
 
+```javascript
+const handler = {
+  ownKeys: (target) => {
+    // ...
+  }
+};
+```
+
+**Important note:** the ownKeys trap should return an **array**.
+
+It can be used to exclude some properties when iterating the target object:
+
+```javascript
+const user = {
+  name: "John",
+  surname: "Doe",
+  age: 18,
+};
+
+const handler = {
+  ownKeys: (target) => {
+    return Object.keys(target).filter(key => key !== "age");
+  }
+};
+
+const userProxy = new Proxy(user, handler);
+
+const keys = [];
+for(const key in userProxy) {
+  keys.push(key);
+}
+
+// Prints: ["name", "surname"]
+console.log(keys);
+```
+
+## The "Apply" Trap
+
+The apply trap is triggered when a wrapped function is invoked.
+
+It executes with the following arguments: **target**, **thisArg** - the value of **this**, **args** - a list of arguments.
 
 ## Summary
