@@ -37,18 +37,18 @@ console.log(name);
 
 ## The Proxy Object
 
-The Proxy Object wraps another object and allows to intercept and redefine different operations, like retrieving/setting a property, etc.
+The Proxy Object wraps another object and allows to intercept and redefine different operations, like retrieving/setting a property, etc:
+
+```javascript
+const proxy = new Proxy(target, handler);
+```
 
 A **Proxy** is created with two parameters:
 
 * **target** - an object to wrap
 * **handler** - an object that specifies what operations should be intercepted and how it should be done
 
-```javascript
-const proxy = new Proxy(target, handler);
-```
-
-Consider the following example:
+Consider the following example, where the handler object is empty, so all operations we perform on a Proxy Object are performed on a Target Object:
 
 ```javascript
 const user = {
@@ -66,9 +66,16 @@ console.log(userProxy.name);
 
 // Prints "Doe"
 console.log(userProxy.surname);
-```
 
-The handler object is empty, so all operations we perform on a Proxy Object are performed on a Target Object.
+userProxy.street = "Example Street";
+
+// Prints "Example Street"
+console.log(userProxy.street);
+
+// Prints "Example Street"
+// Target object is modified
+console.log(user.street);
+```
 
 But that example is kinda useless, so let's intercept the **get** handler and convert the retrieved string to lowercase:
 
@@ -118,5 +125,46 @@ All Proxy traps, listed in the [specification](https://tc39.es/ecma262/#sec-prox
 * **isExtensible** - using **Object.isExtensible**
 * **getPrototypeOf** - using **Object.getPrototypeOf**
 * **setPrototypeOf** - using **Object.setPrototypeOf**
+
+One important thing to remember - JavaScript enforces some conditions to be fulfilled when using traps, but we will tie more detailed explanations to the corresponding sections.
+
+## The "Get" Trap
+
+One of the most important and commonly used traps are, of course, get and set.
+
+They are designed for intercepting reading and writing object properties.
+
+As we already know, the get trap is triggered with the **target** and **property** arguments, which contain information about the target object and the retrieved property respectively:
+
+```javascript
+const handler = {
+  get: (target, property) => {
+    // ...
+  }
+};
+```
+
+This trap is mostly used for returning a default value if the read value does not exist in the target object:
+
+```javascript
+const user = {};
+
+const handler = {
+  get: (target, property) => {
+    return target[property] || "Unknown";
+  },
+};
+
+const userProxy = new Proxy(user, handler);
+
+// Prints "Unknown"
+console.log(userProxy.name);
+```
+
+It becomes useful when an object contains translations and in case if the translation is not found, return untranslated text instead of the **undefined**.
+
+## The "Set" Trap
+
+## "Has" Trap
 
 ## Summary
