@@ -103,4 +103,20 @@ So in the above example we used a get trap, which contains the following argumen
 
 ## Traps
 
+All Proxy traps, listed in the [specification](https://tc39.es/ecma262/#sec-proxy-object-internal-methods-and-internal-slots) and when they are triggered:
+
+* **get** - reading a property
+* **set** - setting a property
+* **has** - using **in** operator
+* **deleteProperty** - using **delete** operator
+* **ownKeys** - using one of the following: **Object.getOwnPropertyNames**, **Object.getOwnPropertySymbols, for ... in, Object.keys, Object.values, Object.entries**
+* **apply** - calling a function
+* **construct** - using **new** operator
+* **defineProperty** - using one of the following: **Object.defineProperty, Object.defineProperties**
+* **getOwnPropertyDescriptor** - using one of the following: **Object.getOwnPropertyDescriptor, for .. in, Object.keys, Object.values, Object.entries**
+* **preventExtensions** - using **Object.preventExtensions**
+* **isExtensible** - using **Object.isExtensible**
+* **getPrototypeOf** - using **Object.getPrototypeOf**
+* **setPrototypeOf** - using **Object.setPrototypeOf**
+
 ## Summary
