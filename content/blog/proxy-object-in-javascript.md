@@ -373,7 +373,6 @@ console.log(sum(1, 2));
 
 // Prints "6"
 console.log(sumProxy(1, 2));
-
 ```
 
 ## The "Construct" Trap
@@ -423,6 +422,28 @@ console.log(friend.age);
 
 The defineProperty trap is triggered when one of the following is used: **Object.defineProperty** or **Object.defineProperties**.
 
-It executes with the following arguments: **target**, **property**, **newTarget** - originally called constructor:
+It executes with the following arguments: **target**, **property**, **descriptor** - the descriptor for the property being defined or modified:
+
+```javascript
+const handler = {
+  defineProperty: (target, property, descriptor) => {
+    // ...
+  }
+};
+```
+
+**Important note:** the defineProperty trap should return a boolean.
+
+// TODO example
+
+## The "GetOwnPropertyDescriptor" Trap
+
+## The "PreventExtensions" Trap
+
+## The "IsExtensible" Trap
+
+## The "GetPrototypeOf" Trap
+
+## The "SetPrototypeOf" Trap
 
 ## Summary
