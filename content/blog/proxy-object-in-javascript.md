@@ -419,4 +419,10 @@ console.log(friend.name);
 console.log(friend.age);
 ```
 
+## The "DefineProperty" Trap
+
+The defineProperty trap is triggered when one of the following is used: **Object.defineProperty** or **Object.defineProperties**.
+
+It executes with the following arguments: **target**, **property**, **newTarget** - originally called constructor:
+
 ## Summary
