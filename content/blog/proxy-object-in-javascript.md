@@ -435,7 +435,7 @@ The defineProperty trap is triggered when one of the following is used: **Object
 >
 > ```javascript
 > // The syntax
-> Object.defineProperty(object, property, descriptor)
+> Object.defineProperty(obj, property, descriptor)
 >
 > // Usage example
 > const user = {};
@@ -485,7 +485,20 @@ console.log(user);
 
 The getOwnPropertyDescriptor trap is triggered when one of the following is used: **Object.getOwnPropertyDescriptor, for .. in, Object.keys, Object.values** or **Object.entries**.
 
-> The **Object.getOwnPropertyDescriptor** method returns an object describing the configuration of a specific property on a given object.
+> The **Object.getOwnPropertyDescriptor** method returns an object describing the configuration of a specific property on a given object:
+>
+> ```javascript
+> // The syntax
+> Object.getOwnPropertyDescriptor(obj, property)
+>
+> // Usage example
+> const user = {
+>   name: "John",
+> };
+>
+> // { value: "John", writable: true, enumerable: true, configurable: true }
+> console.log(Object.getOwnPropertyDescriptor(user, 'name'));
+> ```
 
 It executes with the following arguments: **target** and **property**:
 
@@ -522,7 +535,26 @@ console.log(Object.getOwnPropertyDescriptor(userProxy, 'nickName').value);
 
 The preventExtensions trap is triggered when **Object.preventExtensions** method is used.
 
-> The **Object.preventExtensions** method prevents new properties from ever being added to an object.
+> The **Object.preventExtensions** method prevents new properties from ever being added to an object:
+>
+> ```javascript
+> // The syntax
+> Object.preventExtensions(obj)
+>
+> // Usage example
+> const user = {
+>   name: "John",
+> };
+>
+> Object.preventExtensions(user);
+>
+> // TypeError: Cannot define property surname, object is not extensible
+> Object.defineProperty(user, 'surname', {
+>  value: "Doe"
+> });
+> ```
+>
+>
 
 It executes only with the **target** argument:
 
@@ -565,7 +597,22 @@ console.log(user);
 
 The isExtensible trap is triggered when **Object.isExtensible** method is used.
 
-> The **Object.isExtensible** method determines if an object is extensible (whether it can have new properties added to it).
+> The **Object.isExtensible** method determines if an object is extensible (whether it can have new properties added to it):
+>
+> ```javascript
+> // The syntax
+> Object.isExtensible(obj)
+>
+> // Usage example
+> const user = {
+>   name: "John",
+> };
+>
+> Object.preventExtensions(user);
+>
+> // Prints "false"
+> console.log(Object.isExtensible(user));
+> ```
 
 It executes only with the **target** argument:
 
@@ -603,7 +650,23 @@ console.log(Object.isExtensible(userProxy));
 
 The getPrototypeOf trap is triggered when **Object.getPrototypeOf** method is used.
 
-> The **Object.getPrototypeOf** method returns the prototype (the value of the internal **\[[Prototype]]** property) of the specified object.
+> The **Object.getPrototypeOf** method returns the prototype (the value of the internal **\[[Prototype]]** property) of the specified object:
+>
+> ```javascript
+> // The syntax
+> Object.getPrototypeOf(obj)
+>
+> // Usage example
+> const userPrototype = {
+>   name: "John",
+> };
+>
+> const user = Object.create(userPrototype);
+>
+> // Prints "true"
+> console.log(Object.getPrototypeOf(user) === userPrototype);
+>
+> ```
 
 It executes only with the **target** argument:
 
@@ -642,7 +705,26 @@ console.log(Object.getPrototypeOf(userProxy) === userPrototype);
 
 The setPrototypeOf trap is triggered when **Object.setPrototypeOf** method is used.
 
-> The **Object.setPrototypeOf** method sets the prototype (i.e., the internal **\[[Prototype]]** property) of a specified object to another object or null.
+> The **Object.setPrototypeOf** method sets the prototype (i.e., the internal **\[[Prototype]]** property) of a specified object to another object or null:
+>
+> ```javascript
+> // The syntax
+> Object.setPrototypeOf(obj, prototype)
+>
+> // Usage example
+> const user = {
+>   name: "John",
+> };
+>
+> const userPrototype = {
+>   surname: "Doe",
+> };
+>
+> Object.setPrototypeOf(user, userPrototype);
+>
+> // Prints "true"
+> console.log(Object.getPrototypeOf(user) === userPrototype);
+> ```
 
 It executes only with the **target** and **prototype** arguments. The latter holds the new prototype of the  target object or null:
 
