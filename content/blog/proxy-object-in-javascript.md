@@ -643,6 +643,23 @@ const userProxy = new Proxy(user, handler);
 console.log(Object.setPrototypeOf(userProxy, user));
 ```
 
+## Proxy Limitations
+
+Apart from providing an easy and reliable way to intercept objects, Proxy comes with its all limitations.
+
+For example, to make it work with built-in objects, like **Map**, **Set**, **Date** etc, we need to apply some additional magic, simple example like this won't work:
+
+```javascript
+const users = new Map();
+
+const handler = {};
+
+const usersProxy = new Proxy(users, handler);
+
+// TypeError: Method Map.prototype.set called on incompatible receiver [object Object]
+usersProxy.set("user1", "John");
+```
+
 ## Summary
 
 The Proxy Object wraps another object and allows to intercept and redefine different operations.
