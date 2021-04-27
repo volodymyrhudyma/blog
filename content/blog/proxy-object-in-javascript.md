@@ -644,3 +644,18 @@ console.log(Object.setPrototypeOf(userProxy, user));
 ```
 
 ## Summary
+
+The Proxy Object wraps another object and allows to intercept and redefine different operations.
+
+We can intercept many operations, like:
+
+* Reading a property
+* Setting a property
+* Deleting a property
+* And many more, see the full list at the beginning of an article
+
+The interception is useful if we want to perform any kind of an action after the operation has started, but before the result is returned.
+
+This is very interesting concept that developers should definitely learn more about and use whenever applicable.
+
+In my personal experience, I have almost never worked with a projects that used Proxy objects, however they could have benefited a lot from them.
