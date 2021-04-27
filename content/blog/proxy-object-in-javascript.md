@@ -130,6 +130,8 @@ One important thing to remember - JavaScript enforces some conditions to be fulf
 
 ## The "Get" Trap
 
+*Can return any value.*
+
 One of the most important and commonly used traps are, of course, get and set.
 
 They are designed for intercepting reading and writing object properties.
@@ -165,6 +167,8 @@ It becomes useful when an object contains translations and in case if the transl
 
 ## The "Set" Trap
 
+*Must return true if setting is successful, false otherwise.*
+
 The set trap is triggered when a property is being set on the target object:
 
 ```javascript
@@ -176,8 +180,6 @@ const handler = {
 ```
 
 It is executed with three arguments: **target**, **handler** and a **value**, which represents the value of the property we want to set.
-
-**Important note:** the set trap should return **true** if setting is successful, otherwise - **false**.
 
 It might be useful to prevent setting specific field on an object:
 
@@ -215,6 +217,8 @@ console.log(userProxy);
 
 ## The "Has" Trap
 
+*Must return a boolean value.*
+
 The has trap is triggered when **in** operator is used with the following arguments: **target** and **property**:
 
 ```javascript
@@ -224,8 +228,6 @@ const handler = {
   }
 };
 ```
-
-**Important note:** the has trap should return a boolean value.
 
 We can create a Proxy Object that would allow us to use **in** operator for checking if the given value is present in the target array:
 
@@ -249,6 +251,8 @@ console.log("Unknown" in userProxy);
 
 ## The "DeleteProperty" Trap
 
+*Must return true if deleting is successful, false otherwise.* 
+
 The has trap is triggered with the following arguments: **target** and **property,** when **delete** operator is used:
 
 ```javascript
@@ -258,8 +262,6 @@ const handler = {
   }
 };
 ```
-
-**Important note:** the deleteProperty trap should return **true** if deleting is successful, otherwise - **false**.
 
 Let's see how we can block a property from being deleted:
 
@@ -297,6 +299,8 @@ console.log(userProxy);
 
 ## The "OwnKeys" Trap
 
+*Must return an enumerable object.*
+
 The ownKeys trap is triggered with only one argument: **target,** when one of the following methods was invoked: **Object.getOwnPropertyNames**, **Object.getOwnPropertySymbols, for ... in, Object.keys, Object.values, Object.entries**.
 
 It executes only with a **target** object:
@@ -308,8 +312,6 @@ const handler = {
   }
 };
 ```
-
-**Important note:** the ownKeys trap should return an **array**.
 
 It can be used to exclude some properties when iterating the target object:
 
@@ -339,6 +341,8 @@ console.log(keys);
 
 ## The "Apply" Trap
 
+*Can return any value.*
+
 The apply trap is triggered when a wrapped function is invoked.
 
 It executes with the following arguments: **target**, **thisArg** - the value of **this**, **args** - a list of arguments:
@@ -350,8 +354,6 @@ const handler = {
   }
 };
 ```
-
-**Important note:** the apply trap can return **any** value.
 
 In the following example we get the result of executing the target function and multiply it by 2:
 
@@ -376,6 +378,8 @@ console.log(sumProxy(1, 2));
 ```
 
 ## The "Construct" Trap
+
+*Must return an object.*
 
 The construct trap is triggered when a **new** keyword is used.
 
@@ -420,6 +424,8 @@ console.log(friend.age);
 
 ## The "DefineProperty" Trap
 
+*Must return a boolean value.*
+
 The defineProperty trap is triggered when one of the following is used: **Object.defineProperty** or **Object.defineProperties**.
 
 It executes with the following arguments: **target**, **property**, **descriptor** - the descriptor for the property being defined or modified:
@@ -431,8 +437,6 @@ const handler = {
   }
 };
 ```
-
-**Important note:** the defineProperty trap should return a boolean.
 
 In the following example we use **Object.defineProperty** method to define a new **nickName** property on a **user** object and transform it to lowercase in the trap:
 
@@ -457,6 +461,8 @@ console.log(user);
 
 ## The "GetOwnPropertyDescriptor" Trap
 
+*Must return an object or undefined.*
+
 The getOwnPropertyDescriptor trap is triggered when one of the following is used: **Object.getOwnPropertyDescriptor, for .. in, Object.keys, Object.values** or **Object.entries**.
 
 It executes with the following arguments: **target** and **property**:
@@ -468,8 +474,6 @@ const handler = {
   }
 };
 ```
-
-**Important note:** the defineProperty trap should return an **object** or **undefined**.
 
 In the following example we use **Object.getOwnPropertyDescriptor** method to get a descriptor of a **nickName** property on a **user** object and transform it to lowercase in the trap:
 
@@ -492,6 +496,8 @@ console.log(Object.getOwnPropertyDescriptor(userProxy, 'nickName').value);
 
 ## The "PreventExtensions" Trap
 
+*Must return a boolean value.*
+
 The preventExtensions trap is triggered when **Object.preventExtensions** method is used.
 
 It executes only with the **target** argument:
@@ -503,8 +509,6 @@ const handler = {
   }
 };
 ```
-
-**Important note:** the preventExtensions trap should return a **boolean** value.
 
 In the following example we prevent an object from being extensible, the property **age** cannot be added:
 
@@ -533,6 +537,8 @@ console.log(user);
 
 ## The "IsExtensible" Trap
 
+*Must return a boolean value.* 
+
 The isExtensible trap is triggered when **Object.isExtensible** method is used.
 
 It executes only with the **target** argument:
@@ -544,8 +550,6 @@ const handler = {
   }
 };
 ```
-
-**Important note:** the isExtensible trap should return a **boolean** value.
 
 The following example illustrates a very basic usage example:
 
@@ -569,6 +573,8 @@ console.log(Object.isExtensible(userProxy));
 
 ## The "GetPrototypeOf" Trap
 
+*Must return an object or null.*
+
 The getPrototypeOf trap is triggered when **Object.getPrototypeOf** method is used.
 
 It executes only with the **target** argument:
@@ -580,8 +586,6 @@ const handler = {
   }
 };
 ```
-
-**Important note:** the getPrototypeOf trap should return an **object** or **null**.
 
 In the following example we created a prototype of the **user** object and returned it from the trap:
 
@@ -606,6 +610,8 @@ console.log(Object.getPrototypeOf(userProxy) === userPrototype);
 
 ## The "SetPrototypeOf" Trap
 
+*Must return true if prototype has successfully been changed, false otherwise.*
+
 The setPrototypeOf trap is triggered when **Object.setPrototypeOf** method is used.
 
 It executes only with the **target** and **prototype** arguments. The latter holds the new prototype of the  target object or null:
@@ -617,8 +623,6 @@ const handler = {
   }
 };
 ```
-
-**Important note:** the setPrototypeOf trap should return **true** if the prototype has successfully been changed, **false** otherwise.
 
 In the following example we disallowed setting a new prototype for the **userProxy** object by returning **false** from the trap:
 
