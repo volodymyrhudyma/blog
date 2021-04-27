@@ -551,7 +551,7 @@ const handler = {
 };
 ```
 
-The following example illustrates a very basic usage example:
+The following example illustrates a very basic usage example, we prevent an object from being extensible and return false from the trap:
 
 ```javascript
 const user = {
@@ -560,14 +560,14 @@ const user = {
 
 const handler = {
   isExtensible: (target) => {
-    console.log("isExtensible trap called");
-    return true;
+    Object.preventExtensions(target);
+    return false;
   }
 }
 
 const userProxy = new Proxy(user, handler);
 
-// Prints "isExtensible trap called" and "true"
+// Prints "false"
 console.log(Object.isExtensible(userProxy));
 ```
 
@@ -659,6 +659,8 @@ const usersProxy = new Proxy(users, handler);
 // TypeError: Method Map.prototype.set called on incompatible receiver [object Object]
 usersProxy.set("user1", "John");
 ```
+
+To learn how to fix the above example and some more limitations, read [this article](https://javascript.info/proxy#proxy-limitations).
 
 ## Summary
 
