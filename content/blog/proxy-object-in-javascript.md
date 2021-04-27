@@ -606,4 +606,37 @@ console.log(Object.getPrototypeOf(userProxy) === userPrototype);
 
 ## The "SetPrototypeOf" Trap
 
+The setPrototypeOf trap is triggered when **Object.setPrototypeOf** method is used.
+
+It executes only with the **target** and **prototype** arguments. The latter holds the new prototype of the  target object or null:
+
+```javascript
+const handler = {
+  setPrototypeOf: (target) => {
+    // ...
+  }
+};
+```
+
+**Important note:** the setPrototypeOf trap should return **true** if the prototype has successfully been changed, **false** otherwise.
+
+In the following example we disallowed setting a new prototype for the **userProxy** object by returning **false** from the trap:
+
+```javascript
+const user = {
+  nickName: "John",
+};
+
+const handler = {
+  setPrototypeOf: (target, prototype) => {
+    return false;
+  }
+}
+
+const userProxy = new Proxy(user, handler);
+
+// TypeError: "setPrototypeOf" on proxy: trap returned falsish for property "undefined"
+console.log(Object.setPrototypeOf(userProxy, user));
+```
+
 ## Summary
