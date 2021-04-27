@@ -434,7 +434,26 @@ const handler = {
 
 **Important note:** the defineProperty trap should return a boolean.
 
-// TODO example
+In the following example we user **Object.defineProperty** method to defined a new **nickName** property on a **user** object and transform it to lowercase in the trap:
+
+```javascript
+const user = {};
+
+const handler = {
+  defineProperty: (target, property, descriptor) => {
+    target[property] = descriptor.value.toLowerCase();
+    return true;
+  }
+}
+
+const userProxy = new Proxy(user, handler);
+
+const descriptor = { configurable: true, enumerable: true, value: "John" };
+Object.defineProperty(userProxy, 'nickName', descriptor);
+
+// Prints {nickName: "john"}
+console.log(user);
+```
 
 ## The "GetOwnPropertyDescriptor" Trap
 
