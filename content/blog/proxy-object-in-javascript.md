@@ -1,9 +1,12 @@
 ---
-title: Proxy Object In JavaScript
+title: A Basic Introduction To Proxy Object In JavaScript
 tag:
   - JavaScript
 promote: false
-metaDescription: // META
+metaDescription: Learn Proxy Object in JavaScript which allows to intercept and
+  redefine different operations on a target object, like getting or setting a
+  property.
+shareImage: /img/proxy-object-in-javascript.jpg
 teaser: Accessing object properties is a very common operation in JavaScript. In
   some cases, it is extremely useful to perform an action just after the
   property has been accessed, but before the result is returned, so the result
