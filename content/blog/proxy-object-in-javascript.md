@@ -492,6 +492,45 @@ console.log(Object.getOwnPropertyDescriptor(userProxy, 'nickName').value);
 
 ## The "PreventExtensions" Trap
 
+The preventExtensions trap is triggered when **Object.preventExtensions** method is used.
+
+It executes only with the **target** argument:
+
+```javascript
+const handler = {
+  preventExtensions: (target) => {
+    // ...
+  }
+};
+```
+
+**Important note:** the defineProperty trap should return a **boolean** value.
+
+In the following example we prevent an object from being extensible, the property **age** cannot be added:
+
+```javascript
+const user = {
+  nickName: "John"
+};
+
+const handler = {
+  preventExtensions: (target) => {
+    Object.preventExtensions(target);
+    return true;
+  }
+}
+
+const userProxy = new Proxy(user, handler);
+
+Object.preventExtensions(userProxy);
+
+// Age is not set, since an object is not extensible
+userProxy.age = 18;
+
+// Prints {nickName: "John"}
+console.log(user);
+```
+
 ## The "IsExtensible" Trap
 
 ## The "GetPrototypeOf" Trap
