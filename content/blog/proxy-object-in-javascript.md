@@ -504,7 +504,7 @@ const handler = {
 };
 ```
 
-**Important note:** the defineProperty trap should return a **boolean** value.
+**Important note:** the preventExtensions trap should return a **boolean** value.
 
 In the following example we prevent an object from being extensible, the property **age** cannot be added:
 
@@ -533,7 +533,76 @@ console.log(user);
 
 ## The "IsExtensible" Trap
 
+The isExtensible trap is triggered when **Object.isExtensible** method is used.
+
+It executes only with the **target** argument:
+
+```javascript
+const handler = {
+  isExtensible: (target) => {
+    // ...
+  }
+};
+```
+
+**Important note:** the isExtensible trap should return a **boolean** value.
+
+The following example illustrates a very basic usage example:
+
+```javascript
+const user = {
+  nickName: "John"
+};
+
+const handler = {
+  isExtensible: (target) => {
+    console.log("isExtensible trap called");
+    return true;
+  }
+}
+
+const userProxy = new Proxy(user, handler);
+
+// Prints "isExtensible trap called" and "true"
+console.log(Object.isExtensible(userProxy));
+```
+
 ## The "GetPrototypeOf" Trap
+
+The getPrototypeOf trap is triggered when **Object.getPrototypeOf** method is used.
+
+It executes only with the **target** argument:
+
+```javascript
+const handler = {
+  getPrototypeOf: (target) => {
+    // ...
+  }
+};
+```
+
+**Important note:** the getPrototypeOf trap should return an **object** or **null**.
+
+In the following example we created a prototype of the **user** object and returned it from the trap:
+
+```javascript
+const user = {
+  nickName: "John",
+};
+
+const userPrototype = Object.create(user);
+
+const handler = {
+  getPrototypeOf: (target) => {
+    return userPrototype;
+  }
+}
+
+const userProxy = new Proxy(user, handler);
+
+// Prints "true"
+console.log(Object.getPrototypeOf(userProxy) === userPrototype);
+```
 
 ## The "SetPrototypeOf" Trap
 
