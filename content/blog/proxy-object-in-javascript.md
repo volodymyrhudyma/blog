@@ -169,7 +169,9 @@ It becomes useful when an object contains translations and in case if the transl
 
 *Must return true if setting is successful, false otherwise.*
 
-The set trap is triggered when a property is being set on the target object:
+The set trap is triggered when a property is being set on the target object.
+
+It is executed with three arguments: **target**, **handler** and a **value**, which represents the value of the property we want to set:
 
 ```javascript
 const handler = {
@@ -178,8 +180,6 @@ const handler = {
   }
 };
 ```
-
-It is executed with three arguments: **target**, **handler** and a **value**, which represents the value of the property we want to set.
 
 It might be useful to prevent setting specific field on an object:
 
