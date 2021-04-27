@@ -431,6 +431,23 @@ console.log(friend.age);
 
 The defineProperty trap is triggered when one of the following is used: **Object.defineProperty** or **Object.defineProperties**.
 
+> The static method **Object.defineProperty** defines a new property directly on an object, or modifies an existing property on an object, and returns the object:
+>
+> ```javascript
+> // The syntax
+> Object.defineProperty(object, property, descriptor)
+>
+> // Usage example
+> const user = {};
+>
+> Object.defineProperty(user, 'name', {
+>   value: "John",
+> });
+>
+> // Prints "John"
+> console.log(user.name);
+> ```
+
 It executes with the following arguments: **target**, **property**, **descriptor** - the descriptor for the property being defined or modified:
 
 ```javascript
@@ -468,6 +485,8 @@ console.log(user);
 
 The getOwnPropertyDescriptor trap is triggered when one of the following is used: **Object.getOwnPropertyDescriptor, for .. in, Object.keys, Object.values** or **Object.entries**.
 
+> The **Object.getOwnPropertyDescriptor** method returns an object describing the configuration of a specific property on a given object.
+
 It executes with the following arguments: **target** and **property**:
 
 ```javascript
@@ -502,6 +521,8 @@ console.log(Object.getOwnPropertyDescriptor(userProxy, 'nickName').value);
 *Must return a boolean value.*
 
 The preventExtensions trap is triggered when **Object.preventExtensions** method is used.
+
+> The **Object.preventExtensions** method prevents new properties from ever being added to an object.
 
 It executes only with the **target** argument:
 
@@ -544,6 +565,8 @@ console.log(user);
 
 The isExtensible trap is triggered when **Object.isExtensible** method is used.
 
+> The **Object.isExtensible** method determines if an object is extensible (whether it can have new properties added to it).
+
 It executes only with the **target** argument:
 
 ```javascript
@@ -579,6 +602,8 @@ console.log(Object.isExtensible(userProxy));
 *Must return an object or null.*
 
 The getPrototypeOf trap is triggered when **Object.getPrototypeOf** method is used.
+
+> The **Object.getPrototypeOf** method returns the prototype (the value of the internal **\[[Prototype]]** property) of the specified object.
 
 It executes only with the **target** argument:
 
@@ -617,6 +642,8 @@ console.log(Object.getPrototypeOf(userProxy) === userPrototype);
 
 The setPrototypeOf trap is triggered when **Object.setPrototypeOf** method is used.
 
+> The **Object.setPrototypeOf** method sets the prototype (i.e., the internal **\[[Prototype]]** property) of a specified object to another object or null.
+
 It executes only with the **target** and **prototype** arguments. The latter holds the new prototype of the  target object or null:
 
 ```javascript
@@ -648,7 +675,7 @@ console.log(Object.setPrototypeOf(userProxy, user));
 
 ## Proxy Limitations
 
-Apart from providing an easy and reliable way to intercept objects, Proxy comes with its all limitations.
+Apart from providing an easy and reliable way to intercept objects, Proxy comes with its own limitations.
 
 For example, to make it work with built-in objects, like **Map**, **Set**, **Date** etc, we need to apply some additional magic, simple example like this won't work:
 
