@@ -434,7 +434,7 @@ const handler = {
 
 **Important note:** the defineProperty trap should return a boolean.
 
-In the following example we user **Object.defineProperty** method to defined a new **nickName** property on a **user** object and transform it to lowercase in the trap:
+In the following example we use **Object.defineProperty** method to define a new **nickName** property on a **user** object and transform it to lowercase in the trap:
 
 ```javascript
 const user = {};
@@ -456,6 +456,39 @@ console.log(user);
 ```
 
 ## The "GetOwnPropertyDescriptor" Trap
+
+The getOwnPropertyDescriptor trap is triggered when one of the following is used: **Object.getOwnPropertyDescriptor, for .. in, Object.keys, Object.values** or **Object.entries**.
+
+It executes with the following arguments: **target** and **property**:
+
+```javascript
+const handler = {
+  getOwnPropertyDescriptor: (target, property) => {
+    // ...
+  }
+};
+```
+
+**Important note:** the defineProperty trap should return an **object** or **undefined**.
+
+In the following example we use **Object.getOwnPropertyDescriptor** method to get a descriptor of a **nickName** property on a **user** object and transform it to lowercase in the trap:
+
+```javascript
+const user = {
+  nickName: "John"
+};
+
+const handler = {
+  getOwnPropertyDescriptor: (target, property) => {
+    return { configurable: true, enumerable: true, value: target[property].toLowerCase() };
+  }
+}
+
+const userProxy = new Proxy(user, handler);
+
+// Prints "john"
+console.log(Object.getOwnPropertyDescriptor(userProxy, 'nickName').value);
+```
 
 ## The "PreventExtensions" Trap
 
