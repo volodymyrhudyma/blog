@@ -15,9 +15,9 @@ date: 2021-04-28T16:31:10.516Z
 ---
 Accessing object properties is a very common operation in JavaScript.
 
-In some cases, it is extremely useful to perform an action just after the property has been accessed, but before the result is returned, so the result can be modified on fly.
+In some cases, it is extremely useful to perform an action just after the property is accessed, but before the result is returned, so that the result can be modified on the fly.
 
-One of the possible solutions is to create and invoke a custom function that would contain some logic around retrieved property:
+One of the possible solutions is to create and call a custom function that contains some logic around the retrieved property:
 
 ```javascript
 const user = {
@@ -36,11 +36,11 @@ const name = getName();
 console.log(name);
 ```
 
- But a better solution would be to use Proxy Object in JavaScript, which is designed exactly for this purpose.
+However, a better solution would be to use Proxy Object in JavaScript, which is designed exactly for this purpose.
 
 ## The Proxy Object
 
-The Proxy Object wraps another object and allows to intercept and redefine different operations, like retrieving/setting a property, etc:
+The Proxy Object wraps another object and allows to intercept and redefine various operations, such as getting or setting a property, etc:
 
 ```javascript
 const proxy = new Proxy(target, handler);
@@ -48,10 +48,10 @@ const proxy = new Proxy(target, handler);
 
 A **Proxy** is created with two parameters:
 
-* **target** - an object to wrap
-* **handler** - an object that specifies what operations should be intercepted and how it should be done
+* **target** - an object to be wraped
+* **handler** - an object that specifies which operations to intercept and how to do so
 
-Consider the following example, where the handler object is empty, so all operations we perform on a Proxy Object are performed on a Target Object:
+Consider the following example, where the handler object is empty, so all operations we perform on a Proxy Object will be performed on a Target Object:
 
 ```javascript
 const user = {
@@ -80,7 +80,7 @@ console.log(userProxy.street);
 console.log(user.street);
 ```
 
-But that example is kinda useless, so let's intercept the **get** handler and convert the retrieved string to lowercase:
+But this example is kind of useless, so let's intercept the **get** handler and convert the retrieved string to lowercase:
 
 ```javascript
 const user = {
@@ -106,10 +106,10 @@ console.log(userProxy.surname);
 
 Handlers are also called **traps**, because they also trap calls to the target object.
 
-So in the above example we used a get trap, which contains the following arguments:
+So in the above example we used a get trap that contains the following arguments:
 
-* **target** - wrapper object, the one that is passed as a first argument to the Proxy
-* **property** - the name of the accessed property
+* **target** - wrapper object, the one that is passed as the first argument to the Proxy
+* **property** - the name of the property that is being accessed
 
 ## Traps
 
@@ -129,7 +129,7 @@ All Proxy traps, listed in the [specification](https://tc39.es/ecma262/#sec-prox
 * **getPrototypeOf** - using **Object.getPrototypeOf**
 * **setPrototypeOf** - using **Object.setPrototypeOf**
 
-One important thing to remember - JavaScript enforces some conditions to be fulfilled when using traps, but we will tie more detailed explanations to the corresponding sections.
+One important thing to remember - JavaScript enforces some conditions that must be met when using traps, but we will tie more detailed explanations to the appropriate sections.
 
 ## The "Get" Trap
 
@@ -137,9 +137,9 @@ One important thing to remember - JavaScript enforces some conditions to be fulf
 
 One of the most important and commonly used traps are, of course, get and set.
 
-They are designed for intercepting reading and writing object properties.
+They are designed to intercept reading and writing object properties.
 
-As we already know, the get trap is executed with the **target** and **property** arguments, which contain information about the target object and the retrieved property respectively:
+As we already know, the get trap is executed with the **target** and **property** arguments, which contain information about the target object and the retrieved property, respectively:
 
 ```javascript
 const handler = {
@@ -149,7 +149,7 @@ const handler = {
 };
 ```
 
-This trap is mostly used for returning a default value if the read value does not exist in the target object:
+This trap is mostly used for to return a default value when the read value does not exist in the target object:
 
 ```javascript
 const user = {};
@@ -166,15 +166,15 @@ const userProxy = new Proxy(user, handler);
 console.log(userProxy.name);
 ```
 
-It becomes useful when an object contains translations and in case if the translation is not found, return untranslated text instead of the **undefined**.
+It becomes useful when an object contains translations and returns untranslated text instead of the **undefined** in case the translation is not found.
 
 ## The "Set" Trap
 
 *Must return true if setting is successful, false otherwise.*
 
-The set trap is triggered when a property is being set on the target object.
+The set trap is triggered when a property is set on the target object.
 
-It is executed with three arguments: **target**, **handler** and a **value**, which represents the value of the property we want to set:
+It is executed with three arguments: **target**, **handler** and a **value** that represents the value of the property we want to set:
 
 ```javascript
 const handler = {
@@ -184,7 +184,7 @@ const handler = {
 };
 ```
 
-It might be useful to prevent setting specific field on an object:
+It may be useful to prevent a particular field from being set on an object:
 
 ```javascript
 const user = {
@@ -553,8 +553,6 @@ The preventExtensions trap is triggered when **Object.preventExtensions** method
 >  value: "Doe"
 > });
 > ```
->
->
 
 It executes only with the **target** argument:
 
@@ -665,7 +663,6 @@ The getPrototypeOf trap is triggered when **Object.getPrototypeOf** method is us
 >
 > // Prints "true"
 > console.log(Object.getPrototypeOf(user) === userPrototype);
->
 > ```
 
 It executes only with the **target** argument:
