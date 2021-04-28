@@ -232,7 +232,7 @@ const handler = {
 };
 ```
 
-We can create a Proxy Object that would allow us to use **in** operator for checking if the given value is present in the target array:
+We can create a Proxy Object that would allow us to use the **in** operator to check if the specified value exists in the target array:
 
 ```javascript
 const users = ["John", "Andrew", "Michael"];
@@ -254,9 +254,9 @@ console.log("Unknown" in userProxy);
 
 ## The "DeleteProperty" Trap
 
-*Must return true if deleting is successful, false otherwise.* 
+*Must return true if deletion is successful, false otherwise.* 
 
-The has trap is triggered with the following arguments: **target** and **property,** when **delete** operator is used:
+The deleteProperty trap is triggered with the following arguments: **target** and **property,** when **delete** operator is used:
 
 ```javascript
 const handler = {
@@ -266,7 +266,7 @@ const handler = {
 };
 ```
 
-Let's see how we can block a property from being deleted:
+Let's look at how we can block a property from being deleted:
 
 ```javascript
 const user = {
@@ -304,9 +304,9 @@ console.log(userProxy);
 
 *Must return an enumerable object.*
 
-The ownKeys trap is triggered with only one argument: **target,** when one of the following methods was invoked: **Object.getOwnPropertyNames**, **Object.getOwnPropertySymbols, for ... in, Object.keys, Object.values, Object.entries**.
+The ownKeys trap is triggered with only one argument: **target,** if any of the following methods have been called: **Object.getOwnPropertyNames**, **Object.getOwnPropertySymbols, for ... in, Object.keys, Object.values, Object.entries**.
 
-It executes only with a **target** object:
+It is only executed with a **target** object:
 
 ```javascript
 const handler = {
@@ -386,7 +386,7 @@ console.log(sumProxy(1, 2));
 
 The construct trap is triggered when a **new** keyword is used.
 
-It executes with the following arguments: **target**, **args** - arguments of the constructor, **newTarget** - originally called constructor:
+It is executed with the following arguments: **target**, **args** - arguments of the constructor, **newTarget** - originally called constructor:
 
 ```javascript
 const handler = {
@@ -398,7 +398,7 @@ const handler = {
 
 **Important note:** the construct trap should return an **object**.
 
-In the following example we don't really modify arguments passed to the constructor, but just display a log message to ensure that the trap works as we expect it to:
+In the following example, we don't actually change the arguments passed to the constructor, we just display a log message to make sure the trap is working as we expect it to:
 
 ```javascript
 function Cat(name, age) {
@@ -429,7 +429,7 @@ console.log(friend.age);
 
 *Must return a boolean value.*
 
-The defineProperty trap is triggered when one of the following is used: **Object.defineProperty** or **Object.defineProperties**.
+The defineProperty trap is triggered when any of the following methods are used: **Object.defineProperty** or **Object.defineProperties**.
 
 > The static method **Object.defineProperty** defines a new property directly on an object, or modifies an existing property on an object, and returns the object:
 >
@@ -448,7 +448,7 @@ The defineProperty trap is triggered when one of the following is used: **Object
 > console.log(user.name);
 > ```
 
-It executes with the following arguments: **target**, **property**, **descriptor** - the descriptor for the property being defined or modified:
+It is executed with the following arguments: **target**, **property**, **descriptor** - the descriptor for the property that is being defined or modified:
 
 ```javascript
 const handler = {
@@ -458,7 +458,7 @@ const handler = {
 };
 ```
 
-In the following example we use **Object.defineProperty** method to define a new **nickName** property on a **user** object and transform it to lowercase in the trap:
+In the following example, we use the **Object.defineProperty** method to define a new **nickName** property on a **user** object and trap it to lowercase:
 
 ```javascript
 const user = {};
@@ -483,7 +483,7 @@ console.log(user);
 
 *Must return an object or undefined.*
 
-The getOwnPropertyDescriptor trap is triggered when one of the following is used: **Object.getOwnPropertyDescriptor, for .. in, Object.keys, Object.values** or **Object.entries**.
+The getOwnPropertyDescriptor trap is triggered when one of the following functions is used: **Object.getOwnPropertyDescriptor, for .. in, Object.keys, Object.values** or **Object.entries**.
 
 > The **Object.getOwnPropertyDescriptor** method returns an object describing the configuration of a specific property on a given object:
 >
@@ -500,7 +500,7 @@ The getOwnPropertyDescriptor trap is triggered when one of the following is used
 > console.log(Object.getOwnPropertyDescriptor(user, 'name'));
 > ```
 
-It executes with the following arguments: **target** and **property**:
+It is executed with the following arguments: **target** and **property**:
 
 ```javascript
 const handler = {
@@ -510,7 +510,7 @@ const handler = {
 };
 ```
 
-In the following example we use **Object.getOwnPropertyDescriptor** method to get a descriptor of a **nickName** property on a **user** object and transform it to lowercase in the trap:
+In the following example we use the **Object.getOwnPropertyDescriptor** method to get a descriptor of a **nickName** property on a **user** object and convert it to lowercase in the trap:
 
 ```javascript
 const user = {
@@ -554,7 +554,7 @@ The preventExtensions trap is triggered when **Object.preventExtensions** method
 > });
 > ```
 
-It executes only with the **target** argument:
+It is only executed with the **target** argument:
 
 ```javascript
 const handler = {
@@ -564,7 +564,7 @@ const handler = {
 };
 ```
 
-In the following example we prevent an object from being extensible, the property **age** cannot be added:
+In the following example we prevent an object from being extensible, the **age** property cannot be added:
 
 ```javascript
 const user = {
@@ -612,7 +612,7 @@ The isExtensible trap is triggered when **Object.isExtensible** method is used.
 > console.log(Object.isExtensible(user));
 > ```
 
-It executes only with the **target** argument:
+It is only executed with the **target** argument:
 
 ```javascript
 const handler = {
@@ -665,7 +665,7 @@ The getPrototypeOf trap is triggered when **Object.getPrototypeOf** method is us
 > console.log(Object.getPrototypeOf(user) === userPrototype);
 > ```
 
-It executes only with the **target** argument:
+It is only executed with the **target** argument:
 
 ```javascript
 const handler = {
@@ -675,7 +675,7 @@ const handler = {
 };
 ```
 
-In the following example we created a prototype of the **user** object and returned it from the trap:
+In the following example, we have created a prototype of the **user** object and returned it from the trap:
 
 ```javascript
 const user = {
@@ -723,7 +723,7 @@ The setPrototypeOf trap is triggered when **Object.setPrototypeOf** method is us
 > console.log(Object.getPrototypeOf(user) === userPrototype);
 > ```
 
-It executes only with the **target** and **prototype** arguments. The latter holds the new prototype of the  target object or null:
+It is executed with the arguments **target** and **prototype**. The latter contains the new prototype of the target object or null:
 
 ```javascript
 const handler = {
@@ -733,7 +733,7 @@ const handler = {
 };
 ```
 
-In the following example we disallowed setting a new prototype for the **userProxy** object by returning **false** from the trap:
+In the following example, we disallowed setting a new prototype for the **userProxy** object by returning **false** from the trap:
 
 ```javascript
 const user = {
@@ -754,9 +754,9 @@ console.log(Object.setPrototypeOf(userProxy, user));
 
 ## Proxy Limitations
 
-Apart from providing an easy and reliable way to intercept objects, Proxy comes with its own limitations.
+Aside from providing a simple and reliable way to intercept objects, proxy has its own limitations. 
 
-For example, to make it work with built-in objects, like **Map**, **Set**, **Date** etc, we need to apply some additional magic, simple example like this won't work:
+For example, to make it work with built-in objects like **Map**, **Set**, **Date**, etc, we need to do some extra magic, a simple example like this won't work:
 
 ```javascript
 const users = new Map();
