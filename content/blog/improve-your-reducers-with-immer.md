@@ -194,7 +194,7 @@ updateUser = (name) => {
       name,
     },
   })),
-}
+};
 
 // Using immer
 updateUser = (name) => {
@@ -203,7 +203,16 @@ updateUser = (name) => {
       draft.user.name = name;
     })
   )),
-}
+};
+
+// Using immer with hooks
+updateUser = (name) => {
+  setUser(
+    produce(user => {
+      user.name = name,
+    }),
+  );
+};
 ```
 
 ## The Performance
