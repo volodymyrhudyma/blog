@@ -3,8 +3,13 @@ title: Improve Your State Handling With Immer
 tag:
   - React
 promote: false
-metaDescription: // META
-teaser: // TEASER
+metaDescription: Learn how to improve state handling in React applications by
+  using immer - a library that is based on a copy-on-write mechanism.
+shareImage: /img/immer-in-react.jpg
+teaser: In React, state is treated as immutable and should never be modified
+  directly, but either by using a helper function or overwriting the whole state
+  object with a completely new one. In some cases this may be frustrating,
+  because of having to...
 date: 2021-05-02T08:12:00.000Z
 ---
 In React, state is treated as immutable and should never be modified directly, but either by using a helper function or overwriting the whole state object with a completely new one.
@@ -20,6 +25,10 @@ Immer provides a helper function that takes a state as a parameter and produces 
 Here is an image that shows exactly how the library works (taken from the [official documentation](https://immerjs.github.io/immer/)):
 
 ![Immer (taken from the official documentation)](/img/immer-4002b3fd2cfd3aa66c62ecc525663c0d.png "Immer (taken from the official documentation)")
+
+It is based on the [copy-on-write](https://en.wikipedia.org/wiki/Copy-on-write) mechanism.
+
+> Copy-on-write (COW), sometimes referred to as **implicit sharing** or **shadowing**, is a resource-management technique used in computer programming to efficiently implement a "duplicate" or "copy" operation on modifiable resources.
 
 To begin with, install the library:
 
@@ -160,9 +169,10 @@ const initialState = {
 export default produce((draftState, action) => {
   switch (action.type) {
     case FETCH_PRODUCTS: {
-      return action.payload.forEach((product) => {
+      action.payload.forEach((product) => {
         draftState.products[product.id] = product;
       });
+      break;
     }
   }
 }, initialState);
@@ -207,3 +217,11 @@ Just applying immer in this case prevents unnecessary re-renders, because it is 
 To learn more about the performance, read [this section](https://immerjs.github.io/immer/performance) of the official documentation.
 
 ## Summary
+
+In this article, we familiarized ourselves with a great tool that allows to improve dealing with an immutable data.
+
+It can be used either to refactor reducers that contain a lot of deep update logic, or setting state in a component.
+
+We haven't covered a lot more features immer ships with, like **patches**, **auto-freezing**, **typescript support**, etc.
+
+To learn more about them, please read the [official documentation](https://immerjs.github.io/immer/).
