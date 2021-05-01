@@ -35,22 +35,138 @@ Its syntax is the following:
 
 ```javascript
 // Basic
-produce(currentState, producer: (draftState) => void): nextState
+produce(initialState, producer: (draftState) => void): nextState
 
-// Overload
-produce((draftState, ..args) => nextState);
+// Curried
+produce((draftState, ..args) => void, initialState?) => nextState;
 ```
 
 The basic produce receives current state as the first argument, a function that creates a draft state as the second and returns a next state.
 
-It can be overloaded, which is intended to be used for [currying](/a-simple-guilde-to-currying-in-javascript/) and it receives a function as the only argument, which contains a draft state and any other arguments passed to the curried function.
+It can be overloaded, which is intended to be used for [currying](/a-simple-guilde-to-currying-in-javascript/) and it receives a function as the first argument, which contains a draft state and any other arguments passed to the curried function and the initial state as the second optional parameter.
 
 The benefit of using an overloaded version is that you get a pre-bound producer that only needs a state to produce the value from.
 
 ## The Basic Example
 
-To better understand the concept, let's see a basic example of immer usage.
+To better understand the concept, let's see a basic example of immer usage:
 
-## The Overloaded Example
+```javascript
+import produce from "immer"
 
-Since we know that the **produce** function has one overload, let's look at how it can be used.
+const initialState = [
+  {
+    name: "John",
+    surname: "Doe",
+    age: 18,
+  },
+];
+
+const nextState = produce(initialState, draftState => {
+  draftState[0].age = 20;
+  draftState.push({
+    name: "Andrew",
+    surname: "Hopkins",
+    age: 16,
+  });
+});
+
+/*
+  [
+    { name: "John", surname: "Doe", age: 20 },
+    { name: "Andrew", surname: "Hopkins", age: 16 }
+  ]
+*/
+console.log(nextState);
+```
+
+## The Curried Example
+
+Since we know that the **produce** function has one overload, let's look at how it can be used:
+
+```javascript
+import produce from "immer"
+
+const initialState = [
+  {
+    name: "John",
+    surname: "Doe",
+    age: 18,
+  },
+  {
+    name: "Andrew",
+    surname: "Hopkins",
+    age: 16,
+  },
+];
+
+const mapper = produce((draft, _index) => {
+  draft.adult = draft.age >= 18;
+  delete draft.age;
+});
+
+const result = initialState.map(mapper);
+
+/*
+  [
+    { name: "John", surname: "Doe", adult: true },
+    { name: "Andrew", surname: "Hopkins", adult: false }
+  ]
+*/
+console.log(result);
+```
+
+## Refactoring A Reducer
+
+One of the best places, but not the only one, to use immer is reducers in React.
+
+Consider the following example, where we pass an array of products to the reducer and transform them to objects to be stored:
+
+```javascript
+const initialState = {
+  products: {},
+};
+
+export default (state = initialState, action) => {
+  switch (action.type) {
+    case FETCH_PRODUCTS: {
+      return {
+        ...state,
+        products: {
+          ...action.payload.reduce((acc: any, product: any) => {
+            acc[product.id] = product;
+            return acc;
+          }, {}),
+        },
+      };
+    }
+    default:
+      return state;
+  }
+};
+```
+
+While this is a relatively simple reducer, it might take a while to understand what is going on here with all this spread operators and reduce stuff.
+
+Fortunately, immer allows to simplify the above example a lot:
+
+```javascript
+import produce from "immer";
+
+const initialState = {
+  products: {},
+};
+
+export default produce((draftState, action) => {
+  switch (action.type) {
+    case FETCH_PRODUCTS: {
+      return action.payload.forEach((product: any) => {
+        draftState.products[product.id] = product;
+      });
+    }
+  }
+}, initialState);
+
+```
+
+Notice, that we don't have to handle the **default** case, since if producer does not do anything, it returns the initial state untouched.
