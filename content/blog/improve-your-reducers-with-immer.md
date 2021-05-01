@@ -1,5 +1,5 @@
 ---
-title: Improve Your Reducers With Immer
+title: Improve Your State Handling With Immer
 tag:
   - React
 promote: false
@@ -133,7 +133,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         products: {
-          ...action.payload.reduce((acc: any, product: any) => {
+          ...action.payload.reduce((acc, product) => {
             acc[product.id] = product;
             return acc;
           }, {}),
@@ -160,7 +160,7 @@ const initialState = {
 export default produce((draftState, action) => {
   switch (action.type) {
     case FETCH_PRODUCTS: {
-      return action.payload.forEach((product: any) => {
+      return action.payload.forEach((product) => {
         draftState.products[product.id] = product;
       });
     }
@@ -170,3 +170,40 @@ export default produce((draftState, action) => {
 ```
 
 Notice, that we don't have to handle the **default** case, since if producer does not do anything, it returns the initial state untouched.
+
+## Refactoring Setting A State
+
+Updating a state can also be simplified:
+
+```javascript
+// Standard way
+updateUser = (name) => {
+  this.setState(prevState => ({
+    user: {
+      ...prevState.user,
+      name,
+    },
+  })),
+}
+
+// Using immer
+updateUser = (name) => {
+  this.setState(
+    produce(draftState => {
+      draft.user.name = name;
+    })
+  )),
+}
+```
+
+## The Performance
+
+One important thing worth mentioning is that using immer, in some cases, can significantly improve performance of your React application.
+
+Even if the reducer does not change anything in the state, it creates a new state object and the component that reads this object re-renders, since it is new, even though nothing is changed.
+
+Just applying immer in this case prevents unnecessary re-renders, because it is able to detect "no-op" changes and return an original state in this case.
+
+To learn more about the performance, read [this section](https://immerjs.github.io/immer/performance) of the official documentation.
+
+## Summary
