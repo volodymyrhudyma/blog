@@ -233,4 +233,4 @@ It can be used either to refactor reducers that contain a lot of deep update log
 
 We haven't covered a lot more features immer ships with, like **patches**, **auto-freezing**, **typescript support**, etc.
 
-To learn more about them, please read the [official documentation](https://immerjs.github.io/immer/).
+To learn more about them, please read the [official documentation](https://immerjs.github.io/immer/) and view this awesome [video course](https://egghead.io/courses/immutable-javascript-data-structures-with-immer).
