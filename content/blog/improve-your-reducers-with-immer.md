@@ -49,4 +49,8 @@ The benefit of using an overloaded version is that you get a pre-bound producer 
 
 ## The Basic Example
 
+To better understand the concept, let's see a basic example of immer usage.
+
 ## The Overloaded Example
+
+Since we know that the **produce** function has one overload, let's look at how it can be used.
