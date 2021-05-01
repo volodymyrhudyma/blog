@@ -5,7 +5,7 @@ tag:
 promote: false
 metaDescription: // META
 teaser: // TEASER
-date: 2021-05-03T08:19:54.554Z
+date: 2021-05-02T08:12:00.000Z
 ---
 In React, state is treated as immutable and should never be modified directly, but either by using a helper function or overwriting the whole state object with a completely new one.
 
