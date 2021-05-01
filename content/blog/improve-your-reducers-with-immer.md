@@ -43,16 +43,20 @@ import produce from "immer";
 Its syntax is the following:
 
 ```javascript
+const recipe = (draftState, ...args?) => void;
+
 // Basic
-produce(initialState, producer: (draftState) => void): nextState
+produce(initialState, recipe): nextState;
 
 // Curried
-produce((draftState, ..args) => void, initialState?) => nextState;
+produce(recipe) => (state, ...args?) => nextState;
 ```
 
 The basic produce receives current state as the first argument, a function that creates a draft state as the second and returns a next state.
 
-It can be overloaded, which is intended to be used for [currying](/a-simple-guilde-to-currying-in-javascript/) and it receives a function as the first argument, which contains a draft state and any other arguments passed to the curried function and the initial state as the second optional parameter.
+It can be overloaded, which is intended to be used for [currying](/a-simple-guilde-to-currying-in-javascript/).
+
+The curried version receives a function as the first argument, which contains a draft state and any other arguments, and it returns a new function that accepts a state and any other arguments and returns a next state.
 
 The benefit of using an overloaded version is that you get a pre-bound producer that only needs a state to produce the value from.
 
@@ -176,7 +180,6 @@ export default produce((draftState, action) => {
     }
   }
 }, initialState);
-
 ```
 
 Notice, that we don't have to handle the **default** case, since if producer does not do anything, it returns the initial state untouched.
