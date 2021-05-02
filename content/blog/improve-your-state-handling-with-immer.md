@@ -3,26 +3,26 @@ title: Improve Your State Handling With Immer
 tag:
   - React
 promote: false
-metaDescription: Learn how to improve state handling in React applications by
-  using immer - a library that is based on a copy-on-write mechanism.
+metaDescription: Learn how to improve state handling in React applications using
+  immer - a library based on a copy-on-write mechanism.
 shareImage: /img/immer-in-react.jpg
 teaser: In React, state is treated as immutable and should never be modified
-  directly, but either by using a helper function or overwriting the whole state
-  object with a completely new one. In some cases this may be frustrating,
-  because of having to...
+  directly, but either by using a helper function or by overwriting the entire
+  state object with a completely new one. In some cases, this can be frustrating
+  because you have to copy several nested levels of data to change only...
 date: 2021-05-02T08:12:00.000Z
 ---
-In React, state is treated as immutable and should never be modified directly, but either by using a helper function or overwriting the whole state object with a completely new one.
+In React, state is treated as immutable and should never be modified directly, but either by using a helper function or by overwriting the entire state object with a completely new one.
 
-In some cases this may be frustrating, because of having to copy multiple nested levels of data to modify just a small part.
+In some cases, this can be frustrating because you have to copy several nested levels of data to change only a small part.
 
 But there is a solution - using an [immer](https://immerjs.github.io/immer/), a package that allows you to work with immutable state in a more convenient way.
 
 ## Immer Overview
 
-Immer provides a helper function that takes a state as a parameter and produces a draft state, which can be modified directly and then creates a new state object based on all applied changes.
+Immer provides a helper function that takes a state as a parameter and produces a draft state that can be modified directly, and then creates a new state object based on all applied changes.
 
-Here is an image that shows exactly how the library works (taken from the [official documentation](https://immerjs.github.io/immer/)):
+Here is a picture showing exactly how the library works (taken from the [official documentation](https://immerjs.github.io/immer/)):
 
 ![Immer (taken from the official documentation)](/img/immer-4002b3fd2cfd3aa66c62ecc525663c0d.png "Immer (taken from the official documentation)")
 
@@ -40,7 +40,7 @@ And import the **produce** function:
 import produce from "immer";
 ```
 
-Its syntax is the following:
+The syntax is as follows following:
 
 ```javascript
 const recipe = (draftState, ...args?) => void;
@@ -52,17 +52,17 @@ produce(initialState, recipe): nextState;
 produce(recipe) => (state, ...args?) => nextState;
 ```
 
-The basic produce receives current state as the first argument, a function that creates a draft state as the second and returns a next state.
+The basic produce receives current state as its first argument, and a function that produces a draft state as the second and returns a next state.
 
 It can be overloaded, which is intended to be used for [currying](/a-simple-guilde-to-currying-in-javascript/).
 
-The curried version receives a function as the first argument, which contains a draft state and any other arguments, and it returns a new function that accepts a state and any other arguments and returns a next state.
+The curried version receives a function as its first argument, containing a draft state and any other arguments, and returns a new function that accepts a state and any other arguments, and then returns a next state.
 
-The benefit of using an overloaded version is that you get a pre-bound producer that only needs a state to produce the value from.
+The advantage of the overloaded version is that you get a pre-bound producer that only requires a state from which to generate the draft.
 
 ## The Basic Example
 
-To better understand the concept, let's see a basic example of immer usage:
+To better understand the concept, let's see a basic example of the use of immer:
 
 ```javascript
 import produce from "immer"
@@ -131,9 +131,9 @@ console.log(result);
 
 ## Refactoring A Reducer
 
-One of the best places, but not the only one, to use immer is reducers in React.
+One of the best places, but not the only one, to use immer are reducers in React.
 
-Consider the following example, where we pass an array of products to the reducer and transform them to objects to be stored:
+Consider the following example, where we pass an array of products to the reducer and transform them into objects to be stored:
 
 ```javascript
 const initialState = {
@@ -159,9 +159,9 @@ export default (state = initialState, action) => {
 };
 ```
 
-While this is a relatively simple reducer, it might take a while to understand what is going on here with all this spread operators and reduce stuff.
+Although this is a relatively simple reducer, it might take a while to understand what's going on here with all these spread operators and reduce stuff. 
 
-Fortunately, immer allows to simplify the above example a lot:
+Fortunately, immer allows you to simplify the above example a lot:
 
 ```javascript
 import produce from "immer";
@@ -182,7 +182,7 @@ export default produce((draftState, action) => {
 }, initialState);
 ```
 
-Notice, that we don't have to handle the **default** case, since if producer does not do anything, it returns the initial state untouched.
+Note, that we don't have to handle the **default** case, since if producer does nothing, it returns the initial state unchanged.
 
 ## Refactoring Setting A State
 
@@ -220,20 +220,20 @@ updateUser = (name) => {
 
 ## The Performance
 
-One important thing worth mentioning is that using immer, in some cases, can significantly improve performance of your React application.
+One important thing worth mentioning is that using immer, in some cases, can significantly improve the performance of your React application.
 
-Even if the reducer does not change anything in the state, it creates a new state object and the component that reads this object re-renders, since it is new, even though nothing is changed.
+Even if the reducer doesn't change anything in the state, it creates a new state object and the component that reads that object re-renders, since it is new, even though nothing was changed.
 
-Just applying immer in this case prevents unnecessary re-renders, because it is able to detect "no-op" changes and return an original state in this case.
+The application of immer prevents unnecessary re-renders in this case, as it is able to detect "no-op" changes and return an original state.
 
-To learn more about the performance, read [this section](https://immerjs.github.io/immer/performance) of the official documentation.
+To learn more about performance, read [this section](https://immerjs.github.io/immer/performance) of the official documentation.
 
 ## Summary
 
-In this article, we familiarized ourselves with a great tool that allows to improve dealing with an immutable data.
+In this article, we have become familiar with a great tool that allows better handling of immutable data.
 
-It can be used either to refactor reducers that contain a lot of deep update logic, or setting state in a component.
+It can be used either to refactor reducers that contain a lot of deep update logic, or to set state in a component.
 
-We haven't covered a lot more features immer ships with, like **patches**, **auto-freezing**, **typescript support**, etc.
+We haven't covered many other features that immer ships with, like **patches**, **auto-freezing**, **typescript support**, etc.
 
-To learn more about them, please read the [official documentation](https://immerjs.github.io/immer/) and view this awesome [video course](https://egghead.io/courses/immutable-javascript-data-structures-with-immer).
+To learn more, I highly recommend you to read the [official documentation](https://immerjs.github.io/immer/) and take this great and free [video course](https://egghead.io/courses/immutable-javascript-data-structures-with-immer).
