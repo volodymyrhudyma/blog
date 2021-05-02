@@ -1,0 +1,12 @@
+_id: 1b52b710-ab6e-11eb-adf2-6d8bbb0d9403
+name: Dave
+message: >-
+  Hi, Many thanks for your post. When I run it, I get the following error in
+  src\store\todo\sagas.ts:
+
+  "'yield' expression implicitly results in an 'any' type because its containing
+  generator lacks a return-type annotation" 
+
+  Could you please suggest a solution ? Thanks !
+slug: /add-redux-saga-with-typescript-to-your-react-application-january-2021/
+date: '2021-05-02T17:44:56.124Z'
