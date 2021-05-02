@@ -1,0 +1,8 @@
+_id: 652f3cd0-ab75-11eb-bdf6-ad9e4b4702f5
+name: Author
+message: >-
+  Hi Dave, I think it may be related to using newer TypeScript version. Could
+  you please try to put "return" before both "yield" keywords both, in "try" and
+  "catch" blocks? That should help. Let me please know if it doesn't.
+slug: /add-redux-saga-with-typescript-to-your-react-application-january-2021/
+date: '2021-05-02T18:37:06.510Z'
