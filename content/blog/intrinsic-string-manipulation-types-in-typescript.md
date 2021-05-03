@@ -3,8 +3,12 @@ title: Intrinsic String Manipulation Types In TypeScript
 tag:
   - JavaScript
 promote: false
-metaDescription: // META
-teaser: // TEASER
+metaDescription: "Learn intrinsic string manipulation types in TypeScript:
+  Uppercase, Lowercase, Capitalize and Uncapitalize with code examples. "
+teaser: "In TypeScript 4.1, apart from a lot of new cool additions, there are
+  four new types that help us to better deal with different string
+  manipulations. The most common manipulations are: transforming the string to
+  either uppercase or lowercase, capitalize and..."
 date: 2021-05-04T07:45:40.595Z
 ---
 In TypeScript 4.1, apart from a lot of new cool additions, there are four new types that help us to better deal with different string manipulations.
@@ -57,11 +61,28 @@ type NickName = "USER2069";
 type ModifiedNickName = Uncapitalize<NickName>;
 ```
 
+## What Is An Intrinsic Type?
+
+To begin with, these new types are drilled into the compiler, which means that we can't create our own implementation of them.
+
+That's the reason they are called intrinsic.
+
+> **Intrinsic types** and their operations are predefined and always accessible. Its implementation is provided by the **TypeScript** compiler.
+
+They are defined using a special **intrinsic** keyword:
+
+```typescript
+type Uppercase<S extends string> = intrinsic;
+type Lowercase<S extends string> = intrinsic;
+type Capitalize<S extends string> = intrinsic;
+type Uncapitalize<S extends string> = intrinsic;
+```
+
+As it is stated in the "[Glossary of TypeScript](https://gist.github.com/ruizb/55e1fc37cb198dccfdaf81450c3ebd43#intrinsic-type)", more intrinsic types could be added in the future.
+
 ## How Is That Possible?
 
 You may be wondering - how is that possible with TypeScript?
-
-To begin with, these new types are drilled into the compiler, which means that we can't create our own implementation of them.
 
 As of the TypeScript 4.1, these intrinsic functions use JavaScript string runtime functions for string manipulations:
 
@@ -76,3 +97,14 @@ function applyStringMapping(symbol: Symbol, str: string) {
     return str;
 }
 ```
+
+## Summary
+
+In this short, but sweet article we have learned four intrinsic types in TypeScript, added in 4.1 version and designed for dealing with string manipulations:
+
+* Uppercase
+* Lowercase
+* Capitalize
+* Uncapitalize
+
+Make sure to keep your TypeScript version up-to-date to get use of such a great additions.
