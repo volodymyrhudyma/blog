@@ -5,6 +5,7 @@ tag:
 promote: false
 metaDescription: "Learn intrinsic string manipulation types in TypeScript:
   Uppercase, Lowercase, Capitalize and Uncapitalize with code examples. "
+shareImage: /img/intrinsic-types-in-typescript.jpg
 teaser: "In TypeScript 4.1, apart from a lot of new cool additions, there are
   four new types that help us to better deal with different string
   manipulations. The most common manipulations are: transforming the string to
