@@ -53,8 +53,6 @@ git push original master
 git push copy master
 ```
 
-**Important note:** You may need to set the upstream: **git push -u <remote> <branch>**.
-
 Now we know how to push changes to each repository separately, but how to push to both at once?
 
 #### Step 1: Create a new remote named "all", and add GitLab and GitHub URLs to it
@@ -62,7 +60,7 @@ Now we know how to push changes to each repository separately, but how to push t
 ```gitconfig
 git remote add all git@gitlab.com:vhudyma/original.git
 git remote set-url all --add --push git@gitlab.com:vhudyma/original.git
-git remote set-url all --push --add git@github.com:volodymyrhudyma/copy.git
+git remote set-url all --add --push git@github.com:volodymyrhudyma/copy.git
 
 ...
 
@@ -84,5 +82,18 @@ git push all master
 And the change appears in both repositories.
 
 ## Pull From Multiple Repositories
+
+It is not possible to pull from multiple repositories using the **git pull** command.
+
+However, we are able to execute **git fetch --all** to fetch information from all remotes:
+
+```gitconfig
+git fetch --all
+
+...
+
+git checkout <branch>
+git reset --hard <remote>/<branch>
+```
 
 ## Summary
