@@ -1,5 +1,5 @@
 ---
-title: Git Push And Pull On Multiple Repositiories
+title: Git Push/Pull From Multiple Repositories
 tag:
   - Git
 promote: false
