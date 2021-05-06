@@ -1,17 +1,21 @@
 ---
-title: Git Push/Pull From Multiple Repositories
+title: Git Push To Multiple Repositories
 tag:
   - Git
 promote: false
-metaDescription: // META
-teaser: // TEASER
+metaDescription: Learn an easy way to push the changes to multiple repositories
+  (remotes) at once using Git.
+teaser: Git is probably the best tool for version control and successful
+  collaboration of the development team. Typically, developers keep the codebase
+  in one place, like GitHub or GitLab, but in some cases it may be needed to
+  work with the project that is stored in different locations and keep...
 date: 2021-05-07T17:48:19.335Z
 ---
 Git is probably the best tool for version control and successful collaboration of the development team. 
 
 Typically, developers keep the codebase in one place, like GitHub or GitLab, but in some cases it may be needed to work with the project that is stored in different locations and keep both of them in sync.
 
-Today, after setting up two repositories, we will try to push and pull the changes from both of them simultaneously with just one command.
+Today, after setting up two repositories, we will try to push the changes to both of them simultaneously with just one command.
 
 ## Push To Multiple Repositories
 
@@ -29,7 +33,7 @@ git remote add original git@gitlab.com:vhudyma/original.git
 git remote add copy git@github.com:volodymyrhudyma/copy.git
 ```
 
-> The **git remote** command is one piece of the broader system which is responsible for syncing changes. Records registered through the **git remote** command are used in conjunction with the **git** fetch , **git** push , and **git** pull commands.
+> The **git remote** command is one piece of the broader system which is responsible for syncing changes. Records registered through the **git remote** command are used in conjunction with the **git** fetch, **git** push, and **git** pull commands.
 
 Execute the **git remote -v** command to make sure that both remotes are successfully added:
 
@@ -81,19 +85,13 @@ git push all master
 
 And the change appears in both repositories.
 
-## Pull From Multiple Repositories
-
-It is not possible to pull from multiple repositories using the **git pull** command.
-
-However, we are able to execute **git fetch --all** to fetch information from all remotes:
-
-```gitconfig
-git fetch --all
-
-...
-
-git checkout <branch>
-git reset --hard <remote>/<branch>
-```
-
 ## Summary
+
+In this article, we figured out how to push code changes to multiple repositories in an easy way.
+
+This is very helpful when your team has to maintain a few copies of the project in different locations.
+
+To sum up, all you need to do is:
+
+* Add a new remote "**all**" with multiple push urls
+* Push the changes to it
