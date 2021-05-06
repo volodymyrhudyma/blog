@@ -25,8 +25,8 @@ Let's assume that we develop a project and the client wants to have it on Gitlab
 From the root folder of your project, add both of your repositories to remotes:
 
 ```gitconfig
-git remote add original https://gitlab.com/vhudyma/original
-git remote add copy https://github.com/volodymyrhudyma/copy
+git remote add original git@gitlab.com:vhudyma/original.git
+git remote add copy git@github.com:volodymyrhudyma/copy.git
 ```
 
 > The **git remote** command is one piece of the broader system which is responsible for syncing changes. Records registered through the **git remote** command are used in conjunction with the **git** fetch , **git** push , and **git** pull commands.
@@ -38,11 +38,50 @@ git remote -v
 
 ...
 
-copy	https://github.com/volodymyrhudyma/copy (fetch)
-copy	https://github.com/volodymyrhudyma/copy (push)
-original	https://gitlab.com/vhudyma/original (fetch)
-original	https://gitlab.com/vhudyma/original (push)
+copy    git@github.com:volodymyrhudyma/copy.git (fetch)
+copy    git@github.com:volodymyrhudyma/copy.git (push)
+original    git@gitlab.com:vhudyma/original.git (fetch)
+original    git@gitlab.com:vhudyma/original.git (push)
 ```
+
+When listing remotes, we specified the **\-v** flag, which shows the URLs that Git has stored for the shortname to be used when reading and writing to that remote.
+
+Now, you are able to push to the selected remote by specifying it in the **git push** command:
+
+```gitconfig
+git push original master
+git push copy master
+```
+
+**Important note:** You may need to set the upstream: **git push -u <remote> <branch>**.
+
+Now we know how to push changes to each repository separately, but how to push to both at once?
+
+#### Step 1: Create a new remote named "all", and add GitLab and GitHub URLs to it
+
+```gitconfig
+git remote add all git@gitlab.com:vhudyma/original.git
+git remote set-url all --add --push git@gitlab.com:vhudyma/original.git
+git remote set-url all --push --add git@github.com:volodymyrhudyma/copy.git
+
+...
+
+all     git@gitlab.com:vhudyma/original.git (fetch)
+all     git@gitlab.com:vhudyma/original.git (push)
+all     git@github.com:volodymyrhudyma/copy.git (push)
+copy    git@github.com:volodymyrhudyma/copy.git (fetch)
+copy    git@github.com:volodymyrhudyma/copy.git (push)
+original    git@gitlab.com:vhudyma/original.git (fetch)
+original    git@gitlab.com:vhudyma/original.git (push)
+```
+
+#### Step 2: Push the changes to the "all" remote
+
+```gitconfig
+git push all master
+```
+
+And the change appears in both repositories.
 
 ## Pull From Multiple Repositories
 
