@@ -3,19 +3,20 @@ title: Git Push To Multiple Repositories
 tag:
   - Git
 promote: false
-metaDescription: Learn an easy way to push the changes to multiple repositories
+metaDescription: Learn a simple way to push changes to multiple repositories
   (remotes) at once using Git.
+shareImage: /img/git-push-to-multiple-repos.jpg
 teaser: Git is probably the best tool for version control and successful
-  collaboration of the development team. Typically, developers keep the codebase
-  in one place, like GitHub or GitLab, but in some cases it may be needed to
-  work with the project that is stored in different locations and keep...
+  development team collaboration. Usually, developers keep the codebase in one
+  place, like GitHub or GitLab, but in some cases it may be necessary to work
+  with the project stored in different locations and keep...
 date: 2021-05-07T17:48:19.335Z
 ---
-Git is probably the best tool for version control and successful collaboration of the development team. 
+Git is probably the best tool for version control and successful development team collaboration. 
 
-Typically, developers keep the codebase in one place, like GitHub or GitLab, but in some cases it may be needed to work with the project that is stored in different locations and keep both of them in sync.
+Usually, developers keep the codebase in one place, like GitHub or GitLab, but in some cases it may be necessary to work with the project stored in different locations and keep both in sync.
 
-Today, after setting up two repositories, we will try to push the changes to both of them simultaneously with just one command.
+Today, after setting up two repositories, we will try to push the changes to both of them at the same time with just one command.
 
 ## Push To Multiple Repositories
 
@@ -24,9 +25,9 @@ I have just created two empty repositories:
 * GitLab - https://gitlab.com/vhudyma/original
 * GitHub - https://github.com/volodymyrhudyma/copy
 
-Let's assume that we develop a project and the client wants to have it on Gitlab, but for some reason we want to have the exact same copy on the GitHub.
+Let's say we are developing a project and the client wants it on GitLab, but for some reason we want the exact same copy on GitHub.
 
-From the root folder of your project, add both of your repositories to remotes:
+From the root folder of your project, add both repositories to the remotes:
 
 ```gitconfig
 git remote add original git@gitlab.com:vhudyma/original.git
@@ -35,7 +36,7 @@ git remote add copy git@github.com:volodymyrhudyma/copy.git
 
 > The **git remote** command is one piece of the broader system which is responsible for syncing changes. Records registered through the **git remote** command are used in conjunction with the **git** fetch, **git** push, and **git** pull commands.
 
-Execute the **git remote -v** command to make sure that both remotes are successfully added:
+Run the **git remote -v** command to ensure that both remotes were successfully added:
 
 ```gitconfig
 git remote -v
@@ -48,9 +49,9 @@ original    git@gitlab.com:vhudyma/original.git (fetch)
 original    git@gitlab.com:vhudyma/original.git (push)
 ```
 
-When listing remotes, we specified the **\-v** flag, which shows the URLs that Git has stored for the shortname to be used when reading and writing to that remote.
+When listing remotes, we specified the **\-v** flag, which displays the URLs that Git has stored for the short name when reading and writing to this remote.
 
-Now, you are able to push to the selected remote by specifying it in the **git push** command:
+Now you are able to perform a push to the selected remote by specifying it in the **git push** command:
 
 ```gitconfig
 git push original master
@@ -87,11 +88,11 @@ And the change appears in both repositories.
 
 ## Summary
 
-In this article, we figured out how to push code changes to multiple repositories in an easy way.
+In this article, we found out how to easily push code changes to multiple repositories. 
 
-This is very helpful when your team has to maintain a few copies of the project in different locations.
+This is very helpful if your team needs to maintain multiple copies of the project in different locations.
 
-To sum up, all you need to do is:
+In summary, all you need to do is the following: 
 
-* Add a new remote "**all**" with multiple push urls
-* Push the changes to it
+* Add a new remote "**all**" with multiple push URLs
+* Push the changes there
