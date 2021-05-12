@@ -5,6 +5,7 @@ tag:
 promote: false
 metaDescription: Learn how to use the useLayoutEffect hook in React with simple
   code examples and compare it to useEffect.
+shareImage: /img/uselayouteffect-in-react.jpg
 teaser: React provides us with a useLayoutEffect hook to improve our
   applications in some specific cases, however not everyone is aware of how to
   use it. It works pretty much the same as useEffect, however they are executed
