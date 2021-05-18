@@ -6,6 +6,7 @@ promote: false
 metaDescription: Learn useImmer and useImmerReducer hooks that allow you to
   handle state updates in a more convenient way than just using the useState
   hook.
+shareImage: /img/use-immer-in-react.jpg
 teaser: Probably, every React developer is familiar with a useState hook, which
   is used for adding a state to the functional components. But updating a state
   using it can be a nightmare when you store an object with a lot of...
