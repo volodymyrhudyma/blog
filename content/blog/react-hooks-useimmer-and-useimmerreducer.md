@@ -61,7 +61,7 @@ It comes with a separate library, called [use-immer](https://github.com/immerjs/
 
 Immer is a helper library that exports a function that takes a state as a parameter and produces a draft state that can be modified directly, and then creates a new state object based on all applied changes.
 
-To learn more about immer, read [this article](improve-your-state-handling-with-immer/).
+To learn more about immer, please read [this article](/improve-your-state-handling-with-immer/).
 
 Install use-immer library:
 
