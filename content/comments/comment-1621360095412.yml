@@ -1,0 +1,9 @@
+_id: 38af6930-b801-11eb-9918-0b14e76b970a
+name: Author
+message: >-
+  Hi Alain. Are you asking if it works on Chrome > 25? It should work, but
+  remember that you need a user action, like clinking on a link. If users type
+  the URL directly into the browser, redirect won't work, as I mentioned in the
+  article.
+slug: /open-mobile-application-from-the-browser/
+date: '2021-05-18T17:48:15.401Z'
