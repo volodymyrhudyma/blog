@@ -1,0 +1,5 @@
+_id: 119cd220-b7f6-11eb-9bde-c9304332fe98
+name: Alain Brun
+message: "Hi Could you confirm it works on OS version > 25?\nAn article from Google says no on Chrome :\n•\tWhen the Intent URI is redirected from a typed in URL.\n•\tWhen the Intent URI is initiated without user gesture.\n•\tJavaScript timer tried to open an application without user gesture.\n\nAlain Brun"
+slug: /open-mobile-application-from-the-browser/
+date: '2021-05-18T16:28:25.363Z'
