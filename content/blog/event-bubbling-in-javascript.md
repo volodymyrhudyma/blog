@@ -6,6 +6,7 @@ promote: false
 metaDescription: Learn about the concept of Event Bubbling in JavaScript. Event
   Bubbling is a process of running event handlers from the innermost element all
   the way up on its parents..
+shareImage: /img/event-bubbling-in-javascript.jpg
 teaser: Have you ever noticed that a click handler added to the parent node also
   fires when child elements are clicked? It may be confusing at first, but
   that's how Event Bubbling works in JavaScript. In order to be able to properly
