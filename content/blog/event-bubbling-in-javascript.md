@@ -3,8 +3,13 @@ title: Event Bubbling In JavaScript
 tag:
   - JavaScript
 promote: false
-metaDescription: // META
-teaser: "> // TEASER"
+metaDescription: Learn about the concept of Event Bubbling in JavaScript. Event
+  Bubbling is a process of running event handlers from the innermost element all
+  the way up on its parents..
+teaser: Have you ever noticed that a click handler added to the parent node also
+  fires when child elements are clicked? It may be confusing at first, but
+  that's how Event Bubbling works in JavaScript. In order to be able to properly
+  handle different types of events on DOM nodes...
 date: 2021-05-23T07:05:21.928Z
 ---
 Have you ever noticed that a click handler added to the parent node also fires when child elements are clicked?
@@ -214,3 +219,98 @@ As we have already learned, both prevent events from bubbling.
 * **event.stopImmediatePropagation()** cancels executing of all events of a single type that are attached to the element
 
   If the DOM node has a few click events attached, only ones that were triggered before we used this method will be executed.
+
+## When To Prevent Bubbling And When Not?
+
+As it was explained in the previous sections, Event Bubbling is cancelable, so it would be good to know when should we cancel it and when shouldn't.
+
+In general, preventing Event Bubbling is not a good idea, since it may cause some inconsistencies.
+
+For example, after using **event.stopPropagation()** on an element, you would not be able to track user clicks on it anymore, which may cause problems if we want to track user's behavior on the page.
+
+However, it may be useful when you already have a click event on a parent element, which can/should not be removed and you need to place a button inside of it:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Event Bubbling</title>
+  </head>
+  <body>
+    <div>
+      <button>Click me</button>
+    </div>
+    <script>
+      const parent = document.getElementsByTagName('div')[0];
+      const button = document.getElementsByTagName('button')[0];
+      parent.addEventListener('click', () => {
+        console.log('Parent is cliked');
+      });
+      button.addEventListener('click', () => {
+        event.stopPropagation();
+        console.log('Button is cliked');
+      });
+    </script>
+  </body>
+</html>
+```
+
+Adding **event.stopPropagation()** will prevent triggering an event an a parent element, which may not be needed when we just click the button.
+
+Imagine that the parent element performs redirect and a button element is triggering a modal.
+
+## Getting Event Target
+
+The most deeply nested element that was clicked (caused the event) is called a **target** element and is accessible under **event.target**.
+
+The current element, event click is being executed on is accessible is called **currentTarget** and is accessible under **event.currentTarget**.
+
+Consider the following example:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Event Bubbling</title>
+  </head>
+  <body>
+    <div>
+      <button>Click me</button>
+    </div>
+    <script>
+      const parent = document.getElementsByTagName('div')[0];
+      const button = document.getElementsByTagName('button')[0];
+      parent.addEventListener('click', () => {
+        // button
+        console.log(event.target);
+        // div
+        console.log(event.currentTarget);
+        console.log('Parent is cliked');
+      });
+      button.addEventListener('click', () => {
+        // button
+        console.log(event.target);
+        // button
+        console.log(event.currentTarget);
+        console.log('Button is cliked');
+      });
+    </script>
+  </body>
+</html>
+```
+
+The output:
+
+![Target And Current Target](/img/target-and-current-target.gif "Target And Current Target")
+
+## Summary
+
+Event Bubbling is a type of event propagation where the event first triggers on the innermost target element (the one we clicked), and then triggers all the way up on parent elements until it reaches the outermost DOM element or window object.
+
+Remember, that not all events bubble (the whole list can be found [here](https://en.wikipedia.org/wiki/DOM_events#Events)).
+
+Event Bubbling can be cancelled by using either **event.stopPropagation()** or **event.stopImmediatePropagation()** methods.
+
+An element that was clicked is accessible under the **event.target** property, an element that is currently running an event is accessible under the **event.currentTarget** property.
+
+Even though this concept is not something we come across often, it should definitely we familiar to you if you want to prevent different weird issues with your event handlers.
