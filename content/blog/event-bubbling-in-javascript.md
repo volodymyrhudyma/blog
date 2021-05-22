@@ -200,6 +200,17 @@ To stop both, **event.stopImmediatePropagation()** can be used:
 </html>
 ```
 
-Now, only the first click handles is executed:
+Now, only the first click handler is executed:
 
 ![Stop Immediate Propagation Cancels All Events](/img/event-stop-immediate-propagation.gif "Stop Immediate Propagation Cancels All Events")
+
+## Stop Propagation vs. Stop Immediate Propagation
+
+As we have already learned, both prevent events from bubbling.
+
+* **event.stopPropagation()** does not cancel executing of all events of a single type that are attached to the element
+
+  If the DOM node has two click events attached, both of them will still be executed.
+* **event.stopImmediatePropagation()** cancels executing of all events of a single type that are attached to the element
+
+  If the DOM node has a few click events attached, only ones that were triggered before we used this method will be executed.
