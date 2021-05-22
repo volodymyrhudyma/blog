@@ -105,3 +105,41 @@ And click the button:
 The focus event is triggered only on the clicked element, it is not triggered on any of the parents.
 
 The full list of all events that don't bubble can be found [here](https://en.wikipedia.org/wiki/DOM_events#Events).
+
+## Prevent Bubbling
+
+In some cases, when an event has been fully processed, it may be necessary to stop Event Bubbling.
+
+Any handler may decide to stop it by executing **event.stopPropagation()** method:
+
+```html
+<!DOCTYPE html>
+<html lang="en" onclick="console.log('HTML clicked')">
+  <head>
+    <title>Event Bubbling</title>
+  </head>
+  <body>
+    <div onclick="console.log('Div is clicked')">
+      <button
+        onclick="console.log('Button is clicked'); event.stopPropagation();"
+      >
+        Click me
+      </button>
+    </div>
+    <script>
+      document.addEventListener('click', () => {
+        console.log('Document is clicked');
+      });
+      window.addEventListener('click', () => {
+        console.log('Window is clicked');
+      });
+    </script>
+  </body>
+</html>
+```
+
+> The above example is the same we used to show how Event Bubbling works, the only difference is using **event.stopPropagation()** method in the **onclick** assigned to the **button** element.
+
+Now, clicking the button triggers only one event:
+
+![Stop Event Propagation](/img/event-stop-propagation.gif "Stop Event Propagation")
