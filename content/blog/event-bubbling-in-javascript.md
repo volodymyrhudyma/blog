@@ -143,3 +143,63 @@ Any handler may decide to stop it by executing **event.stopPropagation()** metho
 Now, clicking the button triggers only one event:
 
 ![Stop Event Propagation](/img/event-stop-propagation.gif "Stop Event Propagation")
+
+**Important note:** If an element has multiple event handles on a single event attached, **event.stopPropagation()** will not stop executing them:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Event Bubbling</title>
+  </head>
+  <body>
+    <div onclick="console.log('Div is clicked')">
+      <button>Click me</button>
+    </div>
+    <script>
+      const button = document.getElementsByTagName('button')[0];
+      button.addEventListener('click', () => {
+        console.log('Button is cliked 1');
+        event.stopPropagation();
+      });
+      button.addEventListener('click', () => {
+        console.log('Button is clicked 2');
+      });
+    </script>
+  </body>
+</html>
+```
+
+In the above example, even though we stopped bubbling, "**Button is clicked 2**" is still printed to the console:
+
+![Stop Propagation Does Not Cancel All Click Events](/img/stop-propagation-two-clicks.gif "Stop Propagation Does Not Cancel All Click Events")
+
+To stop both, **event.stopImmediatePropagation()** can be used:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Event Bubbling</title>
+  </head>
+  <body>
+    <div onclick="console.log('Div is clicked')">
+      <button>Click me</button>
+    </div>
+    <script>
+      const button = document.getElementsByTagName('button')[0];
+      button.addEventListener('click', () => {
+        console.log('Button is cliked 1');
+        event.stopImmediatePropagation();
+      });
+      button.addEventListener('click', () => {
+        console.log('Button is clicked 2');
+      });
+    </script>
+  </body>
+</html>
+```
+
+Now, only the first click handles is executed:
+
+![Stop Immediate Propagation Cancels All Events](/img/event-stop-immediate-propagation.gif "Stop Immediate Propagation Cancels All Events")
