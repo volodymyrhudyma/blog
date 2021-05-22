@@ -75,4 +75,4 @@ A click on a button element runs click handler for:
 
 The main reason why the concept is called Event Bubbling is because events bubble from the inner element all the way up.
 
-## Are All Events "Bubble"?
+## Do All Events "Bubble"?
