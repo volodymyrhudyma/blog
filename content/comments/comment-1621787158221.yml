@@ -1,0 +1,9 @@
+_id: 8deb9910-bbe3-11eb-a26b-4f6208a4218d
+name: John
+message: >-
+  Beautiful tutorial/explanation but on the last screen you are only showing how
+  to implement it in React.FC. 
+
+  Can you please share how to do it in React.Component.
+slug: /2020-06-11-add-redux-with-typescript-to-your-react-applicaton-june-2020/
+date: '2021-05-23T16:25:58.216Z'
