@@ -6,6 +6,7 @@ promote: false
 metaDescription: Learn about the concept of Event Capturing in JavaScript. Event
   Capturing is a process of executing event handlers from the outermost element
   all the way down to the target.
+shareImage: /img/event-capturing-in-javascript.jpg
 teaser: If you read the previous article about Event Bubbling, you probably know
   that the event propagation in HTML is done from the innermost element to all
   its parents. But what if I tell you that it is done vice versa first?...
