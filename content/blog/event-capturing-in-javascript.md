@@ -86,3 +86,26 @@ The output:
 ![Event Listener In The Capturing Phase](/img/event-capturing-example.gif "Event Listener In The Capturing Phase")
 
 Note, how clicking on the **button** element triggers clicks on the parents first.
+
+## Remove Event Handler
+
+One important thing to remember when removing event handlers added in the Capturing phase - is not to forget to pass the phase:
+
+```javascript
+// Add
+button.addEventListener("click", handleClick, true);
+
+// Remove
+button.removeEventListener("click", handleClick, true);
+```
+
+If we do not pass the phase, an event handle will not be removed:
+
+```javascript
+button.addEventListener("click", handleClick, true);
+
+// This will not work!
+button.removeEventListener("click", handleClick);
+```
+
+## Summary
