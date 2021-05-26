@@ -51,7 +51,7 @@ But because of Event Bubbling, clicking the button element triggers events on ea
   <head>
     <title>Event Bubbling</title>
   </head>
-  <body>
+  <body onclick="console.log('Body is clicked')">
     <div onclick="console.log('Div is clicked')">
       <button onclick="console.log('Button is clicked')">Click me</button>
     </div>
