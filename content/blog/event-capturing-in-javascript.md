@@ -52,8 +52,6 @@ button.addEventListener("click", handleClick, { capture: true );
                                                
 // Shorthand
 button.addEventListener("click", handleClick, true);
-
-
 ```
 
 By default, **capture** option is set to **false**.
@@ -141,7 +139,7 @@ button.addEventListener("click", handleClick, true);
 button.removeEventListener("click", handleClick, true);
 ```
 
-If we do not pass the phase, an event handle will not be removed:
+If we do not pass the phase, an event handler will not be removed:
 
 ```javascript
 button.addEventListener("click", handleClick, true);
