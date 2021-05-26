@@ -50,3 +50,39 @@ button.addEventListener("click", handleClick, true);
 ```
 
 By default, **capture** option is set to **false**.
+
+## Event Capturing Example
+
+To better understand the phase, let's see the following example:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Event Capturing</title>
+  </head>
+  <body>
+    <div>
+      <button>Click me</button>
+    </div>
+    <script>
+      const nodes = document.querySelectorAll("*");
+      for (const node of nodes) {
+        node.addEventListener(
+          "click",
+          (e) => console.log(`Capturing: ${node.tagName.toLowerCase()}`),
+          true
+        );
+      }
+    </script>
+  </body>
+</html>
+```
+
+We select all DOM nodes and attach a listener that runs on the Capturing phase.
+
+The output:
+
+![Event Listener In The Capturing Phase](/img/event-capturing-example.gif "Event Listener In The Capturing Phase")
+
+Note, how clicking on the **button** element triggers clicks on the parents first.
