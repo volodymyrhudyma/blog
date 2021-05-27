@@ -8,43 +8,43 @@ metaDescription: Learn about the concept of Event Capturing in JavaScript. Event
   all the way down to the target.
 shareImage: /img/event-capturing-in-javascript.jpg
 teaser: If you read the previous article about Event Bubbling, you probably know
-  that the event propagation in HTML is done from the innermost element to all
-  its parents. But what if I tell you that it is done vice versa first?...
+  that event propagation in HTML is done from the innermost element to all of
+  its parents. But what if I told you that it is done the other way around?...
 date: 2021-05-27T19:36:16.361Z
 ---
-If you read the previous article about Event Bubbling, you probably know that the event propagation in HTML is done from the innermost element to all its parents.
+If you read the previous article about Event Bubbling, you probably know that event propagation in HTML is done from the innermost element to all of its parents.
 
-But what if I tell you that it is done vice versa first?
+But what if I told you that it is done the other way around?
 
 ## Event Propagation Phases
 
-Let me explain - there are three phases of event propagation in HTML DOM:
+Let me explain - there are three phases of event propagation in the HTML DOM:
 
 * Event Capturing - an event goes down
-* Target Phase - an event reached the target element
+* Target Phase - an event reaches the target element
 * Event Bubbling - an event goes up
 
-The following image perfectly illustrates all three phases:
+The following image illustrates all three phases perfectly:
 
 ![Event Propagation In HTML DOM](/img/eventflow.png "Event Propagation In HTML DOM")
 
-When clicking on the **td** element, an event first goes down (Event Capturing), reaches the target element and triggers there (Target Phase) and goes up (Event Bubbling).
+When the **td** element is clicked, an event first goes down (Event Capturing), reaches the target element and triggers there (Target Phase) and goes up (Event Bubbling).
 
 ## Event Capturing
 
 Event Capturing is a process of executing event handlers from the outermost element all the way down to the target.
 
-Most of the time when talking about an event propagation phases, we mention only Event Bubbling and the reason is a very rare usage of Event Capturing, in most cases it is invisible to us.
+Most of the time when we talk about event propagation phases, we only mention Event Bubbling and the reason for this is a very rare usage of Event Capturing, in most cases it is not visible to us.
 
-Typically, when attaching an event listener to the element, we pass only two arguments: event name and event handler:
+Usually, when attaching an event listener to the element, we pass only two arguments: event name and event handler:
 
 ```javascript
 button.addEventListener("click", handleClick);
 ```
 
-And handlers like this know nothing about Event Capturing, they run only Target and Event Bubbling phases.
+And such handlers know nothing about Event Capturing, they only run Target and Event Bubbling phases.
 
-In order to run an event on the Capturing phase, we need to pass the third argument:
+To run an event in the Capturing phase, we need to pass the third argument:
 
 ```javascript
 // Run an event on the Capturing phase
@@ -58,7 +58,7 @@ By default, **capture** option is set to **false**.
 
 ## Event Capturing Example
 
-To better understand the phase, let's see the following example:
+To understand the phase better, let's look at the following example:
 
 ```html
 <!DOCTYPE html>
@@ -84,17 +84,17 @@ To better understand the phase, let's see the following example:
 </html>
 ```
 
-We select all DOM nodes and attach a listener that runs on the Capturing phase.
+We select all DOM nodes and attach a listener running in the Capturing phase.
 
 The output:
 
 ![Event Listener In The Capturing Phase](/img/event-capturing-example.gif "Event Listener In The Capturing Phase")
 
-Note, how clicking on the **button** element triggers clicks on the parents first.
+Notice how clicking on the **button** element triggers clicks on the parent elements first.
 
 ## Capturing Always Precedes Bubbling
 
-The Capturing phase is always executed before Bubbling phase:
+The Capturing phase is always executed before the Bubbling phase:
 
 ```html
 <!DOCTYPE html>
@@ -129,7 +129,7 @@ The output:
 
 ## Remove Event Handler
 
-One important thing to remember when removing event handlers added in the Capturing phase - is not to forget to pass the phase:
+One important thing to remember when removing event handlers added in the Capturing phase is to not forget to pass the phase:
 
 ```javascript
 // Add
@@ -139,7 +139,7 @@ button.addEventListener("click", handleClick, true);
 button.removeEventListener("click", handleClick, true);
 ```
 
-If we do not pass the phase, an event handler will not be removed:
+If we don't pass the phase, an event handler will not be removed:
 
 ```javascript
 button.addEventListener("click", handleClick, true);
@@ -150,10 +150,10 @@ button.removeEventListener("click", handleClick);
 
 ## Summary
 
-Event propagation in HTML DOM consists of three phases which are executed in the given order: Capturing, Target and Bubbling.
+Event propagation in the HTML DOM consists of three phases, executed in the given order: Capturing, Target and Bubbling.
 
-By default, when we attach an event to the element, it is executed in the Bubbling phase and that is the reason most of the time when talking about an event propagation phases, we mention only Event Bubbling.
+By default, when we attach an event to an element, it is executed in the Bubbling phase, and this is the reason why when we talk about the phases of event propagation, we usually only mention Event Bubbling.
 
 To execute an event in the Capturing phase, we need to pass the third argument to the event listener.
 
-Most probably, you won't use this phase too often, but still it doesn't mean you should not be aware of it.
+You probably won't use this phase too often, but that doesn't mean you shouldn't know about it.
