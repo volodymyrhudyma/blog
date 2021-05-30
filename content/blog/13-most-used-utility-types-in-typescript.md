@@ -5,6 +5,7 @@ tag:
 promote: false
 metaDescription: Learn 13 most used Utility Types in TypeScript that can be used
   instantly to empower your next TypeScript project.
+shareImage: /img/utility-types-in-typescript.jpg
 teaser: TypeScript is very flexible and apart from only allowing us to create
   new types, it also provides a possibility to transform existing ones. Such
   transformations are usually done with Utility Types, which are built-in and
