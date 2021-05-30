@@ -7,28 +7,69 @@ metaDescription: // META
 teaser: // TEASER
 date: 2021-06-01T10:10:16.611Z
 ---
-## Partial
+TypeScript is very flexible and apart from only allowing us to create new types, it also provides a possibility to transform existing ones.
 
-## Required
+Such transformations are usually done with Utility Types, which are built-in and accessible globally.
 
-## Readonly
+In this article we will learn 13 most used Utility Types which will make your developer's life much easier.
 
-## Record
+## Partial<Type>
 
-## Pick
+Partial creates a new type with all properties of given **Type** set to optional:
 
-## Omit
+```typescript
+type Type = { x: string, y: string };
 
-## Exclude
+// { x?: string; y?: string }
+type PartialType = Partial<Type>;
+```
 
-## Extract
+It can be used to update an object of a given type with a subset of properties:
 
-## NonNullable
+```typescript
+interface User {
+  name: string;
+  surname: string;
+  age: number;
+}
 
-## Parameters
+const updateUser = (user: User, fields: Partial<User>): User => ({
+  ...user,
+  ...fields,
+});
 
-## ConstructorParameters
+const user1: User = {
+  name: "John",
+  surname: "Doe",
+  age: 17,
+};
 
-## ReturnType
+const user2 = updateUser(user1, { age: 18 });
 
-## InstanceType
+// { name: "John", surname: "Doe", age: 18 }
+console.log(user2);
+```
+
+## Required<Type>
+
+## Readonly<Type>
+
+## Record<Keys, Type>
+
+## Pick<Type, Keys>
+
+## Omit<Type, Keys>
+
+## Exclude<Type, ExcludedUnion>
+
+## Extract<Type, Union>
+
+## NonNullable<Type>
+
+## Parameters<Type>
+
+## ConstructorParameters<Type>
+
+## ReturnType<Type>
+
+## InstanceType<Type>
