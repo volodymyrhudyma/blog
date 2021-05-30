@@ -127,6 +127,30 @@ readonlyUser.name = "Andrew";
 
 ## Record<Keys, Type>
 
+Record creates a new type whose property keys are Keys and values are Type:
+
+```typescript
+// { x: string; y: string }
+type Type = Record<"x" | "y", string>;
+```
+
+It is useful when all items have similar type of value, especially when there is a large number of them:
+
+```typescript
+interface UserInfo {
+  age: number;
+}
+
+type UserName = "john" | "andrew" | "elon" | "jack";
+
+const userList: Record<UserName, UserInfo> = {
+  john: { age: 18 },
+  andrew: { age: 20 },
+  elon: { age: 49 },
+  jack: { age: 56 },
+};
+```
+
 ## Pick<Type, Keys>
 
 ## Omit<Type, Keys>
