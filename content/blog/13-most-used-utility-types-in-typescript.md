@@ -285,7 +285,60 @@ type CommonKeys = Extract<keyof Human, keyof Cat>;
 
 ## NonNullable<Type>
 
+NonNullable creates a new type by excluding **null** and **undefined** from **Type**.
+
+Basically, it is a shorthand of **Exclude<T, null | undefined>**:
+
+```typescript
+type Type = string | null | undefined; 
+
+// "string"
+type NonNullableType = NonNullable<Type>;
+```
+
 ## Parameters<Type>
+
+Parameters constructs a tuple type from the types used in the parameters of a function type **Type**:
+
+```typescript
+const addNumbers = (x: number, y: number) => {
+  return x + y;
+};
+
+// [x: number, y: number]
+type FunctionParameters = Parameters<typeof addNumbers>;
+```
+
+You can also retrieve an individual parameter:
+
+```typescript
+const addNumbers = (x: number, y: number) => {
+  return x + y;
+};
+
+// "number"
+type FirstParam = Parameters<typeof addNumbers>[0];
+
+// "number"
+type SecondParam = Parameters<typeof addNumbers>[1];
+
+// "undefined"
+type ThirdParam = Parameters<typeof addNumbers>[2];
+```
+
+If is useful for getting a type of the function parameter to ensure type safety, especially when you are using an external library:
+
+```typescript
+const saveUser = (user: { name: string; surname: string; age: number }) => {
+  // ...
+};
+
+const user: Parameters<typeof saveUser>[0] = {
+  name: "John",
+  surname: "Doe",
+  age: 18,
+};
+```
 
 ## ConstructorParameters<Type>
 
