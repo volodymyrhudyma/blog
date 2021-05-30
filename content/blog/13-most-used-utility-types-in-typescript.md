@@ -18,9 +18,9 @@ Such transformations are usually done with Utility Types, which are built-in and
 
 In this article we will learn 13 most used Utility Types which will make your developer's life much easier.
 
-## Partial<Type>
+## Partial<T>
 
-Partial creates a new type with all properties of given **Type** set to optional:
+Partial creates a new type with all properties of given **Type(T)** set to optional:
 
 ```typescript
 type Type = { x: string, y: string };
@@ -398,7 +398,6 @@ const getUser = () => ({
 
 // { name: string; surname: string; age: number; }
 type FunctionReturnType = ReturnType<typeof getUser>;
-
 ```
 
 Same, as with Parameters and ConstructionParameters, it is useful when you work with an external library and want to get a return type of the imported function:
@@ -417,7 +416,6 @@ const user: User = {
   surname: "Hopkins",
   age: 20,
 };
-
 ```
 
 ## InstanceType<Type>
