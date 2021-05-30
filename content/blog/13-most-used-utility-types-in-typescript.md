@@ -3,8 +3,12 @@ title: 13 Most Used Utility Types In TypeScript
 tag:
   - JavaScript
 promote: false
-metaDescription: // META
-teaser: // TEASER
+metaDescription: Learn 13 most used Utility Types in TypeScript that can be used
+  instantly to empower your next TypeScript project.
+teaser: TypeScript is very flexible and apart from only allowing us to create
+  new types, it also provides a possibility to transform existing ones. Such
+  transformations are usually done with Utility Types, which are built-in and
+  accessible...
 date: 2021-06-01T10:10:16.611Z
 ---
 TypeScript is very flexible and apart from only allowing us to create new types, it also provides a possibility to transform existing ones.
@@ -479,3 +483,9 @@ const user: UserMangerInstanceType = {
 However, it is also possible to create dynamic classes in TypeScript, where **InstanceType** can be used to retrieve the type of the dynamic instances.
 
 ## Summary
+
+TypeScript ships with built in Utility Types that are accessible globally and can be used to transform existing types painlessly, each which can be created manually.
+
+However, I recommend using them whenever possible instead of manual implementations, since they increase the readability and maintainability of the code.
+
+Make sure to understand all of the today's 13 Utility Types, since they are the most popular ones and you will, most probably, need to use some of them in each project.
