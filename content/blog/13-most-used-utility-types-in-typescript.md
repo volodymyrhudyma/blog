@@ -220,6 +220,39 @@ const getUserData = (user: User): CleanUser => {
 
 ## Exclude<Type, ExcludedUnion>
 
+Omit creates a new type by excluding all union members from Type that are assignable to ExcludedUnion:
+
+```typescript
+// "x" | "y"
+type ExcludedType = Exclude<"x" | "y" | "z", "z">;
+```
+
+It is useful for excluding specific keys from an object:
+
+```typescript
+interface User {
+  name: string;
+  surname: string;
+  personalNumber: number;
+}
+
+type AllowedKeys = Exclude<keyof User, "personalNumber">;
+
+const getUserProperty = (user: User, key: AllowedKeys) => user[key];
+
+const user: User = {
+  name: "John",
+  surname: "Doe",
+  personalNumber: 999999999,
+};
+
+const nameProp = getUserProperty(user, "name");
+const surnameProp = getUserProperty(user, "surname");
+
+// Argument of type "personalNumber" is not assignable to parameter of type "name" | "surname"
+const personalNumberProp = getUserProperty(user, "personalNumber");
+```
+
 ## Extract<Type, Union>
 
 ## NonNullable<Type>
