@@ -153,6 +153,38 @@ const userList: Record<UserName, UserInfo> = {
 
 ## Pick<Type, Keys>
 
+Pick creates a new type by picking the specified set of properties Keys from Type:
+
+```typescript
+type LongType = {
+  a: string;
+  b: string;
+  c: string;
+  d: string;
+};
+
+// { a: string; b: string }
+type ShortType = Pick<LongType, "a" | "b">;
+```
+
+It is useful when you need to get only a subset of properties you are interested in:
+
+```typescript
+interface User {
+  name: string;
+  surname: string;
+  street: string;
+  house: number;
+}
+
+type UserAddress = Pick<User, "street" | "house">;
+
+const address: UserAddress = {
+  street: "Street",
+  house: 1,
+};
+```
+
 ## Omit<Type, Keys>
 
 ## Exclude<Type, ExcludedUnion>
