@@ -52,6 +52,43 @@ console.log(user2);
 
 ## Required<Type>
 
+Required is the opposite of Partial.
+
+It creates a new type with all properties of given **Type** set to required.:
+
+```typescript
+type Type = { x?: string, y?: string };
+
+// { x: string; y: string }
+type RequiredType = Required<Type>;
+```
+
+It can be used when we are sure that the internal variable has all fields set, to avoid doing unnecessary null checks later in the code:
+
+```typescript
+interface User {
+  name?: string;
+  surname?: string;
+  age?: number;
+}
+
+class UserManager {
+  private user: Required<User>;
+
+  constructor(user: User) {
+    this.user = {
+      name: user.name || "Undefined",
+      surname: user.surname || "Undefined",
+      age: user.age || 0,
+    };
+  }
+
+  getUser() {
+    return this.user;
+  }
+}
+```
+
 ## Readonly<Type>
 
 ## Record<Keys, Type>
