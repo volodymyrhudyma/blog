@@ -220,7 +220,7 @@ const getUserData = (user: User): CleanUser => {
 
 ## Exclude<Type, ExcludedUnion>
 
-Omit creates a new type by excluding all union members from Type that are assignable to ExcludedUnion:
+Exclude creates a new type by excluding all union members from Type that are assignable to ExcludedUnion:
 
 ```typescript
 // "x" | "y"
@@ -254,6 +254,34 @@ const personalNumberProp = getUserProperty(user, "personalNumber");
 ```
 
 ## Extract<Type, Union>
+
+Extract can be considered as an opposite of Exclude.
+
+It creates a new type by extracting all union members from Type that are assignable to Union:
+
+```typescript
+// "x" | "y"
+type ExtractedType = Extract<"x" | "y" | "z", "x" | "y">;
+```
+
+It is useful for finding the common base of two types:
+
+```typescript
+interface Human {
+  id: string;
+  name: string;
+  surname: string;
+}
+
+interface Cat {
+  id: string;
+  name: string;
+  sound: string;
+}
+
+// "id" | "name"
+type CommonKeys = Extract<keyof Human, keyof Cat>;
+```
 
 ## NonNullable<Type>
 
