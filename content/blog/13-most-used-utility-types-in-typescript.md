@@ -10,7 +10,7 @@ teaser: TypeScript is very flexible and apart from only allowing us to create
   new types, it also provides a possibility to transform existing ones. Such
   transformations are usually done with Utility Types, which are built-in and
   accessible...
-date: 2021-06-01T10:10:16.611Z
+date: 2021-05-31T10:10:16.611Z
 ---
 TypeScript is very flexible and apart from only allowing us to create new types, it also provides a possibility to transform existing ones.
 
