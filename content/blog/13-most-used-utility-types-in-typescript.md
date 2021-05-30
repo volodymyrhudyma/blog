@@ -342,6 +342,44 @@ const user: Parameters<typeof saveUser>[0] = {
 
 ## ConstructorParameters<Type>
 
+ConstructorParameters constructs a tuple or array type from the types of a constructor.
+
+Basically, it is similar to the Parameters, but works on a class constructor:
+
+```typescript
+class UserManager {
+  private name: string;
+  private surname: string;
+
+  constructor(user: { name: string; surname: string }) {
+    this.name = user.name;
+    this.surname = user.surname;
+  }
+}
+
+// "[user: { name: string, surname: string} ]"
+type UserManagerConstructorParams = ConstructorParameters<typeof UserManager>;
+```
+
+Same, as Parameters type, it is useful for ensuring that our parameters will be accepted by the constructor, if we are using an external library:
+
+```typescript
+class UserManager {
+  private name: string;
+  private surname: string;
+
+  constructor(user: { name: string; surname: string }) {
+    this.name = user.name;
+    this.surname = user.surname;
+  }
+}
+
+const params: ConstructorParameters<typeof UserManager>[0] = {
+  name: "John",
+  surname: "Doe",
+};
+```
+
 ## ReturnType<Type>
 
 ## InstanceType<Type>
