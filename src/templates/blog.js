@@ -21,6 +21,16 @@ export default function Template({ data, path, location }) {
   const [headings, setHeadings] = useState([])
   const [showTOC, setShowTOC] = useState(true)
 
+  const cleanHeading = heading => {
+    if (heading.includes('<code class="language-text">')) {
+      return heading
+        .replace('<code class="language-text">', "")
+        .replace("</code>", "")
+        .replace(/&lt;(.*)&gt;/, "<$1>")
+    }
+    return heading
+  }
+
   useEffect(() => {
     const div = document.createElement("div")
     div.innerHTML = html
@@ -30,7 +40,7 @@ export default function Template({ data, path, location }) {
       const innerHtml = item.innerHTML
       const element = `<h2>${innerHtml}</h2>`
       const h2Start = newHtml.indexOf(element)
-      const insertElement = `<div id='${slugify(innerHtml)}' />`
+      const insertElement = `<div id='${slugify(cleanHeading(innerHtml))}' />`
       newHtml = [
         newHtml.slice(0, h2Start),
         insertElement,
@@ -104,7 +114,9 @@ export default function Template({ data, path, location }) {
             >
               {headings.map((item, index) => (
                 <li key={index}>
-                  <a href={`#${slugify(item.innerHTML)}`}>{item.innerHTML}</a>
+                  <a href={`#${slugify(cleanHeading(item.innerHTML))}`}>
+                    {cleanHeading(item.innerHTML)}
+                  </a>
                 </li>
               ))}
             </ul>
