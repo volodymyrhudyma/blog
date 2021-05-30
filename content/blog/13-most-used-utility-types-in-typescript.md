@@ -55,7 +55,7 @@ const user2 = updateUser(user1, { age: 18 });
 console.log(user2);
 ```
 
-## Required<Type>
+## `Required<Type>`
 
 Required is the opposite of Partial.
 
@@ -94,7 +94,7 @@ class UserManager {
 }
 ```
 
-## Readonly<Type>
+## `Readonly<Type>`
 
 Readonly creates a new type with all properties on Type set to readonly, which means that they can't be reassigned after initialization:
 
@@ -130,7 +130,7 @@ const readonlyUser = freeze(user);
 readonlyUser.name = "Andrew";
 ```
 
-## Record<Keys, Type>
+## `Record<Keys, Type>`
 
 Record creates a new type whose property keys are Keys and values are Type:
 
@@ -156,7 +156,7 @@ const userList: Record<UserName, UserInfo> = {
 };
 ```
 
-## Pick<Type, Keys>
+## `Pick<Type, Keys>`
 
 Pick creates a new type by picking the specified set of properties Keys from Type:
 
@@ -190,7 +190,7 @@ const address: UserAddress = {
 };
 ```
 
-## Omit<Type, Keys>
+## `Omit<Type, Keys>`
 
 Omit creates a new type by picking all properties from Type and then removing Keys:
 
@@ -223,7 +223,7 @@ const getUserData = (user: User): CleanUser => {
 };
 ```
 
-## Exclude<Type, ExcludedUnion>
+## `Exclude<Type, ExcludedUnion>`
 
 Exclude creates a new type by excluding all union members from Type that are assignable to ExcludedUnion:
 
@@ -258,7 +258,7 @@ const surnameProp = getUserProperty(user, "surname");
 const personalNumberProp = getUserProperty(user, "personalNumber");
 ```
 
-## Extract<Type, Union>
+## `Extract<Type, Union>`
 
 Extract can be considered as an opposite of Exclude.
 
@@ -288,7 +288,7 @@ interface Cat {
 type CommonKeys = Extract<keyof Human, keyof Cat>;
 ```
 
-## NonNullable<Type>
+## `NonNullable<Type>`
 
 NonNullable creates a new type by excluding **null** and **undefined** from **Type**.
 
@@ -301,7 +301,7 @@ type Type = string | null | undefined;
 type NonNullableType = NonNullable<Type>;
 ```
 
-## Parameters<Type>
+## `Parameters<Type>`
 
 Parameters constructs a tuple type from the types used in the parameters of a function type **Type**:
 
@@ -345,7 +345,7 @@ const user: Parameters<typeof saveUser>[0] = {
 };
 ```
 
-## ConstructorParameters<Type>
+## `ConstructorParameters<Type>`
 
 ConstructorParameters constructs a tuple or array type from the types of a constructor.
 
@@ -385,7 +385,7 @@ const params: ConstructorParameters<typeof UserManager>[0] = {
 };
 ```
 
-## ReturnType<Type>
+## `ReturnType<Type>`
 
 ReturnType constructs a type of the return type of the function **Type**:
 
@@ -418,7 +418,7 @@ const user: User = {
 };
 ```
 
-## InstanceType<Type>
+## `InstanceType<Type>`
 
 InstanceType constructs a type consisting of the instance type of a constructor function in **Type**.
 
