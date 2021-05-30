@@ -77,8 +77,8 @@ class UserManager {
 
   constructor(user: User) {
     this.user = {
-      name: user.name || "Undefined",
-      surname: user.surname || "Undefined",
+      name: user.name || "Not Set",
+      surname: user.surname || "Not Set",
       age: user.age || 0,
     };
   }
@@ -90,6 +90,40 @@ class UserManager {
 ```
 
 ## Readonly<Type>
+
+Readonly creates a new type with all properties on Type set to readonly, which means that they can't be reassigned after initialization:
+
+```typescript
+type Type = { x: string, y: string };
+
+// { readonly x: string; readonly y: string }
+type ReadonlyType = Readonly<Type>;
+```
+
+It is useful when you need to freeze an object, so it can't be modified:
+
+```typescript
+interface User {
+  name: string;
+  surname: string;
+  age: number;
+}
+
+const user: User = {
+  name: "John",
+  surname: "Doe",
+  age: 18,
+};
+
+function freeze<T>(obj: T): Readonly<T> {
+  return Object.freeze(obj);
+}
+
+const readonlyUser = freeze(user);
+
+// Cannot assign to "name" because it is a read-only property
+readonlyUser.name = "Andrew";
+```
 
 ## Record<Keys, Type>
 
