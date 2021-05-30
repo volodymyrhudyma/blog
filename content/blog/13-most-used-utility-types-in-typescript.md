@@ -187,6 +187,37 @@ const address: UserAddress = {
 
 ## Omit<Type, Keys>
 
+Omit creates a new type by picking all properties from Type and then removing Keys:
+
+```typescript
+type LongType = {
+  a: string;
+  b: string;
+  c: string;
+  d: string;
+};
+
+// { c: string; d: string }
+type ShortType = Omit<LongType, "a" | "b">;
+```
+
+It is useful when you need to omit a subset of properties (some sensitive information, for example):
+
+```typescript
+interface User {
+  name: string;
+  surname: string;
+  personalNumber: number;
+}
+
+type CleanUser = Omit<User, "personalNumber">;
+
+const getUserData = (user: User): CleanUser => {
+  const { personalNumber, ...rest } = user;
+  return rest;
+};
+```
+
 ## Exclude<Type, ExcludedUnion>
 
 ## Extract<Type, Union>
