@@ -382,4 +382,100 @@ const params: ConstructorParameters<typeof UserManager>[0] = {
 
 ## ReturnType<Type>
 
+ReturnType constructs a type of the return type of the function **Type**:
+
+```typescript
+const getUser = () => ({
+  name: "John",
+  surname: "Doe",
+  age: 18,
+});
+
+// { name: string; surname: string; age: number; }
+type FunctionReturnType = ReturnType<typeof getUser>;
+
+```
+
+Same, as with Parameters and ConstructionParameters, it is useful when you work with an external library and want to get a return type of the imported function:
+
+```typescript
+const getUser = () => ({
+  name: "John",
+  surname: "Doe",
+  age: 18,
+});
+
+type User = ReturnType<typeof getUser>;
+
+const user: User = {
+  name: "Andrew",
+  surname: "Hopkins",
+  age: 20,
+};
+
+```
+
 ## InstanceType<Type>
+
+InstanceType constructs a type consisting of the instance type of a constructor function in **Type**.
+
+Basically, it is similar to the ReturnType, but works on a class constructor:
+
+```typescript
+class UserManager {
+  name: string;
+  surname: string;
+
+  constructor(user: { name: string; surname: string }) {
+    this.name = user.name;
+    this.surname = user.surname;
+  }
+}
+
+// { name: string; surname: string }
+type UserMangerInstanceType = InstanceType<typeof UserManager>;
+```
+
+Most probably, you wouldn't do this, since you can just use the **UserManager** type:
+
+```typescript
+class UserManager {
+  name: string;
+  surname: string;
+
+  constructor(user: { name: string; surname: string }) {
+    this.name = user.name;
+    this.surname = user.surname;
+  }
+}
+
+const user2: UserManager = {
+  name: "John",
+  surname: "Doe",
+};
+```
+
+The example above is similar to:
+
+```typescript
+class UserManager {
+  name: string;
+  surname: string;
+
+  constructor(user: { name: string; surname: string }) {
+    this.name = user.name;
+    this.surname = user.surname;
+  }
+}
+
+type UserMangerInstanceType = InstanceType<typeof UserManager>;
+
+const user: UserMangerInstanceType = {
+  name: "John",
+  surname: "Doe",
+};
+```
+
+However, it is also possible to create dynamic classes in TypeScript, where **InstanceType** can be used to retrieve the type of the dynamic instances.
+
+## Summary
