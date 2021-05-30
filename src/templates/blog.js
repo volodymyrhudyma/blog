@@ -27,9 +27,10 @@ export default function Template({ data, path, location }) {
     const h2List = [...div.getElementsByTagName("h2")]
     let newHtml = html
     h2List.forEach(item => {
-      const element = `<h2>${item.innerHTML}</h2>`
+      const innerHtml = item.innerHTML
+      const element = `<h2>${innerHtml}</h2>`
       const h2Start = newHtml.indexOf(element)
-      const insertElement = `<div id='${slugify(item.innerHTML)}' />`
+      const insertElement = `<div id='${slugify(innerHtml)}' />`
       newHtml = [
         newHtml.slice(0, h2Start),
         insertElement,

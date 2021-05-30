@@ -57,6 +57,12 @@ export const SidebarWrapper = styled.div`
 `
 
 export const Content = styled.div`
+  h2 {
+    code {
+      font-size: 1.4rem !important;
+    }
+  }
+
   ${({ halfImageWidth }) =>
     halfImageWidth &&
     css`
