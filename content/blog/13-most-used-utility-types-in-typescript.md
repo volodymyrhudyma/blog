@@ -18,7 +18,7 @@ Such transformations are usually done with Utility Types, which are built-in and
 
 In this article we will learn 13 most used Utility Types which will make your developer's life much easier.
 
-## \*Partial<Type>*
+## `Partial<Type>`
 
 Partial creates a new type with all properties of given **Type** set to optional:
 
@@ -55,7 +55,7 @@ const user2 = updateUser(user1, { age: 18 });
 console.log(user2);
 ```
 
-## \*Required<Type>*
+## Required<Type>
 
 Required is the opposite of Partial.
 
