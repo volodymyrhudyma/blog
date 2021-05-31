@@ -3,24 +3,24 @@ title: 13 Most Used Utility Types In TypeScript
 tag:
   - JavaScript
 promote: false
-metaDescription: Learn 13 most used Utility Types in TypeScript that can be used
-  instantly to empower your next TypeScript project.
+metaDescription: Learn the 13 most commonly used Utility Types in TypeScript
+  that you can start using immediately for your next TypeScript project.
 shareImage: /img/utility-types-in-typescript.jpg
-teaser: TypeScript is very flexible and apart from only allowing us to create
-  new types, it also provides a possibility to transform existing ones. Such
+teaser: TypeScript is very flexible, and in addition to the ability to create
+  new types, it also offers the ability to transform existing types. Such
   transformations are usually done with Utility Types, which are built-in and
-  accessible...
+  globally accessible...
 date: 2021-05-31T10:10:16.611Z
 ---
-TypeScript is very flexible and apart from only allowing us to create new types, it also provides a possibility to transform existing ones.
+TypeScript is very flexible, and in addition to the ability to create new types, it also offers the ability to transform existing types.
 
-Such transformations are usually done with Utility Types, which are built-in and accessible globally.
+Such transformations are usually done with Utility Types, which are built-in and globally accessible.
 
-In this article we will learn 13 most used Utility Types which will make your developer's life much easier.
+In this article, we will learn about the 13 most used Utility Types, which will make your developer's life much easier.
 
 ## `Partial<Type>`
 
-Partial creates a new type with all properties of given **Type** set to optional:
+Partial creates a new type with all properties of the specified **Type** set to optional:
 
 ```typescript
 type Type = { x: string, y: string };
@@ -29,7 +29,7 @@ type Type = { x: string, y: string };
 type PartialType = Partial<Type>;
 ```
 
-It can be used to update an object of a given type with a subset of properties:
+It can be used to update an object of a particular type with a subset of properties:
 
 ```typescript
 interface User {
@@ -59,7 +59,7 @@ console.log(user2);
 
 Required is the opposite of Partial.
 
-It creates a new type with all properties of given **Type** set to required.:
+A new type is created with all properties of the specified **Type** set to required:
 
 ```typescript
 type Type = { x?: string, y?: string };
@@ -68,7 +68,7 @@ type Type = { x?: string, y?: string };
 type RequiredType = Required<Type>;
 ```
 
-It can be used when we are sure that the internal variable has all fields set, to avoid doing unnecessary null checks later in the code:
+It can be used when we are sure that the internal variable has all fields set, to avoid unnecessary null checks later in the code:
 
 ```typescript
 interface User {
@@ -96,7 +96,7 @@ class UserManager {
 
 ## `Readonly<Type>`
 
-Readonly creates a new type with all properties on Type set to readonly, which means that they can't be reassigned after initialization:
+Readonly creates a new type with all properties of Type set to readonly, which means that they cannot be reassigned after initialization:
 
 ```typescript
 type Type = { x: string, y: string };
@@ -105,7 +105,7 @@ type Type = { x: string, y: string };
 type ReadonlyType = Readonly<Type>;
 ```
 
-It is useful when you need to freeze an object, so it can't be modified:
+It is useful when you need to freeze an object so that it cannot be changed:
 
 ```typescript
 interface User {
@@ -139,7 +139,7 @@ Record creates a new type whose property keys are Keys and values are Type:
 type Type = Record<"x" | "y", string>;
 ```
 
-It is useful when all items have similar type of value, especially when there is a large number of them:
+It is useful if all items have a similar type of value, especially if there are a large number of them:
 
 ```typescript
 interface UserInfo {
@@ -158,7 +158,7 @@ const userList: Record<UserName, UserInfo> = {
 
 ## `Pick<Type, Keys>`
 
-Pick creates a new type by picking the specified set of properties Keys from Type:
+Pick creates a new type by selecting the specified set of properties Keys from Type:
 
 ```typescript
 type LongType = {
@@ -172,7 +172,7 @@ type LongType = {
 type ShortType = Pick<LongType, "a" | "b">;
 ```
 
-It is useful when you need to get only a subset of properties you are interested in:
+It is useful if you only need to get a subset of properties you are interested in:
 
 ```typescript
 interface User {
@@ -192,7 +192,7 @@ const address: UserAddress = {
 
 ## `Omit<Type, Keys>`
 
-Omit creates a new type by picking all properties from Type and then removing Keys:
+Omit creates a new type by selecting all properties of Type and then removing Keys:
 
 ```typescript
 type LongType = {
@@ -206,7 +206,7 @@ type LongType = {
 type ShortType = Omit<LongType, "a" | "b">;
 ```
 
-It is useful when you need to omit a subset of properties (some sensitive information, for example):
+It is useful when you need to omit a subset of properties (e.g. some sensitive information):
 
 ```typescript
 interface User {
@@ -232,7 +232,7 @@ Exclude creates a new type by excluding all union members from Type that are ass
 type ExcludedType = Exclude<"x" | "y" | "z", "z">;
 ```
 
-It is useful for excluding specific keys from an object:
+It is useful to exclude certain keys from an object:
 
 ```typescript
 interface User {
@@ -260,7 +260,7 @@ const personalNumberProp = getUserProperty(user, "personalNumber");
 
 ## `Extract<Type, Union>`
 
-Extract can be considered as an opposite of Exclude.
+Extract can be considered the opposite of Exclude.
 
 It creates a new type by extracting all union members from Type that are assignable to Union:
 
@@ -269,7 +269,7 @@ It creates a new type by extracting all union members from Type that are assigna
 type ExtractedType = Extract<"x" | "y" | "z", "x" | "y">;
 ```
 
-It is useful for finding the common base of two types:
+It is useful to find the common base of two types:
 
 ```typescript
 interface Human {
@@ -292,7 +292,7 @@ type CommonKeys = Extract<keyof Human, keyof Cat>;
 
 NonNullable creates a new type by excluding **null** and **undefined** from **Type**.
 
-Basically, it is a shorthand of **Exclude<T, null | undefined>**:
+Basically, it's a short form of **Exclude<T, null | undefined>**:
 
 ```typescript
 type Type = string | null | undefined; 
@@ -314,7 +314,7 @@ const addNumbers = (x: number, y: number) => {
 type FunctionParameters = Parameters<typeof addNumbers>;
 ```
 
-You can also retrieve an individual parameter:
+You can also retrieve a single parameter:
 
 ```typescript
 const addNumbers = (x: number, y: number) => {
@@ -331,7 +331,7 @@ type SecondParam = Parameters<typeof addNumbers>[1];
 type ThirdParam = Parameters<typeof addNumbers>[2];
 ```
 
-If is useful for getting a type of the function parameter to ensure type safety, especially when you are using an external library:
+If is useful to get a type of the function parameter to ensure type safety, especially if you are using an external library:
 
 ```typescript
 const saveUser = (user: { name: string; surname: string; age: number }) => {
@@ -349,7 +349,7 @@ const user: Parameters<typeof saveUser>[0] = {
 
 ConstructorParameters constructs a tuple or array type from the types of a constructor.
 
-Basically, it is similar to the Parameters, but works on a class constructor:
+Basically, it is similar to Parameters, but works on a class constructor:
 
 ```typescript
 class UserManager {
@@ -366,7 +366,7 @@ class UserManager {
 type UserManagerConstructorParams = ConstructorParameters<typeof UserManager>;
 ```
 
-Same, as Parameters type, it is useful for ensuring that our parameters will be accepted by the constructor, if we are using an external library:
+Same, as Parameters type, it is useful for ensuring that our parameters are accepted by the constructor when we use an external library:
 
 ```typescript
 class UserManager {
@@ -400,7 +400,7 @@ const getUser = () => ({
 type FunctionReturnType = ReturnType<typeof getUser>;
 ```
 
-Same, as with Parameters and ConstructionParameters, it is useful when you work with an external library and want to get a return type of the imported function:
+As with Parameters and ConstructionParameters, it is useful when you are working with an external library and want to get a return type of the imported function:
 
 ```typescript
 const getUser = () => ({
@@ -422,7 +422,7 @@ const user: User = {
 
 InstanceType constructs a type consisting of the instance type of a constructor function in **Type**.
 
-Basically, it is similar to the ReturnType, but works on a class constructor:
+Basically, it is similar to ReturnType, but acts on a class constructor:
 
 ```typescript
 class UserManager {
@@ -439,7 +439,7 @@ class UserManager {
 type UserMangerInstanceType = InstanceType<typeof UserManager>;
 ```
 
-Most probably, you wouldn't do this, since you can just use the **UserManager** type:
+You probably wouldn't do this, since you can just use the **UserManager** type:
 
 ```typescript
 class UserManager {
@@ -483,8 +483,8 @@ However, it is also possible to create dynamic classes in TypeScript, where **In
 
 ## Summary
 
-TypeScript ships with built in Utility Types that are accessible globally and can be used to transform existing types painlessly, each which can be created manually.
+TypeScript comes with built-in Utility Types, which can be accessed globally and used to transform existing types effortlessly.
 
-However, I recommend using them whenever possible instead of manual implementations, since they increase the readability and maintainability of the code.
+However, I recommend using them whenever possible instead of manual implementations, as they increase code readability and maintainability.
 
-Make sure to understand all of the today's 13 Utility Types, since they are the most popular ones and you will, most probably, need to use some of them in each project.
+Make sure you know all of today's 13 Utility Types as they are the most common and you will most likely need to use some of them in every project.
