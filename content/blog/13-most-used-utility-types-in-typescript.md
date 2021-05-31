@@ -485,6 +485,6 @@ However, it is also possible to create dynamic classes in TypeScript, where **In
 
 TypeScript comes with built-in Utility Types, which can be accessed globally and used to transform existing types effortlessly.
 
-However, I recommend using them whenever possible instead of manual implementations, as they increase code readability and maintainability.
+Proper usage of them increases code readability and maintainability.
 
 Make sure you know all of today's 13 Utility Types as they are the most common and you will most likely need to use some of them in every project.
