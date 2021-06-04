@@ -3,8 +3,13 @@ title: How To Rename Local And Remote Branch In Git?
 tag:
   - Git
 promote: false
-metaDescription: // META
-teaser: // TEASER
+metaDescription: Learn how to rename branch in Git both, locally and on remote.
+  Renaming a branch is super easy, but we need to remember a few things.
+shareImage: /img/rename-branch-in-git.jpg
+teaser: In some cases, for example when you named a branch that doesn't follow
+  the project standard, you need to rename it. It is super easy task, but often
+  the developers forget how the command or the exact arguments order and they
+  need to...
 date: 2021-06-04T06:29:03.323Z
 ---
 In some cases, for example when you named a branch that doesn't follow the project standard, you need to rename it.
