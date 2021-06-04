@@ -22,7 +22,7 @@ To rename a local branch, follow these steps:
 
 * **Switch to a branch you want to rename**
 
-```gitconfig
+```gitattributes
 git checkout <old_name>
 ```
 
