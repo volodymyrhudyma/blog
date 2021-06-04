@@ -50,7 +50,7 @@ const Header = () => {
           </Block>
           <Block>
             <BlockInner>
-              <SidebarButton href="https://www.vhudyma-portfolio.eu/">
+              <SidebarButton href="https://www.linkedin.com/in/volodymyr-hudyma-98bb78131/">
                 Get In Touch
               </SidebarButton>
               <AboutMeLink to="/2020-05-01-a-few-words-about-author">

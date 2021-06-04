@@ -15,7 +15,9 @@ const Footer = () => (
         }}
       >
         <div>© {new Date().getFullYear()}</div>
-        <a href="https://www.vhudyma-portfolio.eu/">by Volodymyr Hudyma</a>
+        <a href="https://www.linkedin.com/in/volodymyr-hudyma-98bb78131/">
+          by Volodymyr Hudyma
+        </a>
       </div>
     </Container>
   </Wrapper>
