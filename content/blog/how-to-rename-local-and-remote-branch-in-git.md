@@ -34,13 +34,13 @@ git branch -m <new_name>
 
 The **\-m** flag stands for **move** and it is used to move/rename a branch and a corresponding reflog entry.
 
-If the branchwith a **new_name** already exists, you should use **\-M** (**\--move** **\--force**) flag to force rename.
+If the branch with a **new_name** already exists, you should use **\-M** (**\--move** **\--force**) flag to force rename.
 
-## Rename Branch Without Switching
+#### One-Step Approach
 
 Sometimes, you can't switch to the branch you want to rename.
 
-The good thing is that you don't have to, use following command:
+The good thing is that you don't have to, use the following command:
 
 ```gitconfig
 git branch -m <old_name> <new_name>
