@@ -25,7 +25,7 @@ Creating a Custom Event is easy and there are three ways of doing that:
 * **Event** constructor
 
 ```javascript
-const onLogoutEvent = new Event("onlogout", {
+const logoutEvent = new Event("logout", {
   bubbles: true,
   cancelable: true,
   composed: false
@@ -35,7 +35,7 @@ const onLogoutEvent = new Event("onlogout", {
 * **CustomEvent** constructor
 
 ```javascript
-const onLogoutEvent = new CustomEvent("onlogout", {
+const logoutEvent = new CustomEvent("logout", {
   detail: {},
   bubbles: true,
   cancelable: true,
@@ -53,7 +53,7 @@ Both, Event and CustomEvent receive constructor parameters, apart from describin
 
 The first argument, passed to the constructor is the name of the Custom Event, which is case-insensitive and can contain any string.
 
-There is no difference in naming our event **onLogout** or **onlogout**, it will be always the same event.
+There is no difference in naming our event **logout** or **Logout**, it will be always the same event.
 
 #### Argument #2 - Configuration
 
@@ -86,13 +86,55 @@ The main difference between Event and CustomEvent is the ability to pass the dat
 When using CustomEvent, you are given the **detail** property that can be retrieved as **event.detail** later on:
 
 ```javascript
-// CODE
+const logoutEvent = new CustomEvent("logout", {
+  detail: {
+    userId: "123456789",
+  },
+  bubbles: true,
+  cancelable: true,
+  composed: false,
+});
+
+// Button click handler
+const handleClick = event => {
+  // ...
+  event.dipatchEvent(logoutEvent);
+};
+
+// Logout event handler
+// We are able to get the data from the "event.detail"
+const handleLogout = event => {
+  console.log(event.detail);
+  console.log("User has been logged out successfully");
+};
+
+// Find the button and attach click event listener
+const button = document.getElementsByTagName("button")[0];
+button.addEventListener("click", e => {
+  e.currentTarget.dispatchEvent(logoutEvent);
+});
+
+// Listen for logout event and execute a handler
+document.addEventListener("logout", handleLogout);
 ```
 
 When using Event constructor, you can only get the data from the **event.target** element:
 
 ```javascript
-// CODE
+const logoutEvent = new Event("logout", {
+  bubbles: true,
+  cancelable: true,
+  composed: false,
+});
+
+// ...
+
+// We can get the data only from the "event.target"
+// Accessing "event.detail" returns "undefined"
+const handleLogout = event => {
+  console.log(event.target);
+  console.log("User has been logged out successfully");
+};
 ```
 
 ## Dispatch A Custom Event
