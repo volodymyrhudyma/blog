@@ -231,4 +231,14 @@ The full working code example can be found below:
 </html>
 ```
 
+## Browser Compatibility
+
+One of the most important things to keep in mind when doing some custom stuff in JavaScript is Browser Compatibility.
+
+Fortunately, according to [caniuse](https://caniuse.com/?search=customevent), Custom Event API is supported for the 94,91% of the users:
+
+![Can I Use Custom Events](/img/screenshot-2021-06-06-at-13.21.04.png "Can I Use Custom Events")
+
+If you need to build a support for it in IE9 and higher, you can use a [polyfill](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent#polyfill).
+
 ## Summary
