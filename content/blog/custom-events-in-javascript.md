@@ -3,9 +3,14 @@ title: Custom Events In JavaScript
 tag:
   - JavaScript
 promote: false
-metaDescription: // META
+metaDescription: Learn how to create, dispatch and listen for a Custom Event in
+  JavaScript. Creating a Custom Event is easy and there are three ways of doing
+  that.
 shareImage: /img/custom-events-in-javascript.jpg
-teaser: // TEASER
+teaser: Events is the vital part of any web application, so knowing how to
+  properly handle them is a must for a good web developer. There are many
+  built-in Events, which can be used on any element that extends EventTarget
+  interface, like...
 date: 2021-06-08T09:36:40.643Z
 ---
 Events is the vital part of any web application, so knowing how to properly handle them is a must for a good web developer.
@@ -163,7 +168,7 @@ button.addEventListener("click", e => {
 });
 ```
 
-## Listen A Custom Event
+## Listen For A Custom Event
 
 Listening for a Custom Event is no different than listening for any built-in event.
 
@@ -242,3 +247,9 @@ Fortunately, according to [caniuse](https://caniuse.com/?search=customevent), Cu
 If you need to build a support for it in IE9 and higher, you can use a [polyfill](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent#polyfill).
 
 ## Summary
+
+In this article we learned about Custom Events in JavaScript that enhance the developer's experience by its simplicity and easiness of usage.
+
+Overall, JavaScript has awesome event system, but sometimes standard built-in events are not enough for building clean and maintainable code.
+
+Make sure to play around with Custom Events and enjoy using them in your next projects.
