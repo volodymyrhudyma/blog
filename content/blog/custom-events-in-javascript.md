@@ -47,6 +47,33 @@ const onLogoutEvent = new CustomEvent("onlogout", {
 
 ## Event/CustomEvent Constructor Parameters
 
+Both, Event and CustomEvent receive constructor parameters, apart from describing the name of the Event, describe also the configuration.
+
+#### Argument #1 - Name
+
+The first argument, passed to the constructor is the name of the Custom Event, which is case-insensitive and can contain any string.
+
+There is no difference in naming our event **onLogout** or **onlogout**, it will be always the same event.
+
+#### Argument #2 - Configuration
+
+The second argument describes the behaviour of the Custom Event:
+
+* **bubbles** - specifies if an event should be propagated to the parent elements
+
+  By default, this property is set to **false**, which means that the Event is not propagated.
+
+  If set to **true**, any parent element can listen to the Custom Event, triggered by one of its children. 
+* **cancelable** - specifies if an event should be cancelable
+
+  It doesn't have a default value for each cases, since it can be set either to **true** or **false**, depending on a context of the execution.
+
+  All Native DOM Events are cancelable by default, so we can execute **event.preventDefault()** or them and pretend that they never happened.
+
+  If set to **false**, firing the **event.preventDefault()** has no effect.
+
+## Event vs. CustomEvent
+
 ## Dispatch A Custom Event
 
 ## Listen A Custom Event
