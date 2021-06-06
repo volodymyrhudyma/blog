@@ -44,3 +44,13 @@ const onLogoutEvent = new CustomEvent("onlogout", {
 ```
 
 * **document.createEvent** method (deprecated way, use one of the above two instead)
+
+## Event/CustomEvent Constructor Parameters
+
+## Dispatch A Custom Event
+
+## Listen A Custom Event
+
+## Code Example
+
+## Summary
