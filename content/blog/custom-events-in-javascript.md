@@ -118,6 +118,13 @@ button.addEventListener("click", e => {
 document.addEventListener("logout", handleLogout);
 ```
 
+> A quick explanation what is going on in the above code:
+>
+> * We create a Custom **logout** Event
+> * We search for a button element on the page and listen for a **click** on it
+> * After the button is clicked, we fire **handleClick** that fires Custom Event by using **event.dispatchEvent(eventObject)**
+> * We listen for a Custom **logout** Event on the **document**, since an event bubbles up, and execute **handleLogout** function that has an access to the **userId** we defined in the **detail** property
+
 When using Event constructor, you can only get the data from the **event.target** element:
 
 ```javascript
