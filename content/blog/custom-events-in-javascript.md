@@ -3,29 +3,28 @@ title: Custom Events In JavaScript
 tag:
   - JavaScript
 promote: false
-metaDescription: Learn how to create, dispatch and listen for a Custom Event in
-  JavaScript. Creating a Custom Event is easy and there are three ways of doing
-  that.
+metaDescription: Learn how to create, dispatch, and listen for a Custom Event in
+  JavaScript. Creating a Custom Event is easy and there are three ways to do it.
 shareImage: /img/custom-events-in-javascript.jpg
-teaser: Events is the vital part of any web application, so knowing how to
-  properly handle them is a must for a good web developer. There are many
-  built-in Events, which can be used on any element that extends EventTarget
-  interface, like...
+teaser: Events are the crucial part of any web application, so knowing how to
+  handle them properly is a must for a good web developer. There are many
+  built-in events that can be used on any element that extends the EventTarget
+  interface, such as...
 date: 2021-06-08T09:36:40.643Z
 ---
-Events is the vital part of any web application, so knowing how to properly handle them is a must for a good web developer.
+Events are the crucial part of any web application, so knowing how to handle them properly is a must for a good web developer.
 
-There are many built-in Events, which can be used on any element that extends **EventTarget** interface, like **onload**, **onclick**, **onchange** etc.
+There are many built-in events that can be used on any element that extends the **EventTarget** interface, such as **onload**, **onclick**, **onchange**, etc.
 
-In some specific cases, they may be not sufficient, so JavaScript provides an extremely easy way to set up and trigger a Custom Event.
+In some special cases they may not be sufficient, therefore JavaScript provides an extremely simple way to set up and trigger a Custom Event.
 
-Consider a situation, where you want to clean some parts of your code after the user is logged out.
+Consider a situation where you want to clean up some parts of your code after the user is logged out.
 
 Unfortunately, there is no built-in **onlogout** event, so we may need to create our own custom one.
 
 ## Create A Custom Event
 
-Creating a Custom Event is easy and there are three ways of doing that:
+Creating a Custom Event is easy and there are three ways to do it:
 
 * **Event** constructor
 
@@ -48,47 +47,47 @@ const logoutEvent = new CustomEvent("logout", {
 });
 ```
 
-* **document.createEvent** method (deprecated way, use one of the above two instead)
+* **document.createEvent** method (deprecated way, use one of the two above instead)
 
 ## Event/CustomEvent Constructor Parameters
 
-Both, Event and CustomEvent receive constructor parameters, apart from describing the name of the Event, describe also the configuration.
+Both Event and CustomEvent are given constructor parameters that describe the name and configuration of the event.
 
 #### Argument #1 - Name
 
 The first argument, passed to the constructor is the name of the Custom Event, which is case-insensitive and can contain any string.
 
-There is no difference in naming our event **logout** or **Logout**, it will be always the same event.
+It doesn't matter if we name it **logout** or **logout**, it will always be the same event.
 
 #### Argument #2 - Configuration
 
 The second argument describes the behaviour of the Custom Event:
 
-* **bubbles** - specifies if an event should be propagated to the parent elements
+* **bubbles** - specifies whether an event should be propagated to the parent elements
 
   By default, this property is set to **false**, which means that the Event is not propagated.
 
-  If set to **true**, any parent element can listen to the Custom Event, triggered by one of its children. 
-* **cancelable** - specifies if an event should be cancelable
+  When set to **true**, any parent element can listen to the Custom Event raised by one of its children. 
+* **cancelable** - specifies whether an event should be cancelable
 
-  It doesn't have a default value for each cases, since it can be set either to **true** or **false**, depending on a context of the execution.
+  It has no default value, as it can be set to either **true** or **false**, depending on the context of execution.
 
-  All Native DOM Events are cancelable by default, so we can execute **event.preventDefault()** or them and pretend that they never happened.
+  All Native DOM events are cancelable by default, so we can run **event.preventDefault()** and pretend they never happened.
 
-  If set to **false**, firing the **event.preventDefault()** has no effect.
-* **composed** - specified whether or not the event will propagate across the shadow DOM boundary into the standard DOM
+  If set to **false**, triggering **event.preventDefault()** has no effect.
+* **composed** - specifies whether or not the event will propagate across the shadow DOM boundary into the standard DOM
 
   This is useful if you need to dispatch an action in the Web Component and listen it on a parent element in your DOM.
 
-  Note that the propagation only happens if **bubbles** property is set to **true**.
+  Note that the propagation only occurs if **bubbles** property is set to **true**.
 
-You may have noticed that we didn't say a word about the **detail** property, but don't worry, we will explain it in the following section.
+You may have noticed that we didn't say a word about the **detail** property, but don't worry, we'll explain it in the next section.
 
 ## Event vs. CustomEvent
 
 The main difference between Event and CustomEvent is the ability to pass the data to the listener.
 
-When using CustomEvent, you are given the **detail** property that can be retrieved as **event.detail** later on:
+When using CustomEvent, you get the **detail** property, which can later be retrieved as **event.detail**:
 
 ```javascript
 const logoutEvent = new CustomEvent("logout", {
@@ -123,14 +122,14 @@ button.addEventListener("click", e => {
 document.addEventListener("logout", handleLogout);
 ```
 
-> A quick explanation what is going on in the above code:
+> A brief explanation of what is going on in the above code:
 >
 > * We create a Custom **logout** Event
-> * We search for a button element on the page and listen for a **click** on it
-> * After the button is clicked, we fire **handleClick** that fires Custom Event by using **event.dispatchEvent(eventObject)**
-> * We listen for a Custom **logout** Event on the **document**, since an event bubbles up, and execute **handleLogout** function that has an access to the **userId** we defined in the **detail** property
+> * We look for a button element on the page and attach a **click** listener on it
+> * After the button is clicked, we fire **handleClick**, which fires Custom Event by using **event.dispatchEvent(eventObject)**
+> * We listen for a Custom **logout** Event on the **document**, as an event bubbles up, and execute the **handleLogout** function, which has access to the **userId** we defined in the **detail** property
 
-When using Event constructor, you can only get the data from the **event.target** element:
+If you use the Event constructor, you can only get the data from the **event.target** element:
 
 ```javascript
 const logoutEvent = new Event("logout", {
@@ -151,11 +150,11 @@ const handleLogout = event => {
 
 ## Dispatch A Custom Event
 
-Of course, after defining a Custom Event you need to be able to fire it.
+After you define a Custom Event, you obviously need to be able to fire it.
 
-This was partly shown in the previous section.
+This was partially shown in the previous section.
 
-A Custom Event can be dispatched to any object that extends the **EventTarget** interface and it includes **document** and **window** objects as well:
+A Custom Event can be sent to any object that extends the **EventTarget** interface, and this includes **document** and **window** objects as well:
 
 ```javascript
 // Find the "button" element
@@ -181,7 +180,7 @@ document.addEventListener("logout", e => {
 });
 ```
 
-If set to **false**, we can listen on an element it was fired from:
+If set to **false**, we can listen on an element from which it was fired:
 
 ```javascript
 // Find the "button" element
@@ -193,7 +192,7 @@ button.addEventListener("logout", e => {
 });
 ```
 
-## Full Code Example
+## The Complete Code Example
 
 The full working code example can be found below:
 
@@ -240,7 +239,7 @@ The full working code example can be found below:
 
 One of the most important things to keep in mind when doing some custom stuff in JavaScript is Browser Compatibility.
 
-Fortunately, according to [caniuse](https://caniuse.com/?search=customevent), Custom Event API is supported for the 94,91% of the users:
+Fortunately, according to [caniuse](https://caniuse.com/?search=customevent), the Custom Event API is supported for the 94.91% of the users:
 
 ![Can I Use Custom Events](/img/screenshot-2021-06-06-at-13.21.04.png "Can I Use Custom Events")
 
@@ -248,8 +247,8 @@ If you need to build a support for it in IE9 and higher, you can use a [polyfill
 
 ## Summary
 
-In this article we learned about Custom Events in JavaScript that enhance the developer's experience by its simplicity and easiness of usage.
+In this article, we have learned about Custom Events in JavaScript, which enhances the developer's experience with its simplicity and ease of use. 
 
-Overall, JavaScript has awesome event system, but sometimes standard built-in events are not enough for building clean and maintainable code.
+Overall, JavaScript has a great event system, but sometimes the default built-in events are not enough to create clean and maintainable code. 
 
-Make sure to play around with Custom Events and enjoy using them in your next projects.
+Be sure to play around with Custom Events and enjoy using it in your next projects.
