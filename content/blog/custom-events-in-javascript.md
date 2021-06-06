@@ -197,7 +197,7 @@ button.addEventListener("logout", e => {
 
 The full working code example can be found below:
 
-```javascript
+```html
 <html lang="en">
   <head>
     <title>Custom Events In JavaScript</title>
