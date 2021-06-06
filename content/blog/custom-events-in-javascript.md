@@ -146,8 +146,89 @@ const handleLogout = event => {
 
 ## Dispatch A Custom Event
 
+Of course, after defining a Custom Event you need to be able to fire it.
+
+This was partly shown in the previous section.
+
+A Custom Event can be dispatched to any object that extends the **EventTarget** interface and it includes **document** and **window** objects as well:
+
+```javascript
+// Find the "button" element
+const button = document.getElementsByTagName("button")[0];
+
+// Listen for a "click" event and dispatch "logout" event
+button.addEventListener("click", e => {
+  // ..
+  e.currentTarget.dispatchEvent(logoutEvent);
+});
+```
+
 ## Listen A Custom Event
 
+Listening for a Custom Event is no different than listening for any built-in event.
+
+If the **bubbles** property is set to **true**, we can listen on any parent element:
+
+```javascript
+// Listen for a "logout" event on a "document"
+document.addEventListener("logout", e => {
+  console.log("User has been logged out successfully");
+});
+```
+
+If set to **false**, we can listen on an element it was fired from:
+
+```javascript
+// Find the "button" element
+const button = document.getElementsByTagName("button")[0];
+
+// Listen for a "click" event on the element it was fired from
+button.addEventListener("logout", e => {
+  console.log("User has been logged out successfully");
+});
+```
+
 ## Code Example
+
+The full working code example can be found below:
+
+```javascript
+<html lang="en">
+  <head>
+    <title>Custom Events In JavaScript</title>
+  </head>
+  <body>
+    <div>
+      <button>Log out</button>
+    </div>
+  </body>
+  <script>
+    const logoutEvent = new CustomEvent("logout", {
+      detail: {
+        userId: "123456789",
+      },
+      bubbles: true,
+      cancelable: true,
+      composed: false,
+    });
+
+    const handleClick = event => {
+      event.dipatchEvent(logoutEvent);
+    };
+
+    const handleLogout = event => {
+      console.log(event.detail);
+      console.log("User has been logged out successfully");
+    };
+
+    const button = document.getElementsByTagName("button")[0];
+    button.addEventListener("click", e => {
+      e.currentTarget.dispatchEvent(logoutEvent);
+    });
+
+    document.addEventListener("logout", handleLogout);
+  </script>
+</html>
+```
 
 ## Summary
