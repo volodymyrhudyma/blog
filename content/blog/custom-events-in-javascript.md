@@ -71,6 +71,13 @@ The second argument describes the behaviour of the Custom Event:
   All Native DOM Events are cancelable by default, so we can execute **event.preventDefault()** or them and pretend that they never happened.
 
   If set to **false**, firing the **event.preventDefault()** has no effect.
+* **composed** - specified whether or not the event will propagate across the shadow DOM boundary into the standard DOM
+
+  This is useful if you need to dispatch an action in the Web Component and listen it on a parent element in your DOM.
+
+  Note that the propagation only happens if **bubbles** property is set to **true**.
+
+You may have noticed that we didn't say a word about the **detail** property, but don't worry, we will explain it in the following section.
 
 ## Event vs. CustomEvent
 
