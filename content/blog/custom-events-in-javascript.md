@@ -81,6 +81,20 @@ You may have noticed that we didn't say a word about the **detail** property, bu
 
 ## Event vs. CustomEvent
 
+The main difference between Event and CustomEvent is the ability to pass the data to the listener.
+
+When using CustomEvent, you are given the **detail** property that can be retrieved as **event.detail** later on:
+
+```javascript
+// CODE
+```
+
+When using Event constructor, you can only get the data from the **event.target** element:
+
+```javascript
+// CODE
+```
+
 ## Dispatch A Custom Event
 
 ## Listen A Custom Event
