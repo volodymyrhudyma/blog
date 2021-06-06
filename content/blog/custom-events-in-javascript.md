@@ -193,7 +193,7 @@ button.addEventListener("logout", e => {
 });
 ```
 
-## Code Example
+## Full Code Example
 
 The full working code example can be found below:
 
