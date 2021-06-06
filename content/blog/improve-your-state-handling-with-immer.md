@@ -40,7 +40,7 @@ And import the **produce** function:
 import produce from "immer";
 ```
 
-The syntax is as follows following:
+The syntax is as follows:
 
 ```javascript
 const recipe = (draftState, ...args?) => void;
