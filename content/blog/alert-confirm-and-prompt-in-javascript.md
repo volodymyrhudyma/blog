@@ -42,7 +42,7 @@ It accepts a value that is displayed to users and returns **true** if the user p
 
 This is how it looks in Google Chrome:
 
-![Confirm In Google Chrome](/img/screenshot-2021-06-13-at-21.51.07.png "Confirm In Google Chrome")
+![Confirm In Google Chrome](/img/screenshot-2021-06-13-at-22.01.49.png "Confirm In Google Chrome")
 
 Compared to Alert, it contains both, "OK" and  "Cancel" buttons.
 
