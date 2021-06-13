@@ -13,16 +13,37 @@ You can either create a nice-looking, custom form to gather data, or, sometimes 
 
 ## Alert
 
-An **alert()** method displays an alert box with a specified message and "Ok" button:
+An **alert()** method instructs the browser to display an alert box with a specified message and "OK" button:
 
 ```javascript
 alert("Hello, world");
 ```
 
-It is useful when you don't want your users to miss an important information, because the focus is being taken away from the current window and forces the browser to read a message.
-
-Basically, it prevents users from browsing the website until the popup is closed.
+It is useful when you don't want your users to miss an important information because it prevents users from browsing the website until the button is pressed.
 
 This is how it looks in Google Chrome:
 
-![Alert In Google Chrome](/img/screenshot-2021-06-13-at-20.45.14.png "Alert In Google Chrome")
+![Alert In Google Chrome](/img/screenshot-2021-06-13-at-20.45.14.png "Alert In Google Chrom")
+
+## Prompt
+
+The **prompt(\[message], \[defaultValue])** method instructs the browser to display a dialog with an optional message and wait until either some input is provided or the dialog is cancelled:
+
+```javascript
+const age = prompt("How old are you?", 18);
+```
+
+It accepts two arguments, which are optional:
+
+* **message** - text that is displayed to users
+* **defaultValue** - default value of the input field in the dialog
+
+  **Important note**: in IE always supply the default value, since if nothing is passed, it will display "undefined" text by default. You need to pass at least an empty string.
+
+It returns a value that contains the text provided by users, or **null** if the dialog was cancelled.
+
+This is how it looks in Google Chrome:
+
+![Prompt In Google Chrome](/img/screenshot-2021-06-13-at-20.54.17.png "Prompt In Google Chrome")
+
+Note that compared to Alert, it contains both, "OK" and  "Cancel" buttons.
