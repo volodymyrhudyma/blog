@@ -30,6 +30,22 @@ This is how it looks in Google Chrome:
 
 ![Alert In Google Chrome](/img/screenshot-2021-06-13-at-20.45.14.png "Alert In Google Chrom")
 
+## Confirm
+
+The **confirm(message)** method instructs the browser to display a dialog with "OK" and "Cancel" buttons and waits for user to click one of two buttons:
+
+```javascript
+const result = confirm("Do you want to proceed?");
+```
+
+It accepts a value that is displayed to users and returns **true** if the user pressed "OK" button, otherwise - **false**.
+
+This is how it looks in Google Chrome:
+
+![Confirm In Google Chrome](/img/screenshot-2021-06-13-at-21.51.07.png "Confirm In Google Chrome")
+
+Compared to Alert, it contains both, "OK" and  "Cancel" buttons.
+
 ## Prompt
 
 The **prompt(\[message], \[defaultValue])** method instructs the browser to display a dialog with an optional message and wait until either some input is provided or the dialog is cancelled:
@@ -50,22 +66,6 @@ It returns a value that contains the text provided by users, or **null** if the 
 This is how it looks in Google Chrome:
 
 ![Prompt In Google Chrome](/img/screenshot-2021-06-13-at-20.54.17.png "Prompt In Google Chrome")
-
-Note that compared to Alert, it contains both, "OK" and  "Cancel" buttons.
-
-## Confirm
-
-The **confirm(message)** method instructs the browser to display a dialog with "OK" and "Cancel" buttons and waits for user to click one of two buttons:
-
-```javascript
-const result = confirm("Do you want to proceed?");
-```
-
-It accepts a value that is displayed to users and returns **true** if the user pressed "OK" button, otherwise - **false**.
-
-This is how it looks in Google Chrome:
-
-![Confirm In Google Chrome](/img/screenshot-2021-06-13-at-21.51.07.png "Confirm In Google Chrome")
 
 ## Summary
 
