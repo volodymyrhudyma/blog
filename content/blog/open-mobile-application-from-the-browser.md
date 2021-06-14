@@ -2,7 +2,7 @@
 title: Open Mobile Application From The Browser
 tag:
   - React
-promote: false
+promote: true
 metaDescription: Learn how to open any mobile app from the browser or redirect
   to Play/App Store or any fallback URL if it is not installed.
 teaser: Launching the mobile application of the specific page from the browser
