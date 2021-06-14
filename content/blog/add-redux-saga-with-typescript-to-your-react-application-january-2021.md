@@ -2,7 +2,7 @@
 title: Add Redux Saga With TypeScript To Your React Application (January 2021)
 tag:
   - React
-promote: false
+promote: true
 metaDescription: Add Redux Saga to React application created with Create React
   App in a few simple steps. Redux Saga is a library used to handle side effects
   in Redux.
