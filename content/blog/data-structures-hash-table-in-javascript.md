@@ -9,7 +9,7 @@ teaser: Efficient data manipulation is a must know for developers of any level,
   not only for successful project development, but also for passing interviews
   while looking for a job. With the rapid development of programming languages,
   frameworks and libraries, it becomes easier to learn the technology that can
-  be used right away to...
+  be used right away to start coding, so more and more employers...
 date: 2021-06-19T18:45:21.508Z
 ---
 Efficient data manipulation is a must know for developers of any level, not only for successful project development, but also for passing interviews while looking for a job.
