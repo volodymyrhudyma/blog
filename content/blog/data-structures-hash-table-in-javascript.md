@@ -73,6 +73,36 @@ If we didn't use the modulo operator, our hashes would equal to **937** and **82
 
 ## How To Handle Collisions?
 
+Hash Collisions tend to happen when the same Hash Value is generated for either different or same keys:
+
+```javascript
+// Prints "64"
+console.log(hash("firstName", 97));
+
+// Prints "64"
+console.log(hash("firstName", 97));
+```
+
+In the above example, Hash Function returns the same Hash value for the **firstName** key, which causes the index to collide and the previous entry will be overwritten with the newest one.
+
+Fortunately, there are a few ways of resolving such collisions:
+
+* **Separate Chaining**
+
+  In this method, each bucket (Hash Table stores values in buckets) contains a pointer to another data structure (e.g. [Linked List](/2020-08-23-algorithms-linked-list-in-javascript/)).
+
+![Separate Chaining (From Wikipedia)](/img/hash_table_5_0_1_1_1_1_1_ll.svg.png "Separate Chaining (From Wikipedia)")
+
+* **Open Addressing**
+
+  In this method, all values are stored in the bucket array itself. 
+
+  When a new value is about to be inserted, we examine the buckets, until a free slot is found.
+
+  The name "Open Addressing" refers to the fact that the location of a value is not determined by its hash value.
+
+![Open Addressing (From Wikipedia)](/img/hash_table_5_0_1_1_1_1_0_sp.svg.png "Open Addressing (From Wikipedia)")
+
 ## Hash Table Time Complexity
 
 Hash Table is a very efficient Data Structure, as it can be seen from the complexity table in Big O Notation (taken from [Wikipedia](https://en.wikipedia.org/wiki/Hash_table)):
