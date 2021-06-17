@@ -33,13 +33,13 @@ It uses a Hash Function that turns passed keys into numbers, under which the dat
 
 An example of a Hash Table that stores phone numbers:
 
-![Hash Table Example (From Wikipedia)](/img/hash_table_3_1_1_0_1_0_0_sp.svg.png "Hash Table Example (From Wikipedia)")
+![Hash Table Example (From Wikipedia)](/img/screenshot-2021-06-17-at-21.43.07.png "Hash Table Example (From Wikipedia)")
 
 ## Hash Table Time Complexity
 
 Hash Table is a very efficient Data Structure, as it can be seen from the complexity table in Big O Notation (taken from [Wikipedia](https://en.wikipedia.org/wiki/Hash_table)):
 
-![Hash Table Time Complexity](/img/screenshot-2021-06-17-at-21.34.09.png "Hash Table Time Complexity")
+![Hash Table Time Complexity](/img/screenshot-2021-06-17-at-21.42.02.png "Hash Table Time Complexity")
 
 ## Hash Table In JavaScript
 
