@@ -67,9 +67,11 @@ console.log(hash("firstName", 97));
 console.log(hash("lastName", 97));
 ```
 
-In the above example we use **charCodeAt()** method to get the ASCII code of each character in **key**, sum all of these codes and use the modulo operator to ensure that the value of the hash does not exceed the size of a Hash Table.
+In the above example we use **charCodeAt()** method to get the ASCII code of each character in **key**, sum all of these codes and use the modulo operator to ensure that the value of the hash does not exceed the size of a Hash Table (**97**).
 
 If we didn't use the modulo operator, our hashes would equal to **937** and **821** respectively.
+
+## How To Handle Collisions?
 
 ## Hash Table Time Complexity
 
