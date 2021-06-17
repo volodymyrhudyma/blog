@@ -121,9 +121,20 @@ Therefore, in many cases, these restrictions force to use the Dynamic Resizing, 
 
 ## Hash Table Time Complexity
 
-Hash Table is a very efficient Data Structure, as it can be seen from the complexity table in Big O Notation (taken from [Wikipedia](https://en.wikipedia.org/wiki/Hash_table)):
+The complexity table in Big O Notation (taken from [Wikipedia](https://en.wikipedia.org/wiki/Hash_table)):
 
 ![Hash Table Time Complexity](/img/screenshot-2021-06-17-at-21.42.02.png "Hash Table Time Complexity")
+
+Obviously, the Hash Table is a very efficient Data Structure.
+
+On average, they are **O(1)**, however they suffer from **O(n)** worst case complexity due to the following reasons:
+
+* Too many elements are hashed under the same key
+
+  Looking inside of the key can take **O(n)** time, but it's very rare situation if you choose a good Hash Function.
+* The Hash Table has to resize due to exceeding the Load Factor 
+
+  However, it can most happen after **n/2** operations, which are all assumed **O(1)**.
 
 ## Hash Table In JavaScript
 
