@@ -21,6 +21,8 @@ Hash Table is a data structure that implements an Associative Array, a structure
 
 > **Associative Array** is an Abstract Data Type that uses strings as indexes.
 >
+> In JavaScript, there is no Associative Arrays, we use Objects to create them.
+>
 > An **Abstract Data Type (ADT)** is a special kind of a data type, whose logical behaviour is defined by a set of values and set of operations. The definition only mentions what operations can be performed, but not how these operations are implemented.
 >
 > The opposite to ADT is a **Concrete Data Type (CDT)**, which gives the full view on what operations can be performed and how they are implemented.
@@ -34,6 +36,40 @@ It uses a Hash Function that turns passed keys into numbers, under which the dat
 An example of a Hash Table that stores phone numbers:
 
 ![Hash Table Example (From Wikipedia)](/img/screenshot-2021-06-17-at-21.43.07.png "Hash Table Example (From Wikipedia)")
+
+## What Is Hash Function?
+
+As we already know, a Hash Function is a function that performs some complicated calculations to turn string keys into numbers, so they can be used as an Array indexes.
+
+The arguments for the function are: key and a Hash Table size.
+
+Let's see an example implementation of a Hash Function, which adds all the ASCII values of the key and performs a modulo operation by the Hash Table size.
+
+> **American Standard Code for Information Interchange (ASCII)** is a character encoding for electronic communication.
+>
+> It assigns letters, numbers and other special characters in the 256 slots available in the 8-bit code.
+>
+> **Modulo Operation** is an operation that returns a remainder of a division after one number is divided by another.
+
+```javascript
+const hash = (key, size) => {
+  let hash = 0;
+  for (let i = 0; i < key.length; i++) {
+    hash += key.charCodeAt(i);
+  }
+  return hash % size;
+};
+
+// Prints "64"
+console.log(hash("firstName", 97));
+
+// Prints "45"
+console.log(hash("lastName", 97));
+```
+
+In the above example we use **charCodeAt()** method to get the ASCII code of each character in **key**, sum all of these codes and use the modulo operator to ensure that the value of the hash does not exceed the size of a Hash Table.
+
+If we didn't use the modulo operator, our hashes would equal to **937** and **821** respectively.
 
 ## Hash Table Time Complexity
 
@@ -57,5 +93,5 @@ const phoneNumbers = {
 console.log(phoneNumbers.andrew);
 
 // Prints "987-654-321"
-console.log(phoneNumbers.john);
+console.log(phoneNumbers["john"]);
 ```
