@@ -4,12 +4,17 @@ tag:
   - JavaScript
 promote: false
 metaDescription: // META
-teaser: // TEASER
+shareImage: /img/hash-table-in-javascript.jpg
+teaser: Efficient data manipulation is a must know for developers of any level,
+  not only for successful project development, but also for passing interviews
+  while looking for a job. With the rapid development of programming languages,
+  frameworks and libraries, it becomes easier to learn the technology that can
+  be used right away to...
 date: 2021-06-19T18:45:21.508Z
 ---
 Efficient data manipulation is a must know for developers of any level, not only for successful project development, but also for passing interviews while looking for a job.
 
-With the rapid development of programming languages, frameworks and libraries, it becomes easier to learn the technology that can be used right away to start coding, so more and more employees realize this and require a good knowledge of basics when interviewing candidates, especially on a higher positions.
+With the rapid development of programming languages, frameworks and libraries, it becomes easier to learn the technology that can be used right away to start coding, so more and more employers realize this and require a good knowledge of basics when interviewing candidates, especially on a higher positions.
 
 Data Structures topic is one of the most important ones among the basics every developer should understand on some level.
 
@@ -154,3 +159,11 @@ console.log(phoneNumbers.andrew);
 // Prints "987-654-321"
 console.log(phoneNumbers["john"]);
 ```
+
+## Implementation In JavaScript
+
+We can use Object, but we don't search for an easy way of going forward, do we?
+
+Let's create our own implementation of Hash Table with a proper collision handling.
+
+## Summary
