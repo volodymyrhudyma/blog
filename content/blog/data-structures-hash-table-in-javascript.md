@@ -103,6 +103,22 @@ Fortunately, there are a few ways of resolving such collisions:
 
 ![Open Addressing (From Wikipedia)](/img/hash_table_5_0_1_1_1_1_0_sp.svg.png "Open Addressing (From Wikipedia)")
 
+In the above picture, "Ted Baker" has a unique hash, even though collided with "Sandra Dee" that has previously collided with "John Smith".
+
+While Separate Chaining and Open Addressing are great ways to handle collisions, they have a drawback - the number of stored entries cannot exceed the size of the Hash Table.
+
+Even with good Hash Functions, their performance decreases when the Load Factor goes beyond **0.7**.
+
+> **Load Factor** is a value that represents the current load of the Hash Table.
+>
+> It is calculated by dividing the current number of entries (**n**) by the size of the table (**s**) - **n / s**.
+
+Therefore, in many cases, these restrictions force to use the Dynamic Resizing, with all its costs.
+
+*  **Dynamic Resizing**
+
+  In this method, we set a limit (Load Factor) and when inserting new value makes us to exceed it, we double Hash Table in size and copy all elements from the old Hash Table to the new one.
+
 ## Hash Table Time Complexity
 
 Hash Table is a very efficient Data Structure, as it can be seen from the complexity table in Big O Notation (taken from [Wikipedia](https://en.wikipedia.org/wiki/Hash_table)):
