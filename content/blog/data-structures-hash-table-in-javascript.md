@@ -246,7 +246,7 @@ class HashTable {
   remove(key) {
     const index = this.hash(key, this.values.length);
     if(this.values[index]) {
-      this.values[index] = undefined;
+      delete this.values[index];
       this.size--;
       return true;
     }
@@ -255,6 +255,54 @@ class HashTable {
 };
 ```
 
- 
+In the **remove** function we:
+
+* Get the **index** based on a provided **key**
+* Check if the table contains an item under the given **index**
+* If it does, we remove the item, decrease the table size and return **true**
+* Otherwise just return **false**
+
+Having that finished, let's test our implementation and see if we can find any problems with it:
+
+```javascript
+const table = new HashTable();
+
+table.set("firstName", "John");
+table.set("lastName", "Doe");
+
+// Prints ["firstName", "John"]
+console.log(table.get("firstName"));
+
+// Prints ["lastName", "Doe"]
+console.log(table.get("lastName"));
+
+table.remove("firstName");
+table.remove("lastName");
+
+// Prints "undefined"
+console.log(table.get("firstName"));
+
+// Prints "undefined"
+console.log(table.get("lastName"));
+
+// Prints "0"
+console.log(table.size);
+```
+
+At the first sight, there aren't any problems with our solution and it works as expected, but what if we try to set the different values using the same keys?
+
+```javascript
+const table = new HashTable();
+
+table.set("firstName", "John");
+table.set("firstName", "Andrew");
+
+// Prints ["firstName", "Andrew"]
+console.log(table.get("firstName"));
+```
+
+It seems like we are in a trouble now, since **John** was overwritten with **Andrew** for the **firstName** key.
+
+We just faced a collision.
 
 ## Summary
