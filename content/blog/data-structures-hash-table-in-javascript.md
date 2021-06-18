@@ -120,7 +120,7 @@ Even with good Hash Functions, their performance decreases when the Load Factor 
 
 Therefore, in many cases, these restrictions force to use the Dynamic Resizing, with all its costs.
 
-*  **Dynamic Resizing**
+* **Dynamic Resizing**
 
   In this method, we set a limit (Load Factor) and when inserting new value makes us to exceed it, we double Hash Table in size and copy all elements from the old Hash Table to the new one.
 
@@ -162,8 +162,99 @@ console.log(phoneNumbers["john"]);
 
 ## Implementation In JavaScript
 
-We can use Object, but we don't search for an easy way of going forward, do we?
+We can use Object, but we don't search for an easy way of going forward, do we? 
 
-Let's create our own implementation of Hash Table with a proper collision handling.
+Let's implement a basic version of a Hash Table without proper collision handling.
+
+To start with, create a HashTable class that contains 97 buckets:
+
+```javascript
+class HashTable {
+  constructor() {
+    this.values = new Array(97);
+    this.size = 0;
+  };
+};
+```
+
+Why exactly 97 you may ask? The answer is - the size doesn't matter unless it is a **Prime Number**, which is used to minimize the chance of collisions.
+
+> **Prime Number** is a number that has only 2 factors: 1 and itself.
+>
+> **Composite Number** is a number that has more than 2 factors.
+
+The next step is to add a hash function, which we already implemented at the beginning of an article:
+
+```javascript
+class HashTable {
+  // ...
+  
+  hash(key, size) {
+    let hash = 0;
+    for (let i = 0; i < key.length; i++) {
+      hash += key.charCodeAt(i);
+    }
+    return hash % size;
+  };
+};
+```
+
+Now we need to allow setting key/value pairs in the Hash Table, so let's add a **set** method that accepts **key** and **value** as parameters:
+
+```javascript
+class HashTable {
+  // ...
+  
+  set(key, value) {
+    const index = this.hash(key, this.values.length);
+    this.values[index] = [key, value];
+    this.size++;
+  };
+};
+```
+
+A quick explanation how the **set** method works:
+
+* Convert received **key** into **index** by running a **hash** function on it, passing the length of the table to perform modulo operation and make sure that the **index** will not be greater that the table length
+* Assign a **\[key, value]** pair to the calculated index
+* Increment the size of the table
+
+After wrapping up the **set** method, it's time to implement the **get** functionality that would allow us to retrieve a specific value by key:
+
+```javascript
+class HashTable {
+  // ...
+  
+  get(key) {
+    const index = this.hash(key, this.values.length);
+    return this.values[index];
+  };
+};
+```
+
+In the **get** method we:
+
+* Hash the given **key** to get an **index**
+* Return the value stored under retrieved **index**
+
+Finally, let's implement a **remove** method that would allow us to remove a specific key/value pair from the Hash Table:
+
+```javascript
+class HashTable {
+  // ...
+  
+  remove(key) {
+    const index = this.hash(key, this.values.length);
+    if(this.values[index]) {
+      this.values[index] = undefined;
+      this.size--;
+      return true;
+    }
+    return false;
+  };
+};
+```
+
+ 
 
 ## Summary
