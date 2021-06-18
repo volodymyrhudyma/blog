@@ -128,7 +128,7 @@ Therefore, in many cases, these restrictions force to use the Dynamic Resizing, 
 
 The complexity table in Big O Notation (taken from [Wikipedia](https://en.wikipedia.org/wiki/Hash_table)):
 
-![Hash Table Time Complexity](/img/screenshot-2021-06-17-at-21.42.02.png "Hash Table Time Complexity")
+![Hash Table Time Complexity](/img/screenshot-2021-06-19-at-01.40.33.png "Hash Table Time Complexity")
 
 Obviously, the Hash Table is a very efficient Data Structure.
 
