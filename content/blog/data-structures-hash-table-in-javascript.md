@@ -40,7 +40,7 @@ It uses a Hash Function that turns passed keys into numbers, under which the dat
 
 An example of a Hash Table that stores phone numbers:
 
-![Hash Table Example (From Wikipedia)](/img/screenshot-2021-06-17-at-21.43.07.png "Hash Table Example (From Wikipedia)")
+![Hash Table Example (From Wikipedia)](/img/screenshot-2021-06-19-at-01.38.19.png "Hash Table Example (From Wikipedia)")
 
 ## What Is Hash Function?
 
