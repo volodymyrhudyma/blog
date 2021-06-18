@@ -106,7 +106,7 @@ Fortunately, there are a few ways of resolving such collisions:
 
   The name "Open Addressing" refers to the fact that the location of a value is not determined by its hash value.
 
-![Open Addressing (From Wikipedia)](/img/hash_table_5_0_1_1_1_1_0_sp.svg.png "Open Addressing (From Wikipedia)")
+![Open Addressing (From Wikipedia)](/img/screenshot-2021-06-19-at-01.37.18.png "Open Addressing (From Wikipedia)")
 
 In the above picture, "Ted Baker" has a unique hash, even though collided with "Sandra Dee" that has previously collided with "John Smith".
 
