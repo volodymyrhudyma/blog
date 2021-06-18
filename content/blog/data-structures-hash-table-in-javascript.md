@@ -305,4 +305,114 @@ It seems like we are in a trouble now, since **John** was overwritten with **And
 
 We just faced a collision.
 
+#### Separate Chaining with Linked List to rescue
+
+As it has already been said, there are a few methods to handle the Hash Table collisions and one of the most popular is Separate Chaining using Linked List Data Structure.
+
+To implement it, we will need to create a **LinkedList** and **Node** classes that would represent Linked List and its Node respectively:
+
+```javascript
+class LinkedList {
+  constructor(node) {
+    this.head = node;
+    this.size = 0;
+  };
+};
+
+class Node {
+  constructor(value) {
+    this[key] = value;
+    this.next = null;
+  };
+};
+```
+
+The next thing is to change implemented method.
+
+#### Methods: set
+
+```javascript
+class HashTable {
+  // ...
+  
+  set(key, value) {
+    const index = this.hash(key, this.values.length);
+    
+    // Create a Linked List Node
+    const node = new Node(key, value);
+    
+    // If no value stored under the given index
+    if(!this.values[index]) {
+      
+      // Add a Linked List there
+      this.values[index] = new LinkedList(node);
+      
+    // If a value is stored under the given index
+    } else {
+      
+      // Get the head of the Linked List
+      let current = this.values[index].head;
+      
+      // Iterate the Linked List till the last element is reached
+      // And assign this element to the "current"
+      while(current.next) {
+        current = current.next;
+      }
+      
+      // Replace the last element with the Node
+      current.next = node;
+    }
+    
+    // Increase the number of items in Linked List 
+    this.values[index].size++;
+    
+    // Increase the Hash Table size
+    this.size++;
+  };
+};
+```
+
+#### Methods: get
+
+```javascript
+class HashTable {
+  // ...
+  
+  get(key) {
+    const index = this.hash(key, this.values.length);
+    const value = this.values[index];
+    
+    // The value is a Linked List, so get the "head"
+    let current = value.head;
+    
+    // If the "head" contains a "key", return its value
+    if(current.hasOwnProperty(key)) {
+      return current[key];
+    }
+    
+    // Otherwise, check if the "next" Linked List element
+    // Contains a "key" and return its value if so
+    while(current.next) {
+      if(current.next.hasOwnProperty(key)) {
+        return current.next[key];
+      }
+      
+      // Loop till the very last element
+      current = current.next;
+    }
+    
+    // Return "undefined" if a "key" was not found
+    return undefined;
+  };
+};
+```
+
+#### Methods: remove
+
+```javascript
+class HashTable {
+  // Remove
+};
+```
+
 ## Summary
