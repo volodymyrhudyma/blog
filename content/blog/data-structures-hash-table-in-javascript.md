@@ -485,6 +485,18 @@ console.log(table.get("ba"));
 
 And it seems to work perfectly fine!
 
+## Why Hash Tables Are Useful?
+
+This Data Structure is used in many kinds of a computer software to implement:
+
+* Associative Arrays
+* Database Indexing
+* Caching
+* Sets
+* Representing Objects in some programming languages (like JavaScript)
+* Representing unique data
+* Transposition Tables
+
 ## Summary
 
 In this article, we learned what is a Hash Table and how to implement it in JavaScript avoiding possible collisions.
