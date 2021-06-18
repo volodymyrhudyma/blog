@@ -487,3 +487,9 @@ console.log(table.get("ba"));
 And it seems to work perfectly fine!
 
 ## Summary
+
+In this article, we learned what is a Hash Table and how to implement it in JavaScript avoiding possible collisions.
+
+Hash Table is a Data Structure that allows us to store key/value pairs and work with them in a fast and an efficient way.
+
+Make sure you understand this Data Structure, since employers love to ask about it on interviews.
