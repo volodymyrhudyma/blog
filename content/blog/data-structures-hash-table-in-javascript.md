@@ -382,7 +382,7 @@ class HashTable {
     const index = this.hash(key, this.values.length);
     const value = this.values[index];
     
-    // The value is a Linked List, so get the "head"
+    // The "value" is a Linked List, so get the "head"
     let current = value.head;
     
     // If the "head" contains a "key", return its value
@@ -411,8 +411,79 @@ class HashTable {
 
 ```javascript
 class HashTable {
-  // Remove
+  // ...
+  
+  remove(key) {
+    const index = this.hash(key, this.values.length);
+    const value = this.values[index];
+    
+    // The "value" is a Linked List, so get the "head"
+    let current = value.head;
+    
+    // If the "head" contains a "key"
+    if(current.hasOwnProperty(key)) {
+      
+      // Assign the "next" element to the "head"
+      value.head = current.next;
+      
+      // Decreate the size of a Linked List
+      value.size--;
+      
+      // Decrease the size of a Hash Table
+      this.size--;
+      return true;
+    }
+    
+    // If the "head" does not contain a "key"
+    // Iterate over the "next" elements
+    while(current.next) {
+      
+      // If the "next" element contains a "key"
+      if(current.next.hasOwnProperty(key)) {
+        
+        // Assign the next "next" element instead of the current one
+        current.next = current.next.next;
+        
+        // Decreate the size of a Linked List
+        value.size--;
+
+        // Decrease the size of a Hash Table
+        this.size--;
+        return true;
+      }
+    }
+    
+    // Otherwise, if nothing was removec, return "false"
+    return false;
+  };
 };
 ```
+
+And test the new implementation:
+
+```javascript
+const table = new HashTable();
+
+table.set("firstName", "John");
+table.set("firstName", "Andrew");
+
+// Prints "John", which means that
+// It gets the first stored element properly
+console.log(table.get("firstName"));
+
+// "ab" and "ba" have the same ASCII code - "1"
+// Nevertheless, we are able to properly retrieve their values
+table.set("ab", "abValue");
+table.set("ba", "baValue");
+
+// Prints "abValue"
+console.log(table.get("ab"));
+
+// Prints "baValue"
+console.log(table.get("ba"));
+
+```
+
+And it seems to work perfectly fine!
 
 ## Summary
