@@ -96,7 +96,7 @@ Fortunately, there are a few ways of resolving such collisions:
 
   In this method, each bucket (Hash Table stores values in buckets) contains a pointer to another data structure (e.g. [Linked List](/2020-08-23-algorithms-linked-list-in-javascript/)).
 
-![Separate Chaining (From Wikipedia)](/img/hash_table_5_0_1_1_1_1_1_ll.svg.png "Separate Chaining (From Wikipedia)")
+![Separate Chaining (From Wikipedia)](/img/screenshot-2021-06-19-at-01.36.30.png "Separate Chaining (From Wikipedia)")
 
 * **Open Addressing**
 
@@ -481,7 +481,6 @@ console.log(table.get("ab"));
 
 // Prints "baValue"
 console.log(table.get("ba"));
-
 ```
 
 And it seems to work perfectly fine!
