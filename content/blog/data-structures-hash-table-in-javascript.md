@@ -3,7 +3,9 @@ title: "Data Structures: Hash Table In JavaScript"
 tag:
   - JavaScript
 promote: false
-metaDescription: // META
+metaDescription: Learn how to implement a Hash Table in JavaScript - a Data
+  Structure, which maps keys to values. It uses Hash Function - a function that
+  can map data of any size to fixed-size values.
 shareImage: /img/hash-table-in-javascript.jpg
 teaser: Efficient data manipulation is a must for developers at any level, not
   only for successful project development, but also for passing job search
@@ -24,7 +26,7 @@ In this article, we will learn about one of the most popular Data Structure - **
 
 ## What Is Hash Table?
 
-Hash Table is a data structure that implements an Associative Array, a structure that maps keys to values.
+Hash Table is a Data Structure that implements an Associative Array, a structure that maps keys to values.
 
 > **Associative Array** is an Abstract Data Type, which uses strings as indexes.
 >
@@ -140,16 +142,16 @@ On average they are **O(1)**, however they suffer from **O(n)** worst case compl
 
 * Too many elements are hashed under the same key
 
-  Looking inside of the key can take **O(n)** time, but it's very rare situation if you choose a good Hash Function.
-* The Hash Table has to resize due to exceeding the Load Factor 
+  Searching within the key can take **O(n)** time, but this is a very rare situation if you choose a good Hash Function.
+* The size of Hash Table must to be reduced due to exceeding the Load Factor 
 
-  However, it can most happen after **n/2** operations, which are all assumed **O(1)**.
+  However, this can happen most often after **n/2** operations, all of which are assumed to be **O(1)**.
 
 ## Hash Table In JavaScript
 
-We just figured out that Hash Table stores the data exactly the same way Object in JavaScript does.
+We just found out that Hash Table stores data just like Object does in JavaScript. 
 
-And that's correct, Objects are an example of implemented Hash Table, because they allow to associate the string key with a value:
+And that's right, Objects are an example of implemented Hash Table, because they allow you to associate the string key with a value:
 
 ```javascript
 const phoneNumbers = {
@@ -166,11 +168,11 @@ console.log(phoneNumbers["john"]);
 
 ## Implementation In JavaScript
 
-We can use Object, but we don't search for an easy way of going forward, do we? 
+We can use Object, but we're not looking for an easy way to get ahead, are we?
 
 Let's implement a basic version of a Hash Table without proper collision handling.
 
-To start with, create a HashTable class that contains 97 buckets:
+First, create a HashTable class that contains **97** buckets:
 
 ```javascript
 class HashTable {
@@ -181,13 +183,15 @@ class HashTable {
 };
 ```
 
-Why exactly 97 you may ask? The answer is - the size doesn't matter unless it is a **Prime Number**, which is used to minimize the chance of collisions.
+Why exactly **97** you may ask? 
+
+The answer is - size doesn't matter, unless it's a **Prime Number** used to minimize the probability of collisions.
 
 > **Prime Number** is a number that has only 2 factors: 1 and itself.
 >
 > **Composite Number** is a number that has more than 2 factors.
 
-The next step is to add a hash function, which we already implemented at the beginning of an article:
+The next step is to add a hash function, which we have already implemented earlier today:
 
 ```javascript
 class HashTable {
@@ -203,7 +207,7 @@ class HashTable {
 };
 ```
 
-Now we need to allow setting key/value pairs in the Hash Table, so let's add a **set** method that accepts **key** and **value** as parameters:
+Now we need to enable setting key/value pairs in Hash Table, so we add a **set** method that accepts **key** and **value** as parameters:
 
 ```javascript
 class HashTable {
@@ -217,13 +221,13 @@ class HashTable {
 };
 ```
 
-A quick explanation how the **set** method works:
+A brief explanation of how the **set** method works:
 
-* Convert received **key** into **index** by running a **hash** function on it, passing the length of the table to perform modulo operation and make sure that the **index** will not be greater that the table length
+* Convert the received **key** to an **index** by running a **hash** function on it and passing the length of the table to perform a modulo operation and ensure that the **index** is not greater that the table length
 * Assign a **\[key, value]** pair to the calculated index
 * Increment the size of the table
 
-After wrapping up the **set** method, it's time to implement the **get** functionality that would allow us to retrieve a specific value by key:
+After the **set** method is complete, it's time to implement the **get** functionality that allows us to retrieve a specific value by key:
 
 ```javascript
 class HashTable {
@@ -238,10 +242,10 @@ class HashTable {
 
 In the **get** method we:
 
-* Hash the given **key** to get an **index**
-* Return the value stored under retrieved **index**
+* Hash the given **key** to obtain an **index**
+* Return the value stored under the retrieved **index**
 
-Finally, let's implement a **remove** method that would allow us to remove a specific key/value pair from the Hash Table:
+Finally, let's implement a **remove** method to delete a specific key/value pair from the Hash Table:
 
 ```javascript
 class HashTable {
@@ -262,11 +266,11 @@ class HashTable {
 In the **remove** function we:
 
 * Get the **index** based on a provided **key**
-* Check if the table contains an item under the given **index**
-* If it does, we remove the item, decrease the table size and return **true**
-* Otherwise just return **false**
+* Check if the table contains an element under the given **index**
+* If so, we remove the element, decrease the table size and return **true**
+* Otherwise, we simply return **false**
 
-Having that finished, let's test our implementation and see if we can find any problems with it:
+With that done, let's test our implementation and see if we find any problems with it:
 
 ```javascript
 const table = new HashTable();
@@ -293,7 +297,7 @@ console.log(table.get("lastName"));
 console.log(table.size);
 ```
 
-At the first sight, there aren't any problems with our solution and it works as expected, but what if we try to set the different values using the same keys?
+At first glance, there are no any problems with our solution and it works as expected, but what if we try to set the different values using the same keys?
 
 ```javascript
 const table = new HashTable();
@@ -305,15 +309,15 @@ table.set("firstName", "Andrew");
 console.log(table.get("firstName"));
 ```
 
-It seems like we are in a trouble now, since **John** was overwritten with **Andrew** for the **firstName** key.
+It seems we are now in a problem, as **John** has been overwritten with **Andrew** for the **firstName** key. 
 
-We just faced a collision.
+We are dealing with a collision.
 
-#### Separate Chaining with Linked List to rescue
+#### Separate Chaining With Linked List To The Rescue
 
-As it has already been said, there are a few methods to handle the Hash Table collisions and one of the most popular is Separate Chaining using Linked List Data Structure.
+As mentioned earlier, there are a few methods to handle Hash Table collisions, and one of the most popular is Separate Chaining with Linked List Data Structure. 
 
-To implement it, we will need to create a **LinkedList** and **Node** classes that would represent Linked List and its Node respectively:
+To implement it, we need to create a **LinkedList** and a **Node** class that would represent Linked List and its Node respectively:
 
 ```javascript
 class LinkedList {
@@ -331,7 +335,7 @@ class Node {
 };
 ```
 
-The next thing is to change implemented method.
+Next, the implemented methods need to be adjusted.
 
 #### Methods: set
 
@@ -503,8 +507,8 @@ This Data Structure is used in many kinds of a computer software to implement:
 
 ## Summary
 
-In this article, we learned what is a Hash Table and how to implement it in JavaScript avoiding possible collisions.
+In this article, we learned what a Hash Table is and how to implement it in JavaScript avoiding possible collisions.
 
-Hash Table is a Data Structure that allows us to store key/value pairs and work with them in a fast and an efficient way.
+A Hash Table is a Data Structure, which allows us to store key/value pairs and work with them in a fast and efficient way.
 
-Make sure you understand this Data Structure, since employers love to ask about it on interviews.
+Make sure you understand this Data Structure, as employers like to ask about during job interviews.
