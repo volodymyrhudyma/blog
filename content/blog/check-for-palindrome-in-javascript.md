@@ -6,9 +6,9 @@ promote: false
 metaDescription: // META
 shareImage: /img/palindrome-in-javascript.jpg
 teaser: There are a lot of basic problems that have elegant solutions in
-  JavaScript and one of them is checking for Palindromes. **Palindrome** is a
-  word, number, phrase, or other sequence of characters which reads the same
-  backward as forward, for example...
+  JavaScript and one of them is checking for Palindromes. Palindrome is a word,
+  number, phrase, or other sequence of characters which reads the same backward
+  as forward, for example...
 date: 2021-06-23T08:21:31.125Z
 ---
 There are a lot of basic problems that have elegant solutions in JavaScript and one of them is checking for Palindromes.
