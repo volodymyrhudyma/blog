@@ -69,21 +69,33 @@ Performance
 
 In the following implementation we:
 
+* Convert passed value to lowercase (**\_Civic\_** -> **\_civic\_**)
+* Replace all non-alphanumeric characters with an empty string (**\_civic\_** -> **civic**)
+* Get the length of a clean lowercase string (**civic** -> **5**)
+* Loop over the half of a value length and check if characters from the beginning and end match
+
+  **Math.floor(5 / 2)** is **2**, so the iterations are:
+
+  1-st: **i = 0**, **cleanValue\[0] = c**, **cleanValue\[5 - 1 - 0] = c**, match
+
+  2-nd: **i = 1**, **cleanValue\[1] = i**, **cleanValue\[5 - 1 - 1] = i**, match
+* If they don't match - return false, otherwise - true
+
 ```javascript
-const isPalindrome = str => {
+const isPalindrome = value => {
  const REGEX = /[\W_]/g;
- const newString = str.toLowerCase().replace(REGEX, '');
- const length = newString.length;
+ const cleanValue = value.toLowerCase().replace(REGEX, '');
+ const { length } = cleanValue;
  for (var i = 0; i < Math.floor(length / 2); i++) {
-   if (newString[i] !== newString[length - 1 - i]) {
-       return false;
+   if (cleanValue[i] !== cleanValue[length - 1 - i]) {
+     return false;
    }
  }
  return true;
 };
 
 isPalindrome("I am not a palindrome"); // false
-isPalindrome("Civic"); // true
+isPalindrome("_Civic_"); // true
 isPalindrome("Race car"); // true 
 ```
 
