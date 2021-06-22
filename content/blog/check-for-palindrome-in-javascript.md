@@ -32,8 +32,8 @@ The easiest ways to achieve this is to use [Regular Expressions](/2020-05-10-reg
 const REGEX_1 = /[\W_]/g;
 const REGEX_2 = /[^0-9a-z]/g;
 
-console.log("__civic_".replace(REGEX_1, ""); // "civic"
-console.log("__civic_".replace(REGEX_2, ""); // "civic"
+console.log("_civic_".replace(REGEX_1, ""); // "civic"
+console.log("_civic_".replace(REGEX_2, ""); // "civic"
 
 ```
 
@@ -43,8 +43,8 @@ As we can see, both Regular Expressions work perfectly fine.
 
 In the following implementation we:
 
-* Convert passed value to lowercase (**_\_Civic\_** -> **_\_civic\_**)
-* Replace all non-alphanumeric characters with an empty string (**_\_civic\_** -> **civic**)
+* Convert passed value to lowercase (**\_Civic\_** -> **\_civic\_**)
+* Replace all non-alphanumeric characters with an empty string (**\_civic\_** -> **civic**)
 * Split value into array of strings, reverse them and convert back to a string (**civic** -> **\[ 'c', 'i', 'v', 'i', 'c' ]** -> **\[ 'c', 'i', 'v', 'i', 'c' ]** -> **civic**)
 * Check if the original value (converted to lowercase and without non-alphanumeric characters) is the same as the reversed and return the comparison result (**civic** === **civic**)
 
@@ -57,7 +57,7 @@ const isPalindrome = value => {
 };
 
 isPalindrome("I am not a palindrome"); // false
-isPalindrome("__Civic_"); // true
+isPalindrome("_Civic_"); // true
 isPalindrome("Race car"); // true 
 ```
 
