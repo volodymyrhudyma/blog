@@ -17,6 +17,28 @@ There are a lot of basic problems that have elegant solutions in JavaScript and 
 
 Today we will learn two ways - the first one that uses built-in JavaScript functions, but is a bit slow, the second one uses for loop and performs way more better.
 
+## Prerequisites
+
+Before proceeding to the implementation, we need to know how to remove all non-alphanumeric characters, so if we would check the following string "A man, a plan, a canal. Panama" - our function returns true.
+
+The easiest ways to achieve this is to use [Regular Expressions](/2020-05-10-regular-expressions-in-javascript/):
+
+* **\[\W_]** - to find any non-word characters
+* **[^0-9a-z]** - equivalent to the above expression
+
+  Matches numbers from 0-9 range, letters from A-Z and a-z and some special characters (underscore is included).
+
+```javascript
+const REGEX_1 = /[\W_]/g;
+const REGEX_2 = /[^0-9a-z]/g;
+
+console.log("__civic_".replace(REGEX_1, ""); // "civic"
+console.log("__civic_".replace(REGEX_2, ""); // "civic"
+
+```
+
+As we can see, both Regular Expressions work perfectly fine.
+
 ## Way #1
 
 ```javascript
@@ -30,7 +52,6 @@ const isPalindrome = str => {
 isPalindrome("I am not a palindrome"); // false
 isPalindrome("Civic"); // true
 isPalindrome("Race car"); // true 
-
 ```
 
 #### Performance
@@ -55,7 +76,6 @@ const isPalindrome = str => {
 isPalindrome("I am not a palindrome"); // false
 isPalindrome("Civic"); // true
 isPalindrome("Race car"); // true 
-
 ```
 
 #### Performance
