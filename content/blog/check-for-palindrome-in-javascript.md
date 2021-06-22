@@ -46,7 +46,7 @@ In the following implementation we:
 
 * Convert passed value to lowercase (**\_Civic\_** -> **\_civic\_**)
 * Replace all non-alphanumeric characters with an empty string (**\_civic\_** -> **civic**)
-* Split value into array of strings, reverse them and convert back to a string (**civic** -> **\[ 'c', 'i', 'v', 'i', 'c' ]** -> **\[ 'c', 'i', 'v', 'i', 'c' ]** -> **civic**)
+* Split value into array of strings, reverse them and convert back to a string (**civic** -> **\["c", "i", "v", "i", "c"]** -> **\["c", "i", "v", "i", "c"]** -> **civic**)
 * Check if the original value (converted to lowercase and without non-alphanumeric characters) is the same as the reversed and return the comparison result (**civic** === **civic**)
 
 ```javascript
@@ -81,9 +81,9 @@ In the following implementation we:
 ```javascript
 const isPalindrome = value => {
  const REGEX = /[\W_]/g;
- const cleanValue = value.toLowerCase().replace(REGEX, '');
+ const cleanValue = value.toLowerCase().replace(REGEX, "");
  const { length } = cleanValue;
- for (var i = 0; i < Math.floor(length / 2); i++) {
+ for (let i = 0; i < Math.floor(length / 2); i++) {
    if (cleanValue[i] !== cleanValue[length - 1 - i]) {
      return false;
    }
