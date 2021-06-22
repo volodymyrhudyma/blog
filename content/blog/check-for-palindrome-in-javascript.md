@@ -3,7 +3,9 @@ title: Check For Palindrome In JavaScript
 tag:
   - JavaScript
 promote: false
-metaDescription: // META
+metaDescription: Learn Two Ways to check for Palindrome in JavaScript, measure
+  their performance and find the most optimal one for smaller and larger
+  strings.
 shareImage: /img/palindrome-in-javascript.jpg
 teaser: There are a lot of basic problems that have elegant solutions in
   JavaScript and one of them is checking for Palindromes. Palindrome is a word,
@@ -125,6 +127,10 @@ The case of a large value, which length is equal to 500 000:
 3.6 times
 ```
 
+Obviously, the first way, which is cleaner and easier-to-read is a few times slower than the second way using a loop, especially when working with a larger strings.
+
 ## Summary
 
-Summary
+In this article we learned two ways to check for Palindrome in JavaScript, measured their performance and found the most optimal one.
+
+There are way more possible implementations, but knowing these basic two is a good start for being able to successfully answer this question on an interview.
