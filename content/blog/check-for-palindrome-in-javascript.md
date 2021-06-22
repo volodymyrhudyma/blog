@@ -41,16 +41,23 @@ As we can see, both Regular Expressions work perfectly fine.
 
 ## Way #1
 
+In the following implementation we:
+
+* Convert passed value to lowercase (**_\_Civic\_** -> **_\_civic\_**)
+* Replace all non-alphanumeric characters with an empty string (**_\_civic\_** -> **civic**)
+* Split value into array of strings, reverse them and convert back to a string (**civic** -> **\[ 'c', 'i', 'v', 'i', 'c' ]** -> **\[ 'c', 'i', 'v', 'i', 'c' ]** -> **civic**)
+* Check if the original value (converted to lowercase and without non-alphanumeric characters) is the same as the reversed and return the comparison result (**civic** === **civic**)
+
 ```javascript
-const isPalindrome = str => {
+const isPalindrome = value => {
   const REGEX = /[\W_]/g;
-  const lowRegStr = str.toLowerCase().replace(REGEX, '');
-  const reverseStr = lowRegStr.split('').reverse().join(''); 
-  return reverseStr === lowRegStr;
+  const cleanValue = value.toLowerCase().replace(REGEX, "");
+  const reverseValue = cleanValue.split("").reverse().join(""); 
+  return cleanValue === reverseValue;
 };
 
 isPalindrome("I am not a palindrome"); // false
-isPalindrome("Civic"); // true
+isPalindrome("__Civic_"); // true
 isPalindrome("Race car"); // true 
 ```
 
@@ -59,6 +66,8 @@ isPalindrome("Race car"); // true
 Performance
 
 ## Way #2
+
+In the following implementation we:
 
 ```javascript
 const isPalindrome = str => {
