@@ -61,10 +61,6 @@ isPalindrome("_Civic_"); // true
 isPalindrome("Race car"); // true 
 ```
 
-#### Performance
-
-Performance
-
 ## Way #2
 
 In the following implementation we:
@@ -99,9 +95,35 @@ isPalindrome("_Civic_"); // true
 isPalindrome("Race car"); // true 
 ```
 
-#### Performance
+## Performance
 
-Performance
+If we measure the performance for both implementations, we will see some significant differences, not only for larger values, but for smaller ones as well.
+
+The case of a simple "\_Civic\_" value:
+
+```javascript
+// Way #1 (average from 5 runs)
+0.0100000761449337 ms
+
+// Way #2 (average from 5 runs)
+0.00500003807246685 ms
+
+// Difference
+2 times
+```
+
+The case of a large value, which length is equal to 500 000:
+
+```javascript
+// Way #1 (average from 5 runs)
+28.234999859705567 ms
+
+// Way #2 (average from 5 runs)
+7.844999898225069 ms
+
+// Difference
+3.6 times
+```
 
 ## Summary
 
