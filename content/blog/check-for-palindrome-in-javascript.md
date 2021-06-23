@@ -25,8 +25,8 @@ Before we proceed with the implementation, we need to know how to remove all non
 
 The easiest way to do this is to use [Regular Expressions](/2020-05-10-regular-expressions-in-javascript/):
 
-* **\[\W_]** - to find all non-word characters
-* **[^0-9a-z]** - equivalent to the expression above
+* **/\[\W_]/g** - to find all non-word characters
+* /**[^0-9a-z]/g** - equivalent to the expression above
 
   Matches numbers from the range 0-9, letters from A-Z and a-z and some special characters (underscore is included).
 
