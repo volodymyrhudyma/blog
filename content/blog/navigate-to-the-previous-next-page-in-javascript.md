@@ -5,6 +5,7 @@ tag:
 promote: false
 metaDescription: Lean how to navigate to the Previous and Next page using the
   History API in JavaScript.
+shareImage: /img/navigsation-in-javascript.jpg
 teaser: Redirecting users from one page to another is a very common in web
   applications. In most cases, we know exactly on what page users should land
   after clicking a link, but sometimes we don't. Imagine implementing a profile
