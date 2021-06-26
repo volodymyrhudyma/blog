@@ -1,5 +1,5 @@
 ---
-title: Navigate To The Previous/Next Page in JavaScript
+title: Navigate To The Previous/Next Page In JavaScript
 tag:
   - JavaScript
 promote: false
