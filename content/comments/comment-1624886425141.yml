@@ -1,0 +1,15 @@
+_id: 98fda4f0-d813-11eb-92cc-770831d6df1c
+name: Ganji Srikanth
+message: |-
+  The below any type to function name will resolve the error in sagas.js
+  function* fetchTodoSaga(): any {
+    try {
+      const response=  yield call(getTodos);
+       yield put(
+        fetchTodoSuccess({
+          todos: response.data,
+        })
+      );
+    }
+slug: /add-redux-saga-with-typescript-to-your-react-application-january-2021/
+date: '2021-06-28T13:20:25.138Z'
