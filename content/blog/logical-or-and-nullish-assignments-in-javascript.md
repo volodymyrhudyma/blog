@@ -26,7 +26,7 @@ Logical OR operator returns **x** if it is Truthy Value, otherwise returns **y**
 >
 > **Falsy Value** is a value that is considered **false** in a Boolean context.
 >
-> **Nullish Value** is a value that equals to **null** or **undefined**.
+> **Nullish Value** is a value that equals to **null** or **undefined**.  All Nullish Values are Falsy as well.
 
 ```javascript
 // Syntax
@@ -155,6 +155,8 @@ user.age ||= 18;
 console.log(user);
 ```
 
+In this example, we are not reassigning **name** property, because it is a Truthy Value, but **age** is Falsy (equals to **undefined**), so it ends up with a new value.
+
 ## Logical AND Assignment
 
 Logical AND Assignment operator assigns only if **x** is Truthy Value:
@@ -183,6 +185,8 @@ user.age &&= 18;
 // Prints { name: "Andrew", surname: "Doe" }
 console.log(user);
 ```
+
+In this example, we are reassigning **name** property, because it is a Truthy Value, but **age** is Falsy (equals to **undefined**), so it is not reassigned.
 
 ## Logical Nullish Assignment
 
@@ -213,6 +217,8 @@ user.age ??= 18;
 // Prints { name: "John", surname: "Doe", age: 18 }
 console.log(user);
 ```
+
+In this example, we are not reassigning **name** property, because it is a Truthy Value, but **age** is Nullish (equals to **undefined**), so it ends up with a new value.
 
 ## Summary
 
