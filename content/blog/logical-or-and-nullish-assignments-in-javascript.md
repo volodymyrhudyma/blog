@@ -3,9 +3,13 @@ title: Logical OR/AND/Nullish Assignments In JavaScript
 tag:
   - JavaScript
 promote: false
-metaDescription: // META
+metaDescription: Learn Logical Assignment Operators in JavaScript that are a
+  combination of Logical Operators (||, &&, ??) with an Assignment (=).
 shareImage: /img/logical-assignments-in-js.jpg
-teaser: // TEASER
+teaser: The newest JavaScript specification ECMAScript 2021 includes a lot of
+  useful features, but the one we are going to discuss today is Logical
+  Assignment Operator, which is a combination of a logical operators(||, &&, ??)
+  with an assignment (=)...
 date: 2021-07-02T20:45:20.005Z
 ---
 The newest JavaScript specification ECMAScript 2021 includes a lot of useful features, but the one we are going to discuss today is **Logical Assignment Operator**, which is a combination of a logical operators(||, &&, ??) with an assignment (=).
@@ -211,3 +215,13 @@ console.log(user);
 ```
 
 ## Summary
+
+In this article, we learned how to use three new Logical Assignment Operators in JavaScript:
+
+* Logical OR Assignment: **x ||= y**
+* Logical AND Assignment: **x &&= y**
+* Logical Nullish Assignment: **x ??= y**
+
+On the one hand, proper usage of them makes the code shorter, cleaner and more readable, but on the other hand, redundant usage leads to rapid decreasing of a readability.
+
+So, make sure to play around with these new operators for better understanding and use them wisely.
