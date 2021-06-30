@@ -21,6 +21,8 @@ Logical OR operator returns **x** if it is Truthy Value, otherwise returns **y**
 > **Truthy Value** is a value that is considered **true** in a Boolean context.
 >
 > **Falsy Value** is a value that is considered **false** in a Boolean context.
+>
+> **Nullish Value** is a value that equals to **null** or **undefined**.
 
 ```javascript
 // Syntax
@@ -119,3 +121,93 @@ true ?? expensiveCalc(); // -> "true"
 ```
 
 In all three cases the **expensiveCalc** function will never be invoked.
+
+## Logical OR Assignment
+
+Logical OR Assignment operator assigns only if **x** is Falsy Value:
+
+```javascript
+// Syntax
+x ||= y
+
+// Equivalent
+x || (x = y)
+```
+
+It Short-Circuits if the first operand determines the result.
+
+Example:
+
+```javascript
+const user = {
+  name: "John",
+  surname: "Doe"
+};
+
+user.name ||= "Andrew";
+user.age ||= 18;
+
+// Prints { name: "John", surname: "Doe", age: 18 }
+console.log(user);
+```
+
+## Logical AND Assignment
+
+Logical AND Assignment operator assigns only if **x** is Truthy Value:
+
+```javascript
+// Syntax
+x &&= y
+
+// Equivalent
+x && (x = y)
+```
+
+It Short-Circuits if the first operand determines the result.
+
+Example:
+
+```javascript
+const user = {
+  name: "John",
+  surname: "Doe"
+};
+
+user.name &&= "Andrew";
+user.age &&= 18;
+
+// Prints { name: "Andrew", surname: "Doe" }
+console.log(user);
+```
+
+## Logical Nullish Assignment
+
+Logical Nullish Assignment operator assigns only if **x** is Nullish Value:
+
+```javascript
+// Syntax
+x ??= y
+
+// Equivalent
+x ?? (x = y)
+```
+
+It Short-Circuits if the first operand determines the result.
+
+Example:
+
+```javascript
+const user = {
+  name: "John",
+  surname: "Doe",
+  age: null,
+};
+
+user.name ??= "Andrew";
+user.age ??= 18;
+
+// Prints { name: "John", surname: "Doe", age: 18 }
+console.log(user);
+```
+
+## Summary
