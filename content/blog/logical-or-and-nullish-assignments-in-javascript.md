@@ -10,7 +10,7 @@ teaser: The newest JavaScript specification ECMAScript 2021 includes a lot of
   useful features, but the one we are going to discuss today is Logical
   Assignment Operator, which is a combination of a logical operators(||, &&, ??)
   with an assignment (=)...
-date: 2021-07-02T20:45:20.005Z
+date: 2021-07-01T20:45:20.005Z
 ---
 The newest JavaScript specification ECMAScript 2021 includes a lot of useful features, but the one we are going to discuss today is **Logical Assignment Operator**, which is a combination of a logical operators(||, &&, ??) with an assignment (=).
 
