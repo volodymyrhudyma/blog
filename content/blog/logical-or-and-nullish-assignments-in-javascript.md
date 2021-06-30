@@ -4,6 +4,7 @@ tag:
   - JavaScript
 promote: false
 metaDescription: // META
+shareImage: /img/logical-assignments-in-js.jpg
 teaser: // TEASER
 date: 2021-07-02T20:45:20.005Z
 ---
