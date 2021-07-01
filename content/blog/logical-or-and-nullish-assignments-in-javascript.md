@@ -155,7 +155,7 @@ user.age ||= 18;
 console.log(user);
 ```
 
-In this example, the **name** property is not reassigned because it is a Truthy value, but **age** is Falsy (equal to **undefined**), so there is a new value at the end.
+In this example, the **name** property is not reassigned because it is a Truthy Value, but **age** is Falsy (equal to **undefined**), so there is a new value at the end.
 
 ## Logical AND Assignment
 
@@ -186,7 +186,7 @@ user.age &&= 18;
 console.log(user);
 ```
 
-In this example, the **name** property is reassigned because it is a Truthy value, but **age** is Falsy (equal to **undefined**), so it is not reassigned.
+In this example, the **name** property is reassigned because it is a Truthy Value, but **age** is Falsy (equal to **undefined**), so it is not reassigned.
 
 ## Logical Nullish Assignment
 
@@ -218,7 +218,7 @@ user.age ??= 18;
 console.log(user);
 ```
 
-In this example, the **name** property is not reassigned because it is a Truthy value, but **age** is Nullish (equal to **undefined**), so there is a new value at the end.
+In this example, the **name** property is not reassigned because it is a Truthy Value, but **age** is Nullish (equal to **undefined**), so there is a new value at the end.
 
 ## Summary
 
