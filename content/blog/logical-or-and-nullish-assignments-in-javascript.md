@@ -3,30 +3,30 @@ title: Logical OR/AND/Nullish Assignments In JavaScript
 tag:
   - JavaScript
 promote: false
-metaDescription: Learn Logical Assignment Operators in JavaScript that are a
+metaDescription: Learn Logical Assignment Operators in JavaScript, which are a
   combination of Logical Operators (||, &&, ??) with an Assignment (=).
 shareImage: /img/logical-assignments-in-js.jpg
-teaser: The newest JavaScript specification ECMAScript 2021 includes a lot of
-  useful features, but the one we are going to discuss today is Logical
-  Assignment Operator, which is a combination of a logical operators(||, &&, ??)
-  with an assignment (=)...
+teaser: The latest JavaScript specification, ECMAScript 2021, includes a lot of
+  useful features, but the one we'll discuss today is Logical Assignment
+  Operator, which is a combination of a logical operator (||, &&, ??) with an
+  assignment (=)...
 date: 2021-07-01T20:45:20.005Z
 ---
-The newest JavaScript specification ECMAScript 2021 includes a lot of useful features, but the one we are going to discuss today is **Logical Assignment Operator**, which is a combination of a logical operators(||, &&, ??) with an assignment (=).
+The latest JavaScript specification, ECMAScript 2021, includes a lot of useful features, but the one we'll discuss today is **Logical Assignment Operator**, which is a combination of a logical operator (**\||**, **&&**, **??**) with an assignment (**\=**).
 
 By using Logical Assignment Operator, we can make an assignment with a single line of code.
 
-Before we begin learning this feature, let's remind ourselves how do the logical operators work in JavaScript and what is called Short Circuit.
+Before we start learning this function, let's remember how the logical operators work in JavaScript and what is meant by Short Circuit.
 
 ## Logical OR
 
-Logical OR operator returns **x** if it is Truthy Value, otherwise returns **y**.
+The Logical OR operator returns **x** if it is Truthy Value, otherwise it returns **y**.
 
 > **Truthy Value** is a value that is considered **true** in a Boolean context.
 >
 > **Falsy Value** is a value that is considered **false** in a Boolean context.
 >
-> **Nullish Value** is a value that equals to **null** or **undefined**.  All Nullish Values are Falsy as well.
+> **Nullish Value** is a value that is equal to **null** or **undefined**.  All Nullish Values are also Falsy.
 
 ```javascript
 // Syntax
@@ -54,7 +54,7 @@ undefined || "returnMe" // => "returnMe"
 
 ## Logical AND
 
-Logical AND operator returns **x** if it can't be converted to **true**, otherwise returns **y**:
+The Logical AND operator returns **x** if it cannot be converted to **true**, otherwise it returns **y**:
 
 ```javascript
 // Syntax
@@ -82,7 +82,7 @@ undefined && "returnMe" // => "undefined"
 
 ## Logical Nullish Assignment
 
-Logical Nullish Assignment operator returns **y** if **x** is **null** or **undefined**, otherwise returns **x**:
+The Logical Nullish Assignment operator returns **y** if **x** is **null** or **undefined**, otherwise it returns **x**:
 
 ```javascript
 // Syntax
@@ -110,9 +110,9 @@ undefined ?? "returnMe" // => "returnMe"
 
 ## Short Circuit
 
-Short Circuit means that the right-hand side of an expression is not evaluated if the operator is already determined after the first operand evaluation.
+Short Circuit means that the right side of an expression is not evaluated if the operator is already determined after the first operand evaluation.
 
-Any side effects that could have taken place do not take any effect:
+Any side effects that could have occurred do not take any effect:
 
 ```javascript
 const expensiveCalc = () => {
@@ -124,11 +124,11 @@ false && expensiveCalc(); // -> "false"
 true ?? expensiveCalc(); // -> "true"
 ```
 
-In all three cases the **expensiveCalc** function will never be invoked.
+In all three cases the **expensiveCalc()** function is never called.
 
 ## Logical OR Assignment
 
-Logical OR Assignment operator assigns only if **x** is Falsy Value:
+The Logical OR Assignment operator only assigns if **x** is Falsy Value:
 
 ```javascript
 // Syntax
@@ -155,11 +155,11 @@ user.age ||= 18;
 console.log(user);
 ```
 
-In this example, we are not reassigning **name** property, because it is a Truthy Value, but **age** is Falsy (equals to **undefined**), so it ends up with a new value.
+In this example, the **name** property is not reassigned because it is a Truthy value, but **age** is Falsy (equal to **undefined**), so there is a new value at the end.
 
 ## Logical AND Assignment
 
-Logical AND Assignment operator assigns only if **x** is Truthy Value:
+The Logical AND Assignment operator only assigns if **x** is Truthy Value:
 
 ```javascript
 // Syntax
@@ -186,11 +186,11 @@ user.age &&= 18;
 console.log(user);
 ```
 
-In this example, we are reassigning **name** property, because it is a Truthy Value, but **age** is Falsy (equals to **undefined**), so it is not reassigned.
+In this example, the **name** property is reassigned because it is a Truthy value, but **age** is Falsy (equal to **undefined**), so it is not reassigned.
 
 ## Logical Nullish Assignment
 
-Logical Nullish Assignment operator assigns only if **x** is Nullish Value:
+The Logical Nullish Assignment operator only assigns if **x** is Nullish Value:
 
 ```javascript
 // Syntax
@@ -218,7 +218,7 @@ user.age ??= 18;
 console.log(user);
 ```
 
-In this example, we are not reassigning **name** property, because it is a Truthy Value, but **age** is Nullish (equals to **undefined**), so it ends up with a new value.
+In this example, the **name** property is not reassigned because it is a Truthy value, but **age** is Nullish (equal to **undefined**), so there is a new value at the end.
 
 ## Summary
 
@@ -228,6 +228,6 @@ In this article, we learned how to use three new Logical Assignment Operators in
 * Logical AND Assignment: **x &&= y**
 * Logical Nullish Assignment: **x ??= y**
 
-On the one hand, proper usage of them makes the code shorter, cleaner and more readable, but on the other hand, redundant usage leads to rapid decreasing of a readability.
+On the one hand, proper usage of them makes the code shorter, cleaner, and more readable, but on the other hand, redundant usage leads to rapid decreasing of readability.
 
-So, make sure to play around with these new operators for better understanding and use them wisely.
+So be sure to play around with these new operators to understand them better, and use them wisely.
