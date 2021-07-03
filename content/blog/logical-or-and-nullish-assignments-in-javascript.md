@@ -68,16 +68,16 @@ Examples:
 
 ```javascript
 // Truthy values
-1 && "notReturned" // => "notReturned"
-true && "notReturned" // => "notReturned"
-"returnMe" && "notReturned" // => "notReturned"
+1 && "returnMe" // => "returnMe"
+true && "returnMe" // => "returnMe"
+"string" && "returnMe" // => "returnMe"
 
 // Falsy values
-null && "returnMe" // => "null"
-NaN && "returnMe" // => "NaN"
-0 && "returnMe" // => "0"
-"" && "returnMe" // => ""
-undefined && "returnMe" // => "undefined"
+null && "notReturned" // => "null"
+NaN && "notReturned" // => "NaN"
+0 && "notReturned" // => "0"
+"" && "notReturned" // => ""
+undefined && "notReturned" // => "undefined"
 ```
 
 ## Logical Nullish Assignment
@@ -102,9 +102,9 @@ true ?? "notReturned" // => "true"
 
 // Falsy values
 null ?? "returnMe" // => "returnMe"
-NaN ?? "returnMe" // => "NaN"
-0 ?? "returnMe" // => "0"
-"" ?? "returnMe" // => ""
+NaN ?? "notReturned" // => "NaN"
+0 ?? "notReturned" // => "0"
+"" ?? "notReturned" // => ""
 undefined ?? "returnMe" // => "returnMe"
 ```
 
