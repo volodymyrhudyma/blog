@@ -1,0 +1,30 @@
+_id: 0776a370-dc1d-11eb-8b50-435ff00bcf50
+name: Maciej Hnat
+message: >-
+  Hey Vova, very cool article.
+
+
+  I think that in the "Logical AND" section you confused the "returnMe" and
+  "notReturned" strings, by that I mean, that in truthy values section:
+
+  1 && "notReturned" // => "notReturned"
+
+  should probably be
+
+  1 && "returnMe" // => "returnMe"
+
+
+  and in falsy values section:
+
+  null && "returnMe" // => "null"
+
+  should probably be
+
+  null && "notReturned" // => "null"
+
+
+  Other than that, great read! :)
+
+  It's always nice to see improvements to my favorite programming language :)
+slug: /logical-or-and-nullish-assignments-in-javascript/
+date: '2021-07-03T16:38:00.532Z'
