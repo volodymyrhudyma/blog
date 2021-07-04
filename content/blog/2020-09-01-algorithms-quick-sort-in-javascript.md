@@ -30,7 +30,7 @@ The sub-arrays are then sorted recursively.
 
 Animated visualization of the quicksort algorithm. The horizontal lines are pivot values:
 
-![Quick Sort visualization](/img/sorting_quicksort_anim.gif "Quick Sort visualization")
+![Quick Sort visualization](/img/quick-sort.gif "Quick Sort visualization")
 
 ## The Complexity
 
