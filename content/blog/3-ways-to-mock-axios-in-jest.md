@@ -265,6 +265,22 @@ Let's example the example above example:
 
 ## NPM Trends
 
+In this article we learned two ways to mock axios using external libraries, so it would be good to know which library is more popular and safer to use.
+
+According to the [](https://www.npmtrends.com/)[NPM Trends](https://www.npmtrends.com/jest-mock-axios-vs-axios-mock-adapter), **axios-mock-adapter** is much more popular with approximately **570 000** weekly downloads versus almost **90 000** for **jest-mock-axios**:
+
+![NPM Trends jest-mock-axios vs axios-mock-adapter](/img/screenshot-2021-07-04-at-12.41.59.png "NPM Trends jest-mock-axios vs axios-mock-adapter")
+
 ## Which Way Is The Best?
+
+The answer is - it depends on the requirements.
+
+If you need to test a simple function that does one request to an API and returns a response - you probably don't need to install and configure any additional libraries, just go with the **Way #1** and **jest.mock()** function.
+
+External libraries provide a lot of useful features that make testing harder cases much easier.
+
+I suggest starting without any library and see if that works well.
+
+If any difficulties are encountered, only then check if libraries can help in solving them.
 
 ## Summary
