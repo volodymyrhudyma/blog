@@ -121,6 +121,150 @@ The second test follows the same pattern, with the only difference - we mock and
 
 ## Way #2 - jest-mock-axios
 
+The second way to mock axios in Jest is to use a helper library called [jest-mock-axios](https://www.npmjs.com/package/jest-mock-axios).
+
+Firstly, install it:
+
+`yarn add -D jest-mock-axios`
+
+The next step is to setup a [manual Jest mock](https://jestjs.io/docs/manual-mocks):
+
+* Create **\_\_mocks\_\_** directory in the project root (or whatever is configured in the **roots** in Jest config file)
+* Create a file named **axios.js** in this directory with the following contents:
+
+```javascript
+import mockAxios from "jest-mock-axios";
+
+export default mockAxios;
+```
+
+Finally, write your tests:
+
+```javascript
+import axios from "axios";
+import mockAxios from "jest-mock-axios";
+
+import { BASE_URL, fetchUsers } from "./utils";
+
+describe("fetchUsers", () => {
+  afterEach(() => {
+    mockAxios.reset();
+  });
+
+  describe("when API call is successful", () => {
+    it("should return users list", async () => {
+      // given
+      const users = [
+        { id: 1, name: "John" },
+        { id: 2, name: "Andrew" },
+      ];
+      mockAxios.get.mockResolvedValueOnce(users);
+
+      // when
+      const result = await fetchUsers();
+
+      // then
+      expect(mockAxios.get).toHaveBeenCalledWith(`${BASE_URL}/users`);
+      expect(result).toEqual(users);
+    });
+  });
+
+  describe("when API call fails", () => {
+    it("should return empty users list", async () => {
+      // given
+      const message = "Network Error";
+      mockAxios.get.mockRejectedValueOnce(new Error(message));
+
+      // when
+      const result = await fetchUsers();
+
+      // then
+      expect(axios.get).toHaveBeenCalledWith(`${BASE_URL}/users`);
+      expect(result).toEqual([]);
+    });
+  });
+});
+
+```
+
+Let's explain the above example:
+
+1. Reset the mocked axios object by calling: **mockAxios.reset()** after each test in the **afterEach** hook, so the state in the mock is cleared and each test starts fresh.
+2. Create an example response and make mocked axios return it: **mockAxios.get.mockResolvedValueOnce(users)**.
+3. Call the function you test (**fetchUsers()** in our example).
+4. Assert that the request was sent to the correct endpoint and proper result is returned.
+
 ## Way #3 - axios-mock-adapter
+
+The last way to mock axios in Jest is using [axios-mock-adapter](https://www.npmjs.com/package/axios-mock-adapter) library.
+
+To begin with, it needs to be installed:
+
+`yarn add -D axios-mock-adapter`
+
+And it is ready to be used without any configurations:
+
+```javascript
+import axios from "axios";
+import MockAdapter from "axios-mock-adapter";
+
+import { BASE_URL, fetchUsers } from "./utils";
+
+describe("fetchUsers", () => {
+  let mock;
+
+  beforeAll(() => {
+    mock = new MockAdapter(axios);
+  });
+
+  afterEach(() => {
+    mock.reset();
+  });
+
+  describe("when API call is successful", () => {
+    it("should return users list", async () => {
+      // given
+      const users = [
+        { id: 1, name: "John" },
+        { id: 2, name: "Andrew" },
+      ];
+      mock.onGet(`${BASE_URL}/users`).reply(200, users);
+
+      // when
+      const result = await fetchUsers();
+
+      // then
+      expect(mock.history.get[0].url).toEqual(`${BASE_URL}/users`);
+      expect(result.data).toEqual(users);
+    });
+  });
+
+  describe("when API call fails", () => {
+    it("should return empty users list", async () => {
+      // given
+      mock.onGet(`${BASE_URL}/users`).networkErrorOnce();
+
+      // when
+      const result = await fetchUsers();
+
+      // then
+      expect(mock.history.get[0].url).toEqual(`${BASE_URL}/users`);
+      expect(result).toEqual([]);
+    });
+  });
+});
+```
+
+Let's example the example above example:
+
+1. Set the Mock Adapter on the default axios instance: **new MockAdapter(axios)**.
+2. Reset the mocked axios object by calling: **mock.reset()** after each test in the **afterEach** hook, so the state in the mock is cleared and each test starts fresh.
+3. Create an example response and mock the call to the specific endpoint by using **mock.onGet()** function.
+4. Call the function you test (**fetchUsers()** in our example).
+5. Assert that the request was sent to the correct endpoint and proper result is returned.
+
+## NPM Trends
+
+## Which Way Is The Best?
 
 ## Summary
