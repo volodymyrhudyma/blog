@@ -146,7 +146,6 @@ export default mockAxios;
 Finally, write your tests:
 
 ```javascript
-import axios from "axios";
 import mockAxios from "jest-mock-axios";
 
 import { BASE_URL, fetchUsers } from "./utils";
@@ -184,12 +183,11 @@ describe("fetchUsers", () => {
       const result = await fetchUsers();
 
       // then
-      expect(axios.get).toHaveBeenCalledWith(`${BASE_URL}/users`);
+      expect(mockAxios.get).toHaveBeenCalledWith(`${BASE_URL}/users`);
       expect(result).toEqual([]);
     });
   });
 });
-
 ```
 
 Let's explain the above example:
