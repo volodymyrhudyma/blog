@@ -3,15 +3,20 @@ title: 3 Ways To Mock Axios In Jest
 tag:
   - JavaScript
 promote: false
-metaDescription: // META
-teaser: // TEASER
+metaDescription: Learn three ways to mock Axios in Jest and test API requests -
+  jest.mock() function, jest-mock-axios or axios-mock-adapter libraries.
+shareImage: /img/mock-axios-in-jest.jpg
+teaser: Every developer should know how to create a function that makes an API
+  request and how to test it properly. While creating such function is a
+  relatively simple task (if you use good HTTP client, like axios), testing it
+  requires some effort. It is not always good practice to performs calls...
 date: 2021-07-06T09:33:01.026Z
 ---
 Every developer should know how to create a function that makes an API request and how to test it properly.
 
 While creating such function is a relatively simple task (if you use good HTTP client, like [axios](https://github.com/axios/axios)), testing it requires some effort.
 
-You can't call the real API in tests, so the first thing you have to do is to mock them.
+It is not always good practice to performs calls to the real API in tests, so the first thing you have to do is to mock them.
 
 There are a lot of ways to achieve this in Jest, but today we will focus on three most popular ones.
 
@@ -37,7 +42,7 @@ export const fetchUsers = async () => {
 
 The function is pretty self-explanatory - it returns users fetched from the API if the request is successful, otherwise it returns and empty array.
 
-I suggest writing two tests for these two cases.
+I suggest writing two tests for these two cases:
 
 ```javascript
 describe("fetchUsers", () => {
@@ -284,3 +289,13 @@ I suggest starting without any library and see if that works well.
 If any difficulties are encountered, only then check if libraries can help in solving them.
 
 ## Summary
+
+It is a good practice to mock API calls in tests not only because we don't want to call the real API, but also to be able to easily test special cases, like what happens if the request returns 200 or 404, or fails with the "Network Error" message. 
+
+In this article, we learned three most common ways to mock axios in Jest:
+
+* [jest.mock()](https://jestjs.io/docs/mock-functions) function
+* [jest-mock-axios](https://www.npmjs.com/package/jest-mock-axios) library
+* [axios-mock-adapter](https://www.npmjs.com/package/axios-mock-adapter) library
+
+Each of them has its own pros and cons, but I suggest starting with the first one, without installing any additional external libraries and seeing if that works well for you.
