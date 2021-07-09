@@ -1,5 +1,5 @@
 ---
-title: Promise.any And AggregateError In JavaScript
+title: Promise.any() And AggregateError In JavaScript
 tag:
   - JavaScript
 promote: false
