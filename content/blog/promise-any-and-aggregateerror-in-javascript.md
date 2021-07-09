@@ -4,7 +4,10 @@ tag:
   - JavaScript
 promote: false
 metaDescription: // META
-teaser: // TEASER
+teaser: Nowadays, due to increasing the popularity of asynchronous programming,
+  Promises became an essential part of software engineer's daily routine.
+  Promise is an object that produces some value in the future, which represents
+  the result of an asynchronous operation. It has 3 states...
 date: 2021-07-10T12:44:20.171Z
 ---
 Nowadays, due to increasing the popularity of asynchronous programming, Promises became an essential part of software engineer's daily routine.
@@ -180,4 +183,70 @@ Promise.any([promise1, promise2, promise3])
   .then(result => console.log(result)); // Prints "2"
 ```
 
-## Aggregate Error
+## AggregateError
+
+In this article we have mentioned a few times this new type of an Error - **AggregateError**.
+
+Like **Promise.any()**, this is also a new addition to JavaScript, and it is a new subclass of an Error that groups together individual errors.
+
+It is thrown when multiple errors occurred within a single operation (e.g when all Promises passed to **Promise.any()** reject).
+
+It contains two Instance Properties:
+
+* **name** - the name of an Error, defaults to AggregateError
+* **message** - the message of an Error, defaults to an empty string ("")
+
+#### Catch An AggregateError
+
+```javascript
+const promise1 = new Promise((resolve, reject) => {
+  reject("Something went wrong");
+});
+
+Promise.any([promise1])
+  .catch(error => {
+    console.log(error instanceof AggregateError); // "true"
+    console.log(error.message);                   // "All Promises rejected"
+    console.log(error.name);                      // "AggregateError"
+    console.log(error.errors);                    // [ Error: "Something went wrong" ]
+  });
+```
+
+#### Create An AggregateError
+
+```javascript
+try {
+  throw new AggregateError([
+    new Error("Something went wrong1"),
+    new Error("Something went wrong2")
+  ], "MyErrorName");
+} catch (e) {
+  console.log(e instanceof AggregateError); // "true"
+  console.log(e.message);                   // "MyErrorName"
+  console.log(e.name);                      // "AggregateError"
+  console.log(e.errors);                    // [ Error: "Something went wrong" ]
+}
+
+```
+
+## Browser Compatibility
+
+Since both of these features are pretty fresh, we need to make sure that they are supported by the most popular browsers.
+
+#### Promise.any()
+
+According to [caniuse.com](https://caniuse.com/?search=promise.any), it is available for slightly more than 85% of the users as of 10.07.2021.
+
+![Promise.any() Browser Compatibility](/img/screenshot-2021-07-09-at-16.13.11.png "Promise.any() Browser Compatibility")
+
+#### AggregateError
+
+According to [](https://caniuse.com/?search=promise.any)[caniuse.com](https://caniuse.com/?search=aggregateerror), it is available for slightly more than 85% of the users as of 10.07.2021, so the browser support is pretty similar to the support of **Promise.any()** method.
+
+![AggregateError Browser Compatibility](/img/screenshot-2021-07-09-at-16.14.04.png "AggregateError Browser Compatibility")
+
+It is worth mentioning that both features don't work in **IE11**, **Opera**, **Opera Mobile** and **Samsung Internet**.
+
+However, there is an available polyfill in [](https://github.com/zloirock/core-js#ecmascript-promise)[core-js](https://github.com/zloirock/core-js#ecmascript-promise).
+
+## Summary
