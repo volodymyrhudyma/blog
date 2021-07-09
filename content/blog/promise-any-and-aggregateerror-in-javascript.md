@@ -3,7 +3,9 @@ title: Promise.any() And AggregateError In JavaScript
 tag:
   - JavaScript
 promote: false
-metaDescription: // META
+metaDescription: "Learn two new additions to JavaScript: Promise.any(), which
+  waits for one Promise to fulfill and AggregateError, which groups together
+  individual errors."
 teaser: Nowadays, due to increasing the popularity of asynchronous programming,
   Promises became an essential part of software engineer's daily routine.
   Promise is an object that produces some value in the future, which represents
@@ -226,7 +228,6 @@ try {
   console.log(e.name);                      // "AggregateError"
   console.log(e.errors);                    // [ Error: "Something went wrong" ]
 }
-
 ```
 
 ## Browser Compatibility
@@ -250,3 +251,7 @@ It is worth mentioning that both features don't work in **IE11**, **Opera**, **O
 However, there is an available polyfill in [](https://github.com/zloirock/core-js#ecmascript-promise)[core-js](https://github.com/zloirock/core-js#ecmascript-promise).
 
 ## Summary
+
+In this article, we learned two useful features ES2021 brings to the table: **Promise.any()** and **AggregateError**.
+
+Make sure to understand them and use whenever needed, in some cases they can make your developer's life easier and code cleaner.
