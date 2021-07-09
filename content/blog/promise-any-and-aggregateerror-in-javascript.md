@@ -127,7 +127,7 @@ Promise.any([promise1, promise2, promise3])
   .catch(error => console.log(error)); // Error: "All promises were rejected"
 ```
 
-If all of the passed Promises fail, an **Aggregate Error** is returned.
+If all of the passed Promises fail, an **AggregateError** is returned.
 
 #### No Promises Passed
 
