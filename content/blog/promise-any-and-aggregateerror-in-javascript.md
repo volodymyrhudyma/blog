@@ -6,6 +6,7 @@ promote: false
 metaDescription: "Learn two new additions to JavaScript: Promise.any(), which
   waits for one Promise to fulfill and AggregateError, which groups together
   individual errors."
+shareImage: /img/promise-any-aggregate-error.jpg
 teaser: Nowadays, due to increasing the popularity of asynchronous programming,
   Promises became an essential part of software engineer's daily routine.
   Promise is an object that produces some value in the future, which represents
