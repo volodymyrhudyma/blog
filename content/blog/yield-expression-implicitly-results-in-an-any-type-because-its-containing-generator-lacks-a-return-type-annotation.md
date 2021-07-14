@@ -1,6 +1,6 @@
 ---
-title: "'yield' expression implicitly results in an 'any' type because its
-  containing generator lacks a return-type annotation"
+title: "Error: 'yield' expression implicitly results in an 'any' type because
+  its containing generator lacks a return-type annotation"
 tag:
   - React
 promote: false
