@@ -11,7 +11,7 @@ teaser: Due to the fact that my article on How To Add Redux Saga With TypeScript
   To The React Application became popular, I have been asked one question
   already a few times. After finishing the tutorial, you expect to have fully
   working application built with the mentioned technologies, but suddenly you
-  end up with a strange error in the console...
+  end up with...
 date: 2021-07-15T20:30:59.459Z
 ---
 Due to the fact that my article on [How To Add Redux Saga With TypeScript To The React Application](/add-redux-saga-with-typescript-to-your-react-application-january-2021/) became popular, I have been asked one question already a few times.
