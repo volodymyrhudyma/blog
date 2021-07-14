@@ -4,8 +4,14 @@ title: "'yield' expression implicitly results in an 'any' type because its
 tag:
   - React
 promote: false
-metaDescription: // META
-teaser: // TEASER
+metaDescription: "Learn two ways to fix the following error: 'yield' expression
+  implicitly results in an 'any' type because its containing generator lacks a
+  return-type annotation."
+teaser: Due to the fact that my article on How To Add Redux Saga With TypeScript
+  To The React Application became popular, I have been asked one question
+  already a few times. After finishing the tutorial, you expect to have fully
+  working application built with the mentioned technologies, but suddenly you
+  end up with a strange error in the console...
 date: 2021-07-15T20:30:59.459Z
 ---
 Due to the fact that my article on [How To Add Redux Saga With TypeScript To The React Application](/add-redux-saga-with-typescript-to-your-react-application-january-2021/) became popular, I have been asked one question already a few times.
@@ -32,7 +38,7 @@ Let's dig deeper and find out what has changed.
 
 Apart from providing a bunch of features, TypeScript 4.2 contains breaking changes that may have an impact on your application if it uses generators.
 
-If the value of a **yield** expression is captured, but TypeScript can't figure out the type of the expression, it will throw an **implicit any error**, which is exactly the same error we were talking about at the beginning of the article.
+If the value of a **yield** expression is captured, but TypeScript can't figure out what type should be received from the expression (for example, if it isn't contextually typed), it will throw an **implicit any error**, which is exactly the same error we were talking about at the beginning of the article.
 
 Let's see some code examples:
 
@@ -73,3 +79,93 @@ function* generator4(): Generator<number, void, string> {
 ```
 
 Here is the corresponding [Pull Request](https://github.com/microsoft/TypeScript/pull/41348) in the TypeScript Github repository.
+
+## Possible Solutions
+
+In this section we will learn two possible solutions to get rid of the error above.
+
+I would assume that you have completed [my tutorial](/add-redux-saga-with-typescript-to-your-react-application-january-2021/) and seeing an error right after having done that.
+
+An error occurs in the **fetchTodoSaga** which looks the following way:
+
+```typescript
+function* fetchTodoSaga() {
+  try {
+    const response = yield call(getTodos);
+    yield put(
+      fetchTodoSuccess({
+        todos: response.data,
+      })
+    );
+  } catch (e) {
+    yield put(
+      fetchTodoFailure({
+        error: e.message,
+      })
+    );
+  }
+};
+```
+
+A simple generator function that fetches the data from API and fires an action.
+
+The problem is that TypeScript is unable to figure out the type of the **response** variable, so we need to add it explicitly:
+
+```typescript
+function* fetchTodoSaga() {
+  try {
+    const response: AxiosResponse<ITodo[]> = yield call(getTodos);
+    // ..
+  } catch (e) {
+    // ..
+  }
+};
+```
+
+So the full function is the following:
+
+```typescript
+function* fetchTodoSaga() {
+  try {
+    const response: AxiosResponse<ITodo[]> = yield call(getTodos);
+    yield put(
+      fetchTodoSuccess({
+        todos: response.data,
+      })
+    );
+  } catch (e) {
+    yield put(
+      fetchTodoFailure({
+        error: e.message,
+      })
+    );
+  }
+};
+```
+
+And voila, an error is gone.
+
+That was the first and the best solution to the problem.
+
+As you remember, there is another one, which is to decrease the TypeScript version back to 4.1:
+
+`yarn upgrade typescript@4.1`
+
+Or:
+
+`yarn add typescript@4.1`
+
+Restart the application and the error is gone as well.
+
+Which solution is better? For sure, the first one, because it is generally not a good idea to decrease versions of installed packages, because you will lack the features accessible with updates.
+
+## Summary
+
+In this article we learned that the following error: **'yield' expression implicitly results in an 'any' type because its containing generator lacks a return-type annotation** happens because of breaking changes in TypeScript 4.2.
+
+We described two ways to quickly get rid of this error and continue development:
+
+* Contextually type the **yield** expression - *recommended one*
+* Decrease the TypeScript version to **4.1**
+
+Make sure to proceed with contextual typing, since decreasing versions of installed packages is generally not a good idea.
