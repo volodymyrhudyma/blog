@@ -7,6 +7,7 @@ promote: false
 metaDescription: "Learn two ways to fix the following error: 'yield' expression
   implicitly results in an 'any' type because its containing generator lacks a
   return-type annotation."
+shareImage: /img/typescript-error.jpg
 teaser: Due to the fact that my article on How To Add Redux Saga With TypeScript
   To The React Application became popular, I've been asked one question a few
   times already. After finishing the tutorial, you expect to have built a fully
