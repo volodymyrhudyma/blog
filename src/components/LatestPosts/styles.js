@@ -104,6 +104,11 @@ export const PostImage = styled.div`
 
 export const PostTitle = styled.h3`
   margin: 0 0 1rem 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
 `
 
 export const PostDate = styled.div`
