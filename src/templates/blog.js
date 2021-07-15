@@ -160,7 +160,10 @@ export const pageQuery = graphql`
         slug
       }
     }
-    comments: allCommentsYaml(filter: { slug: { eq: $path } }) {
+    comments: allCommentsYaml(
+      filter: { slug: { eq: $path } }
+      sort: { order: DESC, fields: date }
+    ) {
       edges {
         node {
           id
