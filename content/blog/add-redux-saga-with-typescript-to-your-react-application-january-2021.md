@@ -480,6 +480,14 @@ You should see the list of fetched todos, which contains 200 entries:
 
 ![Fetched TODO items](/img/screenshot-2021-01-03-at-11.37.41.png "Fetched TODO items")
 
+## Update (15.07.2021)
+
+If you see the following error:
+
+![TypeScript 4.2 Error](/img/screenshot-2021-07-14-at-22.33.51.png "TypeScript 4.2 Error")
+
+And don't know how to fix it, please read [this article](/yield-expression-implicitly-results-in-an-any-type-because-its-containing-generator-lacks-a-return-type-annotation/) which explains why this error occurs and how to fix it.
+
 ## Summary
 
 In this article, we covered the simplest Redux + Redux Saga + TypeScript configuration for the React application built with Create React App.
