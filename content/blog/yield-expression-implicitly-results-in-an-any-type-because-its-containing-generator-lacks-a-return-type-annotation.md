@@ -11,8 +11,7 @@ shareImage: /img/typescript-error.jpg
 teaser: Due to the fact that my article on How To Add Redux Saga With TypeScript
   To The React Application became popular, I've been asked one question a few
   times already. After finishing the tutorial, you expect to have built a fully
-  working application using the mentioned technologies, but suddenly you end up
-  with...
+  working application using the mentioned technologies, but suddenly...
 date: 2021-07-15T20:30:59.459Z
 ---
 Due to the fact that my article on [How To Add Redux Saga With TypeScript To The React Application](/add-redux-saga-with-typescript-to-your-react-application-january-2021/) became popular, I've been asked one question a few times already.
