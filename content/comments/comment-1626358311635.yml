@@ -1,0 +1,9 @@
+_id: 99bb9080-e576-11eb-992f-f189087239fb
+name: Author
+message: >-
+  Hi, please real the following article:
+  "https://vhudyma-blog.eu/yield-expression-implicitly-results-in-an-any-type-because-its-containing-generator-lacks-a-return-type-annotation"
+  which explains why this error occurs and how to fix it. Unfortunately, you
+  would not resolve it with just adding "return" as I previously mentioned.
+slug: /add-redux-saga-with-typescript-to-your-react-application-january-2021/
+date: '2021-07-15T14:11:51.630Z'
