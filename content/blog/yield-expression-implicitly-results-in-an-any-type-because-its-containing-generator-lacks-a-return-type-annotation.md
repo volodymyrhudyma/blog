@@ -8,39 +8,41 @@ metaDescription: "Learn two ways to fix the following error: 'yield' expression
   implicitly results in an 'any' type because its containing generator lacks a
   return-type annotation."
 teaser: Due to the fact that my article on How To Add Redux Saga With TypeScript
-  To The React Application became popular, I have been asked one question
-  already a few times. After finishing the tutorial, you expect to have fully
-  working application built with the mentioned technologies, but suddenly you
-  end up with...
+  To The React Application became popular, I've been asked one question a few
+  times already. After finishing the tutorial, you expect to have built a fully
+  working application using the mentioned technologies, but suddenly you end up
+  with a...
 date: 2021-07-15T20:30:59.459Z
 ---
-Due to the fact that my article on [How To Add Redux Saga With TypeScript To The React Application](/add-redux-saga-with-typescript-to-your-react-application-january-2021/) became popular, I have been asked one question already a few times.
+Due to the fact that my article on [How To Add Redux Saga With TypeScript To The React Application](/add-redux-saga-with-typescript-to-your-react-application-january-2021/) became popular, I've been asked one question a few times already.
 
-After finishing the tutorial, you expect to have fully working application built with the mentioned technologies, but suddenly you end up with a strange error in the console: **'yield' expression implicitly results in an 'any' type because its containing generator lacks a return-type annotation**:
+After finishing the tutorial, you expect to have built a fully working application using the mentioned technologies, but suddenly you end up with a strange error in the console: **'yield' expression implicitly results in an 'any' type because its containing generator lacks a return-type annotation**:
 
 ![TypeScript 4.2 Breaking Changes Error](/img/screenshot-2021-07-14-at-22.33.51.png "TypeScript 4.2 Breaking Changes Error")
 
-Let's find out what does it mean and how can it be fixed.
+Let's find out what it means and how to fix it.
 
 ## A Bit Of History
 
-The article was published on January 4th, 2021 and written a couple of days before and for sure I have double checked the code to make sure that it works fine and no errors are thrown anywhere.
+The article was published on January 4, 2021 and written a couple of days before. 
 
-Then how is it possible for the same code to work fine at the beginning of the year and break now?
+I always double check all code to make sure it works properly and there are no errors anywhere.
 
-The reason is simple, however not obvious - **TypeScript version**.
+So how is it possible that the same code works fine at the beginning of the year and breaks now?
 
-At the beginning of the year, the latest TypeScript version was 4.1 and the whole tutorial was based on it, however in the meantime, TypeScript 4.2 was published (on February 23d, 2021) and it occurred that it has some breaking changes.
+The reason is simple, but not obvious - **TypeScript version**.
+
+At the beginning of the year the latest TypeScript version was 4.1 and the whole tutorial was based on it, but in the meantime TypeScript 4.2 was released (on February 23, 2021) and it occurred that it has some breaking changes.
 
 Let's dig deeper and find out what has changed.
 
 ## Breaking Changes
 
-Apart from providing a bunch of features, TypeScript 4.2 contains breaking changes that may have an impact on your application if it uses generators.
+TypeScript 4.2 not only adds a number of features, but also includes changes that may affect your application when it uses generators.
 
-If the value of a **yield** expression is captured, but TypeScript can't figure out what type should be received from the expression (for example, if it isn't contextually typed), it will throw an **implicit any error**, which is exactly the same error we were talking about at the beginning of the article.
+If the value of a **yield** expression is captured, but TypeScript can't figure out what type to receive from the expression (for example, if it isn't contextually typed), it will throw an **implicit any error**, which is the exact same error we talked about at the beginning of the article.
 
-Let's see some code examples:
+Let's look at some code examples:
 
 ```typescript
 /* 
@@ -82,11 +84,11 @@ Here is the corresponding [Pull Request](https://github.com/microsoft/TypeScript
 
 ## Possible Solutions
 
-In this section we will learn two possible solutions to get rid of the error above.
+In this section we will learn two possible solutions to get rid of the above error.
 
-I would assume that you have completed [my tutorial](/add-redux-saga-with-typescript-to-your-react-application-january-2021/) and seeing an error right after having done that.
+I assume that you have completed [my tutorial](/add-redux-saga-with-typescript-to-your-react-application-january-2021/) and see an error right after.
 
-An error occurs in the **fetchTodoSaga** which looks the following way:
+An error occurs in the **fetchTodoSaga** that looks like this:
 
 ```typescript
 function* fetchTodoSaga() {
@@ -107,9 +109,9 @@ function* fetchTodoSaga() {
 };
 ```
 
-A simple generator function that fetches the data from API and fires an action.
+A simple generator function that retrieves the data from the API and triggers an action.
 
-The problem is that TypeScript is unable to figure out the type of the **response** variable, so we need to add it explicitly:
+The problem is that TypeScript is not able to figure out the type of the **response** variable, so we have to add it explicitly:
 
 ```typescript
 function* fetchTodoSaga() {
@@ -122,7 +124,7 @@ function* fetchTodoSaga() {
 };
 ```
 
-So the full function is the following:
+The complete function, then, is as follows:
 
 ```typescript
 function* fetchTodoSaga() {
@@ -143,7 +145,7 @@ function* fetchTodoSaga() {
 };
 ```
 
-And voila, an error is gone.
+And voila, an error has disappeared.
 
 That was the first and the best solution to the problem.
 
@@ -155,17 +157,17 @@ Or:
 
 `yarn add typescript@4.1`
 
-Restart the application and the error is gone as well.
+Restart the application and the error is also gone.
 
-Which solution is better? For sure, the first one, because it is generally not a good idea to decrease versions of installed packages, because you will lack the features accessible with updates.
+Which solution is better? Certainly the first, because it is generally not a good idea to decrease versions of installed packages, because you will miss the features accessible with updates.
 
 ## Summary
 
-In this article we learned that the following error: **'yield' expression implicitly results in an 'any' type because its containing generator lacks a return-type annotation** happens because of breaking changes in TypeScript 4.2.
+In this article we have learned that the following error: **'yield' expression implicitly results in an 'any' type because its containing generator lacks a return-type annotation** happens due to breaking changes in TypeScript 4.2.
 
-We described two ways to quickly get rid of this error and continue development:
+We have described two ways to quickly fix this error and continue development:
 
 * Contextually type the **yield** expression - *recommended one*
 * Decrease the TypeScript version to **4.1**
 
-Make sure to proceed with contextual typing, since decreasing versions of installed packages is generally not a good idea.
+Be sure to proceed with contextual typing, as decreasing versions of installed packages is generally not a good idea.
