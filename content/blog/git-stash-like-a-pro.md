@@ -196,11 +196,7 @@ Sometimes it is necessary to view the details of a given stash to make sure that
 
 It can be done with a following command:
 
-`git stash show stash@{<index>}`
-
-A shorthand to check the latest stash is:
-
-`git stash show` (equals to `git stash show stash@{0}`)
+`git stash show` (or `git stash show stash@{<index>}` if you want to view changes for a specific stash).
 
 Let's quickly check what changes were done in each stash from the list:
 
@@ -208,7 +204,7 @@ Let's quickly check what changes were done in each stash from the list:
 
 If we want to dig even deeper and check what lines of code were modified, we can add a **\-p** or **\--patch** flag:
 
-`git stash show -p`
+`git stash show -p` / `git stash show stash@{<index>} -p`
 
 Let's quickly check what lines of code were changes in the last stash:
 
@@ -232,7 +228,7 @@ In some cases, you may not want to stash all changes, but only the most importan
 
 You can force Git to iterate through all the changed files and ask you whether you want to stash a given file or no by adding **\-p** (or **\--patch**) flag to the **git stash command**:
 
-`git stash -p` / `git stash --patch`
+`git stash -p`
 
 Let's see an example:
 
@@ -258,7 +254,7 @@ A good practice is to keep you stash list clear by removing unnecessary stashes.
 
 The command to remove a specific stash:
 
-`git stash drop` (or `git stash drop stash@{1}` if you want to drop a specific stash):
+`git stash drop` (or `git stash drop stash@{<index>}` if you want to drop a specific stash):
 
 ![Git Remove Stash](/img/screenshot-2021-07-17-at-14.09.31.png "Git Remove Stash")
 
