@@ -3,9 +3,14 @@ title: Git Stash Like A Pro
 tag:
   - Git
 promote: false
-metaDescription: // META
+metaDescription: Git stash command - full guide for developers. Git stash acts
+  like a clipboard and allows to temporarily store the current state of working
+  directory.
 shareImage: /img/git-stash-like-a-pro.jpg
-teaser: // TEASER
+teaser: Developer's work often gets interrupted with requests to implement more
+  urgent features or even fix some critical bugs. This situation leads to
+  interrupting development and switching to another task, but what if you
+  haven't managed to complete the current work and you are not ready to...
 date: 2021-07-18T08:44:14.759Z
 ---
 Developer's work often gets interrupted with requests to implement more urgent features or even fix some critical bugs.
@@ -303,3 +308,13 @@ This command will automatically stash changes before rebase and re-apply them af
 * **git rebase -i HEAD~2 --autostash** - automatically stash changes before rebase and re-apply them after
 
 ## Summary
+
+Congratulations, you have made it to the very end of this long story about the **git stash** command and ways of working with it.
+
+This command acts like a clipboard - it temporarily saves the current state of a working directory and reverts it, so you can start coding new features from scratch.
+
+You can get back to stashed changes and re-apply them at any given point of time.
+
+It is super useful if you need to quickly switch context and work on something else without losing any unfinished work.
+
+I hope you enjoyed reading this article and will use **git stash** command in your daily work.
