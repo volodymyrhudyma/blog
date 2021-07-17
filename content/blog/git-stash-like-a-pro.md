@@ -229,6 +229,24 @@ It is possible to create a branch from stash, which is very useful if in the mea
 
 The command to do it is the following:
 
-`git stash branch <name>` (which will create a branch from the first stash, or `git stash branch <name> stash@{<index>}` if you want to create a branch from the specific stash):
+`git stash branch <name>` (or `git stash branch <name> stash@{<index>}` if you want to create a branch from the specific stash):
 
 ![Git Create A Branch From Stash](/img/screenshot-2021-07-17-at-14.06.02.png "Git Create A Branch From Stash")
+
+## Delete Stash
+
+A good practice is to keep you stash list clear by removing unnecessary stashes.
+
+The command to remove a specific stash:
+
+`git stash drop` (or `git stash drop stash@{1}` if you want to drop a specific stash):
+
+![Git Remove Stash](/img/screenshot-2021-07-17-at-14.09.31.png "Git Remove Stash")
+
+If you want to remove all stashes from the list:
+
+`git stash clear`
+
+The example:
+
+![Git Clear All Stashes From The List](/img/screenshot-2021-07-17-at-14.10.24.png "Git Clear All Stashes From The List")
