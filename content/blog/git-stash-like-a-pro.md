@@ -207,6 +207,18 @@ Let's quickly check what lines of code were changes in the last stash:
 
 ![Git View Stash Changes With -p (Or --patch) Option](/img/screenshot-2021-07-17-at-13.54.31.png "Git View Stash Changes With -p (Or --patch) Option")
 
+## Apply A Single File From Stash
+
+If your stash is old, it may occur that some changes are not valid anymore, so you may want to apply only one or a few specific files from the given stash.
+
+it is possible with the following command:
+
+`git checkout stash@{<index>} <file>`
+
+Let's see it in action:
+
+![Git Stash Apply A Single File](/img/screenshot-2021-07-17-at-14.16.12.png "Git Stash Apply A Single File")
+
 ## Create Partial Stash
 
 In some cases, you may not want to stash all changes, but only the most important ones.
@@ -250,3 +262,26 @@ If you want to remove all stashes from the list:
 The example:
 
 ![Git Clear All Stashes From The List](/img/screenshot-2021-07-17-at-14.10.24.png "Git Clear All Stashes From The List")
+
+## Advanced: Auto Stash
+
+When doing rebase, you need to have clean working directory, otherwise Git will notify you that something is wrong:
+
+![Git Rebase Fail](/img/screenshot-2021-07-17-at-14.18.53.png "Git Rebase Fail")
+
+There are a few ways to resolve this:
+
+* Commit changes
+* Drop changes
+* Stash and re-apply changes manually
+* Stash and re-apply changes automatically
+
+We will focus now on the last one, which is possible with the **\--autostash** command.
+
+This command will automatically stash changes before rebase and re-apply them after:
+
+![Git Rebase With --autostash Option](/img/screenshot-2021-07-17-at-14.21.52.png "Git Rebase With --autostash Option")
+
+## Cheat Sheet
+
+## Summary
