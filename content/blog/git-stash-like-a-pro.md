@@ -284,4 +284,20 @@ This command will automatically stash changes before rebase and re-apply them af
 
 ## Cheat Sheet
 
+* **git stash** - temporarily save the current state of a working directory and revert it, so you can start coding new features from scratch
+* **git stash -u** - stash changes with untracked files
+* **git stash -a** - stash changes with ignored files
+* **git stash apply** - apply stashed changes
+* **git stash pop** - apply stashed changes and remove it from the stash list
+* **git stash list** - list stashed changes
+* **git stash save "<message>"** - stash changes with a custom description
+* **git stash show** / **git stash show stash@{<index>}** - view files that were changed in a last/given stash
+* **git stash show -p / git stash show stash@{<index>} -p** - view lines of code that were changed in a last/given stash
+* **git checkout stash@{<index>} <file>** - apply a single file from stash
+* **git stash -p** - force Git to iterate through all the changed files and ask you whether you want to stash a given file or no
+* **git stash branch <name> / git stash branch <name> stash@{<index>}** - create a branch from the last/given stash
+* **git stash drop / git stash drop stash@{<index>}** - remove last/given stash
+* **git stash clear** - remove all elements from the stash list
+* **git rebase -i HEAD~2 --autostash** - automatically stash changes before rebase and re-apply them after
+
 ## Summary
