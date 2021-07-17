@@ -182,3 +182,19 @@ Let's do a small change in one file and stash it with a custom description:
 ![Git Stash With Custom Message](/img/screenshot-2021-07-17-at-13.45.37.png "Git Stash With Custom Message")
 
 Now, it is much easier to guess what given stash is about.
+
+## View Stash Changes
+
+Sometimes it is necessary to view the details of a given stash to make sure that all changes are still valid and have to be applied.
+
+It can be done with a following command:
+
+`git stash show stash@{<index>}`
+
+A shorthand to check the latest stash is:
+
+`git stash show` (equals to `git stash show stash@{0}`)
+
+Let's quickly check what changes were done in each stash from the list:
+
+![Git View Stash Changes](/img/screenshot-2021-07-17-at-13.51.26.png "Git View Stash Changes")
