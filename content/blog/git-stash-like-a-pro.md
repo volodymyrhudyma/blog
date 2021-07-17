@@ -40,6 +40,40 @@ For example, I am working on a secret feature on a **feature/1** branch, when I 
 
 ![Git Checkout To The Main Branch](/img/screenshot-2021-07-17-at-12.01.44.png "Git Checkout To The Main Branch")
 
-* Switch back to the **feature/1** branch after the bug has been finished and re-apply back stashed changes:
+* Switch back to the **feature/1** branch after the bug has been finished and re-apply back stashed changes with a **git stash apply** command:
 
 ![Git Checkout To The Feature Branch And Re-Apply Stashed Changes](/img/screenshot-2021-07-17-at-12.03.27.png "Git Checkout To The Feature Branch And Re-Apply Stashed Changes")
+
+## Staged And Unstaged Changes In Git
+
+Before learning whether git stash works with both, staged and unstaged changes, let's learn what are staged and unstaged changes and how they differ.
+
+#### Unstaged Changes
+
+Unstaged changes are changes that exist in the working directory, but haven't been yet added to the Git version history:
+
+![Git Unstaged Changes](/img/screenshot-2021-07-17-at-12.22.08.png "Git Unstaged Changes")
+
+Git informs us that changes are unstaged with the following message: **Changes not staged for commit**.
+
+#### Staged Changes
+
+Staged changes are changes that are about to be committed the next time you execute **git commit** command. 
+
+To move a file from unstaged to staged state, execute the **git add** command.
+
+Staged changes are usually marked with a green color:
+
+![Git Staged Changes](/img/screenshot-2021-07-17-at-12.28.10.png "Git Staged Changes")
+
+#### Staged And Unstaged Changes In The Same File
+
+It is also possible to have both, staged and unstaged changes in the same file:
+
+![Git Staged And Unstaged Changes In The Same File](/img/screenshot-2021-07-17-at-12.32.22.png "Git Staged And Unstaged Changes In The Same File")
+
+## Stashing Staged And Unstaged Changes
+
+Now, after learning what are staged and unstaged changes, we can answer the question - **git stash** command saves both, staged and unstaged changes, but after re-applying them, all changes become unstaged:
+
+![Git Stash Staged And Unstaged Changes](/img/screenshot-2021-07-17-at-12.38.07.png "Git Stash Staged And Unstaged Changes")
