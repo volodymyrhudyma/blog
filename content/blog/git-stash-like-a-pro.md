@@ -140,3 +140,45 @@ And verify that it is indeed ignored (**git status** command shows that we only 
 ![Git Check If File Is Ignored](/img/screenshot-2021-07-17-at-13.13.49.png "Git Check If File Is Ignored")
 
 Try to stash ignored file by executing **git stash -a** command and see that it has been re-applied after running **git stash apply**, even though it is ignored by Git.
+
+## Apply Stashed Changes
+
+Stashed changes can be applied with one of the following commands:
+
+`git stash apply`
+
+Or
+
+`git stash pop`
+
+They both do the same thing, however there is one important difference between them.
+
+The first command (**git stash apply**) applies changes and does nothing after, while the second one (**git stash** **pop**) removes the changes from the stash list after applying them.
+
+## List Stashed Changes
+
+You are not limited to a single stash, instead you can run **git stash** command a few times and create multiple stashes:
+
+![Git Multiple Stashes](/img/screenshot-2021-07-17-at-13.39.47.png "Git Multiple Stashes")
+
+To view all stashes, execute the following command:
+
+`git stash list`
+
+Note, that each stash is identified as WIP (Work In Progress) and a commit that the stash was created from:
+
+![Git Stash List](/img/screenshot-2021-07-17-at-13.41.43.png "Git Stash List")
+
+By looking at the stash list above, it is hard to guess what changes are included in each stash, so it is a good practice to provide a description for each stash.
+
+## Describe Stash
+
+Use the following command to add a description to the stash:
+
+`git stash save "<message>"`
+
+Let's do a small change in one file and stash it with a custom description:
+
+![Git Stash With Custom Message](/img/screenshot-2021-07-17-at-13.45.37.png "Git Stash With Custom Message")
+
+Now, it is much easier to guess what given stash is about.
