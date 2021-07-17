@@ -77,3 +77,43 @@ It is also possible to have both, staged and unstaged changes in the same file:
 Now, after learning what are staged and unstaged changes, we can answer the question - **git stash** command saves both, staged and unstaged changes, but after re-applying them, all changes become unstaged:
 
 ![Git Stash Staged And Unstaged Changes](/img/screenshot-2021-07-17-at-12.38.07.png "Git Stash Staged And Unstaged Changes")
+
+## Tracked And Untracked Files In Git
+
+Now, after we know that **git stash** is able to work with both, staged and unstaged changes, we need to know if it works with both, untracked and tracked files.
+
+But before answering that question, let's learn what are untracked and tracked files in Git.
+
+#### Untracked Files
+
+If you create a new file in your working directory, by default it will appear as untracked, because it is not in the Git version system.
+
+I created a new **MyComponent.tsx** component and executed **git status** command:
+
+![Git Untracked File](/img/screenshot-2021-07-17-at-12.45.38.png "Git Untracked File")
+
+Git informs us that file is untracked with the following message: **Untracked files**.
+
+#### Tracked Files
+
+Tracked files are files that are about to be committed the next time you execute **git commit** command. 
+
+To move a file from untracked to tracked state, execute the **git add** command.
+
+Tracked files are usually marked with a green color:
+
+![Git Tracked File](/img/screenshot-2021-07-17-at-12.48.14.png "Git Tracked File")
+
+## Stashing Tracked And Untracked Changes
+
+By default, **git stash** command does not store untracked files:
+
+![Git Stash Tracked And Untracked Files](/img/screenshot-2021-07-17-at-12.52.41.png "Git Stash Tracked And Untracked Files")
+
+When we tried to stash untracked file, Git replied with a message: **No local changes to save**.
+
+That's because untracked files are not in Git.
+
+If the file is added to tracked by using **git add** command, it can be stashed and re-applied later:
+
+![Git Stash Tracked File](/img/screenshot-2021-07-17-at-12.54.10.png "Git Stash Tracked File")
