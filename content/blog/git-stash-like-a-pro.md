@@ -145,15 +145,17 @@ Try to stash ignored file by executing **git stash -a** command and see that it 
 
 Stashed changes can be applied with one of the following commands:
 
-`git stash apply`
+`git stash apply` (or `git stash apply stash@{<index>}` if you want to apply a specific stash).
 
 Or
 
-`git stash pop`
+`git stash pop` (or `git stash apply stash@{<index>}` if you want to pop a specific stash).
 
 They both do the same thing, however there is one important difference between them.
 
-The first command (**git stash apply**) applies changes and does nothing after, while the second one (**git stash** **pop**) removes the changes from the stash list after applying them.
+The first command (**git stash apply**) applies changes and does nothing afterwards, while the second one (**git stash** **pop**) removes the changes from the stash list after applying them:
+
+![Git Stash Apply Command](/img/screenshot-2021-07-17-at-18.08.45.png "Git Stash Apply Command")
 
 ## List Stashed Changes
 
@@ -213,7 +215,7 @@ If your stash is old, it may occur that some changes are not valid anymore, so y
 
 it is possible with the following command:
 
-`git checkout stash@{<index>} <file>`
+`git checkout stash <file>` (or `git checkout stash@{<index>} <file>` if you want to apply a single file from the specific stash).
 
 Let's see it in action:
 
@@ -287,13 +289,13 @@ This command will automatically stash changes before rebase and re-apply them af
 * **git stash** - temporarily save the current state of a working directory and revert it, so you can start coding new features from scratch
 * **git stash -u** - stash changes with untracked files
 * **git stash -a** - stash changes with ignored files
-* **git stash apply** - apply stashed changes
-* **git stash pop** - apply stashed changes and remove it from the stash list
+* **git stash apply / git stash apply stash@{1}** - apply stashed changes from the last/given stash
+* **git stash pop / git stash pop stash@{1}**  - apply stashed changes from the last/given stash and remove it from the stash list
 * **git stash list** - list stashed changes
 * **git stash save "Message"** - stash changes with a custom description
 * **git stash show** / **git stash show stash@{1}** - view files that were changed in a last/given stash
 * **git stash show -p / git stash show stash@{1} -p** - view lines of code that were changed in a last/given stash
-* **git checkout stash@{1} path/to/file** - apply a single file from stash
+* **git checkout stash path/to/file / git checkout stash@{1} path/to/file** - apply a single file from the last/given stash
 * **git stash -p** - force Git to iterate through all the changed files and ask you whether you want to stash a given file or no
 * **git stash branch <name> / git stash branch <name> stash@{1}** - create a branch from the last/given stash
 * **git stash drop / git stash drop stash@{1}** - remove last/given stash
