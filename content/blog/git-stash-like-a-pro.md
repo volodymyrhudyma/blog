@@ -198,3 +198,11 @@ A shorthand to check the latest stash is:
 Let's quickly check what changes were done in each stash from the list:
 
 ![Git View Stash Changes](/img/screenshot-2021-07-17-at-13.51.26.png "Git View Stash Changes")
+
+If we want to dig even deeper and check what lines of code were modified, we can add a **\-p** or **\--patch** flag:
+
+`git stash show -p`
+
+Let's quickly check what lines of code were changes in the last stash:
+
+![Git View Stash Changes With -p (Or --patch) Option](/img/screenshot-2021-07-17-at-13.54.31.png "Git View Stash Changes With -p (Or --patch) Option")
