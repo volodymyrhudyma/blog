@@ -124,4 +124,19 @@ However, there is a magic flag that enabled stashing untracked files - (**\-u**,
 
 ## Stashing Ignored Files
 
+Another good question is whether **git stash** works with ignored files (ignored file is a file that is tracked in a special file named **.gitignore**).
+
+Obviously, by default it doesn't but we can make it work, again, by using a magic flag - (**\-a** or **\-all**).
+
+Let's add newly added **MyComponent.tsx** to the **.gitignore**:
+
+```javascript
 // ..
+MyComponent.tsx
+```
+
+And verify that it is indeed ignored (**git status** command shows that we only modified **.gitignore** file, but it doesn't show **MyComponent.tsx** as untracked file):
+
+![Git Check If File Is Ignored](/img/screenshot-2021-07-17-at-13.13.49.png "Git Check If File Is Ignored")
+
+Try to stash ignored file by executing **git stash -a** command and see that it has been re-applied after running **git stash apply**, even though it is ignored by Git.
