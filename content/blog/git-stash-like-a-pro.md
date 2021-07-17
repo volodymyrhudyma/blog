@@ -104,7 +104,7 @@ Tracked files are usually marked with a green color:
 
 ![Git Tracked File](/img/screenshot-2021-07-17-at-12.48.14.png "Git Tracked File")
 
-## Stashing Tracked And Untracked Changes
+## Stashing Tracked And Untracked Files
 
 By default, **git stash** command does not store untracked files:
 
@@ -117,3 +117,11 @@ That's because untracked files are not in Git.
 If the file is added to tracked by using **git add** command, it can be stashed and re-applied later:
 
 ![Git Stash Tracked File](/img/screenshot-2021-07-17-at-12.54.10.png "Git Stash Tracked File")
+
+However, there is a magic flag that enabled stashing untracked files - (**\-u**, or **\--include-untracked**):
+
+![Git Stash Untracked File](/img/screenshot-2021-07-17-at-12.57.19.png "Git Stash Untracked File")
+
+## Stashing Ignored Files
+
+// ..
