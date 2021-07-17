@@ -206,3 +206,29 @@ If we want to dig even deeper and check what lines of code were modified, we can
 Let's quickly check what lines of code were changes in the last stash:
 
 ![Git View Stash Changes With -p (Or --patch) Option](/img/screenshot-2021-07-17-at-13.54.31.png "Git View Stash Changes With -p (Or --patch) Option")
+
+## Create Partial Stash
+
+In some cases, you may not want to stash all changes, but only the most important ones.
+
+You can force Git to iterate through all the changed files and ask you whether you want to stash a given file or no by adding **\-p** (or **\--patch**) flag to the **git stash command**:
+
+`git stash -p` / `git stash --patch`
+
+Let's see an example:
+
+![Git Stash With -p (Or --patch) Flag](/img/screenshot-2021-07-17-at-13.59.17.png "Git Stash With -p (Or --patch) Flag")
+
+In the above example, we've changed 2 files and for each file Git asked us: **Stash this hunk \[y,n,q,a,d,e,?]?**.
+
+To abort this process, hit **Ctrl+C**.
+
+## Create A Branch From Stash
+
+It is possible to create a branch from stash, which is very useful if in the meantime the same files were modified and after trying to apply stashed changes, you end up with a conflict.
+
+The command to do it is the following:
+
+`git stash branch <name>` (which will create a branch from the first stash, or `git stash branch <name> stash@{<index>}` if you want to create a branch from the specific stash):
+
+![Git Create A Branch From Stash](/img/screenshot-2021-07-17-at-14.06.02.png "Git Create A Branch From Stash")
