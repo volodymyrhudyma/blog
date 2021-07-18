@@ -154,7 +154,7 @@ Stashed changes can be applied using one of the following commands:
 
 Or
 
-`git stash pop` (or `git stash apply stash@{<index>}` if you want to pop a specific stash).
+`git stash pop` (or `git stash apply pop@{<index>}` if you want to pop a specific stash).
 
 Both do the same thing, but there is one important difference between them.
 
