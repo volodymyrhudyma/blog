@@ -3,9 +3,9 @@ title: Git Stash Like A Pro
 tag:
   - Git
 promote: false
-metaDescription: Git stash command - full guide for developers. Git stash acts
-  like a clipboard and allows to temporarily store the current state of working
-  directory.
+metaDescription: Git stash command - full guide for developers. Git stash works
+  like a clipboard and allows you to temporarily store the current state of the
+  working directory.
 shareImage: /img/git-stash-like-a-pro.jpg
 teaser: The developers work is often interrupted by requests to implement more
   important features or even to fix some critical bugs. This situation leads to
@@ -148,7 +148,7 @@ Try to stash ignored file with the **git stash -a** command, and see that it has
 
 ## Apply Stashed Changes
 
-Stashed changes can be applied with one of the following commands:
+Stashed changes can be applied using one of the following commands:
 
 `git stash apply` (or `git stash apply stash@{<index>}` if you want to apply a specific stash).
 
@@ -156,27 +156,27 @@ Or
 
 `git stash pop` (or `git stash apply stash@{<index>}` if you want to pop a specific stash).
 
-They both do the same thing, however there is one important difference between them.
+Both do the same thing, but there is one important difference between them.
 
-The first command (**git stash apply**) applies changes and does nothing afterwards, while the second one (**git stash** **pop**) removes the changes from the stash list after applying them:
+The first command (**git stash apply**) applies changes and does nothing afterwards, while the second (**git stash** **pop**) removes the changes from the stash list after they have been applied:
 
 ![Git Stash Apply Command](/img/screenshot-2021-07-17-at-18.08.45.png "Git Stash Apply Command")
 
 ## List Stashed Changes
 
-You are not limited to a single stash, instead you can run **git stash** command a few times and create multiple stashes:
+You are not limited to a single stash, you can run **git stash** command a few times and create multiple stashes:
 
 ![Git Multiple Stashes](/img/screenshot-2021-07-17-at-13.39.47.png "Git Multiple Stashes")
 
-To view all stashes, execute the following command:
+To view all stashes, run the following command:
 
 `git stash list`
 
-Note, that each stash is identified as WIP (Work In Progress) and a commit that the stash was created from:
+Note that each stash is marked with WIP (Work In Progress) and a commit from which the stash was created:
 
 ![Git Stash List](/img/screenshot-2021-07-17-at-13.41.43.png "Git Stash List")
 
-By looking at the stash list above, it is hard to guess what changes are included in each stash, so it is a good practice to provide a description for each stash.
+Looking at the stash list above, it's hard to guess what changes are included in each stash, so it's a good practice to provide a description for each stash.
 
 ## Describe Stash
 
@@ -184,39 +184,39 @@ Use the following command to add a description to the stash:
 
 `git stash save "<message>"`
 
-Let's do a small change in one file and stash it with a custom description:
+Let's make a small change in a file and stash it with a custom description:
 
 ![Git Stash With Custom Message](/img/screenshot-2021-07-17-at-13.45.37.png "Git Stash With Custom Message")
 
-Now, it is much easier to guess what given stash is about.
+Now it's much easier to guess what the given stash is about.
 
 ## View Stash Changes
 
-Sometimes it is necessary to view the details of a given stash to make sure that all changes are still valid and have to be applied.
+Sometimes it is necessary to look at the details of a particular stash to ensure that all changes are still valid and need to be applied.
 
-It can be done with a following command:
+This can be done with the following command:
 
 `git stash show` (or `git stash show stash@{<index>}` if you want to view changes for a specific stash).
 
-Let's quickly check what changes were done in each stash from the list:
+Let's quickly check what changes have been made to each stash from the list:
 
 ![Git View Stash Changes](/img/screenshot-2021-07-17-at-13.51.26.png "Git View Stash Changes")
 
-If we want to dig even deeper and check what lines of code were modified, we can add a **\-p** or **\--patch** flag:
+If we want to dig deeper and check which lines of code have been changed, we can add a **\-p** or **\--patch** flag:
 
 `git stash show -p` / `git stash show stash@{<index>} -p`
 
-Let's quickly check what lines of code were changes in the last stash:
+Let's quickly check which lines of code were changed in the last stash:
 
 ![Git View Stash Changes With -p (Or --patch) Option](/img/screenshot-2021-07-17-at-13.54.31.png "Git View Stash Changes With -p (Or --patch) Option")
 
 ## Apply A Single File From Stash
 
-If your stash is old, it may occur that some changes are not valid anymore, so you may want to apply only one or a few specific files from the given stash.
+If your stash is old, some changes may no longer be valid, so you may want to apply only one or a few specific files from the given stash.
 
-it is possible with the following command:
+It is possible with the following command:
 
-`git checkout stash <file>` (or `git checkout stash@{<index>} <file>` if you want to apply a single file from the specific stash).
+`git checkout stash <file>` (or `git checkout stash@{<index>} <file>` if you want to apply a single file from the given stash).
 
 Let's see it in action:
 
@@ -226,7 +226,7 @@ Let's see it in action:
 
 In some cases, you may not want to stash all changes, but only the most important ones.
 
-You can force Git to iterate through all the changed files and ask you whether you want to stash a given file or no by adding **\-p** (or **\--patch**) flag to the **git stash command**:
+You can force Git to iterate through all changed files and ask you whether or not you want to stash a particular file by adding the **\-p** (or **\--patch**) flag to the **git stash command**:
 
 `git stash -p`
 
@@ -234,27 +234,27 @@ Let's see an example:
 
 ![Git Stash With -p (Or --patch) Flag](/img/screenshot-2021-07-17-at-13.59.17.png "Git Stash With -p (Or --patch) Flag")
 
-In the above example, we've changed 2 files and for each file Git asked us: **Stash this hunk \[y,n,q,a,d,e,?]?**.
+In the above example, we have modified 2 files and for each file, Git asks us: **Stash this hunk \[y,n,q,a,d,e,?]?**.
 
-To abort this process, hit **Ctrl+C**.
+To cancel this operation, press **Ctrl+C**.
 
 ## Create A Branch From Stash
 
-It is possible to create a branch from stash, which is very useful if in the meantime the same files were modified and after trying to apply stashed changes, you end up with a conflict.
+It is possible to create a branch from the stash, which is very useful if the same files have been modified in the meantime and when trying to apply changes, you end up with a conflict.
 
-The command to do it is the following:
+The command to do this is the following:
 
-`git stash branch <name>` (or `git stash branch <name> stash@{<index>}` if you want to create a branch from the specific stash):
+`git stash branch <name>` (or `git stash branch <name> stash@{<index>}` if you want to create a branch from a specific stash):
 
 ![Git Create A Branch From Stash](/img/screenshot-2021-07-17-at-14.06.02.png "Git Create A Branch From Stash")
 
 ## Delete Stash
 
-A good practice is to keep you stash list clear by removing unnecessary stashes.
+A good practice is to keep your stash list clear by removing unnecessary items.
 
 The command to remove a specific stash:
 
-`git stash drop` (or `git stash drop stash@{<index>}` if you want to drop a specific stash):
+`git stash drop` (or `git stash drop stash@{<index>}` if you want to delete a specific stash):
 
 ![Git Remove Stash](/img/screenshot-2021-07-17-at-14.09.31.png "Git Remove Stash")
 
@@ -262,26 +262,26 @@ If you want to remove all stashes from the list:
 
 `git stash clear`
 
-The example:
+Example:
 
 ![Git Clear All Stashes From The List](/img/screenshot-2021-07-17-at-14.10.24.png "Git Clear All Stashes From The List")
 
 ## Advanced: Auto Stash
 
-When doing rebase, you need to have clean working directory, otherwise Git will notify you that something is wrong:
+When you rebase, you must have a clean working directory, otherwise Git reports that something is wrong:
 
 ![Git Rebase Fail](/img/screenshot-2021-07-17-at-14.18.53.png "Git Rebase Fail")
 
-There are a few ways to resolve this:
+There are a few ways to fix this:
 
 * Commit changes
-* Drop changes
+* Discard changes
 * Stash and re-apply changes manually
 * Stash and re-apply changes automatically
 
-We will focus now on the last one, which is possible with the **\--autostash** command.
+We will now focus on the last option, which is possible with the **\--autostash** command.
 
-This command will automatically stash changes before rebase and re-apply them after:
+With this command, the changes are automatically stashed before the rebase and re-applied after:
 
 ![Git Rebase With --autostash Option](/img/screenshot-2021-07-17-at-14.21.52.png "Git Rebase With --autostash Option")
 
@@ -305,12 +305,12 @@ This command will automatically stash changes before rebase and re-apply them af
 
 ## Summary
 
-Congratulations, you have made it to the very end of this long story about the **git stash** command and ways of working with it.
+Congratulations, you made it to the end of this long story about the **git stash** command and ways to work with it.
 
-This command acts like a clipboard - it temporarily saves the current state of a working directory and reverts it, so you can start coding new features from scratch.
+This command works like a clipboard - it temporarily saves the current state of a working directory and undoes it, so you can start coding new features from scratch.
 
-You can get back to stashed changes and re-apply them at any given point of time.
+You can re-apply stashed changes at any time.
 
-It is super useful if you need to quickly switch context and work on something else without losing any unfinished work.
+It's super useful when you need to quickly switch context and work on something else without losing unfinished work.
 
-I hope you enjoyed reading this article and will use **git stash** command in your daily work.
+I hope you enjoyed reading this article and will use the **git stash** command in your daily work.
