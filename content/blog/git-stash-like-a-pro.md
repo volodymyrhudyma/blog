@@ -7,33 +7,33 @@ metaDescription: Git stash command - full guide for developers. Git stash acts
   like a clipboard and allows to temporarily store the current state of working
   directory.
 shareImage: /img/git-stash-like-a-pro.jpg
-teaser: Developer's work often gets interrupted with requests to implement more
-  urgent features or even fix some critical bugs. This situation leads to
-  interrupting development and switching to another task, but what if you
-  haven't managed to complete the current work and you are not ready to...
+teaser: The developers work is often interrupted by requests to implement more
+  important features or even to fix some critical bugs. This situation leads to
+  stopping the development and switching to another task, but what if you didn't
+  manage to complete the current work and you are not ready to...
 date: 2021-07-18T08:44:14.759Z
 ---
-Developer's work often gets interrupted with requests to implement more urgent features or even fix some critical bugs.
+The developers work is often interrupted by requests to implement more important features or even to fix some critical bugs.
 
-This situation leads to interrupting development and switching to another task, but what if you haven't managed to complete the current work and you are not ready to commit the changes?
+This situation leads to stopping the development and switching to another task, but what if you didn't manage to complete the current work and you are not ready to commit the changes?
 
-You don't want to drop the changes and start over the next day, right?
+You don't want to discard the changes and start over the next day, right?
 
-Fortunately, Git provides a command for managing such situations in a simple way.
+Fortunately, Git provides a command to easily handle such situations.
 
 ## Git Stash Command
 
-The **git stash** command acts like a clipboard - it temporarily saves the current state of a working directory and reverts it, so you can start coding new features from scratch.
+The **git stash** command works like a clipboard - it temporarily saves the current state of a working directory and undoes it, so you can start coding new features from scratch.
 
-You can get back to stashed changes and re-apply them at any given point of time.
+You can get back to stashed changes and re-apply them at any time.
 
-It is handy if you need to quickly switch context and work on something else without losing any unfinished work.
+This is handy when you need to quickly switch context and work on something else without losing unfinished work.
 
-Remember, that **stash is local to your repository** - it is not transferred to the server after pushing the changes.
+Remember that **stash is local to your repository** - it will not be transferred to the server after pushing changes.
 
-For example, I am working on a secret feature on a **feature/1** branch, when I receive a request to fix a bug, noticed by tester on production (in other words, on the **main** branch), but I am only half-done with my secret feature, so here is what I usually do:
+For example, I'm working on a secret feature on a **feature/1** branch when I get a request to fix a bug noticed by a tester in production (in other words, on the **main** branch), but I'm only halfway done with my secret feature, so that's what I usually do:
 
-* Check how many changes were done with a **git status** command:
+* Check how many changes have been made with a **git status** command:
 
 ![Git Status On A Secret Feature Branch](/img/screenshot-2021-07-17-at-11.55.24.png "Git Status On A Secret Feature Branch")
 
@@ -41,31 +41,31 @@ For example, I am working on a secret feature on a **feature/1** branch, when I 
 
 ![Git Stash On A Secret Feature Branch](/img/screenshot-2021-07-17-at-11.59.08.png "Git Stash On A Secret Feature Branch")
 
-* Switch to the **main** branch with a **git checkout main** command and work on a bug fix:
+* Switch to the **main** branch with the **git checkout main** command and work on a bug fix:
 
 ![Git Checkout To The Main Branch](/img/screenshot-2021-07-17-at-12.01.44.png "Git Checkout To The Main Branch")
 
-* Switch back to the **feature/1** branch after the bug has been finished and re-apply back stashed changes with a **git stash apply** command:
+* Switch back to the **feature/1** branch after the bug has been fixed, and re-apply the stashed changes with a **git stash apply** command:
 
 ![Git Checkout To The Feature Branch And Re-Apply Stashed Changes](/img/screenshot-2021-07-17-at-12.03.27.png "Git Checkout To The Feature Branch And Re-Apply Stashed Changes")
 
 ## Staged And Unstaged Changes In Git
 
-Before learning whether git stash works with both, staged and unstaged changes, let's learn what are staged and unstaged changes and how they differ.
+Before you learn whether git stash works with both staged and unstaged changes, you should know what staged and unstaged changes are and how they differ.
 
 #### Unstaged Changes
 
-Unstaged changes are changes that exist in the working directory, but haven't been yet added to the Git version history:
+Unstaged changes are changes that exist in the working directory but haven't yet been added to the Git version history:
 
 ![Git Unstaged Changes](/img/screenshot-2021-07-17-at-12.22.08.png "Git Unstaged Changes")
 
-Git informs us that changes are unstaged with the following message: **Changes not staged for commit**.
+Git tells us that changes are unstaged with the following message: **Changes not staged for commit**.
 
 #### Staged Changes
 
-Staged changes are changes that are about to be committed the next time you execute **git commit** command. 
+Staged changes are changes that should be committed the next time the **git commit** command is executed. 
 
-To move a file from unstaged to staged state, execute the **git add** command.
+To move a change from unstaged to staged state, run the **git add** command.
 
 Staged changes are usually marked with a green color:
 
@@ -73,37 +73,37 @@ Staged changes are usually marked with a green color:
 
 #### Staged And Unstaged Changes In The Same File
 
-It is also possible to have both, staged and unstaged changes in the same file:
+It is also possible to have both staged and unstaged changes in the same file:
 
 ![Git Staged And Unstaged Changes In The Same File](/img/screenshot-2021-07-17-at-12.32.22.png "Git Staged And Unstaged Changes In The Same File")
 
 ## Stashing Staged And Unstaged Changes
 
-Now, after learning what are staged and unstaged changes, we can answer the question - **git stash** command saves both, staged and unstaged changes, but after re-applying them, all changes become unstaged:
+Now that we've learned what staged and unstaged changes are, we can answer the question - **git stash** command saves both staged and unstaged changes, but after re-applying them, all changes become unstaged:
 
 ![Git Stash Staged And Unstaged Changes](/img/screenshot-2021-07-17-at-12.38.07.png "Git Stash Staged And Unstaged Changes")
 
 ## Tracked And Untracked Files In Git
 
-Now, after we know that **git stash** is able to work with both, staged and unstaged changes, we need to know if it works with both, untracked and tracked files.
+Now that we know that **git stash** is capable of working with both staged and unstaged changes, we need to know how it works with untracked and tracked files.
 
-But before answering that question, let's learn what are untracked and tracked files in Git.
+But before we answer that question, let's learn what untracked and tracked files are in Git.
 
 #### Untracked Files
 
-If you create a new file in your working directory, by default it will appear as untracked, because it is not in the Git version system.
+By default, when you create a new file in your working directory, it will show as untracked because it is not in the Git version system.
 
-I created a new **MyComponent.tsx** component and executed **git status** command:
+I created a new **MyComponent.tsx** component and executed the **git status** command:
 
 ![Git Untracked File](/img/screenshot-2021-07-17-at-12.45.38.png "Git Untracked File")
 
-Git informs us that file is untracked with the following message: **Untracked files**.
+Git tells us that the file is untracked with the following message: **Untracked files**.
 
 #### Tracked Files
 
-Tracked files are files that are about to be committed the next time you execute **git commit** command. 
+Tracked files are files that should be committed the next time the **git commit** command is executed. 
 
-To move a file from untracked to tracked state, execute the **git add** command.
+To move a file from the untracked to the tracked state, run the **git add** command.
 
 Tracked files are usually marked with a green color:
 
@@ -111,40 +111,40 @@ Tracked files are usually marked with a green color:
 
 ## Stashing Tracked And Untracked Files
 
-By default, **git stash** command does not store untracked files:
+The **git stash** command does not store untracked files by default:
 
 ![Git Stash Tracked And Untracked Files](/img/screenshot-2021-07-17-at-12.52.41.png "Git Stash Tracked And Untracked Files")
 
-When we tried to stash untracked file, Git replied with a message: **No local changes to save**.
+When we tried to stash an untracked file, Git responded with a message: **No local changes to save**.
 
-That's because untracked files are not in Git.
+This is because untracked files are not stored in Git.
 
-If the file is added to tracked by using **git add** command, it can be stashed and re-applied later:
+If the file is added to tracked with the **git add** command, it can be stashed and re-applied later:
 
 ![Git Stash Tracked File](/img/screenshot-2021-07-17-at-12.54.10.png "Git Stash Tracked File")
 
-However, there is a magic flag that enabled stashing untracked files - (**\-u**, or **\--include-untracked**):
+However, there is a magic flag that enables stashing untracked files - (**\-u**, or **\--include-untracked**):
 
 ![Git Stash Untracked File](/img/screenshot-2021-07-17-at-12.57.19.png "Git Stash Untracked File")
 
 ## Stashing Ignored Files
 
-Another good question is whether **git stash** works with ignored files (ignored file is a file that is tracked in a special file named **.gitignore**).
+Another good question is whether **git stash** works with ignored files (an ignored file is a file that is tracked in a special file called **.gitignore**).
 
-Obviously, by default it doesn't but we can make it work, again, by using a magic flag - (**\-a** or **\-all**).
+Obviously it doesn't by default, but we can get it working by using a magic flag - (**\-a** or **\-all**).
 
-Let's add newly added **MyComponent.tsx** to the **.gitignore**:
+Let's add the newly added **MyComponent.tsx** to the **.gitignore**:
 
 ```javascript
 // ..
 MyComponent.tsx
 ```
 
-And verify that it is indeed ignored (**git status** command shows that we only modified **.gitignore** file, but it doesn't show **MyComponent.tsx** as untracked file):
+And verify that it is indeed ignored (the **git status** command shows that we only changed the **.gitignore** file, but it does not show **MyComponent.tsx** as an untracked file):
 
 ![Git Check If File Is Ignored](/img/screenshot-2021-07-17-at-13.13.49.png "Git Check If File Is Ignored")
 
-Try to stash ignored file by executing **git stash -a** command and see that it has been re-applied after running **git stash apply**, even though it is ignored by Git.
+Try to stash ignored file with the **git stash -a** command, and see that it has been re-applied after running **git stash apply**, even though it is ignored by Git.
 
 ## Apply Stashed Changes
 
