@@ -4,6 +4,7 @@ tag:
   - JavaScript
 promote: false
 metaDescription: // META
+shareImage: /img/replace-all-occurrences0in-javascript.jpg
 teaser: Replacing all occurrences of a string is a pretty common task in
   JavaScript. I would not believe you, if you told that you have never written a
   code to replace underscores with dashes or vice-verca. There are a few ways of
