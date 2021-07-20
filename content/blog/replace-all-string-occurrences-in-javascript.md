@@ -133,7 +133,7 @@ Also, passing a string replaces all occurrences, not only the first one as in ca
 const str = "Hello_world_I_am_front_end_developer";
 
 // "Hello-world-I-am-front-end-developer"
-console.log(str.replaceAll(" ", "-")); 
+console.log(str.replaceAll("_", "-")); 
 ```
 
 ## Browser Support: replaceAll()
