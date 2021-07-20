@@ -27,7 +27,7 @@ One of the most popular, however, not obvious methods is a combination of:
 const str = "Hello_world_I_am_front_end_developer";
 const arr = str.split("_");
 
-// Prints ["Hello", "world", "I", "am", "front", "end", "developer"]
+// ["Hello", "world", "I", "am", "front", "end", "developer"]
 console.log(arr);
 ```
 
@@ -37,11 +37,24 @@ console.log(arr);
 const arr = ["Hello", "world", "I", "am", "front", "end", "developer"]
 const str = arr.join("-");
 
-// Prints "Hello-world-I-am-front-end-developer"
+// "Hello-world-I-am-front-end-developer"
 console.log(str);
 ```
 
-Let's combine the two methods above and create a function named **replaceAll**
+Let's combine the two methods above and create a function named **replaceAll**, which will look for a **search** in a **string** and replace it with the **replace** value:
+
+```javascript
+const replaceAll = (string, search, replace) => {
+  return string.split(search).join(replace);
+};
+
+const str = "Hello_world_I_am_front_end_developer";
+
+// "Hello-world-I-am-front-end-developer"
+console.log(replaceAll(str, "_", "-"));
+```
+
+While this method is fine, there are better alternatives, let's take a look at them.
 
 ## Method: replace()
 
