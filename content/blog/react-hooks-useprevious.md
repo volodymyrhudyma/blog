@@ -9,7 +9,7 @@ teaser: Getting the previous state of the component is a must in some specific
   cases. While class based components provide a simple and convenient way to do
   this, via the componentDidUpdate() lifecycle hook, function components
   don't...
-date: 2021-07-28T20:12:08.436Z
+date: 2021-07-27T20:12:08.436Z
 ---
 Getting the previous state of the component is a must in some specific cases.
 
@@ -52,7 +52,9 @@ Functional components implement hooks instead of lifecycle methods, so what hook
 
 The answer is - at the current moment, there is no built-in hook for that purpose.
 
-But we can create a custom one with the help of a **useRef()**:
+But we can create a custom one with the help of a **useRef()**.
+
+Create a new file named **usePrevious.jsx** with the following content:
 
 ```jsx
 import { useRef, useEffect } from "react";
@@ -70,7 +72,7 @@ const usePrevious = value => {
 export default usePrevious;
 ```
 
-Then import it into your functional component and use:
+Then use it in the functional component:
 
 ```jsx
 import React, { useState } from "react";
@@ -95,6 +97,8 @@ const Counter = () => {
 
 export default Counter;
 ```
+
+Note that we need to explicitly pass a value we want to observe into the custom hook.
 
 ## usePrevious() With TypeScript
 
