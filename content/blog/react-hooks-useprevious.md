@@ -24,22 +24,55 @@ To begin with, let's see how we can get the previous state of the class-based co
 ```jsx
 import React, { Component } from "react";
 
-class MyClassComponent extends Component {
-  // ...
-  
-  componentDidUpdate(prevProps) {
-    
-    // We have access to the previous props via this "prevProps"
-    if (prevProps.value !== this.props.value) {
-      console.log(`Previous value: ${prevProps.value}`);
-      console.log(`Current value: ${this.props.value}`);
+class Counter extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 0,
+      prevCount: undefined,
+    };
+  }
+
+  handleClick = () => {
+    this.setState((prevState) => ({
+      count: prevState.count + 1,
+    }));
+  };
+
+  componentDidUpdate(_prevProps, prevState) {
+    // We have access to the previous state via this "prevState"
+    if (prevState.count !== this.state.count) {
+      this.setState({
+        prevCount: prevState.count,
+      });
     }
   }
-  
-  // ...
-};
 
-export default MyClassComponent;
+  render() {
+    return (
+      <div>
+        Current count: {this.state.count}, Previous count:{" "}
+        {this.state.prevCount}
+        <button onClick={this.handleClick}>Increment</button>
+      </div>
+    );
+  }
+}
+
+export default Counter;
+```
+
+The code is pretty simple, but long, so here is the part we are most interested in:
+
+```javascript
+componentDidUpdate(_prevProps, prevState) {
+  // We have access to the previous state via this "prevState"
+  if (prevState.count !== this.state.count) {
+    this.setState({
+      prevCount: prevState.count,
+    });
+  }
+};
 ```
 
 We use **componentDidUpdate()** lifecycle hook, which accepts the following arguments in the exact same order:
@@ -50,7 +83,7 @@ We use **componentDidUpdate()** lifecycle hook, which accepts the following argu
 
 ## Functional Component: usePrevious()
 
-Functional components implement hooks instead of lifecycle methods, so what hook allows us to get the previous props?
+Functional components implement hooks instead of lifecycle methods, so what hook allows us to get the previous state?
 
 The answer is - at the current moment, there is no built-in hook for that purpose.
 
@@ -124,7 +157,7 @@ export default usePrevious;
 
 ## Summary
 
-In this article, we learned how to get the previous props of the functional component in React.
+In this article, we learned how to get the previous state of the functional component in React.
 
 For this purpose, we created a custom **usePrevious()** hook, which is based on the built-in **useRef()**.
 
