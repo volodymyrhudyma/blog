@@ -37,7 +37,9 @@ class MyClassComponent extends Component {
   }
   
   // ...
-}
+};
+
+export default MyClassComponent;
 ```
 
 We use **componentDidUpdate()** lifecycle hook, which accepts the following arguments in the exact same order:
