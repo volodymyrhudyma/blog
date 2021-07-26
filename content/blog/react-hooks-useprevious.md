@@ -24,15 +24,15 @@ To begin with, let's see how we can get the previous state of the class-based co
 ```jsx
 import React, { Component } from "react";
 
-class ExampleComponent extends Component {
+class MyClassComponent extends Component {
   // ...
   
   componentDidUpdate(prevProps) {
     
     // We have access to the previous props via this "prevProps"
-    if (prevProps.count !== this.props.count) {
-      console.log(`Previous count: ${prevProps.count}`);
-      console.log(`Current count: ${this.props.count}`);
+    if (prevProps.value !== this.props.value) {
+      console.log(`Previous value: ${prevProps.value}`);
+      console.log(`Current value: ${this.props.value}`);
     }
   }
   
@@ -46,7 +46,7 @@ We use **componentDidUpdate()** lifecycle hook, which accepts the following argu
 * **prevState** - an object, containing previous values of state
 * **snapshot** - value, returned from the **getSnapshotBeforeUpdate()** lifecycle method
 
-## **Functional Component: usePrevious()**
+## Functional Component: usePrevious()
 
 Functional components implement hooks instead of lifecycle methods, so what hook allows us to get the previous props?
 
@@ -77,24 +77,30 @@ import React, { useState } from "react";
 
 import usePrevious from "./usePrevious";
 
-const ExampleComponent = () => {
-  const [count, useCount] = useState(0);
-  
-  // Use custom "usePrevious" hook to get previous "count" value
+const Counter = () => {
+  const [count, setCount] = useState(0);
   const prevCount = usePrevious(count);
   
-  console.log(`Previous count: ${prevCount}`);
-  console.log(`Current count: ${count}`);
-  
-  // ...
+  const handleClick = () => {
+    setCount(count => count + 1);
+  };
+
+  return (
+    <div>
+      Current count: {count}, Previous count: {prevCount}
+      <button onClick={handleClick}>Increment</button>
+    </div>
+  );
 };
+
+export default Counter;
 ```
 
 ## usePrevious() With TypeScript
 
 Most of the React applications use TypeScript, so let's add some typings to our custom hook:
 
-```tsx
+```typescript
 import { useRef, useEffect } from "react";
 
 const usePrevious = <T>(value: T): T | undefined => {
@@ -111,3 +117,9 @@ export default usePrevious;
 ```
 
 ## Summary
+
+In this article, we learned how to get the previous props of the functional component in React.
+
+For this purpose, we created a custom **usePrevious()** hook, which is based on the built-in **useRef()**.
+
+Make sure to copy the custom hook and save it for later use, as for sure it will be needed.
