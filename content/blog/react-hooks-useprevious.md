@@ -3,23 +3,25 @@ title: "React Hooks: usePrevious"
 tag:
   - React
 promote: false
-metaDescription: // META
+metaDescription: Learn how to get the previous state of Functional and
+  Class-Based components in React using componentDidUpdate() lifecycle method
+  and a custom usePrevious() hook.
 shareImage: /img/useprevious-hook-in-react.jpg
-teaser: Getting the previous state of the component is a must in some specific
-  cases. While class based components provide a simple and convenient way to do
-  this, via the componentDidUpdate() lifecycle hook, function components
-  don't...
+teaser: Retrieving the previous state of the component is a must in some special
+  cases. While class-based components provide an easy and convenient way to do
+  this via the componentDidUpdate() lifecycle hook, function components do not
+  and you need to write custom...
 date: 2021-07-27T20:12:08.436Z
 ---
-Getting the previous state of the component is a must in some specific cases.
+Retrieving the previous state of the component is a must in some special cases.
 
-While class-based components provide a simple and convenient way to do this, via the **componentDidUpdate()** lifecycle hook, function components don't and you need to write a bit of custom logic to handle it.
+While class-based components provide an easy and convenient way to do this via the **componentDidUpdate()** lifecycle hook, function components do not and you need to write custom logic to handle this.
 
-This custom logic can be extracted to a reusable hook, let's call it **usePrevious()**, which may even land into one of the next React versions.
+This custom logic can be extracted into a custom reusable hook, let's call it **usePrevious()**, which might even end up in one of the next React versions, as mentioned in the [official React documentation](https://reactjs.org/docs/hooks-faq.html#how-to-get-the-previous-props-or-state).
 
 ## Class-Based Component: componentDidUpdate()
 
-To begin with, let's see how we can get the previous state of the class-based component:
+First, let's see how we can get the previous state of the class-based component:
 
 ```jsx
 import React, { Component } from "react";
@@ -75,19 +77,19 @@ componentDidUpdate(_prevProps, prevState) {
 };
 ```
 
-We use **componentDidUpdate()** lifecycle hook, which accepts the following arguments in the exact same order:
+We use **componentDidUpdate()** lifecycle hook, which accepts the following arguments in the following order:
 
-* **prevProps** - an object, containing previous values of props
-* **prevState** - an object, containing previous values of state
-* **snapshot** - value, returned from the **getSnapshotBeforeUpdate()** lifecycle method
+* **prevProps** - an object containing previous values of props
+* **prevState** - an object containing previous values of state
+* **snapshot** - a value returned by the **getSnapshotBeforeUpdate()** lifecycle method if exists, otherwise **undefined**
 
 ## Functional Component: usePrevious()
 
-Functional components implement hooks instead of lifecycle methods, so what hook allows us to get the previous state?
+Functional components implement hooks instead of lifecycle methods, so which hook allows us to get the previous state?
 
-The answer is - at the current moment, there is no built-in hook for that purpose.
+The answer is - at this point, there is no built-in hook for this purpose.
 
-But we can create a custom one with the help of a **useRef()**.
+But we can create our own using **useRef()**.
 
 Create a new file named **usePrevious.jsx** with the following content:
 
@@ -107,7 +109,7 @@ const usePrevious = value => {
 export default usePrevious;
 ```
 
-Then use it in the functional component:
+Use it then in the functional component:
 
 ```jsx
 import React, { useState } from "react";
@@ -133,11 +135,11 @@ const Counter = () => {
 export default Counter;
 ```
 
-Note that we need to explicitly pass a value we want to observe into the custom hook.
+Note that we need to explicitly pass a value we want to observe to the custom hook.
 
 ## usePrevious() With TypeScript
 
-Most of the React applications use TypeScript, so let's add some typings to our custom hook:
+Most React applications use TypeScript, so let's add some typings to our custom hook:
 
 ```typescript
 import { useRef, useEffect } from "react";
@@ -159,6 +161,6 @@ export default usePrevious;
 
 In this article, we learned how to get the previous state of the functional component in React.
 
-For this purpose, we created a custom **usePrevious()** hook, which is based on the built-in **useRef()**.
+For this purpose, we created custom **usePrevious()** hook, based on the built-in **useRef()**.
 
-Make sure to copy the custom hook and save it for later use, as for sure it will be needed.
+Be sure to copy the custom hook and save it for later use, as it will certainly be needed.
