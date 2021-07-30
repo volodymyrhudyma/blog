@@ -1,5 +1,5 @@
 ---
-title: Print Fibonacci Sequence In JavaScript
+title: Fibonacci Sequence In JavaScript
 tag:
   - JavaScript
 promote: false
