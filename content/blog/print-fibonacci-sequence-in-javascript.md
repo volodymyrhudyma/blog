@@ -6,13 +6,13 @@ promote: false
 metaDescription: Learn Fibonacci Sequence in JavaScript - print Fibonacci Number
   under given index and print an index for a given Fibonacci Number.
 shareImage: /img/fibonacci-in-javascript.jpg
-teaser: "Fibonacci Sequence is a sequence of numbers, such as each number is a
-  sum of two previous ones, starting from 0 and 1. The example sequence: 0, 1,
+teaser: "Fibonacci Sequence is a sequence of numbers in which as each number is
+  a sum of the previous two, starting with 0 and 1. The example sequence: 0, 1,
   1, 2, 3, 5, 8, 13, 21, 34, etc. It can be represented by the following
   formula..."
 date: 2021-07-31T20:36:38.604Z
 ---
-Fibonacci Sequence is a sequence of numbers, such as each number is a sum of two previous ones, starting from 0 and 1.
+Fibonacci Sequence is a sequence of numbers in which as each number is a sum of the previous two, starting with 0 and 1.
 
 The example sequence: **0, 1, 1, 2, 3, 5, 8, 13, 21, 34**, etc.
 
@@ -29,11 +29,11 @@ Today we will learn a few ways to implement a function that:
 
 ## Find Fibonacci Number Of A Given Index
 
-This function will be written in two ways, using the for loop and recursion.
+This function will be written in three ways: using the for loop, for loop with an array and recursion.
 
 #### For Loop
 
-The very basic solution, that every developer should be able to code, when woke up in the middle of the night:
+The very basic solution that every developer should be able to code, when woke up in the middle of the night:
 
 ```javascript
 const fibonacci = n => {
@@ -49,21 +49,21 @@ const fibonacci = n => {
 };
 ```
 
-In this solution, we sum two numbers in a loop (**a + b**) and reassign each item with the next value (**a** with **b**, **b** with **c** - the result of **a + b**).
+In this solution, we add two numbers in a loop (**a + b**) and reassign each item with the next value (**a** with **b**, **b** with **c** - the result of **a + b**).
 
-As soon as the loop reached the desired index, we return the calculated sum.
+Once the loop reaches the desired index, we return the calculated sum.
 
-You may ask: "Why do we start the loop not from 0, but 2?".
+You may ask, "Why do we start the loop at 2 instead of 0?".
 
-The answer is simple - because for the **n** equal to 0 or 1, we can just return this number, because as we already know - **F(0) = 0**, **F(1) = 1**.
+The answer is simple - because for **n** equal to 0 or 1, we can return that number, because as we already know - **F(0) = 0**, **F(1) = 1**.
 
-The time complexity for this solution is linear - O(n), because we execute the loop from **2** to **n**.
+The time complexity for this solution is linear - O(n), because we run the loop from **2** to **n**.
 
-The space complexity is O(1), because it doesn't matter whether we will execute **fibonacci(10)** or **fibonacci(100)**, the amount of required space remains the same. 
+The space complexity is O(1) because it does not matter if we run **fibonacci(10)** or **fibonacci(100)**, the space required remains the same.
 
 #### For Loop With Array
 
-Another popular and straightforward solution is using for loop and array:
+Another popular and straightforward solution is to use a for loop and an array:
 
 ```javascript
 const fibonacci = (n) => {
@@ -81,13 +81,13 @@ const fibonacci = (n) => {
 }
 ```
 
-Basically, the same solution as with the loop, but using arrays for storage instead of **a** and **b** variables.
+Basically the same solution as the loop, but using arrays for storage instead of **a** and **b** variables.
 
-Both, the the time and space complexity is O(n).
+Both the time and space complexity is O(n).
 
 #### Recursive Solution
 
-Recursions are always tricky to wrap you head around, but once you understand it, this solution may even seem a bit simpler that the above once due to less code:
+Recursion is always difficult to understand, but once you do, this solution may even seem a bit simpler than the one above because it contains less code:
 
 ```javascript
 const fibonacci = n => {
@@ -98,17 +98,17 @@ const fibonacci = n => {
 };
 ```
 
-Same, as in the above example, if we pass a number that is smaller or equal to 1, we just return this number.
+Same, as in the above example: if we pass a number that is less than or equal to 1, we just return this number.
 
-Otherwise, we execute the **fibonacci** function once again, passing two previous numbers.
+Otherwise, we run the **fibonacci** function again, passing two previous numbers.
 
-The time complexity for this solution is exponential - O(2^n), which is pretty high, so we will need to do some optimizations.
+The time complexity for this solution is exponential - O(2^n), which is quite high, so we definitely need to do some optimizations.
 
 The space complexity is O(n).
 
 #### Optimized Recursive Solution
 
-We can use Memoization technique to store the results of the **fibonacci** function executions in the variable to ensure that the function is invoked only once per number, then the value is read from cache:
+We can use the Memoization technique to store the results of the **fibonacci** function executions in the variable to ensure that the function is called only once per number, then the value is read from the cache:
 
 ```javascript
 let cache = {};
@@ -130,15 +130,15 @@ const fibonacci = n => {
 };
 ```
 
-The time complexity for this solution is linear - O(n), because we make sure to execute the function once per given index return the the result from cache later.
+The time complexity for this solution is linear - O(n), since we ensure that the function is executed only once per given index and the result is later returned from the cache.
 
-The space complexity remains the same as equals to O(n).
+The space complexity remains the same and is equal to O(n).
 
 ## Find Index Of A Given Fibonacci Number
 
-We are given a Fibonacci number and want to find out its index in the Fibonacci sequence.
+We are given a Fibonacci number and want to find its index in the Fibonacci sequence.
 
-A simple way to do this is to find the Fibonacci numbers up to a given number and count number of the performed iterations: 
+An easy way to do this is to find the Fibonacci numbers up to a given number and count the number of iterations performed: 
 
 ```javascript
 const getFibonacciIndex = n => {
@@ -161,6 +161,8 @@ const getFibonacciIndex = n => {
 
 ## Summary
 
-In this article we have learned how to find the Fibonacci number under a given index and how to find the index of a given Fibonacci number.
+In this article, we learned how to find the Fibonacci number under a given index and how to find the index of a given Fibonacci number.
 
-This topic is not something complicated, however it is frequently being asked on job interviews, so make sure you know how to implement all these functions without any cheat sheet.
+This topic is not complicated, but it is often asked in job interviews. 
+
+Make sure you know how to create all of these functions without a cheat sheet.
