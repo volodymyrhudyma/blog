@@ -57,9 +57,9 @@ You may ask, "Why do we start the loop at 2 instead of 0?".
 
 The answer is simple - because for **n** equal to 0 or 1, we can return that number, because as we already know - **F(0) = 0**, **F(1) = 1**.
 
-The time complexity for this solution is linear - O(n), because we run the loop from **2** to **n**.
+The time complexity for this solution is linear - **O(n)**, because we run the loop from **2** to **n**.
 
-The space complexity is O(1) because it does not matter if we run **fibonacci(10)** or **fibonacci(100)**, the space required remains the same.
+The space complexity is **O(1)** because it does not matter if we run **fibonacci(10)** or **fibonacci(100)**, the space required remains the same.
 
 #### For Loop With Array
 
@@ -83,7 +83,7 @@ const fibonacci = (n) => {
 
 Basically the same solution as the loop, but using arrays for storage instead of **a** and **b** variables.
 
-Both the time and space complexity is O(n).
+Both the time and space complexity is **O(n)**.
 
 #### Recursive Solution
 
@@ -102,9 +102,9 @@ Same, as in the above example: if we pass a number that is less than or equal to
 
 Otherwise, we run the **fibonacci** function again, passing two previous numbers.
 
-The time complexity for this solution is exponential - O(2^n), which is quite high, so we definitely need to do some optimizations.
+The time complexity for this solution is exponential - **O(2^n)**, which is quite high, so we definitely need to do some optimizations.
 
-The space complexity is O(n).
+The space complexity is **O(n)**.
 
 #### Optimized Recursive Solution
 
@@ -130,9 +130,9 @@ const fibonacci = n => {
 };
 ```
 
-The time complexity for this solution is linear - O(n), since we ensure that the function is executed only once per given index and the result is later returned from the cache.
+The time complexity for this solution is linear - **O(n)**, since we ensure that the function is executed only once per given index and the result is later returned from the cache.
 
-The space complexity remains the same and is equal to O(n).
+The space complexity remains the same and is equal to **O(n)**.
 
 ## Find Index Of A Given Fibonacci Number
 
