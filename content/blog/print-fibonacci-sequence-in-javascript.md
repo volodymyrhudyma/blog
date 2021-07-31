@@ -3,7 +3,8 @@ title: Fibonacci Sequence In JavaScript
 tag:
   - JavaScript
 promote: false
-metaDescription: // META
+metaDescription: Learn Fibonacci Sequence in JavaScript - print Fibonacci Number
+  under given index and print an index for a given Fibonacci Number.
 shareImage: /img/fibonacci-in-javascript.jpg
 teaser: "Fibonacci Sequence is a sequence of numbers, such as each number is a
   sum of two previous ones, starting from 0 and 1. The example sequence: 0, 1,
@@ -26,7 +27,7 @@ Today we will learn a few ways to implement a function that:
 
   `fibonacci(55) -> 10`
 
-## Find Fibonacci Number Under A Given Index
+## Find Fibonacci Number Of A Given Index
 
 This function will be written in two ways, using the for loop and recursion.
 
@@ -46,7 +47,6 @@ const fibonacci = n => {
   
   return c;
 };
-
 ```
 
 In this solution, we sum two numbers in a loop (**a + b**) and reassign each item with the next value (**a** with **b**, **b** with **c** - the result of **a + b**).
@@ -66,7 +66,6 @@ The space complexity is O(1), because it doesn't matter whether we will execute 
 Another popular and straightforward solution is using for loop and array:
 
 ```javascript
-
 const fibonacci = (n) => {
   if(n <= 1) {
     return n;
@@ -135,7 +134,7 @@ The time complexity for this solution is linear - O(n), because we make sure to 
 
 The space complexity remains the same as equals to O(n).
 
-## Find Index For A Given Fibonacci Number
+## Find Index Of A Given Fibonacci Number
 
 We are given a Fibonacci number and want to find out its index in the Fibonacci sequence.
 
@@ -161,3 +160,7 @@ const getFibonacciIndex = n => {
 ```
 
 ## Summary
+
+In this article we have learned how to find the Fibonacci number under a given index and how to find the index of a given Fibonacci number.
+
+This topic is not something complicated, however it is frequently being asked on job interviews, so make sure you know how to implement all these functions without any cheat sheet.
