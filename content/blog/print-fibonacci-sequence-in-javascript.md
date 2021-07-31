@@ -6,13 +6,13 @@ promote: false
 metaDescription: Learn Fibonacci Sequence in JavaScript - print Fibonacci Number
   under given index and print an index for a given Fibonacci Number.
 shareImage: /img/fibonacci-in-javascript.jpg
-teaser: "Fibonacci Sequence is a sequence of numbers in which as each number is
-  a sum of the previous two, starting with 0 and 1. The example sequence: 0, 1,
-  1, 2, 3, 5, 8, 13, 21, 34, 55, etc. It can be represented by the following
+teaser: "Fibonacci Sequence is a sequence of numbers in which each number is a
+  sum of the previous two, starting with 0 and 1. The example sequence: 0, 1, 1,
+  2, 3, 5, 8, 13, 21, 34, 55, etc. It can be represented by the following
   formula..."
 date: 2021-07-31T20:36:38.604Z
 ---
-Fibonacci Sequence is a sequence of numbers in which as each number is a sum of the previous two, starting with 0 and 1.
+Fibonacci Sequence is a sequence of numbers in which each number is a sum of the previous two, starting with 0 and 1.
 
 The example sequence: **0, 1, 1, 2, 3, 5, 8, 13, 21, 34**, **55**, etc.
 
