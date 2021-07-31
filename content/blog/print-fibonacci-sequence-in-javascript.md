@@ -25,11 +25,8 @@ Today we will learn a few ways to implement a function that:
 * finds the index of a given Fibonacci number in the sequence:
 
   `fibonacci(55) -> 10`
-* prints the whole Fibonacci Sequence up to a certain index:
 
-  `fibonacci(10) -> 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55`
-
-## Index Value Of Fibonacci Sequence
+## Find Fibonacci Number Under A Given Index
 
 This function will be written in two ways, using the for loop and recursion.
 
@@ -64,6 +61,31 @@ The time complexity for this solution is linear - O(n), because we execute the l
 
 The space complexity is O(1), because it doesn't matter whether we will execute **fibonacci(10)** or **fibonacci(100)**, the amount of required space remains the same. 
 
+#### For Loop With Array
+
+Another popular and straightforward solution is using for loop and array:
+
+```javascript
+
+const fibonacci = (n) => {
+  if(n <= 1) {
+    return n;
+  }
+
+  const result = [0, 1];
+
+  for (let i = 2; i <= n; i++) {
+    result[i] = result[i - 2] + result[i - 1]
+  }
+
+  return result[result.length - 1];
+}
+```
+
+Basically, the same solution as with the loop, but using arrays for storage instead of **a** and **b** variables.
+
+Both, the the time and space complexity is O(n).
+
 #### Recursive Solution
 
 Recursions are always tricky to wrap you head around, but once you understand it, this solution may even seem a bit simpler that the above once due to less code:
@@ -77,7 +99,7 @@ const fibonacci = n => {
 };
 ```
 
-Same, as with the loop, if we pass a number that is smaller or equal to 1, we just return this number.
+Same, as in the above example, if we pass a number that is smaller or equal to 1, we just return this number.
 
 Otherwise, we execute the **fibonacci** function once again, passing two previous numbers.
 
@@ -112,5 +134,30 @@ const fibonacci = n => {
 The time complexity for this solution is linear - O(n), because we make sure to execute the function once per given index return the the result from cache later.
 
 The space complexity remains the same as equals to O(n).
+
+## Find Index For A Given Fibonacci Number
+
+We are given a Fibonacci number and want to find out its index in the Fibonacci sequence.
+
+A simple way to do this is to find the Fibonacci numbers up to a given number and count number of the performed iterations: 
+
+```javascript
+const getFibonacciIndex = n => {
+  if (n <= 1) {
+    return n;
+  }
+   
+  let a = 0, b = 1, c = 1, result = 1;
+  
+  while (c < n) {
+    c = a + b;
+    a = b;
+    b = c;
+    result++;
+  }
+  
+  return result;
+};
+```
 
 ## Summary
