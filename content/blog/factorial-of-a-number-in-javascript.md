@@ -108,13 +108,15 @@ const factorial = n => {
 };
 ```
 
+It doesn't really add any improvements until we call the **factorial** function multiple times with the same arguments.
+
 ## Iterative vs. Recursive
 
 Both iterative and Recursive approaches are very simple, but use slightly different techniques to calculate the Factorial.
 
 So, what approach is better?
 
-The recommended one is Iterative, since it works faster.
+The recommended one is **Iterative**, since it works faster.
 
 Try to use it as much as possible.
 
