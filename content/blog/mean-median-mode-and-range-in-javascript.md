@@ -3,7 +3,8 @@ title: Mean, Median, Mode and Range In JavaScript
 tag:
   - JavaScript
 promote: false
-metaDescription: // META
+metaDescription: Learn what do Mean, Median, Mode and Range of an Array in
+  JavaScript mean and how to easily implement them.
 shareImage: /img/mean-median-mode-range-in-javascript.jpg
 teaser: Calculating mean, median, mode and range is not a very common task, but
   developers definitely need to know what these are and how to calculate them
@@ -154,3 +155,9 @@ const range = arr => {
 ```
 
 ## Summary
+
+In this article, we learned how to calculate mean, median, mode and range of an array in JavaScript.
+
+The implementation is simple, unless you know the meaning of each term.
+
+If you don't - make sure you understand it and implement without any hints at least once.
