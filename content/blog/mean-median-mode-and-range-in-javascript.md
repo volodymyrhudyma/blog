@@ -28,6 +28,16 @@ Let's calculate mean for the following array: **\[2, 4, 5, 7, 1, 8, 1]**:
 
 So, the mean is **4**.
 
+```javascript
+const mean = arr => {
+  let total = 0;
+  for (let i = 0; i < arr.length; i++) {
+    total += arr[i];
+  }
+  return total / arr.length;
+};
+```
+
 ## Median
 
 **Median** is the middle number in the **sorted** array of numbers.
@@ -58,6 +68,20 @@ Let's calculate mean for the following array: **\[5, 6, 1, 2, 10, 8, 3, 4]**:
 
 So, the median is **4.5**.
 
+```javascript
+const median = arr => {
+  const { length } = arr;
+  
+  arr.sort((a, b) => a - b);
+  
+  if (length % 2 === 0) {
+    return (arr[length / 2 - 1] + arr[length / 2]) / 2;
+  }
+  
+  return arr[(length - 1) / 2];
+};
+```
+
 ## Mode
 
 **Mode** is the number that appears most often.
@@ -76,6 +100,42 @@ If a few numbers appear same number of times, return the first one found.
 
 Mode for the following array: **\[2, 4, 6, 2, 2, 4, 4, 6, 6]** is also **2**.
 
+```javascript
+const mode = arr => {
+  const mode = {};
+  let max = 0, count = 0;
+
+  for(let i = 0; i < arr.length; i++) {
+    const item = arr[i];
+    
+    if(mode[item]) {
+      mode[item]++;
+    } else {
+      mode[item] = 1;
+    }
+    
+    if(count < mode[item]) {
+      max = item;
+      count = mode[item];
+    }
+  }
+   
+  return max;
+};
+```
+
 ## Range
+
+**Range** is the difference between the largest and the smallest number in an array.
+
+Range for the following array: **\[2, 4, 5, 7, 1, 8, 1]** is **\[1, 8]**.
+
+```javascript
+const range = arr => {
+  arr.sort((a, b) => a - b);
+  
+  return [arr[0], arr[arr.length - 1]];
+};
+```
 
 ## Summary
