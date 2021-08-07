@@ -18,7 +18,7 @@ Before we proceed with the implementation, let's learn what each of these terms 
 
 ## Mean
 
-The **Mean** is the average of all the numbers in an array.
+**Mean** is the average of all the numbers in an array.
 
 It can be calculated by adding all numbers and dividing by the array size.
 
@@ -41,7 +41,7 @@ const mean = arr => {
 
 ## Median
 
-The **Median** is the middle number in the **sorted** array of numbers.
+**Median** is the middle number in the **sorted** array of numbers.
 
 To calculate this value, we should first sort an array and check the size - whether it is **odd** or **even**.
 
