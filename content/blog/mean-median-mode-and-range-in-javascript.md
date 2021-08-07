@@ -100,6 +100,16 @@ If a few numbers appear same number of times, return the first one found.
 
 Mode for the following array: **\[2, 4, 6, 2, 2, 4, 4, 6, 6]** is also **2**.
 
+The algorithm is the following:
+
+* Iterate through the array and add each number to the JavaScript Object if it is not yet there
+* If the number is already added, increment count of its key
+* Check if stored highest mode (**count**) is smaller than the processed number:
+
+  * If smaller, then the **count** variable is changed to whatever the key for the current element is, and the **max** value changed to the current element
+  * If greater then do nothing
+* After the iteration is finished, **max** will store a number and **count** - frequency, so we return **max**
+
 ```javascript
 const mode = arr => {
   const mode = {};
@@ -128,7 +138,12 @@ const mode = arr => {
 
 **Range** is the difference between the largest and the smallest number in an array.
 
-Range for the following array: **\[2, 4, 5, 7, 1, 8, 1]** is **\[1, 8]**.
+Let's calculate range for the following array: **\[2, 4, 5, 7, 1, 8, 1]**:
+
+* Sort all numbers: **\[1, 1, 2, 4, 5, 7, 8]**
+* Return new array containing the first and the last numbers from the sorted array: **\[1, 8]**
+
+So, the range is **[1,** **8]**.
 
 ```javascript
 const range = arr => {
