@@ -3,7 +3,9 @@ title: How To Validate An Email Address In JavaScript?
 tag:
   - JavaScript
 promote: false
-metaDescription: // META
+metaDescription: Learn three ways to validate an email in JavaScript - using a
+  Regular Expression, built-in HTML5 validation or a third-party library with
+  its pros and cons.
 shareImage: /img/validate-email-address-in-javascript.jpg
 teaser: Web applications should block a possibility of inputting wrong data,
   especially when it comes to such an important information, like email address.
@@ -216,6 +218,18 @@ In the end, we need to figure out what approach is the best.
 
 I would recommend a mix of the second and the third one - it doesn't cost you anything to add an input of email type, which will use the built-in HTML5 email validation and then install and use an external library for even better security.
 
-The cons of using an external library are not really valid, because these libraries are so small that adding them costs almost nothing (the size of **email-validator**, according to the [BundlePhobia](https://bundlephobia.com/package/email-validator@2.0.4) is 300B minified + gzipped) and the licence typically allows you to use the library in your commercial projects. 
+The cons of using an external library are not really accurate, because these libraries are so small that adding them costs almost nothing (the size of **email-validator**, according to the [BundlePhobia](https://bundlephobia.com/package/email-validator@2.0.4) is 300B minified + gzipped) and the licence typically allows you to use the library in your commercial projects.
+
+But don't forget that **validating emails on the server side is nowhere less important than validating them on the client-side**.
+
+Someone can send a request to your backend from Postman, without using your front-end and you will end up with a wrong data in the database.
 
 ## Summary
+
+Email validation is a very important topic, understanding which will help you to create better and more secure applications.
+
+In this article, we learned 3 ways to validate an email address in JavaScript: Using a Regular Expression, built-in HTML5 validation or a third-party library.
+
+Each approach has its own pros and cons and it's totally up to you to decide what to use, depending on the circumstances.
+
+Don't forget that validating emails on the client-side is only one piece of a puzzle  - emails have to be validated on the backend side as well.
