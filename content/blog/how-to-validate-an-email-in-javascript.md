@@ -39,9 +39,6 @@ Email prefix should contain:
 
 * Letters and numbers: **A-Z**, **a-z**, **0-9**
 * Special characters: **!**, **\#**, **$**, **%**, **&**, **'**, **\***, **+**, **\-**, **/**, **\=**, **?**, **^**, **_**, **`**, **{**, **\|**
-* Length up to 64 characters
-
-**Important note**: special characters can't appear as the first or the last character in email prefix.
 
 #### Email Domain Limitations
 
@@ -49,7 +46,6 @@ Email domain consists of a domain name and a top-level domain (**.com**, **.net*
 
 * Letters and numbers: **A-Z**, **a-z**, **0-9**
 * Hyphen (**\-**) or period (**.**)
-* Length up to 255 characters
 
 #### Example Email Addresses
 
