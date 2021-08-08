@@ -1,5 +1,5 @@
 ---
-title: How To Validate An Email In JavaScript?
+title: How To Validate An Email Address In JavaScript?
 tag:
   - JavaScript
 promote: false
