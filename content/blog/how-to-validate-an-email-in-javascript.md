@@ -175,4 +175,47 @@ You can visit the Github page of the library, open [index.js](https://github.com
 
 There are many more alternatives in the NPM registry, just go and search for a suitable one.
 
+## Pros And Cons Of All Approaches
+
+Each approach comes with its own pros and cons, so in this section we will reveal them:
+
+* **Regular Expression**
+
+  Pros:
+
+  * Can be easily customized
+
+  Cons:
+
+  * Hard to choose suitable Regular Expression
+* **Built-in HTML5 validation**
+
+  Pros:
+
+  * Native implementation
+
+  Cons:
+
+  * Harder custotmization
+  * Can be disabled in the Developer's Console
+* **Third-party library**
+
+  Pros:
+
+  * Proved to be working for hundreds of thousands of developers
+  * Contains unit tests, checking for edge cases
+
+  Cons:
+
+  * Adds additional KBs to your bundle
+  * Need to check the license
+
+## What Approach Is The Best?
+
+In the end, we need to figure out what approach is the best.
+
+I would recommend a mix of the second and the third one - it doesn't cost you anything to add an input of email type, which will use the built-in HTML5 email validation and then install and use an external library for even better security.
+
+The cons of using an external library are not really valid, because these libraries are so small that adding them costs almost nothing (the size of **email-validator**, according to the [BundlePhobia](https://bundlephobia.com/package/email-validator@2.0.4) is 300B minified + gzipped) and the licence typically allows you to use the library in your commercial projects. 
+
 ## Summary
