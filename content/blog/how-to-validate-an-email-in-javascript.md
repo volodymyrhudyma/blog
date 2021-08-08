@@ -76,7 +76,7 @@ This function will not check if the given email address exists and if we can del
 There are a few ways yo validate an email address in JavaScript:
 
 * Use a Regular Expression (*The preferred way*)
-* Using built-in HTML email validation
+* Using built-in HTML5 email validation
 * Using a third-party library
 
 Each of those ways have its own advantages and disadvantages, which we will talk about later.
@@ -121,7 +121,44 @@ console.log(isEmailValid("johndoe@.com")); // false
 console.log(isEmailValid("johndoe@gmail")); // false
 ```
 
-## Built-In HTML Validation
+It works as expected for the email addresses mentioned earlier in this article.
+
+## Built-In HTML5 Validation
+
+The simplest way to validate an email address in JavaScript is to use a built-in HTML5 validation.
+
+All you have to do is to use an **email** as the **type** of an **input** field:
+
+```javascript
+<form>
+  <input type="email" placeholder="Email Address">
+  <input type="submit" value="Submit">
+</form>
+```
+
+The user will see a warning message when trying to input wrong email address:
+
+![HTML5 built-in email validation warning](/img/screenshot-2021-08-08-at-17.19.06.png "HTML5 built-in email validation warning")
+
+Browsers, that support **type="email"**, implement the algorithm, equal to the following Regular Expression, according to the [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email#basic_validation):
+
+```javascript
+/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}
+[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
+```
+
+If you need any further restrictions for the email address, like allowing emails only from the specific domain, you can use **pattern** HTML5 attribute:
+
+```javascript
+<form>
+  <input type="email" pattern=".+@gmail\.com" placeholder="Email Address">
+  <input type="submit" value="Submit">
+</form>
+```
+
+Now, even though the following email: **johndoe@yahoo.com** is totally fine, we are given an error message, because only **gmail.com** is allowed:
+
+![HTML5 built-in email pattern validation warning](/img/screenshot-2021-08-08-at-17.25.51.png "HTML5 built-in email pattern validation warning")
 
 ## Third-Party Library
 
