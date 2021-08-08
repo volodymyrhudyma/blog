@@ -63,11 +63,11 @@ Wrong email addresses:
 
 * **johndoegmail.com** - doesn't contain @ character
 * **johndoe@.com** - missing domain name
-* **johndoe_@gmail.com** - special character is on the last position
+* **johndoe@gmail** - missing top-level domain
 
 So, let's begin with writing code that will validate an email address based on the above set of rules and output an information whether given email address is correct or not.
 
-## Email Address Validation
+## Ways To Validate Email Address
 
 It is important to mention that we will create a function that will check only whether an email address is of a proper format.
 
@@ -75,8 +75,54 @@ This function will not check if the given email address exists and if we can del
 
 There are a few ways yo validate an email address in JavaScript:
 
-* Use a Regular Expression
+* Use a Regular Expression (*The preferred way*)
 * Using built-in HTML email validation
 * Using a third-party library
 
 Each of those ways have its own advantages and disadvantages, which we will talk about later.
+
+## Regular Expression
+
+The most common and preferred way to validate an email address in JavaScript is to use a Regular Expression.
+
+Unfortunately, there is no general pattern for that can be used to validate 100% of emails.
+
+Every developer either has its own saved one, found in the Internet.
+
+I am typically using the following one, which is pretended to be working for more than 99% of emails:
+
+```javascript
+/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+```
+
+Note that you don't need to memoize or understand the whole pattern, just save it somewhere for a future use.
+
+Let's create a function that uses mentioned pattern:
+
+```javascript
+const isEmailValid = value => {
+  const pattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+   
+  return pattern.test(value.toLowerCase());
+};
+```
+
+In the above example, we check if passed **value** matches given **pattern** and return the boolean result.
+
+Let's test our function:
+
+```javascript
+console.log(isEmailValid("johndoe@gmail.com")); // true
+console.log(isEmailValid("john-doe@yahoo.com")); // true
+console.log(isEmailValid("john-doe%123%@mailbox.org")); // true
+
+console.log(isEmailValid("johndoegmail.com")); // false
+console.log(isEmailValid("johndoe@.com")); // false
+console.log(isEmailValid("johndoe@gmail")); // false
+```
+
+## Built-In HTML Validation
+
+## Third-Party Library
+
+## Summary
