@@ -28,3 +28,37 @@ Email is a subset of ASCII characters, divided by two parts using the @ symbol.
 The first part (email prefix) contains private information, while the second part (email domain) contains the domain name given email was registered in:
 
 `<prefix>@<domain>`
+
+Both parts have some criteria that need to be met for the email address to be considered valid.
+
+#### Email Prefix Limitations
+
+Email prefix should contain only:
+
+* Letters and numbers: **A-Z**, **a-z**, **0-9**
+* Special characters: **!**, **\#**, **$**, **%**, **&**, **'**, **\***, **+**, **\-**, **/**, **\=**, **?**, **^**, **_**, **`**, **{**, **\|**
+
+**Important note**: special characters can't appear as the first or the last character in email prefix.
+
+#### Email Domain Limitations
+
+Email domain consists of a domain name and a top-level domain (**.com**, **.net**, **.org**) and should contain only:
+
+* Letters and numbers: **A-Z**, **a-z**, **0-9**
+* Hyphen (**\-**) or period (**.**)
+
+#### Example Email Addresses
+
+After learning the rules we can identify whether an email address is correct or wrong.
+
+Correct email addresses:
+
+* **johndoe@gmail.com**
+* **john-doe@yahoo.com**
+* **john-doe%123%@mailbox.org**
+
+Wrong email addresses:
+
+* **johndoegmail.com** - doesn't contain @ character
+* **johndoe@.com** - missing domain name
+* **johndoe_@gmail.com** - special character is on the last position
