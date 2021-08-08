@@ -33,19 +33,21 @@ Both parts have some criteria that need to be met for the email address to be co
 
 #### Email Prefix Limitations
 
-Email prefix should contain only:
+Email prefix should contain:
 
 * Letters and numbers: **A-Z**, **a-z**, **0-9**
 * Special characters: **!**, **\#**, **$**, **%**, **&**, **'**, **\***, **+**, **\-**, **/**, **\=**, **?**, **^**, **_**, **`**, **{**, **\|**
+* Length up to 64 characters
 
 **Important note**: special characters can't appear as the first or the last character in email prefix.
 
 #### Email Domain Limitations
 
-Email domain consists of a domain name and a top-level domain (**.com**, **.net**, **.org**) and should contain only:
+Email domain consists of a domain name and a top-level domain (**.com**, **.net**, **.org**) and should contain:
 
 * Letters and numbers: **A-Z**, **a-z**, **0-9**
 * Hyphen (**\-**) or period (**.**)
+* Length up to 255 characters
 
 #### Example Email Addresses
 
@@ -62,3 +64,19 @@ Wrong email addresses:
 * **johndoegmail.com** - doesn't contain @ character
 * **johndoe@.com** - missing domain name
 * **johndoe_@gmail.com** - special character is on the last position
+
+So, let's begin with writing code that will validate an email address based on the above set of rules and output an information whether given email address is correct or not.
+
+## Email Address Validation
+
+It is important to mention that we will create a function that will check only whether an email address is of a proper format.
+
+This function will not check if the given email address exists and if we can deliver messages to it.
+
+There are a few ways yo validate an email address in JavaScript:
+
+* Use a Regular Expression
+* Using built-in HTML email validation
+* Using a third-party library
+
+Each of those ways have its own advantages and disadvantages, which we will talk about later.
