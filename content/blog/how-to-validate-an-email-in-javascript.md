@@ -75,7 +75,7 @@ This function will not check if the given email address exists and if we can del
 
 There are a few ways yo validate an email address in JavaScript:
 
-* Use a Regular Expression (*The preferred way*)
+* Use a Regular Expression
 * Using built-in HTML5 email validation
 * Using a third-party library
 
@@ -129,7 +129,7 @@ The simplest way to validate an email address in JavaScript is to use a built-in
 
 All you have to do is to use an **email** as the **type** of an **input** field:
 
-```javascript
+```html
 <form>
   <input type="email" placeholder="Email Address">
   <input type="submit" value="Submit">
@@ -143,13 +143,12 @@ The user will see a warning message when trying to input wrong email address:
 Browsers, that support **type="email"**, implement the algorithm, equal to the following Regular Expression, according to the [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email#basic_validation):
 
 ```javascript
-/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}
-[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
+/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
 ```
 
 If you need any further restrictions for the email address, like allowing emails only from the specific domain, you can use **pattern** HTML5 attribute:
 
-```javascript
+```html
 <form>
   <input type="email" pattern=".+@gmail\.com" placeholder="Email Address">
   <input type="submit" value="Submit">
@@ -161,5 +160,19 @@ Now, even though the following email: **johndoe@yahoo.com** is totally fine, we 
 ![HTML5 built-in email pattern validation warning](/img/screenshot-2021-08-08-at-17.25.51.png "HTML5 built-in email pattern validation warning")
 
 ## Third-Party Library
+
+Finally, the most reliable way of performing an email validation in JavaScript - is using an external library, which is proved to be working for hundreds of thousands of other developers.
+
+In some of my projects I have been using [email-validator](https://www.npmjs.com/package/email-validator), which is popular, even though is most likely not maintained (the last publish was 3 years ago):
+
+```javascript
+import validator from "email-validator";
+
+validator.validate("johndoe@gmail.com"); // true
+```
+
+You can visit the Github page of the library, open [index.js](https://github.com/manishsaraan/email-validator/blob/master/index.js) file and check what Regular Expression is used under the hood.
+
+There are many more alternatives in the NPM registry, just go and search for a suitable one.
 
 ## Summary
