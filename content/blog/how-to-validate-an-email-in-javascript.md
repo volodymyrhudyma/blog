@@ -11,7 +11,7 @@ teaser: Web applications should block a possibility of inputting wrong data,
   especially when it comes to such an important information, like email address.
   Validating email address is a must for all websites, not only to prevent fake
   data to be...
-date: 2021-08-09T13:48:16.000Z
+date: 2021-08-10T13:48:16.000Z
 ---
 Web applications should block a possibility of inputting wrong data, especially when it comes to such an important information, like email address.
 
@@ -110,13 +110,13 @@ In the above example, we check if passed **value** matches given **pattern** and
 Let's test our function:
 
 ```javascript
-console.log(isEmailValid("johndoe@gmail.com")); // true
-console.log(isEmailValid("john-doe@yahoo.com")); // true
-console.log(isEmailValid("john-doe%123%@mailbox.org")); // true
+isEmailValid("johndoe@gmail.com"); // true
+isEmailValid("john-doe@yahoo.com"); // true
+isEmailValid("john-doe%123%@mailbox.org"); // true
 
-console.log(isEmailValid("johndoegmail.com")); // false
-console.log(isEmailValid("johndoe@.com")); // false
-console.log(isEmailValid("johndoe@gmail")); // false
+isEmailValid("johndoegmail.com"); // false
+isEmailValid("johndoe@.com"); // false
+isEmailValid("johndoe@gmail"); // false
 ```
 
 It works as expected for the email addresses mentioned earlier in this article.
