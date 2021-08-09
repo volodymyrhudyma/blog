@@ -4,7 +4,7 @@ tag:
   - Git
 promote: false
 metaDescription: Learn a few easy ways to undo the last commit in Git using the
-  git reset command.
+  git reset command with different flags (--soft, --hard, --mixed).
 shareImage: /img/undo-last-commit-in-git.jpg
 teaser: One of the most common tasks when collaborating with other developers
   using Git is adding and removing commits. While adding commits is a relatively
@@ -15,9 +15,9 @@ One of the most common tasks when collaborating with other developers using Git 
 
 While adding commits is a relatively simple task, undoing incorrect or unnecessary commits can cause problems.
 
-Before you undo a commit, make sure you really need to do it, and not just edit the commit message.
+Before you undo a commit, make sure you really need to do so, and not just edit the commit message.
 
-If you want to edit a commit message, see one of my [previous articles](/two-ways-to-change-a-commit-message-in-git/) that explains how to change a commit message in Git.
+If you want to edit a commit message, read one of my [previous articles](/two-ways-to-change-a-commit-message-in-git/) that explains how to change a commit message in Git.
 
 ## Undo The Last Commit
 
@@ -33,13 +33,13 @@ Or
 
 `git reset HEAD~1` / `git reset --mixed HEAD~1`
 
-They are pretty similar, with just one difference - using **\--soft**, **\--hard** or **\--mixed** flag.
+They are pretty similar, with only one difference - the use of **\--soft**, **\--hard** or **\--mixed** flag.
 
 #### \--soft
 
-Does not touch the index file or the working tree at all (but resets the head to the previous commit, just like all modes do). 
+Does not touch the index file or working tree at all (but resets the head to the previous commit, like all modes). 
 
-This leaves all your changed files "Changes to be committed":
+This leaves all changed files as "Changes to be committed":
 
 ![Git Soft Reset](/img/screenshot-2021-08-09-at-10.51.42.png "Git Soft Reset")
 
@@ -47,23 +47,23 @@ This leaves all your changed files "Changes to be committed":
 
 Resets the index and working tree. 
 
-Any changes to tracked files in the working tree for the previous commit are discarded:
+All changes to tracked files in the working tree for the previous commit are discarded:
 
 ![Git Hard Reset](/img/screenshot-2021-08-09-at-10.53.08.png "Git Hard Reset")
 
 #### \--mixed
 
-Mixed is the default option, which means that if you just run **git reset HEAD~1**, it will be used.
+Mixed is the default option, so if you simply run **git reset HEAD~1**, this option will be used.
 
-Resets the index but not the working tree (i.e., the changed files are preserved but not marked for commit) and reports what has not been updated:
+Resets the index but not the working tree (i.e., the changed files are preserved but not marked for commit) and reports what was not updated:
 
 ![Git Mixed Reset](/img/screenshot-2021-08-09-at-11.00.18.png "Git Mixed Reset")
 
 ## Undo Multiple Commits
 
-If you want to undo multiple commits, you can either provide the number of commits or specify the commit hash you want to reset to.
+If you want to revert multiple commits, you can specify either the number of commits or the commit hash you want to revert to.
 
-Let's pretend we want to remove 3 last commits:
+Let's say we want to revert the last 3 commits:
 
 `git reset --hard HEAD~3`
 
@@ -81,11 +81,11 @@ And the second one:
 
 ## Summary
 
-In this article, we learned how to undo one or multiple commits in Git using the **git reset** command and providing different flags to it, depending on whether you want to keep the changes or not.
+In this article, we learned how to undo one or more commits in Git by using the **git reset** command and giving it different flags, depending on whether you want to keep the changes or not.
 
-Before you undo a commit, make sure you really need to do it, and not just edit the commit message.
+Before you undo a commit, make sure you really need to do so, and not just edit the commit message.
 
-If you want to edit a commit message, see one of my [previous articles](/two-ways-to-change-a-commit-message-in-git/) that explains how to change a commit message in Git.
+If you want to edit a commit message, read one of my [previous articles](/two-ways-to-change-a-commit-message-in-git/) that explains how to change a commit message in Git.
 
 Read my other articles about Git:
 
