@@ -3,7 +3,8 @@ title: How To Undo The Last Commit In Git?
 tag:
   - Git
 promote: false
-metaDescription: // META
+metaDescription: Learn a few easy ways to undo the last commit in Git using the
+  git reset command.
 shareImage: /img/undo-last-commit-in-git.jpg
 teaser: One of the most common tasks when collaborating with other developers
   using Git is adding and removing commits. While adding commits is a relatively
@@ -79,3 +80,17 @@ And the second one:
 ![Git Hard Reset Last 3 Commits [2]](/img/screenshot-2021-08-09-at-11.06.15.png "Git Hard Reset Last 3 Commits [2]")
 
 ## Summary
+
+In this article, we learned how to undo one or multiple commits in Git using the **git reset** command and providing different flags to it, depending on whether you want to keep the changes or not.
+
+Before you undo a commit, make sure you really need to do it, and not just edit the commit message.
+
+If you want to edit a commit message, see one of my [previous articles](/two-ways-to-change-a-commit-message-in-git/) that explains how to change a commit message in Git.
+
+Read my other articles about Git:
+
+* [Top 5 Git Commands For Experienced Developers](/top-5-git-commands-for-experienced-developers/)
+* [How To Delete And Restore Branches In Git?](/how-to-delete-and-restore-branches-in-git/)
+* [Git Push To Multiple Repositories](/git-push-to-multiple-repositories/)
+* [How To Rename Local And Remote Branch In Git?](/how-to-rename-local-and-remote-branch-in-git/)
+* [Git Stash Like A Pro](/git-stash-like-a-pro/)
