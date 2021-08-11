@@ -9,7 +9,7 @@ shareImage: /img/undo-last-commit-in-git.jpg
 teaser: One of the most common tasks when collaborating with other developers
   using Git is adding and removing commits. While adding commits is a relatively
   simple task, undoing incorrect or unnecessary commits can cause problems...
-date: 2021-08-12T07:49:31.125Z
+date: 2021-08-11T07:49:31.125Z
 ---
 One of the most common tasks when collaborating with other developers using Git is adding and removing commits.
 
