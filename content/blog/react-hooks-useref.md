@@ -31,7 +31,7 @@ const MyComponent = () => {
   const ref = useRef(null);
   
   useEffect(() => {
-    console.log(ref.current); // "<div>Hi, I am MyConponent</div>"
+    console.log(ref.current); // <div>Hi, I am MyConponent</div>
     console.log(typeof ref.current); // "object"
   }, []);
   
@@ -138,5 +138,58 @@ The answer is simple - React haven't yet determined what is the output of a comp
 The **useEffect()** hook executes right after mounting, which means that the DOM structure with out **input** element is ready and we are safe to reference it.
 
 ## Store Mutable Values
+
+Another use case of the built-in **useRef()** hook is storing mutable values, which are persisted between component re-renders and can be mutated (changed) at any given point of time without triggering a new re-render.
+
+Read once again the sentence above carefully and remember two things:
+
+* Values are persisted between re-renders
+* Changing value does not trigger a new re-render
+
+#### \#1 - Values Are Persisted Between Re-Renders
+
+```jsx
+const MyComponent = ({ user }) => {
+  const ref = useRef(null);
+
+  useEffect(() => {
+    ref.current = user;
+    console.log(ref.current === user); // "true"
+  }, []);
+
+  useEffect(() => {
+    console.log(ref.current === user); // "true" for the initial render, then "false"
+  }, [user]);
+
+  return <div>Hi, I am MyComponent</div>;
+};
+```
+
+Let's take a close look at the above example.
+
+We have a component named **MyComponent**, which receives a **user** object from its parent component:
+
+```jsx
+const ParentComponent = () => {
+  // ...
+
+  return (
+    <MyComponent
+      user={{
+        name: "Elon",
+      }}
+    />
+  );
+};
+```
+
+Every time the **ParentComponent** re-renders, a new **user** object is created and passed to the **MyComponent**.
+
+In **MyComponent**, we implement two **useEffect()** hooks: the first one and the second one.
+
+Both of them fire on initial render and check if the stored **user** object is equal to the received one, but there are some important differences between them:
+
+* The first one is fired **only** on initial render and stores the **user** object under the **ref.current**
+* The second one is fired both, on initial render and on the **user** object change
 
 ## Summary
