@@ -323,4 +323,56 @@ Now, regardless of which button you click, you update the same counter:
 
 Note how clicking on the second or third button increments the same counter.
 
+## What About Class-Based Components?
+
+The **useRef()** hook just like all other hooks is built only for functional components.
+
+In a class-based components, we can create refs by using either built-in **createRef()** function or defining a class variable.
+
+#### \#1 - createRef() Function
+
+```jsx
+class MyComponent extends Component {
+  ref = createRef(0);
+
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.ref.current++;
+    console.log(`In handleClick, clicked: ${this.ref.current} times`);
+  }
+
+  render() {
+    return <button onClick={this.handleClick}>Click Me</button>;
+  }
+}
+```
+
+#### \#2 - Define A Class Variable
+
+```jsx
+class MyComponent extends Component {
+  count = 0;
+
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.count++;
+    console.log(`In handleClick, clicked: ${this.count} times`);
+  }
+
+  render() {
+    return <button onClick={this.handleClick}>Click Me</button>;
+  }
+}
+```
+
+## useRef() vs. createRef()
+
 ## Summary
