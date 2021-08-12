@@ -297,6 +297,30 @@ It looks much easier and seems to work exactly the same way.
 
 However, it is not that easy.. Can you guess what is wrong with storing the variable outside of the **MyComponent**?
 
-Congratulations if you guessed, because it took me a while to figure it out - the variable, defined outside of the React component is global to all its instances.
+Congratulations if you guessed, because it took me a while to figure it out - the variable, defined outside of the React component is global to all its instances and shared between them.
+
+Basically, it means that if you render 3 instances of **MyComponent**, all of them will modify the same value.
+
+Let's assume we have the following **ParentComponent** and **MyComponent** remains unchanged:
+
+```jsx
+const ParentComponent = () => {
+  // ...
+
+  return (
+    <>
+      <MyComponent />
+      <MyComponent />
+      <MyComponent />
+    </>
+  );
+};
+```
+
+Now, regardless of which button you click, you update the same counter:
+
+![UseRef vs. Global Variable](/img/useref-global-var.gif "UseRef vs. Global Variable")
+
+Note how clicking on the second or third button increments the same counter.
 
 ## Summary
