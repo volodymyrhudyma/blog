@@ -233,4 +233,17 @@ However, the component is not re-rendered, which can be seen by the fact that th
 
 ## useRef() vs. useState()
 
+At this point, you should already understand one of the most important differences between the **useRef()** and **useState()** hooks:
+
+* The **useRef()** hook does not trigger the re-render of a component, while **useState()** does it.
+
+However, there are some more important things to remember:
+
+* The reference update (**ref.current = value**) is synchronous, while the state update (**setCount(value)**) is asynchronous
+* The **useRef()** hook returns an object with the **current** property, while the **useState()** hook returns an array with two elements: the state and the state updater function
+
+To sum up, use the **useRef()** hook only if you a data container that keeps values throughout the component's lifecycle and doesn't trigger a re-render when mutated or if you need to access a DOM node.
+
+In all other cases - you should be fine with the **useState()** hook.
+
 ## Summary
