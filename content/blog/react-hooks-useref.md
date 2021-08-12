@@ -14,8 +14,8 @@ date: 2021-08-13T07:15:00.384Z
 ---
 The **useRef()** is a built-in hook in React, which is used for two purposes: 
 
-* to access DOM elements
-* to store mutable values which persist between component re-renders
+* To access DOM elements
+* To store mutable values which persist between component re-renders
 
 The hook accepts an argument called **initialValue** and returns a mutable ref object that contains a special **current** property, which stores the passed argument for the full component's lifetime:
 
