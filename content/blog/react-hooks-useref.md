@@ -90,3 +90,23 @@ But this is not the "React way" and it has an important drawback - if you would 
 The same disadvantage applies to classes - even though your are allowed to have multiple elements with the same class name, **document.getElementsByClassName()** will return all of them and it is extremely hard to find out which component created which element unless you find a way to tie class name and component.
 
 #### Set A Focus On A DOM Node
+
+Another good use case of the **useRef()** hook is focusing the input when component mounts, so the user can instantly start typing into it:
+
+```jsx
+import React, { useRef, useEffect } from "react";
+
+const MyComponent = () => {
+  const ref = useRef(null);
+
+  useEffect(() => {
+    ref.current.focus();
+  }, []);
+
+  return <input ref={ref} type="text" placeholder="Type here" />;
+};
+```
+
+Note that we executed the **focus()** method on an input DOM node.
+
+If you are curious whan other methods could have been used, navigate to [this section](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement#methods) of MDN docs.
