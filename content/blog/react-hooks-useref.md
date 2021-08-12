@@ -137,6 +137,32 @@ The answer is simple - React haven't yet determined what is the output of a comp
 
 The **useEffect()** hook executes right after mounting, which means that the DOM structure with out **input** element is ready and we are safe to reference it.
 
+#### \#4 - Notify Me When The Ref Is Attached Or Detached
+
+If you want to run some code when React attaches or detaches a ref to a DOM node, you should use a [callback ref](https://reactjs.org/docs/refs-and-the-dom.html#callback-refs)instead:
+
+```jsx
+import React, { useCallback } from "react";
+
+const MyComponent = () => {
+  const measuredRef = useCallback((node) => {
+    if (node !== null) {
+      const rect = node.getBoundingClientRect();
+      console.log(rect.width); // "153"
+      console.log(rect.height); // "21"
+    }
+  }, []);
+
+  return <input ref={measuredRef} type="text" placeholder="Type here" />;
+};
+```
+
+Using a callback ref makes sure that even if the child component displays the **input** DOM node later, we will still be notified about it in the parent component and will be able to take an action based on that.
+
+Click [here](https://codesandbox.io/s/818zzk8m78) to view an example.
+
+**Important note:** Pass an empty array as the dependency to the **useCallback()** hook to make sure that React won't change the callback between re-renders.
+
 ## Store Mutable Values
 
 Another use case of the built-in **useRef()** hook is storing mutable values, which are persisted between component re-renders and can be mutated (changed) at any given point of time without triggering a new re-render.
@@ -245,5 +271,32 @@ However, there are some more important things to remember:
 To sum up, use the **useRef()** hook only if you a data container that keeps values throughout the component's lifecycle and doesn't trigger a re-render when mutated or if you need to access a DOM node.
 
 In all other cases - you should be fine with the **useState()** hook.
+
+## useRef() vs. Variable
+
+When I was wrapping my head around the **useRef()** hook I was wondering why do we even have to use the **useRef()** hook to preserve a value between re-renders, if we can just store it in a variable outside of the React component, like this:
+
+```jsx
+import React from "react";
+
+let count = 0;
+
+const MyComponent = () => {
+  const handleClick = () => {
+    count++;
+    console.log(`In handleClick, clicked: ${count} times`);
+  };
+
+  console.log("MyComponent render");
+
+  return <button onClick={handleClick}>Click Me</button>;
+};
+```
+
+It looks much easier and seems to work exactly the same way.
+
+However, it is not that easy.. Can you guess what is wrong with storing the variable outside of the **MyComponent**?
+
+Congratulations if you guessed, because it took me a while to figure it out - the variable, defined outside of the React component is global to all its instances.
 
 ## Summary
