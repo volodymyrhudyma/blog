@@ -156,7 +156,9 @@ const MyComponent = ({ user }) => {
     console.log(ref.current === user); // "true" for the initial render, then "false"
   }, [user]);
 
-  return <div>Hi, I am MyComponent</div>;
+  return (
+    // ...
+  );
 };
 ```
 
@@ -180,20 +182,55 @@ const ParentComponent = () => {
 
 Every time the **ParentComponent** re-renders, a new **user** object is created and passed to the **MyComponent**.
 
-In **MyComponent**, we set the first received **user** object to the **ref.current** and implement the **useEffect()** hooks that fires both, on initial render and the **user** object change.
+In **MyComponent**, we set the first received **user** object to the **ref.current** and implement the **useEffect()** hook that fires both, on initial render and the **user** object change.
 
 #### Initial Render Phase
 
-On initial render, the **useEffect()** hooks is fired and **console.log()** returns **true**, since the **user** object from props is the same as the **user** object stored under the **ref.current**.
+On initial render, the **useEffect()** hook is fired and **console.log()** returns **true**, since the **user** object from props is the same as the **user** object stored under the **ref.current**.
 
 #### Subsequent Renders
 
-On subsequent renders, the **useEffect()** hooks is fired and its log returns **false**, since the **user** object from props is already a new object, not the same as stored under the **ref.current**.
+On subsequent renders, the **useEffect()** hook is fired and **console.log()** returns **false**, since the **user** object from props is already a new object, not the same as stored under the **ref.current**.
 
 It means that the object we store under the **ref.current** is the very first **user** object and it persists between re-renders.
 
 See the logs:
 
 ![UseRef Logs](/img/useref-example-gif.gif "UseRef Logs")
+
+#### \#2 - Changing Value Does Not Trigger A New Re-Render
+
+```jsx
+import React, { useRef } from "react";
+
+const MyComponent = () => {
+  const ref = useRef(0);
+
+  const handleClick = () => {
+    ref.current++;
+    console.log(`In handleClick, clicked: ${ref.current} times`);
+  };
+
+  console.log("MyComponent render");
+
+  return <button onClick={handleClick}>Click Me</button>;
+};
+```
+
+The **MyComponent** stores number of clicks in the **ref** object.
+
+When the user clicks on a button, the **handleClick** method is executed, the counter is updated and the following line is printed to the console:
+
+```html
+In handleClick, clicked: 1 times
+In handleClick, clicked: 2 times
+In handleClick, clicked: 3 times
+```
+
+However, the component is not re-rendered, which can be seen by the fact that the second log (with the "MyComponent render" message) is not shown more than once, which happened for initial render:
+
+![UseRef Does Not Trigger Component Re-Render](/img/useref-not-triggering-rerender.gif "UseRef Does Not Trigger Component Re-Render")
+
+## useRef() vs. useState()
 
 ## Summary
