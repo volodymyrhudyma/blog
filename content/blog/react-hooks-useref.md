@@ -3,9 +3,13 @@ title: "React Hooks: useRef (Full Guide)"
 tag:
   - React
 promote: false
-metaDescription: // META
+metaDescription: Learn the built-in useRef() hook in React, which is used for
+  accessing DOM elements and storing values which persist between re-renders.
 shareImage: /img/useref-hook-in-react.jpg
-teaser: // TEASER
+teaser: "The useRef() is a built-in hook in React, which is used for two
+  purposes: to access DOM elements and to store mutable values which persist
+  between component re-renders. The hook accepts an argument called initialValue
+  and returns a mutable ref object that contains..."
 date: 2021-08-13T07:15:00.384Z
 ---
 The **useRef()** is a built-in hook in React, which is used for two purposes: 
@@ -17,7 +21,6 @@ The hook accepts an argument called **initialValue** and returns a mutable ref o
 
 ```javascript
 const ref = useRef(initialValue);
-
 ```
 
 ## Access DOM Elements
@@ -420,3 +423,17 @@ See it in action:
 ![UseRef vs. CreateRef Example From StackOverflow](/img/useref-vs-createref.gif "UseRef vs. CreateRef Example From StackOverflow")
 
 ## Summary
+
+In this article, we learned about the built-in **useRef()** hook that is used for accessing DOM elements and storing mutable values, which persist between the component re-renders.
+
+We mentioned some important differences between:
+
+* **useRef()** and **useState()**
+* Variable defined outside of the React component and **useRef()**
+* **useRef()** and **createRef()**
+
+We learned how to use the **createRef()** or class variables for achieving the same functionality in a class-based components.
+
+And way, way more.
+
+I hope you learned something new today.
