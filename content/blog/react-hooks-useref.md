@@ -333,7 +333,7 @@ In a class-based components, we can create refs by using either built-in **creat
 
 ```jsx
 class MyComponent extends Component {
-  ref = createRef(0);
+  ref = createRef();
 
   constructor(props) {
     super(props);
@@ -374,5 +374,49 @@ class MyComponent extends Component {
 ```
 
 ## useRef() vs. createRef()
+
+The difference between the **useRef()** hook and **createRef()** method is simple: **createRef()** returns a new ref on each render, while **useRef()** returns the same ref each time.
+
+Here's an example, taken from the [stackoverflow](https://stackoverflow.com/questions/54620698/whats-the-difference-between-useref-and-createref) that demonstrates the difference between the two:
+
+```jsx
+import React, { useRef, createRef, useState } from "react";
+
+const App = () => {
+  const [renderIndex, setRenderIndex] = useState(1);
+
+  const refFromUseRef = useRef();
+  const refFromCreateRef = createRef();
+
+  if (!refFromUseRef.current) {
+    refFromUseRef.current = renderIndex;
+  }
+
+  if (!refFromCreateRef.current) {
+    refFromCreateRef.current = renderIndex;
+  }
+
+  return (
+    <div className="App">
+      Current render index: {renderIndex}
+      <br />
+      First render index remembered within refFromUseRef.current:{" "}
+      {refFromUseRef.current}
+      <br />
+      First render index unsuccessfully remembered within
+      refFromCreateRef.current:
+      {refFromCreateRef.current}
+      <br />
+      <button onClick={() => setRenderIndex((prev) => prev + 1)}>
+        Cause re-render
+      </button>
+    </div>
+  );
+};
+```
+
+See it in action:
+
+![UseRef vs. CreateRef Example From StackOverflow](/img/useref-vs-createref.gif "UseRef vs. CreateRef Example From StackOverflow")
 
 ## Summary
