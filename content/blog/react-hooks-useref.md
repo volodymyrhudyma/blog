@@ -150,13 +150,8 @@ Read once again the sentence above carefully and remember two things:
 
 ```jsx
 const MyComponent = ({ user }) => {
-  const ref = useRef(null);
-
-  useEffect(() => {
-    ref.current = user;
-    console.log(ref.current === user); // "true"
-  }, []);
-
+  const ref = useRef(user);
+  
   useEffect(() => {
     console.log(ref.current === user); // "true" for the initial render, then "false"
   }, [user]);
@@ -185,11 +180,20 @@ const ParentComponent = () => {
 
 Every time the **ParentComponent** re-renders, a new **user** object is created and passed to the **MyComponent**.
 
-In **MyComponent**, we implement two **useEffect()** hooks: the first one and the second one.
+In **MyComponent**, we set the first received **user** object to the **ref.current** and implement the **useEffect()** hooks that fires both, on initial render and the **user** object change.
 
-Both of them fire on initial render and check if the stored **user** object is equal to the received one, but there are some important differences between them:
+#### Initial Render Phase
 
-* The first one is fired **only** on initial render and stores the **user** object under the **ref.current**
-* The second one is fired both, on initial render and on the **user** object change
+On initial render, the **useEffect()** hooks is fired and **console.log()** returns **true**, since the **user** object from props is the same as the **user** object stored under the **ref.current**.
+
+#### Subsequent Renders
+
+On subsequent renders, the **useEffect()** hooks is fired and its log returns **false**, since the **user** object from props is already a new object, not the same as stored under the **ref.current**.
+
+It means that the object we store under the **ref.current** is the very first **user** object and it persists between re-renders.
+
+See the logs:
+
+![UseRef Logs](/img/useref-example-gif.gif "UseRef Logs")
 
 ## Summary
