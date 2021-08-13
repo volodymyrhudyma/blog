@@ -3,14 +3,15 @@ title: "React Hooks: useRef (Full Guide)"
 tag:
   - React
 promote: false
-metaDescription: Learn the built-in useRef() hook in React, which is used for
-  accessing DOM elements and storing values which persist between re-renders.
+metaDescription: Learn more about the built-in useRef() hook in React, which is
+  used to access DOM elements and store values that persist between component
+  re-renders.
 shareImage: /img/useref-hook-in-react.jpg
 teaser: "The useRef() is a built-in hook in React that is used for two purposes:
   to access DOM elements and to store mutable values that persist between
   component re-renders. The hook accepts an argument called initialValue and
   returns a mutable ref object that contains..."
-date: 2021-08-13T07:15:00.384Z
+date: 2021-08-14T07:15:00.384Z
 ---
 The **useRef()** is a built-in hook in React that is used for two purposes: 
 
@@ -168,12 +169,12 @@ Click [here](https://codesandbox.io/s/818zzk8m78) to see an example.
 
 ## Store Mutable Values
 
-Another use case of the built-in **useRef()** hook is storing mutable values, which are persisted between component re-renders and can be mutated (changed) at any given point of time without triggering a new re-render.
+Another use case for the built-in **useRef()** hook is storing mutable values that are preserved between component re-renders and can be mutated (changed) at any time without triggering a new re-render.
 
-Read once again the sentence above carefully and remember two things:
+Read the above sentence again carefully and remember two things:
 
-* Values are persisted between re-renders
-* Changing value does not trigger a new re-render
+* Values are preserved between re-renders
+* A value change does not trigger a new re-render
 
 #### \#1 - Values Are Persisted Between Re-Renders
 
@@ -191,9 +192,9 @@ const MyComponent = ({ user }) => {
 };
 ```
 
-Let's take a close look at the above example.
+Let's take a closer look at the above example.
 
-We have a component named **MyComponent**, which receives a **user** object from its parent component:
+We have a component called **MyComponent** that gets a **user** object from its parent:
 
 ```jsx
 const ParentComponent = () => {
@@ -209,19 +210,19 @@ const ParentComponent = () => {
 };
 ```
 
-Every time the **ParentComponent** re-renders, a new **user** object is created and passed to the **MyComponent**.
+Each time the **ParentComponent** re-renders, a new **user** object is created and passed to the **MyComponent**.
 
-In **MyComponent**, we set the first received **user** object to the **ref.current** and implement the **useEffect()** hook that fires both, on initial render and the **user** object change.
+In **MyComponent**, we set the first **user** object received to **ref.current** and implement the **useEffect()** hook, which is triggered both, on initial render and when the **user** object change.
 
 #### Initial Render Phase
 
-On initial render, the **useEffect()** hook is fired and **console.log()** returns **true**, since the **user** object from props is the same as the **user** object stored under the **ref.current**.
+On initial render, the **useEffect()** hook is triggered and **console.log()** returns **true** because the **user** object from props is the same as the **user** object stored at the **ref.current**.
 
 #### Subsequent Renders
 
-On subsequent renders, the **useEffect()** hook is fired and **console.log()** returns **false**, since the **user** object from props is already a new object, not the same as stored under the **ref.current**.
+On subsequent renders, the **useEffect()** hook is triggered and **console.log()** returns **false** because the **user** object from props is already a new object, not the same one stored at **ref.current**.
 
-It means that the object we store under the **ref.current** is the very first **user** object and it persists between re-renders.
+This means that the object we store under **ref.current** is the very first **user** object and it persists between re-renders.
 
 See the logs:
 
@@ -246,9 +247,9 @@ const MyComponent = () => {
 };
 ```
 
-The **MyComponent** stores number of clicks in the **ref** object.
+The **MyComponent** stores the number of clicks in the **ref** object.
 
-When the user clicks on a button, the **handleClick** method is executed, the counter is updated and the following line is printed to the console:
+When the user clicks a button, the **handleClick** method is executed, the counter is updated, and the following line is printed to the console:
 
 ```html
 In handleClick, clicked: 1 times
@@ -256,7 +257,7 @@ In handleClick, clicked: 2 times
 In handleClick, clicked: 3 times
 ```
 
-However, the component is not re-rendered, which can be seen by the fact that the second log (with the "MyComponent render" message) is not shown more than once, which happened for initial render:
+However, the component is not re-rendered, which can be seen by the fact that the second log (with the "MyComponent render" message) is not displayed more than once, which was the case for the initial render:
 
 ![UseRef Does Not Trigger Component Re-Render](/img/useref-not-triggering-rerender.gif "UseRef Does Not Trigger Component Re-Render")
 
@@ -264,20 +265,20 @@ However, the component is not re-rendered, which can be seen by the fact that th
 
 At this point, you should already understand one of the most important differences between the **useRef()** and **useState()** hooks:
 
-* The **useRef()** hook does not trigger the re-render of a component, while **useState()** does it.
+* The **useRef()** hook does not trigger the re-render of a component, while **useState()** does.
 
-However, there are some more important things to remember:
+However, there are some other important things to note:
 
-* The reference update (**ref.current = value**) is synchronous, while the state update (**setCount(value)**) is asynchronous
+* Updating the reference (**ref.current = value**) is synchronous, while updating the state (**setCount(value)**) is asynchronous
 * The **useRef()** hook returns an object with the **current** property, while the **useState()** hook returns an array with two elements: the state and the state updater function
 
-To sum up, use the **useRef()** hook only if you a data container that keeps values throughout the component's lifecycle and doesn't trigger a re-render when mutated or if you need to access a DOM node.
+In summary, you should only use the **useRef()** hook if you have a data container that retains values throughout the component's lifecycle and does not trigger a new rendering when a change is made, or if you need to access a DOM node.
 
-In all other cases - you should be fine with the **useState()** hook.
+In all other cases, you should get by with the **useState()** hook.
 
 ## useRef() vs. Variable
 
-When I was wrapping my head around the **useRef()** hook I was wondering why do we even have to use the **useRef()** hook to preserve a value between re-renders, if we can just store it in a variable outside of the React component, like this:
+When I was wrapping my head around the **useRef()** hook, I was wondering why we even need to use the **useRef()** hook to preserve a value between re-renders when we can just store it in a variable outside of the React component, like here:
 
 ```jsx
 import React from "react";
@@ -296,13 +297,13 @@ const MyComponent = () => {
 };
 ```
 
-It looks much easier and seems to work exactly the same way.
+It looks much easier and seems to work the same way.
 
-However, it is not that easy.. Can you guess what is wrong with storing the variable outside of the **MyComponent**?
+However, it's not that simple.. Can you guess what's wrong with storing the variable outside of **MyComponent**?
 
-Congratulations if you guessed, because it took me a while to figure it out - the variable, defined outside of the React component is global to all its instances and shared between them.
+Congratulations if you guessed it, because it took me a while to figure it out - the variable defined outside of the React component is global to all of its instances and shared between them.
 
-Basically, it means that if you render 3 instances of **MyComponent**, all of them will modify the same value.
+Basically, this means that if you render 3 instances of **MyComponent**, they will all change the same value.
 
 Let's assume we have the following **ParentComponent** and **MyComponent** remains unchanged:
 
@@ -320,17 +321,17 @@ const ParentComponent = () => {
 };
 ```
 
-Now, regardless of which button you click, you update the same counter:
+Regardless of which button you click, you are now updating the same counter:
 
 ![UseRef vs. Global Variable](/img/useref-global-var.gif "UseRef vs. Global Variable")
 
-Note how clicking on the second or third button increments the same counter.
+Note how clicking the second or third button increments the same counter.
 
 ## What About Class-Based Components?
 
-The **useRef()** hook just like all other hooks is built only for functional components.
+The **useRef()** hook, like all other hooks, is intended for functional components only.
 
-In a class-based components, we can create refs by using either built-in **createRef()** function or defining a class variable.
+In class-based components, we can create refs either with the built-in **createRef()** function or by defining a class variable.
 
 #### \#1 - createRef() Function
 
@@ -378,9 +379,9 @@ class MyComponent extends Component {
 
 ## useRef() vs. createRef()
 
-The difference between the **useRef()** hook and **createRef()** method is simple: **createRef()** returns a new ref on each render, while **useRef()** returns the same ref each time.
+The difference between the **useRef()** hook and the **createRef()** method is simple: **createRef()** returns a new reference on each render, while **useRef()** returns the same reference each time.
 
-Here's an example, taken from the [stackoverflow](https://stackoverflow.com/questions/54620698/whats-the-difference-between-useref-and-createref) that demonstrates the difference between the two:
+Here's an example from the [stackoverflow](https://stackoverflow.com/questions/54620698/whats-the-difference-between-useref-and-createref) that demonstrates the difference between the two methods:
 
 ```jsx
 import React, { useRef, createRef, useState } from "react";
@@ -424,16 +425,16 @@ See it in action:
 
 ## Summary
 
-In this article, we learned about the built-in **useRef()** hook that is used for accessing DOM elements and storing mutable values, which persist between the component re-renders.
+In this article, we learned about the built-in **useRef()** hook, which is used to access DOM elements and store mutable values that persist between component re-renders.
 
 We mentioned some important differences between:
 
 * **useRef()** and **useState()**
-* Variable defined outside of the React component and **useRef()**
+* Variables defined outside of the React component and **useRef()**
 * **useRef()** and **createRef()**
 
-We learned how to use the **createRef()** or class variables for achieving the same functionality in a class-based components.
+We learned how to use **createRef()** or class variables to achieve the same functionality in a class-based components.
 
-And way, way more.
+And much, much more.
 
-I hope you learned something new today.
+I hope you learned something new today and see you in the next article.
