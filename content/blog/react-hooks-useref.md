@@ -143,7 +143,7 @@ The **useEffect()** hook is executed right after mounting, which means that the 
 
 #### \#4 - Notify Me When The Ref Is Attached Or Detached
 
-If you want to run code when React attaches or detaches a ref to a DOM node, you should use a [callback ref](https://reactjs.org/docs/refs-and-the-dom.html#callback-refs)instead:
+If you want to run code when React attaches or detaches a ref to a DOM node, you should use a [callback ref](https://reactjs.org/docs/refs-and-the-dom.html#callback-refs) instead:
 
 ```jsx
 import React, { useCallback } from "react";
@@ -212,7 +212,7 @@ const ParentComponent = () => {
 
 Each time the **ParentComponent** re-renders, a new **user** object is created and passed to the **MyComponent**.
 
-In **MyComponent**, we set the first **user** object received to **ref.current** and implement the **useEffect()** hook, which is triggered both, on initial render and when the **user** object change.
+In **MyComponent**, we set the first **user** object received to **ref.current** and implement the **useEffect()** hook, which is triggered both, on initial render and when the **user** object changes.
 
 #### Initial Render Phase
 
@@ -265,7 +265,7 @@ However, the component is not re-rendered, which can be seen by the fact that th
 
 At this point, you should already understand one of the most important differences between the **useRef()** and **useState()** hooks:
 
-* The **useRef()** hook does not trigger the re-render of a component, while **useState()** does.
+* The **useRef()** hook does not trigger the re-render of a component, while **useState()** does
 
 However, there are some other important things to note:
 
@@ -274,7 +274,7 @@ However, there are some other important things to note:
 
 In summary, you should only use the **useRef()** hook if you have a data container that retains values throughout the component's lifecycle and does not trigger a new rendering when a change is made, or if you need to access a DOM node.
 
-In all other cases, you should get by with the **useState()** hook.
+In all other cases, you should be fine with the **useState()** hook.
 
 ## useRef() vs. Variable
 
