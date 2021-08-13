@@ -6,18 +6,18 @@ promote: false
 metaDescription: Learn the built-in useRef() hook in React, which is used for
   accessing DOM elements and storing values which persist between re-renders.
 shareImage: /img/useref-hook-in-react.jpg
-teaser: "The useRef() is a built-in hook in React, which is used for two
-  purposes: to access DOM elements and to store mutable values which persist
-  between component re-renders. The hook accepts an argument called initialValue
-  and returns a mutable ref object that contains..."
+teaser: "The useRef() is a built-in hook in React that is used for two purposes:
+  to access DOM elements and to store mutable values that persist between
+  component re-renders. The hook accepts an argument called initialValue and
+  returns a mutable ref object that contains..."
 date: 2021-08-13T07:15:00.384Z
 ---
-The **useRef()** is a built-in hook in React, which is used for two purposes: 
+The **useRef()** is a built-in hook in React that is used for two purposes: 
 
 * To access DOM elements
-* To store mutable values which persist between component re-renders
+* To store mutable values that persist between component re-renders
 
-The hook accepts an argument called **initialValue** and returns a mutable ref object that contains a special **current** property, which stores the passed argument for the full component's lifetime:
+The hook accepts an argument called **initialValue** and returns a mutable ref object that contains a special **current** property that stores the passed argument for the lifetime of the component:
 
 ```javascript
 const ref = useRef(initialValue);
@@ -25,7 +25,7 @@ const ref = useRef(initialValue);
 
 ## Access DOM Elements
 
-This is, probably, the most common use case for the **useRef()**, which can store the reference to a DOM element:
+This is probably the most common use case for **useRef()**, which can store the reference to a DOM element:
 
 ```jsx
 import React, { useRef, useEffect } from "react";
@@ -42,15 +42,15 @@ const MyComponent = () => {
 };
 ```
 
-Note that the initial value, passed to the hook is **null** (we can also omit it, so the value is **undefined**), since the reference is not set until the content is rendered.
+Note that the initial value passed to the hook is **null** (we can also omit it so that the value is **undefined**), since the reference is not set until the content is rendered.
 
 To assign a reference to an element, a special attribute **ref** is used.
 
-Having an access to the DOM element allows us to do a lot of useful things, like get width and height of the element, focus it on the initial render, etc.
+By accessing the element DOM we can do many useful things, such as get the width and height of the element, focus it when it is first rendered, etc.
 
 #### \#1 - Get Width And Height Of a DOM Node
 
-In some cases, we need to grab the dimensions of an element, which may be required for some further calculations and we can easily do it:
+In some cases we need to find out the dimensions of an element, which are needed for some further calculations, and we can easily do that:
 
 ```jsx
 import React, { useRef, useEffect } from "react";
@@ -71,7 +71,7 @@ const MyComponent = () => {
 
 > The **Element.getBoundingClientRect()** method returns a **DOMRect** object providing information about the size of an element and its position relative to the **viewport**.
 
-Note, that we could have assigned the id to our div element and used the **document.getElementById()** method:
+You might be thinking that we could assign id to our div element and use the **document.getElementById()** method:
 
 ```jsx
 import React, { useEffect } from "react";
@@ -88,13 +88,13 @@ const MyComponent = () => {
 };
 ```
 
-But this is not the "React way" and it has an important drawback - if you would like to create multiple instances of **MyComponent**, you will end up with multiple div's having the same ids on the page, which is not allowed.
+But this is not the "React way" and it has an important drawback - if you want to create multiple instances of **MyComponent**, you will end up with multiple divs having the same ids on the page, which is not allowed.
 
-The same disadvantage applies to classes - even though your are allowed to have multiple elements with the same class name, **document.getElementsByClassName()** will return all of them and it is extremely hard to find out which component created which element unless you find a way to tie class name and component.
+The same drawback applies to classes - even though it is allowed to have multiple elements with the same class name, **document.getElementsByClassName()** will return all of them and it is extremely hard to figure out which component created which element unless you find a way to tie class name and component.
 
 #### \#2 - Set A Focus On A DOM Node
 
-Another good use case of the **useRef()** hook is focusing the input when component mounts, so the user can instantly start typing into it:
+Another good use case for the **useRef()** hook is to focus the input when the component is mounted, so that the user can start typing immediately:
 
 ```jsx
 import React, { useRef, useEffect } from "react";
@@ -110,9 +110,9 @@ const MyComponent = () => {
 };
 ```
 
-Note that we executed the **focus()** method on an input DOM node.
+Note that we ran the **focus()** method on an input DOM node.
 
-If you are curious what other methods could have been used, navigate to [this section](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement#methods) of MDN docs.
+If you are curious about what other methods could have been used, navigate to [this section](https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement#methods) of MDN docs.
 
 #### \#3 - Why Does It Even Work?
 
@@ -136,13 +136,13 @@ const MyComponent = () => {
 
 Note that the **current** property of a **ref** object is **null** during the initial rendering. Do you know why?
 
-The answer is simple - React haven't yet determined what is the output of a component, so there is no **input** element mounted yet.
+The answer is simple - React has not yet determined what the output of a component is, so there is no **input** element mounted yet.
 
-The **useEffect()** hook executes right after mounting, which means that the DOM structure with out **input** element is ready and we are safe to reference it.
+The **useEffect()** hook is executed right after mounting, which means that the DOM structure with the **input** element is ready and we can safely reference it.
 
 #### \#4 - Notify Me When The Ref Is Attached Or Detached
 
-If you want to run some code when React attaches or detaches a ref to a DOM node, you should use a [callback ref](https://reactjs.org/docs/refs-and-the-dom.html#callback-refs)instead:
+If you want to run code when React attaches or detaches a ref to a DOM node, you should use a [callback ref](https://reactjs.org/docs/refs-and-the-dom.html#callback-refs)instead:
 
 ```jsx
 import React, { useCallback } from "react";
@@ -160,11 +160,11 @@ const MyComponent = () => {
 };
 ```
 
-Using a callback ref makes sure that even if the child component displays the **input** DOM node later, we will still be notified about it in the parent component and will be able to take an action based on that.
+Using a callback reference ensures that even if the child component displays the **input** DOM node later, we are still notified about it in the parent component and are able to perform an action based on it.
 
-Click [here](https://codesandbox.io/s/818zzk8m78) to view an example.
+Click [here](https://codesandbox.io/s/818zzk8m78) to see an example.
 
-**Important note:** Pass an empty array as the dependency to the **useCallback()** hook to make sure that React won't change the callback between re-renders.
+**Important note:** Pass an empty array as a dependency to the **useCallback()** hook to ensure that React does not change the callback between re-renders.
 
 ## Store Mutable Values
 
