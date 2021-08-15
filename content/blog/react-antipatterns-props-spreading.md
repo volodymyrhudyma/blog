@@ -117,6 +117,48 @@ console.log(newUser);
 
 ## Props Spreading In React
 
+In React, if you have props as an object and you want to pass in to the child component, you can use the Spread Operator to do so:
+
+```jsx
+const App = () => {
+  const props = {
+    name: "John", 
+    surname: "Doe",
+  };
+  return <User {...props} />;
+}
+```
+
+The above code is a shorthand for:
+
+```jsx
+const App = () => {
+  const props = {
+    name: "John", 
+    surname: "Doe",
+  };
+  return <User name={props.name} surname={props.surname} />;
+}
+```
+
+You can even combine it with explicit props passing:
+
+```jsx
+const App = () => {
+  const props = {
+    name: "John", 
+    surname: "Doe",
+  };
+  return <User age={18} {...props} />;
+}
+```
+
+It seems like using the Spread Operator brings only benefits, shortens the code and makes it more sophisticated, but that's not entirely true.
+
+While, in some cases, it is totally fine to use the Spread Operator, you have to be very careful, because it's easy to pass unnecessary props by accident, which will cause extra re-renders and will have a major impact on the application's performance.
+
+The second drawback of this approach comes into play if you pass a lot of props to the child component - it is easy to get lost and spend a few minutes guessing what exactly is passed, unless you use TypeScript and explicitly define what is expected by the child component.
+
 ## Why It Should Be Avoided?
 
 ## Summary
