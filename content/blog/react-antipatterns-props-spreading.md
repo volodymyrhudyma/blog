@@ -153,6 +153,19 @@ const App = () => {
 }
 ```
 
+Or overwrite a property, passed using the Spread Operator:
+
+```jsx
+const App = () => {
+  const props = {
+    name: "John", 
+    surname: "Doe",
+    age: 21,
+  };
+  return <User {...props} age={18} />;
+}
+```
+
 It seems like using the Spread Operator brings only benefits, shortens the code and makes it more sophisticated, but that's not entirely true.
 
 ## Why It Should Better Be Avoided?
@@ -342,6 +355,6 @@ Using it equals to saying "**Pass all these props to this component**", so we sh
 
 I personally like to think about as of an antipattern, because it makes me to double check the code and ensure that I need or don't need the Spread Operator in the specific component, i.e., use it wisely.
 
-It is totally safe to use it with TypeScript, since you will get a quick overview of what props are passed and an instant error if any unexpected property occurs.
+However, it is totally safe to use it with TypeScript, since you will get a quick overview of what props are passed and an instant error if any unexpected property occurs.
 
 ## Summary
