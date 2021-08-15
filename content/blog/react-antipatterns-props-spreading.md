@@ -155,7 +155,7 @@ const App = () => {
 
 It seems like using the Spread Operator brings only benefits, shortens the code and makes it more sophisticated, but that's not entirely true.
 
-## Why It Should Be Avoided?
+## Why It Should Better Be Avoided?
 
 While, in some cases, it is totally fine to use the Spread Operator, you have to be very careful, because it's easy to pass unnecessary props by accident, which will cause extra re-renders and will have a major impact on the application's performance.
 
@@ -333,5 +333,15 @@ const User = ({
 ```
 
 * If you forget that the Spread Operator is used and add one more property to the **state**, it will be unnecessarily passed to the **User** component
+
+## Wait, Is It Really Antipattern?
+
+Stating that using Spread Operator is antipattern is **not 100% accurate**.
+
+Using it equals to saying "**Pass all these props to this component**", so we should not complain that some extra properties are passed when using it with the intention to pass only a part of them.
+
+I personally like to think about as of an antipattern, because it makes me to double check the code and ensure that I need or don't need the Spread Operator in the specific component, i.e., use it wisely.
+
+It is totally safe to use it with TypeScript, since you will get a quick overview of what props are passed and an instant error if any unexpected property occurs.
 
 ## Summary
