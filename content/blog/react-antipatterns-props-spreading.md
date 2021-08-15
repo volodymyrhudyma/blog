@@ -216,15 +216,69 @@ const User = (props) => {
   );
 };
 
-export default User;
+export default React.memo(User);
 ```
 
-Note that we could have skipped **curly braces** and **return** in the **User.jsx** for simplicity, but let's keep them for now.
+**Important note:** We could have skipped **curly braces** and **return** in the **User** component for simplicity, but let's keep them for now. We also user **React.memo()** to make sure that the **User** component won't re-render unnecessarily with the **App**.
 
 This component is responsible only for printing the name and the surname of the user to the screen.
 
 The look of our application is nowhere near fancy, but the topic is not about the design, right?
 
 ![The look of an application](/img/screenshot-2021-08-15-at-11.31.09.png "The look of an application")
+
+Let's take a close look at the **App.jsx**, especially at the following lines of code:
+
+```jsx
+const App = () => {
+  const [state, setState] = useState({
+    count: 0,
+    name: "John",
+    surname: "Doe",
+  });
+  
+  // ...
+  return (
+    // ...
+      <User {...state} />
+    // ...
+  );
+};
+```
+
+We know that the **User** component expects only two properties - **name** and **surname**, but we passed the whole **state**, adding an extra **counter**, which causes the **User** component to re-render unnecessarily. since the **counter** is not used, remember?
+
+Let's verify this:
+
+![User component re-renders unnecessarily](/img/antipatterns-two-renders.gif "User component re-renders unnecessarily")
+
+See how both **App** and **User** components are wrapped into the borders, when updating, which means that both of them updated on button click, which is wrong, since the **User** component shouldn't update.
+
+Let's change a bit the code of the **App** component to avoid using Spread Operator, but to explicitly pass **name** and **surname** props:
+
+```jsx
+const App = () => {
+  const [state, setState] = useState({
+    count: 0,
+    name: "John",
+    surname: "Doe",
+  });
+  
+  // ...
+  return (
+    // ...
+      <User name={state.name} surname={state.surname} />
+    // ...
+  );
+};
+```
+
+And verify the change:
+
+![User component does not re-render unnecessarily](/img/antipatterns-one-render.gif "User component does not re-render unnecessarily")
+
+See how only one border, wrapping the whole **App** component appears.
+
+If you are not familiar with the "Highlight updates when components render" feature of the React dev tools, you can add **console.log()** to both components and check the console.
 
 ## Summary
