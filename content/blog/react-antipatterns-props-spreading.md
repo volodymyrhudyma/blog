@@ -281,4 +281,57 @@ See how only one border, wrapping the whole **App** component appears.
 
 If you are not familiar with the "Highlight updates when components render" feature of the React dev tools, you can add **console.log()** to both components and check the console.
 
+#### \#2 - Easy To Get Lost In Passed Props
+
+This drawback applies only to the applications not using TypeScript.
+
+If you have a lot of props in an object, using Spread Operator makes passing them to the.child component easier, but it is easy to lose control of them:
+
+```jsx
+const App = () => {
+  const [state, setState] = useState({
+    count: 0,
+    name: "John",
+    surname: "Doe",
+    age: 18,
+    address: {
+      street: "Street, 1/3",
+      postCode: "12-345",
+    },
+    showDetails: true,
+    showSendButton: false,
+    // ...
+  });
+  
+  // ...
+  return (
+    // ...
+      <User {...state} />
+    // ...
+  );
+};
+```
+
+* To figure out what is passed, you need to scroll to the place where **state** is defined (assuming the **User** component will not destructure props) or to the **User** component (if props are destructured):
+
+```jsx
+const User = (props) => { 
+  // ... 
+};
+
+const User = ({
+  count,
+  name,
+  surname,
+  age,
+  address: { street, postCode },
+  showDetails,
+  showSendButton,
+}) => {
+  // ... 
+};
+```
+
+* If you forget that the Spread Operator is used and add one more property to the **state**, it will be unnecessarily passed to the **User** component
+
 ## Summary
