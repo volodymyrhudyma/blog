@@ -155,10 +155,76 @@ const App = () => {
 
 It seems like using the Spread Operator brings only benefits, shortens the code and makes it more sophisticated, but that's not entirely true.
 
+## Why It Should Be Avoided?
+
 While, in some cases, it is totally fine to use the Spread Operator, you have to be very careful, because it's easy to pass unnecessary props by accident, which will cause extra re-renders and will have a major impact on the application's performance.
 
 The second drawback of this approach comes into play if you pass a lot of props to the child component - it is easy to get lost and spend a few minutes guessing what exactly is passed, unless you use TypeScript and explicitly define what is expected by the child component.
 
-## Why It Should Be Avoided?
+#### \#1 - Extra Re-Renders And Performance Impact
+
+Let's build an application that contains two components: **App** and **User**.
+
+**App.jsx**
+
+```jsx
+import React, { useState } from "react";
+
+import User from "./User";
+
+const App = () => {
+  const [state, setState] = useState({
+    count: 0,
+    name: "John",
+    surname: "Doe",
+  });
+
+  const handleClick = () => {
+    setState((prevState) => ({
+      ...prevState,
+      count: prevState.count + 1,
+    }));
+  };
+
+  return (
+    <div className="App">
+      App Component: count - {state.count}
+      <button onClick={handleClick}>Add count</button>
+      <User {...state} />
+    </div>
+  );
+};
+
+export default App;
+```
+
+This component is responsible for:
+
+* Changing the **counter** variable in state after button click
+* Rendering the **User** component passing all necessary (and one extra!) props
+
+**User.jsx**
+
+```jsx
+import React from "react";
+
+const User = (props) => {
+  return (
+    <div>
+      User Component: name - {props.name}, Surname - {props.surname}
+    </div>
+  );
+};
+
+export default User;
+```
+
+Note that we could have skipped **curly braces** and **return** in the **User.jsx** for simplicity, but let's keep them for now.
+
+This component is responsible only for printing the name and the surname of the user to the screen.
+
+The look of our application is nowhere near fancy, but the topic is not about the design, right?
+
+![The look of an application](/img/screenshot-2021-08-15-at-11.31.09.png "The look of an application")
 
 ## Summary
