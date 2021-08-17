@@ -3,7 +3,8 @@ title: "React Antipatterns: Props Spreading"
 tag:
   - React
 promote: false
-metaDescription: // META
+metaDescription: Learn why using Spread Operator to pass props to the child
+  component may be considered as an antipattern in React.
 shareImage: /img/react-antipatterns-1.jpg
 teaser: Most of the time we learn how to write code, we memorize best practices,
   design patterns, clean code principles, and that's perfectly fine, but
@@ -81,7 +82,7 @@ const numbers = {
 console.log(numbers);
 ```
 
-#### \#3 - Passing arguments into a function
+#### \#3 - Pass arguments into a function
 
 ```javascript
 const add = (number1, number2, number3) => number1 + number2 + number3;
@@ -347,9 +348,9 @@ const User = ({
 
 * If you forget that the Spread Operator is used and add one more property to the **state**, it will be unnecessarily passed to the **User** component
 
-## Wait, Is It Really Antipattern?
+## Wait, Is It Really An Antipattern?
 
-Stating that using Spread Operator is antipattern is **not 100% accurate**.
+Stating that using Spread Operator is an antipattern is **not 100% accurate**.
 
 Using it equals to saying "**Pass all these props to this component**", so we should not complain that some extra properties are passed when using it with the intention to pass only a part of them.
 
@@ -358,3 +359,14 @@ I personally like to think about as of an antipattern, because it makes me to do
 However, it is totally safe to use it with TypeScript, since you will get a quick overview of what props are passed and an instant error if any unexpected property occurs.
 
 ## Summary
+
+Learning how not to write code is as important as learning best practices and design patterns.
+
+There are a lot of ways to write poor code in React, which are well-known and should be either avoided or known about.
+
+Today we learned why using the Spread Operator to pass props to the child component in React can be considered as an antipattern:
+
+* You may accidentally pass more props than needed
+* It is hard to see what props are actually passed unless you use TypeScript
+
+Definitely, Spread Operator makes your code look more elegant and shorter, but remember to use it wisely.
