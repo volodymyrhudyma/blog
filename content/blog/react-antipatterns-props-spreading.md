@@ -268,13 +268,9 @@ Let's verify this:
 
 ![User component re-renders unnecessarily](/img/antipatterns-two-renders.gif "User component re-renders unnecessarily")
 
-See how both **App** and **User** components are wrapped into the borders, when updating, which means that both of them updated on button click, which is wrong, since the **User** component shouldn't update.
-
-Let's change a bit the code of the **App** component to avoid using Spread Operator, but to explicitly pass **name** and **surname** props:
-
 See how both the **App** and **User** components are wrapped into the borders when they're updated, which means that both are refreshed when the button is clicked, which is wrong because the **User** component shouldn't be refreshed. 
 
-Let's change the **App** component code a bit to avoid using Spread Operator, but to explicitly pass the **name** and **lastName** props:
+Let's change the **App** component code a bit to avoid using Spread Operator, but to explicitly pass the **name** and **surname** props:
 
 ```jsx
 const App = () => {
@@ -352,7 +348,7 @@ const User = ({
 };
 ```
 
-* If you forget that Spread Operator is used and add another property to **state**, it will be unnecessarily passed to the **User** component.
+* If you forget that Spread Operator is used and add another property to **state**, it will be unnecessarily passed to the **User** component
 
 ## Wait, Is It Really An Antipattern?
 
