@@ -58,11 +58,11 @@ If you are not sure why, grab a cup of coffee and keep reading.
 
 ## Better Avoid Props In Initial State
 
-Generally speaking, props in initial state should be avoided, **unless you only need them to initialize the internal state of the component** and either props are never update or the component should not react to their updates.
+Generally speaking, props in initial state should be avoided, **unless you only need them to initialize the internal state of the component** and either props are never updated or the component should not react to their updates.
 
 Let's take a look at the above example - we pass the **initialValue** prop, which is used to initialize the internal state of the **ChildComponent** and is never changed.
 
-This is perfectly fine, but it is rather an exception than the general use case.
+This is perfectly fine, but it is rather an exception than the general rule.
 
 The real problem occurs if the **initialValue** can be changed in the **ParentComponent**:
 
@@ -94,7 +94,7 @@ const ChildComponent = ({ initialValue }) => {
 
 In the above example, we pass an **initialValue** that is changed after one second from "*Initial value*" to "*Changed value*".
 
-If you run an application and check what value would end up in the **<input />** element after a second, you will notice that it is still "*Initial value*", even though it has changed in the parent component.
+If you run an application and check what value would end up in the **input** element after a second, you will notice that it is still "*Initial value*", even though it has changed in the parent component.
 
 This happens because the **useState** hook initializes the state only once - when the component is rendered and is unable to capture further changes in the **initialValue** prop, which is used as an argument.
 
