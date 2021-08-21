@@ -6,15 +6,15 @@ promote: false
 metaDescription: Learn why using props to initialize the state of the component
   can be considered an antipattern in React.
 shareImage: /img/react-antipatterns-props-in-initial-state.jpg
-teaser: In React, props and state are everywhere - they allow us to pass an
+teaser: In React, props and state are everywhere - they allow us to pass
   information between components and manage the output of the component over
-  time in response to different actions. Separate usage of them is perfectly
-  fine, but in some cases they are mixed...
+  time in response to various actions. Using them separately is perfectly fine,
+  but in some cases they are...
 date: 2021-08-22T08:23:43.429Z
 ---
-In React, props and state are everywhere - they allow us to pass an information between components and manage the output of the component over time in response to different actions.
+In React, props and state are everywhere - they allow us to pass information between components and manage the output of the component over time in response to various actions.
 
-Separate usage of them is perfectly fine, but in some cases they are mixed:
+Using them separately is perfectly fine, but in some cases they are mixed:
 
 * A state variable can be passed as a prop to the child component:
 
@@ -52,19 +52,19 @@ const ChildComponent = ({ initialValue }) => {
 };
 ```
 
-While there is nothing wrong with both examples, the second may seem suspicious.
+While there is nothing wrong with either example, the second may seem suspicious.
 
-If you are not sure why, grab a cup of coffee and keep reading.
+If you are not sure why, grab a cup of coffee and read on.
 
 ## Better Avoid Props In Initial State
 
-Generally speaking, props in initial state should be avoided, **unless you only need them to initialize the internal state of the component** and either props are never updated or the component should not react to their updates.
+In general, props should be avoided in the initial state **unless you only need them to initialize the internal state of the component** and either props are never updated or the component should not react to their updates.
 
-Let's take a look at the above example - we pass the **initialValue** prop, which is used to initialize the internal state of the **ChildComponent** and is never changed.
+Let's look at the example above - we pass the **initialValue** prop, which is used to initialize the internal state of the **ChildComponent** and is never changed.
 
-This is perfectly fine, but it is rather an exception than the general rule.
+This is perfectly fine, but it is an exception rather than the general rule.
 
-The real problem occurs if the **initialValue** can be changed in the **ParentComponent**:
+The real problem occurs when the **initialValue** in the **ParentComponent** can be changed:
 
 ```jsx
 import React, { useState, useEffect } from "react";
@@ -92,21 +92,21 @@ const ChildComponent = ({ initialValue }) => {
 };
 ```
 
-In the above example, we pass an **initialValue** that is changed after one second from "*Initial value*" to "*Changed value*".
+In the above example, an **initialValue** is passed, which is changed from "*Initial value*" to "*Changed value*" after one second.
 
-If you run an application and check what value would end up in the **input** element after a second, you will notice that it is still "*Initial value*", even though it has changed in the parent component.
+If you run an application and check what value is in the **input** element after one second, you will find that it is still "*Initial value*" even though it has changed in the parent component.
 
-This happens because the **useState** hook initializes the state only once - when the component is rendered and is unable to capture further changes in the **initialValue** prop, which is used as an argument.
+This happens because the **useState** hook initializes the state only once - when the component is rendered and is not able to capture further changes in the **initialValue** prop.
 
-There is the second drawback - using props to generate the state often leads to the duplication of source of truth - you don't know where the real data is.
+There is a second drawback - using props to generate the state often leads to duplication of the source of truth - you don't know where the real data is.
 
-## The Correct Example
+## The Correct Examples
 
-Now we know what is the issue with the above code, let's see a few ways to fix it.
+Now we know what the problem is with the above code, let's see a few ways to fix it.
 
 #### \#1 - Parent Component Needs The Value
 
-In case if the parent component needs the **value**, for example to send it to the API, we may want to keep the state handling inside of it and just pass the **value** and the update function down as props:
+In case if the parent component needs the **value**, for example to send it to the API, we can leave the state handling in the component and just pass the **value** and the update function as props:
 
 ```jsx
 const ParentComponent = () => {
@@ -130,13 +130,13 @@ const ChildComponent = ({ value, handleChange }) => (
 );
 ```
 
-This way, when the **value** is updated, the changes are instantly reflected in the **input** element.
+This way, when the **value** is updated, the changes are immediately reflected in the **input** element.
 
 #### \#2 - Parent Component Doesn't Need The Value
 
-In case if the parent component does not need **value**, why would we want to keep it there to unnecessarily re-render the whole parent? 
+If the parent component doesn't need the **value**, why would we leave it there to unnecessarily re-render the entire parent component?
 
-Let's try to move the state and update function to the child component:
+Let's try moving the state and update function to the child component:
 
 ```jsx
 import React, { useState, useEffect } from "react";
@@ -170,11 +170,11 @@ const ChildComponent = ({ initialValue }) => {
 };
 ```
 
-Notice that we need to use the **useEffect** hook to capture the **initialValue** change and update the state accordingly.
+Note that we need to use the **useEffect** hook to capture the change in **initialValue** and update the state accordingly.
 
 ### \#3 - With The Key Prop
 
-We also can use the **initialValue** as a key to create a new instance of the **ChildComponent** every time it changes so that the state is reset:
+We can also use the **initialValue** as a key to create a new instance of the **ChildComponent** each time it changes to reset the state:
 
 ```jsx
 import React, { useState, useEffect } from "react";
@@ -202,18 +202,18 @@ const ChildComponent = ({ initialValue }) => {
 };
 ```
 
-While this is fine for small components, like we have, remember that re-creating components from scratch (which is done when key changes) can be expensive if components are big in size.
+While this is fine for small components like we have, keep in mind that rebuilding components from scratch (which is done when we change the key prop) can get expensive if the components are large.
 
 ## Summary
 
 In this article, we learned why it is better not to use props as arguments to the **useState** hook.
 
-In some cases it can be done, but only if you are sure that the component should not react to the changes in props, like in our example with the initial state - if it can never be changed, it is totally fine to initialize the state using it.
+In some cases it is possible, but only if you are sure that you do not want the component to react to the changes in props, like in our example with the initial state - if it can never be changed, it is perfectly fine to initialize the state with it.
 
-There are a few ways to fix an issue if you encountered it:
+There are a few ways to fix an issue if you run into it:
 
-* Keep the state in parent component and make the child fully controlled - pass the **value** and update function to it
-* Keep the state in child component and implement **useEffect**, which listens for prop updates and updates the local state
+* Keep the state in the parent component and make the child component fully controlled - pass the **value** and update function to it
+* Keep the state in the child component and implement **useEffect**, which listens for prop updates and updates the local state
 * Destroy and re-create the child component when the prop changes
 
-I suggest you to stick to either of the first two solutions, depending on your requirements, since the third one can have some (rather small) impact on your application's performance.
+I suggest you stick to one of the first two solutions depending on your requirements, as the third solution may have some (rather minor) impact on the performance of your application.
