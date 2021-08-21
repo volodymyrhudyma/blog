@@ -63,8 +63,6 @@ Let's take a look at the above example - we pass the **value** prop, which is us
 
 This is perfectly fine, but it is rather an exception than the general use case.
 
-#### \#1 - Changed Props
-
 The real problem occurs if the **value** can be changed in the **ParentComponent**:
 
 ```jsx
@@ -99,17 +97,13 @@ If you run an application and check what value would end up in the **input** ele
 
 This happens because the **useState** hook initializes the state only once - when the component is rendered and is unable to capture further changes in the **value** prop, which is used as an argument.
 
-#### \#2 - Duplicated Source Of Truth
-
-The second drawback of this approach is a duplicated source of truth - **value** has already been defined in the state of the parent component, so why do we have to redefine it in the child component?
-
-The general recommendation is to pick a single component to be considered as a single source of truth and avoid duplicating the state in other components.
-
 ## The Correct Example
 
-Now we know what are the issues with the above code, so let's try to fix them.
+Now we know what is the issue with the above code, so let's try to fix it.
 
 #### \#1 - Parent Component Needs The Value
+
+In case if the parent component needs the **value**, for example to send it to the API, we may want to keep the state handling inside of it and just pass the **value** and the update function down as props:
 
 ```jsx
 const ParentComponent = () => {
@@ -133,13 +127,11 @@ const ChildComponent = ({ value, handleChange }) => (
 );
 ```
 
-We only keep the **value** and the update function in the parent component and pass them down to the child.
-
 This way, when the **value** is updated, the changes are instantly reflected in the **input** element.
 
 #### \#2 - Parent Component Doesn't Need The Value
 
-In case if the parent component does not need **value**, so why would we want to keep it there? 
+In case if the parent component does not need **value**, why would we want to keep it there to unnecessarily re-render the whole parent? 
 
 Let's try to move the state and update function to the child component:
 
