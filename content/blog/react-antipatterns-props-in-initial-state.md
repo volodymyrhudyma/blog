@@ -3,7 +3,8 @@ title: "React Antipatterns: Props In Initial State"
 tag:
   - React
 promote: false
-metaDescription: // META
+metaDescription: Learn why using props to initialize the state of the component
+  can be considered an antipattern in React.
 shareImage: /img/react-antipatterns-props-in-initial-state.jpg
 teaser: In React, props and state are everywhere - they allow us to pass an
   information between components and manage the output of the component over
@@ -38,10 +39,10 @@ const ChildComponent = ({ value, handleChange }) => (
 ```jsx
 import React, { useState } from "react";
 
-const ParentComponent = () => <ChildComponent value="Initial value" />;
+const ParentComponent = () => <ChildComponent initialValue="Initial value" />;
 
-const ChildComponent = ({ value }) => {
-  const [inputValue, setInputValue] = useState(value);
+const ChildComponent = ({ initialValue }) => {
+  const [inputValue, setInputValue] = useState(initialValue);
 
   const handleChange = (e) => {
     setInputValue(e.target.value);
@@ -58,6 +59,8 @@ If you are not sure why, grab a cup of coffee and keep reading.
 ## Avoid Props In Initial State
 
 Generally speaking, props in initial state should be avoided, **unless you only need them to initialize the internal state of the component** and that's clearly expressed.
+
+In other words, if your component doesn't need to react on the changes of the props, which are used in the initial state.
 
 Let's take a look at the above example - we pass the **value** prop, which is used to initialize the internal state of the **ChildComponent** and is never changed.
 
@@ -173,7 +176,7 @@ Notice that we need to use the **useEffect** hook to capture the **initialValue*
 
 ### \#3 - With The Key Prop
 
-We also can use the **initialValue** as a key to create a new instance of the **ChildComponent** every time it changes:
+We also can use the **initialValue** as a key to create a new instance of the **ChildComponent** every time it changes so that the state is reset:
 
 ```jsx
 import React, { useState, useEffect } from "react";
@@ -204,3 +207,15 @@ const ChildComponent = ({ initialValue }) => {
 While this is fine for small components, like we have, remember that re-creating components from scratch (which is done when key changes) can be expensive if components are big in size.
 
 ## Summary
+
+In this article, we learned why it is better not to use props as arguments to the **useState** hook.
+
+In some cases it can be done, but only if you are sure that the component should not react to the changes in props, like in our example with the initial state - if it can never be changed, it is totally fine to initialize the state using it.
+
+There are a few ways to fix an issue if you encountered it:
+
+* Keep the state in parent component and make the child fully controlled - pass the **value** and update function to it
+* Keep the state in child component and implement **useEffect**, which listens for prop updates and updates the local state
+* Destroy and re-create the child component when the prop changes
+
+I suggest you to stick to either of the first two solutions, depending on your requirements, since the third one can have some (rather small) impact on your application's performance.
