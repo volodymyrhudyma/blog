@@ -171,7 +171,7 @@ const ChildComponent = ({ initialValue }) => {
 
 Notice that we need to use the **useEffect** hook to capture the **initialValue** change and update the state accordingly.
 
-### \#3 - Quick And Dirty
+### \#3 - With The Key Prop
 
 We also can use the **initialValue** as a key to create a new instance of the **ChildComponent** every time it changes:
 
