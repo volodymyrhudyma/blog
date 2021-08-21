@@ -5,7 +5,10 @@ tag:
 promote: false
 metaDescription: // META
 shareImage: /img/react-antipatterns-props-in-initial-state.jpg
-teaser: // TEASER
+teaser: In React, props and state are everywhere - they allow us to pass an
+  information between components and manage the output of the component over
+  time in response to different actions. Separate usage of them is perfectly
+  fine, but in some cases they are mixed...
 date: 2021-08-22T08:23:43.429Z
 ---
 In React, props and state are everywhere - they allow us to pass an information between components and manage the output of the component over time in response to different actions.
