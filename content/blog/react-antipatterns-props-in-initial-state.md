@@ -16,7 +16,7 @@ In React, props and state are everywhere - they allow us to pass an information 
 
 Separate usage of them is perfectly fine, but in some cases they are mixed:
 
-* A state variable can be passed a prop to the child component:
+* A state variable can be passed as a prop to the child component:
 
 ```jsx
 const ParentComponent = () => {
@@ -52,21 +52,19 @@ const ChildComponent = ({ initialValue }) => {
 };
 ```
 
-While there is nothing wrong with the first example, the second may seem suspicious.
+While there is nothing wrong with both examples, the second may seem suspicious.
 
 If you are not sure why, grab a cup of coffee and keep reading.
 
-## Avoid Props In Initial State
+## Better Avoid Props In Initial State
 
-Generally speaking, props in initial state should be avoided, **unless you only need them to initialize the internal state of the component** and that's clearly expressed.
+Generally speaking, props in initial state should be avoided, **unless you only need them to initialize the internal state of the component** and either props are never update or the component should not react to their updates.
 
-In other words, if your component doesn't need to react on the changes of the props, which are used in the initial state.
-
-Let's take a look at the above example - we pass the **value** prop, which is used to initialize the internal state of the **ChildComponent** and is never changed.
+Let's take a look at the above example - we pass the **initialValue** prop, which is used to initialize the internal state of the **ChildComponent** and is never changed.
 
 This is perfectly fine, but it is rather an exception than the general use case.
 
-The real problem occurs if the **value** can be changed in the **ParentComponent**:
+The real problem occurs if the **initialValue** can be changed in the **ParentComponent**:
 
 ```jsx
 import React, { useState, useEffect } from "react";
@@ -96,7 +94,7 @@ const ChildComponent = ({ initialValue }) => {
 
 In the above example, we pass an **initialValue** that is changed after one second from "*Initial value*" to "*Changed value*".
 
-If you run an application and check what value would end up in the **input** element after a second, you will notice that it is still "*Initial value*", even though it has changed in the parent component.
+If you run an application and check what value would end up in the **<input />** element after a second, you will notice that it is still "*Initial value*", even though it has changed in the parent component.
 
 This happens because the **useState** hook initializes the state only once - when the component is rendered and is unable to capture further changes in the **initialValue** prop, which is used as an argument.
 
@@ -104,7 +102,7 @@ There is the second drawback - using props to generate the state often leads to 
 
 ## The Correct Example
 
-Now we know what is the issue with the above code, so let's try to fix it.
+Now we know what is the issue with the above code, let's see a few ways to fix it.
 
 #### \#1 - Parent Component Needs The Value
 
