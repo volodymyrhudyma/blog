@@ -105,4 +105,74 @@ The second drawback of this approach is a duplicated source of truth - **value**
 
 The general recommendation is to pick a single component to be considered as a single source of truth and avoid duplicating the state in other components.
 
+## The Correct Example
+
+Now we know what are the issues with the above code, so let's try to fix them.
+
+#### \#1 - Parent Component Needs The Value
+
+```jsx
+const ParentComponent = () => {
+  const [value, setValue] = useState("Initial value");
+
+  useEffect(() => {
+    setTimeout(() => {
+      setValue("Changed value");
+    }, 1000);
+  }, []);
+
+  const handleChange = (e) => {
+    setValue(e.target.value);
+  };
+
+  return <ChildComponent value={value} handleChange={handleChange} />;
+};
+
+const ChildComponent = ({ value, handleChange }) => (
+  <input value={value} onChange={handleChange} />
+);
+```
+
+We only keep the **value** and the update function in the parent component and pass them down to the child.
+
+This way, when the **value** is updated, the changes are instantly reflected in the **input** element.
+
+#### \#2 - Parent Component Doesn't Need The Value
+
+In case if the parent component does not need **value**, so why would we want to keep it there? 
+
+Let's try to move the state and update function to the child component:
+
+```jsx
+import React, { useState, useEffect } from "react";
+
+const ParentComponent = () => {
+  const [initialValue, setInitialValue] = useState("Initial value");
+
+  useEffect(() => {
+    setTimeout(() => {
+      setInitialValue("Changed value");
+    }, 1000);
+  }, []);
+
+  return <ChildComponent initialValue={initialValue} />;
+};
+
+const ChildComponent = ({ initialValue }) => {
+  const [inputValue, setInputValue] = useState("");
+
+  useEffect(() => {
+    if (initialValue) {
+      setInputValue(initialValue);
+    }
+  }, [initialValue]);
+
+  const handleChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  return <input value={inputValue} onChange={handleChange} />;
+};
+```
+
 ## Summary
