@@ -69,19 +69,19 @@ The real problem occurs if the **value** can be changed in the **ParentComponent
 import React, { useState, useEffect } from "react";
 
 const ParentComponent = () => {
-  const [value, setValue] = useState("Initial value");
+  const [initialValue, setInitialValue] = useState("Initial value");
 
   useEffect(() => {
     setTimeout(() => {
-      setValue("Changed value");
+      setInitialValue("Changed value");
     }, 1000);
   }, []);
 
-  return <ChildComponent value={value} />;
+  return <ChildComponent initialValue={initialValue} />;
 };
 
-const ChildComponent = ({ value }) => {
-  const [inputValue, setInputValue] = useState(value);
+const ChildComponent = ({ initialValue }) => {
+  const [inputValue, setInputValue] = useState(initialValue);
 
   const handleChange = (e) => {
     setInputValue(e.target.value);
@@ -91,11 +91,13 @@ const ChildComponent = ({ value }) => {
 };
 ```
 
-In the above example, we pass a value that is changed after one second from "*Initial value*" to "*Changed value*".
+In the above example, we pass an **initialValue** that is changed after one second from "*Initial value*" to "*Changed value*".
 
 If you run an application and check what value would end up in the **input** element after a second, you will notice that it is still "*Initial value*", even though it has changed in the parent component.
 
-This happens because the **useState** hook initializes the state only once - when the component is rendered and is unable to capture further changes in the **value** prop, which is used as an argument.
+This happens because the **useState** hook initializes the state only once - when the component is rendered and is unable to capture further changes in the **initialValue** prop, which is used as an argument.
+
+There is the second drawback - using props to generate the state often leads to the duplication of source of truth - you don't know where the real data is.
 
 ## The Correct Example
 
@@ -166,5 +168,39 @@ const ChildComponent = ({ initialValue }) => {
   return <input value={inputValue} onChange={handleChange} />;
 };
 ```
+
+Notice that we need to use the **useEffect** hook to capture the **initialValue** change and update the state accordingly.
+
+### \#3 - Quick And Dirty
+
+We also can use the **initialValue** as a key to create a new instance of the **ChildComponent** every time it changes:
+
+```jsx
+import React, { useState, useEffect } from "react";
+
+const ParentComponent = () => {
+  const [initialValue, setInitialValue] = useState("Initial value");
+
+  useEffect(() => {
+    setTimeout(() => {
+      setInitialValue("Changed value");
+    }, 1000);
+  }, []);
+
+  return <ChildComponent key={initialValue} initialValue={initialValue} />;
+};
+
+const ChildComponent = ({ initialValue }) => {
+  const [inputValue, setInputValue] = useState(initialValue);
+
+  const handleChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  return <input value={inputValue} onChange={handleChange} />;
+};
+```
+
+While this is fine for small components, like we have, remember that re-creating components from scratch (which is done when key changes) can be expensive if components are big in size.
 
 ## Summary
