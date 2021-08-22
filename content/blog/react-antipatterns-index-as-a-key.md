@@ -250,4 +250,26 @@ const App = () => {
 
 Note how we added **key** to the **li** element.
 
-Run the application and make sure that it still works fine.
+Run the application and make sure that it still works fine, but even though we have added the **key**, nothing really changed.
+
+React still runs 4 mutations, because after adding a new element, all indexes are changed:
+
+```html
+<!-- Original list -->
+<li key={0}>1</li>
+<li key={1}>2</li>
+<li key={2}>3</li>
+
+<!-- ---------- -->
+
+<!-- New element -->
+<li key={0}>4</li>
+
+<li key={1}>1</li>
+<li key={2}>2</li>
+<li key={3}>3</li>
+```
+
+After adding a new element to the beginning of the array, it receives 0 as a key and all existing keys are shifted by 1.
+
+Be very careful of that, as those kinds of issues are extremely hard to debug.
