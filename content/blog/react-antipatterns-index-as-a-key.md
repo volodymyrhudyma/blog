@@ -274,7 +274,7 @@ After adding a new element to the beginning of the array, it receives 0 as a key
 
 These kinds of issues are extremely hard to debug, so remember the one thing in order to avoid them: **it's not recommended to use an index as a key if an order of list elements may change.**
 
-## See The Problem
+## Not Sure Of The Impact?
 
 It may still not be obvious how do extra mutations impact application, so let's extract **li** element to a separate component called **Element** and add a **useEffect()** with a **console.log()** to see when it's mounted and unmounted:
 
@@ -311,3 +311,31 @@ const App = () => {
 ```
 
 Run the application and check the console:
+
+![Index As A Key Problem](/img/index-as-a-key-problem.gif "Index As A Key Problem")
+
+After the start of the application, we see how three elements are mounted and that's perfectly fine:
+
+```html
+Element: 1 mounted
+Element: 2 mounted
+Element: 3 mounted
+```
+
+But when we add a new element, we see how all three existing elements are unmounted and mounted once again including the newly added element:
+
+```html
+Element: 1 unmounted
+Element: 2 unmounted
+Element: 3 unmounted
+Element: 0 mounted
+Element: 1 mounted
+Element: 2 mounted
+Element: 3 mounted
+```
+
+We destroy and re-mount old elements, which is not what we want, since they were not changed, right?
+
+If they contained some heavy logic, we will see a significant impact on the performance.
+
+This is exactly the problem we will always face, when using index as a key in lists, which can change order of their elements.
