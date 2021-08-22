@@ -339,3 +339,13 @@ We destroy and re-mount old elements, which is not what we want, since they were
 If they contained some heavy logic, we will see a significant impact on the performance.
 
 This is exactly the problem we will always face, when using index as a key in lists, which can change order of their elements.
+
+## What Is The Solution?
+
+We need to use a **unique** key, which is typically an **id** of an element, which we receive from the database.
+
+However, in the above example we don't have any id, so we should generate one ourselves.
+
+To do that, install a library called [nanoid](https://www.npmjs.com/package/nanoid):
+
+`yarn add nanoid`
