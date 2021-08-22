@@ -272,4 +272,42 @@ React still runs 4 mutations, because after adding a new element, all indexes ar
 
 After adding a new element to the beginning of the array, it receives 0 as a key and all existing keys are shifted by 1.
 
-Be very careful of that, as those kinds of issues are extremely hard to debug.
+These kinds of issues are extremely hard to debug, so remember the one thing in order to avoid them: **it's not recommended to use an index as a key if an order of list elements may change.**
+
+## See The Problem
+
+It may still not be obvious how do extra mutations impact application, so let's extract **li** element to a separate component called **Element** and add a **useEffect()** with a **console.log()** to see when it's mounted and unmounted:
+
+```jsx
+const Element = ({ element }) => {
+  useEffect(() => {
+    console.log(`Element: ${element} mounted`);
+    return () => {
+      console.log(`Element: ${element} unmounted`);
+    };
+  }, [element]);
+
+  return <li>{element}</li>;
+};
+```
+
+And use newly created component in the **App**:
+
+```jsx
+// ...
+import Element from "./Element";
+
+const App = () => {
+  // ...
+  return (
+    <>
+      {/*  // ... */}
+      {data.map((element, index) => (
+        <Element key={index} element={element} />
+      ))}
+    </>
+  );
+};
+```
+
+Run the application and check the console:
