@@ -100,8 +100,8 @@ const App = () => {
 
   return (
     <>
-      {data.map((element, index) => (
-        <li key={index}>{element}</li>
+      {data.map((element) => (
+        <li>{element}</li>
       ))}
       <input type="number" value={value} onChange={handleChange} />
       <button onClick={handleSubmit}>Submit</button>
@@ -154,3 +154,100 @@ We did a few changes:
 Let's make sure our application is still working:
 
 ![Real-World Application [2]](/img/feature-gif-2-.gif "Real-World Application [2]")
+
+The warning is not gone yet, right?
+
+Finally, it gets annoying and you have to find the time to investigate why this warning happens what issues we should be aware about? (Skip this if you read [this article](/2020-06-21-what-is-key-in-react-and-why-do-we-need-it/#Index-As-A-Key)).
+
+## Why Does React Need A Key?
+
+When the state of your component changes, the main job of the React library is to figure out what has changes in the fastest possible way to efficiently update the User Interface.
+
+Let's see what steps are taken in the above examples, starting from the first one, where elements are added to the bottom of the list.
+
+We render three **li** elements:
+
+```html
+<li>1</li>
+<li>2</li>
+<li>3</li>
+```
+
+And then append a new element to the end of the above list:
+
+```html
+<li>1</li>
+<li>2</li>
+<li>3</li>
+
+<!-- New element -->
+<li>4</li>
+```
+
+React now has to compare an old list with the new one to identify what changes were made.
+
+It iterates over both lists at the same time and generates a mutation whenever there’s a difference.
+
+It is smart enough to match the first 3 elements and generate a mutation for the fourth one.
+
+Looks good, right?
+
+But what if the new element was added to the beginning of the list, like in the second example?
+
+```html
+<!-- New element -->
+<li>0</li>
+
+<li>1</li>
+<li>2</li>
+<li>3</li>
+```
+
+React runs 4 mutations instead of 1 because it doesn't know that the elements rendering 1, 2 and 3 weren't touched because their position was changed.
+
+The main problem here is inefficiency.
+
+We could have avoided 3 unnecessary mutations by providing a small hint to React: the **key** prop.
+
+## The "Key" Prop
+
+> Keys help React identify which items have changed, are added, or are removed. Keys should be given to the elements inside the array to give the elements a stable identity.
+
+Adding a **key** to an inefficient above example makes the tree conversion efficient:
+
+```html
+<!-- New element -->
+<li key={3}>0</li>
+
+<li key={0}>1</li>
+<li key={1}>2</li>
+<li key={2}>3</li>
+```
+
+Now, React knows that the new element is the one with the key **3**, other elements have just changed their positions.
+
+Any value can be used as a key unless it's **unique**.
+
+In case if you don't have any unique value (we can't add a number itself as a key, because someone can provide two identical numbers), it's also possible to use an **index** of an element inside of the loop (which is exactly what has been done in the above example).
+
+Let's fix our React component:
+
+```jsx
+// ...
+
+const App = () => {
+  // ...
+  return (
+    <>
+      {/*  // ... */}
+      {data.map((element, index) => (
+        <li key={index}>{element}</li>
+      ))}
+    </>
+  );
+};
+```
+
+Note how we added **key** to the **li** element.
+
+Run the application and make sure that it still works fine.
