@@ -77,14 +77,80 @@ React tells us: "*Hey, please add a "key" to each list element, so I can better 
 
 If you want to have a deeper understanding why does React require us to provide a key, read [this article](/2020-06-21-what-is-key-in-react-and-why-do-we-need-it/).
 
-Let's get rid of the warning:
+**Let's ignore this warning for now**, developers often ignore warnings, aren't they?
+
+Typical real-world applications do more than just rendering a list of numbers, so let's create a possibility to provide a number to be added to the list:
 
 ```jsx
-import React from "react";
+import React, { useState } from "react";
 
 const data = [1, 2, 3];
 
-const App = () => data.map((element, index) => <li key={index}>{element}</li>);
+const App = () => {
+  const [value, setValue] = useState("");
+
+  const handleChange = (e) => {
+    setValue(e.target.value);
+  };
+
+  const handleSubmit = () => {
+    data.push(value);
+    setValue("");
+  };
+
+  return (
+    <>
+      {data.map((element, index) => (
+        <li key={index}>{element}</li>
+      ))}
+      <input type="number" value={value} onChange={handleChange} />
+      <button onClick={handleSubmit}>Submit</button>
+    </>
+  );
+};
 ```
 
-And it is gone, good job!
+The above code in action:
+
+![Real-World React Application](/img/feature-gif.gif "Real-World React Application")
+
+Open the console and check the warning - React is still trying to tell something important to you, **ignore once again**.
+
+Imagine that your application is working in production and some users try to use it and suddenly you receive a feedback - some of them added too long lists and they must scroll the page down to be able to add more.
+
+Moreover, the last added element is on the bottom, so it's barely visible.
+
+You have to change the code to add an element to the top of the list, instead of to the bottom:
+
+```jsx
+// ...
+
+const App = () => {
+ 
+  // ...
+  const handleSubmit = () => {
+    data.unshift(value);
+    
+    // ...
+  };
+
+  return (
+    <>
+      <input type="number" value={value} onChange={handleChange} />
+      <button onClick={handleSubmit}>Submit</button>
+      {data.map((element) => (
+        <li>{element}</li>
+      ))}
+    </>
+  );
+};
+```
+
+We did a few changes:
+
+* Changed **data.push()** to **data.unshift()** to add an element to the beginning of an array instead of to the end
+* Changed the order of elements in the **return** block, so to render **input** and **button** on the top of the list
+
+Let's make sure our application is still working:
+
+![Real-World Application [2]](/img/feature-gif-2-.gif "Real-World Application [2]")
