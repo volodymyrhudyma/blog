@@ -349,3 +349,98 @@ However, in the above example we don't have any id, so we should generate one ou
 To do that, install a library called [nanoid](https://www.npmjs.com/package/nanoid):
 
 `yarn add nanoid`
+
+And use it to generate unique identifiers for both each of the existing elements and newly created ones:
+
+```jsx
+// ...
+import { nanoid } from "nanoid";
+
+const data = [
+  {
+    id: nanoid(),
+    value: 1,
+  },
+  {
+    id: nanoid(),
+    value: 2,
+  },
+  {
+    id: nanoid(),
+    value: 3,
+  },
+];
+
+const App = () => {
+  // ...
+
+  const handleSubmit = () => {
+    data.unshift({
+      id: nanoid(),
+      value,
+    });
+    // ...
+  };
+
+  // ...
+};
+```
+
+Next, check the application - existing elements are not re-mounted anymore:
+
+![Identifiers, Generated With Npm Package](/img/nanoid-to-rescue.gif "Identifiers, Generated With Npm Package")
+
+## One More Example? (Homework)
+
+Hopefully, till this moment you understand what is the key, how to use it and what issues can happen if it is used incorrectly.
+
+Take a look at one more example:
+
+```jsx
+import React, { useState } from "react";
+
+const initialData = [
+  {
+    id: 1,
+    name: "First",
+  },
+  {
+    id: 2,
+    name: "Second",
+  },
+];
+
+const App = () => {
+  const [data, setData] = useState(initialData);
+
+  const handleRemove = (id) => {
+    const newData = data.filter((item) => item.id !== id);
+    setData(newData);
+  };
+
+  return (
+    <ul>
+      {data.map((item, index) => (
+        <li key={index}>
+          <input type="text" defaultValue={item.name} />
+          <button
+            onClick={() => {
+              handleRemove(item.id);
+            }}
+          >
+            Remove
+          </button>
+        </li>
+      ))}
+    </ul>
+  );
+};
+```
+
+Run it, find and issue, understand why it happens and fix it.
+
+This is your homework, time to feel like a student.. again.
+
+Please, let me know in the comments below whether you managed to solve it or not.
+
+## Summary
