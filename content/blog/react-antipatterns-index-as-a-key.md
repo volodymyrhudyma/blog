@@ -3,13 +3,13 @@ title: "React Antipatterns: Index As A Key"
 tag:
   - React
 promote: false
-metaDescription: Learn when using index as a key can be considered an
-  antipattern in React and when it is totally acceptable.
+metaDescription: Learn when using index as a key can be considered antipattern
+  in React and when it is perfectly acceptable.
 shareImage: /img/react-antipatterns-index-as-a-key.jpg
-teaser: In modern web applications lists are everywhere and knowing how to
+teaser: In modern web applications, lists are everywhere and knowing how to
   render them properly is one of the first things every developer should learn.
-  Transforming lists into React elements is typically done via the map() method.
-  It is executed on an...
+  Transforming lists into React elements is typically done using the map()
+  method. It runs on an array of...
 date: 2021-08-26T11:20:01.341Z
 ---
 In modern web applications, lists are everywhere and knowing how to render them properly is one of the first things every developer should learn.
@@ -159,15 +159,15 @@ Let's make sure our application still works:
 
 ![Real-World Application [2]](/img/feature-gif-2-.gif "Real-World Application [2]")
 
-The warning is not gone yet, right?
+The warning has not gone away yet, right?
 
-Finally, it gets annoying and you have to find the time to investigate why this warning happens what issues we should be aware about? (Skip this if you read [this article](/2020-06-21-what-is-key-in-react-and-why-do-we-need-it/#Index-As-A-Key)).
+Eventually, it gets annoying and you need to find the time to investigate why this warning is occurring, what should we look out for? (Skip this if you read [this article](/2020-06-21-what-is-key-in-react-and-why-do-we-need-it/#Index-As-A-Key)).
 
 ## Why Does React Need A Key?
 
-When the state of your component changes, the main job of the React library is to figure out what has changes in the fastest possible way to efficiently update the User Interface.
+When the state of your component changes, the main job of the React library is to figure out what has changed in the fastest possible way to efficiently update User Interface.
 
-Let's see what steps are taken in the above examples, starting from the first one, where elements are added to the bottom of the list.
+Let's see what steps are taken in the examples above, starting with the first one where elements are added to the end of the list.
 
 We render three **li** elements:
 
@@ -177,7 +177,7 @@ We render three **li** elements:
 <li>3</li>
 ```
 
-And then append a new element to the end of the above list:
+And then add a new element to the end of the list above:
 
 ```html
 <li>1</li>
@@ -188,15 +188,15 @@ And then append a new element to the end of the above list:
 <li>4</li>
 ```
 
-React now has to compare an old list with the new one to identify what changes were made.
+React now needs to compare an old list with the new one to identify what changes have been made.
 
-It iterates over both lists at the same time and generates a mutation whenever there’s a difference.
+It iterates over both lists at once and generates a mutation whenever there is a difference.
 
-It is smart enough to match the first 3 elements and generate a mutation for the fourth one.
+It is smart enough to match the first 3 elements and generate a mutation for the fourth element.
 
-Looks good, right?
+Looks good, doesn't it?
 
-But what if the new element was added to the beginning of the list, like in the second example?
+But what if the new element was added at the beginning of the list, like in the second example?
 
 ```html
 <!-- New element -->
@@ -207,17 +207,17 @@ But what if the new element was added to the beginning of the list, like in the 
 <li>3</li>
 ```
 
-React runs 4 mutations instead of 1 because it doesn't know that the elements rendering 1, 2 and 3 weren't touched because their position was changed.
+React performs 4 mutations instead of 1 because it does not know that the elements reflecting 1, 2 and 3 have not been touched because their position was changed.
 
 The main problem here is inefficiency.
 
-We could have avoided 3 unnecessary mutations by providing a small hint to React: the **key** prop.
+We could have avoided 3 unnecessary mutations by giving React a small hint: the **key** prop.
 
 ## The "Key" Prop
 
-> Keys help React identify which items have changed, are added, or are removed. Keys should be given to the elements inside the array to give the elements a stable identity.
+> Keys help React identify which elements have changed, been added, o removed. Keys should be given to the elements within the array to give the elements a stable identity.
 
-Adding a **key** to an inefficient above example makes the tree conversion efficient:
+Adding a **key** to the inefficient example above makes the tree conversion efficient:
 
 ```html
 <!-- New element -->
@@ -228,11 +228,11 @@ Adding a **key** to an inefficient above example makes the tree conversion effic
 <li key={2}>3</li>
 ```
 
-Now, React knows that the new element is the one with the key **3**, other elements have just changed their positions.
+Now React knows that the new element is the one with the key **3**, other elements have only changed their position.
 
-Any value can be used as a key unless it's **unique**.
+Any value can be used as a key unless it is **unique**.
 
-In case if you don't have any unique value (we can't add a number itself as a key, because someone can provide two identical numbers), it's also possible to use an **index** of an element inside of the loop (which is exactly what has been done in the above example).
+In case you do not have a unique value (we can not add a number itself as a key because someone can supply two identical numbers), it's also possible to use an **index** of an element inside the loop (which is exactly what was done in the example above).
 
 Let's fix our React component:
 
@@ -254,9 +254,9 @@ const App = () => {
 
 Note how we added **key** to the **li** element.
 
-Run the application and make sure that it still works fine, but even though we have added the **key**, nothing really changed.
+Run the application and make sure it still works fine, but even though we added the **key**, nothing really changed.
 
-React still runs 4 mutations, because after adding a new element, all indexes are changed:
+React is still performing 4 mutations, because after adding a new element, all indexes are changed:
 
 ```html
 <!-- Original list -->
@@ -274,19 +274,19 @@ React still runs 4 mutations, because after adding a new element, all indexes ar
 <li key={3}>3</li> <!-- Previously: <li key={2}>3</li> -->
 ```
 
-After adding a new element to the beginning of the array, it receives 0 as a key and all existing keys are shifted by 1.
+After adding a new element to the beginning of the array, it gets 0 as a key and all existing keys are shifted by 1.
 
-These kinds of issues are extremely hard to debug, so remember the one thing in order to avoid them: **it's not recommended to use an index as a key if an order of list elements may change.**
+These kinds of issues are extremely hard to debug, so remember the one thing to avoid them: **it's not recommended to use an index as a key when the order of the list elements may change.**
 
 ## What Happens If I Don't Pass The Key?
 
-If you are wondering what happens if you don't pass the key, the answer is simple - apart from throwing a warning, React will use indexes as keys as a fallback.
+If you are wondering what happens if you don't pass the key, the answer is simple - apart from showing a warning, React will use indexes as keys as a fallback.
 
 In any case, skipping a key is not recommended.
 
 ## Not Sure Of The Impact?
 
-It may still not be obvious how do extra mutations impact application, so let's extract **li** element to a separate component called **Element** and add a **useEffect()** with a **console.log()** to see when it's mounted and unmounted:
+It may still not be clear how additional mutations affect the application, so we extract the **li** element into a separate component called **Element** and add a **useEffect()** with a **console.log()** to see when it is mounted and unmounted:
 
 ```jsx
 const Element = ({ element }) => {
@@ -301,7 +301,7 @@ const Element = ({ element }) => {
 };
 ```
 
-And use newly created component in the **App**:
+And use the newly created component in the **App**:
 
 ```jsx
 // ...
@@ -324,7 +324,7 @@ Run the application and check the console:
 
 ![Index As A Key Problem](/img/index-as-a-key-problem.gif "Index As A Key Problem")
 
-After the start of the application, we see how three elements are mounted and that's perfectly fine:
+After starting the application, we see three elements being mounted and that is perfectly fine:
 
 ```html
 Element: 1 mounted
@@ -332,7 +332,7 @@ Element: 2 mounted
 Element: 3 mounted
 ```
 
-But when we add a new element, we see how all three existing elements are unmounted and mounted once again including the newly added element:
+But when we add a new element, we see all three existing elements being unmounted and mounted once again including the newly added element:
 
 ```html
 Element: 1 unmounted
@@ -344,23 +344,23 @@ Element: 2 mounted
 Element: 3 mounted
 ```
 
-We destroy and re-mount old elements, which is not what we want, since they were not changed, right?
+We destroy and re-mount old elements, which is not what we want, since they have not been changed, right?
 
 If they contained some heavy logic, we will see a significant impact on the performance.
 
-This is exactly the problem we will always face, when using index as a key in lists, which can change order of their elements.
+This is exactly the problem we will always face when we use index as a key in lists that can change the order of their elements.
 
 ## What Is The Solution?
 
-We need to use a **unique** key, which is typically an **id** of an element, which we receive from the database.
+We need to use a **unique** key, which is typically an **id** of an element that we get from the database.
 
-However, in the above example we don't have any id, so we should generate one ourselves.
+However, in the above example, we do not have any id, so we should generate one ourselves.
 
-To do that, install a library called [nanoid](https://www.npmjs.com/package/nanoid):
+To do this, install a library called [nanoid](https://www.npmjs.com/package/nanoid):
 
 `yarn add nanoid`
 
-And use it to generate unique identifiers for both each of the existing elements and newly created ones:
+And use it to generate unique identifiers for each of the existing elements as well as for newly created ones:
 
 ```jsx
 // ...
@@ -396,13 +396,13 @@ const App = () => {
 };
 ```
 
-Next, check the application - existing elements are not re-mounted anymore:
+Next, check the application - existing elements are no longer re-mounted:
 
 ![Identifiers, Generated With Npm Package](/img/nanoid-to-rescue.gif "Identifiers, Generated With Npm Package")
 
-## One More Example? (Homework)
+## Yet Another Example (Homework)
 
-Hopefully, till this moment you understand what is the key, how to use it and what issues can happen if it is used incorrectly.
+Hopefully by this point you understand what the key is, how to use it, and what problems can occur if you use it incorrectly.
 
 Take a look at one more example:
 
@@ -447,16 +447,18 @@ const App = () => {
 };
 ```
 
-Run it, find and issue, understand why it happens and fix it.
+Run it, find a problem, understand why it occurs and fix it.
 
 This is your homework, time to feel like a student.. again.
 
-I strongly encourage you not to skip this exercise, since only by putting your knowledge into practice you will gain confidence in what you do.
+I strongly recommend that you do not skip this exercise, because only when you put your knowledge into practice will you gain confidence in what you are doing.
 
-Please, let me know in the comments below whether you managed to solve it or not.
+Please, let me know in the comments below if you managed to solve it or not.
 
 ## Summary
 
-In this article, we learned why it is better to avoid indexes as keys for React elements when rendering lists, which can change the order of their elements.
+In this article, we learned why it's better to avoid using indexes as keys for React elements when rendering lists, which can change the order of their elements. 
 
-However, it is totally safe to use them for static lists (if you don't have any other unique value that can be used instead), which will never be re-ordered, filtered, searched through or removed.
+However, it's perfectly safe to use indexes as keys for static lists (if you do not have another unique value that can be used instead).
+
+Remember, though, that these static lists can never be reordered, filtered, searched, or removed.
