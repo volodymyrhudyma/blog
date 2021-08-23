@@ -18,7 +18,7 @@ Transforming lists into React elements is typically done using the **map()** met
 
 It runs on an array of elements, performs certain operations, and returns a new array with the changes applied.
 
-## The map() Method
+## The Map() Method
 
 Remember that **map()** does not modify the existing array, but returns a completely new one:
 
