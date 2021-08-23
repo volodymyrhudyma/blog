@@ -269,16 +269,16 @@ React still runs 4 mutations, because after adding a new element, all indexes ar
 <!-- New element -->
 <li key={0}>4</li>
 
-<li key={1}>1</li>
-<li key={2}>2</li>
-<li key={3}>3</li>
+<li key={1}>1</li> <!-- Previously: <li key={0}>1</li> -->
+<li key={2}>2</li> <!-- Previously: <li key={1}>2</li> -->
+<li key={3}>3</li> <!-- Previously: <li key={2}>3</li> -->
 ```
 
 After adding a new element to the beginning of the array, it receives 0 as a key and all existing keys are shifted by 1.
 
 These kinds of issues are extremely hard to debug, so remember the one thing in order to avoid them: **it's not recommended to use an index as a key if an order of list elements may change.**
 
-## **What Happens If I Don't Pass The Key?**
+## What Happens If I Don't Pass The Key?
 
 If you are wondering what happens if you don't pass the key, the answer is simple - apart from throwing a warning, React will use indexes as keys as a fallback.
 
@@ -450,6 +450,8 @@ const App = () => {
 Run it, find and issue, understand why it happens and fix it.
 
 This is your homework, time to feel like a student.. again.
+
+I strongly encourage you not to skip this exercise, since only by putting your knowledge into practice you will gain confidence in what you do.
 
 Please, let me know in the comments below whether you managed to solve it or not.
 
