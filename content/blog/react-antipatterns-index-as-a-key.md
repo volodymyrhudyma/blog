@@ -3,16 +3,20 @@ title: "React Antipatterns: Index As A Key"
 tag:
   - React
 promote: false
-metaDescription: // META
+metaDescription: Learn when using index as a key can be considered an
+  antipattern in React and when it is totally acceptable.
 shareImage: /img/react-antipatterns-index-as-a-key.jpg
-teaser: // TEASER
+teaser: In modern web applications lists are everywhere and knowing how to
+  render them properly is one of the first things every developer should learn.
+  Transforming lists into React elements is typically done via the map() method.
+  It is executed on an...
 date: 2021-08-26T11:20:01.341Z
 ---
 In modern web applications lists are everywhere and knowing how to render them properly is one of the first things every developer should learn.
 
 Transforming lists into React elements is typically done via the **map()** method.
 
-It takes an array of elements, performs specified operations and returns a new array with the applied changes.
+It is executed on an array of elements, performs specified operations and returns a new array with the applied changes.
 
 ## The map() Method
 
@@ -274,6 +278,12 @@ After adding a new element to the beginning of the array, it receives 0 as a key
 
 These kinds of issues are extremely hard to debug, so remember the one thing in order to avoid them: **it's not recommended to use an index as a key if an order of list elements may change.**
 
+## **What Happens If I Don't Pass The Key?**
+
+If you are wondering what happens if you don't pass the key, the answer is simple - apart from throwing a warning, React will use indexes as keys as a fallback.
+
+In any case, skipping a key is not recommended.
+
 ## Not Sure Of The Impact?
 
 It may still not be obvious how do extra mutations impact application, so let's extract **li** element to a separate component called **Element** and add a **useEffect()** with a **console.log()** to see when it's mounted and unmounted:
@@ -444,3 +454,7 @@ This is your homework, time to feel like a student.. again.
 Please, let me know in the comments below whether you managed to solve it or not.
 
 ## Summary
+
+In this article, we learned why it is better to avoid indexes as keys for React elements when rendering lists, which can change the order of their elements.
+
+However, it is totally safe to use them for static lists (if you don't have any other unique value that can be used instead), which will never be re-ordered, filtered, searched through or removed.
