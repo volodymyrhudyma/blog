@@ -1,7 +1,7 @@
 ---
 title: Intrinsic String Manipulation Types In TypeScript
 tag:
-  - JavaScript
+  - TypeScript
 promote: false
 metaDescription: "Learn about the Intrinsic String Manipulation Types in
   TypeScript: Uppercase, Lowercase, Capitalize and Uncapitalize with simple code
