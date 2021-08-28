@@ -62,7 +62,13 @@ This is exactly the moment we met the first Type Guard.
 
 ## \#1 - typeof
 
-When the **typeof** operator is used within the condition, it is seen by a TypeScript as a special form of code - Type Guard.
+When the **typeof** operator is used within the condition, it is seen by a TypeScript as a special form of code - Type Guard:
+
+```typescript
+if(typeof price === "string") {
+  // ..
+}
+```
 
 TypeScript follows all possible paths of the code execution to analyze the possible type or types of a value at a given place of code.
 
@@ -72,14 +78,66 @@ The whole process is called **Narrowing**.
 
 It is worth to mention that the **typeof** operator gives a very limited information about the type of the value.
 
-It is expected to only return one of the following values: **string**, **number**, **bigint**, **boolean**, **symbol**, **undefined**, **object**, **function**.
+It is expected to only return one of the following values: **string**, **number**, **bigint**, **boolean**, **symbol**, **undefined**, **object**, **function**:
+
+```typescript
+const a = "a";
+console.log(typeof a); // "string"
+
+const b = 1;
+console.log(typeof b); // "number"
+
+const c = BigInt("1");
+console.log(typeof c); // "bigint"
+
+const d = false;
+console.log(typeof d); // "boolean"
+
+const e = new Symbol("a");
+console.log(typeof e); // "symbol"
+
+const f = undefined;
+console.log(typeof f); // "undefined"
+
+const g = new Date("2021-09-01");
+console.log(typeof g); // "object"!!
+
+const h = () => {};
+console.log(typeof h); // "function"
+
+const i = null;
+console.log(typeof i); // "object"!!
+```
 
 **Important note:** Remember that **typeof** **null** is an **object**.
 
-To get more precise information about the type of an object, use the **instanceof** operator:
+To get more precise information about the type of an object, use the **instanceof** operator, because in some cases there is a need to check whether the given value is an instance of **A** or **B**.
+
+This is impossible to do with a **typeof**, since it returns only **object**.
+
+## \#2 - instanceof
+
+The **instanceof** operator checks whether or not the value is an instance of another value:
+
+```typescript
+const a = new Date("2021-09-01");
+console.log(a instanceof Date); // "true"
+console.log(typeof a); // "object"
+
+class User {};
+
+const b = new User();
+console.log(b instanceof User); // "true"
+console.log(typeof b); // "object"
+```
+
+When we write the following code: **a instanceof Date**, we check whether the prototype chain of **a** contains **Date.prototype**.
+
+Obviously, **instanceof** is also a Type Guard, since TypeScript is able to narrow down the type of a value in statements, guarded by it:
 
 ```typescript
 const formatDate = (value: Date | string) => {
+  // "value" is of a "string | Date" type
   if(value instanceof Date) {
     // "value" is of a "Date" type
     return value.toUTCString();
@@ -91,11 +149,3 @@ const formatDate = (value: Date | string) => {
 console.log(formatDate(new Date("2021-09-01"))); // "Wed, 01 Sep 2021 00:00:00 GMT"
 console.log(formatDate("2021-09-01")); // "Wed, 01 Sep 2021 00:00:00 GMT"
 ```
-
-## \#2 - instanceof
-
-The **instanceof** operator checks whether or not the value is an instance of another value. 
-
-When we write the following code: **date instanceof Date**, we check whether the prototype chain of **date** contains **Date.prototype**.
-
-Obviously, **instanceof** is also a Type Guard, since TypeScript is able to narrow down the type of a value in statements, guarded by it.
