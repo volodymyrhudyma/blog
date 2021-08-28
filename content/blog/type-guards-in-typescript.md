@@ -1,7 +1,7 @@
 ---
 title: Type Guards In TypeScript
 tag:
-  - JavaScript
+  - TypeScript
 promote: false
 metaDescription: Learn Type Guards in TypeScript that allow you to refine
   variable type inside a conditional block. Use Built-In or Custom (User
