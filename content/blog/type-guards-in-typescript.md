@@ -58,6 +58,44 @@ TypeScript is smart enough to understand that within the **if** statement the va
 
 Moreover, it understands that outside of the **if** statement, the variable is of a **number** type.
 
-This is exactly the moment we faced the first Type Guard - **typeof**.
+This is exactly the moment we met the first Type Guard.
 
-## Type Guard: typeof
+## \#1 - typeof
+
+When the **typeof** operator is used within the condition, it is seen by a TypeScript as a special form of code - Type Guard.
+
+TypeScript follows all possible paths of the code execution to analyze the possible type or types of a value at a given place of code.
+
+When it encounters Type Guards or assignments, it tries to refine the types to more specific ones.
+
+The whole process is called **Narrowing**.
+
+It is worth to mention that the **typeof** operator gives a very limited information about the type of the value.
+
+It is expected to only return one of the following values: **string**, **number**, **bigint**, **boolean**, **symbol**, **undefined**, **object**, **function**.
+
+**Important note:** Remember that **typeof** **null** is an **object**.
+
+To get more precise information about the type of an object, use the **instanceof** operator:
+
+```typescript
+const formatDate = (value: Date | string) => {
+  if(value instanceof Date) {
+    // "value" is of a "Date" type
+    return value.toUTCString();
+  }
+  // "value" is of a "string" type
+  return new Date(value).toUTCString();
+};
+
+console.log(formatDate(new Date("2021-09-01"))); // "Wed, 01 Sep 2021 00:00:00 GMT"
+console.log(formatDate("2021-09-01")); // "Wed, 01 Sep 2021 00:00:00 GMT"
+```
+
+## \#2 - instanceof
+
+The **instanceof** operator checks whether or not the value is an instance of another value. 
+
+When we write the following code: **date instanceof Date**, we check whether the prototype chain of **date** contains **Date.prototype**.
+
+Obviously, **instanceof** is also a Type Guard, since TypeScript is able to narrow down the type of a value in statements, guarded by it.
