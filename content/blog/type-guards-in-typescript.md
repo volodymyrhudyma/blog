@@ -3,7 +3,8 @@ title: Type Guards In TypeScript
 tag:
   - JavaScript
 promote: false
-metaDescription: // META
+metaDescription: Learn Type Guards in TypeScript that allow you to refine
+  variable type inside of a conditional block.
 shareImage: /img/type-guards-in-typescript.jpg
 teaser: If you work with Typescript of a regular basis, you know that it
   provides developers with a large feature list that frequently gets updated
@@ -547,3 +548,17 @@ if (user.address) {
 If you are curious to learn even more about Type Guards and type narrowing in TypeScript, read the [official documentation](https://www.typescriptlang.org/docs/handbook/2/narrowing.html), which is the most accurate and complete source.
 
 ## Summary
+
+**Type Guards** are special forms of code that help to narrow down the type of the variable inside of a conditional block, such as **if** ... **else if** ... **else** statement or **switch**.
+
+They are performed at a runtime and guarantees the type in a scope.
+
+Narrowing down types using Type Guards is extremely useful when you are given a bunch of types and you need to run some code, which is differs for different types.
+
+You can't use same built-in function for numbers and strings, as it was shown at the very first example, can you?
+
+The good thing is that apart from a built-in Type Guards, there is a possibility to define custom ones using Type Predicates.
+
+Make sure to double check whether the given Type Guard is suitable to your requirements, because there are some not obvious cases which can easily break your app it if is at least a little more complex than easy.
+
+I hope you learnt something new today and see you in the next article!
