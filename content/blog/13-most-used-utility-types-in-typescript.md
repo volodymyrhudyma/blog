@@ -1,7 +1,7 @@
 ---
 title: 13 Most Used Utility Types In TypeScript
 tag:
-  - JavaScript
+  - TypeScript
 promote: false
 metaDescription: Learn the 13 most commonly used Utility Types in TypeScript
   that you can start using immediately for your next TypeScript project.
