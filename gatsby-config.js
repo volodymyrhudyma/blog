@@ -7,7 +7,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `Become Front-End Expert`,
-    description: `Read The Easiest Front-End Tutorials And Become An Expert In JavaScript And ReactJS.`,
+    description: `Read The Easiest Front-End Tutorials And Become An Expert In JavaScript, TypeScript And ReactJS.`,
     author: `https://www.linkedin.com/in/volodymyr-hudyma-98bb78131/`,
     siteUrl: `https://www.vhudyma-blog.eu`,
   },

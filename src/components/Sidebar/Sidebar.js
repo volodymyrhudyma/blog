@@ -17,6 +17,7 @@ import {
 const Sidebar = ({ allPosts, tags, extended }) => {
   const promote = []
   const reactPosts = []
+  const tsPosts = []
   const jsPosts = []
   const gitPosts = []
   const otherPosts = []
@@ -24,6 +25,9 @@ const Sidebar = ({ allPosts, tags, extended }) => {
   allPosts.forEach(({ node }) => {
     if (node.frontmatter.tag.includes("React")) {
       reactPosts.push(node)
+    }
+    if (node.frontmatter.tag.includes("TypeScript")) {
+      tsPosts.push(node)
     }
     if (node.frontmatter.tag.includes("JavaScript")) {
       jsPosts.push(node)
@@ -71,6 +75,15 @@ const Sidebar = ({ allPosts, tags, extended }) => {
       <Block grey>
         <Title>React</Title>
         {reactPosts.slice(0, 3).map((post, i) => (
+          <Item key={i} to={post.fields.slug}>
+            <LinkIconStyled />
+            {post.frontmatter.title}
+          </Item>
+        ))}
+      </Block>
+      <Block>
+        <Title>TypeScript</Title>
+        {tsPosts.slice(0, 3).map((post, i) => (
           <Item key={i} to={post.fields.slug}>
             <LinkIconStyled />
             {post.frontmatter.title}

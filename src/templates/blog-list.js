@@ -36,7 +36,7 @@ export default class BlogList extends React.Component {
     return (
       <Layout>
         <SEO
-          title={`The Easiest JavaScript And ReactJS Tutorials ${
+          title={`The Easiest JavaScript, TypeScript And ReactJS Tutorials ${
             currentPage > 1 ? `| Page ${currentPage}` : ``
           }`}
         />

@@ -20,7 +20,7 @@ collections:
           label: "Tag",
           name: "tag",
           widget: "select",
-          options: ["React", "JavaScript", "Git", "Other"],
+          options: ["React", "JavaScript", "TypeScript", "Git", "Other"],
           multiple: true,
           default: JavaScript,
         }
