@@ -149,3 +149,102 @@ const formatDate = (value: Date | string) => {
 console.log(formatDate(new Date("2021-09-01"))); // "Wed, 01 Sep 2021 00:00:00 GMT"
 console.log(formatDate("2021-09-01")); // "Wed, 01 Sep 2021 00:00:00 GMT"
 ```
+
+## \#3 - in
+
+The **in** operator does not check the type, but it checks whether or not the object contains a property and can be used as a Type Guard:
+
+```typescript
+const user = {
+  name: "John",
+};
+
+console.log("name" in user); // "true"
+console.log("surname" in user); // "false" branch
+```
+
+Consider the following example:
+
+```typescript
+interface Human {
+  speak: () => void;
+};
+
+interface Animal {
+  voice: () => void;
+}
+
+const saySomething = (being: Human | Animal) => {
+  // "being" is of a "Human | Animal" type
+  if("speak" in being) {
+    // "being" is of a "Human" type
+    return being.speak();
+  } 
+  // "being" is of a "Animal" type
+  return being.voice();
+};
+```
+
+In the example above, we used **in** operator to check whether the **being** contains **speak()** property and TypeScripted was able to narrow down the type within the "true" branch to **Human**.
+
+Otherwise, in the "false" branch, the type was narrowed down to **Animal**, so we can safely call the **voice()** method without being worried whether **being** contains it or not.
+
+This was an easy example, but what if we had more Union Types?
+
+```typescript
+interface Human {
+  speak: () => void;
+};
+
+interface Dog {
+  voice: () => void;
+}
+
+interface Cat {
+  voice: () => void;
+}
+
+const saySomething = (being: Human | Dog | Cat) => {
+  // "being" is of a "Human | Dog | Cat" type
+  if("speak" in being) {
+    // "being" is of a "Human" type
+    return being.speak();
+  }
+  // "being" is of a "Dog | Cat" type
+  return being.voice();
+};
+```
+
+The only difference is that in the "false" branch, **being** is of a **Dog | Cat** type, but fortunately both of them contain **voice()** method, so no error is shown when we call it.
+
+In the world, where cats can not speak, we would have received an error, since we may have called not existing method:
+
+```typescript
+// ...
+interface Cat {
+  voice?: () => void;
+}
+
+const saySomething = (being: Human | Dog | Cat) => {
+  if("speak" in being) {
+    return being.speak();
+  }
+  /* 
+    ERROR:
+    Cannot invoke an object which is possibly "undefined".
+  */
+  return being.voice();
+};
+```
+
+The simplest solution may be to check whether the **voice()** method exists and call it if so:
+
+```typescript
+// ...
+
+const saySomething = (being: Human | Dog | Cat) => {
+  // ...
+  
+  return being.voice && being.voice();
+};
+```
