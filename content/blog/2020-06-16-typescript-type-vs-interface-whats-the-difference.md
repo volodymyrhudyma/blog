@@ -1,7 +1,7 @@
 ---
 title: Typescript "Type" vs, "Interface". What Is The Difference?
 tag:
-  - JavaScript
+  - TypeScript
 promote: false
 metaDescription: Type vs. Interface in TypeScript. What is the difference
   between them? Even if you are familiar with both of them, the answer might not
