@@ -448,4 +448,89 @@ const chooseCar = (car: Audi | Bmw) => {
 
 Now you don't need to create a new function each type a new type arrives, just use the existing **isOfType()** method and be confident that you are type-safe at a run-time.
 
+#### Pitfall
+
+Make sure to use Type Guards responsively, since they can heavily depend on a belief that the specific method or property is unique to the given type, which either may not be true or can be true, but can also change in the future.
+
+Consider the following example:
+
+```typescript
+interface Audi {
+  drive: () => void;
+}
+
+interface Bmw {
+  race: () => void;
+}
+
+interface Mercedes {
+  drive: () => void;
+}
+
+const isOfType = <T>(value: any, property: keyof T): value is T =>
+  (value as T)[property] !== undefined;
+
+const chooseCar = (car: Audi | Bmw | Mercedes) => {
+  // "car" is of a "Audi | Bmw | Mercedes" type
+  if (isOfType<Audi>(car, "drive")) {
+    /* 
+      We think that the "car" is of a "Audi" type
+      But in fact, it can be "Audi | Mercedes"
+      Since both interfaces contain "drive()" method
+    */
+    return car.drive();
+  }
+  // "car" is of a "Bmw" type
+  return car.race();
+};
+```
+
+Adding a new **Mercedes** type that contains the same method as **Audi** doesn't break the code, but TypeScript now shows that the **car** inside of the **if** statement is **Audi**, however it can be **Mercedes** as well.
+
+It can be a big and hard-to-debug problem in more complex applications, so be aware of it.
+
+## Type Guards And Callbacks
+
+It is not assumed by the TypeScript that Type Guards remain active in callbacks, as making such assumption can lead to unexpected bugs:
+
+```typescript
+interface User {
+  name: string;
+  address?: {
+    street: string;
+  };
+}
+
+const user: User = {
+  name: "John",
+};
+
+const formatStreet = (callback: () => void) => {
+  callback();
+};
+
+if (user.address) {
+  formatStreet(() => {
+    // Object is possibly "undefined"
+    console.log(user.address.street);
+  });
+}
+```
+
+Even though we checked whether the **user.address** exists, in the callback function, passed to the **formatStreet()** we are given an error.
+
+There is a simple fix - declare a local variable that stores the **user.address**:
+
+```typescript
+// ...
+
+if (user.address) {
+  const { address } = user;
+  formatStreet(() => {
+    console.log(address.street);
+  });
+}
+
+```
+
 ## Summary
