@@ -3,27 +3,27 @@ title: Type Guards In TypeScript
 tag:
   - TypeScript
 promote: false
-metaDescription: Learn Type Guards in TypeScript that allow you to refine
-  variable type inside a conditional block. Use Built-In or Custom (User
-  Defined) Type Guards that return Type Predicates.
+metaDescription: Learn Type Guards in TypeScript that allow you to refine the
+  variable type within a conditional block. Use Built-In or Custom (User
+  Defined) Type Guards, which return Type Predicates.
 shareImage: /img/type-guards-in-typescript.jpg
 teaser: If you work with Typescript of a regular basis, you know that it
-  provides developers with a large feature list that frequently gets updated
-  with a new stuff. One of the things from that list you may have been using for
-  years without even being aware of it are...
+  provides developers with a large feature list that is frequently updated with
+  new stuff. One of the things from that list that you may have been using for
+  years without realizing it are Type Guards...
 date: 2021-08-30T08:51:06.323Z
 ---
-If you work with Typescript of a regular basis, you know that it provides developers with a large feature list that frequently gets updated with a new stuff.
+If you work with Typescript of a regular basis, you know that it provides developers with a large feature list that is frequently updated with new stuff.
 
-One of the things from that list you may have been using for years without even being aware of it are **Type Guards**.
+One of the things from that list that you may have been using for years without realizing it are **Type Guards**.
 
 ## What Is A Type Guard?
 
-A **Type Guard** is a special form of code that helps to narrow down the type of the variable inside of a conditional block, such as **if** ... **else if** ... **else** statement or **switch**.
+A **Type Guard** is a special form of code that helps narrow down the type of variables within a conditional block, such as **if** ... **else if** ... **else** statement or **switch**.
 
 It performs a runtime check that guarantees the type in a scope.
 
-I totally understand that the above statements may sound unclear, especially for less experienced programmers, so let's take a look at the following TypeScript code:
+I fully understand that the above statements may sound unclear especially to less experienced programmers at this point, so let's take a look at the following TypeScript code:
 
 ```typescript
 const formatPrice = (price: number | string) => {
@@ -36,13 +36,13 @@ const formatPrice = (price: number | string) => {
 };
 ```
 
-The **formatPrice** function formats passed value that can be either a **number** or a **string** to the **00.00** format, so if passed value is **10**, the output is **10.00**.
+The **formatPrice** function formats the provided value, which can be either a **number** or a **string**, into the **00.00** format, so that if the provided value is **10**, the output is **10.00**.
 
-However, it contains a bug and TypeScript warns us about it - *Property "toFixed" does not exist on type "string"*, which means that the **toFixed()** method can be executed only on **number** type.
+However, it contains an error and TypeScript warns us about it - *Property "toFixed" does not exist on type "string"*, which means that the **toFixed()** method can only be executed on **number** type.
 
-Surely, it is possible to forbid accepting the **string** type, but in some cases it may not be obvious what type of a value will come in, so to be safe, it is better to handle both of them.
+Sure, it's possible to disallow accepting type **string**, but in some cases it's not obvious which type of a value is coming, so it's better to handle both to be safe.
 
-The above code should be refactored with an **if** statement that checks for the **string** type and converts an argument to a number, so the **toFixed()** method can be safely run on it:
+The above code should be refactored with an **if** statement that checks for the **string** type and converts an argument to a number, so that the **toFixed()** method can be safely executed on it:
 
 ```typescript
 const formatPrice = (price: number | string) => {
@@ -56,17 +56,17 @@ const formatPrice = (price: number | string) => {
 };
 ```
 
-Hovering over the **price** variable in different places of the function shows that the variable is of a different types.
+Hovering over the **price** variable in different places in the function shows that the variable is of a different type.
 
-TypeScript is smart enough to understand that within the **if** statement the variable can be only of a **string** type.
+TypeScript is smart enough to understand that the variable inside the **if** statement can only be of a **string** type.
 
 Moreover, it understands that outside of the **if** statement, the variable is of a **number** type.
 
-This is exactly the moment we met the first Type Guard.
+This is exactly when we hit the first Type Guard.
 
 ## Typeof
 
-When the **typeof** operator is used within the condition, it is seen by a TypeScript as a special form of code - Type Guard:
+When the **typeof** operator is used inside the conditional, it is considered a special form of code by a TypeScript - Type Guard:
 
 ```typescript
 if (typeof price === "string") {
@@ -74,15 +74,15 @@ if (typeof price === "string") {
 }
 ```
 
-TypeScript follows all possible paths of the code execution to analyze the possible type or types of a value at a given place of code.
+TypeScript follows all possible paths of code execution to analyze the possible type or types of a value at a given place of code.
 
 When it encounters Type Guards or assignments, it tries to refine the types to more specific ones and this process is called narrowing.
 
-> **Narrowing** is the process of going from an infinite number of potential cases to a smaller, finite number of potential case.
+> **Narrowing** is the process of going from an infinite number of possible cases to a smaller, finite number.
 
-It is worth to mention that the **typeof** operator gives a very limited information about the type of the value.
+It is worth to mention that the **typeof** operator gives very limited information about the type of the value.
 
-It is expected to only return one of the following values: **string**, **number**, **bigint**, **boolean**, **symbol**, **undefined**, **object**, **function**:
+It is expected to return only one of the following values: **string**, **number**, **bigint**, **boolean**, **symbol**, **undefined**, **object**, **function**:
 
 ```typescript
 const a = "a";
@@ -113,15 +113,15 @@ const i = null;
 console.log(typeof i); // "object"!!
 ```
 
-**Important note:** Remember that **typeof** **null** is an **object**.
+**Important Note:** Remember that **typeof** **null** is an **object**.
 
-To get more precise information about the type of an object, use the **instanceof** operator, because in some cases there is a need to check whether the given value is an instance of **A** or **B**.
+To get more precise information about the type of an object, use the **instanceof** operator, because in some cases it is necessary to check whether the specified value is an instance of **A** or **B**.
 
-This is impossible to do with a **typeof**, since it returns only **object**.
+This is not possible to do with **typeof**, because it only returns **object**.
 
 ## Instanceof
 
-The **instanceof** operator checks whether or not the value is an instance of another value:
+The **instanceof** operator checks whether the value is an instance of another value or not:
 
 ```typescript
 const a = new Date("2021-09-01");
@@ -137,7 +137,7 @@ console.log(typeof b); // "object"
 
 When we write the following code: **a instanceof Date**, we check whether the prototype chain of **a** contains **Date.prototype**.
 
-Obviously, **instanceof** is also a Type Guard, since TypeScript is able to narrow down the type of a value in statements, guarded by it:
+Obviously, **instanceof** is also a Type Guard, since TypeScript is able to narrow down the type of a value in statements that are guarded with it:
 
 ```typescript
 const formatDate = (value: Date | string) => {
@@ -156,7 +156,7 @@ console.log(formatDate("2021-09-01")); // "Wed, 01 Sep 2021 00:00:00 GMT"
 
 ## In
 
-The **in** operator does not check the type, but it checks whether or not the object contains a property and can be used as a Type Guard:
+The **in** operator does not check the type, but does check if the object contains a property and can be used as Type Guard:
 
 ```typescript
 const user = {
@@ -189,11 +189,11 @@ const saySomething = (being: Human | Animal) => {
 };
 ```
 
-In the example above, we used **in** operator to check whether the **being** contains **speak()** property and TypeScripted was able to narrow down the type within the "true" branch to **Human**.
+In the above example, we used **in** operator to check if the **being** contains **speak()** property and TypeScript was able to narrow down the type in the "true" branch to **Human**.
 
-Otherwise, in the "false" branch, the type was narrowed down to **Animal**, so we can safely call the **voice()** method without being worried whether **being** contains it or not.
+Otherwise, in the "false" branch, the type was narrowed down to **Animal**, so we can safely call the **voice()** method without worrying whether **being** contains it or not.
 
-This was an easy example, but what if we had more Union Types?
+This was a simple example, but what if we had more Union Types?
 
 ```typescript
 interface Human {
@@ -219,9 +219,9 @@ const saySomething = (being: Human | Dog | Cat) => {
 };
 ```
 
-The only difference is that in the "false" branch, **being** is of a **Dog | Cat** type, but fortunately both of them contain **voice()** method, so no error is shown when we call it.
+The only difference is that in the "false" branch, **being** is of a **Dog | Cat** type, but fortunately both contain the **voice()** method, so no error is shown when we call it.
 
-In the world, where cats can not speak, we would have received an error, since we may have called not existing method:
+In the world where cats can not talk, we would have gotten an error because we may have called a non-existent method:
 
 ```typescript
 // ...
@@ -241,7 +241,7 @@ const saySomething = (being: Human | Dog | Cat) => {
 };
 ```
 
-The simplest solution may be to check whether the **voice()** method exists and call it if so:
+The simplest solution may be to check if the **voice()** method exists and call it if so:
 
 ```typescript
 // ...
@@ -255,21 +255,21 @@ const saySomething = (being: Human | Dog | Cat) => {
 
 ## Literal Type Guards
 
-TypeScript allows us to create Literal Types, which are more concrete sub-types of collective types.
+TypeScript allows us to create Literal Types, which are more concrete subtypes of collective types.
 
-To begin with, did you know that when declaring a string **const** variable, TypeScript assigns its type to a Literal Type, not string?
+To begin with, did you know that when you declare a string **const** variable, TypeScript assigns its type to a Literal Type, not a string?
 
 ```typescript
 const greeting = "Hi"; // The type of "greeting" is "Hi", not "string"
 ```
 
-On the other hand, when declaring a string **let** variable, which potentially may change in the future, TypeScript assigns its type to string:
+On the other hand, when you declare a string **let** variable, which may change in the future, TypeScript assigns its type to string:
 
 ```typescript
 let greeting = "Hi"; // The type of "greeting" is "string", not "Hi"
 ```
 
-To distinguish between Literal Types, you can use any of those operators: **\===**, **!==**, **\==**, **!=**:
+To distinguish between Literal Types, you can use one of these operators: **\===**, **!==**, **\==**, **!=**:
 
 ```typescript
 type Car = "audi" | "bmw" | "mercedes";
@@ -285,7 +285,7 @@ const chooseCar = (car: Car) => {
 };
 ```
 
-If we accidentally add not valid condition when the type has already been narrowed down, we will instantly get a hint from TypeScript:
+If we accidentally add a non-valid condition when the type has already been narrowed down, we will immediately get a hint from TypeScript:
 
 ```typescript
 type Car = "audi" | "bmw" | "mercedes";
@@ -307,7 +307,7 @@ const chooseCar = (car: Car) => {
 };
 ```
 
-That should be clear, now let's see more advanced example with Unions containing Literal Types:
+That should be clear, now let us look at a more advanced example with Unions containing Literal Types:
 
 ```typescript
 interface Audi {
@@ -331,15 +331,15 @@ const chooseCar = (car: Audi | Bmw) => {
 };
 ```
 
-Now, inside of the **if** statement the type of the **car** is **Audi**, outside - **Bmw**.
+Now, inside of the **if** statement the type of **car** is **Audi**, outside - **Bmw**.
 
 ## Custom Type Guards
 
-If the built-in Type Guars are not enough, which may happen in some special cases, there is a possibility to create custom, or User Defined Type Guards.
+If the built-in Type Guards are not enough, which can happen in some special cases, there is a possibility to create custom, or User Defined Type Guards.
 
-To create a custom Type Guard, you need to define a function whose return type is a Type Predicates.
+To create a custom Type Guard, you must define a function whose return type is a Type Predicates.
 
-A Type Predicate takes the following form: **parameterName is Type**, where **parameterName** must be the name of a parameter from the current function signature.
+A Type Predicate has the following form: **parameterName is Type**, where **parameterName** must be the name of a parameter from the current function signature.
 
 Let's create a custom Type Guard with the **car is Audi** Predicate:
 
@@ -357,9 +357,9 @@ const isAudi = (car: Audi | Bmw): car is Audi => {
 };
 ```
 
-Basically, we check whether the **car** argument contains **drive()** method.
+Basically, we check whether the **car** argument contains the **drive()** method.
 
-If it does - then we know that the type of a **car** is **Audi**, otherwise - **Bmw**.
+If yes - then we know that the type of a **car** is **Audi**, otherwise - **Bmw**.
 
 Let's refactor the last example from the previous section with a custom Type Guard:
 
@@ -387,13 +387,13 @@ const chooseCar = (car: Audi | Bmw) => {
 };
 ```
 
-To sum up, any time the **isAudi()** is called, TypeScript will narrow down passed variable to the **Audi** type if the original type is compatible.
+In summary, every time **isAudi()** is called, TypeScript will narrow the passed variable down to **Audi** type if the original type is compatible.
 
 ## Generic Type Guards
 
-If you are familiar with Generics in TypeScript, you could have noticed that the Type Guard above can be refactored using them.
+If you are familiar with Generics in TypeScript, you might have noticed that the above Type Guard can be refactored with them.
 
-While it is not obvious, because we created only one Type Guard, but the pattern is similar if we would like to add more:
+While it's not obvious because we only created one Type Guard, the pattern is similar if we want to add more:
 
 ```typescript
 interface Audi {
@@ -447,11 +447,11 @@ const chooseCar = (car: Audi | Bmw) => {
 };
 ```
 
-Now you don't need to create a new function each type a new type arrives, just use the existing **isOfType()** method and be confident that you are type-safe at a run-time.
+Now you don't need to create a new function for each new type that arrives, just use the existing **isOfType()** method and be sure to be type-safe at runtime.
 
 #### Pitfall
 
-Make sure to use Type Guards responsively, since they can heavily depend on a belief that the specific method or property is unique to the given type, which either may not be true or can be true, but can also change in the future.
+Make sure you use Type Guards wisely, as it can rely heavily on the assumption that the specific method or property only applies to the given type, which may or may not be true, but may also change in the future.
 
 Consider the following example:
 
@@ -486,13 +486,13 @@ const chooseCar = (car: Audi | Bmw | Mercedes) => {
 };
 ```
 
-Adding a new **Mercedes** type that contains the same method as **Audi** doesn't break the code, but TypeScript now shows that the **car** inside of the **if** statement is **Audi**, however it can be **Mercedes** as well.
+Adding a new **Mercedes** type that contains the same method as **Audi** does not break the code, but TypeScript now shows that the **car** inside the **if** statement is **Audi**, but it can also be **Mercedes**.
 
-It can be a big and hard-to-debug problem in more complex applications, so be aware of it.
+This can be a big and hard to debug problem in more complex applications, so be aware of it.
 
 ## Type Guards With Callbacks
 
-It is not assumed by the TypeScript that Type Guards remain active in callbacks, as making such assumption can lead to unexpected bugs:
+It is not assumed by TypeScript that Type Guards remain active in callbacks, as such an assumption can lead to unexpected bugs:
 
 ```typescript
 interface User {
@@ -518,9 +518,9 @@ if (user.address) {
 }
 ```
 
-Even though we checked whether the **user.address** exists, in the callback function, passed to the **formatStreet()** we are given an error.
+Although we checked if the **user.address** exists, we get an error in the callback function, passed to **formatStreet()**.
 
-There is a simple fix - declare a local variable that stores the **user.address**:
+There is a simple solution - declare a local variable that stores the **user.address**:
 
 ```typescript
 // ...
@@ -533,20 +533,20 @@ if (user.address) {
 }
 ```
 
-If you are curious to learn even more about Type Guards and type narrowing in TypeScript, read the [official documentation](https://www.typescriptlang.org/docs/handbook/2/narrowing.html), which is the most accurate and complete source.
+If you want to learn even more about Type Guards and type narrowing in TypeScript, read the [official documentation](https://www.typescriptlang.org/docs/handbook/2/narrowing.html), which is the most accurate and complete source.
 
 ## Summary
 
-**Type Guards** are special forms of code that help to narrow down the type of the variable inside of a conditional block, such as **if** ... **else if** ... **else** statement or **switch**.
+**Type Guards** are special forms of code that help narrow down the type of the variable within a conditional block, such as **if** ... **else if** ... **else** statement or **switch**.
 
-They are performed at a runtime and guarantees the type in a scope.
+They are executed at runtime and guarantee the type in a scope.
 
-Narrowing down types using Type Guards is extremely useful when you are given a bunch of types and you need to run some code, which is differs for different types.
+Narrowing down types with Type Guards is extremely useful when you get a bunch of types and need to run code that differs for different types.
 
-You can't use same built-in function for numbers and strings, as it was shown at the very first example, can you?
+You can't use the same built-in function for numbers and strings as was shown in the first example, can you?
 
-The good thing is that apart from a built-in Type Guards, there is a possibility to define custom ones using Type Predicates.
+The good thing is that besides the built-in function Type Guards, there is also the possibility to define your own functions by using Type Predicates.
 
-Make sure to double check whether the given Type Guard is suitable to your requirements, because there are some not obvious cases which can easily break your app it if is at least a little more complex than easy.
+Be sure to check if the given Type Guard is suitable for your needs, because there are some non-obvious cases that can easily break your app if it is at least a little more complex than simple.
 
-I hope you learnt something new today and see you in the next article!
+Hope you learned something new today and see you in the next article!
