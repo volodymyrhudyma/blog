@@ -1,7 +1,7 @@
 ---
 title: TypeScript - Unknown vs. Any. What Is The Difference?
 tag:
-  - JavaScript
+  - TypeScript
 promote: false
 metaDescription: "Learn the main differences between the TypeScript's 2 top
   types: unknown and any. Any represents every possible value, unknown is much
