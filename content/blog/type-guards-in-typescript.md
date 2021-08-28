@@ -33,7 +33,6 @@ const formatPrice = (price: number | string) => {
   */
   return price.toFixed(2);
 };
-
 ```
 
 The **formatPrice** function formats passed value that can be either a **number** or a **string** to the **00.00** format, so if passed value is **10**, the output is **10.00**.
@@ -54,7 +53,6 @@ const formatPrice = (price: number | string) => {
   // "price" is of a "number" type
   return price.toFixed(2);
 };
-
 ```
 
 Hovering over the **price** variable in different places of the function shows that the variable is of a different types.
@@ -65,7 +63,7 @@ Moreover, it understands that outside of the **if** statement, the variable is o
 
 This is exactly the moment we met the first Type Guard.
 
-## \#1 - typeof
+## Typeof
 
 When the **typeof** operator is used within the condition, it is seen by a TypeScript as a special form of code - Type Guard:
 
@@ -120,7 +118,7 @@ To get more precise information about the type of an object, use the **instanceo
 
 This is impossible to do with a **typeof**, since it returns only **object**.
 
-## \#2 - instanceof
+## Instanceof
 
 The **instanceof** operator checks whether or not the value is an instance of another value:
 
@@ -153,10 +151,9 @@ const formatDate = (value: Date | string) => {
 
 console.log(formatDate(new Date("2021-09-01"))); // "Wed, 01 Sep 2021 00:00:00 GMT"
 console.log(formatDate("2021-09-01")); // "Wed, 01 Sep 2021 00:00:00 GMT"
-
 ```
 
-## \#3 - in
+## In
 
 The **in** operator does not check the type, but it checks whether or not the object contains a property and can be used as a Type Guard:
 
@@ -189,7 +186,6 @@ const saySomething = (being: Human | Animal) => {
   // "being" is of a "Animal" type
   return being.voice();
 };
-
 ```
 
 In the example above, we used **in** operator to check whether the **being** contains **speak()** property and TypeScripted was able to narrow down the type within the "true" branch to **Human**.
@@ -220,7 +216,6 @@ const saySomething = (being: Human | Dog | Cat) => {
   // "being" is of a "Dog | Cat" type
   return being.voice();
 };
-
 ```
 
 The only difference is that in the "false" branch, **being** is of a **Dog | Cat** type, but fortunately both of them contain **voice()** method, so no error is shown when we call it.
@@ -243,7 +238,6 @@ const saySomething = (being: Human | Dog | Cat) => {
   */
   return being.voice();
 };
-
 ```
 
 The simplest solution may be to check whether the **voice()** method exists and call it if so:
@@ -256,10 +250,9 @@ const saySomething = (being: Human | Dog | Cat) => {
 
   return being.voice && being.voice();
 };
-
 ```
 
-## \#4 - Literal Type Guard
+## \#4 - Literal Type Guards
 
 TypeScript allows us to create Literal Types, which are more concrete sub-types of collective types.
 
@@ -289,7 +282,6 @@ const chooseCar = (car: Car) => {
     return "The best or nothing";
   }
 };
-
 ```
 
 If we accidentally add not valid condition when the type has already been narrowed down, we will instantly get a hint from TypeScript:
@@ -362,7 +354,6 @@ interface Bmw {
 const isAudi = (car: Audi | Bmw): car is Audi => {
   return (car as Audi).drive() !== undefined;
 };
-
 ```
 
 Basically, we check whether the **car** argument contains **drive()** method.
@@ -393,12 +384,11 @@ const chooseCar = (car: Audi | Bmw) => {
   // "car" is of a "Bmw" type
   return car.race();
 };
-
 ```
 
 To sum up, any time the **isAudi()** is called, TypeScript will narrow down passed variable to the **Audi** type if the original type is compatible.
 
-## A Generic Type Guard
+## Generic Type Guards
 
 If you are familiar with Generics in TypeScript, you could have noticed that the Type Guard above can be refactored using them.
 
@@ -420,7 +410,6 @@ const isAudi = (car: Audi | Bmw): car is Audi => {
 const isBmw = (car: Audi | Bmw): car is Bmw => {
   return (car as Bmw).race() !== undefined;
 };
-
 ```
 
 We don't respect the **DRY(Don't Repeat Yourself)**, one of the most important principles in software development.
@@ -430,7 +419,6 @@ Let's create a generic Type Guard:
 ```typescript
 const isOfType = <T>(value: any, property: keyof T): value is T =>
   (value as T)[property] !== undefined;
-
 ```
 
 And use it:
@@ -501,7 +489,7 @@ Adding a new **Mercedes** type that contains the same method as **Audi** doesn't
 
 It can be a big and hard-to-debug problem in more complex applications, so be aware of it.
 
-## Type Guards And Callbacks
+## Type Guards With Callbacks
 
 It is not assumed by the TypeScript that Type Guards remain active in callbacks, as making such assumption can lead to unexpected bugs:
 
@@ -542,7 +530,6 @@ if (user.address) {
     console.log(address.street);
   });
 }
-
 ```
 
 If you are curious to learn even more about Type Guards and type narrowing in TypeScript, read the [official documentation](https://www.typescriptlang.org/docs/handbook/2/narrowing.html), which is the most accurate and complete source.
