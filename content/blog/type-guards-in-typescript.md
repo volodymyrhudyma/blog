@@ -72,9 +72,9 @@ if(typeof price === "string") {
 
 TypeScript follows all possible paths of the code execution to analyze the possible type or types of a value at a given place of code.
 
-When it encounters Type Guards or assignments, it tries to refine the types to more specific ones.
+When it encounters Type Guards or assignments, it tries to refine the types to more specific ones and this process is called narrowing.
 
-The whole process is called **Narrowing**.
+> **Narrowing** is the process of going from an infinite number of potential cases to a smaller, finite number of potential case.
 
 It is worth to mention that the **typeof** operator gives a very limited information about the type of the value.
 
@@ -247,4 +247,20 @@ const saySomething = (being: Human | Dog | Cat) => {
   
   return being.voice && being.voice();
 };
+```
+
+## \#4 - Literal Type Guard
+
+TypeScript allows us to create Literal Types, which are more concrete sub-types of collective types.
+
+To begin with, did you know that when declaring a string **const** variable, TypeScript assigns its type to a Literal Type, not string?
+
+```typescript
+const greeting = "Hi"; // The type of "greeting" is "Hi", not "string"
+```
+
+On the other hand, when declaring a string **let** variable, which potentially may change in the future, TypeScript assigns its type to string:
+
+```typescript
+let greeting = "Hi"; // The type of "greeting" is "string", not "Hi"
 ```
