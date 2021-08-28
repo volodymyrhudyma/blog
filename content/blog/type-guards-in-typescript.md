@@ -245,10 +245,8 @@ The simplest solution may be to check if the **voice()** method exists and call 
 
 ```typescript
 // ...
-
 const saySomething = (being: Human | Dog | Cat) => {
   // ...
-
   return being.voice && being.voice();
 };
 ```
