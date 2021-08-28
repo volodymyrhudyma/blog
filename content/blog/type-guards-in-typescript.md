@@ -372,7 +372,7 @@ interface Bmw {
 
 const isAudi = (car: Audi | Bmw): car is Audi => {
   return (car as Audi).drive() !== undefined;
-}
+};
 
 const chooseCar = (car: Audi | Bmw) => {
   // "car" is of a "Audi | Bmw" type
@@ -386,5 +386,66 @@ const chooseCar = (car: Audi | Bmw) => {
 ```
 
 To sum up, any time the **isAudi()** is called, TypeScript will narrow down passed variable to the **Audi** type if the original type is compatible.
+
+## A Generic Type Guard
+
+If you are familiar with Generics in TypeScript, you could have noticed that the Type Guard above can be refactored using them.
+
+While it is not obvious, because we created only one Type Guard, but the pattern is similar if we would like to add more:
+
+```typescript
+interface Audi {
+  drive: () => void;
+}
+
+interface Bmw {
+  race: () => void;
+}
+
+const isAudi = (car: Audi | Bmw): car is Audi => {
+  return (car as Audi).drive() !== undefined;
+};
+
+const isBmw = (car: Audi | Bmw): car is Bmw => {
+  return (car as Bmw).race() !== undefined;
+};
+```
+
+We don't respect the **DRY(Don't Repeat Yourself)**, one of the most important principles in software development.
+
+Let's create a generic Type Guard:
+
+```typescript
+const isOfType = <T>(value: any, property: keyof T): value is T =>
+  (value as T)[property] !== undefined;
+
+```
+
+And use it:
+
+```typescript
+interface Audi {
+  drive: () => void;
+}
+
+interface Bmw {
+  race: () => void;
+}
+
+const isOfType = <T>(value: any, property: keyof T): value is T =>
+  (value as T)[property] !== undefined;
+
+const chooseCar = (car: Audi | Bmw) => {
+  // "car" is of a "Audi | Bmw" type
+  if (isOfType<Audi>(car, "drive")) {
+    // "car" is of a "Audi" type
+    return car.drive();
+  }
+  // "car" is of a "Bmw" type
+  return car.race();
+};
+```
+
+Now you don't need to create a new function each type a new type arrives, just use the existing **isOfType()** method and be confident that you are type-safe at a run-time.
 
 ## Summary
