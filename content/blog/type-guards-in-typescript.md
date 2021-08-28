@@ -19,7 +19,9 @@ One of the things from that list you may have been using for years without even 
 
 A **Type Guard** is a special form of code that helps to narrow down the type of the variable inside of a conditional block, such as **if** ... **else if** ... **else** statement or **switch**.
 
-I totally understand that the above statement may sound unclear, especially for less experienced programmers, so let's take a look at the following TypeScript code:
+It performs a runtime check that guarantees the type in a scope.
+
+I totally understand that the above statements may sound unclear, especially for less experienced programmers, so let's take a look at the following TypeScript code:
 
 ```typescript
 const formatPrice = (price: number | string) => {
@@ -330,5 +332,59 @@ const chooseCar = (car: Audi | Bmw) => {
 Now, inside of the **if** statement the type of the **car** is **Audi**, outside - **Bmw**.
 
 ## Custom Type Guards
+
+If the built-in Type Guars are not enough, which may happen in some special cases, there is a possibility to create custom, or User Defined Type Guards.
+
+To create a custom Type Guard, you need to define a function whose return type is a Type Predicates.
+
+A Type Predicate takes the following form: **parameterName is Type**, where **parameterName** must be the name of a parameter from the current function signature.
+
+Let's create a custom Type Guard with the **car is Audi** Predicate:
+
+```typescript
+interface Audi {
+  drive: () => void;
+}
+
+interface Bmw {
+  race: () => void;
+}
+
+const isAudi = (car: Audi | Bmw): car is Audi => {
+  return (car as Audi).drive() !== undefined;
+};
+```
+
+Basically, we check whether the **car** argument contains **drive()** method.
+
+If it does - then we know that the type of a **car** is **Audi**, otherwise - **Bmw**.
+
+Let's refactor the last example from the previous section with a custom Type Guard:
+
+```typescript
+interface Audi {
+  drive: () => void;
+}
+
+interface Bmw {
+  race: () => void;
+}
+
+const isAudi = (car: Audi | Bmw): car is Audi => {
+  return (car as Audi).drive() !== undefined;
+}
+
+const chooseCar = (car: Audi | Bmw) => {
+  // "car" is of a "Audi | Bmw" type
+  if(isAudi(car)) {
+    // "car" is of a "Audi" type
+    return car.drive();
+  }
+  // "car" is of a "Bmw" type
+  return car.race();
+};
+```
+
+To sum up, any time the **isAudi()** is called, TypeScript will narrow down passed variable to the **Audi** type if the original type is compatible.
 
 ## Summary
