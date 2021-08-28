@@ -264,3 +264,71 @@ On the other hand, when declaring a string **let** variable, which potentially m
 ```typescript
 let greeting = "Hi"; // The type of "greeting" is "string", not "Hi"
 ```
+
+To distinguish between Literal Types, you can use any of those operators: **\===**, **!==**, **\==**, **!=**:
+
+```typescript
+type Car = "audi" | "bmw" | "mercedes";
+
+const chooseCar = (car: Car) => {
+  if(car === "audi") {
+    return "Vorsprung durch Technik";
+  } else if(car === "bmw") {
+    return "Sheer Driving Pleasure";
+  } else {
+    return "The best or nothing";
+  }
+};
+```
+
+If we accidentally add not valid condition when the type has already been narrowed down, we will instantly get a hint from TypeScript:
+
+```typescript
+type Car = "audi" | "bmw" | "mercedes";
+
+const chooseCar = (car: Car) => {
+  if(car === "audi") {
+    /* 
+      ERROR:
+      This condition will always return "false" 
+      Since the types "audi" and "bmw" have no overlap
+    */
+    if(car === "bmw") {}
+    return "Vorsprung durch Technik";
+  } else if( car === "bmw") {
+    return "Sheer Driving Pleasure";
+  } else {
+    return "The best or nothing";
+  }
+};
+```
+
+That should be clear, now let's see more advanced example with Unions containing Literal Types:
+
+```typescript
+interface Audi {
+  type: "sedan";
+  drive: () => void;
+}
+
+interface Bmw {
+  type: "hatchback";
+  race: () => void;
+}
+
+const chooseCar = (car: Audi | Bmw) => {
+  // "car" is of a "Audi | Bmw" type
+  if(car.type === "sedan") {
+    // "car" is of a "Audi" type
+    return car.drive();
+  }
+  // "car" is of a "Bmw" type
+  return car.race();
+};
+```
+
+Now, inside of the **if** statement the type of the **car** is **Audi**, outside - **Bmw**.
+
+## Custom Type Guards
+
+## Summary
