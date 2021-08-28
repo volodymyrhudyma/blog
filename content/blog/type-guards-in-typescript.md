@@ -4,7 +4,8 @@ tag:
   - JavaScript
 promote: false
 metaDescription: Learn Type Guards in TypeScript that allow you to refine
-  variable type inside of a conditional block.
+  variable type inside a conditional block. Use Built-In or Custom (User
+  Defined) Type Guards that return Type Predicates.
 shareImage: /img/type-guards-in-typescript.jpg
 teaser: If you work with Typescript of a regular basis, you know that it
   provides developers with a large feature list that frequently gets updated
