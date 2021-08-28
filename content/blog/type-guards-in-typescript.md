@@ -253,7 +253,7 @@ const saySomething = (being: Human | Dog | Cat) => {
 };
 ```
 
-## \#4 - Literal Type Guards
+## Literal Type Guards
 
 TypeScript allows us to create Literal Types, which are more concrete sub-types of collective types.
 
