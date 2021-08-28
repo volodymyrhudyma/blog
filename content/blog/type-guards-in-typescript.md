@@ -27,16 +27,17 @@ I totally understand that the above statements may sound unclear, especially for
 const formatPrice = (price: number | string) => {
   /* 
     ERROR:
-    Property 'toFixed' does not exist on type 'string | number'.
-    Property 'toFixed' does not exist on type 'string' 
+    Property "toFixed" does not exist on type "string | number"
+    Property "toFixed" does not exist on type "string" 
   */
   return price.toFixed(2);
 };
+
 ```
 
 The **formatPrice** function formats passed value that can be either a **number** or a **string** to the **00.00** format, so if passed value is **10**, the output is **10.00**.
 
-However, it contains a bug and TypeScript warns us about it - *Property 'toFixed' does not exist on type 'string'*, which means that the **toFixed()** method can be executed only on **number** type.
+However, it contains a bug and TypeScript warns us about it - *Property "toFixed" does not exist on type "string"*, which means that the **toFixed()** method can be executed only on **number** type.
 
 Surely, it is possible to forbid accepting the **string** type, but in some cases it may not be obvious what type of a value will come in, so to be safe, it is better to handle both of them.
 
@@ -45,13 +46,14 @@ The above code should be refactored with an **if** statement that checks for the
 ```typescript
 const formatPrice = (price: number | string) => {
   // "price" is of a "number | string" type
-  if(typeof price === "string") {
+  if (typeof price === "string") {
     // "price" is of a "string" type
     return parseInt(price, 10).toFixed(2);
   }
   // "price" is of a "number" type
   return price.toFixed(2);
 };
+
 ```
 
 Hovering over the **price** variable in different places of the function shows that the variable is of a different types.
@@ -67,7 +69,7 @@ This is exactly the moment we met the first Type Guard.
 When the **typeof** operator is used within the condition, it is seen by a TypeScript as a special form of code - Type Guard:
 
 ```typescript
-if(typeof price === "string") {
+if (typeof price === "string") {
   // ..
 }
 ```
@@ -140,7 +142,7 @@ Obviously, **instanceof** is also a Type Guard, since TypeScript is able to narr
 ```typescript
 const formatDate = (value: Date | string) => {
   // "value" is of a "string | Date" type
-  if(value instanceof Date) {
+  if (value instanceof Date) {
     // "value" is of a "Date" type
     return value.toUTCString();
   }
@@ -150,6 +152,7 @@ const formatDate = (value: Date | string) => {
 
 console.log(formatDate(new Date("2021-09-01"))); // "Wed, 01 Sep 2021 00:00:00 GMT"
 console.log(formatDate("2021-09-01")); // "Wed, 01 Sep 2021 00:00:00 GMT"
+
 ```
 
 ## \#3 - in
@@ -170,7 +173,7 @@ Consider the following example:
 ```typescript
 interface Human {
   speak: () => void;
-};
+}
 
 interface Animal {
   voice: () => void;
@@ -178,13 +181,14 @@ interface Animal {
 
 const saySomething = (being: Human | Animal) => {
   // "being" is of a "Human | Animal" type
-  if("speak" in being) {
+  if ("speak" in being) {
     // "being" is of a "Human" type
     return being.speak();
-  } 
+  }
   // "being" is of a "Animal" type
   return being.voice();
 };
+
 ```
 
 In the example above, we used **in** operator to check whether the **being** contains **speak()** property and TypeScripted was able to narrow down the type within the "true" branch to **Human**.
@@ -196,7 +200,7 @@ This was an easy example, but what if we had more Union Types?
 ```typescript
 interface Human {
   speak: () => void;
-};
+}
 
 interface Dog {
   voice: () => void;
@@ -208,13 +212,14 @@ interface Cat {
 
 const saySomething = (being: Human | Dog | Cat) => {
   // "being" is of a "Human | Dog | Cat" type
-  if("speak" in being) {
+  if ("speak" in being) {
     // "being" is of a "Human" type
     return being.speak();
   }
   // "being" is of a "Dog | Cat" type
   return being.voice();
 };
+
 ```
 
 The only difference is that in the "false" branch, **being** is of a **Dog | Cat** type, but fortunately both of them contain **voice()** method, so no error is shown when we call it.
@@ -228,7 +233,7 @@ interface Cat {
 }
 
 const saySomething = (being: Human | Dog | Cat) => {
-  if("speak" in being) {
+  if ("speak" in being) {
     return being.speak();
   }
   /* 
@@ -237,6 +242,7 @@ const saySomething = (being: Human | Dog | Cat) => {
   */
   return being.voice();
 };
+
 ```
 
 The simplest solution may be to check whether the **voice()** method exists and call it if so:
@@ -246,9 +252,10 @@ The simplest solution may be to check whether the **voice()** method exists and 
 
 const saySomething = (being: Human | Dog | Cat) => {
   // ...
-  
+
   return being.voice && being.voice();
 };
+
 ```
 
 ## \#4 - Literal Type Guard
@@ -273,14 +280,15 @@ To distinguish between Literal Types, you can use any of those operators: **\===
 type Car = "audi" | "bmw" | "mercedes";
 
 const chooseCar = (car: Car) => {
-  if(car === "audi") {
+  if (car === "audi") {
     return "Vorsprung durch Technik";
-  } else if(car === "bmw") {
+  } else if (car === "bmw") {
     return "Sheer Driving Pleasure";
   } else {
     return "The best or nothing";
   }
 };
+
 ```
 
 If we accidentally add not valid condition when the type has already been narrowed down, we will instantly get a hint from TypeScript:
@@ -289,15 +297,15 @@ If we accidentally add not valid condition when the type has already been narrow
 type Car = "audi" | "bmw" | "mercedes";
 
 const chooseCar = (car: Car) => {
-  if(car === "audi") {
+  if (car === "audi") {
     /* 
       ERROR:
       This condition will always return "false" 
       Since the types "audi" and "bmw" have no overlap
     */
-    if(car === "bmw") {}
+    if (car === "bmw") {}
     return "Vorsprung durch Technik";
-  } else if( car === "bmw") {
+  } else if (car === "bmw") {
     return "Sheer Driving Pleasure";
   } else {
     return "The best or nothing";
@@ -320,7 +328,7 @@ interface Bmw {
 
 const chooseCar = (car: Audi | Bmw) => {
   // "car" is of a "Audi | Bmw" type
-  if(car.type === "sedan") {
+  if (car.type === "sedan") {
     // "car" is of a "Audi" type
     return car.drive();
   }
@@ -353,6 +361,7 @@ interface Bmw {
 const isAudi = (car: Audi | Bmw): car is Audi => {
   return (car as Audi).drive() !== undefined;
 };
+
 ```
 
 Basically, we check whether the **car** argument contains **drive()** method.
@@ -376,13 +385,14 @@ const isAudi = (car: Audi | Bmw): car is Audi => {
 
 const chooseCar = (car: Audi | Bmw) => {
   // "car" is of a "Audi | Bmw" type
-  if(isAudi(car)) {
+  if (isAudi(car)) {
     // "car" is of a "Audi" type
     return car.drive();
   }
   // "car" is of a "Bmw" type
   return car.race();
 };
+
 ```
 
 To sum up, any time the **isAudi()** is called, TypeScript will narrow down passed variable to the **Audi** type if the original type is compatible.
@@ -409,6 +419,7 @@ const isAudi = (car: Audi | Bmw): car is Audi => {
 const isBmw = (car: Audi | Bmw): car is Bmw => {
   return (car as Bmw).race() !== undefined;
 };
+
 ```
 
 We don't respect the **DRY(Don't Repeat Yourself)**, one of the most important principles in software development.
@@ -532,5 +543,7 @@ if (user.address) {
 }
 
 ```
+
+If you are curious to learn even more about Type Guards and type narrowing in TypeScript, read the [official documentation](https://www.typescriptlang.org/docs/handbook/2/narrowing.html), which is the most accurate and complete source.
 
 ## Summary
