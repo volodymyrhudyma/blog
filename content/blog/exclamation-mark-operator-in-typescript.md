@@ -1,7 +1,7 @@
 ---
 title: Exclamation Mark In TypeScript
 tag:
-  - JavaScript
+  - TypeScript
 promote: true
 metaDescription: Learn about Exclamation Mark, aka Non-Null Asserion Operator in
   TypeScript and why it can be a useful addition to your project.
