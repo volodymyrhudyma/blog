@@ -533,6 +533,34 @@ if (user.address) {
 
 If you want to learn even more about Type Guards and type narrowing in TypeScript, read the [official documentation](https://www.typescriptlang.org/docs/handbook/2/narrowing.html), which is the most accurate and complete source.
 
+## Assign Type Guard To Variable
+
+What would happen if you moved the Type Guard out of the condition and assigned it to a variable, like this?
+
+```typescript
+const formatPrice = (price: number | string) => {
+  const isString = typeof price === "string";
+  if (isString) {
+    /* 
+      ERROR:
+      Property "toFixed" does not exist on type "string | number"
+      Property "toFixed" does not exist on type "string" 
+    */
+    return parseInt(price, 10).toFixed(2);
+  }
+  /* 
+    ERROR:
+    Property "toFixed" does not exist on type "string | number"
+    Property "toFixed" does not exist on type "string" 
+  */
+  return price.toFixed(2);
+};
+```
+
+There would be an error if you are using TypeScript version < 4.4 - for some reason TypeScript loses the information about the Type Guard.
+
+Fortunately, this bug has been fixed in version 4.4, which is mentioned in the release announcement on the [Microsoft Blog](https://devblogs.microsoft.com/typescript/announcing-typescript-4-4/).
+
 ## Summary
 
 **Type Guards** are special forms of code that help narrow down the type of the variable within a conditional block, such as **if** ... **else if** ... **else** statement or **switch**.
