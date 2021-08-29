@@ -60,7 +60,10 @@ The last Middleware in the chain will receive the real store's dispatch method a
 It may sound complicated at first, so let's better look at its signature:
 
 ```javascript
-const logger = ({ dispatch, getState }) => next => action => {};
+const logger = ({ dispatch, getState }) => next => action => {
+  // Do the work and call "next(action)"
+  next(action);
+};
 ```
 
 Now let's fill the **logger** function with the code that outputs the action details and the next state of the application:
@@ -100,7 +103,7 @@ export default function configureStore() {
 }
 ```
 
-And enjoy the logs:
+Finally, enjoy the logs:
 
 ![Logs In The Developer's Console](/img/screenshot-2021-08-29-at-22.54.51.png "Logs In The Developer's Console")
 
