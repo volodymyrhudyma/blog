@@ -16,7 +16,7 @@ Redux is one of the most popular state management libraries available for React 
 
 It provides us with the store that holds the whole application's state, actions that describe what happens in the application and reducers that create new state object from the existing one based on the type of an action and given payload.
 
-This flow can be extended using middlewares.
+This flow can be extended using Middlewares.
 
 ## What Is A Middleware?
 
@@ -24,21 +24,21 @@ This flow can be extended using middlewares.
 
 It is known as a suggested way to extend Redux with the custom functionality.
 
-One of the key features of the Middleware is that it is composable and each middleware requires no knowledge of what comes before or after it in the chain.
+One of the key features of the Middleware is that it is composable and each Middleware requires no knowledge of what comes before or after it in the chain.
 
 They are typically used for logging, crash reporting, talking to an API, etc.
 
-While there are a lot of middlewares in the npm registry, available to be instantly used, we are given a possibility to create and use our own custom ones.
+While there are a lot of Middlewares in the npm registry, available to be instantly used, we are given a possibility to create and use our own custom ones.
 
-In the next section, we will learn how to create a custom middleware for logging actions with payload and a state computed right after they have been dispatched.
+In the next section, we will learn how to create a custom Middleware for logging actions with payload and a state computed right after they have been dispatched.
 
-In other words, our own implementation of the [redux-logger](https://github.com/LogRocket/redux-logger) middleware.
+In other words, our own implementation of the [redux-logger](https://github.com/LogRocket/redux-logger) Middleware.
 
 ## Logger Middleware
 
-If you used Redux before, you most probably used one of the most popular middlewares that lets you write asynchronous logic that interacts with the store - [redux-thunk](https://github.com/reduxjs/redux-thunk).
+If you used Redux before, you most probably used one of the most popular Middlewares that lets you write asynchronous logic that interacts with the store - [redux-thunk](https://github.com/reduxjs/redux-thunk).
 
-It is appended with the help of the **applyMiddleware(...middleware)** function that takes a list of middlewares and composes them:
+It is appended with the help of the **applyMiddleware(...middleware)** function that takes a list of Middlewares and composes them:
 
 ```javascript
 import { applyMiddleware, createStore } from "redux";
@@ -51,11 +51,11 @@ export default function configureStore() {
 }
 ```
 
-Each middleware receives **store** as an argument (it can be destructured to get access to the **dispatch** and **getState** store methods) and returns a function. 
+Each Middleware receives **store** as an argument (it can be destructured to get access to the **dispatch** and **getState** store methods) and returns a function. 
 
-That function will be given the **next** middleware's dispatch method, and is expected to return a function of **action** calling **next(action)** with a potentially different argument, at a different time, or even not calling it at all.
+That function will be given the **next** Middleware's dispatch method, and is expected to return a function of **action** calling **next(action)** with a potentially different argument, at a different time, or even not calling it at all.
 
-The last middleware in the chain will receive the real store's dispatch method as the **next** parameter, thus ending the chain.
+The last Middleware in the chain will receive the real store's dispatch method as the **next** parameter, thus ending the chain.
 
 It may sound complicated at first, so let's better look at its signature:
 
@@ -81,7 +81,7 @@ const logger = ({ getState }) => next => action => {
 };
 ```
 
-The next step is to pass the middleware to the **applyMiddleware** function:
+The next step is to pass the Middleware to the **applyMiddleware(...middleware)** function:
 
 ```javascript
 import { applyMiddleware, createStore } from "redux";
@@ -106,6 +106,6 @@ And enjoy the logs:
 
 ## Summary
 
-In this article, we learned what is a middleware, how create a custom middleware in Redux and add it to the chain using the **applyMiddleware** method.
+In this article, we learned what is a Middleware, how create a custom Middleware in Redux and add it to the chain using the **applyMiddleware(...middleware)** method.
 
-Of course, I don't recommend to create a custom logger middleware, better use the existing one - [redux-logger](https://github.com/LogRocket/redux-logger), which is enough for most cases.
+Of course, I don't recommend to create a custom logger Middleware, better use the existing one - [redux-logger](https://github.com/LogRocket/redux-logger), which is enough for most cases.
