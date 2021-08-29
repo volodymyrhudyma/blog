@@ -16,13 +16,21 @@ Redux is one of the most popular state management libraries available for React 
 
 It provides us with the store that holds the whole application's state, actions that describe what happens in the application and reducers that create new state object from the existing one based on the type of an action and given payload.
 
-This flow can be extended using middlewares that allow executing code after dispatching an action, but before it reaches reducer.
+This flow can be extended using middlewares.
 
-Middlewares are typically used for logging, crash reporting, talking to an API, etc.
+## What Is A Middleware?
+
+**Middleware** in Redux is a third-party extension point between dispatching an action, and the moment it reaches the reducer.
+
+It is known as a suggested way to extend Redux with the custom functionality.
+
+One of the key features of the Middleware is that it is composable and each middleware requires no knowledge of what comes before or after it in the chain.
+
+They are typically used for logging, crash reporting, talking to an API, etc.
 
 While there are a lot of middlewares in the npm registry, available to be instantly used, we are given a possibility to create and use our own custom ones.
 
-Today we will learn how to create a custom middleware for logging actions with payload and a state computed right after they have been dispatched.
+In the next section, we will learn how to create a custom middleware for logging actions with payload and a state computed right after they have been dispatched.
 
 In other words, our own implementation of the [redux-logger](https://github.com/LogRocket/redux-logger) middleware.
 
@@ -43,13 +51,13 @@ export default function configureStore() {
 }
 ```
 
-Each middleware that is passed to the **applyMiddleware** receives store's **dispatch** and **getState()** functions as named arguments and returns a function.
+Each middleware receives **store** as an argument (it can be destructured to get access to the **dispatch** and **getState** store methods) and returns a function. 
 
-The returned function is given a **next** middleware's dispatch method and it should return another function.
+That function will be given the **next** middleware's dispatch method, and is expected to return a function of **action** calling **next(action)** with a potentially different argument, at a different time, or even not calling it at all.
 
-The last function receives **action** as an argument and is expected to call or not to call **next(action)**, depending on whether we want to continue the chain of actions or not.
+The last middleware in the chain will receive the real store's dispatch method as the **next** parameter, thus ending the chain.
 
-It sounds complicated, so let's better look at its signature:
+It may sound complicated at first, so let's better look at its signature:
 
 ```javascript
 const logger = ({ dispatch, getState }) => next => action => {};
@@ -62,17 +70,14 @@ const logger = ({ getState }) => next => action => {
   // Log the current action
   console.log("Dispatching:", action);
   
-  // Call the next dispatch method in the middleware chain
-  const result = next(action);
+  /*
+    Call when middleware has done its job 
+    To send the action to a reducer or the next middleware
+  */
+  next(action);
 
   // Log the new state after the action is executed
   console.log("Next state:", getState());
-  
-  /* 
-     This will likely be the action itself, unless
-     a middleware further in chain changed it.
-  */
-  return result;
 };
 ```
 
@@ -86,9 +91,8 @@ import rootReducer from "./rootReducer";
 
 const logger = ({ getState }) => next => action => {
   console.log("Dispatching:", action);
-  const result = next(action);
+  next(action);
   console.log("Next state:", getState());
-  return result;
 };
 
 export default function configureStore() {
@@ -99,3 +103,9 @@ export default function configureStore() {
 And enjoy the logs:
 
 ![Logs In The Developer's Console](/img/screenshot-2021-08-29-at-22.54.51.png "Logs In The Developer's Console")
+
+## Summary
+
+In this article, we learned what is a middleware, how create a custom middleware in Redux and add it to the chain using the **applyMiddleware** method.
+
+Of course, I don't recommend to create a custom logger middleware, better use the existing one - [redux-logger](https://github.com/LogRocket/redux-logger), which is enough for most cases.
