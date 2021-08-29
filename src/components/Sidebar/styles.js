@@ -18,6 +18,7 @@ export const Wrapper = styled.div`
     width: 15rem;
   }
 `
+
 export const Block = styled.div`
   background: #fff;
   margin: 0 -1.5rem;
@@ -34,6 +35,7 @@ export const Block = styled.div`
     css`
       background: #404040;
       color: #fff;
+      transform: scale(1.05);
     `}
 
     ${({ grey }) =>
@@ -129,3 +131,22 @@ export const OtherIcon = styled(Lightbulb)`
 `
 
 export const Text = styled.div``
+
+export const Button = styled(Link)`
+  display: inline-block;
+  background-color: #fff;
+  color: #000;
+  cursor: pointer;
+  width: 100%;
+  padding: 0.5rem 2rem;
+  transition: background-color 0.5s;
+  border: 1px solid transparent;
+  margin-top: 1rem;
+  text-align: center;
+
+  &:hover {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #000;
+  }
+`

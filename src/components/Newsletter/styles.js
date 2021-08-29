@@ -11,7 +11,11 @@ export const Wrapper = styled.div`
     css`
       background-color: #1f75041c;
       margin: 1.5rem 0;
-      padding: 1.5rem;
+      padding: 2.5rem 1.5rem;
+
+      @media (max-width: 468px) {
+        padding: 1.5rem;
+      }
     `}
 `
 

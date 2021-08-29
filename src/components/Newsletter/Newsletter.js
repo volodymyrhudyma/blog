@@ -41,7 +41,7 @@ const Newsletter = ({ wide }) => {
           onChange={handleEmailChange}
           placeholder="Type your e-mail address..."
         />
-        <Hint>No spam, I promise</Hint>
+        <Hint>No spam, only quality content twice a week</Hint>
         <Button>Subscribe</Button>
       </Form>
       {mailChimpResponse && (

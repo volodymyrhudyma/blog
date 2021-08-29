@@ -10,8 +10,7 @@ import {
   Text,
   Item,
   LinkIconStyled,
-  HashIconStyled,
-  OtherIcon,
+  Button,
 } from "./styles"
 
 const Sidebar = ({ allPosts, tags, extended }) => {
@@ -74,25 +73,35 @@ const Sidebar = ({ allPosts, tags, extended }) => {
       </Block>
       <Block grey>
         <Title>React</Title>
-        {reactPosts.slice(0, 3).map((post, i) => (
+        {reactPosts.slice(0, 2).map((post, i) => (
           <Item key={i} to={post.fields.slug}>
             <LinkIconStyled />
             {post.frontmatter.title}
           </Item>
         ))}
       </Block>
+      <Block black>
+        <Title>Interested In Collab?</Title>
+        <Text>Contact me and let's discuss any opportunities</Text>
+        <Button
+          target="__blank"
+          href="https://www.linkedin.com/in/volodymyr-hudyma-98bb78131/"
+        >
+          Contact Me
+        </Button>
+      </Block>
       <Block>
-        <Title>TypeScript</Title>
-        {tsPosts.slice(0, 3).map((post, i) => (
+        <Title>Latest: TypeScript</Title>
+        {tsPosts.slice(0, 2).map((post, i) => (
           <Item key={i} to={post.fields.slug}>
             <LinkIconStyled />
             {post.frontmatter.title}
           </Item>
         ))}
       </Block>
-      <Block>
-        <Title>JavaScript</Title>
-        {jsPosts.slice(0, 3).map((post, i) => (
+      <Block grey>
+        <Title>Latest: JavaScript</Title>
+        {jsPosts.slice(0, 2).map((post, i) => (
           <Item key={i} to={post.fields.slug}>
             <LinkIconStyled />
             {post.frontmatter.title}
@@ -110,10 +119,9 @@ const Sidebar = ({ allPosts, tags, extended }) => {
           <Text>Support me by sharing it on social media</Text>
         </Block>
       )}
-
       <Block>
-        <Title>Git</Title>
-        {gitPosts.slice(0, 3).map((post, i) => (
+        <Title>Latest: Git</Title>
+        {gitPosts.slice(0, 2).map((post, i) => (
           <Item key={i} to={post.fields.slug}>
             <LinkIconStyled />
             {post.frontmatter.title}
@@ -121,8 +129,8 @@ const Sidebar = ({ allPosts, tags, extended }) => {
         ))}
       </Block>
       <Block grey>
-        <Title>Other</Title>
-        {otherPosts.slice(0, 3).map((post, i) => (
+        <Title>Latest: Other</Title>
+        {otherPosts.slice(0, 2).map((post, i) => (
           <Item key={i} to={post.fields.slug}>
             <LinkIconStyled />
             {post.frontmatter.title}
