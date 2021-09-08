@@ -5,15 +5,15 @@ tag:
 promote: false
 metaDescription: Learn the difference between git add -A, git add . and git add -u commands.
 shareImage: /img/git-add-a-vs-git-add-.-article.jpg
-teaser: The very basic thing every developer does on a daily basis when working
-  with Git is adding files to be committed. Most probably, the vast majority of
-  us uses **git add -A** without the exact knowledge what is going on behind the
-  scenes...
+teaser: The most basic task any developer has when working with Git on a daily
+  basis is adding files to be committed. Probably the vast majority of us use
+  **git add -A** without knowing exactly what is going on behind the scenes when
+  we use the **\-A** flag, and whether there are no other...
 date: 2021-09-08T20:58:43.100Z
 ---
 The most basic task any developer has when working with Git on a daily basis is adding files to be committed.
 
-Probably the vast majority of us use **git add -A** without knowing exactly what is going on behind the scenes when we use the **\-A** flag, and whether there are not other options that suit our needs better.
+Probably the vast majority of us use **git add -A** without knowing exactly what is going on behind the scenes when we use the **\-A** flag, and whether there are no other options that suit our needs better.
 
 ## \#1 - "git add -A"
 
