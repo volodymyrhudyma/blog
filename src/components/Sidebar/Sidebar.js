@@ -132,7 +132,7 @@ const Sidebar = ({ allPosts, tags, extended }) => {
           </Item>
         ))}
       </Block>
-      <Block>
+      <Block grey>
         <Title>Latest: Git</Title>
         {gitPosts.slice(0, 2).map((post, i) => (
           <Item key={i} to={post.fields.slug}>
@@ -141,7 +141,7 @@ const Sidebar = ({ allPosts, tags, extended }) => {
           </Item>
         ))}
       </Block>
-      <Block grey>
+      <Block>
         <Title>Latest: Other</Title>
         {otherPosts.slice(0, 2).map((post, i) => (
           <Item key={i} to={post.fields.slug}>
