@@ -3,36 +3,36 @@ title: Post A Tweet Using Twitter API
 tag:
   - Node
 promote: false
-metaDescription: Learn how to create a simple Twitter Bot using Twitter API and
-  Node.js that posts a Tweet on your behalf.
+metaDescription: Learn how to use Twitter API and Node.js to create a simple
+  Twitter Bot that posts a tweet on your behalf.
 shareImage: /img/twitter-api-in-nodejs.jpg
-teaser: Growing a business requires big effort, including working a lot with the
-  social media to gather an attention and promote your product to the end users.
-  Therefore, it necessary to automate as much things as possible in order not to
-  spend your entire time...
+teaser: Growing a business requires a lot of effort, including working on social
+  media to attract attention and promote your product to end users. Therefore,
+  it is necessary to automate as much as possible so that you do not have to
+  spend all your time...
 date: 2021-09-13T07:25:26.832Z
 ---
-Growing a business requires big effort, including working a lot with the social media to gather an attention and promote your product to the end users.
+Growing a business requires a lot of effort, including working on social media to attract attention and promote your product to end users.
 
-Therefore, it necessary to automate as much things as possible in order not to spend your entire time preparing posts and manually replying to the comments.
+Therefore, it is necessary to automate as much as possible so that you do not have to spend all your time preparing posts and replying to comments manually.
 
-If you use Twitter for a long time, you may have noticed the large amount of bots hanging around.
+If you have been using Twitter for a long time, you may have noticed the large number of bots floating around. 
 
-So, why don't create your own one?
+So why not create your own?
 
 ## Prerequisites
 
-Before we proceed to the coding part, we need to create a Twitter application that would provide us with the necessary stuff we need to integrate with the Twitter API.
+Before we move on to programming, we need to create a Twitter application that will give us what we need to integrate with the Twitter API.
 
 #### \#1 - Create A Twitter Application
 
-To begin with, log in to the [Twitter developer's portal](https://developer.twitter.com/) with the account you want to post Tweet from.
+First, log in to the [Twitter developer's portal](https://developer.twitter.com/) with the account from which you want to post Tweet.
 
-Next, click on the "**Developer Portal**" link at the top right corner.
+Then click on the "**Developer Portal**" link in the upper right corner.
 
-Once you enter it, click "**Projects & Apps**" -> "**Overview**" -> "**Create App**".
+Once you enter it, click on "**Projects & Apps**" -> "**Overview**" -> "**Create App**".
 
-Provide the required details of the application and in the end, you will end up on the screen with a set of keys, but don't copy them yet, as they would change later on.
+Enter the required details of the application and at the end you will see a set of keys on the screen, but you should not copy them yet as they would change later.
 
 #### \#2 - Update Application's Permissions
 
@@ -40,41 +40,43 @@ Next, scroll down to the "**App permissions**" section:
 
 ![App Permissions](/img/screenshot-2021-09-12-at-09.48.28.png "App Permissions")
 
-Click "**Edit**" and change to "**Read and Write**" in order to allow our application to post Tweets on your behalf:
+Click "**Edit**" and switch to "**Read and Write**" in order to allow our application to post tweets on your behalf:
 
 ![Updated App Permissions](/img/screenshot-2021-09-12-at-09.49.08.png "Updated App Permissions")
 
-Click "**Save**", confirm the change and verify the change:
+Click "**Save**", confirm the change and verify it:
 
 ![Updated App Permissions](/img/screenshot-2021-09-12-at-09.50.01.png "Updated App Permissions")
 
 #### \#3 - (Re)generate Tokens
 
-Click on the "**Keys and tokens**" on the right side of the "**Settings**" and regenerate "**Api Key and Secret**", since we didn't copy them from one of the previous screens:
+Click on "**Keys and tokens**" on the right side of "**Settings**" and regenerate "**Api Key and Secret**" since we didn't copy them from any of the previous screens:
 
 ![Regenerate Api Key And Secret](/img/screenshot-2021-09-12-at-09.55.17.png "Regenerate Api Key And Secret")
 
-Confirm the action and you will see a modal with keys, save them somewhere on your computer for a future use.
+Confirm the action and you will see a modal with the keys.
 
-Next, regenerate "**Access Token and Secret**", since old tokens were valid for old permissions (**Read**), now they were changed to "**Read and Write**".
+Save them somewhere on your computer for later use.
 
-If you don't have a "**Regenerate**" button, like on the screenshot below, just click "**Generate**", it will still be perfectly fine:
+Next, regenerate "**Access Token and Secret**" as the old tokens were valid for the old permissions (**Read**), now they have been changed to "**Read and Write**".
+
+If you do not have a "**Regenerate**" button like on the screenshot below, just click "**Generate**" and it will still be perfectly fine:
 
 ![Generate Access Token And Secret](/img/screenshot-2021-09-12-at-09.56.34.png "Generate Access Token And Secret")
 
 Save them and move on.
 
-**Important note:** It should be instantly seen that "**Access Token and Secret**" were created with the "**Read and Write**" permissions:
+**Important note:** It should be instantly seen that "**Access Token and Secret**" have been created with "**Read and Write**" permissions:
 
 ![Verify Permissions For Access Token And Secret](/img/screenshot-2021-09-12-at-10.00.25.png "Verify Permissions For Access Token And Secret")
 
-Finally, we have everything to move to the most fun part of this tutorial - coding.
+Finally we have everything to move on to the most fun part of this tutorial - coding.
 
-We will create a Node.js application, since it is not safe to integrate directly with the Twitter API from the React application.
+We are going to create a Node.js application, since it is not safe to integrate directly with the Twitter API from within the React application.
 
-Why? Because we need to use all the generated tokens, keys and secrets and it is not safe to store them on the client side, since in this case they are visible to everyone, which is definitely not what we want.
+Why? Because we need to use all generated tokens, keys and secrets and it is not safe to store them on the client side, as in this case they will be visible to everyone, which is definitely not what we want.
 
-We need to have a Proxy API that communicates with the Twitter API and stores all sensitive data for us.
+We need a Proxy API that communicates with the Twitter API and stores all the sensitive data for us.
 
 ## Twitter API Integration
 
@@ -86,11 +88,11 @@ Install the Twitter client for Node:
 
 `yarn add twit`
 
-And a module that loads environment variables from **.env** file to the **process.env**:
+And a module that loads environment variables from the **.env** file into **process.env**:
 
 `yarn add dotenv`
 
-That's it, now create **.env** file in the root of your project with the following content:
+That's it. Now create the **.env** file in the root of your project with the following content:
 
 ```javascript
 API_KEY=
@@ -101,7 +103,7 @@ ACCESS_TOKEN_SECRET=
 
 Add the saved keys to the above file and save it.
 
-Next, create **index.js** file in the root of your project and import installed dependencies:
+Next, create **index.js** file in the root of your project and import the installed dependencies:
 
 ```javascript
 const Twit = require("twit");
@@ -109,7 +111,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 ```
 
-The next step is to create a Twitter client, passing all the keys as parameters:
+The next step is to create a Twitter client and pass all the keys as parameters:
 
 ```javascript
 // ...
@@ -122,7 +124,7 @@ const T = new Twit({
 });
 ```
 
-Finally, create a function that is responsible for integration with the Twitter API and posting a tweet:
+Finally, create a function responsible for integrating with the Twitter API and sending a tweet:
 
 ```javascript
 // ..
@@ -146,9 +148,9 @@ tweet();
 
 And that's it!
 
-We used "**statuses/update**" method, which is described in the [official documentation](https://developer.twitter.com/en/docs/twitter-api/v1/tweets/post-and-engage/api-reference/post-statuses-update).
+We used "**statuses/update**" method, described in the [official documentation](https://developer.twitter.com/en/docs/twitter-api/v1/tweets/post-and-engage/api-reference/post-statuses-update).
 
-Read it to find out what other parameters we could have added to make a tweet containing even more information that just a plain text.
+Read it to find out what other parameters we could have used to create a tweet that contains even more information than just a simple text.
 
 Finally, open the **package.json** file and add a new script to run an application:
 
@@ -169,18 +171,20 @@ To verify the result, run the application:
 
 `yarn start`
 
-If the are no errors in the console, open Twitter, navigate to the Profile and see a newly created Tweet:
+If no errors are displayed in the console, open Twitter, navigate to your profile and see a newly created tweet:
 
 ![Twit Posted Programatically](/img/screenshot-2021-09-12-at-10.29.31.png "Twit Posted Programatically")
 
-Pretty cool, huh?
+Pretty cool, isn't it?
 
-Imagine what else could be done using the Twitter API, which is really easy-to-use and well documented.
+Imagine what else you could do with the Twitter API, which is really easy-to-use and well documented.
 
 ## Summary
 
-Congratulations on creating your first Twitter Bot that posts a Tweet for you.
+Congratulations on creating your first Twitter Bot, which posts a tweet for you.
 
-I suggest to start reading the [official Twitter API documentation](https://developer.twitter.com/en/docs) and playing around with the Twitter API to see what else can be automated, so your business can benefit from that.
+I recommend you to read the [official Twitter API documentation](https://developer.twitter.com/en/docs) and play around with the Twitter API to see what else can be automated to benefit your business.
 
-The vast majority of other social networks have their APIs and allow to do similar things, so by learning one (Twitter), you know how to handle others as well.
+Most other social networks have their own APIs and enable similar things. 
+
+So if you know one (Twitter), you know how to deal with others.
