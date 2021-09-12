@@ -35,7 +35,7 @@ const Sidebar = ({ allPosts, tags, extended }) => {
     if (node.frontmatter.tag.includes("Git")) {
       gitPosts.push(node)
     }
-    if (node.frontmatter.tag.includes("Node.js")) {
+    if (node.frontmatter.tag.includes("Node")) {
       nodePosts.push(node)
     }
     if (node.frontmatter.tag.includes("Other")) {

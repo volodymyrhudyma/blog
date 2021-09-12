@@ -21,7 +21,7 @@ collections:
           name: "tag",
           widget: "select",
           options:
-            ["React", "JavaScript", "TypeScript", "Git", "Node.js", "Other"],
+            ["React", "JavaScript", "TypeScript", "Git", "Node", "Other"],
           multiple: true,
           default: JavaScript,
         }
