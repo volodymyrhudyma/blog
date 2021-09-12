@@ -3,9 +3,13 @@ title: Post A Tweet Using Twitter API
 tag:
   - Other
 promote: false
-metaDescription: // META
+metaDescription: Learn how to create a simple Twitter Bot using Twitter API and
+  Node.js that posts a Tweet on your behalf.
 shareImage: /img/twitter-api-in-nodejs.jpg
-teaser: // TEASER
+teaser: Growing a business requires big effort, including working a lot with the
+  social media to gather an attention and promote your product to the end users.
+  Therefore, it necessary to automate as much things as possible in order not to
+  spend your entire time...
 date: 2021-09-13T07:25:26.832Z
 ---
 Growing a business requires big effort, including working a lot with the social media to gather an attention and promote your product to the end users.
@@ -171,6 +175,12 @@ If the are no errors in the console, open Twitter, navigate to the Profile and s
 
 Pretty cool, huh?
 
-Imaging what else could be done using the Twitter API, which is really easy-to-use and well documented.
+Imagine what else could be done using the Twitter API, which is really easy-to-use and well documented.
 
 ## Summary
+
+Congratulations on creating your first Twitter Bot that posts a Tweet for you.
+
+I suggest to start reading the [official Twitter API documentation](https://developer.twitter.com/en/docs) and playing around with the Twitter API to see what else can be automated, so your business can benefit from that.
+
+The vast majority of other social networks have their APIs and allow to do similar things, so by learning one (Twitter), you know how to handle others as well.
