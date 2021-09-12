@@ -48,7 +48,7 @@ Click "**Save**", confirm the change and verify the change:
 
 ![Updated App Permissions](/img/screenshot-2021-09-12-at-09.50.01.png "Updated App Permissions")
 
-### \#3 - (Re)generate Tokens
+#### \#3 - (Re)generate Tokens
 
 Click on the "**Keys and tokens**" on the right side of the "**Settings**" and regenerate "**Api Key and Secret**", since we didn't copy them from one of the previous screens:
 
