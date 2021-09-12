@@ -26,7 +26,7 @@ Before we move on to programming, we need to create a Twitter application that w
 
 #### \#1 - Create A Twitter Application
 
-First, log in to the [Twitter developer's portal](https://developer.twitter.com/) with the account from which you want to post Tweet.
+First, log in to the [Twitter developer's portal](https://developer.twitter.com/) with the account from which you want to post a tweet.
 
 Then click on the "**Developer Portal**" link in the upper right corner.
 
