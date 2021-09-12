@@ -74,4 +74,91 @@ We need to have a Proxy API that communicates with the Twitter API and stores al
 
 ## Twitter API Integration
 
+Initialize a new project with the default settings:
+
+`npm init -y`
+
+Install the Twitter client for Node:
+
+`yarn add twit`
+
+And a module that loads environment variables from **.env** file to the **process.env**:
+
+`yarn add dotenv`
+
+That's it, now create **.env** file in the root of your project with the following content:
+
+```javascript
+API_KEY=
+API_SECRET=
+ACCESS_TOKEN=
+ACCESS_TOKEN_SECRET=
+```
+
+Add the saved keys to the above file and save it.
+
+Next, create **index.js** file in the root of your project and import installed dependencies:
+
+```javascript
+const Twit = require("twit");
+const dotenv = require("dotenv");
+dotenv.config();
+```
+
+The next step is to create a Twitter client, passing all the keys as parameters:
+
+```javascript
+// ...
+
+const T = new Twit({
+  consumer_key: process.env.CONSUMER_KEY,
+  consumer_secret: process.env.CONSUMER_SECRET,
+  access_token: process.env.ACCESS_TOKEN,
+  access_token_secret: process.env.ACCESS_TOKEN_SECRET,
+});
+```
+
+Finally, create a function that is responsible for integration with the Twitter API and posting a tweet:
+
+```javascript
+// ..
+
+const tweet = () => {
+  const text = "Hello world!";
+
+  const onFinish = (err, reply) => {
+    if (err) {
+      console.log("Error: ", err.message);
+    } else {
+      console.log("Success: ", reply);
+    }
+  };
+
+  T.post("statuses/update", { status: text }, onFinish);
+};
+
+tweet();
+```
+
+And that's it!
+
+We used "**statuses/update**" method, which is described in the [official documentation](https://developer.twitter.com/en/docs/twitter-api/v1/tweets/post-and-engage/api-reference/post-statuses-update).
+
+Read it to find out what other parameters we could have added to make a tweet containing even more information that just a plain text.
+
+Finally, open the **package.json** file and add a new script to run an application:
+
+```json
+// ...
+
+"scripts": {
+  "start": "node ./index.js",
+  // ...
+},
+
+// ...
+```
+
+## Verify The Result
+
 ## Summary
