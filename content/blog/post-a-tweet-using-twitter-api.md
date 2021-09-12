@@ -115,8 +115,8 @@ The next step is to create a Twitter client, passing all the keys as parameters:
 // ...
 
 const T = new Twit({
-  consumer_key: process.env.CONSUMER_KEY,
-  consumer_secret: process.env.CONSUMER_SECRET,
+  consumer_key: process.env.API_KEY,
+  consumer_secret: process.env.API_SECRET,
   access_token: process.env.ACCESS_TOKEN,
   access_token_secret: process.env.ACCESS_TOKEN_SECRET,
 });
@@ -128,7 +128,7 @@ Finally, create a function that is responsible for integration with the Twitter 
 // ..
 
 const tweet = () => {
-  const text = "Hello world!";
+  const text = "Hey!";
 
   const onFinish = (err, reply) => {
     if (err) {
