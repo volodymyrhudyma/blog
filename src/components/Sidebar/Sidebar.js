@@ -19,6 +19,7 @@ const Sidebar = ({ allPosts, tags, extended }) => {
   const tsPosts = []
   const jsPosts = []
   const gitPosts = []
+  const nodePosts = []
   const otherPosts = []
 
   allPosts.forEach(({ node }) => {
@@ -33,6 +34,9 @@ const Sidebar = ({ allPosts, tags, extended }) => {
     }
     if (node.frontmatter.tag.includes("Git")) {
       gitPosts.push(node)
+    }
+    if (node.frontmatter.tag.includes("Node.js")) {
+      nodePosts.push(node)
     }
     if (node.frontmatter.tag.includes("Other")) {
       otherPosts.push(node)
@@ -119,6 +123,15 @@ const Sidebar = ({ allPosts, tags, extended }) => {
           <Text>Support me by sharing it on social media</Text>
         </Block>
       )}
+      <Block>
+        <Title>Latest: Node.js</Title>
+        {nodePosts.slice(0, 2).map((post, i) => (
+          <Item key={i} to={post.fields.slug}>
+            <LinkIconStyled />
+            {post.frontmatter.title}
+          </Item>
+        ))}
+      </Block>
       <Block>
         <Title>Latest: Git</Title>
         {gitPosts.slice(0, 2).map((post, i) => (
