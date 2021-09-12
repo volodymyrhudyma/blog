@@ -1,7 +1,7 @@
 ---
 title: Post A Tweet Using Twitter API
 tag:
-  - Node.js
+  - Node
 promote: false
 metaDescription: Learn how to create a simple Twitter Bot using Twitter API and
   Node.js that posts a Tweet on your behalf.
