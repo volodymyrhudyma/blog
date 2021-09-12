@@ -161,4 +161,16 @@ Finally, open the **package.json** file and add a new script to run an applicati
 
 ## Verify The Result
 
+To verify the result, run the application:
+
+`yarn start`
+
+If the are no errors in the console, open Twitter, navigate to the Profile and see a newly created Tweet:
+
+![Twit Posted Programatically](/img/screenshot-2021-09-12-at-10.29.31.png "Twit Posted Programatically")
+
+Pretty cool, huh?
+
+Imaging what else could be done using the Twitter API, which is really easy-to-use and well documented.
+
 ## Summary
