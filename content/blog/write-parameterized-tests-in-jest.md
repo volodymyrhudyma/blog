@@ -205,7 +205,44 @@ It depends on your testing strategy how you would break down tests into suits, b
 
 In some cases, it is necessary to duplicate suit with different data.
 
-We are allowed to use the same **.each** pattern for Test Suits, as we did for individual tests.
+We are allowed to use the same **.each** pattern for Test Suits, as we did for individual tests:
+
+```javascript
+describe.each([
+  [0, 0, 0],
+  [-1, -2, -3],
+  [1, 2, 3],
+  [99999, 99999, 199998],
+])(`add(%i, %i) function`, (x, y, result) => {
+  it(`should return ${result}`, () => {
+    expect(add(x, y)).toEqual(result);
+  });
+});
+```
+
+Run the tests (Note that the reported format has changed):
+
+![Jest Each For Test Suit](/img/screenshot-2021-09-19-at-11.37.36.png "Jest Each For Test Suit")
+
+We can also use the Tagged Template Literal Syntax here:
+
+```javascript
+describe.each`
+  x        | y        | result
+  ${0}     | ${0}     | ${0}
+  ${-1}    | ${-2}    | ${-3}
+  ${1}     | ${2}     | ${3}
+  ${99999} | ${99999} | ${199998}
+`(`add($x, $y) function`, ({ x, y, result }) => {
+  it(`should return ${result}`, () => {
+    expect(add(x, y)).toEqual(result);
+  });
+});
+```
+
+Run the tests:
+
+![Jest Each For Test Suit Using Tagged Template Literal Syntax](/img/screenshot-2021-09-19-at-11.39.39.png "Jest Each For Test Suit Using Tagged Template Literal Syntax")
 
 ## NPM Package: jest-each
 
