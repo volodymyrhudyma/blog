@@ -63,5 +63,86 @@ It would be nice to be able to declare all of them in one place and just execute
 That's exactly what Jest allows us to do with the Parameterized Tests:
 
 ```javascript
-// TEST
+describe("add function", () => {
+  it.each([
+    [0, 0, 0],
+    [-1, -2, -3],
+    [1, 2, 3],
+    [99999, 99999, 199998],
+  ])(
+    `should return proper result when passed arguments are: %i, %i`,
+    (x, y, result) => {
+      expect(add(x, y)).toEqual(result);
+    }
+  );
+});
 ```
+
+Not sure what's going one here? Let me explain.
+
+We use build-in **it.each** function that accepts a table as an argument:
+
+```javascript
+[
+  [0, 0, 0],
+  [-1, -2, -3],
+  [1, 2, 3],
+  [99999, 99999, 199998],
+]
+```
+
+The table contains rows, each of which is passed into the test function (the arguments order is preserved):
+
+```javascript
+// Syntax
+(x, y, result) => {
+  expect(add(x, y)).toEqual(result);
+}
+
+// 1-st Iteration
+(0, 0, 0) => {
+  expect(add(0, 0)).toEqual(0);
+}
+
+// 2-nd Iteration
+(-1, -2, -3) => {
+  expect(add(-1, -2)).toEqual(-3);
+}
+
+// 3-d Iteration
+(1, 2, 3) => {
+  expect(add(1, 2)).toEqual(3);
+}
+
+// 4-th Iteration
+(99999, 99999, 199998) => {
+  expect(add(99999, 99999)).toEqual(199998);
+}
+```
+
+Let's run the tests to verify that nothing is broken after small refactoring:
+
+![Jest Run Tests After Refactoring To It.Each](/img/screenshot-2021-09-19-at-10.56.42.png "Jest Run Tests After Refactoring To It.Each")
+
+Works perfectly fine!
+
+Also, you might have notices that we used **%i** in the test title. 
+
+This is used to positionally inject integer parameters with printf formatting.
+
+If we remove it, then the test title would not contain the arguments and it would be hard to understand what values are actually being tested:
+
+```javascript
+describe("add function", () => {
+  // ...
+    `should return proper result when passed arguments are: ...`,
+  // ...
+});
+
+```
+
+Run tests with changed title:
+
+![Jest Run Tests With Changed Title](/img/screenshot-2021-09-19-at-10.59.06.png "Jest Run Tests With Changed Title")
+
+That's why it is always better to explicitly define what values are tested unless they are some complex objects (however, even in this case we can inject properties of this object).
