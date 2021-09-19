@@ -60,7 +60,7 @@ The only things that change between the tests are arguments and the result.
 
 It would be nice to be able to declare all of them in one place and just execute the assertion by iterating over them.
 
-## Parameterized Tests
+## Parameterized Tests - Array Syntax
 
 That's exactly what Jest allows us to do with the Parameterized Tests:
 
@@ -151,7 +151,7 @@ That's why it is always better to explicitly define what values are tested unles
 
 View the full list of available injecting parameters and their formatting [here](https://jestjs.io/docs/api#1-testeachtablename-fn-timeout).
 
-## Tagged Template Literal Syntax
+## Parameterized Tests  - Tagged Template Literal Syntax
 
 In the previous section, we defined the table argument as a multidimensional array and that's perfectly fine.
 
@@ -175,3 +175,18 @@ describe("add function", () => {
 ```
 
 It may look a little more complex, but trust me, it isn't.
+
+We pass a Tagged Template Literal with the following structure:
+
+* The first row contains variable name column headings
+* Subsequent rows contain data, supplied as Template Literal Expressions using **${value}** syntax
+
+Then in the test title we have an access to the data by using **$x**, **$y** or **$result** syntax and the **$#** to display an index of the current row.
+
+Inside of the test, we have an access to the data by destructuring the first argument.
+
+Finally, run the tests:
+
+![Jest Table Syntax Run](/img/screenshot-2021-09-19-at-11.22.44.png "Jest Table Syntax Run")
+
+Still works fine.
