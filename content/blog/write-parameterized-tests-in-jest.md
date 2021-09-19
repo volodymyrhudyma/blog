@@ -60,6 +60,8 @@ The only things that change between the tests are arguments and the result.
 
 It would be nice to be able to declare all of them in one place and just execute the assertion by iterating over them.
 
+## Parameterized Tests
+
 That's exactly what Jest allows us to do with the Parameterized Tests:
 
 ```javascript
@@ -135,7 +137,7 @@ If we remove it, then the test title would not contain the arguments and it woul
 ```javascript
 describe("add function", () => {
   // ...
-    `should return proper result when passed arguments are: ...`,
+    'should return proper result when passed arguments are: ...',
   // ...
 });
 
@@ -146,3 +148,30 @@ Run tests with changed title:
 ![Jest Run Tests With Changed Title](/img/screenshot-2021-09-19-at-10.59.06.png "Jest Run Tests With Changed Title")
 
 That's why it is always better to explicitly define what values are tested unless they are some complex objects (however, even in this case we can inject properties of this object).
+
+View the full list of available injecting parameters and their formatting [here](https://jestjs.io/docs/api#1-testeachtablename-fn-timeout).
+
+## Tagged Template Literal Syntax
+
+In the previous section, we defined the table argument as a multidimensional array and that's perfectly fine.
+
+But there is another way to define it - using Tagged Template Literal Syntax:
+
+```javascript
+describe("add function", () => {
+  it.each`
+    x        | y        | result
+    ${0}     | ${0}     | ${0}
+    ${-1}    | ${-2}    | ${-3}
+    ${1}     | ${2}     | ${3}
+    ${99999} | ${99999} | ${199998}
+  `(
+    `should return proper result when passed arguments are: $x, $y`,
+    ({ x, y, result }) => {
+      expect(add(x, y)).toEqual(result);
+    }
+  );
+});
+```
+
+It may look a little more complex, but trust me, it isn't.
