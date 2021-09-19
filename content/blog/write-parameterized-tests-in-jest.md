@@ -1,7 +1,7 @@
 ---
 title: Write Parameterized Tests In Jest
 tag:
-  - React
+  - JavaScript
 promote: false
 metaDescription: Learn how to write Parameterized Tests in Jest either by using
   the built-in it.each, describe.each functions or installing jest-each package.
