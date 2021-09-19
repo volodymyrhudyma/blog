@@ -246,4 +246,18 @@ Run the tests:
 
 ## NPM Package: jest-each
 
+If you were familiar with the topic before reading this article, you may know that there is a npm package called [jest-each](https://www.npmjs.com/package/jest-each) that basically provides the same functionality that we were implementing today.
+
+The package is still very popular with more than 13M weekly downloads (as of 19.09.2021).
+
+But what's the point of installing and using it if Jest provides the way to write Parameterized tests our-of-the-box?
+
+The reason is simple - support for **.each** syntax was added to Jest only in version number 23.
+
+Read the official information about it [here](https://github.com/facebook/jest/blob/main/packages/jest-jasmine2/package.json#L27).
+
+If you are using smaller version, then it is necessary to use the package.
+
+**Interesting fact:** Jest uses jest-each package under the hood.
+
 ## Summary
