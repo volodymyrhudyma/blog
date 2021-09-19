@@ -3,28 +3,29 @@ title: Write Parameterized Tests In Jest
 tag:
   - JavaScript
 promote: false
-metaDescription: Learn how to write Parameterized Tests in Jest either by using
-  the built-in it.each, describe.each functions or installing jest-each package.
+metaDescription: Learn how to write Parameterized Tests in Jest, using either
+  the built-in it.each and describe.each functions or installing the jest-each
+  package.
 shareImage: /img/parameterized-tests-in-jest.jpg
 teaser: Unit tests are crucial - they help to confirm that the individual parts
   of applications work as intended. On the one hand, without them you are never
-  sure that everything works correctly either after refactoring or adding a new
-  feature. But on the other hand...
+  sure that everything works correctly, whether after refactoring or adding a
+  new feature. On the other hand...
 date: 2021-09-21T07:18:41.251Z
 ---
 Unit tests are crucial - they help to confirm that the individual parts of applications work as intended.
 
-On the one hand, without them you are never sure that everything works correctly either after refactoring or adding a new feature.
+On the one hand, without them you are never sure that everything works correctly, whether after refactoring or adding a new feature.
 
-But on the other hand, writing them takes a lot of time, especially when the code is duplicated to test different edge cases.
+On the other hand, writing these tests takes a lot of time, especially if the code is duplicated to test different edge cases.
 
-Skipping tests is not an option, therefore we need to search for a way to speed up the whole process.
+Skipping tests is not an option, therefore we need to look for a way to speed up the whole process.
 
-Fortunately, Jest provides us with a possibility to create **Parameterized Tests** that are designed exactly for this purpose.
+Fortunately, Jest provides us with the ability to create **Parameterized Tests** that are designed exactly for this purpose.
 
 ## Tests Duplication
 
-In this section we will write a few unit tests for a simple function that adds two values to see where the problem is.
+In this section we will write some unit tests for a simple function that adds two values to see where the problem lies.
 
 Create a function **add(x, y)**:
 
@@ -32,7 +33,7 @@ Create a function **add(x, y)**:
 const add = (x, y) => x + y;
 ```
 
-In order to verify that the function works as intended, let's choose random pairs numbers and use them is tests:
+To verify that the function works as intended, we select random pairs of numbers and use them is tests:
 
 ```javascript
 describe("add function", () => {
@@ -54,19 +55,19 @@ describe("add function", () => {
 });
 ```
 
-Run the tests to verify that they pass:
+Run the tests to see if they pass:
 
 ![Unit Tests Run](/img/screenshot-2021-09-19-at-10.05.42.png "Unit Tests Run")
 
-Great, we just tested our **add(x, y)** function and we can move on to the next feature... but hey, haven't you noticed that we copied a lot of code unnecessarily?
+Great, we just tested our **add(x, y)** function and can move on to the next feature... but hey, haven't you noticed that we unnecessarily copied a lot of code?
 
-The only things that change between the tests are arguments and the result.
+The only things that change between tests are the arguments and the result.
 
-It would be nice to be able to declare all of them in one place and just execute the assertion by iterating over them.
+It would be nice if you could declare them all in one place and just execute the assertion by iterating over it.
 
 ## Parameterized Tests - Array Syntax
 
-That's exactly what Jest allows us to do with the Parameterized Tests:
+This is exactly what Jest allows us to do with the Parameterized Tests:
 
 ```javascript
 describe("add function", () => {
@@ -84,9 +85,9 @@ describe("add function", () => {
 });
 ```
 
-Not sure what's going one here? Let me explain.
+Not sure what's going on here? Let me explain.
 
-We use build-in **it.each** function that accepts a table as an argument:
+We use the built-in **each** function, which accepts a table (multidimensional array) as an argument:
 
 ```javascript
 [
@@ -97,7 +98,7 @@ We use build-in **it.each** function that accepts a table as an argument:
 ]
 ```
 
-The table contains rows, each of which is passed into the test function (the arguments order is preserved):
+The table contains rows, each of which is passed to the test function (the order of the arguments is preserved):
 
 ```javascript
 // Syntax
@@ -126,17 +127,17 @@ The table contains rows, each of which is passed into the test function (the arg
 }
 ```
 
-Let's run the tests to verify that nothing is broken after small refactoring:
+Run the tests to verify that nothing is broken after the little refactoring:
 
 ![Jest Run Tests After Refactoring To It.Each](/img/screenshot-2021-09-19-at-10.56.42.png "Jest Run Tests After Refactoring To It.Each")
 
-Works perfectly fine!
+Works fine!
 
-Also, you might have notices that we used **%i** in the test title. 
+You may also have noticed that we used **%i** in the test title. 
 
 This is used to positionally inject integer parameters with printf formatting.
 
-If we remove it, then the test title would not contain the arguments and it would be hard to understand what values are actually being tested:
+If we remove it, the test title would not contain the arguments and it would be hard to understand what values are actually being tested:
 
 ```javascript
 describe("add function", () => {
@@ -146,19 +147,19 @@ describe("add function", () => {
 });
 ```
 
-Run tests with changed title:
+Run tests with the title changed:
 
 ![Jest Run Tests With Changed Title](/img/screenshot-2021-09-19-at-10.59.06.png "Jest Run Tests With Changed Title")
 
-That's why it is always better to explicitly define what values are tested unless they are some complex objects (however, even in this case we can inject properties of this object).
+Therefore, it is always better to explicitly define which values are tested, unless we are talking about complex objects (but even in this case we can inject properties of this object).
 
-View the full list of available injecting parameters and their formatting [here](https://jestjs.io/docs/api#1-testeachtablename-fn-timeout).
+See the full list of available injecting parameters and their formatting [here](https://jestjs.io/docs/api#1-testeachtablename-fn-timeout).
 
 ## Parameterized Tests  - Tagged Template Literal Syntax
 
-In the previous section, we defined the table argument as a multidimensional array and that's perfectly fine.
+In the previous section, we defined the table argument as a multidimensional array, and that's perfectly fine.
 
-But there is another way to define it - using Tagged Template Literal Syntax:
+But there's another way to define it - using Tagged Template Literal Syntax:
 
 ```javascript
 describe("add function", () => {
@@ -177,38 +178,38 @@ describe("add function", () => {
 });
 ```
 
-It may look a little more complex, but trust me, it isn't.
+It may look a bit more complicated, but believe me, it's not.
 
 We pass a Tagged Template Literal with the following structure:
 
 * The first row contains variable name column headings
-* Subsequent rows contain data, supplied as Template Literal Expressions using **${value}** syntax
+* Subsequent rows contain data passed as Template Literal Expressions using **${value}** syntax
 
-Then in the test title we have an access to the data by using **$x**, **$y** or **$result** syntax and the **$#** to display an index of the current row.
+In the test title, we can then access the data with the syntax **$x**, **$y** or **$result** and display an index of the current row with **$#**.
 
-Inside of the test, we have an access to the data by destructuring the first argument.
+Within the test, we access the data by destructuring the first argument.
 
 Finally, run the tests:
 
 ![Jest Table Syntax Run](/img/screenshot-2021-09-19-at-11.22.44.png "Jest Table Syntax Run")
 
-Still works fine.
+Still works well.
 
 ## Parameterized Tests - Test Suits
 
 In the previous sections, we learned how to use **it.each** to duplicate the same test with different data.
 
-But tests can be gathered together in groups called **Test Suits**.
+But tests can be grouped together in **Test Suits**.
 
-This of a Test Suit as of a container that groups related tests and helps in executing them and reporting the results.
+Think of a Test Suit as of a container that groups related tests and helps in running them and reporting the results.
 
-In our previous examples, we created one suit, using the **describe** method that is genuinely provided for use by Jest.
+In our previous examples, we created a suit by using the **describe** method, which is actually provided by Jest.
 
-It depends on your testing strategy how you would break down tests into suits, because it is possible to have one suit per function, module, plugin, etc.
+It depends on your testing strategy how you split the tests into suits, because it is possible to have one suit per function, module, plugin, etc.
 
-In some cases, it is necessary to duplicate suit with different data.
+In some cases it is necessary to duplicate suits with different data.
 
-We are allowed to use the same **.each** pattern for Test Suits, as we did for individual tests:
+We may the same **.each** pattern for Test Suits as we did for individual tests:
 
 ```javascript
 describe.each([
@@ -223,7 +224,7 @@ describe.each([
 });
 ```
 
-Run the tests (Note that the reported format has changed):
+Run the tests (Note that the report format has changed):
 
 ![Jest Each For Test Suit](/img/screenshot-2021-09-19-at-11.37.36.png "Jest Each For Test Suit")
 
@@ -249,22 +250,22 @@ Run the tests:
 
 ## NPM Package: jest-each
 
-If you were familiar with the topic before reading this article, you may know that there is a npm package called [jest-each](https://www.npmjs.com/package/jest-each) that basically provides the same functionality that we were implementing today.
+If you were familiar with the topic before reading this article, you may know that there is an npm package called [jest-each](https://www.npmjs.com/package/jest-each) that provides basically the same functionality that we implemented today.
 
-The package is still very popular with more than 13M weekly downloads (as of 19.09.2021).
+The package is still very popular with more than 13M weekly downloads (as of Sep 19th 2021).
 
-But what's the point of installing and using it if Jest provides the way to write Parameterized tests our-of-the-box?
+But what's the point of installing and using it when Jest provides the ability to write Parameterized tests our-of-the-box?
 
-The reason is simple - support for **.each** syntax was added to Jest only in version number 23.
+The reason is simple - support for **.each** syntax was only added to Jest in version 23 and above.
 
 Read the official information about it [here](https://github.com/facebook/jest/blob/main/packages/jest-jasmine2/package.json#L27).
 
-If you are using smaller version, then it is necessary to use the package.
+If you use a smaller version, it is necessary to use the package.
 
-**Interesting fact:** Jest uses jest-each package under the hood.
+**Interesting fact:** Jest uses the jest-each package under the hood.
 
 ## Summary
 
-In this article, we learned a simple way to reduce unit tests boilerplate by using Parameterized Tests in Jest.
+In this article, we learned a simple way to reduce unit test boilerplate using Parameterized Tests in Jest.
 
-There is no need to copy the tests changing only the input arguments - take advantage of either **describe.each** or **jest.each** to make the tests cleaner, shorter and more readable.
+There is no need to copy the tests changing only the input arguments - use either **describe.each** or **jest.each** to make the tests cleaner, shorter and more readable.
