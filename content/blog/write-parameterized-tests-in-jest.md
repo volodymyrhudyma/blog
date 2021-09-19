@@ -3,9 +3,13 @@ title: Write Parameterized Tests In Jest
 tag:
   - React
 promote: false
-metaDescription: // META
+metaDescription: Learn how to write Parameterized Tests in Jest either by using
+  the built-in it.each, describe.each functions or installing jest-each package.
 shareImage: /img/parameterized-tests-in-jest.jpg
-teaser: // TEASER
+teaser: Unit tests are crucial - they help to confirm that the individual parts
+  of applications work as intended. On the one hand, without them you are never
+  sure that everything works correctly either after refactoring or adding a new
+  feature. But on the other hand...
 date: 2021-09-21T07:18:41.251Z
 ---
 Unit tests are crucial - they help to confirm that the individual parts of applications work as intended.
@@ -140,7 +144,6 @@ describe("add function", () => {
     'should return proper result when passed arguments are: ...',
   // ...
 });
-
 ```
 
 Run tests with changed title:
@@ -261,3 +264,7 @@ If you are using smaller version, then it is necessary to use the package.
 **Interesting fact:** Jest uses jest-each package under the hood.
 
 ## Summary
+
+In this article, we learned a simple way to reduce unit tests boilerplate by using Parameterized Tests in Jest.
+
+There is no need to copy the tests changing only the input arguments - take advantage of either **describe.each** or **jest.each** to make the tests cleaner, shorter and more readable.
