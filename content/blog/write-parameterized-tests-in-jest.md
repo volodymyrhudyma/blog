@@ -190,3 +190,23 @@ Finally, run the tests:
 ![Jest Table Syntax Run](/img/screenshot-2021-09-19-at-11.22.44.png "Jest Table Syntax Run")
 
 Still works fine.
+
+## Parameterized Tests - Test Suits
+
+In the previous sections, we learned how to use **it.each** to duplicate the same test with different data.
+
+But tests can be gathered together in groups called **Test Suits**.
+
+This of a Test Suit as of a container that groups related tests and helps in executing them and reporting the results.
+
+In our previous examples, we created one suit, using the **describe** method that is genuinely provided for use by Jest.
+
+It depends on your testing strategy how you would break down tests into suits, because it is possible to have one suit per function, module, plugin, etc.
+
+In some cases, it is necessary to duplicate suit with different data.
+
+We are allowed to use the same **.each** pattern for Test Suits, as we did for individual tests.
+
+## NPM Package: jest-each
+
+## Summary
