@@ -1,0 +1,16 @@
+_id: 419d58b0-1c13-11ec-9eba-ebe9b6082bcd
+name: 'Parameterized Tests - Array Syntax: One way of writing is missing'
+message: |-
+  Like this:
+
+  ```js
+  test.each([
+    {a: 1, b: 1, expected: 2},
+    {a: 1, b: 2, expected: 3},
+    {a: 2, b: 1, expected: 3},
+  ])('.add($a, $b)', ({a, b, expected}) => {
+    expect(a + b).toBe(expected);
+  });
+  ```
+slug: /write-parameterized-tests-in-jest/
+date: '2021-09-23T02:09:17.558Z'
