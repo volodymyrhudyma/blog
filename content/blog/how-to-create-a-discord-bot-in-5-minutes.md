@@ -166,7 +166,7 @@ You type "Ping", the bot replies with "Pong" - as simple as that.
 Add the following code to the **index.js** file:
 
 ```javascript
-client.on("message", (message) => {
+client.on("messageCreate", (message) => {
   if (message.content === "Ping") {
     message.reply("Pong");
   }
