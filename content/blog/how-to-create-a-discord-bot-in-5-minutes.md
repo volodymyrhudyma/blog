@@ -3,94 +3,96 @@ title: How To Create A Discord Bot In 5 Minutes?
 tag:
   - Node
 promote: false
-metaDescription: Learn how to use Discord API and Node.js to create a simple
-  Discord Bot in just 5 minutes.
+metaDescription: Learn how to create a simple Discord Bot in just 5 minutes
+  using the Discord API and Node.js.
 shareImage: /img/discord-bot.jpg
-teaser: Bots became increasingly popular in the last few years, because they
-  allow to automate a lot of things that previously people had to do manually.
-  This way we can save a tremendous amount of time and focus on the most
+teaser: Bots have become increasingly popular in recent years because they make
+  it possible to automate many things that previously had to be done manually by
+  humans. This way, we can save an enormous amount of time and focus on the most
   important tasks instead of doing...
 date: 2021-09-26T10:05:02.352Z
 ---
-Bots became increasingly popular in the last few years, because they allow to automate a lot of things that previously people had to do manually.
+Bots have become increasingly popular in recent years because they make it possible to automate many things that previously had to be done manually by humans.
 
-This way we can save a tremendous amount of time and focus on the most important tasks instead of doing the routine.
+This way, we can save an enormous amount of time and focus on the most important tasks instead of doing routine work.
 
-Today we are going to build a skeleton for a Discord bot that can reply on a user message.
+Today we are going to create a skeleton for a Discord bot that can respond to a specific user message.
 
 ## \#1 - Create Discord Application
 
 To begin with, we need a Discord Application.
 
-Navigate to the <https://discord.com/developers/applications> (sign up or sign in if you haven't yet) and click on the "**New Application**" button or the right top:
+Navigate to <https://discord.com/developers/applications> (log in or sign up if you have not already) and click on the "**New Application**" button on top right:
 
 ![New Application In Discord](/img/screenshot-2021-09-25-at-12.37.08.png "New Application In Discord")
 
-Provide the name and you will be redirected to the Application's dashboard page.
+Enter the name and you will be taken to the application's dashboard page.
 
-Click on the "**Bot**" menu item at the left of the page and then click "**Add Bot**" at the right:
+Click on the "**Bot**" menu item on the left and then click "**Add Bot**" on the right:
 
 ![Add Bot In Discord](/img/screenshot-2021-09-25-at-12.38.24.png "Add Bot In Discord")
 
-After adding a bot you will be redirected to the Bot dashboard page.
+After you add a bot, you will be redirected to the bot's dashboard page.
 
-Find a "**TOKEN**" section and click "**Copy**" button to copy the token that will be needed to integrate with the Discord API later:
+Locate "**TOKEN**" section and click the "**Copy**" button to copy the token that will be needed later for integration with the Discord API:
 
 ![Bot Dashboard In Discord](/img/screenshot-2021-09-25-at-12.40.29.png "Bot Dashboard In Discord")
 
-**Important note:** don't share this token with anyone. If you accidentally did, it can be regenerated.
+**Important Note:** Do not share this token with others. If you accidentally do, it may be regenerated.
 
 ## \#2 - Add Bot To Server
 
-To add bot to a server, you will first need to create it.
+To add a bot to server, you must first create it.
 
 #### \#2.1 - Create Discord Server
 
-Navigate to the Discord application and click on the "Plus" icon at the left of the page (when you will hover over this item, you will notice a tooltip "**Add a server**").
+Navigate to the Discord application and click on the "plus" icon on the left side of the page (if you hover over this item, you will see a tooltip "**Add a server**").
 
-After clicking it, you will be asked to choose a template for the server, but let's click on "**Create my own**":
+After clicking on it, you will be prompted to choose a template for the server, but let's click on "**Create my own**":
 
 ![Create Server Discord](/img/screenshot-2021-09-25-at-12.55.54.png "Create Server Discord")
 
-The next step is to tell Discord whether this server is meant for you and your friends only or for larger community:
+The next step is to tell Discord whether this server is just for you and your friends or for a larger community:
 
 ![Create Server Discord - Step 2](/img/screenshot-2021-09-25-at-12.56.02.png "Create Server Discord - Step 2")
 
-You can select either option, but I will just skip this question for now.
+You can choose either option, but I'll just skip this question for now.
 
 Then you will be asked to provide a name for your server:
 
 ![Create Server Discord - Step 3](/img/screenshot-2021-09-25-at-12.56.13.png "Create Server Discord - Step 3")
 
-I will stick to the default and click "**Create**".
+I'll stick with the default and click "**Create**".
 
 Congratulations on creating your own Discord server:
 
 ![Own Discord Server](/img/screenshot-2021-09-25-at-12.52.45.png "Own Discord Server")
 
-#### \#2.2 - Invite Bot To Join A Server
+#### \#2.2 - Invite Bot To Join Server
 
-Return back to the Discord Developer Portal, navigate to "**OAuth2**", find "**SCOPE**" section and check "**Bot**":
+Return to Discord Developer Portal, navigate to "**OAuth2**", find the "**SCOPE**" section and check "**Bot**":
 
 ![Discord Add Bot OAuth2 Scope](/img/screenshot-2021-09-25-at-13.00.48.png "Discord Add Bot OAuth2 Scope")
 
-Take a look at the bottom of the "**SCOPES**" section - you've been given a generated URL.
+Take a look at the bottom of the "**SCOPES**" section - you got a generated URL.
 
 Open it in a new tab and you will be redirected to the following page:
 
 ![Discord Add Bot To Server](/img/screenshot-2021-09-25-at-13.02.49.png "Discord Add Bot To Server")
 
-Click "Select a server" dropdown and choose the server you want to invite bot to, click "Authorize", fill the captcha and your bot will appear on your server.
+Click the "**Select a server**" dropdown and choose the server you want to invite the bot to.
+
+Click "**Authorise**", fill out the captcha and your bot will appear on your server.
 
 You should see a confirmation message:
 
 ![Discord Invite Bot Confirmation](/img/screenshot-2021-09-25-at-13.04.09.png "Discord Invite Bot Confirmation")
 
-Now open a Discord application, navigate to your server and verify that the bot has been added correctly:
+Now open a Discord application, navigate to your server, and verify that the bot was added correctly:
 
 ![Discord Bot On Server](/img/screenshot-2021-09-25-at-13.07.50.png "Discord Bot On Server")
 
-It's now offline, but don't worry, we will change that in the next section.
+It's now offline, but do not worry, we will change that in the next section.
 
 ## \#3 - Create Node Application
 
@@ -106,16 +108,16 @@ Initialize a new project:
 
 `npm init`
 
-Install necessary libraries:
+Install required libraries:
 
 `yarn add discord.js dotenv`
 
 * [discord.js](https://www.npmjs.com/package/discord.js) - a powerful Node.js module that allows you to easily interact with the Discord API
-* [dotenv](https://www.npmjs.com/package/dotenv) - library that loads environment variables from **.env** file into **process.env**
+* [dotenv](https://www.npmjs.com/package/dotenv) - library that loads environment variables from the **.env** file into **process.env**
 
-Having all that done, we can start writing the logic for our bot.
+With all that done, we can start writing the logic for our bot.
 
-Create **index.js** file in the root directory of the project with the following content:
+Create the **index.js** file in the root directory of the project with the following content:
 
 ```javascript
 const Discord = require('discord.js');
@@ -137,7 +139,7 @@ client.on("ready", () => {
 client.login(process.env.CLIENT_TOKEN);
 ```
 
-Create **.env** file and put the token we copied earlier inside:
+Create the **.env** file and paste the token we copied earlier:
 
 ```javascript
 CLIENT_TOKEN=<YOUR_COPIED_TOKEN>
@@ -147,23 +149,23 @@ And run the project:
 
 `node index.js`
 
-If everything was done correctly, you should see the confirmation message in the console:
+If you did everything correctly, you should see the confirmation message in the console:
 
 ![Console Confirmation Log](/img/screenshot-2021-09-25-at-13.25.48.png "Console Confirmation Log")
 
-And the status of the bot should be "ONLINE" now:
+And the status of the bot should now change to "**Online**":
 
 ![Bot Is Online](/img/screenshot-2021-09-25-at-13.27.51.png "Bot Is Online")
 
 ## \#4 - Add Custom Command
 
-The bot has been set up, but it can't do anything useful yet, so let's change it.
+The bot has been set up, but can't do anything useful yet, so let's change it.
 
-Typically, the very first thing people implement when creating bots is the "Ping - Pong" thingy.
+Usually, the very first thing people implement when creating bots is the "Ping - Pong" thing.
 
-You type "Ping", the bot replies with "Pong" - as simple as that.
+You type "Ping", the bot responds with "Pong" - as simple as that.
 
-Add the following code to the **index.js** file:
+Paste the following code into the **index.js** file (right before the **client.login** line):
 
 ```javascript
 client.on("messageCreate", (message) => {
@@ -173,14 +175,14 @@ client.on("messageCreate", (message) => {
 });
 ```
 
-Restart the application and send a new message containing "Ping" to the bot in Discord:
+Restart the application and send a new "Ping" message to the bot in Discord:
 
 ![Discord Bot Replied With Pong](/img/screenshot-2021-09-25-at-13.41.29.png "Discord Bot Replied With Pong")
 
 ## Summary
 
-In this article we learned how to create a skeleton for Discord bot that listens for a "Ping" message and replies with "Pong".
+In this article we learned how to create a skeleton for a Discord bot that waits for a "Ping" message and responds with "Pong".
 
-Nothing useful yet, but you can adjust this bot to your needs by exploring and trying out Discord API via discord.js external library.
+This is not anything useful yet, but you can customise this bot to your needs by exploring and trying out the Discord API via the discord.js external library.
 
 Read the [official documentation](https://discord.js.org/#/docs/main/stable/general/welcome) to learn more.
