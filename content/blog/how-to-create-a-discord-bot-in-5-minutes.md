@@ -8,7 +8,7 @@ shareImage: /img/discord-bot.jpg
 teaser: // TEASER
 date: 2021-09-26T10:05:02.352Z
 ---
-Bots became increasingly popular in the last few years, because they allow to automate a lot of things that previously people had to do manually.
+:Bots became increasingly popular in the last few years, because they allow to automate a lot of things that previously people had to do manually.
 
 This way we can save a tremendous amount of time and focus on the most important tasks instead of doing the routine.
 
@@ -149,4 +149,24 @@ If everything was done correctly, you should see the confirmation message in the
 
 And the status of the bot should be "ONLINE" now:
 
-![Bot Is Online](/img/screenshot-2021-09-25-at-13.26.44.png "Bot Is Online")
+![Bot Is Online](/img/screenshot-2021-09-25-at-13.27.51.png "Bot Is Online")
+
+## \#4 - Add Custom Command
+
+The bot has been set up, but it can't do anything useful yet, so let's change it.
+
+Typically, the very first thing people implement when creating bots is the "Ping - Pong" thingy.
+
+You type "Ping", the bot replies with "Pong" - as simple as that.
+
+Add the following code to the **index.js** file:
+
+```javascript
+client.on("message", (message) => {
+  if (message.content === "Ping") {
+    message.reply("Pong");
+  }
+});
+```
+
+Restart the application and send a new message containing "Ping" to the bot in Discord:
