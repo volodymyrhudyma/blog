@@ -110,3 +110,43 @@ Install necessary libraries:
 * [dotenv](https://www.npmjs.com/package/dotenv) - library that loads environment variables from **.env** file into **process.env**
 
 Having all that done, we can start writing the logic for our bot.
+
+Create **index.js** file in the root directory of the project with the following content:
+
+```javascript
+const Discord = require('discord.js');
+const dotenv = require('dotenv');
+
+dotenv.config();
+
+const client = new Discord.Client({
+  intents: [
+    Discord.Intents.FLAGS.GUILDS, 
+    Discord.Intents.FLAGS.GUILD_MESSAGES
+  ],
+});
+
+client.on("ready", () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+});
+
+client.login(process.env.CLIENT_TOKEN);
+```
+
+Create **.env** file and put the token we copied earlier inside:
+
+```javascript
+CLIENT_TOKEN=<YOUR_COPIED_TOKEN>
+```
+
+And run the project:
+
+`node index.js`
+
+If everything was done correctly, you should see the confirmation message in the console:
+
+![Console Confirmation Log](/img/screenshot-2021-09-25-at-13.25.48.png "Console Confirmation Log")
+
+And the status of the bot should be "ONLINE" now:
+
+![Bot Is Online](/img/screenshot-2021-09-25-at-13.26.44.png "Bot Is Online")
