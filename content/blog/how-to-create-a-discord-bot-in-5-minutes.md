@@ -65,3 +65,27 @@ Congratulations on creating your own Discord server:
 ![Own Discord Server](/img/screenshot-2021-09-25-at-12.52.45.png "Own Discord Server")
 
 #### \#2.2 - Invite Bot To Join A Server
+
+Return back to the Discord Developer Portal, navigate to "**OAuth2**", find "**SCOPE**" section and check "**Bot**":
+
+![Discord Add Bot OAuth2 Scope](/img/screenshot-2021-09-25-at-13.00.48.png "Discord Add Bot OAuth2 Scope")
+
+Take a look at the bottom of the "**SCOPES**" section - you've been given a generated URL.
+
+Open it in a new tab and you will be redirected to the following page:
+
+![Discord Add Bot To Server](/img/screenshot-2021-09-25-at-13.02.49.png "Discord Add Bot To Server")
+
+Click "Select a server" dropdown and choose the server you want to invite bot to, click "Authorize", fill the captcha and your bot will appear on your server.
+
+You should see a confirmation message:
+
+![Discord Invite Bot Confirmation](/img/screenshot-2021-09-25-at-13.04.09.png "Discord Invite Bot Confirmation")
+
+Now open a Discord application, navigate to your server and verify that the bot has been added correctly:
+
+![Discord Bot On Server](/img/screenshot-2021-09-25-at-13.05.49.png "Discord Bot On Server")
+
+It's now offline, but don't worry, we will change that soon.
+
+## \#3 - Create Node Application
