@@ -3,12 +3,16 @@ title: How To Create A Discord Bot In 5 Minutes?
 tag:
   - Node
 promote: false
-metaDescription: // META
+metaDescription: Learn how to use Discord API and Node.js to create a simple
+  Discord Bot in just 5 minutes.
 shareImage: /img/discord-bot.jpg
-teaser: // TEASER
+teaser: Bots became increasingly popular in the last few years, because they
+  allow to automate a lot of things that previously people had to do manually.
+  This way we can save a tremendous amount of time and focus on the most
+  important tasks instead of doing...
 date: 2021-09-26T10:05:02.352Z
 ---
-:Bots became increasingly popular in the last few years, because they allow to automate a lot of things that previously people had to do manually.
+Bots became increasingly popular in the last few years, because they allow to automate a lot of things that previously people had to do manually.
 
 This way we can save a tremendous amount of time and focus on the most important tasks instead of doing the routine.
 
@@ -170,3 +174,13 @@ client.on("message", (message) => {
 ```
 
 Restart the application and send a new message containing "Ping" to the bot in Discord:
+
+![Discord Bot Replied With Pong](/img/screenshot-2021-09-25-at-13.41.29.png "Discord Bot Replied With Pong")
+
+## Summary
+
+In this article we learned how to create a skeleton for Discord bot that listens for a "Ping" message and replies with "Pong".
+
+Nothing useful yet, but you can adjust this bot to your needs by exploring and trying out Discord API via discord.js external library.
+
+Read the [official documentation](https://discord.js.org/#/docs/main/stable/general/welcome) to learn more.
