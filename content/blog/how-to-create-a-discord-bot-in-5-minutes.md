@@ -86,6 +86,27 @@ Now open a Discord application, navigate to your server and verify that the bot 
 
 ![Discord Bot On Server](/img/screenshot-2021-09-25-at-13.07.50.png "Discord Bot On Server")
 
-It's now offline, but don't worry, we will change that soon.
+It's now offline, but don't worry, we will change that in the next section.
 
 ## \#3 - Create Node Application
+
+Create a new folder for the project:
+
+`mkdir discord-bot`
+
+Enter the folder:
+
+`cd discord-bot`
+
+Initialize a new project:
+
+`npm init`
+
+Install necessary libraries:
+
+`yarn add discord.js dotenv`
+
+* [discord.js](https://www.npmjs.com/package/discord.js) - a powerful Node.js module that allows you to easily interact with the Discord API
+* [dotenv](https://www.npmjs.com/package/dotenv) - library that loads environment variables from **.env** file into **process.env**
+
+Having all that done, we can start writing the logic for our bot.
