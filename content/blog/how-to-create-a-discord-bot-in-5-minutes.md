@@ -84,7 +84,7 @@ You should see a confirmation message:
 
 Now open a Discord application, navigate to your server and verify that the bot has been added correctly:
 
-![Discord Bot On Server](/img/screenshot-2021-09-25-at-13.05.49.png "Discord Bot On Server")
+![Discord Bot On Server](/img/screenshot-2021-09-25-at-13.07.50.png "Discord Bot On Server")
 
 It's now offline, but don't worry, we will change that soon.
 
