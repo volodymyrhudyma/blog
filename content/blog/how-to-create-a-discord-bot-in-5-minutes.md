@@ -46,17 +46,17 @@ Navigate to the Discord application and click on the "Plus" icon at the left of 
 
 After clicking it, you will be asked to choose a template for the server, but let's click on "**Create my own**":
 
-![Create Server Discord](/img/screenshot-2021-09-25-at-12.47.37.png "Create Server Discord")
+![Create Server Discord](/img/screenshot-2021-09-25-at-12.55.54.png "Create Server Discord")
 
 The next step is to tell Discord whether this server is meant for you and your friends only or for larger community:
 
-![Create Server Discord - Step 2](/img/screenshot-2021-09-25-at-12.50.09.png "Create Server Discord - Step 2")
+![Create Server Discord - Step 2](/img/screenshot-2021-09-25-at-12.56.02.png "Create Server Discord - Step 2")
 
 You can select either option, but I will just skip this question for now.
 
 Then you will be asked to provide a name for your server:
 
-![Create Server Discord - Step 3](/img/screenshot-2021-09-25-at-12.51.54.png "Create Server Discord - Step 3")
+![Create Server Discord - Step 3](/img/screenshot-2021-09-25-at-12.56.13.png "Create Server Discord - Step 3")
 
 I will stick to the default and click "**Create**".
 
