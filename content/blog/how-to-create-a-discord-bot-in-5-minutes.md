@@ -39,3 +39,29 @@ Find a "**TOKEN**" section and click "**Copy**" button to copy the token that wi
 ## \#2 - Add Bot To Server
 
 To add bot to a server, you will first need to create it.
+
+#### \#2.1 - Create Discord Server
+
+Navigate to the Discord application and click on the "Plus" icon at the left of the page (when you will hover over this item, you will notice a tooltip "**Add a server**").
+
+After clicking it, you will be asked to choose a template for the server, but let's click on "**Create my own**":
+
+![Create Server Discord](/img/screenshot-2021-09-25-at-12.47.37.png "Create Server Discord")
+
+The next step is to tell Discord whether this server is meant for you and your friends only or for larger community:
+
+![Create Server Discord - Step 2](/img/screenshot-2021-09-25-at-12.50.09.png "Create Server Discord - Step 2")
+
+You can select either option, but I will just skip this question for now.
+
+Then you will be asked to provide a name for your server:
+
+![Create Server Discord - Step 3](/img/screenshot-2021-09-25-at-12.51.54.png "Create Server Discord - Step 3")
+
+I will stick to the default and click "**Create**".
+
+Congratulations on creating your own Discord server:
+
+![Own Discord Server](/img/screenshot-2021-09-25-at-12.52.45.png "Own Discord Server")
+
+#### \#2.2 - Invite Bot To Join A Server
