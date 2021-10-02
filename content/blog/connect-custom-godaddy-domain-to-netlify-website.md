@@ -24,7 +24,7 @@ In this article, we will focus exactly on that.
 
 For the purposes of this tutorial I have:
 
-\- Created a new React project (`npx create-react-app react-ninja`)
+\- Created a new React project (**npx create-react-app react-ninja**)
 
 \- Created a new private Github repository and pushed the code there
 
@@ -36,6 +36,55 @@ For the purposes of this tutorial I have:
 
 ## The Netlify Part
 
+To begin with, we need to figure out what is our default subdomain on Netlify.
+
+It can be seen on the "**Site Overview**" page right after the application was deployed:
+
+![Netlify Site Overview](/img/screenshot-2021-10-02-at-10.07.45.png "Netlify Site Overview")
+
+Or you can also open "**Site Settings**" -> "**Domain Management**" and find the "**Custom Domains**" section:
+
+![Netlify Custom Domain Section In Site Settings](/img/screenshot-2021-10-02-at-10.09.22.png "Netlify Custom Domain Section In Site Settings")
+
+In my case, the default subdomain is: [optimistic-poincare-0f17ae.netlify.app](https://optimistic-poincare-0f17ae.netlify.app/ "Open site in a new tab").
+
 ## The GoDaddy Part
+
+The next step is to sign in to the GoDaddy, click on "**My Products**" tab, find the domain you would like to use and click on the three dots next to the domain name:
+
+![GoDaddy Select Domain](/img/screenshot-2021-10-02-at-10.13.29.png "GoDaddy Select Domain")
+
+Choose the "**Manage DNS**" and you will end up on the following screen:
+
+![GoDaddy Manage DNS](/img/screenshot-2021-10-02-at-10.14.23.png "GoDaddy Manage DNS")
+
+Note that the "**Records**" table has already been populated with some default values for you.
+
+The only Records we are interested in are:
+
+* **A**
+
+  The A record (stands for Address) maps a domain name to the IP address (Version 4) of the computer hosting the domain.
+* **CNAME**
+
+  The CNAME records (stands for Canonical Name) is used to create an alias from one domain name to another domain name.
+
+// Add records
+
+## Back To Netlify
+
+Now we need to go back to Netlify and add our custom domain.
+
+Open "**Site Settings**" -> "**Domain Management**", find the "**Custom Domains**" section and click on the "**Add Custom Domain**" button:
+
+![Netlify Add Custom Domain](/img/screenshot-2021-10-02-at-10.27.53.png "Netlify Add Custom Domain")
+
+Provide the name of the domain you have purchased and click "**Verify**":
+
+![Netlify Provide The Name Of The Custom Domain](/img/screenshot-2021-10-02-at-10.28.33.png "Netlify Provide The Name Of The Custom Domain")
+
+Most probably, you will see an information that the domain you are trying to add is already registered, but no worries, that was done by us, so just click the "**Add Domain**" button:
+
+![Netlify Domain Already Registered](/img/screenshot-2021-10-02-at-10.30.54.png "Netlify Domain Already Registered")
 
 ## Summary
