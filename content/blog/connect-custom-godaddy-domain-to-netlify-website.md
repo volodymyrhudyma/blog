@@ -69,11 +69,27 @@ The only Records we are interested in are:
 
   The CNAME records (stands for Canonical Name) is used to create an alias from one domain name to another domain name.
 
-// Add records
+Before we edit the **A** Record, we need to find out the IP Address for Netlify Servers.
+
+According to the [Netlify docs](https://docs.netlify.com/domains-https/custom-domains/configure-external-dns/#configure-an-apex-domain), an IP Address is the following: **75.2.60.5**.
+
+Edit the **A** Record, make it point to the IP above and click "**Save**":
+
+![GoDaddy Edit "A" Record](/img/screenshot-2021-10-02-at-10.41.55.png "GoDaddy Edit \"A\" Record")
+
+The next step is to edit the **CNAME** record and make it point to the default subdomain:
+
+![GoDaddy Edit "CNAME" Record](/img/screenshot-2021-10-02-at-10.44.28.png "GoDaddy Edit \"CNAME\" Record")
+
+After saving the changes, verify your DNS configuration:
+
+![GoDaddy Verify DNS Configuration](/img/screenshot-2021-10-02-at-10.46.31.png "GoDaddy Verify DNS Configuration")
+
+You have just finished the "GoDaddy Part" and we need to switch back to Netlify to finish the configuration.
 
 ## Back To Netlify
 
-Now we need to go back to Netlify and add our custom domain.
+Now we need to add our custom domain in Netlify.
 
 Open "**Site Settings**" -> "**Domain Management**", find the "**Custom Domains**" section and click on the "**Add Custom Domain**" button:
 
@@ -81,10 +97,24 @@ Open "**Site Settings**" -> "**Domain Management**", find the "**Custom Domains*
 
 Provide the name of the domain you have purchased and click "**Verify**":
 
-![Netlify Provide The Name Of The Custom Domain](/img/screenshot-2021-10-02-at-10.28.33.png "Netlify Provide The Name Of The Custom Domain")
+![Netlify Provide The Name Of The Custom Domain](/img/screenshot-2021-10-02-at-10.35.57.png "Netlify Provide The Name Of The Custom Domain")
 
 Most probably, you will see an information that the domain you are trying to add is already registered, but no worries, that was done by us, so just click the "**Add Domain**" button:
 
-![Netlify Domain Already Registered](/img/screenshot-2021-10-02-at-10.30.54.png "Netlify Domain Already Registered")
+![Netlify Domain Already Registered](/img/screenshot-2021-10-02-at-10.36.23.png "Netlify Domain Already Registered")
+
+And that's it!
+
+To make sure the the domain was successfully added, check the "**Custom Domains**" section:
+
+![Custom Domains Section](/img/screenshot-2021-10-02-at-10.38.26.png "Custom Domains Section")
+
+And the "**SSL/TLS certificate**" section as well to make sure that Netlify has generated the certificate for your website:
+
+![SSL/TLS Certificate Section](/img/screenshot-2021-10-02-at-10.39.25.png "SSL/TLS Certificate Section")
+
+Congratulations on making it to the end and setting up your custom domain with GoDaddy and Netlify.
+
+Share it with your friends!
 
 ## Summary
