@@ -119,13 +119,11 @@ And the "**SSL/TLS certificate**" section as well to make sure that Netlify has 
 
 Congratulations on making it to the end and setting up your custom domain with GoDaddy and Netlify.
 
-Share it with your friends!
-
 ## Bonus: Redirect "www" To "non-www"
 
-You may have noticed that now if you type your domain in the URL, it will redirect you to "**www.<domain>**", which is perfectly fine, but in some cases we may want to get rid of the "**www**" part.
+You may have noticed that now if you type your domain in the URL, it will redirect you to "**www**", which is perfectly fine, but in some cases we may want to get rid of the "**www**" part.
 
-All we have to do to achieve that is to change the primary domain in the "**Custom Domains**" section in Netlify:
+All we have to do to achieve that is to change the primary domain in the "**Custom Domains**" section in Netlify and confirm our intention to make the change:
 
 ![Change Primary Domain](/img/screenshot-2021-10-02-at-10.52.44.png "Change Primary Domain")
 
