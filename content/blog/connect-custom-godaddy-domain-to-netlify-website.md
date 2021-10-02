@@ -3,9 +3,13 @@ title: Connect Custom GoDaddy Domain To Netlify Website
 tag:
   - React
 promote: false
-metaDescription: // META
+metaDescription: Learn an easy way to connect a custom domain on GoDaddy to the
+  React application hosted on Netlify.
 shareImage: /img/godaddy-netlify-custom-domain.jpg
-teaser: // TEASER
+teaser: The most fascinating part in creating a website from scratch is coding a
+  technical part - that's what usually developers like the most. But apart from
+  that there are a few more important steps that should be taken before your
+  website goes live, like...
 date: 2021-10-02T07:01:37.780Z
 ---
 The most fascinating part in creating a website from scratch is coding a technical part - that's what usually developers like the most.
@@ -117,4 +121,23 @@ Congratulations on making it to the end and setting up your custom domain with G
 
 Share it with your friends!
 
+## Bonus: Redirect "www" To "non-www"
+
+You may have noticed that now if you type your domain in the URL, it will redirect you to "**www.<domain>**", which is perfectly fine, but in some cases we may want to get rid of the "**www**" part.
+
+All we have to do to achieve that is to change the primary domain in the "**Custom Domains**" section in Netlify:
+
+![Change Primary Domain](/img/screenshot-2021-10-02-at-10.52.44.png "Change Primary Domain")
+
+Enter your website and verify that the primary domain does not contain "**www**" subdomain. 
+
 ## Summary
+
+In this article, we learned how to connect a custom domain purchased on a GoDaddy domain registrar to a React application hosted on Netlify service.
+
+Basically, all that needs to be done is:
+
+* Configuring **A** and **CNAME** records in GoDaddy to point to the Netlify load balancer's IP address and our primary subdomain
+* Adding a custom domain in "**Site Settings**" in Netlify
+
+I hope you got it working and congratulations on your website going live!
