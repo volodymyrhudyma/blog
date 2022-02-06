@@ -1,0 +1,16 @@
+_id: 92dcb200-873b-11ec-ac51-e74584e9d29e
+name: Kevin George
+message: |-
+  Create an interface like the following: 
+   interface ResponseGenerator {
+      config?: any,
+      data?: any,
+      headers?: any,
+      request?: any,
+      status?: number,
+      statusText?: string
+  }
+
+    const response: ResponseGenerator = yield call(*Your Axios API call*);
+slug: /add-redux-saga-with-typescript-to-your-react-application-january-2021/
+date: '2022-02-06T10:57:28.167Z'
