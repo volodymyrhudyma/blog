@@ -56,7 +56,7 @@ const Header = () => {
         <BannerDescription>
           Ukraine was invaded by Russia in the early morning of 24.02.2022,
           explosions thundered in Ukrainian cities, many civilians died, tens of
-          millions are affected. Our army protects all Europe from te occupiers
+          millions are affected. Our army protects all Europe from the occupiers
           and it needs help now to restrain one of the biggest armies in the
           world. Plese, donate a small amount.
         </BannerDescription>
