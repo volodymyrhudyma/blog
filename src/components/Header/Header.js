@@ -58,7 +58,7 @@ const Header = () => {
           explosions thundered in Ukrainian cities, many civilians died, tens of
           millions are affected. Our army protects all Europe from the occupiers
           and it needs help now to restrain one of the biggest armies in the
-          world. Plese, donate a small amount.
+          world. Please, donate a small amount.
         </BannerDescription>
         <WrapperInner>
           <Block>
