@@ -3,7 +3,51 @@ import styled, { css } from "styled-components"
 
 export const Wrapper = styled.div`
   background-color: #fafafa;
-  padding: 2rem 0;
+  padding-bottom: 2rem;
+`
+export const Banner = styled.div`
+  min-height: 12rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+`
+
+export const BannerTop = styled.div`
+  flex: 1;
+  background-color: #0057b7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+`
+
+export const BannerBottom = styled.div`
+  flex: 1;
+  background-color: #ffd700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  font-size: 2rem;
+`
+
+export const DonateLink = styled.a`
+  display: inline-block;
+  margin-left: 0.5rem;
+  font-weight: bold;
+  text-decoration: underline;
+`
+
+export const BannerHeading = styled.div`
+  font-size: 2rem;
+  text-align: center;
+  padding: 0 2rem;
+  line-height: 2rem;
+`
+
+export const BannerDescription = styled.div`
+  margin-bottom: 2rem;
 `
 
 export const WrapperInner = styled.div`
