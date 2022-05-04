@@ -1,0 +1,11 @@
+_id: fb9f6680-cbf0-11ec-9da9-11ef54bd2703
+name: Andrew
+message: >-
+  IOS seems to have a solution for opening a custom URL if the app isn't
+  installed. However, Android appears to have one URL - it will open the app or
+  open the store if the app isn't installed.
+
+
+  Is there a way to open a custom URL on android if the app is not installed?
+slug: /open-mobile-application-from-the-browser/
+date: '2022-05-04T21:27:21.906Z'
