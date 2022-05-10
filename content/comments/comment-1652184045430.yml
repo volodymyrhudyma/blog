@@ -1,0 +1,7 @@
+_id: d2a6f7e0-d058-11ec-a99f-d166f91c93e9
+name: Arsh
+message: >-
+  Even after the prefix, the variable still returns a string or undefined type
+  value, can we somehow convert it into a string value only??
+slug: /cant-read-environment-variable-in-react/
+date: '2022-05-10T12:00:45.430Z'
