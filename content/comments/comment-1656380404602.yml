@@ -1,0 +1,10 @@
+_id: 3b932350-f683-11ec-81cf-99fd03498c6b
+name: Nick
+message: >-
+  This really doesn't look like a good reason not to use the spread operator
+  when passing props. Right off the bat you had an interface for your state that
+  did not match the interface for your props. With Typescript its very easy to
+  keep track of this, and you should be aware of any props that are getting
+  passed in before you pass them.
+slug: /react-antipatterns-props-spreading/
+date: '2022-06-28T01:40:04.598Z'
