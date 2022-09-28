@@ -13,6 +13,7 @@ teaser: Developers usually have a set of tools that they use on a daily basis
   end-users...
 date: 2020-12-16T14:50:00.000Z
 ---
+
 Developers usually have a set of tools that they use on a daily basis when developing various projects.
 
 They help to set up the project, speed up the development process, test the final result, and make it accessible to the end-users.
@@ -29,14 +30,16 @@ For starters, we need a good code editor that runs on the desktop and comes with
 
 Here are some of the extensions I have installed and find useful:
 
-* [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) - allows you to extend the Git capabilities built into Visual Studio Code
+- [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) - allows you to extend the Git capabilities built into Visual Studio Code
 
   My favorite use case is to take a look at who, why, and when changed a particular line of code. It is extremely useful when jumping into an existing project.
-* [vscode-jest-runner](https://marketplace.visualstudio.com/items?itemName=firsttris.vscode-jest-runner) - allows you to run or debug a specific test or test-suite
+
+- [vscode-jest-runner](https://marketplace.visualstudio.com/items?itemName=firsttris.vscode-jest-runner) - allows you to run or debug a specific test or test-suite
 
   If only certain tests have been modified and need to be run to make sure they pass, you do not need to type `jest -t "it should do something"` into the terminal, but instead just click the button.
-* [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced) - allows real-time preview of Markdown
-* [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) - allows you to enforce a consistent style by parsing your code and re-printing it with its own rules
+
+- [Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced) - allows real-time preview of Markdown
+- [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) - allows you to enforce a consistent style by parsing your code and re-printing it with its own rules
 
   Extremely useful when working in a team to ensure everyone produces the code that follows the same guidelines.
 
@@ -84,7 +87,7 @@ After installation, you will see two additional tabs in Chrome DevTools: Compone
 
 Read more about the new tabs [here](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi).
 
-Personally, I like the possibility to "*Highlight updates when components render*", which is included in the React Developer Tools.
+Personally, I like the possibility to "_Highlight updates when components render_", which is included in the React Developer Tools.
 
 It shows how often your components are rendered, and from that you can see if further optimizations are needed.
 
@@ -98,16 +101,19 @@ With Redux, the state of your application is kept in a place called a Store, and
 
 Key benefits of using Redux:
 
-* **The state becomes predictable**
+- **The state becomes predictable**
 
   When the same state and actions are passed to the reducers, they produce the same result because they are pure functions.
-* **The state becomes immutable**
+
+- **The state becomes immutable**
 
   Reducers always produce a new state, never mutating the original.
-* **Easy debugging**
+
+- **Easy debugging**
 
   Since the state is immutable, we can time-travel through the occurred updates and view the state at any point in time.
-* **Easy testing**
+
+- **Easy testing**
 
 To add Redux to your React project, refer to [this article](/2020-06-11-add-redux-with-typescript-to-your-react-applicaton-june-2020/).
 
@@ -139,20 +145,20 @@ For more information about Redux Thunk and Redux Saga, see [this article](/2020-
 
 It allows to:
 
-* Track all dispatched actions and their payload
-* Time travel through all states of an application, so we can see what was going on before the state was reached at the given point
-* Dispatch a custom action without implementing it in code
-* Monitor only desired actions
-* Persist store on page reload
-* And much more
+- Track all dispatched actions and their payload
+- Time travel through all states of an application, so we can see what was going on before the state was reached at the given point
+- Dispatch a custom action without implementing it in code
+- Monitor only desired actions
+- Persist store on page reload
+- And much more
 
-Make sure to install this extension and configure it for use with the current project. 
+Make sure to install this extension and configure it for use with the current project.
 
 You can learn how to do that [here](https://github.com/zalmoxisus/redux-devtools-extension#1-with-redux).
 
 ## Jest / Enzyme
 
-It's never a bad idea to cover your components and business logic with unit tests. 
+It's never a bad idea to cover your components and business logic with unit tests.
 
 This will ensure that all existing functionality works as expected and adding new functionality does not break it
 
@@ -200,7 +206,7 @@ To learn how to add ESLint to your React project, read [this section](/2020-06-0
 
 [GitHub Actions](https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/introduction-to-github-actions) help you to automate tasks within your software development lifecycle.
 
-They are event-driven, meaning you can perform an action after a specific event occurs. 
+They are event-driven, meaning you can perform an action after a specific event occurs.
 
 One of the most common scenarios is running ESLint and tests shortly after someone creates a Pull Request in your repository.
 
@@ -238,10 +244,10 @@ There are a lot of alternatives to Heroku, one of which is [](https://docs.netli
 
 Nowadays, it is one of the fastest and easiest deployment solutions. As with Heroku, you can deploy either from the command line or via Netlify UI (only if you use Github).
 
-Here is a [full guide](https://www.vhudyma-blog.eu/2020-07-06-deploy-your-react-app-to-netlify-july-2020/) on how to deploy your React application to Netlify.
+Here is a [full guide](https://vhudyma-blog.eu/2020-07-06-deploy-your-react-app-to-netlify-july-2020/) on how to deploy your React application to Netlify.
 
 ## Summary
 
-In summary, before playing around with a new library/framework/language, first try the tools available to help with development. The number of options available will no doubt impress you. 
+In summary, before playing around with a new library/framework/language, first try the tools available to help with development. The number of options available will no doubt impress you.
 
 I hope you enjoyed it, try out the tools listed here and do not forget to comment on your favorites!

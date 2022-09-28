@@ -12,7 +12,8 @@ teaser: The concept of Closures is not an easy thing to wrap your head around.
   learn it with..
 date: 2021-03-15T17:13:28.656Z
 ---
-The concept of Closures is not an easy thing to wrap your head around. 
+
+The concept of Closures is not an easy thing to wrap your head around.
 
 Many experienced developers still have trouble understanding it, let alone explaining it to a colleague or in an interview for a new job.
 
@@ -34,15 +35,15 @@ To fully grasp the whole concept of Closures, we need to know what Lexical Envir
 
 In JavaScript, every block of code **{ ... }** inside curly braces and the whole script has an internal hidden associated object called Lexical Environment which consists of two parts:
 
-* **Environment Record** - maps local variable names to variable values (this is where JavaScript stores variables)
-* **Reference to the Outer Lexical Environment**
+- **Environment Record** - maps local variable names to variable values (this is where JavaScript stores variables)
+- **Reference to the Outer Lexical Environment**
 
 A **variable** that is defined is only a property of the Environment Record. To change it means to change the property of the Environment Record.
 
 The following code:
 
 ```javascript
-const number = 10;
+const number = 10
 ```
 
 Corresponds to the following Lexical Environment:
@@ -61,11 +62,11 @@ This is **Global Lexical Environment**. It has no **outer** reference.
 As the code executes, the Lexical Environment changes:
 
 ```javascript
-let number;
+let number
 
-number = 10;
+number = 10
 
-number = 20;
+number = 20
 ```
 
 ```javascript
@@ -117,11 +118,11 @@ The above code shows how the Lexical Environment changes during the execution of
 Function declarations are fully initialized immediately:
 
 ```javascript
-const hello = "Hello";
-  
+const hello = "Hello"
+
 function displayGreeting(world) {
-  return `${hello}, ${world}`;
-};
+  return `${hello}, ${world}`
+}
 ```
 
 ```javascript
@@ -142,13 +143,13 @@ This behavior applies only to the Function Declarations, not to Function Express
 At the beginning of a function call, a new Lexical Environment is created to store all local variables and parameters of the call:
 
 ```javascript
-const hello = "Hello";
-  
-function displayGreeting(world) {
-  return `${hello}, ${world}`;
-};
+const hello = "Hello"
 
-displayGreeting("World");
+function displayGreeting(world) {
+  return `${hello}, ${world}`
+}
+
+displayGreeting("World")
 ```
 
 ```javascript
@@ -180,21 +181,21 @@ Consider the following example of a Closure:
 
 ```javascript
 const initializeCounter = () => {
-  let count = 0;
+  let count = 0
 
-  return () => count++;
-};
+  return () => count++
+}
 
-const counter = initializeCounter();
+const counter = initializeCounter()
 
 // Prints "0"
-console.log(counter());
+console.log(counter())
 
 // Prints "1"
-console.log(counter());
+console.log(counter())
 
 // Prints "2"
-console.log(counter());
+console.log(counter())
 ```
 
 We have two Lexical Environments:
@@ -283,14 +284,14 @@ However, if there is a nested function that is still accessible after the end of
 
 ```javascript
 const initializeCounter = () => {
-  let count = 0;
+  let count = 0
 
-  return () => count++;
-};
+  return () => count++
+}
 
 // counter.[[Environment]] contains a reference to the
 // Lexical Environment of the "initializeCounter" function
-const counter = initializeCounter();
+const counter = initializeCounter()
 ```
 
 **Important Note:** The more often the **initializeCounter** function is called, the more Lexical Environments are held in memory.
@@ -298,11 +299,11 @@ const counter = initializeCounter();
 Don't forget to clear the memory:
 
 ```javascript
-let counter = initializeCounter();
+let counter = initializeCounter()
 
 // Your code
 
-counter = null; // Remove the Lexical Environment from the memory
+counter = null // Remove the Lexical Environment from the memory
 ```
 
 ## More Closure Examples
@@ -314,19 +315,19 @@ const initializeUser = () => {
   const user = {
     name: "John",
     surname: "Doe",
-  };
+  }
 
   const getFullName = () => {
-    return `${user.name} ${user.surname}`;
-  };
-  
-  return getFullName;
-};
+    return `${user.name} ${user.surname}`
+  }
 
-const result = initializeUser();
+  return getFullName
+}
+
+const result = initializeUser()
 
 // Prints "John Doe"
-console.log(result());
+console.log(result())
 ```
 
 Notice how we return the **getFullName** function **without executing it**.
@@ -344,16 +345,16 @@ If we assign a reference to the **getFullName** function to the **result** varia
 Consider another example:
 
 ```javascript
-const add = x => y => x + y;
+const add = x => y => x + y
 
-const addOne = add(1);
-const addTwo = add(2);
+const addOne = add(1)
+const addTwo = add(2)
 
 // Prints "11"
-console.log(addOne(10));
+console.log(addOne(10))
 
 // Prints "12"
-console.log(addTwo(10));
+console.log(addTwo(10))
 ```
 
 The **add** function receives an **x** argument and returns a new function that takes an **y** argument and adds them together.
@@ -368,41 +369,41 @@ This is known as the **Module Pattern** and allows us to write easily maintainab
 
 ```javascript
 const intializeCounter = () => {
-  let count = 0;
-  const changeCount = (value) => count += value;
+  let count = 0
+  const changeCount = value => (count += value)
   return {
     increment: () => {
-      changeCount(1);
+      changeCount(1)
     },
     decrement: () => {
-      changeCount(-1);
+      changeCount(-1)
     },
     get: () => count,
   }
 }
 
-const counter = intializeCounter();
+const counter = intializeCounter()
 
-console.log(counter.increment());
+console.log(counter.increment())
 // Prints "1"
-console.log(counter.get());
+console.log(counter.get())
 
-console.log(counter.increment());
+console.log(counter.increment())
 // Prints "2"
-console.log(counter.get());
+console.log(counter.get())
 
-console.log(counter.decrement());
+console.log(counter.decrement())
 // Prints "1"
-console.log(counter.get());
+console.log(counter.get())
 ```
 
-With Closures, we can also use functions to create other functions that add a specific value to their argument. 
+With Closures, we can also use functions to create other functions that add a specific value to their argument.
 
 In this case, the parent function that enables this behaviour is known as a **Function Factory**.
 
 With Function Factories, we can achieve a behaviour known as **Currying.**
 
-To learn more about Currying, read this [simple guide](https://www.vhudyma-blog.eu/a-simple-guilde-to-currying-in-javascript/).
+To learn more about Currying, read this [simple guide](https://vhudyma-blog.eu/a-simple-guilde-to-currying-in-javascript/).
 
 ## Summary
 

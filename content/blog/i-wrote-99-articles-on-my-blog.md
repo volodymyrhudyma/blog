@@ -13,6 +13,7 @@ teaser: In mid April 2020, almost a year ago, I decided to start my programming
   kicking off. After finishing the first post...
 date: 2021-03-31T12:30:00.000Z
 ---
+
 In mid April 2020, almost a year ago, I decided to start my programming blog mainly to expand my knowledge in some areas I felt I was lacking.
 
 The journey started with a little introduction of myself and the reasoning behind kicking off.
@@ -63,11 +64,11 @@ If I had to give you one piece of advice - go live with the very first article, 
 
 ## \#3 Listen To Your Audience More
 
-This isn't a mistake, but something I want to do more of, because from the beginning my blog has been all about expanding my knowledge and learning new skills. 
+This isn't a mistake, but something I want to do more of, because from the beginning my blog has been all about expanding my knowledge and learning new skills.
 
-I've always written about the topics that interest me, almost without thinking about the preferences of my audience. 
+I've always written about the topics that interest me, almost without thinking about the preferences of my audience.
 
-That was fine until the point when the audience started to grow and my responsibilities expanded. 
+That was fine until the point when the audience started to grow and my responsibilities expanded.
 
 Now the goal is to meet an audience's needs rather than my own.
 
@@ -79,17 +80,17 @@ In this section I would like to give you some insights into the blog analytics.
 
 Not all posts attracted many visitors, but still there are some clear winners among all 99 articles:
 
-* [The Best Tools For React Development (June 2020)](https://www.vhudyma-blog.eu/2020-06-09-the-best-tools-for-react-development/) - the first article I ever promoted on social media, describes top tools I personally use in my daily work
-* [Top 7 Mistakes Most React Developers Make](https://www.vhudyma-blog.eu/top-mistakes-most-react-developers-make/) - an article written for my small 20-minute talk at a hackathon event organized by my current employer in Wrocław
-* [My Way Of Looking For The Perfect React Architecture](https://www.vhudyma-blog.eu/my-way-of-looking-for-the-perfect-react-architecture/) - I described my way of figuring out the best and universal architecture for any React app
+- [The Best Tools For React Development (June 2020)](https://vhudyma-blog.eu/2020-06-09-the-best-tools-for-react-development/) - the first article I ever promoted on social media, describes top tools I personally use in my daily work
+- [Top 7 Mistakes Most React Developers Make](https://vhudyma-blog.eu/top-mistakes-most-react-developers-make/) - an article written for my small 20-minute talk at a hackathon event organized by my current employer in Wrocław
+- [My Way Of Looking For The Perfect React Architecture](https://vhudyma-blog.eu/my-way-of-looking-for-the-perfect-react-architecture/) - I described my way of figuring out the best and universal architecture for any React app
 
 #### Least Popular Posts
 
 The following posts were unsuccessful in terms of gaining traffic, although I am fully satisfied with each of them:
 
-* [Destructuring assignment in JavaScript](https://www.vhudyma-blog.eu/2020-05-18-destructuring-assignment-in-javascript/) - a good introduction to Destructuring Assignment in JavaScript with lots of practical and simple examples
-* [Regular expressions in JavaScript](https://www.vhudyma-blog.eu/2020-05-10-regular-expressions-in-javascript/) - I explained some basics of RegEx, patterns and methods with examples
-* [Template Literals In JavaScript](https://www.vhudyma-blog.eu/2020-05-17-template-literals-in-javascript/) - if you don't know what Template Literals are, this is a must read
+- [Destructuring assignment in JavaScript](https://vhudyma-blog.eu/2020-05-18-destructuring-assignment-in-javascript/) - a good introduction to Destructuring Assignment in JavaScript with lots of practical and simple examples
+- [Regular expressions in JavaScript](https://vhudyma-blog.eu/2020-05-10-regular-expressions-in-javascript/) - I explained some basics of RegEx, patterns and methods with examples
+- [Template Literals In JavaScript](https://vhudyma-blog.eu/2020-05-17-template-literals-in-javascript/) - if you don't know what Template Literals are, this is a must read
 
 The reason they haven't become popular is probably because I didn't promote them at all.
 
@@ -97,17 +98,17 @@ The reason they haven't become popular is probably because I didn't promote them
 
 The top 3 articles I'm most satisfied with are some of the most recent ones:
 
-* [Better Form Handling With Formik In React](https://www.vhudyma-blog.eu/better-form-handling-with-formik-in-react/) - a complete guide to Formik - a neat library for better form handling
-* [The Best MomentJS Alternatives](https://www.vhudyma-blog.eu/the-best-momentjs-alternatives/) - the comparison of some libraries for handling dates, thanks to which I switched from **moment** to **dayjs** in my project and saved a lot of space
-* [Add Redux Saga With TypeScript To Your React Application (January 2021)](https://www.vhudyma-blog.eu/add-redux-saga-with-typescript-to-your-react-application-january-2021/) - a complete guide to installing and configuring Redux Saga in a React application
+- [Better Form Handling With Formik In React](https://vhudyma-blog.eu/better-form-handling-with-formik-in-react/) - a complete guide to Formik - a neat library for better form handling
+- [The Best MomentJS Alternatives](https://vhudyma-blog.eu/the-best-momentjs-alternatives/) - the comparison of some libraries for handling dates, thanks to which I switched from **moment** to **dayjs** in my project and saved a lot of space
+- [Add Redux Saga With TypeScript To Your React Application (January 2021)](https://vhudyma-blog.eu/add-redux-saga-with-typescript-to-your-react-application-january-2021/) - a complete guide to installing and configuring Redux Saga in a React application
 
 #### My Worst 3 Posts
 
 Lack of time to write a quality post, but the need to publish an article to not give up consistency leads to publishing articles I am not satisfied with:
 
-* [Serve Build Folder In React](https://www.vhudyma-blog.eu/serve-build-folder-in-react/) - one of the smallest articles I've ever written explaining how to open a production version of your React application locally
-* [Return Multiple Elements From Render In React](https://www.vhudyma-blog.eu/return-multiple-elements-from-render-in-react/) - explains how to return multiple elements from a single component without creating extra DOM elements
-* [Can't Read Environment Variable In React?](https://www.vhudyma-blog.eu/cant-read-environment-variable-in-react/) - a few simple rules for adding/changing environment variables in a React application, created with create-react-app
+- [Serve Build Folder In React](https://vhudyma-blog.eu/serve-build-folder-in-react/) - one of the smallest articles I've ever written explaining how to open a production version of your React application locally
+- [Return Multiple Elements From Render In React](https://vhudyma-blog.eu/return-multiple-elements-from-render-in-react/) - explains how to return multiple elements from a single component without creating extra DOM elements
+- [Can't Read Environment Variable In React?](https://vhudyma-blog.eu/cant-read-environment-variable-in-react/) - a few simple rules for adding/changing environment variables in a React application, created with create-react-app
 
 For those of you who are new to my blog, you may want to check out the table of contents on the main page to see what you might have missed:
 
@@ -117,7 +118,7 @@ For those of you who are new to my blog, you may want to check out the table of 
 
 If you're new to my blog and wondering who the author is - my name is Volodymyr Hudyma and I've ben a software developer for more than 6 years.
 
-Here's a [small post](https://www.vhudyma-blog.eu/2020-05-01-a-few-words-about-author/) if you want to get to know me better.
+Here's a [small post](https://vhudyma-blog.eu/2020-05-01-a-few-words-about-author/) if you want to get to know me better.
 
 It also describes a few reasons why I started this blog and why I chose React as my main tool for web application development.
 
@@ -137,7 +138,7 @@ A lot of time has passed since I started my blog, so I've been collecting some f
 
 > Yes, even if you describe things I already know it sometime gives me some deeper look into it, but I also learned new things.
 >
-> A lot! 
+> A lot!
 >
 > If it is only useful to me a few times, it's a lot useful to my team-mates and students!
 
@@ -149,9 +150,9 @@ A lot of time has passed since I started my blog, so I've been collecting some f
 >
 > This blog rocks!
 
-There is a lot of positive feedback, but also some suggestions for improvement/hints on things that could have been done better. 
+There is a lot of positive feedback, but also some suggestions for improvement/hints on things that could have been done better.
 
-I would like to say a big thank you to everyone who participated in my survey. 
+I would like to say a big thank you to everyone who participated in my survey.
 
 Your feedback is greatly appreciated and helps to make this blog better.
 
@@ -163,7 +164,7 @@ Now is a good time to make some plans for the future of my blog.
 
 #### \#1 Focus More On The Audience's Preferences
 
-The most important thing I want to do - is to focus more on what is interesting to my audience. 
+The most important thing I want to do - is to focus more on what is interesting to my audience.
 
 I'll do this by sending out surveys to my subscribers with a list of topics they can choose from (or enter their own topic) and through various social media polls.
 
@@ -171,7 +172,7 @@ I'll do this by sending out surveys to my subscribers with a list of topics they
 
 This is something I've wanted to do for so long, but haven't had (and still don't have) enough time to start.
 
-I think this would open the doors to a wider audience and provide more opportunities to promote and develop programming skills, as well as the blog. 
+I think this would open the doors to a wider audience and provide more opportunities to promote and develop programming skills, as well as the blog.
 
 Certainly YouTube is a long term play, so hopefully I would be able to at least maintain the same consistency in posting good quality videos as I do now with the blog.
 
@@ -187,12 +188,12 @@ The plan is to create at least 3 small useful products using the tools and skill
 
 ## Summary
 
-Deciding to start blogging was one of the best decisions quarantine has brought me. 
+Deciding to start blogging was one of the best decisions quarantine has brought me.
 
-It's been an amazing journey for almost a year and I hope it will last at least a thousand times longer. 
+It's been an amazing journey for almost a year and I hope it will last at least a thousand times longer.
 
-You never know how much knowledge you lack until you start explaining even the simplest things to other people. 
+You never know how much knowledge you lack until you start explaining even the simplest things to other people.
 
-This experience is incredible and I recommend everyone to start sharing the knowledge as soon as possible. 
+This experience is incredible and I recommend everyone to start sharing the knowledge as soon as possible.
 
-**P.S**. Read one of my previous articles "[6 reasons why every programmer should start a blog](https://www.vhudyma-blog.eu/6-reasons-why-every-programmer-should-have-a-blog/)".
+**P.S**. Read one of my previous articles "[6 reasons why every programmer should start a blog](https://vhudyma-blog.eu/6-reasons-why-every-programmer-should-have-a-blog/)".
