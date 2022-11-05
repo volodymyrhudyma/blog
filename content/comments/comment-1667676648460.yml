@@ -1,0 +1,27 @@
+_id: 59a06f50-5d40-11ed-80f8-6faa497f9f53
+name: Sebastien Lemieux
+message: >-
+  I did it with a set of custom form components, in TypeScript. My parent
+  component have a state for each field (with useState), that contains all props
+  that will be passed on to the children component.
+
+
+  The main benefit is an easier state management for each field. Disabling a
+  field, flagging it with an error, changing the error message becomes a
+  function in the parent component that use the setState() function from each
+  state to update fields depending on requirements. Checking a box and enabling
+  a text field becomes a far easier task.
+
+
+  This would need a decent review in a bigger app, our main goal is building up
+  forms with 10-30 steps handling some data exchange with an API and rendering
+  some info to the user at the end.
+
+
+  While I do see the danger of doing this without Typescript, I also think that
+  it wouldn't be that hard to keep track of what is going on. You do need to be
+  explicit in what you do though. So don't throw spaghetti on the wall to see
+  what sticks, take timeto review your options. Spreading props may not be the
+  best solution in every scenario...
+slug: /react-antipatterns-props-spreading/
+date: '2022-11-05T19:30:48.457Z'
