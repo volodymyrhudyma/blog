@@ -1,0 +1,11 @@
+_id: 1ae3b7b0-5915-11ed-b76d-7b1f96433aff
+name: Nicklas
+message: |-
+  Hey. Wont this still update the state if the parents intitialValue changes?
+    useEffect(() => {
+      if (initialValue) {
+        setInputValue(initialValue);
+      }
+    }, [initialValue]);
+slug: /react-antipatterns-props-in-initial-state/
+date: '2022-10-31T12:11:10.283Z'
